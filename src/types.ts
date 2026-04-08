@@ -91,3 +91,32 @@ export interface FashionRental {
   destination: string;
   createdAt: string;
 }
+
+export interface Subscription {
+  id: string;
+  userId: string;
+  tier: 'free' | 'premium';
+  status: 'active' | 'inactive';
+  startDate: string;
+  endDate: string;
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  vibe: string;
+  destination: string;
+  imageUrl: string;
+}
+
+export interface PremiumPass {
+  id: string;
+  userId: string;
+  bookingId: string;
+  status: 'active' | 'expired';
+  purchasedAt: string;
+  expiresAt: string;
+}

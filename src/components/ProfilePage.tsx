@@ -19,6 +19,7 @@ import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { updateProfile } from 'firebase/auth';
 import { UserProfile, TravelPreferences } from '../types';
 import { useTranslation } from 'react-i18next';
+import { FlavorDNA } from './FlavorDNA';
 
 export default function ProfilePage() {
   const { i18n } = useTranslation();
@@ -81,7 +82,7 @@ export default function ProfilePage() {
         bio,
         location,
         vibe,
-        preferences, // This saves the preferences object
+        preferences,
         updatedAt: serverTimestamp()
       });
 
@@ -201,6 +202,7 @@ export default function ProfilePage() {
                   <option value="Minimalist">Minimalist</option>
                   <option value="Adventurous">Adventurous</option>
                   <option value="Sophisticated">Sophisticated</option>
+                  <option value="Wanderlust">Wanderlust</option>
                 </select>
               </div>
 
@@ -245,6 +247,10 @@ export default function ProfilePage() {
               </button>
             </div>
           </form>
+
+          <div className="mt-8 glass p-8 rounded-[32px]">
+            <FlavorDNA />
+          </div>
 
           {/* Preferences Section */}
           <div className="mt-8 glass p-8 rounded-[32px]">
@@ -304,13 +310,28 @@ export default function ProfilePage() {
                     <option value="es">Español</option>
                     <option value="fr">Français</option>
                     <option value="ja">日本語 (Japanese)</option>
+                    <option value="de">German</option>
+                    <option value="ml">Malayalam</option>
+                    <option value="ar">Arabic</option>
+                    <option value="ta">Tamil</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ms">Malay</option>
+                    <option value="tl">Tagalog</option>
                   </select>
                 ) : (
                   <p className="text-sm font-bold">{
                     preferences.language === 'en' ? 'English' : 
                     preferences.language === 'es' ? 'Español' :
                     preferences.language === 'fr' ? 'Français' :
-                    preferences.language === 'ja' ? '日本語 (Japanese)' : preferences.language
+                    preferences.language === 'ja' ? '日本語 (Japanese)' : 
+                    preferences.language === 'de' ? 'German' : 
+                    preferences.language === 'ml' ? 'Malayalam' : 
+                    preferences.language === 'ar' ? 'Arabic' : 
+                    preferences.language === 'ta' ? 'Tamil' : 
+                    preferences.language === 'hi' ? 'Hindi' : 
+                    preferences.language === 'ms' ? 'Malay' : 
+                    preferences.language === 'tl' ? 'Tagalog' : 
+                    preferences.language
                   }</p>
                 )}
               </div>

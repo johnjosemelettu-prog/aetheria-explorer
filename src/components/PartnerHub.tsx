@@ -22,6 +22,8 @@ import {
   AreaChart,
   Area
 } from 'recharts';
+import { SynthesisIntel } from './SynthesisIntel';
+import { VibeTrends } from './VibeTrends.tsx';
 
 const yieldData = [
   { name: 'Mon', yield: 400 },
@@ -48,6 +50,11 @@ export default function PartnerHub() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <SynthesisIntel />
+            <VibeTrends />
+          </div>
+
           {/* Yield Monitoring Chart */}
           <section className="glass p-8 rounded-3xl">
             <div className="flex items-center justify-between mb-8">
@@ -134,21 +141,6 @@ export default function PartnerHub() {
               ))}
             </div>
           </section>
-
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass p-8 rounded-3xl">
-              <MessageSquare className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-lg font-bold mb-2">Customer Support</h3>
-              <p className="text-sm text-foreground/50 mb-4">Direct communication with your explorers.</p>
-              <button className="text-sm font-bold text-primary">Open Inbox</button>
-            </div>
-            <div className="glass p-8 rounded-3xl">
-              <Settings className="w-8 h-8 text-foreground/30 mb-4" />
-              <h3 className="text-lg font-bold mb-2">Service Config</h3>
-              <p className="text-sm text-foreground/50 mb-4">Manage your listings and availability.</p>
-              <button className="text-sm font-bold text-foreground/50">Manage Listings</button>
-            </div>
-          </section>
         </div>
 
         <div className="space-y-8">
@@ -166,16 +158,10 @@ export default function PartnerHub() {
           </section>
 
           <section className="glass p-8 rounded-3xl">
-            <h2 className="text-xl font-display font-bold mb-6">Service Status</h2>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-foreground/60">Active Listings</span>
-                <span className="font-bold">12</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-foreground/60">Avg. Rating</span>
-                <span className="font-bold text-yellow-500">4.9 ★</span>
-              </div>
+            <h2 className="text-xl font-display font-bold mb-6">Vibe Feed</h2>
+            <div className="spacey-4">
+              <p className="text-sm text-foreground/60">Get a real-time pulse on what's hot. See what explorers are vibing with right now, and use this intel to curate your offerings.</p>
+              <button className="text-sm font-bold text-primary">Learn More</button>
             </div>
           </section>
         </div>

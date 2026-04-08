@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { auth, db } from './lib/firebase';
@@ -28,32 +28,56 @@ import HeritageMirror from './components/HeritageMirror';
 import MoodSynthesis from './components/MoodSynthesis';
 import VideoTeaser from './components/VideoTeaser';
 import PostcardStudio from './components/PostcardStudio';
-import { UserProfile } from './types';
-import { motion, AnimatePresence } from 'motion/react';
+import { UserProfile as UserProfileType } from './types';
+import { motion, AnimatePresence } from 'framer-motion';
+import i18n from './lib/i18n';
+import Vibe from './components/Vibe';
+import LandmarkLens from './components/LandmarkLens';
+import CreateItinerary from './components/CreateItinerary';
+import RealtimeItinerary from './components/RealtimeItinerary';
+import UserProfile from './components/UserProfile';
+import SplashScreen from './components/SplashScreen';
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [profile, setProfile] = useState<UserProfileType | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
+    if (profile?.preferences?.language) {
+      i18n.changeLanguage(profile.preferences.language);
+    }
+  }, [profile]);
+
+  useEffect(() => {
+    const handlePathChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePathChange);
+
+    const splashTimer = setTimeout(() => {
+      setShowSplash(false);
+    }, 2000);
+
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
         const docRef = doc(db, 'users', currentUser.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-          setProfile(docSnap.data() as UserProfile);
+          setProfile(docSnap.data() as UserProfileType);
         } else {
-          // Create initial profile
-          const newProfile: UserProfile = {
+          const newProfile: UserProfileType = {
             uid: currentUser.uid,
             email: currentUser.email || '',
             displayName: currentUser.displayName || 'Explorer',
             role: 'explorer',
             createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
+            updatedAt: new Date().toISOString(),
+            preferences: { language: 'en', currency: 'USD', timezone: 'UTC', units: 'metric' }
           };
           try {
             await setDoc(docRef, newProfile);
@@ -68,18 +92,25 @@ export default function App() {
       setLoading(false);
     });
 
-    // Simple path listener
-    const handlePathChange = () => setCurrentPath(window.location.pathname);
-    window.addEventListener('popstate', handlePathChange);
-    
     return () => {
       unsubscribe();
       window.removeEventListener('popstate', handlePathChange);
+      clearTimeout(splashTimer);
     };
   }, []);
 
   const renderContent = () => {
     if (!user) return <Hero />;
+
+    const itineraryIdMatch = currentPath.match(/\/itineraries\/(.+)/);
+    if (itineraryIdMatch) {
+      return <RealtimeItinerary itineraryId={itineraryIdMatch[1]} />;
+    }
+
+    const userIdMatch = currentPath.match(/\/users\/(.+)/);
+    if (userIdMatch) {
+      return <UserProfile userId={userIdMatch[1]} />;
+    }
 
     // Role-based routing
     if (currentPath === '/admin' && profile?.role === 'admin') {
@@ -93,6 +124,8 @@ export default function App() {
     switch (currentPath) {
       case '/itineraries':
         return <ItinerariesPage />;
+      case '/create-itinerary':
+        return <CreateItinerary />;
       case '/wallet':
         return <WalletPage />;
       case '/esim':
@@ -131,33 +164,23 @@ export default function App() {
         return <VideoTeaser />;
       case '/postcard-studio':
         return <PostcardStudio />;
+      case '/vibe':
+        return <Vibe />;
+      case '/landmark-lens':
+        return <LandmarkLens />;
       default:
         return <ExplorerDashboard />;
     }
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full"
-        />
-      </div>
-    );
+  if (loading || showSplash) {
+    return <SplashScreen />;
   }
 
   return (
+    <Suspense fallback={<SplashScreen />}>
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
-      <Navbar />
+      <Navbar user={user} />
       
       <main>
         <AnimatePresence mode="wait">
@@ -196,5 +219,6 @@ export default function App() {
         </div>
       </footer>
     </div>
+    </Suspense>
   );
 }

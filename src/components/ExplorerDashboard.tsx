@@ -22,13 +22,16 @@ import {
   Map,
   Compass,
   ScanFace,
-  Book
+  Book,
+  Heart,
+  Camera
 } from 'lucide-react';
 import { db, auth } from '../lib/firebase';
 import { collection, query, where, onSnapshot, orderBy, limit } from 'firebase/firestore';
 import { Itinerary, ESimProfile, UserProfile, WalletTransaction } from '../types';
 import { cn } from '../lib/utils';
 import ItineraryGenerator from './ItineraryGenerator';
+import { AIGenerator } from './AIGenerator';
 import SmartWallet from './SmartWallet';
 import GlobalESim from './GlobalESim';
 import VisionHub from './VisionHub';
@@ -39,6 +42,9 @@ import LinguisticSynthesis from './LinguisticSynthesis';
 import LayoverOdyssey from './LayoverOdyssey';
 import BookingHub from './BookingHub';
 import SynthesisStatus from './SynthesisStatus';
+import CulturalPulse from './CulturalPulse';
+import { usePremiumStatus } from '../hooks/usePremiumStatus';
+import SubscriptionManager from './SubscriptionManager';
 
 export default function ExplorerDashboard() {
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
@@ -49,6 +55,7 @@ export default function ExplorerDashboard() {
   const [isVROpen, setIsVROpen] = useState(false);
   const [isCarbonOpen, setIsCarbonOpen] = useState(false);
   const [isLayoverOpen, setIsLayoverOpen] = useState(false);
+  const isPremium = usePremiumStatus();
 
   useEffect(() => {
     if (!auth.currentUser) return;
@@ -139,11 +146,13 @@ export default function ExplorerDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-12">
         {[
           { label: 'AI Itinerary', icon: Zap, color: 'bg-primary/10 text-primary', path: '/ai-itinerary' },
           { label: 'Digital Tailor', icon: Activity, color: 'bg-secondary/10 text-secondary', path: '/digital-tailor' },
           { label: 'Vibe Market', icon: TrendingUp, color: 'bg-accent/10 text-accent', path: '/vibe-market' },
+          { label: 'Vibe', icon: Heart, color: 'bg-red-500/10 text-red-400', path: '/vibe' },
+          { label: 'Landmark Lens', icon: Camera, color: 'bg-yellow-500/10 text-yellow-400', path: '/landmark-lens' },
           { label: 'Wallet', icon: CreditCard, color: 'bg-green-500/10 text-green-400', path: '/wallet' },
           { label: 'eSIM', icon: Wifi, color: 'bg-blue-500/10 text-blue-400', path: '/esim' },
           { label: 'Journal', icon: BookOpen, color: 'bg-yellow-500/10 text-yellow-400', path: '/journal' },
@@ -170,6 +179,11 @@ export default function ExplorerDashboard() {
         ))}
       </div>
 
+      <section className="mb-12">
+        <h2 className="text-2xl font-display font-bold mb-6">✨ AI Magic ✨</h2>
+        <AIGenerator />
+      </section>
+
       <ItineraryGenerator 
         isOpen={isGeneratorOpen} 
         onClose={() => setIsGeneratorOpen(false)} 
@@ -178,6 +192,7 @@ export default function ExplorerDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content - Itineraries */}
         <div className="lg:col-span-2 space-y-8">
+          <CulturalPulse />
           <section>
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-display font-bold">Active Itineraries</h2>
@@ -229,7 +244,7 @@ export default function ExplorerDashboard() {
             </div>
           </section>
 
-          <BookingHub />
+          {isPremium && <BookingHub />}
 
           <section>
             <div className="flex items-center justify-between mb-6">
@@ -270,54 +285,57 @@ export default function ExplorerDashboard() {
             </div>
           </section>
 
-          <section>
-            <h2 className="text-2xl font-display font-bold mb-6">Discovery Hub</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <div className="glass p-6 rounded-3xl bg-gradient-to-br from-primary/10 to-transparent">
-                <TrendingUp className="w-8 h-8 text-primary mb-4" />
-                <h3 className="text-lg font-bold mb-2">Carbon Synthesis</h3>
-                <p className="text-sm text-foreground/50 mb-4">Offset your travel footprint with our AI-powered carbon synthesis engine.</p>
-                <button 
-                  onClick={() => setIsCarbonOpen(true)}
-                  className="text-sm font-bold text-primary"
-                >
-                  Synthesize Offset
-                </button>
-              </div>
-              <div className="glass p-6 rounded-3xl bg-gradient-to-br from-secondary/10 to-transparent">
-                <Zap className="w-8 h-8 text-secondary mb-4" />
-                <h3 className="text-lg font-bold mb-2">Layover Odyssey</h3>
-                <p className="text-sm text-foreground/50 mb-4">Turn long layovers into mini-adventures with personalized city guides.</p>
-                <div className="flex gap-4">
+          {isPremium && (
+            <section>
+              <h2 className="text-2xl font-display font-bold mb-6">Discovery Hub</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div className="glass p-6 rounded-3xl bg-gradient-to-br from-primary/10 to-transparent">
+                  <TrendingUp className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="text-lg font-bold mb-2">Carbon Synthesis</h3>
+                  <p className="text-sm text-foreground/50 mb-4">Offset your travel footprint with our AI-powered carbon synthesis engine.</p>
                   <button 
-                    onClick={() => setIsLayoverOpen(true)}
-                    className="text-sm font-bold text-secondary"
+                    onClick={() => setIsCarbonOpen(true)}
+                    className="text-sm font-bold text-primary"
                   >
-                    Synthesize Odyssey
-                  </button>
-                  <button 
-                    onClick={() => setIsVROpen(true)}
-                    className="text-sm font-bold text-accent"
-                  >
-                    Explore VR
+                    Synthesize Offset
                   </button>
                 </div>
+                <div className="glass p-6 rounded-3xl bg-gradient-to-br from-secondary/10 to-transparent">
+                  <Zap className="w-8 h-8 text-secondary mb-4" />
+                  <h3 className="text-lg font-bold mb-2">Layover Odyssey</h3>
+                  <p className="text-sm text-foreground/50 mb-4">Turn long layovers into mini-adventures with personalized city guides.</p>
+                  <div className="flex gap-4">
+                    <button 
+                      onClick={() => setIsLayoverOpen(true)}
+                      className="text-sm font-bold text-secondary"
+                    >
+                      Synthesize Odyssey
+                    </button>
+                    <button 
+                      onClick={() => setIsVROpen(true)}
+                      className="text-sm font-bold text-accent"
+                    >
+                      Explore VR
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <VisionHub />
-            <CinematicPreview />
-            <LinguisticSynthesis />
-            <VRViewer isOpen={isVROpen} onClose={() => setIsVROpen(false)} />
-            <CarbonSynthesis isOpen={isCarbonOpen} onClose={() => setIsCarbonOpen(false)} />
-            <LayoverOdyssey isOpen={isLayoverOpen} onClose={() => setIsLayoverOpen(false)} />
-          </section>
+              <VisionHub />
+              <CinematicPreview />
+              <LinguisticSynthesis />
+              <VRViewer isOpen={isVROpen} onClose={() => setIsVROpen(false)} />
+              <CarbonSynthesis isOpen={isCarbonOpen} onClose={() => setIsCarbonOpen(false)} />
+              <LayoverOdyssey isOpen={isLayoverOpen} onClose={() => setIsLayoverOpen(false)} />
+            </section>
+          )}
         </div>
 
         {/* Sidebar - Wallet & eSIM */}
         <div className="space-y-8">
           <SmartWallet />
           <GlobalESim />
+          {!isPremium && <SubscriptionManager />} 
         </div>
       </div>
       <SynthesisStatus />

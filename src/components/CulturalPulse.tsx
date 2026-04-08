@@ -1,19 +1,13 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Activity } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-export default function CulturalPulse() {
+export const CulturalPulse = () => {
+  const { t } = useTranslation();
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center"
-      >
-        <Activity className="w-16 h-16 mx-auto text-primary mb-4" />
-        <h1 className="text-4xl font-display font-bold mb-2">Cultural Pulse</h1>
-        <p className="text-foreground/50">Deep cultural synthesis and local trends coming soon.</p>
-      </motion.div>
+    <div className="cultural-pulse">
+      <p>{t('Cultural Pulse Feature Coming Soon!')}</p>
     </div>
   );
-}
+};
+
+export default CulturalPulse;

@@ -9,9 +9,10 @@ import {
   Menu, 
   X,
   Shield,
-  Store,
+  Store as StoreIcon,
   Globe,
-  Sparkles
+  Sparkles,
+  Crown
 } from 'lucide-react';
 import { auth, googleProvider } from '../lib/firebase';
 import { signInWithPopup, signOut, onAuthStateChanged, User } from 'firebase/auth';
@@ -20,12 +21,17 @@ import { db } from '../lib/firebase';
 import { UserProfile } from '../types';
 import { cn } from '../lib/utils';
 import AuthModal from './AuthModal';
+import { usePremiumStatus } from '../hooks/usePremiumStatus';
+import CartIcon from './CartIcon';
+import Cart from './Cart';
 
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const isPremium = usePremiumStatus();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
@@ -36,7 +42,6 @@ export default function Navbar() {
         if (docSnap.exists()) {
           setProfile(docSnap.data() as UserProfile);
         } else {
-          // Create default profile
           const newProfile: UserProfile = {
             uid: currentUser.uid,
             email: currentUser.email || '',
@@ -81,19 +86,21 @@ export default function Navbar() {
   const navItems = [
     { name: 'Explore', icon: Compass, path: '/' },
     { name: 'AI Itinerary', icon: Sparkles, path: '/ai-itinerary' },
-    { name: 'Digital Tailor', icon: Store, path: '/digital-tailor' },
+    { name: 'Digital Tailor', icon: StoreIcon, path: '/digital-tailor' },
     { name: 'Vibe Market', icon: Wallet, path: '/vibe-market' },
     { name: 'Global eSIM', icon: Globe, path: '/esim' },
+    { name: 'Store', icon: StoreIcon, path: '/store' },
   ];
 
   if (profile?.role === 'admin') {
     navItems.push({ name: 'Admin', icon: Shield, path: '/admin' });
   }
   if (profile?.role === 'partner') {
-    navItems.push({ name: 'Partner', icon: Store, path: '/vendor/dashboard' });
+    navItems.push({ name: 'Partner', icon: StoreIcon, path: '/vendor/dashboard' });
   }
 
   return (
+    <>
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -124,6 +131,17 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             {user ? (
               <div className="flex items-center gap-4">
+                <CartIcon onClick={() => setIsCartOpen(true)} />
+                {isPremium ? (
+                  <button className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 font-bold text-sm">
+                    <Crown className="w-4 h-4" />
+                    <span>Premium</span>
+                  </button>
+                ) : (
+                  <button onClick={() => navigate('/premium')} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 text-primary border border-primary/30 font-bold text-sm">
+                    <span>Go Premium</span>
+                  </button>
+                )}
                 <button 
                   onClick={() => navigate('/profile')}
                   className="flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-white/10 hover:border-primary/50 transition-colors"
@@ -134,7 +152,10 @@ export default function Navbar() {
                     className="w-6 h-6 rounded-full"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="text-sm font-medium">{profile?.displayName || user.displayName || 'Explorer'}</span>
+                  <span className="text-sm font-bold flex items-center gap-1.5">
+                    {profile?.displayName || user.displayName || 'Explorer'}
+                    {isPremium && <Crown className="w-4 h-4 text-yellow-500" />}
+                  </span>
                 </button>
                 <button
                   onClick={handleLogout}
@@ -154,7 +175,8 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+             {user && <CartIcon onClick={() => setIsCartOpen(true)} />}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-lg glass-hover"
@@ -187,13 +209,34 @@ export default function Navbar() {
               ))}
               <div className="pt-4 border-t border-white/5">
                 {user ? (
-                  <button
-                    onClick={handleLogout}
-                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl glass-hover text-accent"
-                  >
-                    <LogOut className="w-5 h-5" />
-                    Sign Out
-                  </button>
+                    <div className="space-y-2">
+                         <button 
+                            onClick={() => navigate('/profile')}
+                            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl glass-hover text-foreground/70"
+                            > 
+                                <img
+                                    src={user.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.uid}`}
+                                    alt="Profile"
+                                    className="w-6 h-6 rounded-full"
+                                    referrerPolicy="no-referrer"
+                                />
+                                <span className="text-sm font-bold flex items-center gap-1.5">
+                                    {profile?.displayName || user.displayName || 'Explorer'}
+                                    {isPremium && <Crown className="w-4 h-4 text-yellow-500" />}
+                                </span>
+                        </button>
+                        {!isPremium &&  <button onClick={() => {navigate('/premium'); setIsMenuOpen(false);}} className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/20 text-primary font-bold">
+                           <Crown className="w-5 h-5" />
+                           Go Premium
+                       </button>}
+                        <button
+                            onClick={handleLogout}
+                            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl glass-hover text-accent"
+                        >
+                            <LogOut className="w-5 h-5" />
+                            Sign Out
+                        </button>
+                  </div>
                 ) : (
                   <button
                     onClick={handleLogin}
@@ -213,5 +256,7 @@ export default function Navbar() {
         onClose={() => setIsAuthModalOpen(false)} 
       />
     </nav>
+    <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+    </>
   );
 }
