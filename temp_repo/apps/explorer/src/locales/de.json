@@ -1,0 +1,251 @@
+{
+  "landingPage": {
+    "header": {
+      "brand": "AETHERIA",
+      "ai": "KI",
+      "journeySynthesized": "Reise Synthetisiert",
+      "links": {
+        "home": "Startseite",
+        "features": "Funktionen",
+        "workflow": "Workflow",
+        "cta": "Loslegen"
+      },
+      "logo": "Aetheria Logo"
+    },
+    "footer": {
+      "tagline": "Synthetisieren Sie Ihre Reise durch den digitalen Äther.",
+      "copyright": "© 2026 Aetheria AI. Alle Rechte vorbehalten.",
+      "links": {
+        "privacy": "Datenschutzrichtlinie",
+        "terms": "Nutzungsbedingungen",
+        "contact": "Kontaktieren Sie uns"
+      },
+      "sections": {
+        "company": "Unternehmen",
+        "connect": "Verbinden"
+      }
+    },
+    "body": {
+      "hero": {
+        "title": "Ihre Reise, synthetisiert",
+        "subtitle": "Nutzen Sie die Kraft der KI, um die digitale Landschaft wie nie zuvor zu erkunden.",
+        "cta": "Starten Sie Ihre Reise"
+      },
+      "features": {
+        "title": "Leistungsstarke Funktionen",
+        "description": "Entdecken Sie, was Aetheria einzigartig macht.",
+        "items": [
+          {
+            "title": "KI-gestützte Einblicke",
+            "description": "Erhalten Sie tiefe Einblicke in Ihre Daten mit unseren fortschrittlichen KI-Modellen."
+          },
+          {
+            "title": "Nahtloser Workflow",
+            "description": "Integrieren Sie Aetheria mühelos in Ihren bestehenden Workflow."
+          },
+          {
+            "title": "Echtzeit-Zusammenarbeit",
+            "description": "Arbeiten Sie mit Ihrem Team in Echtzeit an jedem Projekt."
+          }
+        ]
+      },
+      "workflow": {
+        "title": "Wie es funktioniert",
+        "description": "Ein einfacher 3-Schritte-Prozess für den Einstieg.",
+        "steps": [
+          {
+            "title": "Verbinden Sie Ihre Daten",
+            "description": "Verbinden Sie Ihre Datenquellen sicher mit Aetheria."
+          },
+          {
+            "title": "Analysieren und Synthetisieren",
+            "description": "Lassen Sie unsere KI Ihre Daten analysieren und in handlungsorientierte Einblicke synthetisieren."
+          },
+          {
+            "title": "Erkunden und Entdecken",
+            "description": "Erkunden Sie Ihre synthetisierten Daten und entdecken Sie neue Möglichkeiten."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Bereit für Ihre Reise?",
+        "subtitle": "Schließen Sie sich Tausenden von Benutzern an, die Aetheria bereits nutzen, um ihre Arbeit zu transformieren.",
+        "button": "Kostenlos loslegen"
+      }
+    }
+  },
+  "header": {
+    "categories": {
+      "orchestration": "Orchestrierung",
+      "intelligence": "Intelligenz",
+      "studios": "Studios",
+      "utility": "Dienstprogramm"
+    },
+    "dashboard": "Dashboard",
+    "aiItinerary": "KI-Reiseplan",
+    "pathfinder": "Pathfinder",
+    "vibeMarketplace": "Vibe-Marktplatz",
+    "vibeShopping": "Vibe-Shopping",
+    "bookingHub": "Buchungszentrum",
+    "wallet": "Wallet",
+    "budgetSynthesis": "Budgetsynthese",
+    "visionHub": "Vision-Hub",
+    "intelligenceCenter": "Intelligenzzentrum",
+    "arWayfinding": "AR-Wegfindung",
+    "localLegends": "Lokale Legenden",
+    "culturalPulse": "Kultureller Puls",
+    "audioGuide": "Audioguide",
+    "tripOdyssey": "Reise-Odyssee",
+    "postcardStudio": "Postkarten-Studio",
+    "heritageMirror": "Kulturerbe-Spiegel",
+    "journal": "Journal",
+    "sos": "SOS",
+    "insurance": "Versicherung",
+    "visaArchitect": "Visa-Architekt",
+    "flightStatus": "Flugstatus",
+    "esim": "eSIM",
+    "carbonSynthesis": "Kohlenstoffsynthese",
+    "packingassistant": "Packassistent"
+  },
+  "sidebar": {
+    "brand": {
+      "name": "AETHERIA",
+      "tagline": "Reise Synthetisiert"
+    },
+    "sessionVerified": "Sitzung verifiziert",
+    "neuralLinkActive": "Neuraler Link aktiv"
+  },
+  "userNav": {
+    "explorerHub": "Explorer-Hub",
+    "manageBookings": "Buchungen verwalten",
+    "upgradeSubscription": "Abonnement aktualisieren",
+    "adminConsole": "Admin-Konsole",
+    "partnerHub": "Partner-Hub",
+    "identityNode": "Identitätsknoten",
+    "terminateSession": "Sitzung beenden",
+    "toast": {
+      "logoutSuccessTitle": "Sitzung beendet",
+      "logoutSuccessDescription": "Ihr neuraler Link wurde sicher getrennt.",
+      "logoutErrorTitle": "Beendigung fehlgeschlagen",
+      "logoutErrorDescription": "Beim Trennen Ihrer Sitzung ist ein Fehler aufgetreten."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Willkommen zurück, {{name}}",
+    "odysseyLevel": "Odyssee-Level {{level}}",
+    "explorerHubActive": "Explorer-Hub aktiv",
+    "viewLegacyWrapped": "Jahresrückblick anzeigen",
+    "productionTrailer": "Produktionstrailer",
+    "seasonPass": "Saisonpass",
+    "xpSynthesized": "XP Synthetisiert",
+    "progressionToLevel": "Fortschritt zu Level {{level}}",
+    "vibeStreak": "Vibe-Streak",
+    "tasksResolved": "Gelöste Aufgaben",
+    "totalMedals": "Gesamtmedaillen",
+    "premiumRequired": "Premium-Pass erforderlich",
+    "explorerStatus": "Explorer-Status: {{tier}}",
+    "points": "Punkte",
+    "medals": "Medaillen",
+    "editProfile": "Profil bearbeiten",
+    "match": "MATCH",
+    "toast": {
+      "missionInviteTitle": "Odyssee-Vorschlag übermittelt",
+      "missionInviteDescription": "Warten auf die Autorisierung der Gruppen-Odyssee durch {{name}}."
+    },
+    "xpProgress": "{{current}} / {{total}} XP",
+    "odysseyCount": "{{count}} Odysseen",
+    "questCount": "{{count}} Quests",
+    "awardCount": "{{count}} Auszeichnungen",
+    "vibeRadar": {
+      "title": "Vibe-Radar",
+      "desc": "Erkennung von {{vibe}}-Übereinstimmungen in Ihrem aktuellen Sektor: {{location}}"
+    },
+    "expandNeuralNetwork": "Neurales Netzwerk erweitern",
+    "shortDesc": {
+      "itinerary": "KI-synthetisierte Reisepläne",
+      "pathfinder": "Optimierung des neuralen Pfads",
+      "marketplace": "Vibe-kuratierte Erlebnisse",
+      "store": "Erwerb digitaler Assets",
+      "booking": "Quanten-Reservierungshub",
+      "wallet": "Verschlüsselter Guthabenspeicher",
+      "budget": "Finanzsynthese-Engine",
+      "vision": "AR-Objekterkennung",
+      "guide": "Globale Wissensdatenbank",
+      "ar": "Räumliche Wegfindungsüberlagerung",
+      "legends": "Abruf historischer Daten",
+      "pulse": "Echtzeit-Kulturstream",
+      "audio": "Immersive Soundwelten",
+      "odyssey": "Cinematische Reise-Teaser",
+      "postcard": "KI-generierte visuelle Knoten",
+      "mirror": "Reflexion von Kulturerbe-Daten",
+      "journal": "Persönliches Odyssee-Logbuch"
+    }
+  },
+  "login": {
+    "title": "Aetheria-Login",
+    "emailLabel": "Netzwerkadresse",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "Sicherheitsschlüssel",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "Sitzung autorisieren",
+    "signingInButton": "Autorisierung...",
+    "noAccount": "Neu bei Aetheria?",
+    "signUpLink": "Identitätsknoten erstellen",
+    "accessOdysseyGrid": "Greifen Sie auf Ihr Odyssee-Grid zu",
+    "authChannels": "Authentifizierungskanäle",
+    "google": "Google",
+    "apple": "Apple",
+    "biometricLogin": "Biometrischer Login",
+    "systemNodeOffline": "Systemknoten offline",
+    "authServiceInitializing": "Der Authentifizierungsdienst ist noch nicht initialisiert.",
+    "unsupportedFeature": "Nicht unterstützte Funktion",
+    "biometricOnlyMobile": "Der biometrische Login ist nur auf mobilen Geräten verfügbar.",
+    "biometricLoginFailed": "Biometrischer Login fehlgeschlagen",
+    "biometricLoginError": "Anmeldung mit biometrischen Daten fehlgeschlagen.",
+    "invalidCredentials": "Ungültige E-Mail-Adresse oder Sicherheitsschlüssel. Bitte überprüfen Sie Ihre Zugangsdaten oder erstellen Sie ein neues Konto.",
+    "accountDisabled": "Dieses Konto wurde deaktiviert. Bitte kontaktieren Sie den Support.",
+    "tooManyRequests": "Zu viele fehlgeschlagene Versuche. Bitte versuchen Sie es später erneut oder setzen Sie Ihren Sicherheitsschlüssel zurück.",
+    "networkError": "Netzwerkverbindung fehlgeschlagen. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+    "toast": {
+      "successTitle": "Sitzung autorisiert",
+      "successDescription": "Ihr neuraler Link ist jetzt aktiv.",
+      "errorTitle": "Autorisierung fehlgeschlagen",
+      "genericError": "Ein unerwarteter Fehler ist bei der Sitzungsautorisierung aufgetreten.",
+      "operationNotAllowed": "Diese Authentifizierungsmethode ist derzeit deaktiviert."
+    }
+  },
+  "signup": {
+    "title": "Der Odyssee beitreten",
+    "description": "Erstellen Sie Ihr Aetheria-Konto",
+    "firstNameLabel": "Vorname",
+    "lastNameLabel": "Nachname",
+    "firstNamePlaceholder": "max",
+    "lastNamePlaceholder": "mustermann",
+    "emailLabel": "Netzwerkadresse",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "Sicherheitsschlüssel",
+    "passwordPlaceholder": "••••••••",
+    "createButton": "Profil initialisieren",
+    "creatingButton": "Synchronisierung...",
+    "haveAccount": "Bereits Teil des Netzwerks?",
+    "signInLink": "Anmelden",
+    "networkJoin": "Netzwerkbeitritt",
+    "welcomeKit": {
+      "title": "Willkommenspaket gesendet!",
+      "description": "Überprüfen Sie Ihren Posteingang für eine personalisierte Begrüßung von Aetheria AI."
+    },
+    "toast": {
+      "successTitle": "Profil initialisiert",
+      "successDescription": "Willkommen im Aetheria-Netzwerk.",
+      "errorTitle": "Initialisierung fehlgeschlagen",
+      "genericError": "Konto konnte nicht erstellt werden. Bitte versuchen Sie es erneut."
+    },
+    "errors": {
+      "emailInUse": "Diese E-Mail-Adresse ist bereits registriert. Bitte melden Sie sich stattdessen an.",
+      "invalidEmail": "Die E-Mail-Adresse ist ungültig. Bitte überprüfen Sie sie und versuchen Sie es erneut.",
+      "operationNotAllowed": "Die E-Mail/Passwort-Registrierung ist derzeit deaktiviert.",
+      "weakPassword": "Der Sicherheitsschlüssel ist zu schwach. Bitte verwenden Sie einen stärkeren.",
+      "networkError": "Netzwerkverbindung fehlgeschlagen. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "landingPage": {
+    "header": {
+      "brand": "AETHERIA",
+      "ai": "ИИ",
+      "journeySynthesized": "Синтезированное путешествие",
+      "links": {
+        "home": "Главная",
+        "features": "Возможности",
+        "workflow": "Процесс",
+        "cta": "Начать"
+      },
+      "logo": "Логотип Aetheria"
+    },
+    "footer": {
+      "tagline": "Синтезируем ваше путешествие через цифровой эфир.",
+      "copyright": "© 2026 Aetheria AI. Все права защищены.",
+      "links": {
+        "privacy": "Политика конфиденциальности",
+        "terms": "Условия использования",
+        "contact": "Связаться с нами"
+      },
+      "sections": {
+        "company": "Компания",
+        "connect": "Связь"
+      }
+    },
+    "body": {
+      "hero": {
+        "title": "Ваше путешествие, синтезированное",
+        "subtitle": "Используйте мощь ИИ для исследования цифрового ландшафта как никогда раньше.",
+        "cta": "Начать путешествие"
+      },
+      "features": {
+        "title": "Мощные возможности",
+        "description": "Узнайте, что делает Aetheria уникальной.",
+        "items": [
+          {
+            "title": "Инсайты на базе ИИ",
+            "description": "Получайте глубокие инсайты о ваших данных с помощью наших продвинутых моделей ИИ."
+          },
+          {
+            "title": "Бесшовный процесс",
+            "description": "Легко интегрируйте Aetheria в ваш существующий рабочий процесс."
+          },
+          {
+            "title": "Коллаборация в реальном времени",
+            "description": "Работайте с командой в реальном времени над любым проектом."
+          }
+        ]
+      },
+      "workflow": {
+        "title": "Как это работает",
+        "description": "Простой процесс из 3 шагов для начала работы.",
+        "steps": [
+          {
+            "title": "Подключите данные",
+            "description": "Безопасно подключите ваши источники данных к Aetheria."
+          },
+          {
+            "title": "Анализ и синтез",
+            "description": "Пусть наш ИИ проанализирует и синтезирует ваши данные в полезные инсайты."
+          },
+          {
+            "title": "Исследование и открытия",
+            "description": "Исследуйте синтезированные данные и открывайте новые возможности."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Готовы начать путешествие?",
+        "subtitle": "Присоединяйтесь к тысячам пользователей, которые уже используют Aetheria для трансформации своей работы.",
+        "button": "Начать бесплатно"
+      }
+    }
+  },
+  "header": {
+    "categories": {
+      "orchestration": "Оркестрация",
+      "intelligence": "Интеллект",
+      "studios": "Студии",
+      "utility": "Утилиты"
+    },
+    "dashboard": "Панель управления",
+    "aiItinerary": "ИИ-маршрут",
+    "pathfinder": "Следопыт",
+    "vibeMarketplace": "Маркетплейс атмосферы",
+    "vibeShopping": "Шопинг атмосферы",
+    "bookingHub": "Центр бронирования",
+    "wallet": "Кошелек",
+    "budgetSynthesis": "Синтез бюджета",
+    "visionHub": "Центр зрения",
+    "intelligenceCenter": "Центр интеллекта",
+    "arWayfinding": "AR-навигация",
+    "localLegends": "Местные легенды",
+    "culturalPulse": "Культурный пульс",
+    "audioGuide": "Аудиогид",
+    "tripOdyssey": "Одиссея поездки",
+    "postcardStudio": "Студия открыток",
+    "heritageMirror": "Зеркало наследия",
+    "journal": "Журнал",
+    "sos": "SOS",
+    "insurance": "Страхование",
+    "visaArchitect": "Архитектор виз",
+    "flightStatus": "Статус рейса",
+    "esim": "eSIM",
+    "carbonSynthesis": "Углеродный синтез",
+    "packingassistant": "Помощник по сборам"
+  },
+  "sidebar": {
+    "brand": {
+      "name": "AETHERIA",
+      "tagline": "Синтезированное путешествие"
+    },
+    "sessionVerified": "Сессия подтверждена",
+    "neuralLinkActive": "Нейронная связь активна"
+  },
+  "userNav": {
+    "explorerHub": "Хаб исследователя",
+    "manageBookings": "Управление бронированиями",
+    "upgradeSubscription": "Улучшить подписку",
+    "adminConsole": "Консоль администратора",
+    "partnerHub": "Партнерский хаб",
+    "identityNode": "Узел идентификации",
+    "terminateSession": "Завершить сессию",
+    "toast": {
+      "logoutSuccessTitle": "Сессия завершена",
+      "logoutSuccessDescription": "Ваша нейронная связь была безопасно отключена.",
+      "logoutErrorTitle": "Ошибка завершения",
+      "logoutErrorDescription": "Произошла ошибка при отключении вашей сессии."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "С возвращением, {{name}}",
+    "odysseyLevel": "Уровень Одиссеи {{level}}",
+    "explorerHubActive": "Хаб исследователя активен",
+    "viewLegacyWrapped": "Посмотреть итоги",
+    "productionTrailer": "Трейлер производства",
+    "seasonPass": "Сезонный пропуск",
+    "xpSynthesized": "Синтезированный опыт",
+    "progressionToLevel": "Прогресс до уровня {{level}}",
+    "vibeStreak": "Серия атмосферы",
+    "tasksResolved": "Решенные задачи",
+    "totalMedals": "Всего медалей",
+    "premiumRequired": "Требуется Premium-пропуск",
+    "explorerStatus": "Статус исследователя: {{tier}}",
+    "points": "Очки",
+    "medals": "Медали",
+    "editProfile": "Редактировать профиль",
+    "match": "МАТЧ",
+    "toast": {
+      "missionInviteTitle": "Предложение Одиссеи передано",
+      "missionInviteDescription": "Ожидание авторизации групповой Одиссеи от {{name}}."
+    },
+    "xpProgress": "{{current}} / {{total}} XP",
+    "odysseyCount": "{{count}} Одиссей",
+    "questCount": "{{count}} Квестов",
+    "awardCount": "{{count}} Наград",
+    "vibeRadar": {
+      "title": "Радар атмосферы",
+      "desc": "Обнаружение совпадений {{vibe}} в вашем текущем секторе: {{location}}"
+    },
+    "expandNeuralNetwork": "Расширить нейронную сеть",
+    "shortDesc": {
+      "itinerary": "ИИ-синтезированные планы поездок",
+      "pathfinder": "Оптимизация нейронного пути",
+      "marketplace": "Впечатления, отобранные по атмосфере",
+      "store": "Приобретение цифровых активов",
+      "booking": "Квантовый хаб бронирования",
+      "wallet": "Зашифрованное хранилище кредитов",
+      "budget": "Движок синтеза финансов",
+      "vision": "AR-распознавание объектов",
+      "guide": "Глобальная база знаний",
+      "ar": "Пространственная навигация",
+      "legends": "Поиск исторических данных",
+      "pulse": "Культурный поток в реальном времени",
+      "audio": "Иммерсивные звуковые ландшафты",
+      "odyssey": "Кинематографичный тизер путешествия",
+      "postcard": "ИИ-сгенерированные визуальные узлы",
+      "mirror": "Отражение данных наследия",
+      "journal": "Личный лог Одиссеи"
+    }
+  },
+  "login": {
+    "title": "Вход в Aetheria",
+    "emailLabel": "Сетевой адрес",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "Ключ безопасности",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "Авторизовать сессию",
+    "signingInButton": "Авторизация...",
+    "noAccount": "Впервые в Aetheria?",
+    "signUpLink": "Создать узел идентификации",
+    "accessOdysseyGrid": "Доступ к вашей сетке Одиссеи",
+    "authChannels": "Каналы авторизации",
+    "google": "Google",
+    "apple": "Apple",
+    "biometricLogin": "Биометрический вход",
+    "systemNodeOffline": "Системный узел оффлайн",
+    "authServiceInitializing": "Сервис авторизации еще не инициализирован.",
+    "unsupportedFeature": "Неподдерживаемая функция",
+    "biometricOnlyMobile": "Биометрический вход доступен только на мобильных устройствах.",
+    "biometricLoginFailed": "Ошибка биометрического входа",
+    "biometricLoginError": "Не удалось войти с биометрическими данными.",
+    "invalidCredentials": "Неверный адрес электронной почты или ключ безопасности. Проверьте свои данные или создайте новый аккаунт.",
+    "accountDisabled": "Этот аккаунт отключен. Пожалуйста, свяжитесь с поддержкой.",
+    "tooManyRequests": "Слишком много неудачных попыток. Пожалуйста, попробуйте позже или сбросьте ключ безопасности.",
+    "networkError": "Ошибка сетевого соединения. Проверьте подключение и попробуйте снова.",
+    "toast": {
+      "successTitle": "Сессия авторизована",
+      "successDescription": "Ваша нейронная связь теперь активна.",
+      "errorTitle": "Ошибка авторизации",
+      "genericError": "Произошла непредвиденная ошибка при авторизации сессии.",
+      "operationNotAllowed": "Этот метод авторизации в данный момент отключен."
+    }
+  },
+  "signup": {
+    "title": "Присоединиться к Одиссее",
+    "description": "Создайте свой аккаунт Aetheria",
+    "firstNameLabel": "Имя",
+    "lastNameLabel": "Фамилия",
+    "firstNamePlaceholder": "иван",
+    "lastNamePlaceholder": "иванов",
+    "emailLabel": "Сетевой адрес",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "Ключ безопасности",
+    "passwordPlaceholder": "••••••••",
+    "createButton": "Инициализировать профиль",
+    "creatingButton": "Синхронизация...",
+    "haveAccount": "Уже в сети?",
+    "signInLink": "Войти",
+    "networkJoin": "Присоединение к сети",
+    "welcomeKit": {
+      "title": "Приветственный набор отправлен!",
+      "description": "Проверьте входящие сообщения для персонального приветствия от Aetheria AI."
+    },
+    "toast": {
+      "successTitle": "Профиль инициализирован",
+      "successDescription": "Добро пожаловать в сеть Aetheria.",
+      "errorTitle": "Ошибка инициализации",
+      "genericError": "Не удалось создать аккаунт. Пожалуйста, попробуйте снова."
+    },
+    "errors": {
+      "emailInUse": "Этот адрес электронной почты уже зарегистрирован. Пожалуйста, войдите вместо этого.",
+      "invalidEmail": "Неверный адрес электронной почты. Проверьте и попробуйте снова.",
+      "operationNotAllowed": "Регистрация по почте/паролю в данный момент отключена.",
+      "weakPassword": "Ключ безопасности слишком слабый. Пожалуйста, используйте более надежный.",
+      "networkError": "Ошибка сетевого соединения. Проверьте подключение и попробуйте снова."
+    }
+  }
+}

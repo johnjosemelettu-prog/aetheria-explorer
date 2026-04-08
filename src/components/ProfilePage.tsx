@@ -1,0 +1,248 @@
+import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
+import { 
+  User, 
+  Mail, 
+  Shield, 
+  Calendar, 
+  Camera, 
+  Save,
+  Loader2,
+  CheckCircle2,
+  MapPin,
+  Globe,
+  Settings
+} from 'lucide-react';
+import { auth, db } from '../lib/firebase';
+import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import { updateProfile } from 'firebase/auth';
+import { UserProfile } from '../types';
+
+export default function ProfilePage() {
+  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [displayName, setDisplayName] = useState('');
+  const [bio, setBio] = useState('');
+  const [location, setLocation] = useState('');
+  const [vibe, setVibe] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      if (!auth.currentUser) return;
+      const docRef = doc(db, 'users', auth.currentUser.uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const data = docSnap.data() as UserProfile;
+        setProfile(data);
+        setDisplayName(data.displayName || '');
+        setBio(data.bio || '');
+        setLocation(data.location || '');
+        setVibe(data.vibe || '');
+      }
+      setLoading(false);
+    };
+    fetchProfile();
+  }, []);
+
+  const handleSave = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!auth.currentUser) return;
+    setSaving(true);
+    setSuccess(false);
+
+    try {
+      // Update Auth Profile
+      await updateProfile(auth.currentUser, { displayName });
+
+      // Update Firestore Profile
+      const docRef = doc(db, 'users', auth.currentUser.uid);
+      await updateDoc(docRef, {
+        displayName,
+        bio,
+        location,
+        vibe,
+        updatedAt: serverTimestamp()
+      });
+
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (error) {
+      console.error('Error updating profile:', error);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-24">
+      <div className="flex items-center gap-4 mb-12">
+        <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center">
+          <Settings className="text-primary w-8 h-8" />
+        </div>
+        <div>
+          <h1 className="text-4xl font-display font-bold">Profile Settings</h1>
+          <p className="text-foreground/50">Manage your Aetheria identity and preferences.</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Profile Card */}
+        <div className="md:col-span-1">
+          <div className="glass p-8 rounded-[32px] text-center sticky top-24">
+            <div className="relative w-32 h-32 mx-auto mb-6 group">
+              <img
+                src={auth.currentUser?.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${auth.currentUser?.uid}`}
+                alt="Profile"
+                className="w-full h-full rounded-full border-4 border-white/10"
+                referrerPolicy="no-referrer"
+              />
+              <button className="absolute bottom-0 right-0 p-2 bg-primary text-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                <Camera className="w-4 h-4" />
+              </button>
+            </div>
+            <h2 className="text-xl font-bold mb-1">{displayName || 'Explorer'}</h2>
+            <p className="text-sm text-foreground/40 mb-6 uppercase tracking-widest font-bold">
+              {profile?.role || 'Explorer'}
+            </p>
+            
+            <div className="space-y-4 text-left">
+              <div className="flex items-center gap-3 text-sm text-foreground/60">
+                <Mail className="w-4 h-4" />
+                {auth.currentUser?.email}
+              </div>
+              <div className="flex items-center gap-3 text-sm text-foreground/60">
+                <Calendar className="w-4 h-4" />
+                Joined {profile?.createdAt ? new Date(profile.createdAt).toLocaleDateString() : 'Recently'}
+              </div>
+              <div className="flex items-center gap-3 text-sm text-foreground/60">
+                <Shield className="w-4 h-4" />
+                Account Verified
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Edit Form */}
+        <div className="md:col-span-2">
+          <form onSubmit={handleSave} className="glass p-8 rounded-[32px] space-y-8">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Display Name</label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={displayName}
+                    onChange={(e) => setDisplayName(e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 pl-11 focus:outline-none focus:border-primary/50 transition-colors"
+                    placeholder="Your name"
+                  />
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/20" />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Location</label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 pl-11 focus:outline-none focus:border-primary/50 transition-colors"
+                    placeholder="e.g. Tokyo, Japan"
+                  />
+                  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/20" />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Vibe</label>
+                <select
+                  value={vibe}
+                  onChange={(e) => setVibe(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 focus:outline-none focus:border-primary/50 transition-colors"
+                >
+                  <option value="" disabled>Select your vibe</option>
+                  <option value="Cyberpunk">Cyberpunk</option>
+                  <option value="Minimalist">Minimalist</option>
+                  <option value="Adventurous">Adventurous</option>
+                  <option value="Sophisticated">Sophisticated</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Bio</label>
+                <textarea
+                  value={bio}
+                  onChange={(e) => setBio(e.target.value)}
+                  rows={4}
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 focus:outline-none focus:border-primary/50 transition-colors resize-none"
+                  placeholder="Tell us about your travel style..."
+                />
+              </div>
+            </div>
+
+            <div className="pt-4 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                {success && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="flex items-center gap-2 text-green-400 text-sm font-bold"
+                  >
+                    <CheckCircle2 className="w-4 h-4" />
+                    Profile updated successfully
+                  </motion.div>
+                )}
+              </div>
+              <button
+                type="submit"
+                disabled={saving}
+                className="px-8 py-3 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 disabled:opacity-50"
+              >
+                {saving ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  <>
+                    <Save className="w-5 h-5" />
+                    Save Changes
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+
+          {/* Preferences Section */}
+          <div className="mt-8 glass p-8 rounded-[32px]">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+              <Globe className="w-5 h-5 text-primary" />
+              Travel Preferences
+            </h3>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: 'Currency', value: 'USD ($)' },
+                { label: 'Language', value: 'English (US)' },
+                { label: 'Timezone', value: 'UTC+9 (Tokyo)' },
+                { label: 'Units', value: 'Metric (km, kg)' }
+              ].map((pref) => (
+                <div key={pref.label} className="p-4 rounded-2xl bg-white/5 border border-white/5">
+                  <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-1">{pref.label}</p>
+                  <p className="text-sm font-bold">{pref.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,251 @@
+{
+  "landingPage": {
+    "header": {
+      "brand": "AETHERIA",
+      "ai": "AI",
+      "journeySynthesized": "統合された旅",
+      "links": {
+        "home": "ホーム",
+        "features": "機能",
+        "workflow": "ワークフロー",
+        "cta": "今すぐ開始"
+      },
+      "logo": "Aetheria ロゴ"
+    },
+    "footer": {
+      "tagline": "デジタルエーテルを通じてあなたの旅を統合します。",
+      "copyright": "© 2026 Aetheria AI. All rights reserved.",
+      "links": {
+        "privacy": "プライバシーポリシー",
+        "terms": "利用規約",
+        "contact": "お問い合わせ"
+      },
+      "sections": {
+        "company": "会社情報",
+        "connect": "つながる"
+      }
+    },
+    "body": {
+      "hero": {
+        "title": "あなたの旅、統合される",
+        "subtitle": "AIの力を活用して、これまでにないデジタルランドスケープを探索しましょう。",
+        "cta": "旅を始める"
+      },
+      "features": {
+        "title": "強力な機能",
+        "description": "Aetheriaをユニークにしているものを発見してください。",
+        "items": [
+          {
+            "title": "AI駆動のインサイト",
+            "description": "高度なAIモデルを使用して、データに関する深いインサイトを得ることができます。"
+          },
+          {
+            "title": "シームレスなワークフロー",
+            "description": "Aetheriaを既存のワークフローに簡単に統合できます。"
+          },
+          {
+            "title": "リアルタイムのコラボレーション",
+            "description": "あらゆるプロジェクトでチームとリアルタイムで協力できます。"
+          }
+        ]
+      },
+      "workflow": {
+        "title": "仕組み",
+        "description": "開始するためのシンプルな3ステップのプロセス。",
+        "steps": [
+          {
+            "title": "データを接続する",
+            "description": "データソースをAetheriaに安全に接続します。"
+          },
+          {
+            "title": "分析と統合",
+            "description": "当社のAIがデータを分析し、実用的なインサイトに統合します。"
+          },
+          {
+            "title": "探索と発見",
+            "description": "統合されたデータを探索し、新しい機会を発見してください。"
+          }
+        ]
+      },
+      "cta": {
+        "title": "旅を始める準備はできましたか？",
+        "subtitle": "すでにAetheriaを使用して業務を革新している何千人ものユーザーに加わりましょう。",
+        "button": "無料で開始"
+      }
+    }
+  },
+  "header": {
+    "categories": {
+      "orchestration": "オーケストレーション",
+      "intelligence": "インテリジェンス",
+      "studios": "スタジオ",
+      "utility": "ユーティリティ"
+    },
+    "dashboard": "ダッシュボード",
+    "aiItinerary": "AI 旅程",
+    "pathfinder": "パスファインダー",
+    "vibeMarketplace": "バイブマーケットプレイス",
+    "vibeShopping": "バイブショッピング",
+    "bookingHub": "予約ハブ",
+    "wallet": "ウォレット",
+    "budgetSynthesis": "予算統合",
+    "visionHub": "ビジョンハブ",
+    "intelligenceCenter": "インテリジェンスセンター",
+    "arWayfinding": "AR ウェイファインディング",
+    "localLegends": "ローカルレジェンド",
+    "culturalPulse": "カルチャーパルス",
+    "audioGuide": "オーディオガイド",
+    "tripOdyssey": "トリップオデッセイ",
+    "postcardStudio": "ポストカードスタジオ",
+    "heritageMirror": "ヘリテージミラー",
+    "journal": "ジャーナル",
+    "sos": "SOS",
+    "insurance": "保険",
+    "visaArchitect": "ビザアーキテクト",
+    "flightStatus": "フライトステータス",
+    "esim": "eSIM",
+    "carbonSynthesis": "カーボン統合",
+    "packingassistant": "パッキングアシスタント"
+  },
+  "sidebar": {
+    "brand": {
+      "name": "AETHERIA",
+      "tagline": "統合された旅"
+    },
+    "sessionVerified": "セッション確認済み",
+    "neuralLinkActive": "ニューラルリンク有効"
+  },
+  "userNav": {
+    "explorerHub": "エクスプローラーハブ",
+    "manageBookings": "予約管理",
+    "upgradeSubscription": "サブスクリプションのアップグレード",
+    "adminConsole": "管理コンソール",
+    "partnerHub": "パートナーハブ",
+    "identityNode": "識別ノード",
+    "terminateSession": "セッション終了",
+    "toast": {
+      "logoutSuccessTitle": "セッション終了",
+      "logoutSuccessDescription": "ニューラルリンクが安全に切断されました。",
+      "logoutErrorTitle": "終了失敗",
+      "logoutErrorDescription": "セッションの切断中にエラーが発生しました。"
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "おかえりなさい、{{name}}さん",
+    "odysseyLevel": "オデッセイレベル {{level}}",
+    "explorerHubActive": "エクスプローラーハブ有効",
+    "viewLegacyWrapped": "レガシーラップを表示",
+    "productionTrailer": "プロダクショントレーラー",
+    "seasonPass": "シーズンパス",
+    "xpSynthesized": "統合されたXP",
+    "progressionToLevel": "レベル {{level}} への進行状況",
+    "vibeStreak": "バイブストリーク",
+    "tasksResolved": "解決されたタスク",
+    "totalMedals": "合計メダル",
+    "premiumRequired": "プレミアムパスが必要です",
+    "explorerStatus": "エクスプローラー状況: {{tier}}",
+    "points": "ポイント",
+    "medals": "メダル",
+    "editProfile": "プロフィール編集",
+    "match": "マッチ",
+    "toast": {
+      "missionInviteTitle": "オデッセイ提案送信済み",
+      "missionInviteDescription": "{{name}}さんがグループオデッセイを承認するのを待っています。"
+    },
+    "xpProgress": "{{current}} / {{total}} XP",
+    "odysseyCount": "{{count}} オデッセイ",
+    "questCount": "{{count}} クエスト",
+    "awardCount": "{{count}} アワード",
+    "vibeRadar": {
+      "title": "バイブラダー",
+      "desc": "現在のセクターで {{vibe}} の一致を検出中: {{location}}"
+    },
+    "expandNeuralNetwork": "ニューラルネットワークを拡張",
+    "shortDesc": {
+      "itinerary": "AIが統合した旅行プラン",
+      "pathfinder": "ニューラルパスの最適化",
+      "marketplace": "バイブで厳選された体験",
+      "store": "デジタル資産の取得",
+      "booking": "クォンタム予約ハブ",
+      "wallet": "暗号化されたクレジットストレージ",
+      "budget": "財務統合エンジン",
+      "vision": "ARオブジェクト認識",
+      "guide": "グローバルナレッジベース",
+      "ar": "空間ウェイファインディングオーバーレイ",
+      "legends": "歴史データ取得",
+      "pulse": "リアルタイムの文化ストリーム",
+      "audio": "没入型サウンドスケープ",
+      "odyssey": "映画のような旅のティーザー",
+      "postcard": "AI生成のビジュアルノード",
+      "mirror": "ヘリテージデータの反映",
+      "journal": "個人のオデッセイログ"
+    }
+  },
+  "login": {
+    "title": "Aetheria ログイン",
+    "emailLabel": "ネットワークアドレス",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "セキュリティキー",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "セッション承認",
+    "signingInButton": "承認中...",
+    "noAccount": "Aetheriaは初めてですか？",
+    "signUpLink": "識別ノードを作成",
+    "accessOdysseyGrid": "オデッセイグリッドにアクセス",
+    "authChannels": "認証チャネル",
+    "google": "Google",
+    "apple": "Apple",
+    "biometricLogin": "生体認証ログイン",
+    "systemNodeOffline": "システムノードオフライン",
+    "authServiceInitializing": "認証サービスがまだ初期化されていません。",
+    "unsupportedFeature": "サポートされていない機能",
+    "biometricOnlyMobile": "生体認証ログインはモバイルデバイスでのみ利用可能です。",
+    "biometricLoginFailed": "生体認証ログイン失敗",
+    "biometricLoginError": "生体認証資格情報でログインできませんでした。",
+    "invalidCredentials": "メールアドレスまたはセキュリティキーが無効です。資格情報を確認するか、まだ作成していない場合は新しいアカウントを作成してください。",
+    "accountDisabled": "このアカウントは無効になっています。サポートにお問い合わせください。",
+    "tooManyRequests": "失敗した試行が多すぎます。後でもう一度試すか、セキュリティキーをリセットしてください。",
+    "networkError": "ネットワーク接続に失敗しました。接続を確認して、もう一度お試しください。",
+    "toast": {
+      "successTitle": "セッション承認済み",
+      "successDescription": "ニューラルリンクが有効になりました。",
+      "errorTitle": "承認失敗",
+      "genericError": "セッション承認中に予期しないエラーが発生しました。",
+      "operationNotAllowed": "この認証方法は現在無効になっています。"
+    }
+  },
+  "signup": {
+    "title": "オデッセイに参加",
+    "description": "Aetheriaアカウントを作成",
+    "firstNameLabel": "名",
+    "lastNameLabel": "姓",
+    "firstNamePlaceholder": "太郎",
+    "lastNamePlaceholder": "山田",
+    "emailLabel": "ネットワークアドレス",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "セキュリティキー",
+    "passwordPlaceholder": "••••••••",
+    "createButton": "プロフィールを初期化",
+    "creatingButton": "同期中...",
+    "haveAccount": "すでにネットワークに参加していますか？",
+    "signInLink": "サインイン",
+    "networkJoin": "ネットワーク参加",
+    "welcomeKit": {
+      "title": "ウェルカムキット送信済み！",
+      "description": "Aetheria AIからのパーソナライズされたウェルカムメッセージをインボックスで確認してください。"
+    },
+    "toast": {
+      "successTitle": "プロフィール初期化済み",
+      "successDescription": "Aetheriaネットワークへようこそ。",
+      "errorTitle": "初期化失敗",
+      "genericError": "アカウントを作成できませんでした。もう一度お試しください。"
+    },
+    "errors": {
+      "emailInUse": "このメールアドレスはすでに登録されています。代わりにサインインしてください。",
+      "invalidEmail": "メールアドレスが無効です。確認してもう一度お試しください。",
+      "operationNotAllowed": "メール/パスワードによるサインアップは現在無効になっています。",
+      "weakPassword": "セキュリティキーが弱すぎます。より強力なものを使用してください。",
+      "networkError": "ネットワーク接続に失敗しました。接続を確認して、もう一度お試しください。"
+    }
+  }
+}

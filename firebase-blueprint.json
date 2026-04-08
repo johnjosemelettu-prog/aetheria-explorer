@@ -1,0 +1,130 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "User profile information and role.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "bio": { "type": "string" },
+        "location": { "type": "string" },
+        "vibe": { "type": "string" },
+        "bodyMeasurements": { "type": "object" },
+        "role": { "type": "string", "enum": ["explorer", "admin", "partner"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "displayName", "role"]
+    },
+    "Itinerary": {
+      "title": "Itinerary",
+      "description": "Travel itinerary details.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "destination": { "type": "string" },
+        "vibe": { "type": "string" },
+        "startDate": { "type": "string", "format": "date-time" },
+        "endDate": { "type": "string", "format": "date-time" },
+        "invitedUsers": { "type": "array", "items": { "type": "string" } },
+        "activities": { "type": "array" },
+        "carbonFootprint": { "type": "number" },
+        "status": { "type": "string", "enum": ["draft", "confirmed", "completed"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "title", "destination", "status"]
+    },
+    "SynthesisLog": {
+      "title": "SynthesisLog",
+      "description": "Log entry for an AI synthesis task",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string", "enum": ["itinerary", "image", "video", "translation", "carbon", "layover", "tailor", "vibe", "weather"] },
+        "status": { "type": "string", "enum": ["pending", "completed", "failed"] },
+        "description": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "type", "status", "timestamp"]
+    },
+    "FashionRental": {
+      "title": "Fashion Rental",
+      "description": "User fashion rental or purchase",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "itemName": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "type": { "type": "string", "enum": ["buy", "rent"] },
+        "status": { "type": "string", "enum": ["active", "returned", "purchased"] },
+        "rentalEndDate": { "type": "string", "format": "date-time" },
+        "returnedAt": { "type": "string", "format": "date-time" },
+        "destination": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "itemName", "price", "type", "status"]
+    },
+    "WalletTransaction": {
+      "title": "WalletTransaction",
+      "description": "Transaction log for the smart wallet",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "amount": { "type": "number" },
+        "type": { "type": "string", "enum": ["credit", "debit"] },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "status": { "type": "string" }
+      },
+      "required": ["userId", "amount", "type", "timestamp"]
+    },
+    "ESimProfile": {
+      "title": "ESimProfile",
+      "description": "User eSIM profile",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "country": { "type": "string" },
+        "dataLimit": { "type": "number" },
+        "dataUsed": { "type": "number" },
+        "expiryDate": { "type": "string", "format": "date-time" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "country", "dataLimit", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles by UID."
+    },
+    "/itineraries/{itineraryId}": {
+      "schema": "Itinerary",
+      "description": "Travel itineraries."
+    },
+    "/synthesis_logs/{logId}": {
+      "schema": "SynthesisLog",
+      "description": "AI synthesis logs."
+    },
+    "/transactions/{txId}": {
+      "schema": "WalletTransaction",
+      "description": "Wallet transactions."
+    },
+    "/esims/{esimId}": {
+      "schema": "ESimProfile",
+      "description": "eSIM profiles."
+    },
+    "/rentals/{rentalId}": {
+      "schema": "FashionRental",
+      "description": "Fashion rentals and purchases."
+    }
+  }
+}

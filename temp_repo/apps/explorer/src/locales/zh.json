@@ -1,0 +1,251 @@
+{
+  "landingPage": {
+    "header": {
+      "brand": "AETHERIA",
+      "ai": "AI",
+      "journeySynthesized": "旅程合成",
+      "links": {
+        "home": "首页",
+        "features": "功能",
+        "workflow": "工作流",
+        "cta": "立即开始"
+      },
+      "logo": "Aetheria 标志"
+    },
+    "footer": {
+      "tagline": "通过数字以太合成您的旅程。",
+      "copyright": "© 2026 Aetheria AI. 保留所有权利。",
+      "links": {
+        "privacy": "隐私政策",
+        "terms": "服务条款",
+        "contact": "联系我们"
+      },
+      "sections": {
+        "company": "公司",
+        "connect": "连接"
+      }
+    },
+    "body": {
+      "hero": {
+        "title": "您的旅程，由 AI 合成",
+        "subtitle": "利用 AI 的力量，以前所未有的方式探索数字景观。",
+        "cta": "开启您的旅程"
+      },
+      "features": {
+        "title": "强大功能",
+        "description": "发现 Aetheria 的独特之处。",
+        "items": [
+          {
+            "title": "AI 驱动的洞察",
+            "description": "通过我们先进的 AI 模型获得对数据的深刻洞察。"
+          },
+          {
+            "title": "无缝工作流",
+            "description": "轻松将 Aetheria 集成到您现有的工作流中。"
+          },
+          {
+            "title": "实时协作",
+            "description": "在任何项目上与您的团队进行实时协作。"
+          }
+        ]
+      },
+      "workflow": {
+        "title": "工作原理",
+        "description": "简单的 3 步流程即可开始。",
+        "steps": [
+          {
+            "title": "连接您的数据",
+            "description": "安全地将您的数据源连接到 Aetheria。"
+          },
+          {
+            "title": "分析与合成",
+            "description": "让我们的 AI 分析您的数据，并将其合成为可操作的洞察。"
+          },
+          {
+            "title": "探索与发现",
+            "description": "探索合成后的数据，发现新的机会。"
+          }
+        ]
+      },
+      "cta": {
+        "title": "准备好开启您的旅程了吗？",
+        "subtitle": "加入成千上万已经在使用 Aetheria 转型工作的用户行列。",
+        "button": "免费开始"
+      }
+    }
+  },
+  "header": {
+    "categories": {
+      "orchestration": "编排",
+      "intelligence": "智能",
+      "studios": "工作室",
+      "utility": "工具"
+    },
+    "dashboard": "仪表板",
+    "aiItinerary": "AI 行程",
+    "pathfinder": "探路者",
+    "vibeMarketplace": "氛围市场",
+    "vibeShopping": "氛围购物",
+    "bookingHub": "预订中心",
+    "wallet": "钱包",
+    "budgetSynthesis": "预算合成",
+    "visionHub": "视觉中心",
+    "intelligenceCenter": "智能中心",
+    "arWayfinding": "AR 寻路",
+    "localLegends": "当地传说",
+    "culturalPulse": "文化脉动",
+    "audioGuide": "语音导览",
+    "tripOdyssey": "旅行奥德赛",
+    "postcardStudio": "明信片工作室",
+    "heritageMirror": "遗产之镜",
+    "journal": "日志",
+    "sos": "紧急求助",
+    "insurance": "保险",
+    "visaArchitect": "签证架构师",
+    "flightStatus": "航班状态",
+    "esim": "eSIM",
+    "carbonSynthesis": "碳合成",
+    "packingassistant": "行李助手"
+  },
+  "sidebar": {
+    "brand": {
+      "name": "AETHERIA",
+      "tagline": "旅程合成"
+    },
+    "sessionVerified": "会话已验证",
+    "neuralLinkActive": "神经连接已激活"
+  },
+  "userNav": {
+    "explorerHub": "探索者中心",
+    "manageBookings": "管理预订",
+    "upgradeSubscription": "升级订阅",
+    "adminConsole": "管理控制台",
+    "partnerHub": "合作伙伴中心",
+    "identityNode": "身份节点",
+    "terminateSession": "结束会话",
+    "toast": {
+      "logoutSuccessTitle": "会话已结束",
+      "logoutSuccessDescription": "您的神经连接已安全断开。",
+      "logoutErrorTitle": "结束失败",
+      "logoutErrorDescription": "断开会话时出错。"
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "欢迎回来，{{name}}",
+    "odysseyLevel": "奥德赛等级 {{level}}",
+    "explorerHubActive": "探索者中心已激活",
+    "viewLegacyWrapped": "查看年度回顾",
+    "productionTrailer": "制作预告片",
+    "seasonPass": "赛季通行证",
+    "xpSynthesized": "已合成 XP",
+    "progressionToLevel": "升级至 {{level}} 级的进度",
+    "vibeStreak": "氛围连胜",
+    "tasksResolved": "已解决任务",
+    "totalMedals": "勋章总数",
+    "premiumRequired": "需要高级通行证",
+    "explorerStatus": "探索者状态：{{tier}}",
+    "points": "积分",
+    "medals": "勋章",
+    "editProfile": "编辑个人资料",
+    "match": "匹配",
+    "toast": {
+      "missionInviteTitle": "奥德赛提议已发送",
+      "missionInviteDescription": "正在等待 {{name}} 授权加入小组奥德赛。"
+    },
+    "xpProgress": "{{current}} / {{total}} XP",
+    "odysseyCount": "{{count}} 次奥德赛",
+    "questCount": "{{count}} 个任务",
+    "awardCount": "{{count}} 个奖项",
+    "vibeRadar": {
+      "title": "氛围雷达",
+      "desc": "正在检测当前区域的 {{vibe}} 匹配：{{location}}"
+    },
+    "expandNeuralNetwork": "扩展神经网络",
+    "shortDesc": {
+      "itinerary": "AI 合成的旅行计划",
+      "pathfinder": "神经路径优化",
+      "marketplace": "氛围精选体验",
+      "store": "数字资产获取",
+      "booking": "量子预订中心",
+      "wallet": "加密信用存储",
+      "budget": "财务合成引擎",
+      "vision": "AR 物体识别",
+      "guide": "全球知识库",
+      "ar": "空间寻路叠加",
+      "legends": "历史数据检索",
+      "pulse": "实时文化流",
+      "audio": "沉浸式声景",
+      "odyssey": "电影般的旅行预告",
+      "postcard": "AI 生成的视觉节点",
+      "mirror": "遗产数据反射",
+      "journal": "个人奥德赛日志"
+    }
+  },
+  "login": {
+    "title": "Aetheria 登录",
+    "emailLabel": "网络地址",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "安全密钥",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "授权会话",
+    "signingInButton": "正在授权...",
+    "noAccount": "第一次使用 Aetheria？",
+    "signUpLink": "创建身份节点",
+    "accessOdysseyGrid": "访问您的奥德赛网格",
+    "authChannels": "身份验证渠道",
+    "google": "Google",
+    "apple": "Apple",
+    "biometricLogin": "生物识别登录",
+    "systemNodeOffline": "系统节点离线",
+    "authServiceInitializing": "身份验证服务尚未初始化。",
+    "unsupportedFeature": "不支持的功能",
+    "biometricOnlyMobile": "生物识别登录仅在移动设备上可用。",
+    "biometricLoginFailed": "生物识别登录失败",
+    "biometricLoginError": "无法使用生物识别凭据登录。",
+    "invalidCredentials": "电子邮件地址或安全密钥无效。请检查您的凭据，如果您还没有账户，请创建一个新账户。",
+    "accountDisabled": "此账户已被禁用。请联系支持人员。",
+    "tooManyRequests": "尝试失败次数过多。请稍后再试或重置您的安全密钥。",
+    "networkError": "网络连接失败。请检查您的连接并重试。",
+    "toast": {
+      "successTitle": "会话已授权",
+      "successDescription": "您的神经连接现已激活。",
+      "errorTitle": "授权失败",
+      "genericError": "会话授权期间发生意外错误。",
+      "operationNotAllowed": "此身份验证方法目前已禁用。"
+    }
+  },
+  "signup": {
+    "title": "加入奥德赛",
+    "description": "创建您的 Aetheria 账户",
+    "firstNameLabel": "名字",
+    "lastNameLabel": "姓氏",
+    "firstNamePlaceholder": "三",
+    "lastNamePlaceholder": "张",
+    "emailLabel": "网络地址",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "安全密钥",
+    "passwordPlaceholder": "••••••••",
+    "createButton": "初始化个人资料",
+    "creatingButton": "正在同步...",
+    "haveAccount": "已经是网络成员？",
+    "signInLink": "登录",
+    "networkJoin": "网络加入",
+    "welcomeKit": {
+      "title": "欢迎礼包已发送！",
+      "description": "请检查您的收件箱，查看来自 Aetheria AI 的个性化欢迎邮件。"
+    },
+    "toast": {
+      "successTitle": "个人资料已初始化",
+      "successDescription": "欢迎加入 Aetheria 网络。",
+      "errorTitle": "初始化失败",
+      "genericError": "无法创建账户。请重试。"
+    },
+    "errors": {
+      "emailInUse": "此电子邮件地址已注册。请直接登录。",
+      "invalidEmail": "电子邮件地址无效。请检查并重试。",
+      "operationNotAllowed": "电子邮件/密码注册目前已禁用。",
+      "weakPassword": "安全密钥太弱。请使用更强的密钥。",
+      "networkError": "网络连接失败。请检查您的连接并重试。"
+    }
+  }
+}

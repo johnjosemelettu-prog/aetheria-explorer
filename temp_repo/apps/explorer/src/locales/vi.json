@@ -1,0 +1,251 @@
+{
+  "landingPage": {
+    "header": {
+      "brand": "AETHERIA",
+      "ai": "AI",
+      "journeySynthesized": "Hành trình Tổng hợp",
+      "links": {
+        "home": "Trang chủ",
+        "features": "Tính năng",
+        "workflow": "Quy trình",
+        "cta": "Bắt đầu"
+      },
+      "logo": "Logo Aetheria"
+    },
+    "footer": {
+      "tagline": "Tổng hợp hành trình của bạn qua không gian kỹ thuật số.",
+      "copyright": "© 2026 Aetheria AI. Bảo lưu mọi quyền.",
+      "links": {
+        "privacy": "Chính sách Bảo mật",
+        "terms": "Điều khoản Dịch vụ",
+        "contact": "Liên hệ"
+      },
+      "sections": {
+        "company": "Công ty",
+        "connect": "Kết nối"
+      }
+    },
+    "body": {
+      "hero": {
+        "title": "Hành trình của bạn, được tổng hợp",
+        "subtitle": "Khai thác sức mạnh của AI để khám phá bối cảnh kỹ thuật số hơn bao giờ hết.",
+        "cta": "Bắt đầu Hành trình"
+      },
+      "features": {
+        "title": "Tính năng Mạnh mẽ",
+        "description": "Khám phá những điều làm nên sự độc đáo của Aetheria.",
+        "items": [
+          {
+            "title": "Thông tin chi tiết từ AI",
+            "description": "Nhận thông tin chi tiết sâu sắc về dữ liệu của bạn với các mô hình AI tiên tiến của chúng tôi."
+          },
+          {
+            "title": "Quy trình làm việc liền mạch",
+            "description": "Tích hợp Aetheria vào quy trình làm việc hiện tại của bạn một cách dễ dàng."
+          },
+          {
+            "title": "Cộng tác thời gian thực",
+            "description": "Làm việc với nhóm của bạn trong thời gian thực trên bất kỳ dự án nào."
+          }
+        ]
+      },
+      "workflow": {
+        "title": "Cách thức Hoạt động",
+        "description": "Quy trình 3 bước đơn giản để bắt đầu.",
+        "steps": [
+          {
+            "title": "Kết nối Dữ liệu",
+            "description": "Kết nối an toàn các nguồn dữ liệu của bạn với Aetheria."
+          },
+          {
+            "title": "Phân tích và Tổng hợp",
+            "description": "Để AI của chúng tôi phân tích và tổng hợp dữ liệu của bạn thành các thông tin chi tiết có thể hành động."
+          },
+          {
+            "title": "Khám phá và Tìm kiếm",
+            "description": "Khám phá dữ liệu đã tổng hợp và tìm kiếm những cơ hội mới."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Sẵn sàng để Bắt đầu Hành trình?",
+        "subtitle": "Tham gia cùng hàng ngàn người dùng đã sử dụng Aetheria để thay đổi công việc của họ.",
+        "button": "Bắt đầu Miễn phí"
+      }
+    }
+  },
+  "header": {
+    "categories": {
+      "orchestration": "Điều phối",
+      "intelligence": "Trí tuệ",
+      "studios": "Studio",
+      "utility": "Tiện ích"
+    },
+    "dashboard": "Bảng điều khiển",
+    "aiItinerary": "Hành trình AI",
+    "pathfinder": "Người tìm đường",
+    "vibeMarketplace": "Chợ Vibe",
+    "vibeShopping": "Mua sắm Vibe",
+    "bookingHub": "Trung tâm Đặt chỗ",
+    "wallet": "Ví",
+    "budgetSynthesis": "Tổng hợp Ngân sách",
+    "visionHub": "Trung tâm Tầm nhìn",
+    "intelligenceCenter": "Trung tâm Trí tuệ",
+    "arWayfinding": "Chỉ đường AR",
+    "localLegends": "Huyền thoại Địa phương",
+    "culturalPulse": "Nhịp đập Văn hóa",
+    "audioGuide": "Hướng dẫn Âm thanh",
+    "tripOdyssey": "Hành trình Du lịch",
+    "postcardStudio": "Studio Bưu thiếp",
+    "heritageMirror": "Gương Di sản",
+    "journal": "Nhật ký",
+    "sos": "SOS",
+    "insurance": "Bảo hiểm",
+    "visaArchitect": "Kiến trúc sư Visa",
+    "flightStatus": "Trạng thái Chuyến bay",
+    "esim": "eSIM",
+    "carbonSynthesis": "Tổng hợp Carbon",
+    "packingassistant": "Trợ lý Đóng gói"
+  },
+  "sidebar": {
+    "brand": {
+      "name": "AETHERIA",
+      "tagline": "Hành trình Tổng hợp"
+    },
+    "sessionVerified": "Đã xác minh Phiên",
+    "neuralLinkActive": "Liên kết Thần kinh Hoạt động"
+  },
+  "userNav": {
+    "explorerHub": "Trung tâm Khám phá",
+    "manageBookings": "Quản lý Đặt chỗ",
+    "upgradeSubscription": "Nâng cấp Gói",
+    "adminConsole": "Bảng điều khiển Admin",
+    "partnerHub": "Trung tâm Đối tác",
+    "identityNode": "Nút Danh tính",
+    "terminateSession": "Kết thúc Phiên",
+    "toast": {
+      "logoutSuccessTitle": "Đã kết thúc Phiên",
+      "logoutSuccessDescription": "Liên kết thần kinh của bạn đã được ngắt kết nối an toàn.",
+      "logoutErrorTitle": "Kết thúc Thất bại",
+      "logoutErrorDescription": "Đã xảy ra lỗi khi ngắt kết nối phiên của bạn."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Chào mừng trở lại, {{name}}",
+    "odysseyLevel": "Cấp độ Hành trình {{level}}",
+    "explorerHubActive": "Trung tâm Khám phá Hoạt động",
+    "viewLegacyWrapped": "Xem Tổng kết",
+    "productionTrailer": "Trailer Sản xuất",
+    "seasonPass": "Thẻ Mùa giải",
+    "xpSynthesized": "XP đã Tổng hợp",
+    "progressionToLevel": "Tiến trình lên Cấp {{level}}",
+    "vibeStreak": "Chuỗi Vibe",
+    "tasksResolved": "Nhiệm vụ đã Giải quyết",
+    "totalMedals": "Tổng số Huy chương",
+    "premiumRequired": "Yêu cầu Thẻ Premium",
+    "explorerStatus": "Trạng thái Khám phá: {{tier}}",
+    "points": "Điểm",
+    "medals": "Huy chương",
+    "editProfile": "Chỉnh sửa Hồ sơ",
+    "match": "TRẬN ĐẤU",
+    "toast": {
+      "missionInviteTitle": "Đề xuất Hành trình đã được Truyền đi",
+      "missionInviteDescription": "Đang chờ {{name}} ủy quyền cho Hành trình Nhóm."
+    },
+    "xpProgress": "{{current}} / {{total}} XP",
+    "odysseyCount": "{{count}} Hành trình",
+    "questCount": "{{count}} Nhiệm vụ",
+    "awardCount": "{{count}} Giải thưởng",
+    "vibeRadar": {
+      "title": "Radar Vibe",
+      "desc": "Đang phát hiện các kết quả phù hợp {{vibe}} trong khu vực hiện tại của bạn: {{location}}"
+    },
+    "expandNeuralNetwork": "Mở rộng Mạng lưới Thần kinh",
+    "shortDesc": {
+      "itinerary": "Kế hoạch du lịch tổng hợp bởi AI",
+      "pathfinder": "Tối ưu hóa đường dẫn thần kinh",
+      "marketplace": "Trải nghiệm được tuyển chọn bởi Vibe",
+      "store": "Mua sắm tài sản kỹ thuật số",
+      "booking": "Trung tâm đặt chỗ lượng tử",
+      "wallet": "Lưu trữ tín dụng được mã hóa",
+      "budget": "Công cụ tổng hợp tài chính",
+      "vision": "Nhận dạng đối tượng AR",
+      "guide": "Cơ sở kiến thức toàn cầu",
+      "ar": "Lớp phủ chỉ đường không gian",
+      "legends": "Truy xuất dữ liệu lịch sử",
+      "pulse": "Luồng văn hóa thời gian thực",
+      "audio": "Cảnh quan âm thanh đắm chìm",
+      "odyssey": "Trailer hành trình điện ảnh",
+      "postcard": "Các nút hình ảnh do AI tạo ra",
+      "mirror": "Phản chiếu dữ liệu di sản",
+      "journal": "Nhật ký hành trình cá nhân"
+    }
+  },
+  "login": {
+    "title": "Đăng nhập Aetheria",
+    "emailLabel": "Địa chỉ Mạng",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "Khóa Bảo mật",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "Ủy quyền Phiên",
+    "signingInButton": "Đang ủy quyền...",
+    "noAccount": "Mới sử dụng Aetheria?",
+    "signUpLink": "Tạo Nút Danh tính",
+    "accessOdysseyGrid": "Truy cập Lưới Hành trình của bạn",
+    "authChannels": "Kênh Xác thực",
+    "google": "Google",
+    "apple": "Apple",
+    "biometricLogin": "Đăng nhập Sinh trắc học",
+    "systemNodeOffline": "Nút Hệ thống Ngoại tuyến",
+    "authServiceInitializing": "Dịch vụ xác thực chưa được khởi tạo.",
+    "unsupportedFeature": "Tính năng không được Hỗ trợ",
+    "biometricOnlyMobile": "Đăng nhập sinh trắc học chỉ khả dụng trên thiết bị di động.",
+    "biometricLoginFailed": "Đăng nhập Sinh trắc học Thất bại",
+    "biometricLoginError": "Không thể đăng nhập bằng thông tin sinh trắc học.",
+    "invalidCredentials": "Địa chỉ email hoặc khóa bảo mật không hợp lệ. Vui lòng kiểm tra lại thông tin hoặc tạo tài khoản mới nếu bạn chưa có.",
+    "accountDisabled": "Tài khoản này đã bị vô hiệu hóa. Vui lòng liên hệ bộ phận hỗ trợ.",
+    "tooManyRequests": "Quá nhiều lần thử thất bại. Vui lòng thử lại sau hoặc đặt lại khóa bảo mật.",
+    "networkError": "Kết nối mạng thất bại. Vui lòng kiểm tra kết nối và thử lại.",
+    "toast": {
+      "successTitle": "Đã ủy quyền Phiên",
+      "successDescription": "Liên kết thần kinh của bạn hiện đã hoạt động.",
+      "errorTitle": "Ủy quyền Thất bại",
+      "genericError": "Đã xảy ra lỗi không mong muốn trong quá trình ủy quyền phiên.",
+      "operationNotAllowed": "Phương thức xác thực này hiện đang bị vô hiệu hóa."
+    }
+  },
+  "signup": {
+    "title": "Tham gia Hành trình",
+    "description": "Tạo tài khoản Aetheria của bạn",
+    "firstNameLabel": "Tên",
+    "lastNameLabel": "Họ",
+    "firstNamePlaceholder": "nam",
+    "lastNamePlaceholder": "nguyễn",
+    "emailLabel": "Địa chỉ Mạng",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "Khóa Bảo mật",
+    "passwordPlaceholder": "••••••••",
+    "createButton": "Khởi tạo Hồ sơ",
+    "creatingButton": "Đang đồng bộ hóa...",
+    "haveAccount": "Đã là thành viên của mạng lưới?",
+    "signInLink": "Đăng nhập",
+    "networkJoin": "Tham gia Mạng lưới",
+    "welcomeKit": {
+      "title": "Bộ chào mừng đã được gửi!",
+      "description": "Kiểm tra hộp thư đến của bạn để nhận lời chào cá nhân từ Aetheria AI."
+    },
+    "toast": {
+      "successTitle": "Đã khởi tạo Hồ sơ",
+      "successDescription": "Chào mừng bạn đến với Mạng lưới Aetheria.",
+      "errorTitle": "Khởi tạo Thất bại",
+      "genericError": "Không thể tạo tài khoản. Vui lòng thử lại."
+    },
+    "errors": {
+      "emailInUse": "Địa chỉ email này đã được đăng ký. Vui lòng đăng nhập thay thế.",
+      "invalidEmail": "Địa chỉ email không hợp lệ. Vui lòng kiểm tra và thử lại.",
+      "operationNotAllowed": "Đăng ký bằng Email/Mật khẩu hiện đang bị vô hiệu hóa.",
+      "weakPassword": "Khóa bảo mật quá yếu. Vui lòng sử dụng khóa mạnh hơn.",
+      "networkError": "Kết nối mạng thất bại. Vui lòng kiểm tra kết nối và thử lại."
+    }
+  }
+}

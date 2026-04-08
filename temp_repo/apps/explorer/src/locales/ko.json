@@ -1,0 +1,251 @@
+{
+  "landingPage": {
+    "header": {
+      "brand": "AETHERIA",
+      "ai": "AI",
+      "journeySynthesized": "통합된 여정",
+      "links": {
+        "home": "홈",
+        "features": "기능",
+        "workflow": "워크플로우",
+        "cta": "시작하기"
+      },
+      "logo": "Aetheria 로고"
+    },
+    "footer": {
+      "tagline": "디지털 에테르를 통한 당신의 여정을 통합합니다.",
+      "copyright": "© 2026 Aetheria AI. All rights reserved.",
+      "links": {
+        "privacy": "개인정보 처리방침",
+        "terms": "이용약관",
+        "contact": "문의하기"
+      },
+      "sections": {
+        "company": "회사",
+        "connect": "연결"
+      }
+    },
+    "body": {
+      "hero": {
+        "title": "당신의 여정, 통합되다",
+        "subtitle": "AI의 힘을 활용하여 이전과는 다른 방식으로 디지털 환경을 탐험하세요.",
+        "cta": "여정 시작하기"
+      },
+      "features": {
+        "title": "강력한 기능",
+        "description": "Aetheria를 특별하게 만드는 요소를 확인하세요.",
+        "items": [
+          {
+            "title": "AI 기반 인사이트",
+            "description": "고급 AI 모델을 통해 데이터에 대한 깊은 인사이트를 얻으세요."
+          },
+          {
+            "title": "원활한 워크플로우",
+            "description": "기존 워크플로우에 Aetheria를 쉽게 통합하세요."
+          },
+          {
+            "title": "실시간 협업",
+            "description": "모든 프로젝트에서 팀과 실시간으로 협력하세요."
+          }
+        ]
+      },
+      "workflow": {
+        "title": "작동 방식",
+        "description": "시작을 위한 간단한 3단계 프로세스.",
+        "steps": [
+          {
+            "title": "데이터 연결",
+            "description": "데이터 소스를 Aetheria에 안전하게 연결하세요."
+          },
+          {
+            "title": "분석 및 통합",
+            "description": "AI가 데이터를 분석하고 실행 가능한 인사이트로 통합합니다."
+          },
+          {
+            "title": "탐색 및 발견",
+            "description": "통합된 데이터를 탐색하고 새로운 기회를 발견하세요."
+          }
+        ]
+      },
+      "cta": {
+        "title": "여정을 시작할 준비가 되셨나요?",
+        "subtitle": "이미 Aetheria를 사용하여 업무를 혁신하고 있는 수천 명의 사용자와 함께하세요.",
+        "button": "무료로 시작하기"
+      }
+    }
+  },
+  "header": {
+    "categories": {
+      "orchestration": "오케스트레이션",
+      "intelligence": "지능",
+      "studios": "스튜디오",
+      "utility": "유틸리티"
+    },
+    "dashboard": "대시보드",
+    "aiItinerary": "AI 여정",
+    "pathfinder": "패스파인더",
+    "vibeMarketplace": "바이브 마켓플레이스",
+    "vibeShopping": "바이브 쇼핑",
+    "bookingHub": "예약 허브",
+    "wallet": "지갑",
+    "budgetSynthesis": "예산 통합",
+    "visionHub": "비전 허브",
+    "intelligenceCenter": "지능 센터",
+    "arWayfinding": "AR 길찾기",
+    "localLegends": "로컬 레전드",
+    "culturalPulse": "문화 펄스",
+    "audioGuide": "오디오 가이드",
+    "tripOdyssey": "트립 오디세이",
+    "postcardStudio": "엽서 스튜디오",
+    "heritageMirror": "헤리티지 미러",
+    "journal": "저널",
+    "sos": "SOS",
+    "insurance": "보험",
+    "visaArchitect": "비자 아키텍트",
+    "flightStatus": "항공편 상태",
+    "esim": "eSIM",
+    "carbonSynthesis": "탄소 통합",
+    "packingassistant": "패킹 어시스턴트"
+  },
+  "sidebar": {
+    "brand": {
+      "name": "AETHERIA",
+      "tagline": "통합된 여정"
+    },
+    "sessionVerified": "세션 확인됨",
+    "neuralLinkActive": "뉴럴 링크 활성"
+  },
+  "userNav": {
+    "explorerHub": "익스플로러 허브",
+    "manageBookings": "예약 관리",
+    "upgradeSubscription": "구독 업그레이드",
+    "adminConsole": "관리 콘솔",
+    "partnerHub": "파트너 허브",
+    "identityNode": "ID 노드",
+    "terminateSession": "세션 종료",
+    "toast": {
+      "logoutSuccessTitle": "세션 종료됨",
+      "logoutSuccessDescription": "뉴럴 링크가 안전하게 해제되었습니다.",
+      "logoutErrorTitle": "종료 실패",
+      "logoutErrorDescription": "세션 해제 중 오류가 발생했습니다."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "환영합니다, {{name}}님",
+    "odysseyLevel": "오디세이 레벨 {{level}}",
+    "explorerHubActive": "익스플로러 허브 활성",
+    "viewLegacyWrapped": "레거시 랩 보기",
+    "productionTrailer": "프로덕션 트레일러",
+    "seasonPass": "시즌 패스",
+    "xpSynthesized": "통합된 XP",
+    "progressionToLevel": "레벨 {{level}}까지의 진행률",
+    "vibeStreak": "바이브 스트릭",
+    "tasksResolved": "해결된 작업",
+    "totalMedals": "총 메달",
+    "premiumRequired": "프리미엄 패스 필요",
+    "explorerStatus": "익스플로러 상태: {{tier}}",
+    "points": "포인트",
+    "medals": "메달",
+    "editProfile": "프로필 수정",
+    "match": "매치",
+    "toast": {
+      "missionInviteTitle": "오디세이 제안 전송됨",
+      "missionInviteDescription": "{{name}}님이 그룹 오디세이를 승인하기를 기다리는 중입니다."
+    },
+    "xpProgress": "{{current}} / {{total}} XP",
+    "odysseyCount": "{{count}} 오디세이",
+    "questCount": "{{count}} 퀘스트",
+    "awardCount": "{{count}} 어워드",
+    "vibeRadar": {
+      "title": "바이브 레이더",
+      "desc": "현재 구역에서 {{vibe}} 매치 감지 중: {{location}}"
+    },
+    "expandNeuralNetwork": "뉴럴 네트워크 확장",
+    "shortDesc": {
+      "itinerary": "AI가 통합한 여행 계획",
+      "pathfinder": "뉴럴 경로 최적화",
+      "marketplace": "바이브로 큐레이팅된 경험",
+      "store": "디지털 자산 획득",
+      "booking": "퀀텀 예약 허브",
+      "wallet": "암호화된 크레딧 저장소",
+      "budget": "재무 통합 엔진",
+      "vision": "AR 사물 인식",
+      "guide": "글로벌 지식 베이스",
+      "ar": "공간 길찾기 오버레이",
+      "legends": "역사 데이터 검색",
+      "pulse": "실시간 문화 스트림",
+      "audio": "몰입형 사운드스케이프",
+      "odyssey": "영화 같은 여정 티저",
+      "postcard": "AI 생성 비주얼 노드",
+      "mirror": "헤리티지 데이터 반영",
+      "journal": "개인 오디세이 로그"
+    }
+  },
+  "login": {
+    "title": "Aetheria 로그인",
+    "emailLabel": "네트워크 주소",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "보안 키",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "세션 승인",
+    "signingInButton": "승인 중...",
+    "noAccount": "Aetheria가 처음이신가요?",
+    "signUpLink": "ID 노드 생성",
+    "accessOdysseyGrid": "오디세이 그리드 액세스",
+    "authChannels": "인증 채널",
+    "google": "Google",
+    "apple": "Apple",
+    "biometricLogin": "생체 인식 로그인",
+    "systemNodeOffline": "시스템 노드 오프라인",
+    "authServiceInitializing": "인증 서비스가 아직 초기화되지 않았습니다.",
+    "unsupportedFeature": "지원되지 않는 기능",
+    "biometricOnlyMobile": "생체 인식 로그인은 모바일 기기에서만 가능합니다.",
+    "biometricLoginFailed": "생체 인식 로그인 실패",
+    "biometricLoginError": "생체 인식 정보로 로그인할 수 없습니다.",
+    "invalidCredentials": "이메일 주소 또는 보안 키가 잘못되었습니다. 정보를 확인하거나 계정이 없는 경우 새로 생성하세요.",
+    "accountDisabled": "이 계정은 비활성화되었습니다. 고객 지원에 문의하세요.",
+    "tooManyRequests": "실패한 시도가 너무 많습니다. 나중에 다시 시도하거나 보안 키를 재설정하세요.",
+    "networkError": "네트워크 연결에 실패했습니다. 연결 상태를 확인하고 다시 시도하세요.",
+    "toast": {
+      "successTitle": "세션 승인됨",
+      "successDescription": "뉴럴 링크가 활성화되었습니다.",
+      "errorTitle": "승인 실패",
+      "genericError": "세션 승인 중 예기치 않은 오류가 발생했습니다.",
+      "operationNotAllowed": "이 인증 방법은 현재 비활성화되어 있습니다."
+    }
+  },
+  "signup": {
+    "title": "오디세이 참여",
+    "description": "Aetheria 계정 생성",
+    "firstNameLabel": "이름",
+    "lastNameLabel": "성",
+    "firstNamePlaceholder": "길동",
+    "lastNamePlaceholder": "홍",
+    "emailLabel": "네트워크 주소",
+    "emailPlaceholder": "name@domain.com",
+    "passwordLabel": "보안 키",
+    "passwordPlaceholder": "••••••••",
+    "createButton": "프로필 초기화",
+    "creatingButton": "동기화 중...",
+    "haveAccount": "이미 네트워크의 일원이신가요?",
+    "signInLink": "로그인",
+    "networkJoin": "네트워크 가입",
+    "welcomeKit": {
+      "title": "웰컴 키트 전송됨!",
+      "description": "Aetheria AI의 맞춤형 환영 메시지를 위해 편지함을 확인하세요."
+    },
+    "toast": {
+      "successTitle": "프로필 초기화됨",
+      "successDescription": "Aetheria 네트워크에 오신 것을 환영합니다.",
+      "errorTitle": "초기화 실패",
+      "genericError": "계정을 생성할 수 없습니다. 다시 시도해 주세요."
+    },
+    "errors": {
+      "emailInUse": "이 이메일 주소는 이미 등록되어 있습니다. 대신 로그인해 주세요.",
+      "invalidEmail": "이메일 주소가 잘못되었습니다. 확인 후 다시 시도하세요.",
+      "operationNotAllowed": "이메일/비밀번호 가입은 현재 비활성화되어 있습니다.",
+      "weakPassword": "보안 키가 너무 약합니다. 더 강력한 키를 사용하세요.",
+      "networkError": "네트워크 연결에 실패했습니다. 연결 상태를 확인하고 다시 시도하세요."
+    }
+  }
+}

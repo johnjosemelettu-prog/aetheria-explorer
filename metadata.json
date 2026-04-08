@@ -1,0 +1,5 @@
+{
+  "name": "Aetheria Explorer",
+  "description": "Advanced AI-powered travel orchestration ecosystem for modern exploration.",
+  "requestFramePermissions": ["camera"]
+}

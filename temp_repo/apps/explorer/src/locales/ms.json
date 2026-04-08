@@ -1,0 +1,251 @@
+{
+  "landingPage": {
+    "header": {
+      "brand": "AETHERIA",
+      "ai": "AI",
+      "journeySynthesized": "Perjalanan Disintesis",
+      "links": {
+        "home": "Laman Utama",
+        "features": "Ciri-ciri",
+        "workflow": "Aliran Kerja",
+        "cta": "Bermula"
+      },
+      "logo": "Logo Aetheria"
+    },
+    "footer": {
+      "tagline": "Mensintesis perjalanan anda melalui eter digital.",
+      "copyright": "© 2026 Aetheria AI. Hak cipta terpelihara.",
+      "links": {
+        "privacy": "Dasar Privasi",
+        "terms": "Syarat Perkhidmatan",
+        "contact": "Hubungi Kami"
+      },
+      "sections": {
+        "company": "Syarikat",
+        "connect": "Sambung"
+      }
+    },
+    "body": {
+      "hero": {
+        "title": "Perjalanan Anda, Disintesis",
+        "subtitle": "Manfaatkan kuasa AI untuk meneroka landskap digital seperti tidak pernah berlaku sebelum ini.",
+        "cta": "Mulakan Perjalanan Anda"
+      },
+      "features": {
+        "title": "Ciri-ciri Hebat",
+        "description": "Temui apa yang menjadikan Aetheria unik.",
+        "items": [
+          {
+            "title": "Wawasan Berasaskan AI",
+            "description": "Dapatkan wawasan mendalam tentang data anda dengan model AI canggih kami."
+          },
+          {
+            "title": "Aliran Kerja Lancar",
+            "description": "Integrasikan Aetheria ke dalam aliran kerja sedia ada anda dengan mudah."
+          },
+          {
+            "title": "Kolaborasi Masa Nyata",
+            "description": "Bekerja dengan pasukan anda dalam masa nyata pada sebarang projek."
+          }
+        ]
+      },
+      "workflow": {
+        "title": "Bagaimana Ia Berfungsi",
+        "description": "Proses 3 langkah mudah untuk bermula.",
+        "steps": [
+          {
+            "title": "Sambungkan Data Anda",
+            "description": "Sambungkan sumber data anda ke Aetheria dengan selamat."
+          },
+          {
+            "title": "Analisis dan Sintesis",
+            "description": "Biarkan AI kami menganalisis dan mensintesis data anda menjadi wawasan yang boleh ditindaklanjuti."
+          },
+          {
+            "title": "Teroka dan Temui",
+            "description": "Teroka data yang disintesis dan temui peluang baharu."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Bersedia untuk Memulakan Perjalanan Anda?",
+        "subtitle": "Sertai beribu-ribu pengguna yang sudah menggunakan Aetheria untuk mengubah kerja mereka.",
+        "button": "Mula Secara Percuma"
+      }
+    }
+  },
+  "header": {
+    "categories": {
+      "orchestration": "Orkestrasi",
+      "intelligence": "Kepintaran",
+      "studios": "Studio",
+      "utility": "Utiliti"
+    },
+    "dashboard": "Papan Pemuka",
+    "aiItinerary": "Itinerari AI",
+    "pathfinder": "Pathfinder",
+    "vibeMarketplace": "Pasaran Vibe",
+    "vibeShopping": "Membeli-belah Vibe",
+    "bookingHub": "Hab Tempahan",
+    "wallet": "Dompet",
+    "budgetSynthesis": "Sintesis Bajet",
+    "visionHub": "Hab Visi",
+    "intelligenceCenter": "Pusat Kepintaran",
+    "arWayfinding": "Navigasi AR",
+    "localLegends": "Legenda Tempatan",
+    "culturalPulse": "Nadi Budaya",
+    "audioGuide": "Panduan Audio",
+    "tripOdyssey": "Perjalanan Odissei",
+    "postcardStudio": "Studio Poskad",
+    "heritageMirror": "Cermin Warisan",
+    "journal": "Jurnal",
+    "sos": "SOS",
+    "insurance": "Insurans",
+    "visaArchitect": "Arkitek Visa",
+    "flightStatus": "Status Penerbangan",
+    "esim": "eSIM",
+    "carbonSynthesis": "Sintesis Karbon",
+    "packingassistant": "Pembantu Pembungkusan"
+  },
+  "sidebar": {
+    "brand": {
+      "name": "AETHERIA",
+      "tagline": "Perjalanan Disintesis"
+    },
+    "sessionVerified": "Sesi Disahkan",
+    "neuralLinkActive": "Pautan Neural Aktif"
+  },
+  "userNav": {
+    "explorerHub": "Hab Penjelajah",
+    "manageBookings": "Urus Tempahan",
+    "upgradeSubscription": "Naik Taraf Langganan",
+    "adminConsole": "Konsol Admin",
+    "partnerHub": "Hab Rakan Kongsi",
+    "identityNode": "Nod Identiti",
+    "terminateSession": "Tamatkan Sesi",
+    "toast": {
+      "logoutSuccessTitle": "Sesi Ditamatkan",
+      "logoutSuccessDescription": "Pautan neural anda telah diputuskan dengan selamat.",
+      "logoutErrorTitle": "Penamatan Gagal",
+      "logoutErrorDescription": "Terdapat ralat semasa memutuskan sesi anda."
+    }
+  },
+  "dashboard": {
+    "welcomeBack": "Selamat Kembali, {{name}}",
+    "odysseyLevel": "Tahap Odissei {{level}}",
+    "explorerHubActive": "Hab Penjelajah Aktif",
+    "viewLegacyWrapped": "Lihat Sorotan Lepas",
+    "productionTrailer": "Trailer Produksi",
+    "seasonPass": "Pas Musiman",
+    "xpSynthesized": "XP Disintesis",
+    "progressionToLevel": "Kemajuan ke Tahap {{level}}",
+    "vibeStreak": "Rantaian Vibe",
+    "tasksResolved": "Tugasan Diselesaikan",
+    "totalMedals": "Jumlah Pingat",
+    "premiumRequired": "Pas Premium Diperlukan",
+    "explorerStatus": "Status Penjelajah: {{tier}}",
+    "points": "Mata",
+    "medals": "Pingat",
+    "editProfile": "Edit Profil",
+    "match": "PADAN",
+    "toast": {
+      "missionInviteTitle": "Cadangan Odissei Dihantar",
+      "missionInviteDescription": "Menunggu kebenaran daripada {{name}} untuk Odissei Kumpulan."
+    },
+    "xpProgress": "{{current}} / {{total}} XP",
+    "odysseyCount": "{{count}} Odissei",
+    "questCount": "{{count}} Tugasan",
+    "awardCount": "{{count}} Anugerah",
+    "vibeRadar": {
+      "title": "Radar Vibe",
+      "desc": "Mengesan padanan {{vibe}} di sektor semasa anda: {{location}}"
+    },
+    "expandNeuralNetwork": "Luaskan Rangkaian Neural",
+    "shortDesc": {
+      "itinerary": "Pelan perjalanan disintesis AI",
+      "pathfinder": "Pengoptimuman laluan neural",
+      "marketplace": "Pengalaman dikurasi Vibe",
+      "store": "Pemerolehan aset digital",
+      "booking": "Hab tempahan kuantum",
+      "wallet": "Penyimpanan kredit disulitkan",
+      "budget": "Enjin sintesis kewangan",
+      "vision": "Pengecaman objek AR",
+      "guide": "Pangkalan pengetahuan global",
+      "ar": "Lapisan navigasi ruang",
+      "legends": "Pengambilan data sejarah",
+      "pulse": "Aliran budaya masa nyata",
+      "audio": "Landskap bunyi imersif",
+      "odyssey": "Teaser perjalanan sinematik",
+      "postcard": "Nod visual buatan AI",
+      "mirror": "Refleksi data warisan",
+      "journal": "Log odissei peribadi"
+    }
+  },
+  "login": {
+    "title": "Log Masuk Aetheria",
+    "emailLabel": "Alamat Rangkaian",
+    "emailPlaceholder": "nama@domain.com",
+    "passwordLabel": "Kunci Keselamatan",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "Sahkan Sesi",
+    "signingInButton": "Mengesahkan...",
+    "noAccount": "Baru di Aetheria?",
+    "signUpLink": "Cipta Nod Identiti",
+    "accessOdysseyGrid": "Akses Grid Odissei anda",
+    "authChannels": "Saluran Pengesahan",
+    "google": "Google",
+    "apple": "Apple",
+    "biometricLogin": "Log Masuk Biometrik",
+    "systemNodeOffline": "Nod Sistem Luar Talian",
+    "authServiceInitializing": "Perkhidmatan pengesahan belum dimulakan.",
+    "unsupportedFeature": "Ciri Tidak Disokong",
+    "biometricOnlyMobile": "Log masuk biometrik hanya tersedia pada peranti mudah alih.",
+    "biometricLoginFailed": "Log Masuk Biometrik Gagal",
+    "biometricLoginError": "Tidak dapat log masuk dengan kelayakan biometrik.",
+    "invalidCredentials": "Alamat e-mel atau kunci keselamatan tidak sah. Sila semak kelayakan anda atau cipta akaun baharu jika anda belum mempunyainya.",
+    "accountDisabled": "Akaun ini telah dilumpuhkan. Sila hubungi sokongan.",
+    "tooManyRequests": "Terlalu banyak percubaan gagal. Sila cuba sebentar lagi atau tetapkan semula kunci keselamatan anda.",
+    "networkError": "Sambungan rangkaian gagal. Sila semak sambungan anda dan cuba lagi.",
+    "toast": {
+      "successTitle": "Sesi Disahkan",
+      "successDescription": "Pautan neural anda kini aktif.",
+      "errorTitle": "Pengesahan Gagal",
+      "genericError": "Ralat tidak dijangka berlaku semasa pengesahan sesi.",
+      "operationNotAllowed": "Kaedah pengesahan ini dilumpuhkan buat masa ini."
+    }
+  },
+  "signup": {
+    "title": "Sertai Odissei",
+    "description": "Cipta akaun Aetheria anda",
+    "firstNameLabel": "Nama Pertama",
+    "lastNameLabel": "Nama Keluarga",
+    "firstNamePlaceholder": "ali",
+    "lastNamePlaceholder": "abu",
+    "emailLabel": "Alamat Rangkaian",
+    "emailPlaceholder": "nama@domain.com",
+    "passwordLabel": "Kunci Keselamatan",
+    "passwordPlaceholder": "••••••••",
+    "createButton": "Mulakan Profil",
+    "creatingButton": "Menyegerak...",
+    "haveAccount": "Sudah menjadi sebahagian daripada rangkaian?",
+    "signInLink": "Log Masuk",
+    "networkJoin": "Penyertaan Rangkaian",
+    "welcomeKit": {
+      "title": "Kit Selamat Datang Dihantar!",
+      "description": "Semak peti masuk anda untuk sambutan peribadi daripada Aetheria AI."
+    },
+    "toast": {
+      "successTitle": "Profil Dimulakan",
+      "successDescription": "Selamat datang ke Rangkaian Aetheria.",
+      "errorTitle": "Permulaan Gagal",
+      "genericError": "Tidak dapat mencipta akaun. Sila cuba lagi."
+    },
+    "errors": {
+      "emailInUse": "Alamat e-mel ini sudah didaftarkan. Sila log masuk sebaliknya.",
+      "invalidEmail": "Alamat e-mel tidak sah. Sila semak dan cuba lagi.",
+      "operationNotAllowed": "Pendaftaran E-mel/Kata Laluan dilumpuhkan buat masa ini.",
+      "weakPassword": "Kunci keselamatan terlalu lemah. Sila gunakan yang lebih kuat.",
+      "networkError": "Sambungan rangkaian gagal. Sila semak sambungan anda dan cuba lagi."
+    }
+  }
+}
