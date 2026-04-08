@@ -1,0 +1,16 @@
+{
+  "hero": {
+    "title": "Explore the World with Intelligent Synthesis",
+    "subtitle": "Aetheria eliminates the cognitive load of travel logistics. From AI itineraries to global eSIM synthesis, we amplify the depth of your human exploration.",
+    "cta": "Start Your Journey"
+  },
+  "dashboard": {
+    "welcome": "Welcome back, Explorer",
+    "subtitle": "Your next adventure is just a synthesis away.",
+    "newItinerary": "New Itinerary"
+  },
+  "profile": {
+    "title": "Profile Settings",
+    "subtitle": "Manage your Aetheria identity and preferences."
+  }
+}

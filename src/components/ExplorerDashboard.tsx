@@ -16,7 +16,13 @@ import {
   Activity,
   Clock,
   ArrowUpRight,
-  ArrowDownLeft
+  ArrowDownLeft,
+  PieChart,
+  BookOpen,
+  Map,
+  Compass,
+  ScanFace,
+  Book
 } from 'lucide-react';
 import { db, auth } from '../lib/firebase';
 import { collection, query, where, onSnapshot, orderBy, limit } from 'firebase/firestore';
@@ -133,13 +139,19 @@ export default function ExplorerDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12">
         {[
           { label: 'AI Itinerary', icon: Zap, color: 'bg-primary/10 text-primary', path: '/ai-itinerary' },
           { label: 'Digital Tailor', icon: Activity, color: 'bg-secondary/10 text-secondary', path: '/digital-tailor' },
           { label: 'Vibe Market', icon: TrendingUp, color: 'bg-accent/10 text-accent', path: '/vibe-market' },
           { label: 'Wallet', icon: CreditCard, color: 'bg-green-500/10 text-green-400', path: '/wallet' },
           { label: 'eSIM', icon: Wifi, color: 'bg-blue-500/10 text-blue-400', path: '/esim' },
+          { label: 'Journal', icon: BookOpen, color: 'bg-yellow-500/10 text-yellow-400', path: '/journal' },
+          { label: 'Budget', icon: PieChart, color: 'bg-purple-500/10 text-purple-400', path: '/budget-synthesis' },
+          { label: 'Pathfinder', icon: Map, color: 'bg-indigo-500/10 text-indigo-400', path: '/pathfinder' },
+          { label: 'Guide', icon: Compass, color: 'bg-teal-500/10 text-teal-400', path: '/guide' },
+          { label: 'AR Wayfinding', icon: ScanFace, color: 'bg-rose-500/10 text-rose-400', path: '/ar-wayfinding' },
+          { label: 'Local Legends', icon: Book, color: 'bg-orange-500/10 text-orange-400', path: '/local-legends' },
           { label: 'Profile', icon: User, color: 'bg-white/5 text-foreground/40', path: '/profile' },
         ].map((action) => (
           <button
@@ -148,12 +160,12 @@ export default function ExplorerDashboard() {
               window.history.pushState({}, '', action.path);
               window.dispatchEvent(new PopStateEvent('popstate'));
             }}
-            className="glass p-4 rounded-2xl flex items-center gap-3 glass-hover text-left"
+            className="glass p-4 rounded-2xl flex flex-col items-center justify-center gap-3 glass-hover text-center"
           >
             <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center", action.color)}>
               <action.icon className="w-5 h-5" />
             </div>
-            <span className="text-sm font-bold">{action.label}</span>
+            <span className="text-xs font-bold">{action.label}</span>
           </button>
         ))}
       </div>

@@ -11,12 +11,13 @@ import {
   CheckCircle2,
   MapPin,
   Globe,
-  Settings
+  Settings,
+  Edit2
 } from 'lucide-react';
 import { auth, db } from '../lib/firebase';
 import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { updateProfile } from 'firebase/auth';
-import { UserProfile } from '../types';
+import { UserProfile, TravelPreferences } from '../types';
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState<UserProfile | null>(null);
@@ -24,9 +25,17 @@ export default function ProfilePage() {
   const [bio, setBio] = useState('');
   const [location, setLocation] = useState('');
   const [vibe, setVibe] = useState('');
+  const [preferences, setPreferences] = useState<TravelPreferences>({
+    currency: 'USD',
+    language: 'en',
+    timezone: 'UTC',
+    units: 'metric'
+  });
+  
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [isEditingPreferences, setIsEditingPreferences] = useState(false);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -40,14 +49,17 @@ export default function ProfilePage() {
         setBio(data.bio || '');
         setLocation(data.location || '');
         setVibe(data.vibe || '');
+        if (data.preferences) {
+          setPreferences(data.preferences);
+        }
       }
       setLoading(false);
     };
     fetchProfile();
   }, []);
 
-  const handleSave = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSave = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     if (!auth.currentUser) return;
     setSaving(true);
     setSuccess(false);
@@ -63,10 +75,12 @@ export default function ProfilePage() {
         bio,
         location,
         vibe,
+        preferences,
         updatedAt: serverTimestamp()
       });
 
       setSuccess(true);
+      setIsEditingPreferences(false);
       setTimeout(() => setSuccess(false), 3000);
     } catch (error) {
       console.error('Error updating profile:', error);
@@ -214,7 +228,7 @@ export default function ProfilePage() {
                 ) : (
                   <>
                     <Save className="w-5 h-5" />
-                    Save Changes
+                    Save Profile
                   </>
                 )}
               </button>
@@ -223,22 +237,94 @@ export default function ProfilePage() {
 
           {/* Preferences Section */}
           <div className="mt-8 glass p-8 rounded-[32px]">
-            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-              <Globe className="w-5 h-5 text-primary" />
-              Travel Preferences
-            </h3>
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-bold flex items-center gap-2">
+                <Globe className="w-5 h-5 text-primary" />
+                Travel Preferences
+              </h3>
+              <button 
+                onClick={() => isEditingPreferences ? handleSave() : setIsEditingPreferences(true)}
+                className="text-sm font-bold text-primary flex items-center gap-2"
+              >
+                {isEditingPreferences ? (
+                  saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />
+                ) : (
+                  <Edit2 className="w-4 h-4" />
+                )}
+                {isEditingPreferences ? 'Save Preferences' : 'Edit'}
+              </button>
+            </div>
+            
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: 'Currency', value: 'USD ($)' },
-                { label: 'Language', value: 'English (US)' },
-                { label: 'Timezone', value: 'UTC+9 (Tokyo)' },
-                { label: 'Units', value: 'Metric (km, kg)' }
-              ].map((pref) => (
-                <div key={pref.label} className="p-4 rounded-2xl bg-white/5 border border-white/5">
-                  <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-1">{pref.label}</p>
-                  <p className="text-sm font-bold">{pref.value}</p>
-                </div>
-              ))}
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
+                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">Currency</p>
+                {isEditingPreferences ? (
+                  <select 
+                    value={preferences.currency}
+                    onChange={(e) => setPreferences({...preferences, currency: e.target.value})}
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary/50"
+                  >
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="JPY">JPY (¥)</option>
+                  </select>
+                ) : (
+                  <p className="text-sm font-bold">{preferences.currency}</p>
+                )}
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
+                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">Language</p>
+                {isEditingPreferences ? (
+                  <select 
+                    value={preferences.language}
+                    onChange={(e) => setPreferences({...preferences, language: e.target.value})}
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary/50"
+                  >
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="ja">日本語 (Japanese)</option>
+                  </select>
+                ) : (
+                  <p className="text-sm font-bold">{preferences.language === 'en' ? 'English' : preferences.language}</p>
+                )}
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
+                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">Timezone</p>
+                {isEditingPreferences ? (
+                  <select 
+                    value={preferences.timezone}
+                    onChange={(e) => setPreferences({...preferences, timezone: e.target.value})}
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary/50"
+                  >
+                    <option value="UTC">UTC</option>
+                    <option value="EST">EST (UTC-5)</option>
+                    <option value="PST">PST (UTC-8)</option>
+                    <option value="JST">JST (UTC+9)</option>
+                  </select>
+                ) : (
+                  <p className="text-sm font-bold">{preferences.timezone}</p>
+                )}
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
+                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">Units</p>
+                {isEditingPreferences ? (
+                  <select 
+                    value={preferences.units}
+                    onChange={(e) => setPreferences({...preferences, units: e.target.value as 'metric' | 'imperial'})}
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary/50"
+                  >
+                    <option value="metric">Metric (km, kg)</option>
+                    <option value="imperial">Imperial (mi, lbs)</option>
+                  </select>
+                ) : (
+                  <p className="text-sm font-bold capitalize">{preferences.units}</p>
+                )}
+              </div>
             </div>
           </div>
         </div>

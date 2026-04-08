@@ -15,6 +15,19 @@ import VibeMarket from './components/VibeMarket';
 import AdminConsole from './components/AdminConsole';
 import PartnerHub from './components/PartnerHub';
 import RuthAssistant from './components/RuthAssistant';
+import Journal from './components/Journal';
+import BudgetSynthesis from './components/BudgetSynthesis';
+import Store from './components/Store';
+import Marketplace from './components/Marketplace';
+import Pathfinder from './components/Pathfinder';
+import Guide from './components/Guide';
+import ARWayfinding from './components/ARWayfinding';
+import LocalLegends from './components/LocalLegends';
+import AudioGuide from './components/AudioGuide';
+import HeritageMirror from './components/HeritageMirror';
+import MoodSynthesis from './components/MoodSynthesis';
+import VideoTeaser from './components/VideoTeaser';
+import PostcardStudio from './components/PostcardStudio';
 import { UserProfile } from './types';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -92,6 +105,32 @@ export default function App() {
         return <DigitalTailor />;
       case '/vibe-market':
         return <VibeMarket />;
+      case '/journal':
+        return <Journal />;
+      case '/budget-synthesis':
+        return <BudgetSynthesis />;
+      case '/store':
+        return <Store />;
+      case '/marketplace':
+        return <Marketplace />;
+      case '/pathfinder':
+        return <Pathfinder />;
+      case '/guide':
+        return <Guide />;
+      case '/ar-wayfinding':
+        return <ARWayfinding />;
+      case '/local-legends':
+        return <LocalLegends />;
+      case '/audio-guide':
+        return <AudioGuide />;
+      case '/heritage-mirror':
+        return <HeritageMirror />;
+      case '/mood-synthesis':
+        return <MoodSynthesis />;
+      case '/video-teaser':
+        return <VideoTeaser />;
+      case '/postcard-studio':
+        return <PostcardStudio />;
       default:
         return <ExplorerDashboard />;
     }
@@ -159,4 +198,3 @@ export default function App() {
     </div>
   );
 }
-

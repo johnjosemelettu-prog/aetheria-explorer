@@ -8,8 +8,16 @@ export interface UserProfile {
   role: 'explorer' | 'admin' | 'partner';
   vibe?: string;
   bodyMeasurements?: BodyMeasurements;
+  preferences?: TravelPreferences;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface TravelPreferences {
+  currency: string;
+  language: string;
+  timezone: string;
+  units: 'metric' | 'imperial';
 }
 
 export interface Itinerary {
