@@ -18,8 +18,10 @@ import { auth, db } from '../lib/firebase';
 import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { updateProfile } from 'firebase/auth';
 import { UserProfile, TravelPreferences } from '../types';
+import { useTranslation } from 'react-i18next';
 
 export default function ProfilePage() {
+  const { i18n } = useTranslation();
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [displayName, setDisplayName] = useState('');
   const [bio, setBio] = useState('');
@@ -51,12 +53,16 @@ export default function ProfilePage() {
         setVibe(data.vibe || '');
         if (data.preferences) {
           setPreferences(data.preferences);
+          // Apply language preference on load
+          if (data.preferences.language) {
+            i18n.changeLanguage(data.preferences.language);
+          }
         }
       }
       setLoading(false);
     };
     fetchProfile();
-  }, []);
+  }, [i18n]);
 
   const handleSave = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -75,9 +81,14 @@ export default function ProfilePage() {
         bio,
         location,
         vibe,
-        preferences,
+        preferences, // This saves the preferences object
         updatedAt: serverTimestamp()
       });
+
+      // Apply language change immediately if it was updated
+      if (preferences.language && i18n.language !== preferences.language) {
+        await i18n.changeLanguage(preferences.language);
+      }
 
       setSuccess(true);
       setIsEditingPreferences(false);
@@ -207,7 +218,7 @@ export default function ProfilePage() {
 
             <div className="pt-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                {success && (
+                {success && !isEditingPreferences && (
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -220,10 +231,10 @@ export default function ProfilePage() {
               </div>
               <button
                 type="submit"
-                disabled={saving}
+                disabled={saving || isEditingPreferences}
                 className="px-8 py-3 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 disabled:opacity-50"
               >
-                {saving ? (
+                {saving && !isEditingPreferences ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
                   <>
@@ -243,15 +254,22 @@ export default function ProfilePage() {
                 Travel Preferences
               </h3>
               <button 
-                onClick={() => isEditingPreferences ? handleSave() : setIsEditingPreferences(true)}
+                onClick={() => {
+                  if (isEditingPreferences) {
+                    handleSave();
+                  } else {
+                    setIsEditingPreferences(true);
+                  }
+                }}
+                disabled={saving && !isEditingPreferences}
                 className="text-sm font-bold text-primary flex items-center gap-2"
               >
                 {isEditingPreferences ? (
                   saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />
                 ) : (
-                  <Edit2 className="w-4 h-4" />
+                  <><Edit2 className="w-4 h-4" /> Edit</>
                 )}
-                {isEditingPreferences ? 'Save Preferences' : 'Edit'}
+                {isEditingPreferences ? 'Save Preferences' : ''}
               </button>
             </div>
             
@@ -288,7 +306,12 @@ export default function ProfilePage() {
                     <option value="ja">日本語 (Japanese)</option>
                   </select>
                 ) : (
-                  <p className="text-sm font-bold">{preferences.language === 'en' ? 'English' : preferences.language}</p>
+                  <p className="text-sm font-bold">{
+                    preferences.language === 'en' ? 'English' : 
+                    preferences.language === 'es' ? 'Español' :
+                    preferences.language === 'fr' ? 'Français' :
+                    preferences.language === 'ja' ? '日本語 (Japanese)' : preferences.language
+                  }</p>
                 )}
               </div>
 
@@ -326,6 +349,16 @@ export default function ProfilePage() {
                 )}
               </div>
             </div>
+            {success && isEditingPreferences === false && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 flex items-center justify-end gap-2 text-green-400 text-sm font-bold"
+              >
+                <CheckCircle2 className="w-4 h-4" />
+                Preferences saved
+              </motion.div>
+            )}
           </div>
         </div>
       </div>
