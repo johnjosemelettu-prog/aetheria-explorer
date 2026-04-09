@@ -1,200 +1,104 @@
+'use client';
 
-'use client'
-
-import { useState, useEffect } from 'react'
-import {
-  generatePersonalizedItinerary,
-} from '@/ai/flows/generate-personalized-itinerary-flow'
-import type { GeneratePersonalizedItineraryOutput } from '@/ai/flows/itinerary-schemas'
-import {
-  refineExistingItinerary,
-} from '@/ai/flows/refine-existing-itinerary-flow'
-import { useToast } from '@/hooks/use-toast'
-import ItineraryForm from '@/components/itinerary/ItineraryForm'
-import type { ItineraryFormValues } from '@/components/itinerary/ItineraryForm'
-import { useTranslation, availableLanguages } from '@/lib/i18n'
-import ItineraryDisplay from '@/components/itinerary/ItineraryDisplay'
-import { useFirebase, setDocumentNonBlocking, useDoc, useMemoFirebase } from '@/firebase'
-import { collection, doc, serverTimestamp } from 'firebase/firestore'
-import { Skeleton } from '@/components/ui/skeleton'
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
+import { ItineraryDisplay } from '@/components/itinerary/ItineraryDisplay';
+import { generatePersonalizedItinerary } from '@/lib/ai-bridge';
+import { Loader2, Compass, Plus, X, Wand2 } from 'lucide-react';
 
 export default function ItineraryGeneratorPage() {
-  const [itineraryId, setItineraryId] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false)
-  const [isRefining, setIsRefining] = useState(false)
-  const [hasMounted, setHasMounted] = useState(false)
-  const { toast } = useToast()
-  const { t, language } = useTranslation()
-  const { user, firestore } = useFirebase();
+    const [destination, setDestination] = useState('');
+    const [duration, setDuration] = useState(7);
+    const [interests, setInterests] = useState<string[]>([]);
+    const [currentInterest, setCurrentInterest] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [itinerary, setItinerary] = useState<any | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    setHasMounted(true)
-  }, [])
+    const handleAddInterest = () => {
+        if (currentInterest && !interests.includes(currentInterest)) {
+            setInterests([...interests, currentInterest]);
+            setCurrentInterest('');
+        }
+    };
 
-  const currentLang = availableLanguages.find(l => l.code === language)?.englishName || 'English';
+    const handleRemoveInterest = (interestToRemove: string) => {
+        setInterests(interests.filter(interest => interest !== interestToRemove));
+    };
 
-  const itineraryRef = useMemoFirebase(
-    () => (itineraryId && user && firestore ? doc(firestore, 'userProfiles', user.uid, 'itineraries', itineraryId) : null),
-    [itineraryId, firestore, user]
-  );
-  const { data: itineraryDoc, isLoading: isItineraryLoading } = useDoc(itineraryRef);
+    const handleGenerateItinerary = async () => {
+        if (!destination) {
+            setError('Please enter a destination.');
+            return;
+        }
+        setIsLoading(true);
+        setError(null);
+        setItinerary(null);
+        try {
+            const generatedItinerary = await generatePersonalizedItinerary(destination, duration, interests);
+            setItinerary(generatedItinerary);
+        } catch (err) {
+            setError('Failed to generate itinerary. Please try again.');
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
-  const itineraryOutput: GeneratePersonalizedItineraryOutput | null = itineraryDoc ? {
-      itinerarySummary: itineraryDoc.itinerarySummary || itineraryDoc.description,
-      dailyPlans: itineraryDoc.dailyPlans || [],
-  } : null;
-
-  const handleGenerate = async (data: ItineraryFormValues) => {
-    if (!user || !firestore) {
-      toast({
-        title: t('itineraryGenerator.authError'),
-        description: t('itineraryGenerator.authErrorDesc'),
-        variant: 'destructive',
-      });
-      return;
-    }
-
-    setIsLoading(true)
-    setItineraryId(null)
-
-    try {
-      const startDate = data.dates?.from?.toISOString().split('T')[0] ?? '';
-      const endDate = data.dates?.to?.toISOString().split('T')[0] ?? '';
-      const result = await generatePersonalizedItinerary({
-        destination: data.destination,
-        startDate: startDate,
-        endDate: endDate,
-        interests: data.interests,
-        budget: data.budget,
-        travelStyle: [data.travelStyle],
-        vibe: data.vibe,
-        language: currentLang,
-      })
-
-      const newItineraryDoc = {
-        itinerarySummary: result.itinerarySummary,
-        dailyPlans: result.dailyPlans,
-        destination: data.destination,
-        startDate: startDate,
-        endDate: endDate,
-        interests: data.interests,
-        budget: data.budget,
-        travelStyle: [data.travelStyle],
-        vibe: data.vibe || '',
-        userId: user.uid,
-        ownerId: user.uid,
-        members: [user.uid],
-        name: `${data.destination} ${t('itineraryGenerator.odysseySuffix')}`,
-        status: 'draft',
-        isGeneratedByAI: true,
-        subscriptionTier: 'free',
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
-      };
-
-      const itinerariesRef = collection(firestore, 'userProfiles', user.uid, 'itineraries');
-      const newItineraryRef = doc(itinerariesRef);
-      setDocumentNonBlocking(newItineraryRef, newItineraryDoc, { merge: true });
-      
-      setItineraryId(newItineraryRef.id);
-
-      toast({
-        title: t('itineraryGenerator.toast.generateSuccessTitle'),
-        description: t('itineraryGenerator.toast.generateSuccessDescription', { destination: data.destination }),
-      });
-
-    } catch (error) {
-      console.error('Error generating itinerary:', error)
-      toast({
-        title: t('itineraryGenerator.toast.generateErrorTitle'),
-        description: t('itineraryGenerator.toast.generateErrorDescription'),
-        variant: 'destructive',
-      })
-    }
-    setIsLoading(false)
-  }
-
-  const handleRefine = async (refinementRequest: string) => {
-    if (!itineraryDoc || !itineraryId || !user || !firestore) return
-
-    setIsRefining(true)
-    try {
-      const result = await refineExistingItinerary({
-        currentItinerary: JSON.stringify(itineraryDoc),
-        refinementRequest,
-        language: currentLang,
-      })
-      
-      const refinedData = result.refinedItinerary
-      
-      const itineraryRef = doc(firestore, 'userProfiles', user.uid, 'itineraries', itineraryId);
-      setDocumentNonBlocking(itineraryRef, {
-        itinerarySummary: refinedData.itinerarySummary,
-        dailyPlans: refinedData.dailyPlans,
-        updatedAt: serverTimestamp(),
-      }, { merge: true });
-
-      toast({
-        title: t('itineraryGenerator.toast.refineSuccessTitle'),
-        description: result.explanation,
-      })
-    } catch (error) {
-      console.error('Error refining itinerary:', error)
-      toast({
-        title: t('itineraryGenerator.toast.refineErrorTitle'),
-        description: t('itineraryGenerator.toast.refineErrorDescription'),
-        variant: 'destructive',
-      })
-    }
-    setIsRefining(false)
-  }
-
-  if (!hasMounted) {
     return (
-      <div className="container mx-auto px-4 py-12">
-        <div className="mx-auto max-w-4xl text-center">
-          <Skeleton className="h-12 w-3/4 mx-auto mb-4" />
-          <Skeleton className="h-6 w-1/2 mx-auto mb-12" />
+        <div className="container mx-auto p-4">
+            <Card className="max-w-4xl mx-auto">
+                <CardHeader>
+                    <CardTitle className="flex items-center"><Compass className="mr-2"/> AI Itinerary Generator</CardTitle>
+                    <CardDescription>Craft your perfect travel plan with the power of AI.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    {!itinerary ? (
+                        <div className="space-y-6">
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <Label htmlFor="destination">Destination</Label>
+                                    <Input id="destination" value={destination} onChange={(e) => setDestination(e.target.value)} placeholder="e.g., Paris, France" />
+                                </div>
+                                <div>
+                                    <Label htmlFor="duration">Duration (in days)</Label>
+                                    <Input id="duration" type="number" value={duration} onChange={(e) => setDuration(parseInt(e.target.value, 10))} min="1" max="30" />
+                                </div>
+                            </div>
+                            <div>
+                                <Label htmlFor="interests">Interests</Label>
+                                <div className="flex items-center space-x-2">
+                                    <Input id="interests" value={currentInterest} onChange={(e) => setCurrentInterest(e.target.value)} placeholder="e.g., Art, History, Food" onKeyPress={(e) => e.key === 'Enter' && handleAddInterest()}/>
+                                    <Button onClick={handleAddInterest}><Plus className="h-4 w-4 mr-2"/>Add</Button>
+                                </div>
+                                <div className="flex flex-wrap gap-2 mt-2">
+                                    {interests.map(interest => (
+                                        <Badge key={interest}>
+                                            {interest}
+                                            <button onClick={() => handleRemoveInterest(interest)} className="ml-1 rounded-full hover:bg-muted-foreground/20 p-0.5">
+                                                <X className="h-3 w-3" />
+                                            </button>
+                                        </Badge>
+                                    ))}
+                                </div>
+                            </div>
+                            <Button onClick={handleGenerateItinerary} disabled={isLoading} className="w-full">
+                                {isLoading ? <Loader2 className="animate-spin mr-2"/> : <Wand2 className="mr-2"/>}
+                                Generate Itinerary
+                            </Button>
+                            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+                        </div>
+                    ) : (
+                        <div>
+                           <ItineraryDisplay itinerary={itinerary} />
+                           <Button onClick={() => setItinerary(null)} className="w-full mt-4">Create a New Itinerary</Button>
+                        </div>
+                    )}
+                </CardContent>
+            </Card>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8">
-          <div className="lg:col-span-1">
-            <Skeleton className="h-[600px] w-full rounded-3xl" />
-          </div>
-          <div className="lg:col-span-2">
-            <Skeleton className="h-[600px] w-full rounded-3xl" />
-          </div>
-        </div>
-      </div>
     );
-  }
-
-  return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="mx-auto max-w-4xl text-center">
-        <h1 className="font-headline text-4xl font-black tracking-tight md:text-6xl text-slate-900 leading-none uppercase italic">
-          {t('itineraryGenerator.title')}
-        </h1>
-        <p className="mt-4 text-xl text-slate-500 font-medium">
-          {t('itineraryGenerator.subtitle')}
-        </p>
-      </div>
-
-      <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8">
-        <div className="lg:col-span-1">
-          <ItineraryForm onSubmit={handleGenerate} isLoading={isLoading} />
-        </div>
-        <div className="lg:col-span-2">
-          <ItineraryDisplay
-            itinerary={itineraryOutput}
-            itineraryId={itineraryId}
-            members={itineraryDoc?.members || []}
-            isLoading={isLoading || (itineraryId ? isItineraryLoading : false)}
-            isRefining={isRefining}
-            onRefine={handleRefine}
-            tripVibe={itineraryDoc?.vibe}
-          />
-        </div>
-      </div>
-    </div>
-  )
 }
