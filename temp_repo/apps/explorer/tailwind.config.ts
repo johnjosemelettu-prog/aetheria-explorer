@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Space Grotesk', 'sans-serif'],
+        body: ['"Onest"', 'sans-serif'],
+        headline: ['"DM Serif Display"', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -45,9 +45,9 @@ const config: Config = {
         ring: 'hsl(var(--ring))',
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 1rem)',
-        sm: 'calc(var(--radius) - 1.5rem)',
+        lg: 'calc(var(--radius) + 4px)',
+        md: 'var(--radius)',
+        sm: 'calc(var(--radius) - 4px)',
       },
     },
   },

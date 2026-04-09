@@ -2,40 +2,40 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Compass, Map, Wand2 } from "lucide-react";
+import { ArrowRight, Eye, Compass, Camera } from "lucide-react";
 
 const features = [
   {
-    title: "AI Itinerary Generator 🗺️",
-    description: "Your next adventure, personalized by AI. Just for you.",
-    link: "/itinerary-generator",
+    title: "VR Previews 🕶️",
+    description: "Vibe check destinations before you even book.",
+    link: "/vr-previews",
+    icon: Eye
+  },
+  {
+    title: "Explorer Quests 🕵️‍♀️",
+    description: "Solve AI riddles and uncover hidden gems. It's a vibe.",
+    link: "/explorer-quests",
     icon: Compass
   },
   {
-    title: "AR Wayfinding ✨",
-    description: "Navigate like a local with sick AR directions.",
-    link: "/ar-wayfinding",
-    icon: Map
-  },
-  {
-    title: "Postcard Studio 🎨",
-    description: "Turn your pics into AI masterpieces. It's fire.",
-    link: "/postcard-studio",
-    icon: Wand2
+    title: "Vision AI Hub 📸",
+    description: "Instantly ID landmarks and translate signs with your cam.",
+    link: "/vision-ai-hub",
+    icon: Camera
   }
 ];
 
-export default function DashboardPage() {
+export default function ExplorePage() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-background via-secondary to-background">
       <main className="flex-1 p-4 md:p-8">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
             <h1 className="text-5xl md:text-7xl font-headline font-bold tracking-tighter leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-              What adventure are we starting today?
+              Explore More Features
             </h1>
             <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-              Your AI travel buddy for unforgettable journeys. Let's make some memories.
+              Discover even more ways to enhance your travels with our AI-powered tools.
             </p>
           </div>
 

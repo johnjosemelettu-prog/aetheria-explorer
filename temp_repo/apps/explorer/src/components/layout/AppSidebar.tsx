@@ -4,10 +4,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { 
-  Bot, 
-  Smartphone, 
-  ShoppingBasket, 
+import {
+  LayoutDashboard,
+  Bot,
+  Compass, 
   ShoppingBag, 
   Wallet, 
   BarChart3, 
@@ -21,17 +21,13 @@ import {
   Wand2, 
   BookOpen, 
   Siren, 
-  ShieldAlert, 
   ShieldCheck, 
   Plane, 
   Signal, 
   Leaf, 
   Backpack, 
-  Activity, 
-  Zap, 
-  Dna,
-  LayoutDashboard,
-  Tag
+  Home,
+  FlaskConical
 } from 'lucide-react';
 import {
   Sidebar,
@@ -44,7 +40,6 @@ import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarGroupContent,
-  SidebarRail,
 } from '@/components/ui/sidebar';
 import { BrandLogo } from './BrandLogo';
 import { useTranslation } from '@/lib/i18n';
@@ -59,54 +54,62 @@ export function AppSidebar() {
 
   const menuGroups = [
     {
-      label: t('header.categories.orchestration'),
+      label: 'Plan ✨',
       items: [
-        { label: t('header.dashboard'), href: '/dashboard', icon: LayoutDashboard },
-        { label: t('header.aiItinerary'), href: '/itinerary-generator', icon: Bot },
-        { label: t('header.pathfinder'), href: '/pathfinder', icon: Smartphone },
-        { label: t('header.vibeMarketplace'), href: '/marketplace', icon: ShoppingBasket },
-        { label: t('header.vibeShopping'), href: '/store', icon: Tag },
-        { label: t('header.bookingHub'), href: '/booking', icon: ShoppingBag },
-        { label: t('header.wallet'), href: '/wallet', icon: Wallet },
-        { label: t('header.budgetSynthesis'), href: '/budget-synthesis', icon: BarChart3 },
+        { label: 'AI Itinerary 🤖', href: '/itinerary-generator', icon: Bot },
+        { label: 'Budgeting 📊', href: '/budget-synthesis', icon: BarChart3 },
+        { label: 'Packing Helper 🎒', href: '/packing-assistant', icon: Backpack },
+        { label: 'Flight Tracker ✈️', href: '/flight-status', icon: Plane },
+        { label: 'Travel Insurance 🛡️', href: '/insurance', icon: ShieldCheck },
       ]
     },
     {
-      label: t('header.categories.intelligence'),
+      label: 'Explore 🗺️',
       items: [
-        { label: t('header.visionHub'), href: '/scanner', icon: Camera },
-        { label: t('header.intelligenceCenter'), href: '/guide', icon: Globe },
-        { label: t('header.arWayfinding'), href: '/ar-wayfinding', icon: MapPin },
-        { label: t('header.localLegends'), href: '/local-legends', icon: History },
-        { label: t('header.culturalPulse'), href: '/cultural-pulse', icon: Radio },
-        { label: t('header.audioGuide'), href: '/audio-guide', icon: Wifi },
+        { label: 'Explorer Quests 🕵️‍♀️', href: '/explorer-quests', icon: Compass },
+        { label: 'AR Guide ✨', href: '/guide', icon: Globe },
+        { label: 'AR Navigation 📍', href: '/ar-wayfinding', icon: MapPin },
+        { label: 'Local Stories 📚', href: '/local-legends', icon: History },
+        { label: 'Cultural Vibes 📻', href: '/cultural-pulse', icon: Radio },
+        { label: 'Audio Tours 🎧', href: '/audio-guide', icon: Wifi },
+		{ label: 'AR Time-Travel', href: '/ar-time-travel', icon: History },
+		{ label: 'AR Culinary Explorer', href: '/ar-culinary-explorer', icon: Camera },
+		{ label: 'AR Ghost Tour', href: '/ar-ghost-tour', icon: Radio },
       ]
     },
     {
-      label: t('header.categories.studios'),
+      label: 'Creative 🎨',
       items: [
-        { label: t('header.tripOdyssey'), href: '/video-teaser', icon: Clapperboard },
-        { label: t('header.postcardStudio'), href: '/postcard-studio', icon: Wand2 },
-        { label: t('header.heritageMirror'), href: '/heritage-mirror', icon: History },
-        { label: t('header.journal'), href: '/journal', icon: BookOpen },
+        { label: 'Vision AI 📸', href: '/scanner', icon: Camera },
+        { label: 'Trip Videos 🎬', href: '/video-teaser', icon: Clapperboard },
+        { label: 'AI Postcards 🎨', href: '/postcard-studio', icon: Wand2 },
+        { label: 'Travel Journal 📓', href: '/journal', icon: BookOpen },
+		{ label: 'Generative Souvenirs', href: '/generative-souvenir-studio', icon: Wand2 },
       ]
     },
     {
-      label: t('header.categories.utility'),
+      label: 'Utility 🛠️',
       items: [
-        { label: t('header.sos'), href: '/sos', icon: Siren },
-        { label: t('header.insurance'), href: '/insurance', icon: ShieldAlert },
-        { label: t('header.visaArchitect'), href: '/visa-architect', icon: ShieldCheck },
-        { label: t('header.flightStatus'), href: '/flight-status', icon: Plane },
-        { label: t('header.esim'), href: '/esim', icon: Signal },
-        { label: t('header.carbonSynthesis'), href: '/carbon-synthesis', icon: Leaf },
-        { label: t('header.packingassistant'), href: '/packing-assistant', icon: Backpack },
+        { label: 'Marketplace 🛍️', href: '/marketplace', icon: ShoppingBag },
+        { label: 'My Wallet 💰', href: '/wallet', icon: Wallet },
+        { label: 'eSIM Plans 📶', href: '/esim', icon: Signal },
+        { label: 'Eco Footprint 🌱', href: '/carbon-synthesis', icon: Leaf },
+        { label: 'SOS Button 🆘', href: '/sos', icon: Siren },
       ]
-    }
+    },
+	{
+		label: 'Lab 🧪',
+		items: [
+			{ label: 'VR Adventure Trials', href: '/vr-adventure-trials', icon: FlaskConical },
+			{ label: 'VR Social Meetups', href: '/vr-social-meetups', icon: FlaskConical },
+			{ label: 'AI Trip Companion', href: '/ai-trip-companion', icon: FlaskConical },
+			{ label: 'AI Spontaneity Engine', href: '/ai-spontaneity-engine', icon: FlaskConical },
+		]
+	}
   ];
 
   return (
-    <Sidebar collapsible="icon" className="border-r border-slate-100 bg-white/80 backdrop-blur-xl">
+    <Sidebar collapsible="icon" className="border-r border-border/20 bg-background/80 backdrop-blur-xl shadow-inner">
       <SidebarHeader className="p-6">
         <Link href="/dashboard" className="flex items-center gap-3 group">
           <BrandLogo size="sm" />
@@ -120,6 +123,16 @@ export function AppSidebar() {
       </SidebarHeader>
       
       <SidebarContent className="px-4">
+        <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild isActive={pathname === '/dashboard'} tooltip='Home'>
+                <Link href='/dashboard'>
+                  <Home className={cn("h-5 w-5", pathname === '/dashboard' ? "text-primary" : "text-muted-foreground")} />
+                  <span>Home</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+        </SidebarMenu>
         {menuGroups.map((group, idx) => (
           <SidebarGroup key={idx} className="mb-6">
             <SidebarGroupLabel className="group-data-[collapsible=icon]:hidden px-2 mb-2">{group.label}</SidebarGroupLabel>
@@ -129,7 +142,7 @@ export function AppSidebar() {
                   <SidebarMenuItem key={item.href}>
                     <SidebarMenuButton asChild isActive={pathname === item.href} tooltip={item.label}>
                       <Link href={item.href}>
-                        <item.icon className={cn("h-5 w-5", pathname === item.href ? "text-primary" : "text-slate-400")} />
+                        <item.icon className={cn("h-5 w-5", pathname === item.href ? "text-primary" : "text-muted-foreground")} />
                         <span>{item.label}</span>
                       </Link>
                     </SidebarMenuButton>
@@ -141,18 +154,17 @@ export function AppSidebar() {
         ))}
       </SidebarContent>
 
-      <SidebarFooter className="p-4 group-data-[collapsible=icon]:p-2 border-t border-slate-50">
+      <SidebarFooter className="p-4 group-data-[collapsible=icon]:p-2 border-t border-border/20">
         <div className="flex items-center gap-3 group-data-[collapsible=icon]:justify-center">
           <UserNav />
           <div className="flex flex-col items-start leading-none group-data-[collapsible=icon]:hidden">
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-900">{t('sidebar.sessionVerified')}</p>
-            <p className="text-[8px] font-bold text-emerald-500 uppercase tracking-widest mt-0.5 flex items-center gap-1">
-              <ShieldCheck className="h-2 w-2" /> {t('sidebar.neuralLinkActive')}
+            <p className="text-xs font-bold uppercase text-foreground">{t('sidebar.sessionVerified')}</p>
+            <p className="text-[9px] font-bold text-green-500 uppercase tracking-widest mt-0.5 flex items-center gap-1">
+              <ShieldCheck className="h-2.5 w-2.5" /> {t('sidebar.neuralLinkActive')}
             </p>
           </div>
         </div>
       </SidebarFooter>
-      <SidebarRail />
     </Sidebar>
   );
 }
