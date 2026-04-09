@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, Plus, Save, Calendar, Image as ImageIcon, MapPin } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { useTranslation } from 'react-i18next';
 
 interface JournalEntry {
   id: string;
@@ -12,6 +13,7 @@ interface JournalEntry {
 }
 
 export default function Journal() {
+  const { t } = useTranslation();
   const [entries, setEntries] = useState<JournalEntry[]>([
     {
       id: '1',
@@ -56,8 +58,8 @@ export default function Journal() {
               <BookOpen className="text-primary w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-4xl font-display font-bold">Travel Journal</h1>
-              <p className="text-foreground/50">Chronicle your adventures across Aetheria.</p>
+              <h1 className="text-4xl font-display font-bold">{t('journal.title')}</h1>
+              <p className="text-foreground/50">{t('journal.subtitle')}</p>
             </div>
           </div>
           <button 
@@ -65,7 +67,7 @@ export default function Journal() {
             className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all"
           >
             <Plus className="w-5 h-5" />
-            New Entry
+            {t('journal.newEntry')}
           </button>
         </div>
 
@@ -79,13 +81,13 @@ export default function Journal() {
                   exit={{ opacity: 0, height: 0, y: -20 }}
                   className="glass p-8 rounded-3xl mb-8 overflow-hidden"
                 >
-                  <h2 className="text-2xl font-bold mb-6">New Synthesis</h2>
+                  <h2 className="text-2xl font-bold mb-6">{t('journal.newSynthesis')}</h2>
                   <div className="space-y-4">
                     <input
                       type="text"
                       value={newTitle}
                       onChange={(e) => setNewTitle(e.target.value)}
-                      placeholder="Entry Title..."
+                      placeholder={t('journal.entryTitle')}
                       className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 px-4 font-display font-bold text-lg focus:outline-none focus:border-primary/50 transition-colors"
                     />
                     <div className="relative">
@@ -94,14 +96,14 @@ export default function Journal() {
                         type="text"
                         value={newLocation}
                         onChange={(e) => setNewLocation(e.target.value)}
-                        placeholder="Location..."
+                        placeholder={t('journal.location')}
                         className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
                       />
                     </div>
                     <textarea
                       value={newContent}
                       onChange={(e) => setNewContent(e.target.value)}
-                      placeholder="Write your story..."
+                      placeholder={t('journal.writeStory')}
                       className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 min-h-[200px] text-sm focus:outline-none focus:border-primary/50 transition-colors resize-none"
                     />
                     <div className="flex justify-end gap-4">
@@ -109,7 +111,7 @@ export default function Journal() {
                         onClick={() => setIsWriting(false)}
                         className="px-6 py-3 rounded-2xl font-bold text-foreground/70 hover:bg-white/5 transition-colors"
                       >
-                        Cancel
+                        {t('journal.cancel')}
                       </button>
                       <button
                         onClick={handleSave}
@@ -117,7 +119,7 @@ export default function Journal() {
                         className="px-6 py-3 bg-primary text-white rounded-2xl font-bold flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
                       >
                         <Save className="w-4 h-4" />
-                        Save Entry
+                        {t('journal.saveEntry')}
                       </button>
                     </div>
                   </div>
@@ -154,7 +156,7 @@ export default function Journal() {
               {entries.length === 0 && !isWriting && (
                 <div className="glass p-12 rounded-3xl text-center border-dashed border-2 border-white/5">
                   <BookOpen className="w-12 h-12 text-foreground/10 mx-auto mb-4" />
-                  <p className="text-sm text-foreground/40">No entries yet. Start writing your travel story!</p>
+                  <p className="text-sm text-foreground/40">{t('journal.noEntries')}</p>
                 </div>
               )}
             </div>
@@ -162,7 +164,7 @@ export default function Journal() {
 
           <div className="space-y-6 hidden lg:block">
             <div className="glass p-6 rounded-3xl">
-              <h3 className="font-bold mb-4">Memories</h3>
+              <h3 className="font-bold mb-4">{t('journal.memories')}</h3>
               <div className="grid grid-cols-2 gap-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="aspect-square bg-white/5 rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">

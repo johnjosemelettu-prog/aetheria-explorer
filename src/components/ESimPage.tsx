@@ -21,8 +21,10 @@ import { db, auth } from '../lib/firebase';
 import { collection, query, where, onSnapshot, addDoc, serverTimestamp, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { ESimProfile } from '../types';
 import { cn } from '../lib/utils';
+import { useTranslation } from 'react-i18next';
 
 export default function ESimPage() {
+  const { t } = useTranslation();
   const [esims, setEsims] = useState<ESimProfile[]>([]);
   const [isSynthesizing, setIsSynthesizing] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -106,8 +108,8 @@ export default function ESimPage() {
             <Globe className="text-secondary w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-4xl font-display font-bold mb-1">Global eSIM Hub</h1>
-            <p className="text-foreground/50">Synthesize instant connectivity for your global travels.</p>
+            <h1 className="text-4xl font-display font-bold mb-1">{t('esim.title')}</h1>
+            <p className="text-foreground/50">{t('esim.subtitle')}</p>
           </div>
         </div>
         <button 
@@ -115,7 +117,7 @@ export default function ESimPage() {
           className="flex items-center justify-center gap-2 px-8 py-4 bg-secondary text-white rounded-2xl font-bold shadow-xl shadow-secondary/20 hover:scale-[1.02] transition-all"
         >
           <Zap className="w-5 h-5" />
-          Synthesize New eSIM
+          {t('esim.synthesizeNew')}
         </button>
       </div>
 
@@ -128,7 +130,7 @@ export default function ESimPage() {
             </div>
             
             <div className="relative z-10">
-              <h2 className="text-2xl font-display font-bold mb-8">Active Profiles</h2>
+              <h2 className="text-2xl font-display font-bold mb-8">{t('esim.activeProfiles')}</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {esims.length > 0 ? (
@@ -151,7 +153,7 @@ export default function ESimPage() {
 
                         <div className="space-y-4 mb-6">
                           <div className="flex justify-between text-xs font-bold uppercase tracking-widest opacity-40">
-                            <span>Data Usage</span>
+                            <span>{t('esim.dataUsage')}</span>
                             <span>{((esim.dataUsed / esim.dataLimit) * 100).toFixed(1)}%</span>
                           </div>
                           <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
@@ -164,17 +166,17 @@ export default function ESimPage() {
                           <div className="flex justify-between text-[10px] text-foreground/40 uppercase tracking-widest font-bold">
                             <span className="flex items-center gap-1">
                               <Activity className="w-3 h-3" />
-                              {esim.dataUsed.toFixed(1)} GB Used
+                              {esim.dataUsed.toFixed(1)} GB {t('esim.used')}
                             </span>
                             <span className="flex items-center gap-1">
                               <BarChart3 className="w-3 h-3" />
-                              {esim.dataLimit} GB Total
+                              {esim.dataLimit} GB {t('esim.total')}
                             </span>
                           </div>
                         </div>
 
                         <button className="w-full py-3 glass glass-hover rounded-xl text-xs font-bold flex items-center justify-center gap-2">
-                          Manage Profile
+                          {t('esim.manageProfile')}
                           <ArrowRight className="w-3 h-3" />
                         </button>
                       </div>
@@ -183,15 +185,15 @@ export default function ESimPage() {
                 ) : (
                   <div className="md:col-span-2 py-20 text-center glass rounded-[40px] border-dashed border-2 border-white/5">
                     <Globe className="w-16 h-16 text-foreground/10 mx-auto mb-6" />
-                    <h3 className="text-xl font-display font-bold mb-2">No Active Profiles</h3>
+                    <h3 className="text-xl font-display font-bold mb-2">{t('esim.noActiveProfiles')}</h3>
                     <p className="text-foreground/50 mb-8 max-w-xs mx-auto">
-                      Synthesize a new eSIM profile to stay connected across borders.
+                      {t('esim.synthesizeDesc')}
                     </p>
                     <button 
                       onClick={() => setIsModalOpen(true)}
                       className="px-8 py-4 bg-secondary text-white rounded-2xl font-bold shadow-xl shadow-secondary/20 hover:scale-[1.05] transition-all"
                     >
-                      Synthesize Now
+                      {t('esim.synthesizeNew')}
                     </button>
                   </div>
                 )}
@@ -203,18 +205,18 @@ export default function ESimPage() {
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="glass p-8 rounded-3xl">
               <Zap className="w-8 h-8 text-secondary mb-4" />
-              <h3 className="text-lg font-bold mb-2">Instant Synthesis</h3>
-              <p className="text-sm text-foreground/50 leading-relaxed">Profiles are synthesized and activated in under 60 seconds.</p>
+              <h3 className="text-lg font-bold mb-2">{t('esim.instantSynthesis')}</h3>
+              <p className="text-sm text-foreground/50 leading-relaxed">{t('esim.instantDesc')}</p>
             </div>
             <div className="glass p-8 rounded-3xl">
               <ShieldCheck className="w-8 h-8 text-green-400 mb-4" />
-              <h3 className="text-lg font-bold mb-2">Secure Roaming</h3>
-              <p className="text-sm text-foreground/50 leading-relaxed">End-to-end encrypted global data orchestration.</p>
+              <h3 className="text-lg font-bold mb-2">{t('esim.secureRoaming')}</h3>
+              <p className="text-sm text-foreground/50 leading-relaxed">{t('esim.secureDesc')}</p>
             </div>
             <div className="glass p-8 rounded-3xl">
               <Activity className="w-8 h-8 text-accent mb-4" />
-              <h3 className="text-lg font-bold mb-2">Real-time Yield</h3>
-              <p className="text-sm text-foreground/50 leading-relaxed">Monitor data consumption with millisecond precision.</p>
+              <h3 className="text-lg font-bold mb-2">{t('esim.realtimeYield')}</h3>
+              <p className="text-sm text-foreground/50 leading-relaxed">{t('esim.realtimeDesc')}</p>
             </div>
           </section>
         </div>
@@ -222,12 +224,12 @@ export default function ESimPage() {
         {/* Sidebar - Quick Synthesis */}
         <div className="space-y-8">
           <section className="glass p-8 rounded-[32px]">
-            <h3 className="text-xl font-display font-bold mb-8">Quick Synthesis</h3>
+            <h3 className="text-xl font-display font-bold mb-8">{t('esim.quickSynthesis')}</h3>
             <div className="relative mb-6">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
               <input 
                 type="text" 
-                placeholder="Search country..."
+                placeholder={t('esim.searchCountry')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-secondary/50 transition-colors"
@@ -279,7 +281,7 @@ export default function ESimPage() {
                   <div className="w-12 h-12 bg-secondary/20 rounded-2xl flex items-center justify-center">
                     <Zap className="text-secondary w-6 h-6" />
                   </div>
-                  <h2 className="text-3xl font-display font-bold tracking-tighter">eSIM Synthesis</h2>
+                  <h2 className="text-3xl font-display font-bold tracking-tighter">{t('esim.synthesisTitle')}</h2>
                 </div>
                 <button onClick={() => setIsModalOpen(false)} className="p-3 glass-hover rounded-2xl">
                   <X className="w-6 h-6 text-foreground/50" />
@@ -288,13 +290,13 @@ export default function ESimPage() {
 
               <div className="space-y-8">
                 <div>
-                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-3 block">Destination</label>
+                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-3 block">{t('esim.destination')}</label>
                   <select
                     value={selectedCountry}
                     onChange={(e) => setSelectedCountry(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 rounded-3xl py-5 px-6 text-xl font-display font-bold focus:outline-none focus:border-secondary/50 transition-colors appearance-none"
                   >
-                    <option value="" disabled className="bg-background">Choose a country</option>
+                    <option value="" disabled className="bg-background">{t('esim.chooseCountry')}</option>
                     {countries.map(c => (
                       <option key={c} value={c} className="bg-background">{c}</option>
                     ))}
@@ -305,13 +307,12 @@ export default function ESimPage() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <Wifi className="text-secondary w-5 h-5" />
-                      <span className="text-sm font-bold">10GB Premium Data</span>
+                      <span className="text-sm font-bold">{t('esim.premiumData')}</span>
                     </div>
-                    <span className="text-xl font-display font-bold text-secondary">$15.00</span>
+                    <span className="text-xl font-display font-bold text-secondary">{t('esim.price')}</span>
                   </div>
                   <p className="text-xs text-foreground/60 leading-relaxed">
-                    Instant activation upon synthesis. Valid for 30 days across all local networks. 
-                    Includes 5G orchestration where available.
+                    {t('esim.details')}
                   </p>
                 </div>
 
@@ -325,7 +326,7 @@ export default function ESimPage() {
                   ) : (
                     <>
                       <Zap className="w-6 h-6" />
-                      Confirm Synthesis
+                      {t('esim.confirmSynthesis')}
                     </>
                   )}
                 </button>

@@ -39,8 +39,10 @@ import {
   Tooltip, 
   ResponsiveContainer 
 } from 'recharts';
+import { useTranslation } from 'react-i18next';
 
 export default function WalletPage() {
+  const { t } = useTranslation();
   const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
   const [balance, setBalance] = useState(0);
   const [isTopUpOpen, setIsTopUpOpen] = useState(false);
@@ -112,8 +114,8 @@ export default function WalletPage() {
             <Wallet className="text-accent w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-4xl font-display font-bold mb-1">Smart Wallet</h1>
-            <p className="text-foreground/50">Manage your travel funds and transaction history.</p>
+            <h1 className="text-4xl font-display font-bold mb-1">{t('wallet.title')}</h1>
+            <p className="text-foreground/50">{t('wallet.subtitle')}</p>
           </div>
         </div>
         <button 
@@ -121,7 +123,7 @@ export default function WalletPage() {
           className="flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white rounded-2xl font-bold shadow-xl shadow-accent/20 hover:scale-[1.02] transition-all"
         >
           <Plus className="w-5 h-5" />
-          Top Up Wallet
+          {t('wallet.topUp')}
         </button>
       </div>
 
@@ -139,15 +141,15 @@ export default function WalletPage() {
                   <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
                     <div className="w-4 h-4 bg-accent rounded-sm" />
                   </div>
-                  <span className="text-sm font-bold tracking-widest uppercase opacity-50">Aetheria Card</span>
+                  <span className="text-sm font-bold tracking-widest uppercase opacity-50">{t('wallet.aetheriaCard')}</span>
                 </div>
                 <div className="px-4 py-1.5 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest border border-green-500/30">
-                  Active Synthesis
+                  {t('wallet.activeSynthesis')}
                 </div>
               </div>
               
               <div className="mb-12">
-                <span className="text-sm text-foreground/50 block mb-2 font-bold uppercase tracking-widest">Available Balance</span>
+                <span className="text-sm text-foreground/50 block mb-2 font-bold uppercase tracking-widest">{t('wallet.availableBalance')}</span>
                 <div className="flex items-baseline gap-3">
                   <span className="text-6xl font-display font-bold tracking-tighter">
                     ${balance.toLocaleString(undefined, { minimumFractionDigits: 2 })}
@@ -158,20 +160,20 @@ export default function WalletPage() {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="p-4 glass rounded-2xl">
-                  <span className="text-[10px] text-foreground/40 uppercase font-bold block mb-1">Monthly Yield</span>
+                  <span className="text-[10px] text-foreground/40 uppercase font-bold block mb-1">{t('wallet.monthlyYield')}</span>
                   <div className="text-lg font-bold text-green-400">+4.2%</div>
                 </div>
                 <div className="p-4 glass rounded-2xl">
-                  <span className="text-[10px] text-foreground/40 uppercase font-bold block mb-1">Transactions</span>
+                  <span className="text-[10px] text-foreground/40 uppercase font-bold block mb-1">{t('wallet.transactions')}</span>
                   <div className="text-lg font-bold">{transactions.length}</div>
                 </div>
                 <div className="p-4 glass rounded-2xl">
-                  <span className="text-[10px] text-foreground/40 uppercase font-bold block mb-1">Status</span>
-                  <div className="text-lg font-bold text-accent">Verified</div>
+                  <span className="text-[10px] text-foreground/40 uppercase font-bold block mb-1">{t('wallet.status')}</span>
+                  <div className="text-lg font-bold text-accent">{t('wallet.verified')}</div>
                 </div>
                 <div className="p-4 glass rounded-2xl">
-                  <span className="text-[10px] text-foreground/40 uppercase font-bold block mb-1">Tier</span>
-                  <div className="text-lg font-bold">Explorer</div>
+                  <span className="text-[10px] text-foreground/40 uppercase font-bold block mb-1">{t('wallet.tier')}</span>
+                  <div className="text-lg font-bold">{t('wallet.explorer')}</div>
                 </div>
               </div>
             </div>
@@ -180,10 +182,10 @@ export default function WalletPage() {
           {/* Spending Chart */}
           <section className="glass p-8 rounded-[32px]">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-xl font-display font-bold">Spending Synthesis</h3>
+              <h3 className="text-xl font-display font-bold">{t('wallet.spendingSynthesis')}</h3>
               <div className="flex gap-2">
                 <span className="px-3 py-1 rounded-full bg-white/5 text-foreground/50 text-[10px] font-bold uppercase tracking-widest">
-                  Last 7 Days
+                  {t('wallet.last7Days')}
                 </span>
               </div>
             </div>
@@ -238,7 +240,7 @@ export default function WalletPage() {
         <div className="space-y-8">
           <section className="glass p-8 rounded-[32px] h-full flex flex-col">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-xl font-display font-bold">History</h3>
+              <h3 className="text-xl font-display font-bold">{t('wallet.history')}</h3>
               <History className="w-5 h-5 text-foreground/20" />
             </div>
             
@@ -265,14 +267,14 @@ export default function WalletPage() {
                       {tx.type === 'credit' ? '+' : '-'}${tx.amount.toFixed(2)}
                     </div>
                     <div className="text-[10px] text-foreground/20 font-bold">
-                      {tx.timestamp ? new Date(tx.timestamp.seconds * 1000).toLocaleDateString() : 'Pending'}
+                      {tx.timestamp ? new Date(tx.timestamp.seconds * 1000).toLocaleDateString() : t('wallet.pending')}
                     </div>
                   </div>
                 </div>
               ))}
               {transactions.length === 0 && (
                 <div className="py-20 text-center opacity-20 italic text-sm">
-                  No transactions synthesized yet.
+                  {t('wallet.noTransactions')}
                 </div>
               )}
             </div>
@@ -302,7 +304,7 @@ export default function WalletPage() {
                   <div className="w-12 h-12 bg-accent/20 rounded-2xl flex items-center justify-center">
                     <Plus className="text-accent w-6 h-6" />
                   </div>
-                  <h2 className="text-3xl font-display font-bold tracking-tighter">Top Up</h2>
+                  <h2 className="text-3xl font-display font-bold tracking-tighter">{t('wallet.topUpTitle')}</h2>
                 </div>
                 <button onClick={() => setIsTopUpOpen(false)} className="p-3 glass-hover rounded-2xl">
                   <X className="w-6 h-6 text-foreground/50" />
@@ -311,7 +313,7 @@ export default function WalletPage() {
 
               <div className="space-y-8">
                 <div>
-                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-3 block">Amount (USD)</label>
+                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-3 block">{t('wallet.amount')} (USD)</label>
                   <div className="relative">
                     <DollarSign className="absolute left-6 top-1/2 -translate-y-1/2 w-8 h-8 text-accent" />
                     <input
@@ -346,7 +348,7 @@ export default function WalletPage() {
                   ) : (
                     <>
                       <CheckCircle2 className="w-6 h-6" />
-                      Confirm Synthesis
+                      {t('wallet.confirmSynthesis')}
                     </>
                   )}
                 </button>

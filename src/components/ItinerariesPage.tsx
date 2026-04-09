@@ -16,8 +16,10 @@ import { db, auth } from '../lib/firebase';
 import { collection, query, where, onSnapshot, orderBy } from 'firebase/firestore';
 import { Itinerary } from '../types';
 import ItineraryGenerator from './ItineraryGenerator';
+import { useTranslation } from 'react-i18next';
 
 export default function ItinerariesPage() {
+  const { t } = useTranslation();
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
   const [loading, setLoading] = useState(true);
   const [isGeneratorOpen, setIsGeneratorOpen] = useState(false);
@@ -57,8 +59,8 @@ export default function ItinerariesPage() {
             <Map className="text-primary w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-4xl font-display font-bold mb-1">Itinerary Synthesis</h1>
-            <p className="text-foreground/50">Manage and explore your AI-generated travel plans.</p>
+            <h1 className="text-4xl font-display font-bold mb-1">{t('dashboard.activeItineraries')}</h1>
+            <p className="text-foreground/50">{t('dashboard.subtitle')}</p>
           </div>
         </div>
         <button 
@@ -66,7 +68,7 @@ export default function ItinerariesPage() {
           className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all"
         >
           <Plus className="w-5 h-5" />
-          Synthesize New
+          {t('dashboard.newItinerary')}
         </button>
       </div>
 
@@ -159,7 +161,7 @@ export default function ItinerariesPage() {
                       </div>
                     </div>
                     <button className="px-6 py-3 glass glass-hover rounded-2xl font-bold text-sm flex items-center gap-2">
-                      View Details
+                      {t('dashboard.viewAll')}
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -170,15 +172,12 @@ export default function ItinerariesPage() {
                 <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Search className="w-10 h-10 text-foreground/20" />
                 </div>
-                <h3 className="text-xl font-display font-bold mb-2">No Itineraries Found</h3>
-                <p className="text-foreground/50 mb-8 max-w-sm mx-auto">
-                  Your travel synthesis library is empty. Start by creating a new AI-powered itinerary.
-                </p>
+                <h3 className="text-xl font-display font-bold mb-2">{t('dashboard.noItineraries')}</h3>
                 <button 
                   onClick={() => setIsGeneratorOpen(true)}
                   className="px-8 py-4 bg-primary text-white rounded-2xl font-bold shadow-xl shadow-primary/20 hover:scale-[1.05] transition-all"
                 >
-                  Synthesize Now
+                  {t('dashboard.newItinerary')}
                 </button>
               </div>
             )}

@@ -24,9 +24,14 @@ import AuthModal from './AuthModal';
 import { usePremiumStatus } from '../hooks/usePremiumStatus';
 import CartIcon from './CartIcon';
 import Cart from './Cart';
+import { useTranslation } from 'react-i18next';
 
-export default function Navbar() {
-  const [user, setUser] = useState<User | null>(null);
+interface NavbarProps {
+  user: User | null;
+}
+
+export default function Navbar({ user }: NavbarProps) {
+  const { t } = useTranslation();
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -34,38 +39,19 @@ export default function Navbar() {
   const isPremium = usePremiumStatus();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser);
-      if (currentUser) {
-        const docRef = doc(db, 'users', currentUser.uid);
+    const fetchProfile = async () => {
+      if (user) {
+        const docRef = doc(db, 'users', user.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           setProfile(docSnap.data() as UserProfile);
-        } else {
-          const newProfile: UserProfile = {
-            uid: currentUser.uid,
-            email: currentUser.email || '',
-            displayName: currentUser.displayName || 'Explorer',
-            photoURL: currentUser.photoURL || undefined,
-            bio: '',
-            location: '',
-            role: 'explorer',
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString(),
-          };
-          await setDoc(docRef, {
-            ...newProfile,
-            createdAt: serverTimestamp(),
-            updatedAt: serverTimestamp(),
-          });
-          setProfile(newProfile);
         }
       } else {
         setProfile(null);
       }
-    });
-    return () => unsubscribe();
-  }, []);
+    };
+    fetchProfile();
+  }, [user]);
 
   const handleLogin = () => {
     setIsAuthModalOpen(true);
@@ -84,11 +70,11 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { name: 'Explore', icon: Compass, path: '/' },
-    { name: 'AI Itinerary', icon: Sparkles, path: '/ai-itinerary' },
-    { name: 'Digital Tailor', icon: StoreIcon, path: '/digital-tailor' },
-    { name: 'Vibe Market', icon: Wallet, path: '/vibe-market' },
-    { name: 'Global eSIM', icon: Globe, path: '/esim' },
+    { name: t('navbar.explore'), icon: Compass, path: '/' },
+    { name: t('navbar.aiItinerary'), icon: Sparkles, path: '/ai-itinerary' },
+    { name: t('navbar.digitalTailor'), icon: StoreIcon, path: '/digital-tailor' },
+    { name: t('navbar.vibeMarket'), icon: Wallet, path: '/vibe-market' },
+    { name: t('navbar.globalEsim'), icon: Globe, path: '/esim' },
     { name: 'Store', icon: StoreIcon, path: '/store' },
   ];
 

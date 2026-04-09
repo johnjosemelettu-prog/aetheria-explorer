@@ -22,7 +22,7 @@ import { useTranslation } from 'react-i18next';
 import { FlavorDNA } from './FlavorDNA';
 
 export default function ProfilePage() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [displayName, setDisplayName] = useState('');
   const [bio, setBio] = useState('');
@@ -116,8 +116,8 @@ export default function ProfilePage() {
           <Settings className="text-primary w-8 h-8" />
         </div>
         <div>
-          <h1 className="text-4xl font-display font-bold">Profile Settings</h1>
-          <p className="text-foreground/50">Manage your Aetheria identity and preferences.</p>
+          <h1 className="text-4xl font-display font-bold">{t('profile.title')}</h1>
+          <p className="text-foreground/50">{t('profile.subtitle')}</p>
         </div>
       </div>
 
@@ -148,11 +148,11 @@ export default function ProfilePage() {
               </div>
               <div className="flex items-center gap-3 text-sm text-foreground/60">
                 <Calendar className="w-4 h-4" />
-                Joined {profile?.createdAt ? new Date(profile.createdAt).toLocaleDateString() : 'Recently'}
+                {t('profile.joined')} {profile?.createdAt ? new Date(profile.createdAt).toLocaleDateString() : 'Recently'}
               </div>
               <div className="flex items-center gap-3 text-sm text-foreground/60">
                 <Shield className="w-4 h-4" />
-                Account Verified
+                {t('profile.accountVerified')}
               </div>
             </div>
           </div>
@@ -163,41 +163,41 @@ export default function ProfilePage() {
           <form onSubmit={handleSave} className="glass p-8 rounded-[32px] space-y-8">
             <div className="space-y-6">
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Display Name</label>
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('profile.displayName')}</label>
                 <div className="relative">
                   <input
                     type="text"
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 pl-11 focus:outline-none focus:border-primary/50 transition-colors"
-                    placeholder="Your name"
+                    placeholder={t('profile.placeholderName')}
                   />
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/20" />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Location</label>
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('profile.location')}</label>
                 <div className="relative">
                   <input
                     type="text"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 pl-11 focus:outline-none focus:border-primary/50 transition-colors"
-                    placeholder="e.g. Tokyo, Japan"
+                    placeholder={t('profile.placeholderLocation')}
                   />
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/20" />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Vibe</label>
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('profile.vibe')}</label>
                 <select
                   value={vibe}
                   onChange={(e) => setVibe(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 focus:outline-none focus:border-primary/50 transition-colors"
                 >
-                  <option value="" disabled>Select your vibe</option>
+                  <option value="" disabled>{t('profile.selectVibe')}</option>
                   <option value="Cyberpunk">Cyberpunk</option>
                   <option value="Minimalist">Minimalist</option>
                   <option value="Adventurous">Adventurous</option>
@@ -207,13 +207,13 @@ export default function ProfilePage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Bio</label>
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('profile.bio')}</label>
                 <textarea
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
                   rows={4}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 focus:outline-none focus:border-primary/50 transition-colors resize-none"
-                  placeholder="Tell us about your travel style..."
+                  placeholder={t('profile.placeholderBio')}
                 />
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function ProfilePage() {
                     className="flex items-center gap-2 text-green-400 text-sm font-bold"
                   >
                     <CheckCircle2 className="w-4 h-4" />
-                    Profile updated successfully
+                    {t('profile.profileUpdated')}
                   </motion.div>
                 )}
               </div>
@@ -241,7 +241,7 @@ export default function ProfilePage() {
                 ) : (
                   <>
                     <Save className="w-5 h-5" />
-                    Save Profile
+                    {t('profile.saveProfile')}
                   </>
                 )}
               </button>
@@ -257,7 +257,7 @@ export default function ProfilePage() {
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-xl font-bold flex items-center gap-2">
                 <Globe className="w-5 h-5 text-primary" />
-                Travel Preferences
+                {t('profile.travelPreferences')}
               </h3>
               <button 
                 onClick={() => {
@@ -273,15 +273,15 @@ export default function ProfilePage() {
                 {isEditingPreferences ? (
                   saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />
                 ) : (
-                  <><Edit2 className="w-4 h-4" /> Edit</>
+                  <><Edit2 className="w-4 h-4" /> {t('profile.edit')}</>
                 )}
-                {isEditingPreferences ? 'Save Preferences' : ''}
+                {isEditingPreferences ? t('profile.savePreferences') : ''}
               </button>
             </div>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
-                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">Currency</p>
+                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">{t('profile.currency')}</p>
                 {isEditingPreferences ? (
                   <select 
                     value={preferences.currency}
@@ -299,7 +299,7 @@ export default function ProfilePage() {
               </div>
 
               <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
-                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">Language</p>
+                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">{t('profile.language')}</p>
                 {isEditingPreferences ? (
                   <select 
                     value={preferences.language}
@@ -337,7 +337,7 @@ export default function ProfilePage() {
               </div>
 
               <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
-                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">Timezone</p>
+                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">{t('profile.timezone')}</p>
                 {isEditingPreferences ? (
                   <select 
                     value={preferences.timezone}
@@ -355,7 +355,7 @@ export default function ProfilePage() {
               </div>
 
               <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
-                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">Units</p>
+                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2">{t('profile.units')}</p>
                 {isEditingPreferences ? (
                   <select 
                     value={preferences.units}
@@ -377,7 +377,7 @@ export default function ProfilePage() {
                 className="mt-4 flex items-center justify-end gap-2 text-green-400 text-sm font-bold"
               >
                 <CheckCircle2 className="w-4 h-4" />
-                Preferences saved
+                {t('profile.preferencesSaved')}
               </motion.div>
             )}
           </div>

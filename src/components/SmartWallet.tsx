@@ -24,8 +24,10 @@ import {
 } from 'firebase/firestore';
 import { WalletTransaction } from '../types';
 import { cn } from '../lib/utils';
+import { useTranslation } from 'react-i18next';
 
 export default function SmartWallet() {
+  const { t } = useTranslation();
   const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
   const [balance, setBalance] = useState(0);
   const [isTopUpOpen, setIsTopUpOpen] = useState(false);
@@ -88,14 +90,14 @@ export default function SmartWallet() {
         
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-xl font-display font-bold">Smart Wallet</h2>
+            <h2 className="text-xl font-display font-bold">{t('wallet.title')}</h2>
             <div className="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest">
-              Verified
+              {t('wallet.verified')}
             </div>
           </div>
           
           <div className="mb-8">
-            <span className="text-sm text-foreground/50 block mb-1">Available Balance</span>
+            <span className="text-sm text-foreground/50 block mb-1">{t('wallet.availableBalance')}</span>
             <div className="flex items-baseline gap-2">
               <span className="text-4xl font-display font-bold tracking-tighter">
                 ${balance.toLocaleString(undefined, { minimumFractionDigits: 2 })}
@@ -110,11 +112,11 @@ export default function SmartWallet() {
               className="flex-1 py-3 bg-white text-background rounded-xl font-bold hover:bg-white/90 transition-all flex items-center justify-center gap-2"
             >
               <Plus className="w-4 h-4" />
-              Top Up
+              {t('wallet.topUpTitle')}
             </button>
             <button className="flex-1 py-3 glass glass-hover rounded-xl font-bold flex items-center justify-center gap-2">
               <History className="w-4 h-4" />
-              History
+              {t('wallet.history')}
             </button>
           </div>
         </div>
@@ -122,7 +124,7 @@ export default function SmartWallet() {
 
       {/* Recent Transactions */}
       <section className="glass p-6 rounded-3xl">
-        <h3 className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-4">Recent Activity</h3>
+        <h3 className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-4">{t('dashboard.recentActivity')}</h3>
         <div className="space-y-4">
           {transactions.slice(0, 3).map((tx) => (
             <div key={tx.id} className="flex items-center justify-between p-3 rounded-2xl glass-hover">
@@ -147,7 +149,7 @@ export default function SmartWallet() {
             </div>
           ))}
           {transactions.length === 0 && (
-            <p className="text-center py-4 text-sm text-foreground/30 italic">No recent transactions</p>
+            <p className="text-center py-4 text-sm text-foreground/30 italic">{t('wallet.noTransactions')}</p>
           )}
         </div>
       </section>
@@ -170,7 +172,7 @@ export default function SmartWallet() {
               className="relative w-full max-w-md glass rounded-3xl p-8 border border-white/10"
             >
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-display font-bold">Top Up Wallet</h2>
+                <h2 className="text-2xl font-display font-bold">{t('wallet.topUpTitle')}</h2>
                 <button onClick={() => setIsTopUpOpen(false)} className="p-2 glass-hover rounded-xl">
                   <X className="w-6 h-6 text-foreground/50" />
                 </button>
@@ -178,7 +180,7 @@ export default function SmartWallet() {
 
               <div className="space-y-6">
                 <div>
-                  <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">Amount (USD)</label>
+                  <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">{t('wallet.amount')} (USD)</label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl font-bold text-foreground/30">$</span>
                     <input
@@ -208,7 +210,7 @@ export default function SmartWallet() {
                   disabled={!topUpAmount || isProcessing}
                   className="w-full py-4 bg-primary text-white rounded-2xl font-bold shadow-xl shadow-primary/20 flex items-center justify-center gap-2"
                 >
-                  {isProcessing ? "Processing..." : "Confirm Top Up"}
+                  {isProcessing ? "Processing..." : t('wallet.confirmSynthesis')}
                 </button>
               </div>
             </motion.div>

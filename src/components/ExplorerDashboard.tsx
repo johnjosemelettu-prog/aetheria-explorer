@@ -45,8 +45,10 @@ import SynthesisStatus from './SynthesisStatus';
 import CulturalPulse from './CulturalPulse';
 import { usePremiumStatus } from '../hooks/usePremiumStatus';
 import SubscriptionManager from './SubscriptionManager';
+import { useTranslation } from 'react-i18next';
 
 export default function ExplorerDashboard() {
+  const { t } = useTranslation();
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
   const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
   const [esims, setEsims] = useState<ESimProfile[]>([]);
@@ -117,15 +119,15 @@ export default function ExplorerDashboard() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
         <div>
-          <h1 className="text-4xl font-display font-bold mb-2">Welcome back, Explorer</h1>
-          <p className="text-foreground/50">Your next adventure is just a synthesis away.</p>
+          <h1 className="text-4xl font-display font-bold mb-2">{t('dashboard.welcome')}</h1>
+          <p className="text-foreground/50">{t('dashboard.subtitle')}</p>
         </div>
         <button 
           onClick={() => setIsGeneratorOpen(true)}
           className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all"
         >
           <Plus className="w-5 h-5" />
-          New Itinerary
+          {t('dashboard.newItinerary')}
         </button>
       </div>
 
@@ -148,20 +150,20 @@ export default function ExplorerDashboard() {
       {/* Quick Actions */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-12">
         {[
-          { label: 'AI Itinerary', icon: Zap, color: 'bg-primary/10 text-primary', path: '/ai-itinerary' },
-          { label: 'Digital Tailor', icon: Activity, color: 'bg-secondary/10 text-secondary', path: '/digital-tailor' },
-          { label: 'Vibe Market', icon: TrendingUp, color: 'bg-accent/10 text-accent', path: '/vibe-market' },
-          { label: 'Vibe', icon: Heart, color: 'bg-red-500/10 text-red-400', path: '/vibe' },
-          { label: 'Landmark Lens', icon: Camera, color: 'bg-yellow-500/10 text-yellow-400', path: '/landmark-lens' },
-          { label: 'Wallet', icon: CreditCard, color: 'bg-green-500/10 text-green-400', path: '/wallet' },
-          { label: 'eSIM', icon: Wifi, color: 'bg-blue-500/10 text-blue-400', path: '/esim' },
-          { label: 'Journal', icon: BookOpen, color: 'bg-yellow-500/10 text-yellow-400', path: '/journal' },
-          { label: 'Budget', icon: PieChart, color: 'bg-purple-500/10 text-purple-400', path: '/budget-synthesis' },
-          { label: 'Pathfinder', icon: Map, color: 'bg-indigo-500/10 text-indigo-400', path: '/pathfinder' },
-          { label: 'Guide', icon: Compass, color: 'bg-teal-500/10 text-teal-400', path: '/guide' },
-          { label: 'AR Wayfinding', icon: ScanFace, color: 'bg-rose-500/10 text-rose-400', path: '/ar-wayfinding' },
-          { label: 'Local Legends', icon: Book, color: 'bg-orange-500/10 text-orange-400', path: '/local-legends' },
-          { label: 'Profile', icon: User, color: 'bg-white/5 text-foreground/40', path: '/profile' },
+          { label: t('actions.aiItinerary'), icon: Zap, color: 'bg-primary/10 text-primary', path: '/ai-itinerary' },
+          { label: t('actions.digitalTailor'), icon: Activity, color: 'bg-secondary/10 text-secondary', path: '/digital-tailor' },
+          { label: t('actions.vibeMarket'), icon: TrendingUp, color: 'bg-accent/10 text-accent', path: '/vibe-market' },
+          { label: t('actions.vibe'), icon: Heart, color: 'bg-red-500/10 text-red-400', path: '/vibe' },
+          { label: t('actions.landmarkLens'), icon: Camera, color: 'bg-yellow-500/10 text-yellow-400', path: '/landmark-lens' },
+          { label: t('actions.wallet'), icon: CreditCard, color: 'bg-green-500/10 text-green-400', path: '/wallet' },
+          { label: t('actions.esim'), icon: Wifi, color: 'bg-blue-500/10 text-blue-400', path: '/esim' },
+          { label: t('actions.journal'), icon: BookOpen, color: 'bg-yellow-500/10 text-yellow-400', path: '/journal' },
+          { label: t('actions.budget'), icon: PieChart, color: 'bg-purple-500/10 text-purple-400', path: '/budget-synthesis' },
+          { label: t('actions.pathfinder'), icon: Map, color: 'bg-indigo-500/10 text-indigo-400', path: '/pathfinder' },
+          { label: t('actions.guide'), icon: Compass, color: 'bg-teal-500/10 text-teal-400', path: '/guide' },
+          { label: t('actions.arWayfinding'), icon: ScanFace, color: 'bg-rose-500/10 text-rose-400', path: '/ar-wayfinding' },
+          { label: t('actions.localLegends'), icon: Book, color: 'bg-orange-500/10 text-orange-400', path: '/local-legends' },
+          { label: t('actions.profile'), icon: User, color: 'bg-white/5 text-foreground/40', path: '/profile' },
         ].map((action) => (
           <button
             key={action.label}
@@ -195,8 +197,8 @@ export default function ExplorerDashboard() {
           <CulturalPulse />
           <section>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-display font-bold">Active Itineraries</h2>
-              <button className="text-sm font-medium text-primary hover:underline">View All</button>
+              <h2 className="text-2xl font-display font-bold">{t('dashboard.activeItineraries')}</h2>
+              <button className="text-sm font-medium text-primary hover:underline">{t('dashboard.viewAll')}</button>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
@@ -238,7 +240,7 @@ export default function ExplorerDashboard() {
                   <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Search className="w-8 h-8 text-foreground/20" />
                   </div>
-                  <p className="text-foreground/50">No active itineraries found. Start by creating one!</p>
+                  <p className="text-foreground/50">{t('dashboard.noItineraries')}</p>
                 </div>
               )}
             </div>
@@ -248,8 +250,8 @@ export default function ExplorerDashboard() {
 
           <section>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-display font-bold">Recent Activity</h2>
-              <button className="text-sm font-medium text-primary hover:underline">View History</button>
+              <h2 className="text-2xl font-display font-bold">{t('dashboard.recentActivity')}</h2>
+              <button className="text-sm font-medium text-primary hover:underline">{t('dashboard.viewHistory')}</button>
             </div>
             <div className="space-y-4">
               {transactions.map((tx) => (
@@ -287,7 +289,7 @@ export default function ExplorerDashboard() {
 
           {isPremium && (
             <section>
-              <h2 className="text-2xl font-display font-bold mb-6">Discovery Hub</h2>
+              <h2 className="text-2xl font-display font-bold mb-6">{t('dashboard.discoveryHub')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="glass p-6 rounded-3xl bg-gradient-to-br from-primary/10 to-transparent">
                   <TrendingUp className="w-8 h-8 text-primary mb-4" />

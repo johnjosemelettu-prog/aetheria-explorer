@@ -3,9 +3,11 @@ import { motion } from 'motion/react';
 import { Globe, Sparkles, ArrowRight, ShieldCheck, Zap, Store } from 'lucide-react';
 import { auth } from '../lib/firebase';
 import AuthModal from './AuthModal';
+import { useTranslation } from 'react-i18next';
 
 export default function Hero() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navigate = (path: string) => {
     window.history.pushState({}, '', path);
@@ -44,15 +46,14 @@ export default function Hero() {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight mb-6 leading-[1.1]">
-            Explore the World with <br />
+            {t('hero.titlePart1')} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">
-              Intelligent Synthesis
+              {t('hero.titlePart2')}
             </span>
           </h1>
           
           <p className="max-w-2xl mx-auto text-lg text-foreground/60 mb-10 leading-relaxed">
-            Aetheria eliminates the cognitive load of travel logistics. 
-            From AI itineraries to global eSIM synthesis, we amplify the depth of your human exploration.
+            {t('hero.subtitle')}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -60,7 +61,7 @@ export default function Hero() {
               onClick={handleStart}
               className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-2xl font-bold transition-all flex items-center justify-center gap-2 group shadow-xl shadow-primary/20"
             >
-              Start Your Journey
+              {t('hero.cta')}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button 
