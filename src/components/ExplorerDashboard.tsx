@@ -1,48 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { 
   Plus, 
-  Search, 
-  Filter, 
-  Calendar, 
   MapPin, 
-  Leaf, 
-  Wifi, 
   CreditCard,
-  User,
   ChevronRight,
-  TrendingUp,
   Zap,
   Activity,
-  Clock,
-  ArrowUpRight,
-  ArrowDownLeft,
-  PieChart,
+  Heart,
   BookOpen,
   Map,
-  Compass,
-  ScanFace,
-  Book,
-  Heart,
-  Camera
+  Camera,
+  Play,
+  Share2,
+  Crown
 } from 'lucide-react';
 import { db, auth } from '../lib/firebase';
 import { collection, query, where, onSnapshot, orderBy, limit } from 'firebase/firestore';
-import { Itinerary, ESimProfile, UserProfile, WalletTransaction } from '../types';
+import { Itinerary, WalletTransaction } from '../types';
 import { cn } from '../lib/utils';
 import ItineraryGenerator from './ItineraryGenerator';
 import { AIGenerator } from './AIGenerator';
-import SmartWallet from './SmartWallet';
-import GlobalESim from './GlobalESim';
-import VisionHub from './VisionHub';
-import VRViewer from './VRViewer';
-import CarbonSynthesis from './CarbonSynthesis';
-import CinematicPreview from './CinematicPreview';
-import LinguisticSynthesis from './LinguisticSynthesis';
-import LayoverOdyssey from './LayoverOdyssey';
-import BookingHub from './BookingHub';
-import SynthesisStatus from './SynthesisStatus';
-import CulturalPulse from './CulturalPulse';
 import { usePremiumStatus } from '../hooks/usePremiumStatus';
 import SubscriptionManager from './SubscriptionManager';
 import { useTranslation } from 'react-i18next';
@@ -51,12 +29,7 @@ export default function ExplorerDashboard() {
   const { t } = useTranslation();
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
   const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
-  const [esims, setEsims] = useState<ESimProfile[]>([]);
-  const [loading, setLoading] = useState(true);
   const [isGeneratorOpen, setIsGeneratorOpen] = useState(false);
-  const [isVROpen, setIsVROpen] = useState(false);
-  const [isCarbonOpen, setIsCarbonOpen] = useState(false);
-  const [isLayoverOpen, setIsLayoverOpen] = useState(false);
   const isPremium = usePremiumStatus();
 
   useEffect(() => {
@@ -64,25 +37,17 @@ export default function ExplorerDashboard() {
 
     const uid = auth.currentUser.uid;
 
-    // Itineraries
     const qItineraries = query(
       collection(db, 'itineraries'),
       where('userId', '==', uid),
       orderBy('createdAt', 'desc')
     );
 
-    // Transactions
     const qTransactions = query(
       collection(db, 'transactions'),
       where('userId', '==', uid),
       orderBy('timestamp', 'desc'),
-      limit(5)
-    );
-
-    // eSIMs
-    const qEsims = query(
-      collection(db, 'esims'),
-      where('userId', '==', uid)
+      limit(3)
     );
 
     const unsubItineraries = onSnapshot(qItineraries, (snapshot) => {
@@ -93,254 +58,241 @@ export default function ExplorerDashboard() {
       setTransactions(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as WalletTransaction)));
     });
 
-    const unsubEsims = onSnapshot(qEsims, (snapshot) => {
-      setEsims(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as ESimProfile)));
-      setLoading(false);
-    });
-
     return () => {
       unsubItineraries();
       unsubTransactions();
-      unsubEsims();
     };
   }, []);
 
-  const totalCarbon = itineraries.reduce((acc, it) => acc + (it.carbonFootprint || 0), 0);
-  const walletBalance = transactions.reduce((acc, tx) => tx.type === 'credit' ? acc + tx.amount : acc - tx.amount, 0);
+  const navigate = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
 
-  const stats = [
-    { label: 'Total Trips', value: itineraries.length, icon: MapPin, color: 'text-primary' },
-    { label: 'Wallet Balance', value: `$${walletBalance.toFixed(2)}`, icon: CreditCard, color: 'text-green-400' },
-    { label: 'Active eSIMs', value: esims.filter(e => e.status === 'active').length, icon: Wifi, color: 'text-secondary' },
-    { label: 'Carbon Offset', value: `${totalCarbon}kg`, icon: Leaf, color: 'text-green-500' },
+  // Gen Z styled Quick Actions (Minimal but high impact)
+  const quickActions = [
+    { label: t('actions.aiItinerary'), icon: Zap, color: 'from-pink-500 to-rose-500', path: '/ai-itinerary' },
+    { label: t('actions.vibeMarket'), icon: Heart, color: 'from-purple-500 to-indigo-500', path: '/vibe-market' },
+    { label: 'Capture', icon: Camera, color: 'from-amber-400 to-orange-500', path: '/landmark-lens' },
+    { label: 'Wallet', icon: CreditCard, color: 'from-emerald-400 to-teal-500', path: '/wallet' },
   ];
+
+  const walletBalance = transactions.reduce((acc, tx) => tx.type === 'credit' ? acc + tx.amount : acc - tx.amount, 0);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-        <div>
-          <h1 className="text-4xl font-display font-bold mb-2">{t('dashboard.welcome')}</h1>
-          <p className="text-foreground/50">{t('dashboard.subtitle')}</p>
-        </div>
-        <button 
-          onClick={() => setIsGeneratorOpen(true)}
-          className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all"
+      {/* Header Section */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
         >
-          <Plus className="w-5 h-5" />
-          {t('dashboard.newItinerary')}
-        </button>
+          <div className="inline-block px-3 py-1 mb-4 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-widest border border-primary/30">
+            Aetheria OS v2.0
+          </div>
+          <h1 className="text-5xl font-display font-black tracking-tighter leading-none mb-2">
+            Ready to <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">vibe check</span> the world?
+          </h1>
+          <p className="text-foreground/50 text-lg">Your AI co-pilot is standing by.</p>
+        </motion.div>
+        
+        <motion.button 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          onClick={() => setIsGeneratorOpen(true)}
+          className="flex items-center justify-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:scale-105 transition-all"
+        >
+          <Zap className="w-5 h-5 fill-current" />
+          Drop a pin
+        </motion.button>
       </div>
 
-      {/* Stats Overview */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-        {stats.map((stat) => (
-          <motion.div
-            key={stat.label}
+      {/* Main Grid Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        {/* Left Column: Quick Actions & Magic */}
+        <div className="lg:col-span-8 space-y-6">
+          
+          {/* Bento Box: Quick Actions */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {quickActions.map((action, i) => (
+              <motion.button
+                key={action.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                onClick={() => navigate(action.path)}
+                className="relative aspect-square rounded-[32px] overflow-hidden group"
+              >
+                <div className={cn("absolute inset-0 bg-gradient-to-br opacity-20 group-hover:opacity-40 transition-opacity", action.color)} />
+                <div className="absolute inset-0 glass border border-white/10 m-1 rounded-[28px] flex flex-col items-center justify-center gap-3 group-hover:bg-white/5 transition-colors">
+                  <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center bg-gradient-to-br shadow-lg", action.color)}>
+                    <action.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-sm font-bold tracking-wide">{action.label}</span>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+
+          {/* AI Generator Hero Card */}
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="glass p-6 rounded-3xl"
+            transition={{ delay: 0.4 }}
+            className="glass rounded-[40px] p-1 border border-white/10"
           >
-            <stat.icon className={cn("w-6 h-6 mb-4", stat.color)} />
-            <p className="text-xs font-bold text-foreground/40 uppercase tracking-widest mb-1">{stat.label}</p>
-            <p className="text-2xl font-display font-bold">{stat.value}</p>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Quick Actions */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-12">
-        {[
-          { label: t('actions.aiItinerary'), icon: Zap, color: 'bg-primary/10 text-primary', path: '/ai-itinerary' },
-          { label: t('actions.digitalTailor'), icon: Activity, color: 'bg-secondary/10 text-secondary', path: '/digital-tailor' },
-          { label: t('actions.vibeMarket'), icon: TrendingUp, color: 'bg-accent/10 text-accent', path: '/vibe-market' },
-          { label: t('actions.vibe'), icon: Heart, color: 'bg-red-500/10 text-red-400', path: '/vibe' },
-          { label: t('actions.landmarkLens'), icon: Camera, color: 'bg-yellow-500/10 text-yellow-400', path: '/landmark-lens' },
-          { label: t('actions.wallet'), icon: CreditCard, color: 'bg-green-500/10 text-green-400', path: '/wallet' },
-          { label: t('actions.esim'), icon: Wifi, color: 'bg-blue-500/10 text-blue-400', path: '/esim' },
-          { label: t('actions.journal'), icon: BookOpen, color: 'bg-yellow-500/10 text-yellow-400', path: '/journal' },
-          { label: t('actions.budget'), icon: PieChart, color: 'bg-purple-500/10 text-purple-400', path: '/budget-synthesis' },
-          { label: t('actions.pathfinder'), icon: Map, color: 'bg-indigo-500/10 text-indigo-400', path: '/pathfinder' },
-          { label: t('actions.guide'), icon: Compass, color: 'bg-teal-500/10 text-teal-400', path: '/guide' },
-          { label: t('actions.arWayfinding'), icon: ScanFace, color: 'bg-rose-500/10 text-rose-400', path: '/ar-wayfinding' },
-          { label: t('actions.localLegends'), icon: Book, color: 'bg-orange-500/10 text-orange-400', path: '/local-legends' },
-          { label: t('actions.profile'), icon: User, color: 'bg-white/5 text-foreground/40', path: '/profile' },
-        ].map((action) => (
-          <button
-            key={action.label}
-            onClick={() => {
-              window.history.pushState({}, '', action.path);
-              window.dispatchEvent(new PopStateEvent('popstate'));
-            }}
-            className="glass p-4 rounded-2xl flex flex-col items-center justify-center gap-3 glass-hover text-center"
-          >
-            <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center", action.color)}>
-              <action.icon className="w-5 h-5" />
+            <div className="bg-black/50 rounded-[36px] p-6 md:p-8 relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full mix-blend-screen" />
+               <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 blur-[100px] rounded-full mix-blend-screen" />
+               <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-2xl font-display font-black">AI Synthesis Engine</h2>
+                    <Zap className="w-6 h-6 text-primary animate-pulse" />
+                  </div>
+                  <AIGenerator />
+               </div>
             </div>
-            <span className="text-xs font-bold">{action.label}</span>
-          </button>
-        ))}
-      </div>
+          </motion.div>
 
-      <section className="mb-12">
-        <h2 className="text-2xl font-display font-bold mb-6">✨ AI Magic ✨</h2>
-        <AIGenerator />
-      </section>
+          {/* Minimal Itinerary List */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="glass p-8 rounded-[40px]"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold">Upcoming Drops</h2>
+              <button className="text-xs font-bold uppercase tracking-widest text-primary hover:text-white transition-colors" onClick={() => navigate('/itineraries')}>View All</button>
+            </div>
+            <div className="space-y-3">
+              {itineraries.slice(0, 3).map((itinerary) => (
+                <div key={itinerary.id} className="flex items-center justify-between p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group" onClick={() => navigate(`/itineraries/${itinerary.id}`)}>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg leading-tight group-hover:text-primary transition-colors">{itinerary.title}</h3>
+                      <p className="text-xs text-foreground/50">{itinerary.destination}</p>
+                    </div>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-foreground/30 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                </div>
+              ))}
+              {itineraries.length === 0 && (
+                <div className="text-center py-8 opacity-50">
+                  <Map className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                  <p className="text-sm">No trips planned yet.</p>
+                </div>
+              )}
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* Right Column: Discover & Status */}
+        <div className="lg:col-span-4 space-y-6">
+          
+          {/* Dynamic Status Card */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="glass rounded-[40px] p-6 relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 p-6 opacity-10">
+              <Activity className="w-24 h-24" />
+            </div>
+            <div className="relative z-10">
+               <div className="flex items-center gap-2 mb-6">
+                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                 <span className="text-xs font-bold uppercase tracking-widest">System Status</span>
+               </div>
+               
+               <div className="space-y-4">
+                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+                    <div>
+                      <p className="text-[10px] text-foreground/50 uppercase font-bold tracking-widest mb-1">Aetheria Card</p>
+                      <p className="font-display font-bold text-xl">${walletBalance.toFixed(2)}</p>
+                    </div>
+                    <button onClick={() => navigate('/wallet')} className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                      <Plus className="w-4 h-4" />
+                    </button>
+                 </div>
+
+                 {isPremium ? (
+                   <div className="p-4 rounded-2xl bg-gradient-to-r from-yellow-500/20 to-amber-500/20 border border-yellow-500/30">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Crown className="w-4 h-4 text-yellow-400" />
+                        <span className="font-bold text-yellow-400 text-sm">Premium Active</span>
+                      </div>
+                      <p className="text-xs text-yellow-400/70">All synthesis engines unlocked.</p>
+                   </div>
+                 ) : (
+                    <SubscriptionManager />
+                 )}
+               </div>
+            </div>
+          </motion.div>
+
+          {/* Booking Hub Teaser */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="glass rounded-[40px] p-6 border-dashed border-2 border-white/10 cursor-pointer hover:bg-white/5 transition-colors"
+            onClick={() => navigate('/booking')}
+          >
+            <div className="flex items-center justify-between">
+               <div>
+                  <h3 className="font-bold text-lg mb-1">Booking Hub</h3>
+                  <p className="text-xs text-foreground/50">Flights, Hotels, & More</p>
+               </div>
+               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                 <ChevronRight className="w-5 h-5 text-primary" />
+               </div>
+            </div>
+          </motion.div>
+
+          {/* Social / Sharing Teaser */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="glass rounded-[40px] p-6 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border-indigo-500/20"
+          >
+            <div className="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center mb-4">
+              <Play className="w-5 h-5 text-white fill-white ml-1" />
+            </div>
+            <h3 className="font-bold text-xl mb-2">Create a Teaser</h3>
+            <p className="text-sm text-foreground/60 mb-6">AI-generate a cinematic trailer for your next trip to share on socials.</p>
+            <button onClick={() => navigate('/video-teaser')} className="w-full py-3 bg-white/10 hover:bg-white/20 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2">
+              <Share2 className="w-4 h-4" />
+              Generate Video
+            </button>
+          </motion.div>
+
+          {/* Mini Journal Teaser */}
+           <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="glass rounded-[40px] p-6 border-dashed border-2 border-white/10 flex flex-col items-center justify-center text-center py-12 cursor-pointer hover:bg-white/5 transition-colors"
+            onClick={() => navigate('/journal')}
+          >
+            <BookOpen className="w-8 h-8 text-foreground/30 mb-3" />
+            <p className="font-bold text-sm">Spill the tea.</p>
+            <p className="text-xs text-foreground/50">Log a new journal entry.</p>
+          </motion.div>
+
+        </div>
+      </div>
 
       <ItineraryGenerator 
         isOpen={isGeneratorOpen} 
         onClose={() => setIsGeneratorOpen(false)} 
       />
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Main Content - Itineraries */}
-        <div className="lg:col-span-2 space-y-8">
-          <CulturalPulse />
-          <section>
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-display font-bold">{t('dashboard.activeItineraries')}</h2>
-              <button className="text-sm font-medium text-primary hover:underline">{t('dashboard.viewAll')}</button>
-            </div>
-
-            <div className="grid grid-cols-1 gap-4">
-              {itineraries.length > 0 ? (
-                itineraries.map((itinerary) => (
-                  <motion.div
-                    key={itinerary.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="glass p-6 rounded-3xl glass-hover cursor-pointer group"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="flex gap-4">
-                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                          <MapPin className="w-8 h-8 text-primary" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
-                            {itinerary.title}
-                          </h3>
-                          <div className="flex items-center gap-4 text-sm text-foreground/50">
-                            <span className="flex items-center gap-1">
-                              <Calendar className="w-3 h-3" />
-                              {itinerary.destination}
-                            </span>
-                            <span className="flex items-center gap-1 text-green-400">
-                              <Leaf className="w-3 h-3" />
-                              {itinerary.carbonFootprint}kg CO2
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <ChevronRight className="w-5 h-5 text-foreground/20 group-hover:text-primary transition-all group-hover:translate-x-1" />
-                    </div>
-                  </motion.div>
-                ))
-              ) : (
-                <div className="glass p-12 rounded-3xl text-center border-dashed border-2 border-white/5">
-                  <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Search className="w-8 h-8 text-foreground/20" />
-                  </div>
-                  <p className="text-foreground/50">{t('dashboard.noItineraries')}</p>
-                </div>
-              )}
-            </div>
-          </section>
-
-          {isPremium && <BookingHub />}
-
-          <section>
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-display font-bold">{t('dashboard.recentActivity')}</h2>
-              <button className="text-sm font-medium text-primary hover:underline">{t('dashboard.viewHistory')}</button>
-            </div>
-            <div className="space-y-4">
-              {transactions.map((tx) => (
-                <div key={tx.id} className="glass p-4 rounded-2xl flex items-center justify-between glass-hover">
-                  <div className="flex items-center gap-4">
-                    <div className={cn(
-                      "w-10 h-10 rounded-xl flex items-center justify-center",
-                      tx.type === 'credit' ? "bg-green-500/10 text-green-400" : "bg-accent/10 text-accent"
-                    )}>
-                      {tx.type === 'credit' ? <ArrowDownLeft className="w-5 h-5" /> : <ArrowUpRight className="w-5 h-5" />}
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold">{tx.description}</p>
-                      <p className="text-[10px] text-foreground/40 uppercase font-bold tracking-widest">
-                        {tx.category} • {new Date(tx.timestamp).toLocaleDateString()}
-                      </p>
-                    </div>
-                  </div>
-                  <span className={cn(
-                    "font-bold",
-                    tx.type === 'credit' ? "text-green-400" : "text-foreground"
-                  )}>
-                    {tx.type === 'credit' ? '+' : '-'}${tx.amount.toFixed(2)}
-                  </span>
-                </div>
-              ))}
-              {transactions.length === 0 && (
-                <div className="glass p-8 rounded-2xl text-center border-dashed border-2 border-white/5">
-                  <Clock className="w-8 h-8 text-foreground/10 mx-auto mb-2" />
-                  <p className="text-sm text-foreground/40">No recent activity found.</p>
-                </div>
-              )}
-            </div>
-          </section>
-
-          {isPremium && (
-            <section>
-              <h2 className="text-2xl font-display font-bold mb-6">{t('dashboard.discoveryHub')}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div className="glass p-6 rounded-3xl bg-gradient-to-br from-primary/10 to-transparent">
-                  <TrendingUp className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="text-lg font-bold mb-2">Carbon Synthesis</h3>
-                  <p className="text-sm text-foreground/50 mb-4">Offset your travel footprint with our AI-powered carbon synthesis engine.</p>
-                  <button 
-                    onClick={() => setIsCarbonOpen(true)}
-                    className="text-sm font-bold text-primary"
-                  >
-                    Synthesize Offset
-                  </button>
-                </div>
-                <div className="glass p-6 rounded-3xl bg-gradient-to-br from-secondary/10 to-transparent">
-                  <Zap className="w-8 h-8 text-secondary mb-4" />
-                  <h3 className="text-lg font-bold mb-2">Layover Odyssey</h3>
-                  <p className="text-sm text-foreground/50 mb-4">Turn long layovers into mini-adventures with personalized city guides.</p>
-                  <div className="flex gap-4">
-                    <button 
-                      onClick={() => setIsLayoverOpen(true)}
-                      className="text-sm font-bold text-secondary"
-                    >
-                      Synthesize Odyssey
-                    </button>
-                    <button 
-                      onClick={() => setIsVROpen(true)}
-                      className="text-sm font-bold text-accent"
-                    >
-                      Explore VR
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <VisionHub />
-              <CinematicPreview />
-              <LinguisticSynthesis />
-              <VRViewer isOpen={isVROpen} onClose={() => setIsVROpen(false)} />
-              <CarbonSynthesis isOpen={isCarbonOpen} onClose={() => setIsCarbonOpen(false)} />
-              <LayoverOdyssey isOpen={isLayoverOpen} onClose={() => setIsLayoverOpen(false)} />
-            </section>
-          )}
-        </div>
-
-        {/* Sidebar - Wallet & eSIM */}
-        <div className="space-y-8">
-          <SmartWallet />
-          <GlobalESim />
-          {!isPremium && <SubscriptionManager />} 
-        </div>
-      </div>
-      <SynthesisStatus />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Plane, Hotel, Ship, Search, MapPin, Calendar, Bus, Car, Utensils, Star, Loader2, ArrowRight } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { usePremiumStatus } from '../hooks/usePremiumStatus';
@@ -10,7 +10,6 @@ export default function BookingHub() {
   const [activeTab, setActiveTab] = useState<BookingType>('flight');
   const [isSearching, setIsSearching] = useState(false);
   const [results, setResults] = useState<any[] | null>(null);
-  const isPremium = usePremiumStatus();
 
   const handleSearch = async () => {
     setIsSearching(true);
@@ -57,17 +56,6 @@ export default function BookingHub() {
     { id: 'dining', icon: Utensils, label: 'Dining' }
   ];
 
-  if (!isPremium) {
-    return (
-      <section className="glass p-8 rounded-[32px] text-center">
-        <h2 className="text-2xl font-display font-bold mb-4">Unlock the Booking Hub</h2>
-        <p className="text-foreground/50 mb-6">Upgrade to a premium plan to access the global booking engine and other exclusive features.</p>
-        <button className="px-6 py-3 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">
-          Upgrade Now
-        </button>
-      </section>
-    );
-  }
 
   return (
     <section className="glass p-8 rounded-[32px] overflow-hidden">

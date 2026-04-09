@@ -28,6 +28,7 @@ import HeritageMirror from './components/HeritageMirror';
 import MoodSynthesis from './components/MoodSynthesis';
 import VideoTeaser from './components/VideoTeaser';
 import PostcardStudio from './components/PostcardStudio';
+import BookingHub from './components/BookingHub';
 import { UserProfile as UserProfileType } from './types';
 import { motion, AnimatePresence } from 'framer-motion';
 import i18n from './lib/i18n';
@@ -168,6 +169,12 @@ export default function App() {
         return <Vibe />;
       case '/landmark-lens':
         return <LandmarkLens />;
+      case '/booking':
+        return (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <BookingHub />
+          </div>
+        );
       default:
         return <ExplorerDashboard />;
     }
@@ -182,42 +189,44 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
       <Navbar user={user} />
       
-      <main>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentPath + (user?.uid || 'guest')}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {renderContent()}
-          </motion.div>
-        </AnimatePresence>
-      </main>
+      <div className="lg:pl-[280px] transition-all duration-300">
+        <main>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentPath + (user?.uid || 'guest')}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              {renderContent()}
+            </motion.div>
+          </AnimatePresence>
+        </main>
 
-      <RuthAssistant />
+        <RuthAssistant />
 
-      {/* Footer */}
-      <footer className="border-t border-white/5 py-12 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-primary/20 rounded flex items-center justify-center">
-                <div className="w-3 h-3 bg-primary rounded-sm" />
+        {/* Footer */}
+        <footer className="border-t border-white/5 py-12 mt-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-primary/20 rounded flex items-center justify-center">
+                  <div className="w-3 h-3 bg-primary rounded-sm" />
+                </div>
+                <span className="font-display font-bold tracking-tighter">AETHERIA</span>
               </div>
-              <span className="font-display font-bold tracking-tighter">AETHERIA</span>
+              <div className="flex gap-8 text-sm text-foreground/40">
+                <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+                <a href="#" className="hover:text-primary transition-colors">Contact</a>
+              </div>
+              <p className="text-sm text-foreground/20">
+                © 2026 Aetheria Ecosystem. All rights reserved.
+              </p>
             </div>
-            <div className="flex gap-8 text-sm text-foreground/40">
-              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-primary transition-colors">Contact</a>
-            </div>
-            <p className="text-sm text-foreground/20">
-              © 2026 Aetheria Ecosystem. All rights reserved.
-            </p>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
     </Suspense>
   );
