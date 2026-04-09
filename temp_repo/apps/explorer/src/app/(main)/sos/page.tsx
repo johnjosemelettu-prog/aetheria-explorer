@@ -43,6 +43,7 @@ export default function SosHubPage() {
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const oscillatorRef = useRef<OscillatorNode | null>(null);
+  const sirenIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (isLongPressing) {
@@ -107,23 +108,39 @@ export default function SosHubPage() {
         audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
       }
       const ctx = audioContextRef.current;
+
+      if (oscillatorRef.current) oscillatorRef.current.stop();
+      if (sirenIntervalRef.current) clearInterval(sirenIntervalRef.current);
+
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
-
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(440, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.5);
-      osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 1.0);
       
-      gain.gain.setValueAtTime(0.5, ctx.currentTime);
+      osc.type = 'sine';
       osc.connect(gain);
       gain.connect(ctx.destination);
+      gain.gain.value = 0.4;
       osc.start();
       oscillatorRef.current = osc;
+
+      let isHighPitch = true;
+      const performSirenCycle = () => {
+        const now = ctx.currentTime;
+        const pitch = isHighPitch ? 960 : 760;
+        osc.frequency.setValueAtTime(pitch, now);
+        isHighPitch = !isHighPitch;
+      };
+      
+      performSirenCycle();
+      sirenIntervalRef.current = setInterval(performSirenCycle, 400);
+
     } else {
       if (oscillatorRef.current) {
         oscillatorRef.current.stop();
         oscillatorRef.current = null;
+      }
+      if (sirenIntervalRef.current) {
+        clearInterval(sirenIntervalRef.current);
+        sirenIntervalRef.current = null;
       }
     }
   };
@@ -211,8 +228,13 @@ export default function SosHubPage() {
         )}
       </div>
       <style jsx global>{`
-        @keyframes strobe { 0%, 100% { background-color: rgba(255, 255, 255, 0.1); } 50% { background-color: rgba(255, 255, 255, 0.9); } }
-        .animate-strobe { animation: strobe 0.1s infinite; }
+        @keyframes strobe {
+          0%, 100% { background-color: #dc2626; } /* red-600 */
+          50% { background-color: #2563eb; } /* blue-600 */
+        }
+        .animate-strobe {
+          animation: strobe 0.4s ease-in-out infinite;
+        }
       `}</style>
     </div>
   );

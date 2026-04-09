@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { generateQuests } from '@/lib/ai-bridge';
+import { generateExplorerQuest } from '@/lib/ai-bridge';
 import { Loader2, Search, Map, Award } from 'lucide-react';
 
 interface Quest {
@@ -28,7 +28,7 @@ export default function ExplorerQuestsPage() {
         setIsLoading(true);
         setError(null);
         try {
-            const questResults = await generateQuests(location);
+            const questResults = await generateExplorerQuest(location);
             setQuests(questResults);
             setActiveQuest(null);
         } catch (err) {

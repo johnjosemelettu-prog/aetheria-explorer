@@ -1,3 +1,5 @@
+/// <reference path="../../../types/aframe.d.ts" />
+
 'use client';
 
 import { useState, useEffect } from 'react';

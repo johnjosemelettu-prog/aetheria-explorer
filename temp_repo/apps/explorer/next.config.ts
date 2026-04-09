@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
+const withTM = require('next-transpile-modules')(['@aetheria/shared']);
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+module.exports = withTM({
+  webpack: (config) => {
+    return config;
+  },
+});

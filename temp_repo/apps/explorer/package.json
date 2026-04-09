@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
+    "autoprefixer": "^10.4.27",
     "clsx": "^2.1.1",
     "firebase": "^12.11.0",
     "i18next": "^24.0.5",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "latest",
+    "@types/aframe": "^1.2.9",
     "@types/node": "^22.10.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.0.2",

@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { searchInsurance } from '@/src/services/gemini';
+import { searchInsurance } from '@/services/gemini';
 import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
