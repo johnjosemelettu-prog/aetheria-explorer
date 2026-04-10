@@ -7,7 +7,7 @@ const enPath = path.join(localesDir, 'en.json');
 const enContent = JSON.parse(fs.readFileSync(enPath, 'utf8'));
 
 const languages = [
-  'ar', 'es', 'hi', 'ja', 'fr', 'de', 'it', 'ko', 'pt', 'ru', 'zh', 'tr', 'vi', 'th', 'nl', 'pl', 'id', 'ms'
+  'de', 'hi', 'it', 'ml', 'ms', 'nl', 'pl'
 ];
 
 const apiKey = process.env.GEMINI_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY || process.env.API_KEY;

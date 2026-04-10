@@ -28,7 +28,11 @@ import {
   Eye,
   PersonStanding,
   Wifi,
-  Plane
+  Plane,
+  Recycle,
+  Users,
+  Footprints,
+  Leaf
 } from 'lucide-react';
 import { auth } from '../lib/firebase';
 import { signOut, onAuthStateChanged, User } from 'firebase/auth';
@@ -142,6 +146,16 @@ export default function Navbar({ user }: NavbarProps) {
         { name: t('actions.arWayfinding'), icon: ScanFace, path: '/ar-wayfinding' },
         { name: 'Vision Hub', icon: Eye, path: '/vision-hub' },
         { name: 'Heritage Mirror', icon: PersonStanding, path: '/heritage-mirror' },
+      ]
+    },
+    {
+      title: "Eco-Conscious",
+      items: [
+        { name: 'Local Produce Challenge', icon: Recycle, path: '/local-produce-challenge' },
+        { name: 'Green Transit Score', icon: Footprints, path: '/green-transit-score' },
+        { name: 'Conservation Circle', icon: Users, path: '/conservation-circle' },
+        { name: 'Wildlife Sighting Ethos', icon: Leaf, path: '/wildlife-sighting-ethos' },
+        { name: 'Collaborative Journals', icon: Book, path: '/collaborative-journal' },
       ]
     }
   ];

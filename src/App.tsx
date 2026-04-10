@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, Suspense } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
@@ -38,6 +39,44 @@ import CreateItinerary from './components/CreateItinerary';
 import RealtimeItinerary from './components/RealtimeItinerary';
 import UserProfile from './components/UserProfile';
 import SplashScreen from './components/SplashScreen';
+import AIFeatureShowcase from './components/AIFeatures';
+import DeriveMode from './components/DeriveMode';
+import LocalLegendVerification from './components/LocalLegendVerification';
+import EscapeTheCity from './components/EscapeTheCity';
+import CultureCollector from './components/CultureCollector';
+import GetMeHome from './components/GetMeHome';
+import CrowdDensityPredictor from './components/CrowdDensityPredictor';
+import Chronosync from './components/Chronosync';
+import IntelligentSouvenirShipper from './components/IntelligentSouvenirShipper';
+import LastMileTransitSolver from './components/LastMileTransitSolver';
+import FollowMeEscort from './components/FollowMeEscord';
+import PrivacyScrubber from './components/PrivacyScrubber';
+import AuraShield from './components/AuraShield';
+import EmergencyServicesDialogue from './components/EmergencyServicesDialogue';
+import CarbonFootprintSynthesis from './components/CarbonFootprintSynthesis';
+import EcoWarriorQuests from './components/EcoWarriorQuests';
+import SustainablePartnerSpotlight from './components/SustainablePartnerSpotlight';
+import LeavePositiveTrace from './components/LeavePositiveTrace';
+import ReforestationRewards from './components/ReforestationRewards';
+import WaterRefillStationFinder from './components/WaterRefillStationFinder';
+import LocalProduceChallenge from './components/LocalProduceChallenge';
+import GreenTransitScore from './components/GreenTransitScore';
+import ConservationCircle from './components/ConservationCircle';
+import WildlifeSightingEthos from './components/WildlifeSightingEthos';
+import CollaborativeJournal from './components/CollaborativeJournal';
+import LostInTranslation from './components/LostInTranslation';
+import FestivalForecaster from './components/FestivalForecaster';
+import ArtisanCraftFinder from './components/ArtisanCraftFinder';
+import HistoricalDialogue from './components/HistoricalDialogue';
+import SilentObserver from './components/SilentObserver';
+import AncestryTrail from './components/AncestryTrail';
+import DroneRental from './components/DroneRental';
+import TranslationEarbuds from './components/TranslationEarbuds';
+import MemoryPalace from './components/MemoryPalace';
+import AetheriaDAO from './components/AetheriaDAO';
+import HapticController from './components/HapticController';
+import WeatherAdaptiveController from './components/WeatherAdaptiveController';
+import BioDataMonitor from './components/BioDataMonitor';
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -169,6 +208,76 @@ export default function App() {
         return <Vibe />;
       case '/landmark-lens':
         return <LandmarkLens />;
+      case '/ai-features':
+        return <AIFeatureShowcase />;
+      case '/derive-mode':
+        return <DeriveMode />;
+      case '/local-legend-verification':
+        return <LocalLegendVerification />;
+      case '/escape-the-city':
+        return <EscapeTheCity />;
+      case '/culture-collector':
+        return <CultureCollector />;
+      case '/get-me-home':
+        return <GetMeHome />;
+      case '/crowd-density-predictor':
+        return <CrowdDensityPredictor />;
+      case '/chronosync':
+        return <Chronosync />;
+      case '/intelligent-souvenir-shipper':
+        return <IntelligentSouvenirShipper />;
+      case '/last-mile-transit-solver':
+        return <LastMileTransitSolver />;
+      case '/follow-me-escort':
+        return <FollowMeEscort />;
+      case '/privacy-scrubber':
+        return <PrivacyScrubber />;
+      case '/aura-shield':
+        return <AuraShield />;
+      case '/emergency-services-dialogue':
+        return <EmergencyServicesDialogue />;
+      case '/carbon-footprint-synthesis':
+        return <CarbonFootprintSynthesis />;
+      case '/eco-warrior-quests':
+        return <EcoWarriorQuests />;
+      case '/sustainable-partner-spotlight':
+        return <SustainablePartnerSpotlight />;
+      case '/leave-positive-trace':
+        return <LeavePositiveTrace />;
+      case '/reforestation-rewards':
+        return <ReforestationRewards />;
+      case '/water-refill-station-finder':
+        return <WaterRefillStationFinder />;
+      case '/local-produce-challenge':
+        return <LocalProduceChallenge />;
+      case '/green-transit-score':
+        return <GreenTransitScore />;
+      case '/conservation-circle':
+        return <ConservationCircle />;
+      case '/wildlife-sighting-ethos':
+        return <WildlifeSightingEthos />;
+      case '/collaborative-journal':
+        return <CollaborativeJournal />;
+      case '/lost-in-translation':
+        return <LostInTranslation />;
+      case '/festival-forecaster':
+        return <FestivalForecaster />;
+      case '/artisan-craft-finder':
+        return <ArtisanCraftFinder />;
+      case '/historical-dialogue':
+        return <HistoricalDialogue />;
+      case '/silent-observer':
+        return <SilentObserver />;
+      case '/ancestry-trail':
+        return <AncestryTrail />;
+      case '/drone-rental':
+        return <DroneRental />;
+      case '/translation-earbuds':
+        return <TranslationEarbuds />;
+      case '/memory-palace':
+        return <MemoryPalace />;
+      case '/aetheria-dao':
+        return <AetheriaDAO />;
       case '/booking':
         return (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -188,7 +297,9 @@ export default function App() {
     <Suspense fallback={<SplashScreen />}>
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
       <Navbar user={user} />
-      
+      <HapticController />
+      {user && <WeatherAdaptiveController />}
+      {user && <BioDataMonitor />}
       <div className="lg:pl-[280px] transition-all duration-300">
         <main>
           <AnimatePresence mode="wait">
@@ -209,7 +320,7 @@ export default function App() {
         <footer className="border-t border-white/5 py-12 mt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-              <div className="flex items-center gap-2">
+              <div className="flex items-.center gap-2">
                 <div className="w-6 h-6 bg-primary/20 rounded flex items-center justify-center">
                   <div className="w-3 h-3 bg-primary rounded-sm" />
                 </div>
