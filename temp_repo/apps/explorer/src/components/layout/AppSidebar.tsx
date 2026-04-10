@@ -119,6 +119,7 @@ export function AppSidebar() {
         { label: 'Jet Lag Helper ✈️', href: '/biometric-jet-lag-sync', icon: Plane },
         { label: 'Dynamic Itinerary Re-planning', href: '/dynamic-itinerary-replanning', icon: RouteIcon },
         { label: '\"What If\" Scenario Planner', href: '/what-if-scenario-planner', icon: FlaskConical },
+        { label: 'AI-Powered Budget Optimization', href: '/ai-budget-optimization', icon: Wallet },
       ]
     },
     {
@@ -143,6 +144,8 @@ export function AppSidebar() {
         { label: 'AR Art Galleries', href: '/ar-art-galleries', icon: GalleryVertical },
         { label: 'AR Escape Rooms', href: '/ar-escape-rooms', icon: Ghost },
         { label: 'AR Celebrity Tour Guide', href: '/ar-celebrity-tour-guide', icon: UserCheck },
+        { label: 'AR Historical Overlays', href: '/ar-historical-overlays', icon: History },
+        { label: 'AR Language Translator', href: '/ar-language-translator', icon: Languages },
       ]
     },
     {
@@ -188,6 +191,7 @@ export function AppSidebar() {
 		{ label: 'Local Pal AI Chatbot', href: '/local-pal-ai-chatbot', icon: MessageCircle },
 		{ label: 'Personalized Safety Alerts', href: '/personalized-safety-alerts', icon: AlertTriangle },
         { label: 'AI Lost & Found Assistant', href: '/ai-lost-and-found-assistant', icon: Search },
+        { label: 'AI-Powered Real-Time Translation', href: '/ai-real-time-translation', icon: Languages },
       ]
     },
     {
