@@ -18,6 +18,11 @@ const QuantumSouvenirPage = () => {
                     baseImageUrl="/souvenirs/kyoto-pagoda.webp"
                     location="Kyoto, Japan"
                 />
+                <QuantumSouvenir
+                    souvenirId="rome001"
+                    baseImageUrl="/souvenirs/colosseum.webp"
+                    location="Rome, Italy"
+                />
             </div>
         </div>
     );
