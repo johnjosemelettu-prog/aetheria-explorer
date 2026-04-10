@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 const CreateItinerary: React.FC = () => {
   const [title, setTitle] = useState('');
   const [destination, setDestination] = useState('');
-  const { write, loading, error } = useWrite<Omit<Itinerary, 'id'> | any>('itineraries');
+  const { write, loading, error } = useWrite<Partial<Itinerary>>('itineraries');
   const user = useAuth();
   const { t } = useTranslation();
 
@@ -18,7 +18,7 @@ const CreateItinerary: React.FC = () => {
       return;
     }
 
-    const newItinerary: Omit<Itinerary, 'id'> = {
+    const newItinerary: Partial<Itinerary> = {
       userId: user.uid,
       title,
       destination,
@@ -35,8 +35,8 @@ const CreateItinerary: React.FC = () => {
       setTitle('');
       setDestination('');
       alert(t('Itinerary created successfully!'));
-    } catch (err) {
-      alert(`${t('Error creating itinerary:')} ${err}`)
+    } catch (err: any) {
+      alert(`${t('Error creating itinerary:')} ${err.message}`)
     }
   };
 

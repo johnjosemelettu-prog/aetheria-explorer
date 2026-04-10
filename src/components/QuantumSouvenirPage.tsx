@@ -1,6 +1,6 @@
 
 import React from 'react';
-import QuantumSouvenir from '../components/QuantumSouvenir';
+import QuantumSouvenir from './QuantumSouvenir';
 
 const QuantumSouvenirPage = () => {
     return (
