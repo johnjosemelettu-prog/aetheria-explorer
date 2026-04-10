@@ -70,6 +70,9 @@ import {
   MessageSquare,
   MessageCircle,
   AlertTriangle,
+  Search,
+  UserCheck,
+  UserPlus
 } from 'lucide-react';
 import {
   Sidebar,
@@ -114,6 +117,8 @@ export function AppSidebar() {
         { label: 'Packing Helper 🎒', href: '/dynamic-packing-list-adjuster', icon: Backpack },
         { label: 'Visa Architect 🛂', href: '/visa-architect', icon: Ticket },
         { label: 'Jet Lag Helper ✈️', href: '/biometric-jet-lag-sync', icon: Plane },
+        { label: 'Dynamic Itinerary Re-planning', href: '/dynamic-itinerary-replanning', icon: RouteIcon },
+        { label: '\"What If\" Scenario Planner', href: '/what-if-scenario-planner', icon: FlaskConical },
       ]
     },
     {
@@ -137,6 +142,7 @@ export function AppSidebar() {
         { label: 'AR Fashion Try-On', href: '/ar-fashion-try-on', icon: ShoppingBag },
         { label: 'AR Art Galleries', href: '/ar-art-galleries', icon: GalleryVertical },
         { label: 'AR Escape Rooms', href: '/ar-escape-rooms', icon: Ghost },
+        { label: 'AR Celebrity Tour Guide', href: '/ar-celebrity-tour-guide', icon: UserCheck },
       ]
     },
     {
@@ -163,6 +169,7 @@ export function AppSidebar() {
         { label: 'Dining', href: '/dining', icon: Utensils },
         { label: 'Rentals', href: '/rentals', icon: Car },
         { label: 'Transit Connect', href: '/transit-connect', icon: Train },
+        { label: 'AI Deal Hunter', href: '/ai-deal-hunter', icon: Search },
       ]
     },
     {
@@ -180,12 +187,14 @@ export function AppSidebar() {
         { label: 'Haggling Coach', href: '/ai-haggling-coach', icon: Mic },
 		{ label: 'Local Pal AI Chatbot', href: '/local-pal-ai-chatbot', icon: MessageCircle },
 		{ label: 'Personalized Safety Alerts', href: '/personalized-safety-alerts', icon: AlertTriangle },
+        { label: 'AI Lost & Found Assistant', href: '/ai-lost-and-found-assistant', icon: Search },
       ]
     },
     {
         label: 'Social & Utility',
         items: [
             { label: 'Digital Nomad Network', href: '/digital-nomad-network', icon: Users },
+            { label: 'AR Find My Friends', href: '/ar-find-my-friends', icon: UserPlus },
         ]
     },
     {
