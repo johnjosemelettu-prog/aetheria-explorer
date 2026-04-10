@@ -263,6 +263,7 @@
     "signup": "Establish Identity",
     "sos": "SOS Panic Hub",
     "aiItinerary": "Aura Itinerary",
+    "aiItineraryCustomization": "AI Itinerary Customization",
     "pathfinder": "Pathfinder",
     "vibeMarketplace": "Vibe Marketplace",
     "vibeShopping": "Bespoke Store",
@@ -270,11 +271,13 @@
     "myTrips": "My Odysseys",
     "visionHub": "Vision AI Hub",
     "intelligenceCenter": "Intelligence Hub",
+    "arIndoorNavigation": "AR Indoor Navigation",
     "arWayfinding": "AR Navigation",
     "localLegends": "Local Legends",
     "explorerQuests": "Explorer Quests",
     "culturalPulse": "Cultural Pulse",
     "tripOdyssey": "Trip Odyssey",
+    "realTimePublicTransit": "Real-time Public Transit",
     "postcardStudio": "Postcard Studio",
     "heritageMirror": "Heritage Mirror",
     "journal": "Explorer Journal",
@@ -306,6 +309,7 @@
     "jetLag": "Circadian Logic",
     "digitalTailor": "Digital Tailor",
     "translator": "Linguistic Lab",
+    "gamifiedLanguageLearning": "Gamified Language Learning",
     "corporate": "Enterprise Mode",
     "dashboard": "Command Center",
     "budgetSynthesis": "Budget Synthesis",
@@ -330,7 +334,10 @@
       "orchestration": "Orchestrate",
       "intelligence": "Intelligence",
       "studios": "Studios",
-      "utility": "Utility"
+      "utility": "Utility",
+      "ar": "AR",
+      "vr": "VR",
+      "ai": "AI"
     },
     "promo": {
       "spotlights": "Partner Spotlights",
@@ -493,8 +500,19 @@
     }
   },
   "profile": {
+    "toast": {
+      "nodeInterruption": "Node Interruption",
+      "nodeInterruptionDesc": "Security key dispatch failed. Grid connection may be unstable.",
+      "syncFailed": "Sync Failed",
+      "resetDispatched": "Reset Dispatched",
+      "resetDispatchedDesc": "A security key reset link has been dispatched to your neural address."
+    },
+    "role": {
+      "verified": "Verified"
+    },
     "saveSuccessTitle": "Identity Node Updated",
     "saveSuccessDescription": "Your explorer profile has been resynced.",
+    "authorizeChanges": "Authorize Changes",
     "saveButton": "Authorize Changes",
     "savingButton": "Updating Grid...",
     "tabs": {
@@ -504,6 +522,8 @@
       "security": "Security Node"
     },
     "personalInfo": {
+      "title": "Personal Telemetry",
+      "description": "This is your core identity matrix on the Aetheria Grid.",
       "firstName": "Given Name",
       "lastName": "Surname",
       "gender": "Gender Identity",
@@ -512,9 +532,19 @@
         "female": "Female",
         "other": "Non-Binary",
         "preferNotToSay": "Undisclosed"
-      }
+      },
+      "citizenship": "Citizenship",
+      "citizenshipPlaceholder": "e.g., United States",
+      "citizenshipDesc": "Required for Safety Assistant embassy matching.",
+      "homeBase": "Home Base",
+      "homeBasePlaceholder": "e.g., New York, NY",
+      "networkAddress": "Network Address",
+      "networkAddressPlaceholder": "explorer@aetheria.ai",
+      "networkAddressDesc": "This address is permanently locked to your identity."
     },
     "travelStyle": {
+      "title": "Travel Style Synthesis",
+      "description": "Calibrate your preferred mode of exploration.",
       "relaxed": {
         "label": "Leisure Synthesis",
         "description": "Slow-paced exploration."
@@ -537,6 +567,8 @@
       }
     },
     "interests": {
+      "title": "Interest Matrix",
+      "description": "Calibrate your interest nodes to refine AI recommendations.",
       "items": {
         "history": "History",
         "food": "Gastronomy",
@@ -547,6 +579,41 @@
         "nature": "Ecology",
         "wellness": "Wellness"
       }
+    },
+    "settings": {
+      "title": "System Configuration",
+      "language": "Linguistic Grid",
+      "languageDesc": "Select your core communication language.",
+      "theme": "Interface Theme",
+      "themeDesc": "Calibrate the visual parameters of your interface.",
+      "themes": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      }
+    },
+    "financial": {
+      "title": "Financial Node",
+      "description": "Synchronize your core monetary protocols.",
+      "baseCurrency": "Base Currency",
+      "baseCurrencyDesc": "This will be the default for all financial synthesis.",
+      "currencies": {
+        "USD": "United States Dollar",
+        "EUR": "Euro",
+        "GBP": "British Pound",
+        "JPY": "Japanese Yen",
+        "INR": "Indian Rupee",
+        "THB": "Thai Baht"
+      }
+    },
+    "security": {
+      "title": "Security & Access",
+      "description": "Manage your access protocols and grid security.",
+      "resetTitle": "Dispatch Security Key Reset",
+      "resetDesc": "Send a reset link to your primary neural address.",
+      "resetButton": "Dispatch Reset",
+      "alertTitle": "Security Alert",
+      "alertDesc": "For security reasons, your current key is not displayed. A key reset is required to change it. Your key is stored securely in the Aetheria Grid."
     }
   },
   "onboarding": {
@@ -753,5 +820,22 @@
       "title": "Vibe Radar",
       "desc": "Scanning {{vibe}} signatures in {{location}}."
     }
+  },
+  "english": "English",
+  "aiItineraryCustomization": {
+    "title": "AI Itinerary Customization",
+    "description": "Our AI can customize your itinerary based on your preferences."
+  },
+  "arIndoorNavigation": {
+    "title": "AR Indoor Navigation",
+    "description": "Navigate indoors with our AR-powered navigation system."
+  },
+  "gamifiedLanguageLearning": {
+    "title": "Gamified Language Learning",
+    "description": "Learn a new language while playing a game."
+  },
+  "realTimePublicTransit": {
+    "title": "Real-time Public Transit",
+    "description": "Get real-time updates on public transit."
   }
 }

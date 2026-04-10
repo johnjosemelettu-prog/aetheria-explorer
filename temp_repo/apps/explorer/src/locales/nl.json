@@ -1,4 +1,27 @@
 {
+  "common": {
+    "save": "Wijzigingen opslaan",
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "loading": "Laden...",
+    "search": "Zoeken",
+    "filter": "Filteren",
+    "back": "Terug",
+    "next": "Volgende",
+    "continue": "Doorgaan",
+    "confirm": "Bevestigen",
+    "active": "Actief",
+    "inactive": "Inactief",
+    "verified": "Geverifieerd",
+    "unlocked": "Ontgrendeld",
+    "locked": "Vergrendeld",
+    "authorized": "Geautoriseerd",
+    "error": "Systeemfout",
+    "returnToDashboard": "Terug naar dashboard",
+    "initialize": "Initialiseren"
+  },
   "landingPage": {
     "header": {
       "brand": "AETHERIA",
@@ -7,18 +30,18 @@
       "links": {
         "home": "Home",
         "features": "Functies",
-        "workflow": "Workflow",
-        "cta": "Aan de slag"
+        "workflow": "Werkstroom",
+        "cta": "Begin"
       },
       "logo": "Aetheria Logo"
     },
     "footer": {
-      "tagline": "Uw reis synthetiseren door de digitale ether.",
+      "tagline": "Synthetiseer je reis door de digitale ether.",
       "copyright": "© 2026 Aetheria AI. Alle rechten voorbehouden.",
       "links": {
         "privacy": "Privacybeleid",
         "terms": "Servicevoorwaarden",
-        "contact": "Neem contact op"
+        "contact": "Contact"
       },
       "sections": {
         "company": "Bedrijf",
@@ -27,225 +50,792 @@
     },
     "body": {
       "hero": {
-        "title": "Uw reis, gesynthetiseerd",
+        "badge": "Aetheria Intelligentieknooppunt",
+        "title": "Jouw Reis, Gesynthetiseerd",
         "subtitle": "Benut de kracht van AI om het digitale landschap te verkennen als nooit tevoren.",
-        "cta": "Begin uw reis"
+        "description1": "Elimineer logistiek. Versterk ervaringen.",
+        "description2": "Ervaar 's werelds eerste multi-agent AI-reissynthese.",
+        "cta": "Begin je Reis",
+        "signUp": "Identiteit vaststellen",
+        "login": "Knooppunt openen",
+        "scroll": "Scroll om te scannen"
+      },
+      "links": {
+        "itinerary": "Aura Reisroute",
+        "postcard": "Ansichtkaartstudio",
+        "legends": "Lokale Legendes",
+        "packing": "Inpakassistent",
+        "signup": "Identiteit vaststellen",
+        "login": "Inloggen"
       },
       "features": {
-        "title": "Krachtige functies",
+        "badge": "Protocol Hoofdstuk 01",
+        "title": "Krachtige Functies",
         "description": "Ontdek wat Aetheria uniek maakt.",
+        "quote": "De toekomst van reizen is niet waar je naartoe gaat, maar hoe je de realiteit van je reis synthetiseert.",
+        "itinerary": {
+          "badge": "Orkestratie",
+          "title": "Aura Reisroute",
+          "desc": "Synthetiseer een meerdaagse odyssee op basis van je psychologische DNA."
+        },
+        "postcard": {
+          "badge": "Studio",
+          "title": "Ansichtkaartstudio",
+          "desc": "Transformeer je snapshots in AI-gesynthetiseerde kunstvormen."
+        },
+        "legends": {
+          "badge": "Intelligentie",
+          "title": "Lokale Legendes",
+          "desc": "Ontrafel de verborgen verhalen van het netwerk via GPS-gekoppelde intel."
+        },
+        "packing": {
+          "badge": "Hulpprogramma",
+          "title": "Inpakassistent",
+          "desc": "Synthetiseer uitrustingsvereisten op basis van klimaat- en odyssee-parameters."
+        },
         "items": [
           {
-            "title": "AI-gestuurde inzichten",
-            "description": "Krijg diepgaande inzichten in uw gegevens met onze geavanceerde AI-modellen."
+            "title": "AI-gestuurde Inzichten",
+            "description": "Krijg diepgaande inzichten in je gegevens met onze geavanceerde AI-modellen."
           },
           {
-            "title": "Naadloze workflow",
-            "description": "Integreer Aetheria moeiteloos in uw bestaande workflow."
+            "title": "Naadloze Werkstroom",
+            "description": "Integreer Aetheria moeiteloos in je bestaande werkstroom."
           },
           {
-            "title": "Real-time samenwerking",
-            "description": "Werk in real-time met uw team aan elk project."
+            "title": "Realtime Samenwerking",
+            "description": "Werk in realtime met je team aan elk project."
           }
         ]
       },
       "workflow": {
-        "title": "Hoe het werkt",
-        "description": "Een eenvoudig proces in 3 stappen om u op weg te helpen.",
+        "badge": "Operationeel Protocol",
+        "title": "Hoe het Werkt",
+        "description": "Een eenvoudig proces in 3 stappen om te beginnen.",
+        "step1": {
+          "title": "Definieer Doelstelling",
+          "desc": "Voer je bestemmingsknooppunt en interesseparameters in."
+        },
+        "step2": {
+          "title": "Ontwerp Odyssee",
+          "desc": "Aetheria's neurale netwerk bouwt een op maat gemaakt pad voor je reis."
+        },
+        "step3": {
+          "title": "Begin Odyssee",
+          "desc": "Doorkruis de wereld met realtime intel en veiligheidsprotocollen."
+        },
         "steps": [
           {
-            "title": "Verbind uw gegevens",
-            "description": "Verbind uw gegevensbronnen veilig met Aetheria."
+            "title": "Verbind je Gegevens",
+            "description": "Verbind je gegevensbronnen veilig met Aetheria."
           },
           {
-            "title": "Analyseren en synthetiseren",
-            "description": "Laat onze AI uw gegevens analyseren en synthetiseren tot bruikbare inzichten."
+            "title": "Analyseer en Synthetiseer",
+            "description": "Laat onze AI je gegevens analyseren en synthetiseren tot bruikbare inzichten."
           },
           {
-            "title": "Verkennen en ontdekken",
-            "description": "Verken uw gesynthetiseerde gegevens en ontdek nieuwe mogelijkheden."
+            "title": "Verken en Ontdek",
+            "description": "Verken je gesynthetiseerde gegevens en ontdek nieuwe mogelijkheden."
           }
-        ]
+        ],
+        "floating": {
+          "title": "Dynamische Herkalibratie",
+          "desc": "Realtime aanpassingen op basis van omgevings-telemetrie."
+        }
       },
       "cta": {
-        "title": "Klaar om uw reis te beginnen?",
-        "subtitle": "Sluit u aan bij duizenden gebruikers die Aetheria al gebruiken om hun werk te transformeren.",
-        "button": "Gratis aan de slag"
+        "title": "Klaar om je Reis te Beginnen?",
+        "subtitle": "Sluit je aan bij duizenden gebruikers die Aetheria al gebruiken om hun werk te transformeren.",
+        "description": "Sluit je aan bij een netwerk van moderne ontdekkingsreizigers die oneindige intelligentie benutten.",
+        "button": "Begin Gratis",
+        "signUpNow": "Link naar het Netwerk"
+      },
+      "images": {
+        "featureAlt": "Aetheria functie visualisatie",
+        "processAlt": "Aetheria proces werkstroom"
       }
     }
   },
-  "header": {
-    "categories": {
-      "orchestration": "Orkestratie",
-      "intelligence": "Intelligentie",
-      "studios": "Studio's",
-      "utility": "Hulpprogramma"
+  "login": {
+    "title": "Knooppunt Openen",
+    "emailLabel": "Neurale Identiteit",
+    "emailPlaceholder": "ontdekkingsreiziger@aetheria.ai",
+    "passwordLabel": "Beveiligingssleutel",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "Sessie Starten",
+    "signingInButton": "Identiteit verifiëren...",
+    "noAccount": "Niet op het netwerk?",
+    "signUpLink": "Identiteit vaststellen",
+    "toast": {
+      "successTitle": "Verbinding hersteld",
+      "successDescription": "Je Aetheria-sessie is nu actief op het netwerk.",
+      "errorTitle": "Initialisatie mislukt",
+      "genericError": "Kon inloggegevens niet verifiëren.",
+      "invalidCredentials": "Ongeldige identiteit of beveiligingssleutel.",
+      "operationNotAllowed": "Toegang tot knooppunt is momenteel beperkt."
+    }
+  },
+  "signup": {
+    "title": "Identiteit Vaststellen",
+    "description": "Sluit je aan bij het wereldwijde reissynthesenetwerk van Aetheria.",
+    "emailLabel": "Neurale Identiteit",
+    "emailPlaceholder": "ontdekkingsreiziger@aetheria.ai",
+    "passwordLabel": "Beveiligingssleutel",
+    "createButton": "Account Initialiseren",
+    "creatingButton": "Profiel bouwen...",
+    "haveAccount": "Bestaand knooppunt?",
+    "signInLink": "Sessie openen",
+    "toast": {
+      "successTitle": "Identiteit vastgesteld",
+      "successDescription": "Welkom bij het Aetheria-netwerk.",
+      "errorTitle": "Synthese mislukt",
+      "emailInUse": "Deze identiteit is al geregistreerd op het netwerk.",
+      "operationNotAllowed": "Registratie is momenteel beperkt.",
+      "genericError": "Er is een fout opgetreden bij het bouwen van de identiteit."
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Aetheria Intelligentieknooppunt",
+      "title": "De Wereld, Herontworpen.",
+      "subtitle": "Elimineer logistiek. Versterk ervaringen. Ervaar 's werelds eerste multi-agent AI-reissynthese.",
+      "scroll": "Scroll om te scannen",
+      "cta": {
+        "start": "Begin Odyssee",
+        "signin": "Knooppunt Openen"
+      }
     },
-    "dashboard": "Dashboard",
-    "aiItinerary": "AI-reisplan",
-    "pathfinder": "Pathfinder",
-    "vibeMarketplace": "Vibe-marktplaats",
-    "vibeShopping": "Vibe-winkelen",
-    "bookingHub": "Boekingscentrum",
-    "wallet": "Portemonnee",
-    "budgetSynthesis": "Budget-synthese",
-    "visionHub": "Vision-hub",
+    "features": {
+      "chapter": "Protocol Hoofdstuk 01",
+      "title": "Intelligentielenzen",
+      "initNode": "Knooppunt Initialiseren",
+      "itinerary": {
+        "badge": "Orkestratie",
+        "title": "Aura Reisroute",
+        "desc": "Synthetiseer een meerdaagse odyssee op basis van je psychologische DNA."
+      },
+      "postcard": {
+        "badge": "Studio",
+        "title": "Ansichtkaartstudio",
+        "desc": "Transformeer je snapshots in AI-gesynthetiseerde kunstvormen."
+      },
+      "legends": {
+        "badge": "Intelligentie",
+        "title": "Lokale Legendes",
+        "desc": "Ontrafel de verborgen verhalen van het netwerk via GPS-gekoppelde intel."
+      },
+      "packing": {
+        "badge": "Hulpprogramma",
+        "title": "Inpakassistent",
+        "desc": "Synthetiseer uitrustingsvereisten op basis van klimaat- en odyssee-parameters."
+      }
+    },
+    "workflow": {
+      "badge": "Operationeel Protocol",
+      "title": "Systeemlogica",
+      "phase": "Fase {{num}}",
+      "step1": {
+        "title": "Definieer Doelstelling",
+        "desc": "Voer je bestemmingsknooppunt en interesseparameters in."
+      },
+      "step2": {
+        "title": "Ontwerp Odyssee",
+        "desc": "Aetheria's neurale netwerk bouwt een op maat gemaakt pad voor je reis."
+      },
+      "step3": {
+        "title": "Begin Odyssee",
+        "desc": "Doorkruis de wereld met realtime intel en veiligheidsprotocollen."
+      }
+    },
+    "cta": {
+      "badge": "Word lid van het Netwerk",
+      "title": "Klaar om de wereld opnieuw op te bouwen?",
+      "subtitle": "Sluit je aan bij een netwerk van moderne ontdekkingsreizigers die oneindige intelligentie benutten.",
+      "start": "Link naar het Netwerk",
+      "feed": "Wereldwijde Feed"
+    }
+  },
+  "header": {
+    "brandName": "AETHERIA",
+    "brandTagline": "Reis Gesynthetiseerd",
+    "linguisticGrid": "Linguïstisch Raster",
+    "login": "Inloggen",
+    "signup": "Identiteit Vaststellen",
+    "sos": "SOS Paniek Hub",
+    "aiItinerary": "Aura Reisroute",
+    "aiItineraryCustomization": "AI Reisroute Aanpassing",
+    "pathfinder": "Padvinder",
+    "vibeMarketplace": "Vibe Marktplaats",
+    "vibeShopping": "Op Maat Gemaakte Winkel",
+    "bookingHub": "Logistiek Hub",
+    "myTrips": "Mijn Odyssees",
+    "visionHub": "Visie AI Hub",
     "intelligenceCenter": "Intelligentiecentrum",
-    "arWayfinding": "AR-navigatie",
-    "localLegends": "Lokale legendes",
-    "culturalPulse": "Culturele hartslag",
-    "audioGuide": "Audiogids",
-    "tripOdyssey": "Reis-odyssee",
+    "arIndoorNavigation": "AR Binnennavigatie",
+    "arWayfinding": "AR Navigatie",
+    "localLegends": "Lokale Legendes",
+    "explorerQuests": "Ontdekkingsreiziger Missies",
+    "culturalPulse": "Culturele Puls",
+    "tripOdyssey": "Reis Odyssee",
+    "realTimePublicTransit": "Realtime Openbaar Vervoer",
     "postcardStudio": "Ansichtkaartstudio",
     "heritageMirror": "Erfgoedspiegel",
-    "journal": "Journaal",
-    "sos": "SOS",
-    "insurance": "Verzekering",
-    "visaArchitect": "Visumarchitect",
-    "flightStatus": "Vluchtstatus",
-    "esim": "eSIM",
-    "carbonSynthesis": "Koolstofsynthese",
-    "packingassistant": "Inpakassistent"
-  },
-  "sidebar": {
-    "brand": {
-      "name": "AETHERIA",
-      "tagline": "Reis Gesynthetiseerd"
+    "journal": "Ontdekkingsreiziger's Dagboek",
+    "visaArchitect": "Visum Architect",
+    "carbonSynthesis": "Koolstof-tracker",
+    "esim": "Wereldwijde eSIM",
+    "flightStatus": "Logistiek Radar",
+    "layoverOdyssey": "Tussenstop Odyssee",
+    "safety": "Veiligheidsassistent",
+    "hotels": "Accommodatie",
+    "flights": "Aero-logistiek",
+    "insurance": "Veiligheidsprotocol",
+    "trains": "Spoorweg Synthese",
+    "buses": "Oppervlaktetransport",
+    "cruises": "Aquatische Odyssee",
+    "cabs": "Grondtransport",
+    "dining": "Smaakknooppunten",
+    "profile": "Identiteitsknooppunt",
+    "loyaltyHub": "Loyaliteitshub",
+    "wallet": "Slimme Portemonnee",
+    "rentals": "Activahuur",
+    "scanAndPay": "Scan & Betaal",
+    "subscription": "Odyssee Passes",
+    "partners": "Partnerknooppunten",
+    "digitalBrochure": "Aetheria Protocol",
+    "appTrailer": "Systeemtrailer",
+    "events": "Bestemmingsevenementen",
+    "gearArchitect": "Uitrustingsarchitect",
+    "jetLag": "Circadiane Logica",
+    "digitalTailor": "Digitale Kleermaker",
+    "translator": "Linguïstisch Lab",
+    "gamifiedLanguageLearning": "Gamified Taal Leren",
+    "corporate": "Bedrijfsmodus",
+    "dashboard": "Commandocentrum",
+    "budgetSynthesis": "Budget Synthese",
+    "moodSynthesis": "Stemming Synthese",
+    "auraBeats": "Aura Beats",
+    "equilibriumSync": "Evenwichtssynchronisatie",
+    "flavorDna": "Smaak DNA",
+    "audioGuide": "Ruimtelijke Audio",
+    "menuExplorer": "Menu Decoder",
+    "localInsider": "Lokale Insider",
+    "cultureScout": "Cultuurverkenner",
+    "packingassistant": "Hulpprogramma Knooppunt",
+    "aria": {
+      "back": "Terug",
+      "wallet": "Portemonnee Knooppunt",
+      "tailor": "Kleermaker Knooppunt",
+      "cart": "Lading",
+      "language": "Linguïstisch Raster",
+      "menu": "Mainframe"
     },
-    "sessionVerified": "Sessie geverifieerd",
-    "neuralLinkActive": "Neural Link actief"
-  },
-  "userNav": {
-    "explorerHub": "Explorer-hub",
-    "manageBookings": "Boekingen beheren",
-    "upgradeSubscription": "Abonnement upgraden",
-    "adminConsole": "Beheerdersconsole",
-    "partnerHub": "Partner-hub",
-    "identityNode": "Identiteitsknooppunt",
-    "terminateSession": "Sessie beëindigen",
-    "toast": {
-      "logoutSuccessTitle": "Sessie beëindigd",
-      "logoutSuccessDescription": "Uw neurale link is veilig verbroken.",
-      "logoutErrorTitle": "Beëindiging mislukt",
-      "logoutErrorDescription": "Er is een fout opgetreden bij het verbreken van uw sessie."
+    "categories": {
+      "orchestration": "Orkestreer",
+      "intelligence": "Intelligentie",
+      "studios": "Studio's",
+      "utility": "Hulpprogramma",
+      "ar": "AR",
+      "vr": "VR",
+      "ai": "AI"
+    },
+    "promo": {
+      "spotlights": "Partner Spotlights",
+      "verified": "Geverifieerde Knooppunten"
     }
+  },
+  "explorerQuests": {
+    "title": "Ontdekkingsreiziger Missies",
+    "subtitle": "Verander je stedelijke verkenning in een cryptische odyssee.",
+    "initTitle": "Initialiseer Missieraster",
+    "initDesc": "Selecteer een terminal voor gespecialiseerde expeditie-missies.",
+    "cityPlaceholder": "bijv. Kyoto, Japan",
+    "generateBtn": "Bouw Missie",
+    "newCityBtn": "Nieuwe Terminal",
+    "progress": "Synchronisatie: {{completed}} / {{total}}",
+    "xp": "{{current}} / {{total}} XP",
+    "hint": "Intel: {{hint}}",
+    "xpSynthesized": "{{points}} XP Gesynthetiseerd",
+    "resolvedTitle": "Terminal opgelost!",
+    "resolvedDesc": "Je hebt met succes de geheimen van {{city}} ontcijferd.",
+    "returnBtn": "Keer terug naar Commandohub"
+  },
+  "languageLab": {
+    "badge": "Linguïstische Intelligentie",
+    "title": "Taallaboratorium",
+    "subtitle": "Beheers dialecten met AI-gesynthetiseerde overlevingskits en uitspraakgidsen.",
+    "cityPlaceholder": "Voer bestemmingsknooppunt in...",
+    "synthesizeBtn": "Synthetiseer Kit",
+    "survivalTitle": "Kernprotocollen",
+    "pronounce": "Uitspraak: {{pronunciation}}",
+    "slangTitle": "Lokale Idioom",
+    "listenBtn": "Monitor Audio",
+    "pendingTitle": "Linguïstische Verwerking",
+    "pendingDesc": "Geef een bestemming op om een taalkit voor je odyssee te synthetiseren.",
+    "toast": {
+      "errorTitle": "Synthese Mislukt",
+      "errorDescription": "Het linguïstische raster is offline.",
+      "audioErrorTitle": "Audiofout",
+      "audioErrorDescription": "Kon stempatronen niet synthetiseren."
+    }
+  },
+  "layoverOdyssey": {
+    "badge": "Transit Intelligentie",
+    "title": "Tussenstop Odyssee",
+    "subtitle": "Synthetiseer je transittijd tot een mini-expeditie.",
+    "initTitle": "Initialiseer Tussenstopknooppunt",
+    "initDesc": "Voer transit-telemetrie in voor een beknopte reisroute.",
+    "airportPlaceholder": "Luchthaven/knooppuntcode (bijv. SIN)",
+    "durationLabel": "Venster (uren)",
+    "synthesizeBtn": "Bouw Odyssee",
+    "resultTitle": "Jouw Tussenstop Odyssee",
+    "newBtn": "Nieuwe Expeditie",
+    "timelineTitle": "Tijdsverloop",
+    "logisticsTitle": "Logistiekknooppunt",
+    "transport": "Transit",
+    "budget": "Toewijzing",
+    "visa": "Vergunnings-intel",
+    "pendingTitle": "Odyssee Niet Gevonden",
+    "pendingDesc": "Geef tussenstopparameters op om een expeditie te bouwen.",
+    "missionParameters": "Missieparameters",
+    "currentTerminal": "Huidig Terminaalknooppunt",
+    "layoverDuration": "Tussenstopvenster",
+    "synthesizeOdyssey": "Synthetiseer Odyssee",
+    "radarSilent": "Radar Stil",
+    "enterCodeDesc": "Voer knooppuntcode in om een tussenstop-odyssee te bouwen."
+  },
+  "transitConnect": {
+    "title": "Transitverbinding",
+    "subtitle": "Identificeer je collega's in de terminal. Maak contact met ontdekkingsreizigers op dezelfde vlucht of met gedeelde interesses.",
+    "step1": {
+      "title": "Verifieer Instapkaart",
+      "description": "Scan je pas om identiteit en vlucht-telemetrie te verifiëren.",
+      "scanningButton": "Telemetrie scannen...",
+      "scanButton": "Scan Pas",
+      "cameraError": "Het cameraknooppunt is offline.",
+      "scanErrorTitle": "Scan Afgebroken",
+      "scanErrorDescription": "Kon instapkaartgegevens niet ontcijferen."
+    },
+    "verification": {
+      "title": "Verificatie Voltooid",
+      "description": "Vluchtgegevens succesvol gesynchroniseerd met het Aetheria-netwerk.",
+      "passenger": "Ontdekkingsreiziger",
+      "flight": "Aero-code",
+      "gate": "Terminal Gate",
+      "seat": "Knooppuntpositie",
+      "departs": "Start"
+    },
+    "step2": {
+      "title": "Selecteer Synchronisatiemodus",
+      "description": "Kies hoe je met anderen wilt linken.",
+      "goLiveButton": "Ga Live op het Netwerk",
+      "vibes": {
+        "networking": "Netwerken",
+        "networkingDescription": "Maak contact met professionals op je vlucht.",
+        "coffee": "Koffiesynthese",
+        "coffeeDescription": "Informeel gesprek onder het genot van een drankje.",
+        "shareLounge": "Deel Lounge",
+        "shareLoungeDescription": "Gebruik premium middelen collectief.",
+        "cardGame": "Strategisch Spelen",
+        "cardGameDescription": "Verdrijf de tijd met tactisch spel."
+      }
+    },
+    "step3": {
+      "title": "Terminalnetwerk",
+      "description": "Actieve verbindingen in je nabijheid.",
+      "nearbyTab": "Nabijheid",
+      "arViewTab": "AR Visie",
+      "sameFlight": "Overeenkomende aero-code",
+      "chatButton": "Link Opzetten",
+      "arViewDescription": "AR Visie actief",
+      "toast": {
+        "chatTitle": "Link Opgezet",
+        "chatDescription": "Verbinding maken met het knooppunt van {{name}}..."
+      }
+    }
+  },
+  "footer": {
+    "brandName": "AETHERIA",
+    "brandTagline": "Reis Gesynthetiseerd",
+    "copyright": "Aetheria AI",
+    "quote": "De toekomst van reizen is niet waar je naartoe gaat, maar hoe je de realiteit van je reis synthetiseert.",
+    "sections": {
+      "protocols": "Protocollen",
+      "network": "Netwerk",
+      "support": "Ondersteuning",
+      "connect": "Verbinden"
+    },
+    "links": {
+      "itinerary": "Aura Reisroute",
+      "pathfinder": "Padvinder",
+      "marketplace": "Vibe Marktplaats",
+      "vision": "Visie Hub",
+      "intelligence": "Intelligentiecentrum",
+      "ar": "AR Navigatie",
+      "odyssey": "Reis Odyssee",
+      "postcard": "Ansichtkaartstudio",
+      "heritage": "Erfgoedspiegel",
+      "journal": "Ontdekkingsreiziger's Dagboek",
+      "help": "Help Hub",
+      "safety": "Veiligheidsknooppunt",
+      "status": "Systeemstatus",
+      "api": "API Toegang",
+      "terms": "Gebruiksvoorwaarden",
+      "privacy": "Privacyprotocol",
+      "security": "Gegevensbeveiliging",
+      "legal": "Juridische Kennisgevingen",
+      "brochure": "Protocol Brochure",
+      "partners": "Partnerknooppunten",
+      "hub": "Contact Hub",
+      "faq": "FAQ"
+    },
+    "status": {
+      "description": "Wereldwijd Netwerk Operationeel",
+      "poweredBy": "Aangedreven door Aetheria Core"
+    },
+    "aria": {
+      "x": "X (voorheen Twitter)",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    }
+  },
+  "profile": {
+    "toast": {
+      "nodeInterruption": "Knooppunt Onderbreking",
+      "nodeInterruptionDesc": "Verzending van beveiligingssleutel mislukt. Netwerkverbinding kan onstabiel zijn.",
+      "syncFailed": "Synchronisatie mislukt",
+      "resetDispatched": "Reset verzonden",
+      "resetDispatchedDesc": "Een link voor het opnieuw instellen van de beveiligingssleutel is naar je neurale adres verzonden."
+    },
+    "role": {
+      "verified": "Geverifieerd"
+    },
+    "saveSuccessTitle": "Identiteitsknooppunt Bijgewerkt",
+    "saveSuccessDescription": "Je ontdekkingsreizigersprofiel is opnieuw gesynchroniseerd.",
+    "authorizeChanges": "Wijzigingen autoriseren",
+    "saveButton": "Wijzigingen autoriseren",
+    "savingButton": "Netwerk bijwerken...",
+    "tabs": {
+      "identity": "Identiteitsknooppunt",
+      "travelDna": "Reis DNA",
+      "settings": "Systeeminstellingen",
+      "security": "Beveiligingsknooppunt"
+    },
+    "personalInfo": {
+      "title": "Persoonlijke Telemetrie",
+      "description": "Dit is je kernidentiteitsmatrix op het Aetheria-netwerk.",
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
+      "gender": "Geslachtsidentiteit",
+      "genders": {
+        "male": "Man",
+        "female": "Vrouw",
+        "other": "Niet-binair",
+        "preferNotToSay": "Zeg ik liever niet"
+      },
+      "citizenship": "Nationaliteit",
+      "citizenshipPlaceholder": "bijv. Verenigde Staten",
+      "citizenshipDesc": "Vereist voor ambassade-matching van veiligheidsassistent.",
+      "homeBase": "Thuisbasis",
+      "homeBasePlaceholder": "bijv. New York, NY",
+      "networkAddress": "Netwerkadres",
+      "networkAddressPlaceholder": "ontdekkingsreiziger@aetheria.ai",
+      "networkAddressDesc": "Dit adres is permanent vergrendeld aan je identiteit."
+    },
+    "travelStyle": {
+      "title": "Reisstijl Synthese",
+      "description": "Kalibreer je favoriete verkenningsmodus.",
+      "relaxed": {
+        "label": "Ontspannen Synthese",
+        "description": "Verkenning in een rustig tempo."
+      },
+      "active": {
+        "label": "Kinetisch",
+        "description": "Hoogenergetische beweging."
+      },
+      "adventurous": {
+        "label": "Ontdekkingsmodus",
+        "description": "Nieuwe grenzen blootleggen."
+      },
+      "packed": {
+        "label": "Maximale Efficiëntie",
+        "description": "Maximale knooppuntdekking."
+      },
+      "familyFriendly": {
+        "label": "Collectieve Veiligheid",
+        "description": "Groepsreizen met veiligheid als prioriteit."
+      }
+    },
+    "interests": {
+      "title": "Interessematrix",
+      "description": "Kalibreer je interesseknooppunten om AI-aanbevelingen te verfijnen.",
+      "items": {
+        "history": "Geschiedenis",
+        "food": "Gastronomie",
+        "hiking": "Wandelen",
+        "art": "Kunst",
+        "nightlife": "Nachtleven",
+        "shopping": "Winkelen",
+        "nature": "Natuur",
+        "wellness": "Welzijn"
+      }
+    },
+    "settings": {
+      "title": "Systeemconfiguratie",
+      "language": "Linguïstisch Raster",
+      "languageDesc": "Selecteer je kerncommunicatietaal.",
+      "theme": "Interface Thema",
+      "themeDesc": "Kalibreer de visuele parameters van je interface.",
+      "themes": {
+        "light": "Licht",
+        "dark": "Donker",
+        "system": "Systeem"
+      }
+    },
+    "financial": {
+      "title": "Financieel Knooppunt",
+      "description": "Synchroniseer je kernvalutaprotocollen.",
+      "baseCurrency": "Basisvaluta",
+      "baseCurrencyDesc": "Dit is de standaard voor alle financiële syntheses.",
+      "currencies": {
+        "USD": "Amerikaanse Dollar",
+        "EUR": "Euro",
+        "GBP": "Britse Pond",
+        "JPY": "Japanse Yen",
+        "INR": "Indiase Roepie",
+        "THB": "Thaise Baht"
+      }
+    },
+    "security": {
+      "title": "Beveiliging & Toegang",
+      "description": "Beheer je toegangsprotocollen en netwerkbeveiliging.",
+      "resetTitle": "Verstuur Beveiligingssleutel Reset",
+      "resetDesc": "Stuur een resetlink naar je primaire neurale adres.",
+      "resetButton": "Verstuur Reset",
+      "alertTitle": "Beveiligingswaarschuwing",
+      "alertDesc": "Om veiligheidsredenen wordt je huidige sleutel niet weergegeven. Een sleutelreset is vereist om deze te wijzigen. Je sleutel is veilig opgeslagen op het Aetheria-netwerk."
+    }
+  },
+  "onboarding": {
+    "steps": {
+      "header": {
+        "title": "Aura Hub Actief",
+        "content": "Je neurale link is live. Deze badge geeft aan dat Aetheria AI actief je reistelemetrie synthetiseert."
+      },
+      "season": {
+        "title": "Seizoensvoortgang",
+        "content": "Volg je XP en level je odyssee op. Voltooi missies om exclusieve digitale activa en reisvoordelen te ontgrendelen."
+      },
+      "itinerary": {
+        "title": "Aura Reisroute",
+        "content": "Onze kern-AI-engine. Synthetiseer een meerdaagse odyssee op maat van je psychologische DNA en reisvibe."
+      },
+      "vision": {
+        "title": "Visie AI Hub",
+        "content": "Gebruik je camera om oriëntatiepunten en artefacten te scannen. Onze AI biedt realtime historische en culturele synthese."
+      },
+      "postcard": {
+        "title": "Ansichtkaartstudio",
+        "content": "Verander je reismomenten in hoogwaardige, door AI gegenereerde kunst. Deel je unieke perspectief met het netwerk."
+      },
+      "vibe": {
+        "title": "Vibe Radar",
+        "content": "Detecteer andere ontdekkingsreizigers in je omgeving met overeenkomende neurale signaturen. Verbind en synchroniseer je reizen."
+      }
+    },
+    "finish": "Initialisatie Voltooien",
+    "next": "Doorgaan"
+  },
+  "itineraryGenerator": {
+    "toast": {
+      "bookingInitiated": "Logistiek geïnitieerd",
+      "reserving": "Reserveren van {{activity}}...",
+      "adjustmentFailed": "Aanpassing mislukt",
+      "adjustmentFailedDesc": "Kon pad niet herkalibreren.",
+      "pathRecalibrated": "Pad geherkalibreerd",
+      "pathRecalibratedDesc": "Odyssee bijgewerkt met voorgestelde aanpassingen.",
+      "generateSuccessTitle": "Odyssee gereed",
+      "generateSuccessDescription": "Je pad naar {{destination}} is volledig gesynthetiseerd.",
+      "generateErrorTitle": "Synthese Mislukt",
+      "generateErrorDescription": "Kon reisroute niet bouwen. Systeemfout.",
+      "refineSuccessTitle": "Pad verfijnd",
+      "refineErrorTitle": "Verfijning Mislukt",
+      "refineErrorDescription": "Kon padparameters niet aanpassen."
+    },
+    "display": {
+      "pendingTitle": "Wachten op Synthese",
+      "pendingDesc": "Autoriseer een bestemming om je hoogwaardige odyssee te bouwen.",
+      "upgradeTitle": "Ontgrendel Volledig Spectrum",
+      "upgradeDesc": "Upgrade naar Pro voor onbeperkte AI-verfijningen en hoogwaardige intel.",
+      "upgradeBtn": "Upgrade Knooppunt Nu",
+      "resultBadge": "Gesynthetiseerde Odyssee",
+      "pathTitle": "Jouw Odyssee Pad",
+      "recalibrateTitle": "Dynamische Herkalibratie",
+      "recalibrateDesc": "Weerpatronen zijn veranderd. Je pad herkalibreren voor binnenactiviteiten?",
+      "recalibrateContext": "Buitenactiviteiten zijn niet optimaal vanwege plotselinge neerslag.",
+      "recalibrateBtn": "Herkalibreer Pad",
+      "reserveBtn": "Reserveer Knooppunt",
+      "notes": "Protocolnotities",
+      "adjustTitle": "Handmatige Verfijning",
+      "adjustDesc": "Vraag specifieke herkalibraties aan voor je gesynthetiseerde pad.",
+      "adjustPlaceholder": "bijv. voeg meer streetfood-knooppunten toe, of verminder de kinetische intensiteit...",
+      "processing": "Synthese verwerken...",
+      "updateBtn": "Pad Bijwerken",
+      "proposedTitle": "Voorgestelde Herkalibratie",
+      "rejectBtn": "Afwijzen",
+      "authorizeBtn": "Wijzigingen Autoriseren"
+    },
+    "form": {
+      "title": "Bouw Odyssee",
+      "description": "Bouw een reis met meerdere knooppunten op basis van je unieke parameters en beperkingen.",
+      "destinationLabel": "Bestemmingsknooppunt",
+      "destinationPlaceholder": "bijv. Tokio, Japan",
+      "datesLabel": "Tijdsbestek",
+      "pickDateRange": "Kies datumbereik",
+      "budgetLabel": "Middelen Toewijzing",
+      "budgetPlaceholder": "Selecteer budget",
+      "budgetLow": "Economie (Minimaal)",
+      "budgetMedium": "Standaard (Gebalanceerd)",
+      "budgetHigh": "Premium (Hoog)",
+      "vibeLabel": "Vibe Synthese",
+      "vibePlaceholder": "Beschrijf de sfeer van deze reis...",
+      "vibeDescription": "AI zal dit gebruiken om het omgevingsprofiel van je odyssee in te stellen.",
+      "generatingButton": "Pad synthetiseren...",
+      "generateButton": "Autoriseer Odyssee"
+    },
+    "validation": {
+      "destination": "Bestemming moet minimaal 2 tekens bevatten.",
+      "interests": "Selecteer ten minste één interesseknooppunt."
+    },
+    "title": "Reisroute Synthesizer",
+    "subtitle": "Bouw je volgende hoogwaardige reis met AI-orkestratie.",
+    "authError": "Autorisatie Vereist",
+    "authErrorDesc": "Log in om de bouw van de odyssee te autoriseren.",
+    "odysseySuffix": "Odyssee"
+  },
+  "subscription": {
+    "badge": "Valutaprotocol",
+    "title": "Abonnementencentrum",
+    "subtitle": "Verbeter je odyssee met premium services en wereldwijde veiligheidsprotocollen.",
+    "itineraryRequired": "Actieve Odyssee Vereist",
+    "itineraryRequiredDesc": "Je moet een actieve odyssee hebben om een abonnementsprotocol te selecteren.",
+    "createItineraryBtn": "Initialiseer Odyssee",
+    "plans": {
+      "free": {
+        "name": "Standaard",
+        "description": "Basis reishulpprogramma's.",
+        "price": "€0",
+        "itinerariesValue": "1 actieve odyssee",
+        "immersiveValue": "Standaard intel",
+        "loyaltyValue": "Basisbeloningen"
+      },
+      "voyager": {
+        "name": "Reiziger",
+        "description": "Voor verbeterde verkenning.",
+        "price": "€750",
+        "itinerariesValue": "3 actieve odyssees",
+        "immersiveValue": "Verbeterde intel",
+        "packingValue": "AI Inpakknooppunt",
+        "loyaltyValue": "Zilveren beloningen"
+      },
+      "pathfinder": {
+        "name": "Padvinder",
+        "description": "Voor professionele ontdekkingsreizigers.",
+        "price": "€1600",
+        "itinerariesValue": "Onbeperkte odyssees",
+        "immersiveValue": "Neurale intelligentie",
+        "insiderValue": "Lokale Legendes",
+        "loyaltyValue": "Gouden beloningen"
+      },
+      "sovereign": {
+        "name": "Soeverein",
+        "description": "Onbeperkte toegang en elite orkestratie.",
+        "price": "€4000",
+        "itinerariesValue": "Onbeperkte odyssees",
+        "immersiveValue": "Oneindige intel",
+        "mirrorValue": "Erfgoedspiegel Knooppunt",
+        "fees": "Geen servicetoeslag"
+      },
+      "legend": {
+        "name": "Legende",
+        "description": "De ultieme reissynthese.",
+        "price": "€8000",
+        "itinerariesValue": "Onbeperkte odyssees",
+        "immersiveValue": "Oneindige intel",
+        "mirrorValue": "Erfgoedspiegel Knooppunt",
+        "insiderValue": "Lokale Legendes",
+        "fees": "Geen servicetoeslag"
+      }
+    },
+    "period": {
+      "monthly": "/maand"
+    },
+    "features": {
+      "itineraries": "Odyssee Capaciteit",
+      "immersive": "Intelligentie Graad",
+      "loyalty": "Beloningsniveau",
+      "packing": "Inpakknooppunt",
+      "insider": "Lokale Intel",
+      "mirror": "Erfgoedknooppunt",
+      "fees": "Servicetoeslag"
+    },
+    "upgrade": "Upgrade Knooppunt",
+    "processingBtn": "Verwerken...",
+    "currentPlan": "Huidig Protocol"
   },
   "dashboard": {
     "welcomeBack": "Welkom terug, {{name}}",
-    "odysseyLevel": "Odyssee-niveau {{level}}",
-    "explorerHubActive": "Explorer-hub actief",
-    "viewLegacyWrapped": "Bekijk jaaroverzicht",
-    "productionTrailer": "Productietrailer",
+    "odysseyLevel": "Odyssee Niveau {{level}}",
     "seasonPass": "Seizoenspas",
     "xpSynthesized": "XP Gesynthetiseerd",
     "progressionToLevel": "Voortgang naar niveau {{level}}",
     "vibeStreak": "Vibe-reeks",
     "tasksResolved": "Taken opgelost",
-    "totalMedals": "Totaal aantal medailles",
-    "premiumRequired": "Premium-pas vereist",
-    "explorerStatus": "Explorer-status: {{tier}}",
+    "totalMedals": "Totaal medailles",
+    "premiumRequired": "Premium Protocol Vereist",
+    "explorerStatus": "Ontdekkingsreiziger Niveau: {{tier}}",
     "points": "Punten",
     "medals": "Medailles",
-    "editProfile": "Profiel bewerken",
-    "match": "MATCH",
-    "toast": {
-      "missionInviteTitle": "Odyssee-voorstel verzonden",
-      "missionInviteDescription": "Wachten op autorisatie van {{name}} voor de groepsodyssee."
-    },
-    "xpProgress": "{{current}} / {{total}} XP",
-    "odysseyCount": "{{count}} Odysseeën",
-    "questCount": "{{count}} Quests",
-    "awardCount": "{{count}} Awards",
-    "vibeRadar": {
-      "title": "Vibe-radar",
-      "desc": "Detecteren van {{vibe}}-overeenkomsten in uw huidige sector: {{location}}"
-    },
-    "expandNeuralNetwork": "Neuraal netwerk uitbreiden",
+    "editProfile": "Identiteitsknooppunt Wijzigen",
     "shortDesc": {
-      "itinerary": "AI-gesynthetiseerde reisplannen",
-      "pathfinder": "Optimale neurale route",
-      "marketplace": "Vibe-gecureerde ervaringen",
-      "store": "Digitale activa verwerven",
-      "booking": "Quantum-boekingscentrum",
-      "wallet": "Gecodeerde tegoedopslag",
-      "budget": "Financiële synthese-engine",
-      "vision": "AR-objectherkenning",
-      "guide": "Wereldwijde kennisbank",
-      "ar": "Ruimtelijke navigatie-overlay",
-      "legends": "Historische gegevens ophalen",
-      "pulse": "Real-time culturele stroom",
-      "audio": "Meeslepende soundscapes",
-      "odyssey": "Cinematische reisteaser",
-      "postcard": "AI-gegenereerde visuele knooppunten",
-      "mirror": "Erfgoedgegevensreflectie",
-      "journal": "Persoonlijk odyssee-logboek"
+      "itinerary": "Neurale odyssee synthese.",
+      "pathfinder": "Slimme routeoptimalisatie.",
+      "marketplace": "Wereldwijde vibe-uitwisseling.",
+      "store": "Uitrusting aanschaffen.",
+      "booking": "Logistieke orkestratie.",
+      "wallet": "Slimme valutaknooppunt.",
+      "budget": "Financiële synthese.",
+      "vision": "Objectherkenningsknooppunt.",
+      "guide": "Wereldwijde intelhub.",
+      "ar": "Augmented navigatie.",
+      "legends": "Geschiedenis decodering.",
+      "pulse": "Culturele trends radar.",
+      "audio": "Ruimtelijke vertelling.",
+      "odyssey": "Cinematische reissynthese.",
+      "postcard": "AI kunstgeneratie.",
+      "mirror": "Erfgoedvisualisatie.",
+      "journal": "Geheugenversleuteling."
+    },
+    "vibeRadar": {
+      "title": "Vibe Radar",
+      "desc": "Scannen naar {{vibe}} signaturen in {{location}}."
     }
   },
-  "login": {
-    "title": "Aetheria Login",
-    "emailLabel": "Netwerkadres",
-    "emailPlaceholder": "naam@domein.com",
-    "passwordLabel": "Beveiligingssleutel",
-    "passwordPlaceholder": "••••••••",
-    "signInButton": "Sessie autoriseren",
-    "signingInButton": "Autoriseren...",
-    "noAccount": "Nieuw bij Aetheria?",
-    "signUpLink": "Identiteitsknooppunt maken",
-    "accessOdysseyGrid": "Toegang tot uw Odyssee-raster",
-    "authChannels": "Authenticatiekanalen",
-    "google": "Google",
-    "apple": "Apple",
-    "biometricLogin": "Biometrische login",
-    "systemNodeOffline": "Systeemknooppunt offline",
-    "authServiceInitializing": "De authenticatieservice is nog niet geïnitialiseerd.",
-    "unsupportedFeature": "Niet-ondersteunde functie",
-    "biometricOnlyMobile": "Biometrische login is alleen beschikbaar op mobiele apparaten.",
-    "biometricLoginFailed": "Biometrische login mislukt",
-    "biometricLoginError": "Kon niet inloggen met biometrische gegevens.",
-    "invalidCredentials": "Ongeldig e-mailadres of beveiligingssleutel. Controleer uw gegevens of maak een nieuw account aan als u dat nog niet heeft gedaan.",
-    "accountDisabled": "Dit account is uitgeschakeld. Neem contact op met de klantenservice.",
-    "tooManyRequests": "Te veel mislukte pogingen. Probeer het later opnieuw of stel uw beveiligingssleutel opnieuw in.",
-    "networkError": "Netwerkverbinding mislukt. Controleer uw verbinding en probeer het opnieuw.",
-    "toast": {
-      "successTitle": "Sessie geautoriseerd",
-      "successDescription": "Uw neurale link is nu actief.",
-      "errorTitle": "Autorisatie mislukt",
-      "genericError": "Er is een onverwachte fout opgetreden tijdens de sessie-autorisatie.",
-      "operationNotAllowed": "Deze authenticatiemethode is momenteel uitgeschakeld."
-    }
+  "english": "Engels",
+  "aiItineraryCustomization": {
+    "title": "AI Reisroute Aanpassing",
+    "description": "Onze AI kan je reisroute aanpassen op basis van je voorkeuren."
   },
-  "signup": {
-    "title": "Deelnemen aan de Odyssee",
-    "description": "Maak uw Aetheria-account aan",
-    "firstNameLabel": "Voornaam",
-    "lastNameLabel": "Achternaam",
-    "firstNamePlaceholder": "jan",
-    "lastNamePlaceholder": "jansen",
-    "emailLabel": "Netwerkadres",
-    "emailPlaceholder": "naam@domein.com",
-    "passwordLabel": "Beveiligingssleutel",
-    "passwordPlaceholder": "••••••••",
-    "createButton": "Profiel initialiseren",
-    "creatingButton": "Synchroniseren...",
-    "haveAccount": "Al deel van het netwerk?",
-    "signInLink": "Inloggen",
-    "networkJoin": "Netwerkdeelname",
-    "welcomeKit": {
-      "title": "Welkomstpakket verzonden!",
-      "description": "Check uw inbox voor een persoonlijk welkom van Aetheria AI."
-    },
-    "toast": {
-      "successTitle": "Profiel geïnitialiseerd",
-      "successDescription": "Welkom bij het Aetheria-netwerk.",
-      "errorTitle": "Initialisatie mislukt",
-      "genericError": "Kon account niet aanmaken. Probeer het opnieuw."
-    },
-    "errors": {
-      "emailInUse": "Dit e-mailadres is al geregistreerd. Log in in de plaats.",
-      "invalidEmail": "Het e-mailadres is ongeldig. Controleer het en probeer het opnieuw.",
-      "operationNotAllowed": "Aanmelden met e-mail/wachtwoord is momenteel uitgeschakeld.",
-      "weakPassword": "De beveiligingssleutel is te zwak. Gebruik een sterkere sleutel.",
-      "networkError": "Netwerkverbinding mislukt. Controleer uw verbinding en probeer het opnieuw."
-    }
+  "arIndoorNavigation": {
+    "title": "AR Binnennavigatie",
+    "description": "Navigeer binnenshuis met ons AR-aangedreven navigatiesysteem."
+  },
+  "gamifiedLanguageLearning": {
+    "title": "Gamified Taal Leren",
+    "description": "Leer een nieuwe taal terwijl je een spel speelt."
+  },
+  "realTimePublicTransit": {
+    "title": "Realtime Openbaar Vervoer",
+    "description": "Krijg realtime updates over het openbaar vervoer."
   }
 }

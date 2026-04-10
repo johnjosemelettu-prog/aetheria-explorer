@@ -1,32 +1,32 @@
 {
   "common": {
-    "save": "Confirmar cambios",
-    "cancel": "Abortar",
-    "close": "Terminar",
-    "delete": "Desinicializar",
-    "edit": "Modificar nodo",
-    "loading": "Sintetizando...",
-    "search": "Escanear cuadrícula",
-    "filter": "Filtrar nodos",
-    "back": "Volver",
-    "next": "Proceder",
-    "continue": "Mantener enlace",
-    "confirm": "Autorizar",
-    "active": "En línea",
-    "inactive": "Fuera de línea",
-    "verified": "Autenticado",
-    "unlocked": "Acceso concedido",
-    "locked": "Restringido",
-    "authorized": "Despejado",
-    "error": "Brecha del sistema",
-    "returnToDashboard": "Volver al centro de mando",
-    "initialize": "Inicializar nodo"
+    "save": "Guardar cambios",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "loading": "Cargando...",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "continue": "Continuar",
+    "confirm": "Confirmar",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "verified": "Verificado",
+    "unlocked": "Desbloqueado",
+    "locked": "Bloqueado",
+    "authorized": "Autorizado",
+    "error": "Error del sistema",
+    "returnToDashboard": "Volver al panel de control",
+    "initialize": "Inicializar"
   },
   "landingPage": {
     "header": {
       "brand": "AETHERIA",
       "ai": "IA",
-      "journeySynthesized": "Viaje Sintetizado",
+      "journeySynthesized": "Viaje sintetizado",
       "links": {
         "home": "Inicio",
         "features": "Características",
@@ -41,7 +41,7 @@
       "links": {
         "privacy": "Política de privacidad",
         "terms": "Términos de servicio",
-        "contact": "Contáctanos"
+        "contact": "Contacto"
       },
       "sections": {
         "company": "Empresa",
@@ -50,17 +50,53 @@
     },
     "body": {
       "hero": {
+        "badge": "Nodo de inteligencia de Aetheria",
         "title": "Tu viaje, sintetizado",
         "subtitle": "Aprovecha el poder de la IA para explorar el paisaje digital como nunca antes.",
-        "cta": "Comienza tu viaje"
+        "description1": "Elimina la logística. Amplifica las experiencias.",
+        "description2": "Experimenta la primera síntesis de viajes con IA multiagente del mundo.",
+        "cta": "Comienza tu viaje",
+        "signUp": "Establecer identidad",
+        "login": "Nodo de acceso",
+        "scroll": "Desliza para escanear"
+      },
+      "links": {
+        "itinerary": "Itinerario Aura",
+        "postcard": "Estudio de postales",
+        "legends": "Leyendas locales",
+        "packing": "Asistente de equipaje",
+        "signup": "Establecer identidad",
+        "login": "Iniciar sesión"
       },
       "features": {
+        "badge": "Capítulo 01 del protocolo",
         "title": "Funciones potentes",
         "description": "Descubre lo que hace que Aetheria sea única.",
+        "quote": "El futuro de los viajes no es a dónde vas, sino cómo sintetizas la realidad de tu viaje.",
+        "itinerary": {
+          "badge": "Orquestación",
+          "title": "Itinerario Aura",
+          "desc": "Sintetiza una odisea de varios días basada en tu ADN psicológico."
+        },
+        "postcard": {
+          "badge": "Estudio",
+          "title": "Estudio de postales",
+          "desc": "Transforma tus capturas en formas de arte sintetizadas por IA."
+        },
+        "legends": {
+          "badge": "Inteligencia",
+          "title": "Leyendas locales",
+          "desc": "Descubre las narrativas ocultas de la red a través de información vinculada por GPS."
+        },
+        "packing": {
+          "badge": "Utilidad",
+          "title": "Asistente de equipaje",
+          "desc": "Sintetiza los requisitos de equipo en función de los parámetros climáticos y de la odisea."
+        },
         "items": [
           {
             "title": "Información impulsada por IA",
-            "description": "Obtén información profunda sobre tus datos con nuestros modelos avanzados de IA."
+            "description": "Obtén información detallada de tus datos con nuestros modelos avanzados de IA."
           },
           {
             "title": "Flujo de trabajo fluido",
@@ -73,8 +109,21 @@
         ]
       },
       "workflow": {
+        "badge": "Protocolo operativo",
         "title": "Cómo funciona",
-        "description": "Un proceso simple de 3 pasos para comenzar.",
+        "description": "Un sencillo proceso de 3 pasos para empezar.",
+        "step1": {
+          "title": "Definir objetivo",
+          "desc": "Introduce tu nodo de destino y los parámetros de interés."
+        },
+        "step2": {
+          "title": "Diseñar odisea",
+          "desc": "La red neuronal de Aetheria construye una ruta a medida para tu viaje."
+        },
+        "step3": {
+          "title": "Iniciar odisea",
+          "desc": "Recorre el mundo con información y protocolos de seguridad en tiempo real."
+        },
         "steps": [
           {
             "title": "Conecta tus datos",
@@ -88,187 +137,705 @@
             "title": "Explora y descubre",
             "description": "Explora tus datos sintetizados y descubre nuevas oportunidades."
           }
-        ]
+        ],
+        "floating": {
+          "title": "Recalibración dinámica",
+          "desc": "Ajustes en tiempo real basados en la telemetría ambiental."
+        }
       },
       "cta": {
-        "title": "¿Listo para comenzar tu viaje?",
-        "subtitle": "Únete a miles de usuarios que ya están usando Aetheria para transformar su trabajo.",
-        "button": "Empieza gratis"
+        "title": "¿Listo para empezar tu viaje?",
+        "subtitle": "Únete a miles de usuarios que ya utilizan Aetheria para transformar su trabajo.",
+        "description": "Únete a una red de exploradores modernos que utilizan inteligencia infinita.",
+        "button": "Empieza gratis",
+        "signUpNow": "Enlace a la red"
+      },
+      "images": {
+        "featureAlt": "Visualización de funciones de Aetheria",
+        "processAlt": "Flujo de trabajo del proceso de Aetheria"
       }
     }
   },
-  "header": {
-    "categories": {
-      "orchestration": "Orquestación",
-      "intelligence": "Inteligencia",
-      "studios": "Estudios",
-      "utility": "Utilidad"
-    },
-    "dashboard": "Tablero",
-    "aiItinerary": "Itinerario IA",
-    "pathfinder": "Pathfinder",
-    "vibeMarketplace": "Mercado de Vibe",
-    "vibeShopping": "Compras de Vibe",
-    "bookingHub": "Centro de Reservas",
-    "wallet": "Billetera",
-    "budgetSynthesis": "Síntesis de Presupuesto",
-    "visionHub": "Centro de Visión",
-    "intelligenceCenter": "Centro de Inteligencia",
-    "arWayfinding": "Orientación AR",
-    "localLegends": "Leyendas Locales",
-    "culturalPulse": "Pulso Cultural",
-    "audioGuide": "Audioguía",
-    "tripOdyssey": "Odisea del Viaje",
-    "postcardStudio": "Estudio de Postales",
-    "heritageMirror": "Espejo del Patrimonio",
-    "journal": "Diario",
-    "sos": "SOS",
-    "insurance": "Seguro",
-    "visaArchitect": "Arquitecto de Visas",
-    "flightStatus": "Estado del Vuelo",
-    "esim": "eSIM",
-    "carbonSynthesis": "Síntesis de Carbono",
-    "packingassistant": "Asistente de Empaque"
-  },
-  "sidebar": {
-    "brand": {
-      "name": "AETHERIA",
-      "tagline": "Viaje Sintetizado"
-    },
-    "sessionVerified": "Sesión Verificada",
-    "neuralLinkActive": "Enlace Neural Activo"
-  },
-  "userNav": {
-    "explorerHub": "Centro de Exploradores",
-    "manageBookings": "Gestionar Reservas",
-    "upgradeSubscription": "Mejorar Suscripción",
-    "adminConsole": "Consola de Administración",
-    "partnerHub": "Centro de Socios",
-    "identityNode": "Nodo de Identidad",
-    "terminateSession": "Terminar Sesión",
-    "toast": {
-      "logoutSuccessTitle": "Sesión Terminada",
-      "logoutSuccessDescription": "Tu enlace neural se ha desconectado de forma segura.",
-      "logoutErrorTitle": "Fallo al Terminar",
-      "logoutErrorDescription": "Hubo un error al desconectar tu sesión."
-    }
-  },
-  "dashboard": {
-    "welcomeBack": "Bienvenido de nuevo, {{name}}",
-    "odysseyLevel": "Nivel de Odisea {{level}}",
-    "explorerHubActive": "Centro de Exploradores Activo",
-    "viewLegacyWrapped": "Ver Resumen de Legado",
-    "productionTrailer": "Tráiler de Producción",
-    "seasonPass": "Pase de Temporada",
-    "xpSynthesized": "XP Sintetizada",
-    "progressionToLevel": "Progresión al Nivel {{level}}",
-    "vibeStreak": "Racha de Vibe",
-    "tasksResolved": "Tareas Resueltas",
-    "totalMedals": "Total de Medallas",
-    "premiumRequired": "Se requiere Pase Premium",
-    "explorerStatus": "Estado de Explorador: {{tier}}",
-    "points": "Puntos",
-    "medals": "Medallas",
-    "editProfile": "Editar Perfil",
-    "match": "EMPAREJAR",
-    "toast": {
-      "missionInviteTitle": "Propuesta de Odisea Transmitida",
-      "missionInviteDescription": "Esperando a que {{name}} autorice la Odisea Grupal."
-    },
-    "xpProgress": "{{current}} / {{total}} XP",
-    "odysseyCount": "{{count}} Odiseas",
-    "questCount": "{{count}} Misiones",
-    "awardCount": "{{count}} Premios",
-    "vibeRadar": {
-      "title": "Radar de Vibe",
-      "desc": "Detectando coincidencias de {{vibe}} en tu sector actual: {{location}}"
-    },
-    "expandNeuralNetwork": "Expandir Red Neural",
-    "shortDesc": {
-      "itinerary": "Planes de viaje sintetizados por IA",
-      "pathfinder": "Optimización de rutas neurales",
-      "marketplace": "Experiencias curadas por Vibe",
-      "store": "Adquisición de activos digitales",
-      "booking": "Centro de reservas cuánticas",
-      "wallet": "Almacenamiento de crédito encriptado",
-      "budget": "Motor de síntesis financiera",
-      "vision": "Reconocimiento de objetos AR",
-      "guide": "Base de conocimientos global",
-      "ar": "Superposición de orientación espacial",
-      "legends": "Recuperación de datos históricos",
-      "pulse": "Flujo cultural en tiempo real",
-      "audio": "Paisajes sonoros inmersivos",
-      "odyssey": "Teaser de viaje cinematográfico",
-      "postcard": "Nodos visuales generados por IA",
-      "mirror": "Reflexión de datos de patrimonio",
-      "journal": "Registro personal de odisea"
-    }
-  },
   "login": {
-    "title": "Inicio de Sesión Aetheria",
-    "emailLabel": "Dirección de Red",
-    "emailPlaceholder": "nombre@dominio.com",
-    "passwordLabel": "Clave de Seguridad",
+    "title": "Nodo de acceso",
+    "emailLabel": "Identidad neuronal",
+    "emailPlaceholder": "explorer@aetheria.ai",
+    "passwordLabel": "Clave de seguridad",
     "passwordPlaceholder": "••••••••",
-    "signInButton": "Autorizar Sesión",
-    "signingInButton": "Autorizando...",
-    "noAccount": "¿Nuevo en Aetheria?",
-    "signUpLink": "Crear Nodo de Identidad",
-    "accessOdysseyGrid": "Accede a tu Cuadrícula de Odisea",
-    "authChannels": "Canales de Autenticación",
-    "google": "Google",
-    "apple": "Apple",
-    "biometricLogin": "Inicio de Sesión Biométrico",
-    "systemNodeOffline": "Nodo del Sistema Fuera de Línea",
-    "authServiceInitializing": "El servicio de autenticación aún no se ha inicializado.",
-    "unsupportedFeature": "Función no compatible",
-    "biometricOnlyMobile": "El inicio de sesión biométrico solo está disponible en dispositivos móviles.",
-    "biometricLoginFailed": "Fallo en el Inicio de Sesión Biométrico",
-    "biometricLoginError": "No se pudo iniciar sesión con credenciales biométricas.",
-    "invalidCredentials": "Dirección de correo electrónico o clave de seguridad no válidas. Por favor, comprueba tus credenciales o crea una cuenta nueva si aún no lo has hecho.",
-    "accountDisabled": "Esta cuenta ha sido deshabilitada. Por favor, contacta con soporte.",
-    "tooManyRequests": "Demasiados intentos fallidos. Por favor, inténtalo de nuevo más tarde o restablece tu clave de seguridad.",
-    "networkError": "Fallo en la conexión de red. Por favor, comprueba tu conexión e inténtalo de nuevo.",
+    "signInButton": "Inicializar sesión",
+    "signingInButton": "Verificando identidad...",
+    "noAccount": "¿No estás en la red?",
+    "signUpLink": "Establecer identidad",
     "toast": {
-      "successTitle": "Sesión Autorizada",
-      "successDescription": "Tu enlace neural ya está activo.",
-      "errorTitle": "Autorización Fallida",
-      "genericError": "Ocurrió un error inesperado durante la autorización de la sesión.",
-      "operationNotAllowed": "Este método de autenticación está actualmente deshabilitado."
+      "successTitle": "Conexión restaurada",
+      "successDescription": "Tu sesión de Aetheria ya está activa en la red.",
+      "errorTitle": "Error de inicialización",
+      "genericError": "No se pueden verificar las credenciales.",
+      "invalidCredentials": "Identidad o clave de seguridad no válidas.",
+      "operationNotAllowed": "El acceso al nodo está actualmente restringido."
     }
   },
   "signup": {
-    "title": "Únete a la Odisea",
-    "description": "Crea tu cuenta de Aetheria",
-    "firstNameLabel": "Nombre",
-    "lastNameLabel": "Apellido",
-    "firstNamePlaceholder": "juan",
-    "lastNamePlaceholder": "jose",
-    "emailLabel": "Dirección de Red",
-    "emailPlaceholder": "nombre@dominio.com",
-    "passwordLabel": "Clave de Seguridad",
-    "passwordPlaceholder": "••••••••",
-    "createButton": "Inicializar Perfil",
-    "creatingButton": "Sincronizando...",
-    "haveAccount": "¿Ya eres parte de la red?",
-    "signInLink": "Iniciar Sesión",
-    "networkJoin": "Unirse a la Red",
-    "welcomeKit": {
-      "title": "¡Kit de Bienvenida Enviado!",
-      "description": "Revisa tu bandeja de entrada para recibir una bienvenida personalizada de Aetheria IA."
-    },
+    "title": "Establecer identidad",
+    "description": "Únete a la red global de síntesis de viajes de Aetheria.",
+    "emailLabel": "Identidad neuronal",
+    "emailPlaceholder": "explorer@aetheria.ai",
+    "passwordLabel": "Clave de seguridad",
+    "createButton": "Inicializar cuenta",
+    "creatingButton": "Construyendo perfil...",
+    "haveAccount": "¿Nodo existente?",
+    "signInLink": "Acceder a la sesión",
     "toast": {
-      "successTitle": "Perfil Inicializado",
-      "successDescription": "Bienvenido a la Red Aetheria.",
-      "errorTitle": "Fallo en la Inicialización",
-      "genericError": "No se pudo crear la cuenta. Por favor, inténtalo de nuevo."
-    },
-    "errors": {
-      "emailInUse": "Esta dirección de correo electrónico ya está registrada. Por favor, inicia sesión en su lugar.",
-      "invalidEmail": "La dirección de correo electrónico no es válida. Por favor, compruébala e inténtalo de nuevo.",
-      "operationNotAllowed": "El registro con correo electrónico/contraseña está actualmente deshabilitado.",
-      "weakPassword": "La clave de seguridad es demasiado débil. Por favor, usa una más fuerte.",
-      "networkError": "Fallo en la conexión de red. Por favor, comprueba tu conexión e inténtalo de nuevo."
+      "successTitle": "Identidad establecida",
+      "successDescription": "Bienvenido a la red de Aetheria.",
+      "errorTitle": "Error de síntesis",
+      "emailInUse": "Esta identidad ya está registrada en la red.",
+      "operationNotAllowed": "El registro está actualmente restringido.",
+      "genericError": "Se ha producido un error durante la construcción de la identidad."
     }
+  },
+  "home": {
+    "hero": {
+      "badge": "Nodo de inteligencia de Aetheria",
+      "title": "El mundo, reinventado.",
+      "subtitle": "Elimina la logística. Amplifica las experiencias. Experimenta la primera síntesis de viajes con IA multiagente del mundo.",
+      "scroll": "Desliza para escanear",
+      "cta": {
+        "start": "Comenzar odisea",
+        "signin": "Nodo de acceso"
+      }
+    },
+    "features": {
+      "chapter": "Capítulo 01 del protocolo",
+      "title": "Lentes de inteligencia",
+      "initNode": "Inicializar nodo",
+      "itinerary": {
+        "badge": "Orquestación",
+        "title": "Itinerario Aura",
+        "desc": "Sintetiza una odisea de varios días basada en tu ADN psicológico."
+      },
+      "postcard": {
+        "badge": "Estudio",
+        "title": "Estudio de postales",
+        "desc": "Transforma tus capturas en formas de arte sintetizadas por IA."
+      },
+      "legends": {
+        "badge": "Inteligencia",
+        "title": "Leyendas locales",
+        "desc": "Descubre las narrativas ocultas de la red a través de información vinculada por GPS."
+        },
+        "packing": {
+          "badge": "Utilidad",
+          "title": "Asistente de equipaje",
+          "desc": "Sintetiza los requisitos de equipo en función de los parámetros climáticos y de la odisea."
+        }
+    },
+    "workflow": {
+      "badge": "Protocolo operativo",
+      "title": "Lógica del sistema",
+      "phase": "Fase {{num}}",
+      "step1": {
+        "title": "Definir objetivo",
+        "desc": "Introduce tu nodo de destino y los parámetros de interés."
+      },
+      "step2": {
+        "title": "Diseñar odisea",
+        "desc": "La red neuronal de Aetheria construye una ruta a medida para tu viaje."
+      },
+      "step3": {
+        "title": "Iniciar odisea",
+        "desc": "Recorre el mundo con información y protocolos de seguridad en tiempo real."
+      }
+    },
+    "cta": {
+      "badge": "Únete a la red",
+      "title": "¿Listo para reconstruir el mundo?",
+      "subtitle": "Únete a una red de exploradores modernos que utilizan inteligencia infinita.",
+      "start": "Enlace a la red",
+      "feed": "Feed global"
+    }
+  },
+  "header": {
+    "brandName": "AETHERIA",
+    "brandTagline": "Viaje sintetizado",
+    "linguisticGrid": "Red lingüística",
+    "login": "Iniciar sesión",
+    "signup": "Establecer identidad",
+    "sos": "Centro de pánico SOS",
+    "aiItinerary": "Itinerario Aura",
+    "aiItineraryCustomization": "Personalización del itinerario con IA",
+    "pathfinder": "Explorador",
+    "vibeMarketplace": "Mercado de vibras",
+    "vibeShopping": "Tienda a medida",
+    "bookingHub": "Centro de logística",
+    "myTrips": "Mis odiseas",
+    "visionHub": "Centro de visión de IA",
+    "intelligenceCenter": "Centro de inteligencia",
+    "arIndoorNavigation": "Navegación interior con RA",
+    "arWayfinding": "Navegación con RA",
+    "localLegends": "Leyendas locales",
+    "explorerQuests": "Misiones de explorador",
+    "culturalPulse": "Pulso cultural",
+    "tripOdyssey": "Odisea del viaje",
+    "realTimePublicTransit": "Transporte público en tiempo real",
+    "postcardStudio": "Estudio de postales",
+    "heritageMirror": "Espejo del patrimonio",
+    "journal": "Diario del explorador",
+    "visaArchitect": "Arquitecto de visados",
+    "carbonSynthesis": "Rastreador de carbono",
+    "esim": "eSIM global",
+    "flightStatus": "Radar de logística",
+    "layoverOdyssey": "Odisea de escala",
+    "safety": "Asistente de seguridad",
+    "hotels": "Alojamiento",
+    "flights": "Logística aérea",
+    "insurance": "Protocolo de seguridad",
+    "trains": "Síntesis ferroviaria",
+    "buses": "Tránsito de superficie",
+    "cruises": "Odisea acuática",
+    "cabs": "Transporte terrestre",
+    "dining": "Nodos de sabor",
+    "profile": "Nodo de identidad",
+    "loyaltyHub": "Centro de lealtad",
+    "wallet": "Cartera inteligente",
+    "rentals": "Alquiler de activos",
+    "scanAndPay": "Escanear y pagar",
+    "subscription": "Pases de odisea",
+    "partners": "Nodos de socios",
+    "digitalBrochure": "Protocolo Aetheria",
+    "appTrailer": "Tráiler del sistema",
+    "events": "Eventos de destino",
+    "gearArchitect": "Arquitecto de equipos",
+    "jetLag": "Lógica circadiana",
+    "digitalTailor": "Sastre digital",
+    "translator": "Laboratorio lingüístico",
+    "gamifiedLanguageLearning": "Aprendizaje de idiomas gamificado",
+    "corporate": "Modo empresa",
+    "dashboard": "Centro de mando",
+    "budgetSynthesis": "Síntesis de presupuesto",
+    "moodSynthesis": "Síntesis de estado de ánimo",
+    "auraBeats": "Ritmos Aura",
+    "equilibriumSync": "Sincronización de equilibrio",
+    "flavorDna": "ADN del sabor",
+    "audioGuide": "Audio espacial",
+    "menuExplorer": "Decodificador de menús",
+    "localInsider": "Información local",
+    "cultureScout": "Explorador cultural",
+    "packingassistant": "Nodo de utilidad",
+    "aria": {
+      "back": "Atrás",
+      "wallet": "Nodo de cartera",
+      "tailor": "Nodo de sastre",
+      "cart": "Carga útil",
+      "language": "Red lingüística",
+      "menu": "Mainframe"
+    },
+    "categories": {
+      "orchestration": "Orquestar",
+      "intelligence": "Inteligencia",
+      "studios": "Estudios",
+      "utility": "Utilidad",
+      "ar": "RA",
+      "vr": "RV",
+      "ai": "IA"
+    },
+    "promo": {
+      "spotlights": "Destacados de socios",
+      "verified": "Nodos verificados"
+    }
+  },
+  "explorerQuests": {
+    "title": "Misiones de explorador",
+    "subtitle": "Transforma tu exploración urbana en una odisea críptica.",
+    "initTitle": "Inicializar red de misiones",
+    "initDesc": "Selecciona una terminal para misiones de expedición especializadas.",
+    "cityPlaceholder": "p. ej., Kioto, Japón",
+    "generateBtn": "Construir misión",
+    "newCityBtn": "Nueva terminal",
+    "progress": "Sincronización: {{completed}} / {{total}}",
+    "xp": "{{current}} / {{total}} XP",
+    "hint": "Información: {{hint}}",
+    "xpSynthesized": "{{points}} XP sintetizados",
+    "resolvedTitle": "¡Terminal resuelta!",
+    "resolvedDesc": "Has descifrado con éxito los secretos de {{city}}.",
+    "returnBtn": "Volver al centro de mando"
+  },
+  "languageLab": {
+    "badge": "Inteligencia lingüística",
+    "title": "Laboratorio de idiomas",
+    "subtitle": "Domina dialectos con kits de supervivencia sintetizados por IA y guías de articulación.",
+    "cityPlaceholder": "Introduce el nodo de destino...",
+    "synthesizeBtn": "Sintetizar kit",
+    "survivalTitle": "Protocolos básicos",
+    "pronounce": "Articulación: {{pronunciation}}",
+    "slangTitle": "Modismos locales",
+    "listenBtn": "Monitorear audio",
+    "pendingTitle": "Procesamiento lingüístico",
+    "pendingDesc": "Proporciona un destino para sintetizar un kit lingüístico para tu odisea.",
+    "toast": {
+      "errorTitle": "Error de síntesis",
+      "errorDescription": "La red lingüística está fuera de línea.",
+      "audioErrorTitle": "Error de audio",
+      "audioErrorDescription": "No se pudieron sintetizar los patrones vocales."
+    }
+  },
+  "layoverOdyssey": {
+    "badge": "Inteligencia de tránsito",
+    "title": "Odisea de escala",
+    "subtitle": "Sintetiza tu tiempo de tránsito en una miniexpedición.",
+    "initTitle": "Inicializar nodo de escala",
+    "initDesc": "Introduce la telemetría de tránsito para un breve itinerario.",
+    "airportPlaceholder": "Código de aeropuerto/nodo (p. ej., SIN)",
+    "durationLabel": "Ventana (horas)",
+    "synthesizeBtn": "Construir odisea",
+    "resultTitle": "Tu odisea de escala",
+    "newBtn": "Nueva expedición",
+    "timelineTitle": "Secuencia temporal",
+    "logisticsTitle": "Nodo de logística",
+    "transport": "Tránsito",
+    "budget": "Asignación",
+    "visa": "Información del permiso",
+    "pendingTitle": "Odisea no encontrada",
+    "pendingDesc": "Proporciona los parámetros de la escala para construir una expedición.",
+    "missionParameters": "Parámetros de la misión",
+    "currentTerminal": "Nodo de terminal actual",
+    "layoverDuration": "Ventana de escala",
+    "synthesizeOdyssey": "Sintetizar odisea",
+    "radarSilent": "Radar silencioso",
+    "enterCodeDesc": "Introduce el código del nodo para construir una odisea de escala."
+  },
+  "transitConnect": {
+    "title": "Conexión de tránsito",
+    "subtitle": "Identifica a tus compañeros en la terminal. Conecta con exploradores en el mismo vuelo o con intereses compartidos.",
+    "step1": {
+      "title": "Verificar tarjeta de embarque",
+      "description": "Escanea tu pase para verificar la identidad y la telemetría del vuelo.",
+      "scanningButton": "Escaneando telemetría...",
+      "scanButton": "Escanear pase",
+      "cameraError": "El nodo de la cámara está fuera de línea.",
+      "scanErrorTitle": "Escaneo abortado",
+      "scanErrorDescription": "Error al descifrar los datos de la tarjeta de embarque."
+    },
+    "verification": {
+      "title": "Verificación completa",
+      "description": "Datos del vuelo sincronizados correctamente con la red de Aetheria.",
+      "passenger": "Explorador",
+      "flight": "Código aéreo",
+      "gate": "Puerta de la terminal",
+      "seat": "Posición del nodo",
+      "departs": "Comienzo"
+    },
+    "step2": {
+      "title": "Seleccionar modo de sincronización",
+      "description": "Elige cómo deseas conectar con otros.",
+      "goLiveButton": "Transmitir en vivo en la red",
+      "vibes": {
+        "networking": "Redes de contactos",
+        "networkingDescription": "Conecta con profesionales en tu vuelo.",
+        "coffee": "Síntesis de café",
+        "coffeeDescription": "Conversación informal con una bebida.",
+        "shareLounge": "Compartir sala VIP",
+        "shareLoungeDescription": "Utilizar conjuntamente recursos prémium.",
+        "cardGame": "Juegos estratégicos",
+        "cardGameDescription": "Pasa el tiempo con juegos tácticos."
+      }
+    },
+    "step3": {
+      "title": "Red de la terminal",
+      "description": "Conexiones activas en tu proximidad.",
+      "nearbyTab": "Proximidad",
+      "arViewTab": "Visión de RA",
+      "sameFlight": "Código aéreo coincidente",
+      "chatButton": "Establecer enlace",
+      "arViewDescription": "Visión de RA activa",
+      "toast": {
+        "chatTitle": "Enlace establecido",
+        "chatDescription": "Conectando con el nodo de {{name}}..."
+      }
+    }
+  },
+  "footer": {
+    "brandName": "AETHERIA",
+    "brandTagline": "Viaje sintetizado",
+    "copyright": "Aetheria AI",
+    "quote": "El futuro de los viajes no es a dónde vas, sino cómo sintetizas la realidad de tu viaje.",
+    "sections": {
+      "protocols": "Protocolos",
+      "network": "Red",
+      "support": "Soporte",
+      "connect": "Conectar"
+    },
+    "links": {
+      "itinerary": "Itinerario Aura",
+      "pathfinder": "Explorador",
+      "marketplace": "Mercado de vibras",
+      "vision": "Centro de visión",
+      "intelligence": "Centro de inteligencia",
+      "ar": "Navegación con RA",
+      "odyssey": "Odisea del viaje",
+      "postcard": "Estudio de postales",
+      "heritage": "Espejo del patrimonio",
+      "journal": "Diario del explorador",
+      "help": "Centro de ayuda",
+      "safety": "Nodo de seguridad",
+      "status": "Estado del sistema",
+      "api": "Acceso a la API",
+      "terms": "Condiciones de uso",
+      "privacy": "Protocolo de privacidad",
+      "security": "Seguridad de los datos",
+      "legal": "Avisos legales",
+      "brochure": "Folleto del protocolo",
+      "partners": "Nodos de socios",
+      "hub": "Centro de contacto",
+      "faq": "Preguntas frecuentes"
+    },
+    "status": {
+      "description": "Red global operativa",
+      "poweredBy": "Con la tecnología de Aetheria Core"
+    },
+    "aria": {
+      "x": "X (antes Twitter)",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    }
+  },
+  "profile": {
+    "toast": {
+      "nodeInterruption": "Interrupción del nodo",
+      "nodeInterruptionDesc": "Error en el envío de la clave de seguridad. La conexión a la red puede ser inestable.",
+      "syncFailed": "Error de sincronización",
+      "resetDispatched": "Restablecimiento enviado",
+      "resetDispatchedDesc": "Se ha enviado un enlace de restablecimiento de la clave de seguridad a tu dirección neuronal."
+    },
+    "role": {
+      "verified": "Verificado"
+    },
+    "saveSuccessTitle": "Nodo de identidad actualizado",
+    "saveSuccessDescription": "Tu perfil de explorador se ha vuelto a sincronizar.",
+    "authorizeChanges": "Autorizar cambios",
+    "saveButton": "Autorizar cambios",
+    "savingButton": "Actualizando red...",
+    "tabs": {
+      "identity": "Nodo de identidad",
+      "travelDna": "ADN de viaje",
+      "settings": "Configuración del sistema",
+      "security": "Nodo de seguridad"
+    },
+    "personalInfo": {
+      "title": "Telemetría personal",
+      "description": "Esta es tu matriz de identidad principal en la red de Aetheria.",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "gender": "Identidad de género",
+      "genders": {
+        "male": "Masculino",
+        "female": "Femenino",
+        "other": "No binario",
+        "preferNotToSay": "Prefiero no decirlo"
+      },
+      "citizenship": "Ciudadanía",
+      "citizenshipPlaceholder": "p. ej., Estados Unidos",
+      "citizenshipDesc": "Necesario para la coincidencia de embajadas del asistente de seguridad.",
+      "homeBase": "Base de operaciones",
+      "homeBasePlaceholder": "p. ej., Nueva York, NY",
+      "networkAddress": "Dirección de red",
+      "networkAddressPlaceholder": "explorer@aetheria.ai",
+      "networkAddressDesc": "Esta dirección está permanentemente bloqueada a tu identidad."
+    },
+    "travelStyle": {
+      "title": "Síntesis de estilo de viaje",
+      "description": "Calibra tu modo de exploración preferido.",
+      "relaxed": {
+        "label": "Síntesis de ocio",
+        "description": "Exploración a ritmo lento."
+      },
+      "active": {
+        "label": "Cinético",
+        "description": "Movimiento de alta energía."
+      },
+      "adventurous": {
+        "label": "Modo descubrimiento",
+        "description": "Descubriendo nuevas fronteras."
+      },
+      "packed": {
+        "label": "Máxima eficiencia",
+        "description": "Máxima cobertura de nodos."
+      },
+      "familyFriendly": {
+        "label": "Seguridad colectiva",
+        "description": "Viaje en grupo con prioridad a la seguridad."
+      }
+    },
+    "interests": {
+      "title": "Matriz de intereses",
+      "description": "Calibra tus nodos de interés para refinar las recomendaciones de la IA.",
+      "items": {
+        "history": "Historia",
+        "food": "Gastronomía",
+        "hiking": "Senderismo",
+        "art": "Arte",
+        "nightlife": "Vida nocturna",
+        "shopping": "Compras",
+        "nature": "Naturaleza",
+        "wellness": "Bienestar"
+      }
+    },
+    "settings": {
+      "title": "Configuración del sistema",
+      "language": "Red lingüística",
+      "languageDesc": "Selecciona tu idioma de comunicación principal.",
+      "theme": "Tema de la interfaz",
+      "themeDesc": "Calibra los parámetros visuales de tu interfaz.",
+      "themes": {
+        "light": "Claro",
+        "dark": "Oscuro",
+        "system": "Sistema"
+      }
+    },
+    "financial": {
+      "title": "Nodo financiero",
+      "description": "Sincroniza tus protocolos monetarios principales.",
+      "baseCurrency": "Moneda base",
+      "baseCurrencyDesc": "Esta será la predeterminada para toda la síntesis financiera.",
+      "currencies": {
+        "USD": "Dólar estadounidense",
+        "EUR": "Euro",
+        "GBP": "Libra esterlina",
+        "JPY": "Yen japonés",
+        "INR": "Rupia india",
+        "THB": "Baht tailandés"
+      }
+    },
+    "security": {
+      "title": "Seguridad y acceso",
+      "description": "Gestiona tus protocolos de acceso y la seguridad de la red.",
+      "resetTitle": "Enviar restablecimiento de clave de seguridad",
+      "resetDesc": "Envía un enlace de restablecimiento a tu dirección neuronal principal.",
+      "resetButton": "Enviar restablecimiento",
+      "alertTitle": "Alerta de seguridad",
+      "alertDesc": "Por motivos de seguridad, no se muestra tu clave actual. Es necesario restablecer la clave para cambiarla. Tu clave se almacena de forma segura en la red de Aetheria."
+    }
+  },
+  "onboarding": {
+    "steps": {
+      "header": {
+        "title": "Centro Aura activo",
+        "content": "Tu enlace neuronal está activo. Esta insignia indica que la IA de Aetheria está sintetizando activamente tu telemetría de viaje."
+      },
+      "season": {
+        "title": "Progresión de la temporada",
+        "content": "Sigue tu XP y sube de nivel en tu odisea. Completa misiones para desbloquear activos digitales exclusivos y ventajas de viaje."
+      },
+      "itinerary": {
+        "title": "Itinerario Aura",
+        "content": "Nuestro motor de IA principal. Sintetiza una odisea de varios días adaptada a tu ADN psicológico y a tu ambiente de viaje."
+      },
+      "vision": {
+        "title": "Centro de visión de IA",
+        "content": "Usa tu cámara para escanear lugares y artefactos. Nuestra IA proporciona una síntesis histórica y cultural en tiempo real."
+      },
+      "postcard": {
+        "title": "Estudio de postales",
+        "content": "Convierte tus instantáneas de viaje en arte de alta fidelidad generado por IA. Comparte tu perspectiva única con la red."
+      },
+      "vibe": {
+        "title": "Radar de vibras",
+        "content": "Detecta a otros exploradores en tu vecindad con firmas neuronales coincidentes. Conecta y sincroniza tus viajes."
+      }
+    },
+    "finish": "Completar inicialización",
+    "next": "Continuar"
+  },
+  "itineraryGenerator": {
+    "toast": {
+      "bookingInitiated": "Logística iniciada",
+      "reserving": "Reservando {{activity}}...",
+      "adjustmentFailed": "Error en el ajuste",
+      "adjustmentFailedDesc": "No se pudo recalibrar la ruta.",
+      "pathRecalibrated": "Ruta recalibrada",
+      "pathRecalibratedDesc": "Odisea actualizada con las modificaciones sugeridas.",
+      "generateSuccessTitle": "Odisea lista",
+      "generateSuccessDescription": "Tu ruta a {{destination}} está completamente sintetizada.",
+      "generateErrorTitle": "Error de síntesis",
+      "generateErrorDescription": "No se pudo construir el itinerario. Error del sistema.",
+      "refineSuccessTitle": "Ruta refinada",
+      "refineErrorTitle": "Error de refinamiento",
+      "refineErrorDescription": "No se pudieron ajustar los parámetros de la ruta."
+    },
+    "display": {
+      "pendingTitle": "Esperando síntesis",
+      "pendingDesc": "Autoriza un destino para construir tu odisea de alta fidelidad.",
+      "upgradeTitle": "Desbloquea el espectro completo",
+      "upgradeDesc": "Actualiza a Pro para obtener refinamientos de IA ilimitados e información de alta fidelidad.",
+      "upgradeBtn": "Actualizar nodo ahora",
+      "resultBadge": "Odisea sintetizada",
+      "pathTitle": "Tu ruta de odisea",
+      "recalibrateTitle": "Recalibración dinámica",
+      "recalibrateDesc": "Los patrones climáticos han cambiado. ¿Recalibrar tu ruta para actividades de interior?",
+      "recalibrateContext": "Las actividades al aire libre no son óptimas debido a precipitaciones repentinas.",
+      "recalibrateBtn": "Recalibrar ruta",
+      "reserveBtn": "Reservar nodo",
+      "notes": "Notas del protocolo",
+      "adjustTitle": "Refinamiento manual",
+      "adjustDesc": "Solicita recalibraciones específicas para tu ruta sintetizada.",
+      "adjustPlaceholder": "p. ej., incluye más nodos de comida callejera o disminuye la intensidad cinética...",
+      "processing": "Procesando síntesis...",
+      "updateBtn": "Actualizar ruta",
+      "proposedTitle": "Recalibración propuesta",
+      "rejectBtn": "Descartar",
+      "authorizeBtn": "Autorizar cambios"
+    },
+    "form": {
+      "title": "Construir odisea",
+      "description": "Construye un viaje de varios nodos basado en tus parámetros y restricciones únicos.",
+      "destinationLabel": "Nodo de destino",
+      "destinationPlaceholder": "p. ej., Tokio, Japón",
+      "datesLabel": "Rango temporal",
+      "pickDateRange": "Seleccionar fechas",
+      "budgetLabel": "Asignación de recursos",
+      "budgetPlaceholder": "Seleccionar presupuesto",
+      "budgetLow": "Económico (mínimo)",
+      "budgetMedium": "Estándar (equilibrado)",
+      "budgetHigh": "Prémium (alto)",
+      "vibeLabel": "Síntesis de vibras",
+      "vibePlaceholder": "Describe la atmósfera de este viaje...",
+      "vibeDescription": "La IA utilizará esto para establecer el perfil ambiental de tu odisea.",
+      "generatingButton": "Sintetizando ruta...",
+      "generateButton": "Autorizar odisea"
+    },
+    "validation": {
+      "destination": "El destino debe tener al menos 2 caracteres.",
+      "interests": "Selecciona al menos un nodo de interés."
+    },
+    "title": "Sintetizador de itinerarios",
+    "subtitle": "Construye tu próximo viaje de alta fidelidad con orquestación de IA.",
+    "authError": "Se requiere autorización",
+    "authErrorDesc": "Inicia sesión para autorizar la construcción de la odisea.",
+    "odysseySuffix": "Odisea"
+  },
+  "subscription": {
+    "badge": "Protocolo monetario",
+    "title": "Centro de suscripciones",
+    "subtitle": "Mejora tu odisea with servicios prémium y protocolos de seguridad globales.",
+    "itineraryRequired": "Se requiere odisea activa",
+    "itineraryRequiredDesc": "Debes tener una odisea activa para seleccionar un protocolo de suscripción.",
+    "createItineraryBtn": "Inicializar odisea",
+    "plans": {
+      "free": {
+        "name": "Estándar",
+        "description": "Utilidades de viaje básicas.",
+        "price": "₹0",
+        "itinerariesValue": "1 odisea activa",
+        "immersiveValue": "Información estándar",
+        "loyaltyValue": "Recompensas básicas"
+      },
+      "voyager": {
+        "name": "Viajero",
+        "description": "Para una exploración mejorada.",
+        "price": "₹750",
+        "itinerariesValue": "3 odiseas activas",
+        "immersiveValue": "Información mejorada",
+        "packingValue": "Nodo de equipaje con IA",
+        "loyaltyValue": "Recompensas de plata"
+      },
+      "pathfinder": {
+        "name": "Explorador",
+        "description": "Para exploradores profesionales.",
+        "price": "₹1600",
+        "itinerariesValue": "Odiseas infinitas",
+        "immersiveValue": "Inteligencia neuronal",
+        "insiderValue": "Leyendas locales",
+        "loyaltyValue": "Recompensas de oro"
+      },
+      "sovereign": {
+        "name": "Soberano",
+        "description": "Acceso infinito y orquestación de élite.",
+        "price": "₹4000",
+        "itinerariesValue": "Odiseas infinitas",
+        "immersiveValue": "Información infinita",
+        "mirrorValue": "Nodo de espejo del patrimonio",
+        "fees": "Cero recargos"
+      },
+      "legend": {
+        "name": "Leyenda",
+        "description": "La síntesis de viajes definitiva.",
+        "price": "₹8000",
+        "itinerariesValue": "Odiseas infinitas",
+        "immersiveValue": "Información infinita",
+        "mirrorValue": "Nodo de espejo del patrimonio",
+        "insiderValue": "Leyendas locales",
+        "fees": "Cero recargos"
+      }
+    },
+    "period": {
+      "monthly": "/ mes"
+    },
+    "features": {
+      "itineraries": "Capacidad de odisea",
+      "immersive": "Grado de inteligencia",
+      "loyalty": "Nivel de recompensa",
+      "packing": "Nodo de equipaje",
+      "insider": "Información local",
+      "mirror": "Nodo de patrimonio",
+      "fees": "Recargo por servicio"
+    },
+    "upgrade": "Actualizar nodo",
+    "processingBtn": "Procesando...",
+    "currentPlan": "Protocolo activo"
+  },
+  "dashboard": {
+    "welcomeBack": "Bienvenido de nuevo, {{name}}",
+    "odysseyLevel": "Nivel de odisea {{level}}",
+    "seasonPass": "Pase de temporada",
+    "xpSynthesized": "XP sintetizado",
+    "progressionToLevel": "Progresión al nivel {{level}}",
+    "vibeStreak": "Racha de vibras",
+    "tasksResolved": "Tareas resueltas",
+    "totalMedals": "Total de medallas",
+    "premiumRequired": "Se requiere protocolo prémium",
+    "explorerStatus": "Nivel de explorador: {{tier}}",
+    "points": "Puntos",
+    "medals": "Medallas",
+    "editProfile": "Modificar nodo de identidad",
+    "shortDesc": {
+      "itinerary": "Síntesis de odisea neuronal.",
+      "pathfinder": "Optimización de ruta inteligente.",
+      "marketplace": "Intercambio de vibras global.",
+      "store": "Adquisición de equipos.",
+      "booking": "Orquestación logística.",
+      "wallet": "Nodo de moneda inteligente.",
+      "budget": "Síntesis financiera.",
+      "vision": "Nodo de reconocimiento de objetos.",
+      "guide": "Centro de información global.",
+      "ar": "Navegación aumentada.",
+      "legends": "Descifrando la historia.",
+      "pulse": "Radar de tendencias culturales.",
+      "audio": "Narración espacial.",
+      "odyssey": "Síntesis de viaje cinematográfico.",
+      "postcard": "Generación de arte con IA.",
+      "mirror": "Visualización del patrimonio.",
+      "journal": "Cifrado de memoria."
+    },
+    "vibeRadar": {
+      "title": "Radar de vibras",
+      "desc": "Escaneando firmas de {{vibe}} en {{location}}."
+    }
+  },
+  "english": "Inglés",
+  "aiItineraryCustomization": {
+    "title": "Personalización del itinerario con IA",
+    "description": "Nuestra IA puede personalizar tu itinerario en función de tus preferencias."
+  },
+  "arIndoorNavigation": {
+    "title": "Navegación interior con RA",
+    "description": "Navega en interiores con nuestro sistema de navegación con tecnología de RA."
+  },
+  "gamifiedLanguageLearning": {
+    "title": "Aprendizaje de idiomas gamificado",
+    "description": "Aprende un nuevo idioma mientras juegas."
+  },
+  "realTimePublicTransit": {
+    "title": "Transporte público en tiempo real",
+    "description": "Obtén actualizaciones en tiempo real sobre el transporte público."
   }
 }

@@ -1,4 +1,27 @@
 {
+  "common": {
+    "save": "حفظ التغييرات",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "loading": "جاري التحميل...",
+    "search": "بحث",
+    "filter": "تصفية",
+    "back": "رجوع",
+    "next": "التالي",
+    "continue": "متابعة",
+    "confirm": "تأكيد",
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "verified": "تم التحقق",
+    "unlocked": "مفتوح",
+    "locked": "مغلق",
+    "authorized": "مصرح به",
+    "error": "خطأ في النظام",
+    "returnToDashboard": "العودة إلى لوحة التحكم",
+    "initialize": "تهيئة"
+  },
   "landingPage": {
     "header": {
       "brand": "أثيريا",
@@ -27,13 +50,49 @@
     },
     "body": {
       "hero": {
+        "badge": "عقدة ذكاء أثيريا",
         "title": "رحلتك، مركبة",
         "subtitle": "استغل قوة الذكاء الاصطناعي لاستكشاف المشهد الرقمي كما لم يحدث من قبل.",
-        "cta": "ابدأ رحلتك"
+        "description1": "تخلص من الخدمات اللوجستية. عزز التجارب.",
+        "description2": "جرب أول تركيبة سفر متعددة الوكلاء في العالم.",
+        "cta": "ابدأ رحلتك",
+        "signUp": "إنشاء هوية",
+        "login": "الوصول إلى العقدة",
+        "scroll": "مرر للمسح"
+      },
+      "links": {
+        "itinerary": "مسار أورا",
+        "postcard": "استوديو البطاقات البريدية",
+        "legends": "الأساطير المحلية",
+        "packing": "مساعد التعبئة",
+        "signup": "إنشاء هوية",
+        "login": "تسجيل الدخول"
       },
       "features": {
+        "badge": "الفصل 01 من البروتوكول",
         "title": "مميزات قوية",
         "description": "اكتشف ما يجعل أثيريا فريدة من نوعها.",
+        "quote": "مستقبل السفر ليس إلى أين تذهب، ولكن كيف تقوم بتركيب واقع رحلتك.",
+        "itinerary": {
+          "badge": "تنسيق",
+          "title": "مسار أورا",
+          "desc": "قم بتركيب أوديسة متعددة الأيام بناءً على حمضك النووي النفسي."
+        },
+        "postcard": {
+          "badge": "استوديو",
+          "title": "استوديو البطاقات البريدية",
+          "desc": "حول لقطاتك إلى أشكال فنية مركبة بالذكاء الاصطناعي."
+        },
+        "legends": {
+          "badge": "ذكاء",
+          "title": "الأساطير المحلية",
+          "desc": "اكتشف الروايات الخفية للشبكة من خلال معلومات مرتبطة بنظام تحديد المواقع العالمي (GPS)."
+        },
+        "packing": {
+          "badge": "أداة",
+          "title": "مساعد التعبئة",
+          "desc": "قم بتركيب متطلبات المعدات بناءً على المناخ ومعايير الأوديسة."
+        },
         "items": [
           {
             "title": "رؤى مدعومة بالذكاء الاصطناعي",
@@ -50,8 +109,21 @@
         ]
       },
       "workflow": {
+        "badge": "بروتوكول التشغيل",
         "title": "كيف يعمل",
         "description": "عملية بسيطة من 3 خطوات لتبدأ.",
+        "step1": {
+          "title": "تحديد الهدف",
+          "desc": "أدخل عقدة وجهتك ومعلمات الاهتمام."
+        },
+        "step2": {
+          "title": "تصميم الأوديسة",
+          "desc": "تقوم شبكة أثيريا العصبية ببناء مسار مخصص لرحلتك."
+        },
+        "step3": {
+          "title": "بدء الأوديسة",
+          "desc": "اجتاز العالم بمعلومات وبروتوكولات أمان في الوقت الفعلي."
+        },
         "steps": [
           {
             "title": "ربط بياناتك",
@@ -65,187 +137,705 @@
             "title": "الاستكشاف والاكتشاف",
             "description": "استكشف بياناتك المركبة واكتشف فرصًا جديدة."
           }
-        ]
+        ],
+        "floating": {
+          "title": "إعادة المعايرة الديناميكية",
+          "desc": "تعديلات في الوقت الفعلي بناءً على القياس عن بعد البيئي."
+        }
       },
       "cta": {
         "title": "هل أنت مستعد لبدء رحلتك؟",
         "subtitle": "انضم إلى آلاف المستخدمين الذين يستخدمون أثيريا بالفعل لتحويل عملهم.",
-        "button": "ابدأ مجانًا"
+        "description": "انضم إلى شبكة من المستكشفين المعاصرين الذين يستخدمون ذكاءً لا نهائيًا.",
+        "button": "ابدأ مجانًا",
+        "signUpNow": "ربط بالشبكة"
+      },
+      "images": {
+        "featureAlt": "تصور ميزة أثيريا",
+        "processAlt": "سير عمل عملية أثيريا"
       }
     }
   },
+  "login": {
+    "title": "الوصول إلى العقدة",
+    "emailLabel": "الهوية العصبية",
+    "emailPlaceholder": "explorer@aetheria.ai",
+    "passwordLabel": "مفتاح الأمان",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "بدء الجلسة",
+    "signingInButton": "جاري التحقق من الهوية...",
+    "noAccount": "لست على الشبكة؟",
+    "signUpLink": "إنشاء هوية",
+    "toast": {
+      "successTitle": "تم استعادة الاتصال",
+      "successDescription": "جلستك في أثيريا نشطة الآن على الشبكة.",
+      "errorTitle": "فشل البدء",
+      "genericError": "غير قادر على التحقق من أوراق الاعتماد.",
+      "invalidCredentials": "هوية أو مفتاح أمان غير صالح.",
+      "operationNotAllowed": "الوصول إلى العقدة مقيد حاليًا."
+    }
+  },
+  "signup": {
+    "title": "إنشاء هوية",
+    "description": "انضم إلى شبكة تركيب السفر العالمية في أثيريا.",
+    "emailLabel": "الهوية العصبية",
+    "emailPlaceholder": "explorer@aetheria.ai",
+    "passwordLabel": "مفتاح الأمان",
+    "createButton": "بدء الحساب",
+    "creatingButton": "جاري إنشاء الملف الشخصي...",
+    "haveAccount": "عقدة موجودة؟",
+    "signInLink": "الوصول إلى الجلسة",
+    "toast": {
+      "successTitle": "تم إنشاء الهوية",
+      "successDescription": "مرحبًا بك في شبكة أثيريا.",
+      "errorTitle": "فشل التركيب",
+      "emailInUse": "هذه الهوية مسجلة بالفعل على الشبكة.",
+      "operationNotAllowed": "التسجيل مقيد حاليًا.",
+      "genericError": "حدث خطأ أثناء إنشاء الهوية."
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "عقدة ذكاء أثيريا",
+      "title": "العالم، مُعاد تصوره.",
+      "subtitle": "تخلص من الخدمات اللوجستية. عزز التجارب. جرب أول تركيبة سفر متعددة الوكلاء في العالم.",
+      "scroll": "مرر للمسح",
+      "cta": {
+        "start": "بدء الأوديسة",
+        "signin": "الوصول إلى العقدة"
+      }
+    },
+    "features": {
+      "chapter": "الفصل 01 من البروتوكول",
+      "title": "عدسات الذكاء",
+      "initNode": "بدء العقدة",
+      "itinerary": {
+        "badge": "تنسيق",
+        "title": "مسار أورا",
+        "desc": "قم بتركيب أوديسة متعددة الأيام بناءً على حمضك النووي النفسي."
+      },
+      "postcard": {
+        "badge": "استوديو",
+        "title": "استوديو البطاقات البريدية",
+        "desc": "حول لقطاتك إلى أشكال فنية مركبة بالذكاء الاصطناعي."
+      },
+      "legends": {
+        "badge": "ذكاء",
+        "title": "الأساطير المحلية",
+        "desc": "اكتشف الروايات الخفية للشبكة من خلال معلومات مرتبطة بنظام تحديد المواقع العالمي (GPS)."
+      },
+      "packing": {
+        "badge": "أداة",
+        "title": "مساعد التعبئة",
+        "desc": "قم بتركيب متطلبات المعدات بناءً على المناخ ومعايير الأوديسة."
+      }
+    },
+    "workflow": {
+      "badge": "بروتوكول التشغيل",
+      "title": "منطق النظام",
+      "phase": "المرحلة {{num}}",
+      "step1": {
+        "title": "تحديد الهدف",
+        "desc": "أدخل عقدة وجهتك ومعلمات الاهتمام."
+      },
+      "step2": {
+        "title": "تصميم الأوديسة",
+        "desc": "تقوم شبكة أثيريا العصبية ببناء مسار مخصص لرحلتك."
+      },
+      "step3": {
+        "title": "بدء الأوديسة",
+        "desc": "اجتاز العالم بمعلومات وبروتوكولات أمان في الوقت الفعلي."
+      }
+    },
+    "cta": {
+      "badge": "انضم إلى الشبكة",
+      "title": "هل أنت مستعد لإعادة بناء العالم؟",
+      "subtitle": "انضم إلى شبكة من المستكشفين المعاصرين الذين يستخدمون ذكاءً لا نهائيًا.",
+      "start": "ربط بالشبكة",
+      "feed": "موجز عالمي"
+    }
+  },
   "header": {
+    "brandName": "أثيريا",
+    "brandTagline": "رحلة مركبة",
+    "linguisticGrid": "شبكة لغوية",
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء هوية",
+    "sos": "مركز استغاثة الذعر",
+    "aiItinerary": "مسار أورا",
+    "aiItineraryCustomization": "تخصيص مسار الذكاء الاصطناعي",
+    "pathfinder": "مستكشف المسار",
+    "vibeMarketplace": "سوق الفايب",
+    "vibeShopping": "متجر مخصص",
+    "bookingHub": "مركز الخدمات اللوجستية",
+    "myTrips": "أوديساتي",
+    "visionHub": "مركز رؤية الذكاء الاصطناعي",
+    "intelligenceCenter": "مركز الذكاء",
+    "arIndoorNavigation": "ملاحة داخلية بالواقع المعزز",
+    "arWayfinding": "ملاحة بالواقع المعزز",
+    "localLegends": "الأساطير المحلية",
+    "explorerQuests": "مهام المستكشف",
+    "culturalPulse": "نبض ثقافي",
+    "tripOdyssey": "أوديسة الرحلة",
+    "realTimePublicTransit": "وسائل النقل العام في الوقت الفعلي",
+    "postcardStudio": "استوديو البطاقات البريدية",
+    "heritageMirror": "مرآة التراث",
+    "journal": "دفتر المستكشف",
+    "visaArchitect": "مهندس التأشيرات",
+    "carbonSynthesis": "متتبع الكربون",
+    "esim": "شريحة إلكترونية عالمية",
+    "flightStatus": "رادار الخدمات اللوجستية",
+    "layoverOdyssey": "أوديسة التوقف",
+    "safety": "مساعد الأمان",
+    "hotels": "سكن",
+    "flights": "خدمات جوية لوجستية",
+    "insurance": "بروتوكول الأمان",
+    "trains": "تركيب السكك الحديدية",
+    "buses": "نقل سطحي",
+    "cruises": "أوديسة مائية",
+    "cabs": "نقل بري",
+    "dining": "عقد النكهات",
+    "profile": "عقدة الهوية",
+    "loyaltyHub": "مركز الولاء",
+    "wallet": "محفظة ذكية",
+    "rentals": "إيجارات الأصول",
+    "scanAndPay": "امسح وادفع",
+    "subscription": "تصاريح الأوديسة",
+    "partners": "عقد الشركاء",
+    "digitalBrochure": "بروتوكول أثيريا",
+    "appTrailer": "مقطع دعائي للنظام",
+    "events": "أحداث الوجهة",
+    "gearArchitect": "مهندس المعدات",
+    "jetLag": "منطق الساعة البيولوجية",
+    "digitalTailor": "خياط رقمي",
+    "translator": "مختبر لغوي",
+    "gamifiedLanguageLearning": "تعلم لغة باللعب",
+    "corporate": "وضع المؤسسة",
+    "dashboard": "مركز القيادة",
+    "budgetSynthesis": "تركيب الميزانية",
+    "moodSynthesis": "تركيب الحالة المزاجية",
+    "auraBeats": "إيقاعات أورا",
+    "equilibriumSync": "مزامنة التوازن",
+    "flavorDna": "حمض نكهة نووي",
+    "audioGuide": "صوت مكاني",
+    "menuExplorer": "محلل القائمة",
+    "localInsider": "معلومات محلية",
+    "cultureScout": "مستكشف الثقافة",
+    "packingassistant": "عقدة الأداة",
+    "aria": {
+      "back": "رجوع",
+      "wallet": "عقدة المحفظة",
+      "tailor": "عقدة الخياط",
+      "cart": "حمولة",
+      "language": "شبكة لغوية",
+      "menu": "الإطار الرئيسي"
+    },
     "categories": {
       "orchestration": "تنسيق",
       "intelligence": "ذكاء",
       "studios": "استوديوهات",
-      "utility": "أدوات"
+      "utility": "أداة",
+      "ar": "واقع معزز",
+      "vr": "واقع افتراضي",
+      "ai": "ذكاء اصطناعي"
     },
-    "dashboard": "لوحة القيادة",
-    "aiItinerary": "مسار الذكاء الاصطناعي",
-    "pathfinder": "مستكشف المسار",
-    "vibeMarketplace": "سوق الفايب",
-    "vibeShopping": "تسوق الفايب",
-    "bookingHub": "مركز الحجز",
-    "wallet": "المحفظة",
-    "budgetSynthesis": "تركيب الميزانية",
-    "visionHub": "مركز الرؤية",
-    "intelligenceCenter": "مركز الذكاء",
-    "arWayfinding": "توجيه الواقع المعزز",
-    "localLegends": "أساطير محلية",
-    "culturalPulse": "نبض ثقافي",
-    "audioGuide": "دليل صوتي",
-    "tripOdyssey": "أوديسة الرحلة",
-    "postcardStudio": "استوديو البطاقات البريدية",
-    "heritageMirror": "مرآة التراث",
-    "journal": "اليوميات",
-    "sos": "استغاثة",
-    "insurance": "تأمين",
-    "visaArchitect": "مهندس التأشيرات",
-    "flightStatus": "حالة الرحلة",
-    "esim": "شريحة إلكترونية",
-    "carbonSynthesis": "تركيب الكربون",
-    "packingassistant": "مساعد التعبئة"
-  },
-  "sidebar": {
-    "brand": {
-      "name": "أثيريا",
-      "tagline": "رحلة مركبة"
-    },
-    "sessionVerified": "تم التحقق من الجلسة",
-    "neuralLinkActive": "الارتباط العصبي نشط"
-  },
-  "userNav": {
-    "explorerHub": "مركز المستكشف",
-    "manageBookings": "إدارة الحجوزات",
-    "upgradeSubscription": "ترقية الاشتراك",
-    "adminConsole": "لوحة التحكم",
-    "partnerHub": "مركز الشركاء",
-    "identityNode": "عقدة الهوية",
-    "terminateSession": "إنهاء الجلسة",
-    "toast": {
-      "logoutSuccessTitle": "تم إنهاء الجلسة",
-      "logoutSuccessDescription": "تم فصل ارتباطك العصبي بأمان.",
-      "logoutErrorTitle": "فشل الإنهاء",
-      "logoutErrorDescription": "حدث خطأ أثناء فصل جلستك."
+    "promo": {
+      "spotlights": "أضواء على الشركاء",
+      "verified": "عقد تم التحقق منها"
     }
   },
+  "explorerQuests": {
+    "title": "مهام المستكشف",
+    "subtitle": "حول استكشافك الحضري إلى أوديسة غامضة.",
+    "initTitle": "بدء شبكة المهام",
+    "initDesc": "اختر محطة لمهام استكشافية متخصصة.",
+    "cityPlaceholder": "على سبيل المثال، كيوتو، اليابان",
+    "generateBtn": "إنشاء المهمة",
+    "newCityBtn": "محطة جديدة",
+    "progress": "مزامنة: {{completed}} / {{total}}",
+    "xp": "{{current}} / {{total}} XP",
+    "hint": "معلومات: {{hint}}",
+    "xpSynthesized": "{{points}} XP مركبة",
+    "resolvedTitle": "تم حل المحطة!",
+    "resolvedDesc": "لقد نجحت في فك شفرة أسرار {{city}}.",
+    "returnBtn": "العودة إلى مركز القيادة"
+  },
+  "languageLab": {
+    "badge": "ذكاء لغوي",
+    "title": "مختبر اللغة",
+    "subtitle": "أتقن اللهجات باستخدام مجموعات البقاء المركبة بالذكاء الاصطناعي وأدلة النطق.",
+    "cityPlaceholder": "أدخل عقدة الوجهة...",
+    "synthesizeBtn": "تركيب المجموعة",
+    "survivalTitle": "البروتوكولات الأساسية",
+    "pronounce": "النطق: {{pronunciation}}",
+    "slangTitle": "التعبيرات المحلية",
+    "listenBtn": "مراقبة الصوت",
+    "pendingTitle": "معالجة لغوية",
+    "pendingDesc": "قدم وجهة لتركيب مجموعة لغوية لأوديستك.",
+    "toast": {
+      "errorTitle": "فشل التركيب",
+      "errorDescription": "الشبكة اللغوية غير متصلة بالإنترنت.",
+      "audioErrorTitle": "خطأ في الصوت",
+      "audioErrorDescription": "تعذر تركيب الأنماط الصوتية."
+    }
+  },
+  "layoverOdyssey": {
+    "badge": "ذكاء العبور",
+    "title": "أوديسة التوقف",
+    "subtitle": "قم بتركيب وقت العبور الخاص بك في رحلة استكشافية صغيرة.",
+    "initTitle": "بدء عقدة التوقف",
+    "initDesc": "أدخل القياس عن بعد للعبور للحصول على مسار مختصر.",
+    "airportPlaceholder": "رمز المطار/العقدة (على سبيل المثال، SIN)",
+    "durationLabel": "نافذة (ساعات)",
+    "synthesizeBtn": "إنشاء الأوديسة",
+    "resultTitle": "أوديسة التوقف الخاصة بك",
+    "newBtn": "رحلة استكشافية جديدة",
+    "timelineTitle": "تسلسل زمني",
+    "logisticsTitle": "عقدة الخدمات اللوجستية",
+    "transport": "النقل",
+    "budget": "التخصيص",
+    "visa": "معلومات التصريح",
+    "pendingTitle": "لم يتم العثور على الأوديسة",
+    "pendingDesc": "قدم معلمات التوقف لإنشاء رحلة استكشافية.",
+    "missionParameters": "معلمات المهمة",
+    "currentTerminal": "عقدة المحطة الحالية",
+    "layoverDuration": "نافذة التوقف",
+    "synthesizeOdyssey": "تركيب الأوديسة",
+    "radarSilent": "الرادار صامت",
+    "enterCodeDesc": "أدخل رمز العقدة لإنشاء أوديسة توقف."
+  },
+  "transitConnect": {
+    "title": "توصيل العبور",
+    "subtitle": "تعرف على أقرانك في المحطة. تواصل مع المستكشفين على نفس الرحلة أو ذوي الاهتمامات المشتركة.",
+    "step1": {
+      "title": "التحقق من بطاقة الصعود إلى الطائرة",
+      "description": "امسح بطاقتك للتحقق من الهوية والقياس عن بعد للرحلة.",
+      "scanningButton": "جاري مسح القياس عن بعد...",
+      "scanButton": "مسح البطاقة",
+      "cameraError": "عقدة الكاميرا غير متصلة بالإنترنت.",
+      "scanErrorTitle": "تم إحباط المسح",
+      "scanErrorDescription": "فشل فك تشفير بيانات بطاقة الصعود إلى الطائرة."
+    },
+    "verification": {
+      "title": "اكتمل التحقق",
+      "description": "تمت مزامنة بيانات الرحلة بنجاح مع شبكة أثيريا.",
+      "passenger": "مستكشف",
+      "flight": "رمز جوي",
+      "gate": "بوابة المحطة",
+      "seat": "موضع العقدة",
+      "departs": "البداية"
+    },
+    "step2": {
+      "title": "تحديد وضع المزامنة",
+      "description": "اختر كيف ترغب في التواصل مع الآخرين.",
+      "goLiveButton": "البث المباشر على الشبكة",
+      "vibes": {
+        "networking": "التواصل المهني",
+        "networkingDescription": "تواصل مع المحترفين على متن رحلتك.",
+        "coffee": "تركيب القهوة",
+        "coffeeDescription": "محادثة غير رسمية أثناء تناول مشروب.",
+        "shareLounge": "مشاركة الصالة",
+        "shareLoungeDescription": "الاستفادة المشتركة من الموارد المتميزة.",
+        "cardGame": "لعب استراتيجي",
+        "cardGameDescription": "قضاء الوقت من خلال اللعب التكتيكي."
+      }
+    },
+    "step3": {
+      "title": "شبكة المحطة",
+      "description": "الاتصالات النشطة في محيطك.",
+      "nearbyTab": "القرب",
+      "arViewTab": "رؤية الواقع المعزز",
+      "sameFlight": "رمز جوي مطابق",
+      "chatButton": "إنشاء رابط",
+      "arViewDescription": "رؤية الواقع المعزز نشطة",
+      "toast": {
+        "chatTitle": "تم إنشاء الرابط",
+        "chatDescription": "جاري الاتصال بعقدة {{name}}..."
+      }
+    }
+  },
+  "footer": {
+    "brandName": "أثيريا",
+    "brandTagline": "رحلة مركبة",
+    "copyright": "أثيريا للذكاء الاصطناعي",
+    "quote": "مستقبل السفر ليس إلى أين تذهب، ولكن كيف تقوم بتركيب واقع رحلتك.",
+    "sections": {
+      "protocols": "البروتوكولات",
+      "network": "الشبكة",
+      "support": "الدعم",
+      "connect": "تواصل"
+    },
+    "links": {
+      "itinerary": "مسار أورا",
+      "pathfinder": "مستكشف المسار",
+      "marketplace": "سوق الفايب",
+      "vision": "مركز الرؤية",
+      "intelligence": "مركز الذكاء",
+      "ar": "ملاحة بالواقع المعزز",
+      "odyssey": "أوديسة الرحلة",
+      "postcard": "استوديو البطاقات البريدية",
+      "heritage": "مرآة التراث",
+      "journal": "دفتر المستكشف",
+      "help": "مركز الدعم",
+      "safety": "عقدة الأمان",
+      "status": "حالة النظام",
+      "api": "وصول API",
+      "terms": "شروط الاستخدام",
+      "privacy": "بروتوكول الخصوصية",
+      "security": "أمان البيانات",
+      "legal": "إشعارات قانونية",
+      "brochure": "كتيب البروتوكول",
+      "partners": "عقد الشركاء",
+      "hub": "مركز الاتصال",
+      "faq": "الأسئلة الشائعة"
+    },
+    "status": {
+      "description": "الشبكة العالمية قيد التشغيل",
+      "poweredBy": "مدعوم من Aetheria Core"
+    },
+    "aria": {
+      "x": "X (تويتر سابقًا)",
+      "instagram": "انستغرام",
+      "youtube": "يوتيوب"
+    }
+  },
+  "profile": {
+    "toast": {
+      "nodeInterruption": "انقطاع العقدة",
+      "nodeInterruptionDesc": "فشل إرسال مفتاح الأمان. قد يكون اتصال الشبكة غير مستقر.",
+      "syncFailed": "فشلت المزامنة",
+      "resetDispatched": "تم إرسال إعادة التعيين",
+      "resetDispatchedDesc": "تم إرسال رابط إعادة تعيين مفتاح الأمان إلى عنوانك العصبي."
+    },
+    "role": {
+      "verified": "تم التحقق"
+    },
+    "saveSuccessTitle": "تم تحديث عقدة الهوية",
+    "saveSuccessDescription": "تمت إعادة مزامنة ملف تعريف المستكشف الخاص بك.",
+    "authorizeChanges": "تفويض التغييرات",
+    "saveButton": "تفويض التغييرات",
+    "savingButton": "جاري تحديث الشبكة...",
+    "tabs": {
+      "identity": "عقدة الهوية",
+      "travelDna": "حمض السفر النووي",
+      "settings": "إعدادات النظام",
+      "security": "عقدة الأمان"
+    },
+    "personalInfo": {
+      "title": "القياس عن بعد الشخصي",
+      "description": "هذه هي مصفوفة هويتك الأساسية على شبكة أثيريا.",
+      "firstName": "الاسم الأول",
+      "lastName": "اللقب",
+      "gender": "الهوية الجنسية",
+      "genders": {
+        "male": "ذكر",
+        "female": "أنثى",
+        "other": "غير ثنائي",
+        "preferNotToSay": "غير معلن"
+      },
+      "citizenship": "الجنسية",
+      "citizenshipPlaceholder": "على سبيل المثال، الولايات المتحدة",
+      "citizenshipDesc": "مطلوب لمطابقة سفارة مساعد الأمان.",
+      "homeBase": "القاعدة الرئيسية",
+      "homeBasePlaceholder": "على سبيل المثال، نيويورك، نيويورك",
+      "networkAddress": "عنوان الشبكة",
+      "networkAddressPlaceholder": "explorer@aetheria.ai",
+      "networkAddressDesc": "هذا العنوان مقفل بشكل دائم لهويتك."
+    },
+    "travelStyle": {
+      "title": "تركيب أسلوب السفر",
+      "description": "قم بمعايرة وضع الاستكشاف المفضل لديك.",
+      "relaxed": {
+        "label": "تركيب ترفيهي",
+        "description": "استكشاف بطيء."
+      },
+      "active": {
+        "label": "حركي",
+        "description": "حركة عالية الطاقة."
+      },
+      "adventurous": {
+        "label": "وضع الاكتشاف",
+        "description": "الكشف عن حدود جديدة."
+      },
+      "packed": {
+        "label": "أقصى كفاءة",
+        "description": "أقصى تغطية للعقدة."
+      },
+      "familyFriendly": {
+        "label": "أمن جماعي",
+        "description": "سفر جماعي مع إعطاء الأولوية للسلامة."
+      }
+    },
+    "interests": {
+      "title": "مصفوفة الاهتمامات",
+      "description": "قم بمعايرة عقد اهتمامك لتحسين توصيات الذكاء الاصطناعي.",
+      "items": {
+        "history": "تاريخ",
+        "food": "فن الطهو",
+        "hiking": "رحلات",
+        "art": "فن",
+        "nightlife": "حياة ليلية",
+        "shopping": "تجارة",
+        "nature": "بيئة",
+        "wellness": "عافية"
+      }
+    },
+    "settings": {
+      "title": "تكوين النظام",
+      "language": "شبكة لغوية",
+      "languageDesc": "حدد لغة الاتصال الأساسية الخاصة بك.",
+      "theme": "سمة الواجهة",
+      "themeDesc": "قم بمعايرة المعلمات المرئية لواجهتك.",
+      "themes": {
+        "light": "فاتح",
+        "dark": "داكن",
+        "system": "نظام"
+      }
+    },
+    "financial": {
+      "title": "العقدة المالية",
+      "description": "مزامنة بروتوكولاتك النقدية الأساسية.",
+      "baseCurrency": "العملة الأساسية",
+      "baseCurrencyDesc": "سيكون هذا هو الإعداد الافتراضي لجميع عمليات التركيب المالي.",
+      "currencies": {
+        "USD": "دولار أمريكي",
+        "EUR": "يورو",
+        "GBP": "جنيه إسترليني",
+        "JPY": "ين ياباني",
+        "INR": "روبية هندية",
+        "THB": "بات تايلاندي"
+      }
+    },
+    "security": {
+      "title": "الأمان والوصول",
+      "description": "إدارة بروتوكولات الوصول الخاصة بك وأمان الشبكة.",
+      "resetTitle": "إرسال إعادة تعيين مفتاح الأمان",
+      "resetDesc": "أرسل رابط إعادة تعيين إلى عنوانك العصبي الأساسي.",
+      "resetButton": "إرسال إعادة التعيين",
+      "alertTitle": "تنبيه أمني",
+      "alertDesc": "لأسباب أمنية، لا يتم عرض مفتاحك الحالي. يلزم إعادة تعيين المفتاح لتغييره. يتم تخزين مفتاحك بشكل آمن في شبكة أثيريا."
+    }
+  },
+  "onboarding": {
+    "steps": {
+      "header": {
+        "title": "مركز أورا نشط",
+        "content": "رابطك العصبي مباشر. تشير هذه الشارة إلى أن ذكاء أثيريا الاصطناعي يقوم بتركيب قياسات السفر الخاصة بك عن بعد بشكل فعال."
+      },
+      "season": {
+        "title": "تقدم الموسم",
+        "content": "تتبع نقاط خبرتك وارتقِ بمستوى أوديستك. أكمل المهام لفتح الأصول الرقمية الحصرية وامتيازات السفر."
+      },
+      "itinerary": {
+        "title": "مسار أورا",
+        "content": "محرك الذكاء الاصطناعي الأساسي لدينا. قم بتركيب أوديسة متعددة الأيام مصممة خصيصًا لحمضك النووي النفسي وأجواء سفرك."
+      },
+      "vision": {
+        "title": "مركز رؤية الذكاء الاصطناعي",
+        "content": "استخدم الكاميرا لمسح المعالم والتحف. يوفر الذكاء الاصطناعي لدينا تركيبًا تاريخيًا وثقافيًا في الوقت الفعلي."
+      },
+      "postcard": {
+        "title": "استوديو البطاقات البريدية",
+        "content": "حول لقطات سفرك إلى فن عالي الدقة تم إنشاؤه بواسطة الذكاء الاصطناعي. شارك منظورك الفريد مع الشبكة."
+      },
+      "vibe": {
+        "title": "رادار الفايب",
+        "content": "اكتشف المستكشفين الآخرين في محيطك الذين لديهم توقيعات عصبية مطابقة. تواصل وقم بمزامنة رحلاتك."
+      }
+    },
+    "finish": "إكمال التهيئة",
+    "next": "متابعة"
+  },
+  "itineraryGenerator": {
+    "toast": {
+      "bookingInitiated": "تم بدء الخدمات اللوجستية",
+      "reserving": "جاري حجز {{activity}}...",
+      "adjustmentFailed": "فشل التعديل",
+      "adjustmentFailedDesc": "تعذر إعادة معايرة المسار.",
+      "pathRecalibrated": "تمت إعادة معايرة المسار",
+      "pathRecalibratedDesc": "تم تحديث الأوديسة بالتعديلات المقترحة.",
+      "generateSuccessTitle": "الأوديسة جاهزة",
+      "generateSuccessDescription": "تم تركيب مسارك إلى {{destination}} بالكامل.",
+      "generateErrorTitle": "فشل التركيب",
+      "generateErrorDescription": "تعذر إنشاء المسار. خطأ في النظام.",
+      "refineSuccessTitle": "تم تحسين المسار",
+      "refineErrorTitle": "فشل التحسين",
+      "refineErrorDescription": "تعذر تعديل معلمات المسار."
+    },
+    "display": {
+      "pendingTitle": "في انتظار التركيب",
+      "pendingDesc": "فوض وجهة لإنشاء أوديستك عالية الدقة.",
+      "upgradeTitle": "افتح الطيف الكامل",
+      "upgradeDesc": "قم بالترقية إلى Pro للحصول على تحسينات غير محدودة من الذكاء الاصطناعي ومعلومات عالية الدقة.",
+      "upgradeBtn": "ترقية العقدة الآن",
+      "resultBadge": "أوديسة مركبة",
+      "pathTitle": "مسار أوديستك",
+      "recalibrateTitle": "إعادة المعايرة الديناميكية",
+      "recalibrateDesc": "تغيرت أنماط الطقس. هل تريد إعادة معايرة مسارك للأنشطة الداخلية؟",
+      "recalibrateContext": "الأنشطة الخارجية غير مثالية بسبب هطول الأمطار المفاجئ.",
+      "recalibrateBtn": "إعادة معايرة المسار",
+      "reserveBtn": "حجز العقدة",
+      "notes": "ملاحظات البروتوكول",
+      "adjustTitle": "تحسين يدوي",
+      "adjustDesc": "اطلب إعادة معايرة محددة لمسارك المركب.",
+      "adjustPlaceholder": "على سبيل المثال، قم بتضمين المزيد من عقد طعام الشارع، أو قلل من شدة الحركة...",
+      "processing": "جاري معالجة التركيب...",
+      "updateBtn": "تحديث المسار",
+      "proposedTitle": "إعادة المعايرة المقترحة",
+      "rejectBtn": "تجاهل",
+      "authorizeBtn": "تفويض التغييرات"
+    },
+    "form": {
+      "title": "إنشاء الأوديسة",
+      "description": "أنشئ رحلة متعددة العقد بناءً على معلماتك وقيودك الفريدة.",
+      "destinationLabel": "عقدة الوجهة",
+      "destinationPlaceholder": "على سبيل المثال، طوكيو، اليابان",
+      "datesLabel": "نطاق زمني",
+      "pickDateRange": "تحديد التواريخ",
+      "budgetLabel": "تخصيص الموارد",
+      "budgetPlaceholder": "تحديد الميزانية",
+      "budgetLow": "اقتصادي (أدنى)",
+      "budgetMedium": "قياسي (متوازن)",
+      "budgetHigh": "ممتاز (مرتفع)",
+      "vibeLabel": "تركيب الفايب",
+      "vibePlaceholder": "صف أجواء هذه الرحلة...",
+      "vibeDescription": "سيستخدم الذكاء الاصطناعي هذا لتعيين ملف التعريف المحيطي لأوديستك.",
+      "generatingButton": "جاري تركيب المسار...",
+      "generateButton": "تفويض الأوديسة"
+    },
+    "validation": {
+      "destination": "يجب أن تتكون الوجهة من حرفين على الأقل.",
+      "interests": "يرجى تحديد عقدة اهتمام واحدة على الأقل."
+    },
+    "title": "مركب المسار",
+    "subtitle": "أنشئ رحلتك التالية عالية الدقة بتنسيق من الذكاء الاصطناعي.",
+    "authError": "مطلوب تفويض",
+    "authErrorDesc": "يرجى تسجيل الدخول لتفويض إنشاء الأوديسة.",
+    "odysseySuffix": "أوديسة"
+  },
+  "subscription": {
+    "badge": "بروتوكول نقدي",
+    "title": "مركز الاشتراك",
+    "subtitle": "عزز أوديستك بخدمات متميزة وبروتوكولات أمان عالمية.",
+    "itineraryRequired": "مطلوب أوديسة نشطة",
+    "itineraryRequiredDesc": "يجب أن يكون لديك أوديسة نشطة لتحديد بروتوكول اشتراك.",
+    "createItineraryBtn": "بدء الأوديسة",
+    "plans": {
+      "free": {
+        "name": "قياسي",
+        "description": "أدوات سفر أساسية.",
+        "price": "₹0",
+        "itinerariesValue": "1 أوديسة نشطة",
+        "immersiveValue": "معلومات قياسية",
+        "loyaltyValue": "مكافآت أساسية"
+      },
+      "voyager": {
+        "name": "فوياجر",
+        "description": "للاستكشاف المعزز.",
+        "price": "₹750",
+        "itinerariesValue": "3 أوديسات نشطة",
+        "immersiveValue": "معلومات معززة",
+        "packingValue": "عقدة تعبئة بالذكاء الاصطناعي",
+        "loyaltyValue": "مكافآت فضية"
+      },
+      "pathfinder": {
+        "name": "باثفايندر",
+        "description": "للمستكشفين المحترفين.",
+        "price": "₹1600",
+        "itinerariesValue": "أوديسات لا نهائية",
+        "immersiveValue": "ذكاء عصبي",
+        "insiderValue": "الأساطير المحلية",
+        "loyaltyValue": "مكافآت ذهبية"
+      },
+      "sovereign": {
+        "name": "سيادي",
+        "description": "وصول لا نهائي وتنسيق نخبوي.",
+        "price": "₹4000",
+        "itinerariesValue": "أوديسات لا نهائية",
+        "immersiveValue": "معلومات لا نهائية",
+        "mirrorValue": "عقدة مرآة التراث",
+        "fees": "رسوم إضافية صفرية"
+      },
+      "legend": {
+        "name": "أسطورة",
+        "description": "تركيب السفر النهائي.",
+        "price": "₹8000",
+        "itinerariesValue": "أوديسات لا نهائية",
+        "immersiveValue": "معلومات لا نهائية",
+        "mirrorValue": "عقدة مرآة التراث",
+        "insiderValue": "الأساطير المحلية",
+        "fees": "رسوم إضافية صفرية"
+      }
+    },
+    "period": {
+      "monthly": "/ شهر"
+    },
+    "features": {
+      "itineraries": "سعة الأوديسة",
+      "immersive": "درجة الذكاء",
+      "loyalty": "فئة المكافأة",
+      "packing": "عقدة التعبئة",
+      "insider": "معلومات محلية",
+      "mirror": "عقدة التراث",
+      "fees": "رسوم خدمة إضافية"
+    },
+    "upgrade": "ترقية العقدة",
+    "processingBtn": "جاري المعالجة...",
+    "currentPlan": "بروتوكول نشط"
+  },
   "dashboard": {
-    "welcomeBack": "مرحباً بعودتك، {{name}}",
+    "welcomeBack": "مرحبًا بعودتك، {{name}}",
     "odysseyLevel": "مستوى الأوديسة {{level}}",
-    "explorerHubActive": "مركز المستكشف نشط",
-    "viewLegacyWrapped": "عرض ملخص الإرث",
-    "productionTrailer": "عرض الإنتاج",
     "seasonPass": "تذكرة الموسم",
     "xpSynthesized": "نقاط الخبرة المركبة",
     "progressionToLevel": "التقدم إلى المستوى {{level}}",
     "vibeStreak": "سلسلة الفايب",
     "tasksResolved": "المهام المنجزة",
     "totalMedals": "إجمالي الميداليات",
-    "premiumRequired": "تذكرة بريميوم مطلوبة",
-    "explorerStatus": "حالة المستكشف: {{tier}}",
+    "premiumRequired": "مطلوب بروتوكول ممتاز",
+    "explorerStatus": "فئة المستكشف: {{tier}}",
     "points": "نقاط",
     "medals": "ميداليات",
-    "editProfile": "تعديل الملف الشخصي",
-    "match": "تطابق",
-    "toast": {
-      "missionInviteTitle": "تم إرسال مقترح الأوديسة",
-      "missionInviteDescription": "في انتظار {{name}} للموافقة على الأوديسة الجماعية."
+    "editProfile": "تعديل عقدة الهوية",
+    "shortDesc": {
+      "itinerary": "تركيب أوديسة عصبية.",
+      "pathfinder": "تحسين المسار الذكي.",
+      "marketplace": "تبادل فايب عالمي.",
+      "store": "شراء المعدات.",
+      "booking": "تنسيق الخدمات اللوجستية.",
+      "wallet": "عقدة عملة ذكية.",
+      "budget": "تركيب مالي.",
+      "vision": "عقدة التعرف على الأشياء.",
+      "guide": "مركز معلومات عالمي.",
+      "ar": "ملاحة معززة.",
+      "legends": "فك تشفير التاريخ.",
+      "pulse": "رادار الاتجاهات الثقافية.",
+      "audio": "سرد مكاني.",
+      "odyssey": "تركيب رحلة سينمائية.",
+      "postcard": "إنشاء فن بالذكاء الاصطناعي.",
+      "mirror": "تصور التراث.",
+      "journal": "تشفير الذاكرة."
     },
-    "xpProgress": "{{current}} / {{total}} نقاط خبرة",
-    "odysseyCount": "{{count}} أوديسة",
-    "questCount": "{{count}} مهام",
-    "awardCount": "{{count}} جوائز",
     "vibeRadar": {
       "title": "رادار الفايب",
-      "desc": "اكتشاف تطابقات {{vibe}} في قطاعك الحالي: {{location}}"
-    },
-    "expandNeuralNetwork": "توسيع الشبكة العصبية",
-    "shortDesc": {
-      "itinerary": "خطط سفر مركبة بالذكاء الاصطناعي",
-      "pathfinder": "تحسين المسار العصبي",
-      "marketplace": "تجارب منسقة حسب الفايب",
-      "store": "اقتناء الأصول الرقمية",
-      "booking": "مركز الحجز الكمي",
-      "wallet": "تخزين الائتمان المشفر",
-      "budget": "محرك تركيب الميزانية",
-      "vision": "التعرف على الأشياء بالواقع المعزز",
-      "guide": "قاعدة معرفية عالمية",
-      "ar": "تراكب التوجيه المكاني",
-      "legends": "استرجاع البيانات التاريخية",
-      "pulse": "التدفق الثقافي في الوقت الفعلي",
-      "audio": "مناظر صوتية غامرة",
-      "odyssey": "عرض تشويقي للرحلة السينمائية",
-      "postcard": "عقد بصرية منشأة بالذكاء الاصطناعي",
-      "mirror": "انعكاس بيانات التراث",
-      "journal": "سجل الأوديسة الشخصي"
+      "desc": "مسح توقيعات {{vibe}} في {{location}}."
     }
   },
-  "login": {
-    "title": "تسجيل دخول أثيريا",
-    "emailLabel": "عنوان الشبكة",
-    "emailPlaceholder": "name@domain.com",
-    "passwordLabel": "مفتاح الأمان",
-    "passwordPlaceholder": "••••••••",
-    "signInButton": "تفويض الجلسة",
-    "signingInButton": "جاري التفويض...",
-    "noAccount": "جديد في أثيريا؟",
-    "signUpLink": "إنشاء عقدة هوية",
-    "accessOdysseyGrid": "الوصول إلى شبكة الأوديسة الخاصة بك",
-    "authChannels": "قنوات المصادقة",
-    "google": "جوجل",
-    "apple": "آبل",
-    "biometricLogin": "تسجيل الدخول بالمؤشرات الحيوية",
-    "systemNodeOffline": "عقدة النظام غير متصلة",
-    "authServiceInitializing": "خدمة المصادقة لم يتم تهيئتها بعد.",
-    "unsupportedFeature": "ميزة غير مدعومة",
-    "biometricOnlyMobile": "تسجيل الدخول بالمؤشرات الحيوية متاح فقط على الأجهزة المحمولة.",
-    "biometricLoginFailed": "فشل تسجيل الدخول بالمؤشرات الحيوية",
-    "biometricLoginError": "تعذر تسجيل الدخول باستخدام المؤشرات الحيوية.",
-    "invalidCredentials": "عنوان بريد إلكتروني أو مفتاح أمان غير صالح. يرجى التحقق من بياناتك أو إنشاء حساب جديد إذا لم تكن قد قمت بذلك بالفعل.",
-    "accountDisabled": "تم تعطيل هذا الحساب. يرجى الاتصال بالدعم.",
-    "tooManyRequests": "محاولات فاشلة كثيرة جداً. يرجى المحاولة مرة أخرى لاحقاً أو إعادة تعيين مفتاح الأمان الخاص بك.",
-    "networkError": "فشل اتصال الشبكة. يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
-    "toast": {
-      "successTitle": "تم تفويض الجلسة",
-      "successDescription": "ارتباطك العصبي نشط الآن.",
-      "errorTitle": "فشل التفويض",
-      "genericError": "حدث خطأ غير متوقع أثناء تفويض الجلسة.",
-      "operationNotAllowed": "طريقة المصادقة هذه معطلة حالياً."
-    }
+  "english": "الإنجليزية",
+  "aiItineraryCustomization": {
+    "title": "تخصيص مسار الذكاء الاصطناعي",
+    "description": "يمكن للذكاء الاصطناعي لدينا تخصيص مسارك بناءً على تفضيلاتك."
   },
-  "signup": {
-    "title": "انضم إلى الأوديسة",
-    "description": "أنشئ حساب أثيريا الخاص بك",
-    "firstNameLabel": "الاسم الأول",
-    "lastNameLabel": "اسم العائلة",
-    "firstNamePlaceholder": "جون",
-    "lastNamePlaceholder": "جوزيه",
-    "emailLabel": "عنوان الشبكة",
-    "emailPlaceholder": "name@domain.com",
-    "passwordLabel": "مفتاح الأمان",
-    "passwordPlaceholder": "••••••••",
-    "createButton": "تهيئة الملف الشخصي",
-    "creatingButton": "جاري المزامنة...",
-    "haveAccount": "هل أنت جزء من الشبكة بالفعل؟",
-    "signInLink": "تسجيل الدخول",
-    "networkJoin": "انضمام للشبكة",
-    "welcomeKit": {
-      "title": "تم إرسال حزمة الترحيب!",
-      "description": "تحقق من بريدك الوارد للحصول على ترحيب مخصص من ذكاء أثيريا الاصطناعي."
-    },
-    "toast": {
-      "successTitle": "تم تهيئة الملف الشخصي",
-      "successDescription": "مرحباً بك في شبكة أثيريا.",
-      "errorTitle": "فشل التهيئة",
-      "genericError": "تعذر إنشاء الحساب. يرجى المحاولة مرة أخرى."
-    },
-    "errors": {
-      "emailInUse": "عنوان البريد الإلكتروني هذا مسجل بالفعل. يرجى تسجيل الدخول بدلاً من ذلك.",
-      "invalidEmail": "عنوان البريد الإلكتروني غير صالح. يرجى التحقق والمحاولة مرة أخرى.",
-      "operationNotAllowed": "التسجيل بالبريد الإلكتروني/كلمة المرور معطل حالياً.",
-      "weakPassword": "مفتاح الأمان ضعيف جداً. يرجى استخدام مفتاح أقوى.",
-      "networkError": "فشل اتصال الشبكة. يرجى التحقق من اتصالك والمحاولة مرة أخرى."
-    }
+  "arIndoorNavigation": {
+    "title": "ملاحة داخلية بالواقع المعزز",
+    "description": "تنقل في الداخل باستخدام نظام الملاحة المدعوم بالواقع المعزز."
+  },
+  "gamifiedLanguageLearning": {
+    "title": "تعلم لغة باللعب",
+    "description": "تعلم لغة جديدة أثناء لعب لعبة."
+  },
+  "realTimePublicTransit": {
+    "title": "وسائل النقل العام في الوقت الفعلي",
+    "description": "احصل على تحديثات في الوقت الفعلي حول وسائل النقل العام."
   }
 }

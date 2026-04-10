@@ -1,4 +1,27 @@
 {
+  "common": {
+    "save": "変更を保存",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "delete": "削除",
+    "edit": "編集",
+    "loading": "読み込み中...",
+    "search": "検索",
+    "filter": "フィルタ",
+    "back": "戻る",
+    "next": "次へ",
+    "continue": "続ける",
+    "confirm": "確認",
+    "active": "アクティブ",
+    "inactive": "非アクティブ",
+    "verified": "検証済み",
+    "unlocked": "ロック解除",
+    "locked": "ロック済み",
+    "authorized": "承認済み",
+    "error": "システムエラー",
+    "returnToDashboard": "ダッシュボードに戻る",
+    "initialize": "初期化"
+  },
   "landingPage": {
     "header": {
       "brand": "AETHERIA",
@@ -8,12 +31,12 @@
         "home": "ホーム",
         "features": "機能",
         "workflow": "ワークフロー",
-        "cta": "今すぐ開始"
+        "cta": "始める"
       },
       "logo": "Aetheria ロゴ"
     },
     "footer": {
-      "tagline": "デジタルエーテルを通じてあなたの旅を統合します。",
+      "tagline": "デジタルエーテルを通してあなたの旅を統合します。",
       "copyright": "© 2026 Aetheria AI. All rights reserved.",
       "links": {
         "privacy": "プライバシーポリシー",
@@ -21,231 +44,798 @@
         "contact": "お問い合わせ"
       },
       "sections": {
-        "company": "会社情報",
-        "connect": "つながる"
+        "company": "会社",
+        "connect": "接続"
       }
     },
     "body": {
       "hero": {
-        "title": "あなたの旅、統合される",
-        "subtitle": "AIの力を活用して、これまでにないデジタルランドスケープを探索しましょう。",
-        "cta": "旅を始める"
+        "badge": "Aetheria インテリジェンスノード",
+        "title": "あなたの旅、統合。",
+        "subtitle": "AI の力を活用して、これまでにないデジタルランドスケープを探索しましょう。",
+        "description1": "ロジスティクスを排除し、体験を増幅させます。",
+        "description2": "世界初のマルチエージェント AI 旅行統合を体験してください。",
+        "cta": "旅を始める",
+        "signUp": "ID を確立",
+        "login": "アクセスノード",
+        "scroll": "スクロールしてスキャン"
+      },
+      "links": {
+        "itinerary": "Aura 旅行プラン",
+        "postcard": "ポストカードスタジオ",
+        "legends": "地域の伝説",
+        "packing": "パッキングアシスタント",
+        "signup": "ID を確立",
+        "login": "ログイン"
       },
       "features": {
+        "badge": "プロトコル第 01 章",
         "title": "強力な機能",
-        "description": "Aetheriaをユニークにしているものを発見してください。",
+        "description": "Aetheria をユニークにするものを発見してください。",
+        "quote": "旅の未来は、どこへ行くかではなく、旅の現実をどのように統合するかです。",
+        "itinerary": {
+          "badge": "オーケストレーション",
+          "title": "Aura 旅行プラン",
+          "desc": "あなたの心理的 DNA に基づいて数日間のオデッセイを統合します。"
+        },
+        "postcard": {
+          "badge": "スタジオ",
+          "title": "ポストカードスタジオ",
+          "desc": "キャプチャしたものを AI 統合アートフォームに変換します。"
+        },
+        "legends": {
+          "badge": "インテリジェンス",
+          "title": "地域の伝説",
+          "desc": "GPS リンクのインテルを介してグリッドの隠された物語を明らかにします。"
+        },
+        "packing": {
+          "badge": "ユーティリティ",
+          "title": "パッキングアシスタント",
+          "desc": "気候とオデッセイのパラメータに基づいてギアの要件を統合します。"
+        },
         "items": [
           {
-            "title": "AI駆動のインサイト",
-            "description": "高度なAIモデルを使用して、データに関する深いインサイトを得ることができます。"
+            "title": "AI 搭載の洞察",
+            "description": "高度な AI モデルを使用して、データから深い洞察を得ることができます。"
           },
           {
             "title": "シームレスなワークフロー",
-            "description": "Aetheriaを既存のワークフローに簡単に統合できます。"
+            "description": "Aetheria を既存のワークフローに簡単に統合できます。"
           },
           {
-            "title": "リアルタイムのコラボレーション",
-            "description": "あらゆるプロジェクトでチームとリアルタイムで協力できます。"
+            "title": "リアルタイムコラボレーション",
+            "description": "どのプロジェクトでもチームとリアルタイムで作業できます。"
           }
         ]
       },
       "workflow": {
+        "badge": "運用プロトコル",
         "title": "仕組み",
-        "description": "開始するためのシンプルな3ステップのプロセス。",
+        "description": "始めるための簡単な 3 ステップのプロセス。",
+        "step1": {
+          "title": "目的を定義する",
+          "desc": "宛先ノードと関心のあるパラメータを入力します。"
+        },
+        "step2": {
+          "title": "オデッセイをデザインする",
+          "desc": "Aetheria ニューラルグリッドは、あなたの旅のためにオーダーメイドのパスを構築します。"
+        },
+        "step3": {
+          "title": "オデッセイを開始する",
+          "desc": "リアルタイムのインテルとセキュリティプロトコルで世界を横断します。"
+        },
         "steps": [
           {
             "title": "データを接続する",
-            "description": "データソースをAetheriaに安全に接続します。"
+            "description": "データソースを Aetheria に安全に接続します。"
           },
           {
             "title": "分析と統合",
-            "description": "当社のAIがデータを分析し、実用的なインサイトに統合します。"
+            "description": "当社の AI がデータを分析し、実用的な洞察に統合します。"
           },
           {
             "title": "探索と発見",
             "description": "統合されたデータを探索し、新しい機会を発見してください。"
           }
-        ]
+        ],
+        "floating": {
+          "title": "動的再調整",
+          "desc": "環境テレメトリに基づくリアルタイム調整。"
+        }
       },
       "cta": {
         "title": "旅を始める準備はできましたか？",
-        "subtitle": "すでにAetheriaを使用して業務を革新している何千人ものユーザーに加わりましょう。",
-        "button": "無料で開始"
+        "subtitle": "すでに Aetheria を使用して仕事を変革している何千人ものユーザーに加わってください。",
+        "description": "無限の知性を活用する現代の探検家のネットワークに参加してください。",
+        "button": "無料で始める",
+        "signUpNow": "グリッドにリンク"
+      },
+      "images": {
+        "featureAlt": "Aetheria 機能の視覚化",
+        "processAlt": "Aetheria プロセスのワークフロー"
       }
     }
   },
+  "login": {
+    "title": "アクセスノード",
+    "emailLabel": "ニューラル ID",
+    "emailPlaceholder": "explorer@aetheria.ai",
+    "passwordLabel": "セキュリティキー",
+    "passwordPlaceholder": "••••••••",
+    "signInButton": "セッションの初期化",
+    "signingInButton": "ID を確認しています...",
+    "noAccount": "グリッドに参加していませんか？",
+    "signUpLink": "ID を確立",
+    "toast": {
+      "successTitle": "接続が復元されました",
+      "successDescription": "Aetheria セッションがグリッドでアクティブになりました。",
+      "errorTitle": "初期化に失敗しました",
+      "genericError": "認証情報を確認できません。",
+      "invalidCredentials": "ID またはセキュリティキーが無効です。",
+      "operationNotAllowed": "ノードへのアクセスは現在制限されています。"
+    }
+  },
+  "signup": {
+    "title": "ID を確立",
+    "description": "Aetheria のグローバル旅行統合ネットワークに参加してください。",
+    "emailLabel": "ニューラル ID",
+    "emailPlaceholder": "explorer@aetheria.ai",
+    "passwordLabel": "セキュリティキー",
+    "createButton": "アカウントの初期化",
+    "creatingButton": "プロファイルを構築しています...",
+    "haveAccount": "既存のノードですか？",
+    "signInLink": "セッションにアクセス",
+    "toast": {
+      "successTitle": "ID が確立されました",
+      "successDescription": "Aetheria グリッドへようこそ。",
+      "errorTitle": "統合に失敗しました",
+      "emailInUse": "この ID はすでにグリッドに登録されています。",
+      "operationNotAllowed": "登録は現在制限されています。",
+      "genericError": "ID の構築中にエラーが発生しました。"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Aetheria インテリジェンスノード",
+      "title": "再創造された世界。",
+      "subtitle": "ロジスティクスを排除し、体験を増幅させます。世界初のマルチエージェント AI 旅行統合を体験してください。",
+      "scroll": "スクロールしてスキャン",
+      "cta": {
+        "start": "オデッセイを開始",
+        "signin": "アクセスノード"
+      }
+    },
+    "features": {
+      "chapter": "プロトコル第 01 章",
+      "title": "インテリジェンスレンズ",
+      "initNode": "ノードの初期化",
+      "itinerary": {
+        "badge": "オーケストレーション",
+        "title": "Aura 旅行プラン",
+        "desc": "あなたの心理的 DNA に基づいて数日間のオデッセイを統合します。"
+      },
+      "postcard": {
+        "badge": "スタジオ",
+        "title": "ポストカードスタジオ",
+        "desc": "キャプチャしたものを AI 統合アートフォームに変換します。"
+      },
+      "legends": {
+        "badge": "インテリジェンス",
+        "title": "地域の伝説",
+        "desc": "GPS リンクのインテルを介してグリッドの隠された物語を明らかにします。"
+      },
+      "packing": {
+        "badge": "ユーティリティ",
+        "title": "パッキングアシスタント",
+        "desc": "気候とオデッセイのパラメータに基づいてギアの要件を統合します。"
+      }
+    },
+    "workflow": {
+      "badge": "運用プロトコル",
+      "title": "システムロジック",
+      "phase": "フェーズ {{num}}",
+      "step1": {
+        "title": "目的を定義する",
+        "desc": "宛先ノードと関心のあるパラメータを入力します。"
+      },
+      "step2": {
+        "title": "オデッセイをデザインする",
+        "desc": "Aetheria ニューラルグリッドは、あなたの旅のためにオーダーメイドのパスを構築します。"
+      },
+      "step3": {
+        "title": "オデッセイを開始する",
+        "desc": "リアルタイムのインテルとセキュリティプロトコルで世界を横断します。"
+      }
+    },
+    "cta": {
+      "badge": "ネットワークに参加",
+      "title": "世界を再構築する準備はできましたか？",
+      "subtitle": "無限の知性を活用する現代の探検家のネットワークに参加してください。",
+      "start": "グリッドにリンク",
+      "feed": "グローバルフィード"
+    }
+  },
   "header": {
+    "brandName": "AETHERIA",
+    "brandTagline": "統合された旅",
+    "linguisticGrid": "言語グリッド",
+    "login": "ログイン",
+    "signup": "ID を確立",
+    "sos": "SOS パニックハブ",
+    "aiItinerary": "Aura 旅行プラン",
+    "aiItineraryCustomization": "AI 旅行プランのカスタマイズ",
+    "pathfinder": "パスファインダー",
+    "vibeMarketplace": "Vibe マーケットプレイス",
+    "vibeShopping": "オーダーメイドストア",
+    "bookingHub": "ロジスティクスハブ",
+    "myTrips": "マイオデッセイ",
+    "visionHub": "Vision AI ハブ",
+    "intelligenceCenter": "インテリジェンスハブ",
+    "arIndoorNavigation": "AR 屋内ナビゲーション",
+    "arWayfinding": "AR ナビゲーション",
+    "localLegends": "地域の伝説",
+    "explorerQuests": "エクスプローラークエスト",
+    "culturalPulse": "カルチャーパルス",
+    "tripOdyssey": "旅行オデッセイ",
+    "realTimePublicTransit": "リアルタイム公共交通機関",
+    "postcardStudio": "ポストカードスタジオ",
+    "heritageMirror": "ヘリテージミラー",
+    "journal": "エクスプローラージャーナル",
+    "visaArchitect": "ビザアーキテクト",
+    "carbonSynthesis": "カーボントラッカー",
+    "esim": "グローバル eSIM",
+    "flightStatus": "ロジスティクスレーダー",
+    "layoverOdyssey": "乗り継ぎオデッセイ",
+    "safety": "セーフティアシスタント",
+    "hotels": "居住地",
+    "flights": "航空ロジスティクス",
+    "insurance": "セーフティプロトコル",
+    "trains": "鉄道統合",
+    "buses": "地上交通",
+    "cruises": "水上オデッセイ",
+    "cabs": "地上交通",
+    "dining": "フレーバーノード",
+    "profile": "ID ノード",
+    "loyaltyHub": "ロイヤルティハブ",
+    "wallet": "スマートウォレット",
+    "rentals": "資産リース",
+    "scanAndPay": "スキャンして支払う",
+    "subscription": "オデッセイパス",
+    "partners": "パートナーノード",
+    "digitalBrochure": "Aetheria プロトコル",
+    "appTrailer": "システム予告編",
+    "events": "目的地イベント",
+    "gearArchitect": "ギアアーキテクト",
+    "jetLag": "概日論理",
+    "digitalTailor": "デジタルテーラー",
+    "translator": "言語ラボ",
+    "gamifiedLanguageLearning": "ゲーミフィケーション言語学習",
+    "corporate": "エンタープライズモード",
+    "dashboard": "コマンドセンター",
+    "budgetSynthesis": "予算統合",
+    "moodSynthesis": "気分統合",
+    "auraBeats": "Aura ビート",
+    "equilibriumSync": "平衡同期",
+    "flavorDna": "フレーバー DNA",
+    "audioGuide": "空間オーディオ",
+    "menuExplorer": "メニューデコーダー",
+    "localInsider": "ローカルインテル",
+    "cultureScout": "カルチャースカウト",
+    "packingassistant": "ユーティリティノード",
+    "aria": {
+      "back": "戻る",
+      "wallet": "ウォレットノード",
+      "tailor": "テーラーノード",
+      "cart": "ペイロード",
+      "language": "言語グリッド",
+      "menu": "メインフレーム"
+    },
     "categories": {
       "orchestration": "オーケストレーション",
       "intelligence": "インテリジェンス",
       "studios": "スタジオ",
-      "utility": "ユーティリティ"
+      "utility": "ユーティリティ",
+      "ar": "AR",
+      "vr": "VR",
+      "ai": "AI"
     },
-    "dashboard": "ダッシュボード",
-    "aiItinerary": "AI 旅程",
-    "pathfinder": "パスファインダー",
-    "vibeMarketplace": "バイブマーケットプレイス",
-    "vibeShopping": "バイブショッピング",
-    "bookingHub": "予約ハブ",
-    "wallet": "ウォレット",
-    "budgetSynthesis": "予算統合",
-    "visionHub": "ビジョンハブ",
-    "intelligenceCenter": "インテリジェンスセンター",
-    "arWayfinding": "AR ウェイファインディング",
-    "localLegends": "ローカルレジェンド",
-    "culturalPulse": "カルチャーパルス",
-    "audioGuide": "オーディオガイド",
-    "tripOdyssey": "トリップオデッセイ",
-    "postcardStudio": "ポストカードスタジオ",
-    "heritageMirror": "ヘリテージミラー",
-    "journal": "ジャーナル",
-    "sos": "SOS",
-    "insurance": "保険",
-    "visaArchitect": "ビザアーキテクト",
-    "flightStatus": "フライトステータス",
-    "esim": "eSIM",
-    "carbonSynthesis": "カーボン統合",
-    "packingassistant": "パッキングアシスタント"
-  },
-  "sidebar": {
-    "brand": {
-      "name": "AETHERIA",
-      "tagline": "統合された旅"
-    },
-    "sessionVerified": "セッション確認済み",
-    "neuralLinkActive": "ニューラルリンク有効"
-  },
-  "userNav": {
-    "explorerHub": "エクスプローラーハブ",
-    "manageBookings": "予約管理",
-    "upgradeSubscription": "サブスクリプションのアップグレード",
-    "adminConsole": "管理コンソール",
-    "partnerHub": "パートナーハブ",
-    "identityNode": "識別ノード",
-    "terminateSession": "セッション終了",
-    "toast": {
-      "logoutSuccessTitle": "セッション終了",
-      "logoutSuccessDescription": "ニューラルリンクが安全に切断されました。",
-      "logoutErrorTitle": "終了失敗",
-      "logoutErrorDescription": "セッションの切断中にエラーが発生しました。"
+    "promo": {
+      "spotlights": "パートナースポットライト",
+      "verified": "検証済みノード"
     }
+  },
+  "explorerQuests": {
+    "title": "エクスプローラークエスト",
+    "subtitle": "都市探索を謎めいたオデッセイに変えましょう。",
+    "initTitle": "クエストグリッドの初期化",
+    "initDesc": "専門の遠征ミッションのためにターミナルを選択してください。",
+    "cityPlaceholder": "例：京都、日本",
+    "generateBtn": "クエストの構築",
+    "newCityBtn": "新しいターミナル",
+    "progress": "同期：{{completed}} / {{total}}",
+    "xp": "{{current}} / {{total}} XP",
+    "hint": "インテル：{{hint}}",
+    "xpSynthesized": "{{points}} XP 統合",
+    "resolvedTitle": "ターミナル解決！",
+    "resolvedDesc": "{{city}} の秘密を正常に解読しました。",
+    "returnBtn": "コマンドハブに戻る"
+  },
+  "languageLab": {
+    "badge": "言語インテリジェンス",
+    "title": "言語ラボ",
+    "subtitle": "AI 統合のサバイバルキットとアーティキュレーションガイドを使用して方言をマスターしましょう。",
+    "cityPlaceholder": "宛先ノードを入力...",
+    "synthesizeBtn": "キットの統合",
+    "survivalTitle": "コアプロトコル",
+    "pronounce": "アーティキュレーション：{{pronunciation}}",
+    "slangTitle": "現地のイディオム",
+    "listenBtn": "オーディオの監視",
+    "pendingTitle": "言語処理",
+    "pendingDesc": "オデッセイのための言語キットを統合するための宛先を提供してください。",
+    "toast": {
+      "errorTitle": "統合に失敗しました",
+      "errorDescription": "言語グリッドがオフラインです。",
+      "audioErrorTitle": "オーディオエラー",
+      "audioErrorDescription": "音声パターンを統合できませんでした。"
+    }
+  },
+  "layoverOdyssey": {
+    "badge": "乗り継ぎインテリジェンス",
+    "title": "乗り継ぎオデッセイ",
+    "subtitle": "乗り継ぎ時間をミニ遠征に統合しましょう。",
+    "initTitle": "乗り継ぎノードの初期化",
+    "initDesc": "短い旅程のために乗り継ぎテレメトリを入力してください。",
+    "airportPlaceholder": "空港/ノードコード (例: SIN)",
+    "durationLabel": "ウィンドウ (時間)",
+    "synthesizeBtn": "オデッセイの構築",
+    "resultTitle": "あなたの乗り継ぎオデッセイ",
+    "newBtn": "新しい遠征",
+    "timelineTitle": "時間シーケンス",
+    "logisticsTitle": "ロジスティクスノード",
+    "transport": "乗り継ぎ",
+    "budget": "割り当て",
+    "visa": "許可インテル",
+    "pendingTitle": "オデッセイが見つかりません",
+    "pendingDesc": "遠征を構築するために乗り継ぎパラメータを提供してください。",
+    "missionParameters": "ミッションパラメータ",
+    "currentTerminal": "現在のターミナルノード",
+    "layoverDuration": "乗り継ぎウィンドウ",
+    "synthesizeOdyssey": "オデッセイの統合",
+    "radarSilent": "レーダーサイレント",
+    "enterCodeDesc": "乗り継ぎオデッセイを構築するためにノードコードを入力してください。"
+  },
+  "transitConnect": {
+    "title": "乗り継ぎ接続",
+    "subtitle": "ターミナルで仲間を特定します。同じフライトの、または共通の関心を持つ探検家とリンクします。",
+    "step1": {
+      "title": "搭乗券の確認",
+      "description": "パスをスキャンして ID とフライトテレメトリを確認します。",
+      "scanningButton": "テレメトリをスキャンしています...",
+      "scanButton": "パスをスキャン",
+      "cameraError": "カメラノードがオフラインです。",
+      "scanErrorTitle": "スキャンが中止されました",
+      "scanErrorDescription": "搭乗券データの復号に失敗しました。"
+    },
+    "verification": {
+      "title": "確認完了",
+      "description": "フライトデータが Aetheria グリッドに正常に同期されました。",
+      "passenger": "エクスプローラー",
+      "flight": "航空コード",
+      "gate": "ターミナルゲート",
+      "seat": "ノードの位置",
+      "departs": "開始"
+    },
+    "step2": {
+      "title": "同期モードの選択",
+      "description": "他のユーザーとどのようにリンクするかを選択してください。",
+      "goLiveButton": "グリッドでライブ配信",
+      "vibes": {
+        "networking": "ネットワーキング",
+        "networkingDescription": "フライト中のプロフェッショナルとリンクします。",
+        "coffee": "コーヒー統合",
+        "coffeeDescription": "飲み物を飲みながらのカジュアルな会話。",
+        "shareLounge": "ラウンジの共有",
+        "shareLoungeDescription": "プレミアムリソースを共同利用します。",
+        "cardGame": "戦略的ゲーム",
+        "cardGameDescription": "戦術的なプレイを通じて時間を過ごします。"
+      }
+    },
+    "step3": {
+      "title": "ターミナルネットワーク",
+      "description": "あなたの近くでアクティブな接続。",
+      "nearbyTab": "近接",
+      "arViewTab": "AR ビジョン",
+      "sameFlight": "一致する航空コード",
+      "chatButton": "リンクの確立",
+      "arViewDescription": "AR ビジョンがアクティブです",
+      "toast": {
+        "chatTitle": "リンクが確立されました",
+        "chatDescription": "{{name}} のノードに接続しています..."
+      }
+    }
+  },
+  "footer": {
+    "brandName": "AETHERIA",
+    "brandTagline": "統合された旅",
+    "copyright": "Aetheria AI",
+    "quote": "旅の未来は、どこへ行くかではなく、旅の現実をどのように統合するかです。",
+    "sections": {
+      "protocols": "プロトコル",
+      "network": "ネットワーク",
+      "support": "サポート",
+      "connect": "接続"
+    },
+    "links": {
+      "itinerary": "Aura 旅行プラン",
+      "pathfinder": "パスファインダー",
+      "marketplace": "Vibe マーケット",
+      "vision": "ビジョンセンター",
+      "intelligence": "インテリジェンスセンター",
+      "ar": "AR ナビゲーション",
+      "odyssey": "旅行オデッセイ",
+      "postcard": "ポストカードスタジオ",
+      "heritage": "ヘリテージミラー",
+      "journal": "エクスプローラージャーナル",
+      "help": "サポートハブ",
+      "safety": "セーフティノード",
+      "status": "システムステータス",
+      "api": "API アクセス",
+      "terms": "利用規約",
+      "privacy": "プライバシープロトコル",
+      "security": "データセキュリティ",
+      "legal": "法的通知",
+      "brochure": "プロトコルパンフレット",
+      "partners": "パートナーノード",
+      "hub": "お問い合わせハブ",
+      "faq": "よくある質問"
+    },
+    "status": {
+      "description": "グローバルグリッド稼働中",
+      "poweredBy": "Aetheria Core 搭載"
+    },
+    "aria": {
+      "x": "X (旧 Twitter)",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    }
+  },
+  "profile": {
+    "toast": {
+      "nodeInterruption": "ノードの中断",
+      "nodeInterruptionDesc": "セキュリティキーのディスパッチに失敗しました。グリッド接続が不安定な可能性があります。",
+      "syncFailed": "同期に失敗しました",
+      "resetDispatched": "リセットがディスパッチされました",
+      "resetDispatchedDesc": "セキュリティキーのリセットリンクがニューラルアドレスにディスパッチされました。"
+    },
+    "role": {
+      "verified": "検証済み"
+    },
+    "saveSuccessTitle": "ID ノードが更新されました",
+    "saveSuccessDescription": "エクスプローラープロファイルが再同期されました。",
+    "authorizeChanges": "変更を承認",
+    "saveButton": "変更を承認",
+    "savingButton": "グリッドを更新しています...",
+    "tabs": {
+      "identity": "ID ノード",
+      "travelDna": "旅行 DNA",
+      "settings": "システム設定",
+      "security": "セーフティノード"
+    },
+    "personalInfo": {
+      "title": "個人テレメトリ",
+      "description": "これは Aetheria グリッド上のコア ID マトリックスです。",
+      "firstName": "名",
+      "lastName": "姓",
+      "gender": "性同一性",
+      "genders": {
+        "male": "男性",
+        "female": "女性",
+        "other": "ノンバイナリー",
+        "preferNotToSay": "回答しない"
+      },
+      "citizenship": "市民権",
+      "citizenshipPlaceholder": "例：米国",
+      "citizenshipDesc": "セーフティアシスタントの大使館マッチングに必要です。",
+      "homeBase": "本拠地",
+      "homeBasePlaceholder": "例：ニューヨーク、NY",
+      "networkAddress": "ネットワークアドレス",
+      "networkAddressPlaceholder": "explorer@aetheria.ai",
+      "networkAddressDesc": "このアドレスはあなたの ID に永続的にロックされています。"
+    },
+    "travelStyle": {
+      "title": "旅行スタイル統合",
+      "description": "お好みの探索モードを調整してください。",
+      "relaxed": {
+        "label": "レジャー統合",
+        "description": "ゆっくりとしたペースの探索。"
+      },
+      "active": {
+        "label": "キネティック",
+        "description": "高エネルギーの動き。"
+      },
+      "adventurous": {
+        "label": "ディスカバリーモード",
+        "description": "新しいフロンティアの発見。"
+      },
+      "packed": {
+        "label": "最大効率",
+        "description": "最大ノードカバレッジ。"
+      },
+      "familyFriendly": {
+        "label": "集団安全保障",
+        "description": "安全を優先したグループ旅行。"
+      }
+    },
+    "interests": {
+      "title": "興味マトリックス",
+      "description": "興味のあるノードを調整して、AI の推奨を絞り込みます。",
+      "items": {
+        "history": "歴史",
+        "food": "美食",
+        "hiking": "ハイキング",
+        "art": "アート",
+        "nightlife": "ナイトライフ",
+        "shopping": "ショッピング",
+        "nature": "自然",
+        "wellness": "ウェルネス"
+      }
+    },
+    "settings": {
+      "title": "システム構成",
+      "language": "言語グリッド",
+      "languageDesc": "主要なコミュニケーション言語を選択してください。",
+      "theme": "インターフェイスのテーマ",
+      "themeDesc": "インターフェイスの視覚的なパラメータを調整します。",
+      "themes": {
+        "light": "ライト",
+        "dark": "ダーク",
+        "system": "システム"
+      }
+    },
+    "financial": {
+      "title": "財務ノード",
+      "description": "コア通貨プロトコルを同期します。",
+      "baseCurrency": "基本通貨",
+      "baseCurrencyDesc": "これはすべての財務統合のデフォルトになります。",
+      "currencies": {
+        "USD": "米ドル",
+        "EUR": "ユーロ",
+        "GBP": "英国ポンド",
+        "JPY": "日本円",
+        "INR": "インドルピー",
+        "THB": "タイバーツ"
+      }
+    },
+    "security": {
+      "title": "セキュリティとアクセス",
+      "description": "アクセスプロトコルとグリッドのセキュリティを管理します。",
+      "resetTitle": "セキュリティキーのリセットをディスパッチ",
+      "resetDesc": "プライマリニューラルアドレスにリセットリンクを送信します。",
+      "resetButton": "リセットをディスパッチ",
+      "alertTitle": "セキュリティアラート",
+      "alertDesc": "セキュリティ上の理由から、現在のキーは表示されません。変更するにはキーのリセットが必要です。キーは Aetheria グリッドに安全に保存されています。"
+    }
+  },
+  "onboarding": {
+    "steps": {
+      "header": {
+        "title": "Aura ハブがアクティブです",
+        "content": "ニューラルリンクがライブです。このバッジは、Aetheria AI が旅行テレメトリをアクティブに統合していることを示します。"
+      },
+      "season": {
+        "title": "シーズン進行状況",
+        "content": "XP を追跡し、オデッセイをレベルアップします。クエストを完了して、限定のデジタル資産と旅行特典のロックを解除します。"
+      },
+      "itinerary": {
+        "title": "Aura 旅行プラン",
+        "content": "当社のコア AI エンジン。心理的 DNA と旅行の雰囲気に合わせた数日間のオデッセイを統合します。"
+      },
+      "vision": {
+        "title": "Vision AI ハブ",
+        "content": "カメラを使用してランドマークやアーティファクトをスキャンします。当社の AI は、リアルタイムの歴史的および文化的統合を提供します。"
+      },
+      "postcard": {
+        "title": "ポストカードスタジオ",
+        "content": "旅行のスナップショットを高忠実度の AI 生成アートに変換します。独自の視点をネットワークと共有します。"
+      },
+      "vibe": {
+        "title": "Vibe レーダー",
+        "content": "一致するニューラルシグネチャを持つ近くの他の探検家を検出します。旅を接続して同期します。"
+      }
+    },
+    "finish": "初期化の完了",
+    "next": "続行"
+  },
+  "itineraryGenerator": {
+    "toast": {
+      "bookingInitiated": "ロジスティクスが開始されました",
+      "reserving": "{{activity}} を予約しています...",
+      "adjustmentFailed": "調整に失敗しました",
+      "adjustmentFailedDesc": "パスを再調整できませんでした。",
+      "pathRecalibrated": "パスが再調整されました",
+      "pathRecalibratedDesc": "提案された変更でオデッセイが更新されました。",
+      "generateSuccessTitle": "オデッセイの準備ができました",
+      "generateSuccessDescription": "{{destination}} へのパスが完全に統合されました。",
+      "generateErrorTitle": "統合に失敗しました",
+      "generateErrorDescription": "旅程を構築できませんでした。システムエラー。",
+      "refineSuccessTitle": "パスが絞り込まれました",
+      "refineErrorTitle": "絞り込みに失敗しました",
+      "refineErrorDescription": "パスパラメータを調整できませんでした。"
+    },
+    "display": {
+      "pendingTitle": "統合待ち",
+      "pendingDesc": "高忠実度のオデッセイを構築するために宛先を承認してください。",
+      "upgradeTitle": "フルスペクトルのロックを解除",
+      "upgradeDesc": "無制限の AI 絞り込みと高忠実度のインテルのためにプロにアップグレードしてください。",
+      "upgradeBtn": "今すぐノードをアップグレード",
+      "resultBadge": "統合されたオデッセイ",
+      "pathTitle": "あなたのオデッセイパス",
+      "recalibrateTitle": "動的再調整",
+      "recalibrateDesc": "気象パターンが変化しました。屋内アクティビティのためにパスを再調整しますか？",
+      "recalibrateContext": "突然の降水のため、屋外アクティビティは最適ではありません。",
+      "recalibrateBtn": "パスを再調整",
+      "reserveBtn": "ノードの予約",
+      "notes": "プロトコルノート",
+      "adjustTitle": "手動絞り込み",
+      "adjustDesc": "統合されたパスの特定の再調整を要求します。",
+      "adjustPlaceholder": "例：ストリートフードノードを増やす、または運動強度を下げる...",
+      "processing": "統合を処理しています...",
+      "updateBtn": "パスの更新",
+      "proposedTitle": "提案された再調整",
+      "rejectBtn": "破棄",
+      "authorizeBtn": "変更を承認"
+    },
+    "form": {
+      "title": "オデッセイの構築",
+      "description": "独自のパラメータと制約に基づいてマルチノードの旅を構築します。",
+      "destinationLabel": "宛先ノード",
+      "destinationPlaceholder": "例：東京、日本",
+      "datesLabel": "時間範囲",
+      "pickDateRange": "日付の選択",
+      "budgetLabel": "リソースの割り当て",
+      "budgetPlaceholder": "予算の選択",
+      "budgetLow": "エコノミー (最小)",
+      "budgetMedium": "標準 (バランス)",
+      "budgetHigh": "プレミアム (高)",
+      "vibeLabel": "Vibe 統合",
+      "vibePlaceholder": "この旅の雰囲気を説明してください...",
+      "vibeDescription": "AI はこれを使用してオデッセイのアンビエントプロファイルを設定します。",
+      "generatingButton": "パスを統合しています...",
+      "generateButton": "オデッセイを承認"
+    },
+    "validation": {
+      "destination": "宛先は 2 文字以上である必要があります。",
+      "interests": "少なくとも 1 つの関心のあるノードを選択してください。"
+    },
+    "title": "旅程統合ツール",
+    "subtitle": "AI オーケストレーションで次の高忠実度の旅を構築しましょう。",
+    "authError": "承認が必要です",
+    "authErrorDesc": "オデッセイの構築を承認するにはサインインしてください。",
+    "odysseySuffix": "オデッセイ"
+  },
+  "subscription": {
+    "badge": "通貨プロトコル",
+    "title": "サブスクリプションセンター",
+    "subtitle": "プレミアムサービスとグローバルセキュリティプロトコルでオデッセイを強化しましょう。",
+    "itineraryRequired": "アクティブなオデッセイが必要です",
+    "itineraryRequiredDesc": "サブスクリプションプロトコルを選択するには、アクティブなオデッセイが必要です。",
+    "createItineraryBtn": "オデッセイの初期化",
+    "plans": {
+      "free": {
+        "name": "標準",
+        "description": "基本的な旅行ユーティリティ。",
+        "price": "¥0",
+        "itinerariesValue": "1 つのアクティブなオデッセイ",
+        "immersiveValue": "標準インテル",
+        "loyaltyValue": "基本報酬"
+      },
+      "voyager": {
+        "name": "航海者",
+        "description": "強化された探索のために。",
+        "price": "¥750",
+        "itinerariesValue": "3 つのアクティブなオデッセイ",
+        "immersiveValue": "強化されたインテル",
+        "packingValue": "AI パッキングノード",
+        "loyaltyValue": "シルバー報酬"
+      },
+      "pathfinder": {
+        "name": "パスファインダー",
+        "description": "プロの探検家向け。",
+        "price": "¥1600",
+        "itinerariesValue": "無制限のオデッセイ",
+        "immersiveValue": "ニューラルインテリジェンス",
+        "insiderValue": "地域の伝説",
+        "loyaltyValue": "ゴールド報酬"
+      },
+      "sovereign": {
+        "name": "ソブリン",
+        "description": "無制限のアクセスとエリートオーケストレーション。",
+        "price": "¥4000",
+        "itinerariesValue": "無制限のオデッセイ",
+        "immersiveValue": "無制限のインテル",
+        "mirrorValue": "ヘリテージミラーノード",
+        "fees": "サーチャージなし"
+      },
+      "legend": {
+        "name": "伝説",
+        "description": "究極の旅行統合。",
+        "price": "¥8000",
+        "itinerariesValue": "無制限のオデッセY",
+        "immersiveValue": "無制限のインテル",
+        "mirrorValue": "ヘリテージミラーノード",
+        "insiderValue": "地域の伝説",
+        "fees": "サーチャージなし"
+      }
+    },
+    "period": {
+      "monthly": "/月"
+    },
+    "features": {
+      "itineraries": "オデッセイ容量",
+      "immersive": "インテリジェンスグレード",
+      "loyalty": "報酬ティア",
+      "packing": "パッキングノード",
+      "insider": "ローカルインテル",
+      "mirror": "ヘリテージノード",
+      "fees": "サービスサーチャージ"
+    },
+    "upgrade": "ノードのアップグレード",
+    "processingBtn": "処理中...",
+    "currentPlan": "アクティブなプロトコル"
   },
   "dashboard": {
-    "welcomeBack": "おかえりなさい、{{name}}さん",
+    "welcomeBack": "おかえりなさい、{{name}} さん",
     "odysseyLevel": "オデッセイレベル {{level}}",
-    "explorerHubActive": "エクスプローラーハブ有効",
-    "viewLegacyWrapped": "レガシーラップを表示",
-    "productionTrailer": "プロダクショントレーラー",
     "seasonPass": "シーズンパス",
-    "xpSynthesized": "統合されたXP",
+    "xpSynthesized": "統合された XP",
     "progressionToLevel": "レベル {{level}} への進行状況",
-    "vibeStreak": "バイブストリーク",
-    "tasksResolved": "解決されたタスク",
+    "vibeStreak": "Vibe ストリーク",
+    "tasksResolved": "解決済みのタスク",
     "totalMedals": "合計メダル",
-    "premiumRequired": "プレミアムパスが必要です",
-    "explorerStatus": "エクスプローラー状況: {{tier}}",
+    "premiumRequired": "プレミアムプロトコルが必要です",
+    "explorerStatus": "エクスプローラーティア：{{tier}}",
     "points": "ポイント",
     "medals": "メダル",
-    "editProfile": "プロフィール編集",
-    "match": "マッチ",
-    "toast": {
-      "missionInviteTitle": "オデッセイ提案送信済み",
-      "missionInviteDescription": "{{name}}さんがグループオデッセイを承認するのを待っています。"
-    },
-    "xpProgress": "{{current}} / {{total}} XP",
-    "odysseyCount": "{{count}} オデッセイ",
-    "questCount": "{{count}} クエスト",
-    "awardCount": "{{count}} アワード",
-    "vibeRadar": {
-      "title": "バイブラダー",
-      "desc": "現在のセクターで {{vibe}} の一致を検出中: {{location}}"
-    },
-    "expandNeuralNetwork": "ニューラルネットワークを拡張",
+    "editProfile": "ID ノードの変更",
     "shortDesc": {
-      "itinerary": "AIが統合した旅行プラン",
-      "pathfinder": "ニューラルパスの最適化",
-      "marketplace": "バイブで厳選された体験",
-      "store": "デジタル資産の取得",
-      "booking": "クォンタム予約ハブ",
-      "wallet": "暗号化されたクレジットストレージ",
-      "budget": "財務統合エンジン",
-      "vision": "ARオブジェクト認識",
-      "guide": "グローバルナレッジベース",
-      "ar": "空間ウェイファインディングオーバーレイ",
-      "legends": "歴史データ取得",
-      "pulse": "リアルタイムの文化ストリーム",
-      "audio": "没入型サウンドスケープ",
-      "odyssey": "映画のような旅のティーザー",
-      "postcard": "AI生成のビジュアルノード",
-      "mirror": "ヘリテージデータの反映",
-      "journal": "個人のオデッセイログ"
+      "itinerary": "ニューラルオデッセイ統合。",
+      "pathfinder": "スマートなルート最適化。",
+      "marketplace": "グローバル Vibe 交換。",
+      "store": "ギア調達。",
+      "booking": "ロジスティクスオーケストレーション。",
+      "wallet": "スマート通貨ノード。",
+      "budget": "財務統合。",
+      "vision": "オブジェクト認識ノード。",
+      "guide": "グローバルインテルハブ。",
+      "ar": "拡張ナビゲーション。",
+      "legends": "歴史の解読。",
+      "pulse": "文化的トレンドレーダー。",
+      "audio": "空間ナレーション。",
+      "odyssey": "映画のような旅行統合。",
+      "postcard": "AI アート生成。",
+      "mirror": "ヘリテージの視覚化。",
+      "journal": "メモリ暗号化。"
+    },
+    "vibeRadar": {
+      "title": "Vibe レーダー",
+      "desc": "{{location}} で {{vibe}} の署名をスキャンしています。"
     }
   },
-  "login": {
-    "title": "Aetheria ログイン",
-    "emailLabel": "ネットワークアドレス",
-    "emailPlaceholder": "name@domain.com",
-    "passwordLabel": "セキュリティキー",
-    "passwordPlaceholder": "••••••••",
-    "signInButton": "セッション承認",
-    "signingInButton": "承認中...",
-    "noAccount": "Aetheriaは初めてですか？",
-    "signUpLink": "識別ノードを作成",
-    "accessOdysseyGrid": "オデッセイグリッドにアクセス",
-    "authChannels": "認証チャネル",
-    "google": "Google",
-    "apple": "Apple",
-    "biometricLogin": "生体認証ログイン",
-    "systemNodeOffline": "システムノードオフライン",
-    "authServiceInitializing": "認証サービスがまだ初期化されていません。",
-    "unsupportedFeature": "サポートされていない機能",
-    "biometricOnlyMobile": "生体認証ログインはモバイルデバイスでのみ利用可能です。",
-    "biometricLoginFailed": "生体認証ログイン失敗",
-    "biometricLoginError": "生体認証資格情報でログインできませんでした。",
-    "invalidCredentials": "メールアドレスまたはセキュリティキーが無効です。資格情報を確認するか、まだ作成していない場合は新しいアカウントを作成してください。",
-    "accountDisabled": "このアカウントは無効になっています。サポートにお問い合わせください。",
-    "tooManyRequests": "失敗した試行が多すぎます。後でもう一度試すか、セキュリティキーをリセットしてください。",
-    "networkError": "ネットワーク接続に失敗しました。接続を確認して、もう一度お試しください。",
-    "toast": {
-      "successTitle": "セッション承認済み",
-      "successDescription": "ニューラルリンクが有効になりました。",
-      "errorTitle": "承認失敗",
-      "genericError": "セッション承認中に予期しないエラーが発生しました。",
-      "operationNotAllowed": "この認証方法は現在無効になっています。"
-    }
+  "english": "英語",
+  "aiItineraryCustomization": {
+    "title": "AI 旅行プランのカスタマイズ",
+    "description": "当社の AI は、お客様の好みに基づいて旅行プランをカスタマイズできます。"
   },
-  "signup": {
-    "title": "オデッセイに参加",
-    "description": "Aetheriaアカウントを作成",
-    "firstNameLabel": "名",
-    "lastNameLabel": "姓",
-    "firstNamePlaceholder": "太郎",
-    "lastNamePlaceholder": "山田",
-    "emailLabel": "ネットワークアドレス",
-    "emailPlaceholder": "name@domain.com",
-    "passwordLabel": "セキュリティキー",
-    "passwordPlaceholder": "••••••••",
-    "createButton": "プロフィールを初期化",
-    "creatingButton": "同期中...",
-    "haveAccount": "すでにネットワークに参加していますか？",
-    "signInLink": "サインイン",
-    "networkJoin": "ネットワーク参加",
-    "welcomeKit": {
-      "title": "ウェルカムキット送信済み！",
-      "description": "Aetheria AIからのパーソナライズされたウェルカムメッセージをインボックスで確認してください。"
-    },
-    "toast": {
-      "successTitle": "プロフィール初期化済み",
-      "successDescription": "Aetheriaネットワークへようこそ。",
-      "errorTitle": "初期化失敗",
-      "genericError": "アカウントを作成できませんでした。もう一度お試しください。"
-    },
-    "errors": {
-      "emailInUse": "このメールアドレスはすでに登録されています。代わりにサインインしてください。",
-      "invalidEmail": "メールアドレスが無効です。確認してもう一度お試しください。",
-      "operationNotAllowed": "メール/パスワードによるサインアップは現在無効になっています。",
-      "weakPassword": "セキュリティキーが弱すぎます。より強力なものを使用してください。",
-      "networkError": "ネットワーク接続に失敗しました。接続を確認して、もう一度お試しください。"
-    }
+  "arIndoorNavigation": {
+    "title": "AR 屋内ナビゲーション",
+    "description": "AR 搭載のナビゲーションシステムで屋内をナビゲートします。"
+  },
+  "gamifiedLanguageLearning": {
+    "title": "ゲーミフィケーション言語学習",
+    "description": "ゲームをプレイしながら新しい言語を学びましょう。"
+  },
+  "realTimePublicTransit": {
+    "title": "リアルタイム公共交通機関",
+    "description": "公共交通機関に関するリアルタイムの最新情報を入手してください。"
   }
 }
