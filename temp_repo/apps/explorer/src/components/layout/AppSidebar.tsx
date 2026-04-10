@@ -120,6 +120,7 @@ export function AppSidebar() {
         { label: 'Dynamic Itinerary Re-planning', href: '/dynamic-itinerary-replanning', icon: RouteIcon },
         { label: '\"What If\" Scenario Planner', href: '/what-if-scenario-planner', icon: FlaskConical },
         { label: 'AI-Powered Budget Optimization', href: '/ai-budget-optimization', icon: Wallet },
+        { label: 'AI-Powered Itinerary Customization', href: '/ai-itinerary-customization', icon: Bot },
       ]
     },
     {
@@ -146,6 +147,8 @@ export function AppSidebar() {
         { label: 'AR Celebrity Tour Guide', href: '/ar-celebrity-tour-guide', icon: UserCheck },
         { label: 'AR Historical Overlays', href: '/ar-historical-overlays', icon: History },
         { label: 'AR Language Translator', href: '/ar-language-translator', icon: Languages },
+        { label: 'AR Indoor Navigation', href: '/ar-indoor-navigation', icon: MapPin },
+        { label: 'Gamified Language Learning', href: '/gamified-language-learning', icon: Languages },
       ]
     },
     {
@@ -173,6 +176,7 @@ export function AppSidebar() {
         { label: 'Rentals', href: '/rentals', icon: Car },
         { label: 'Transit Connect', href: '/transit-connect', icon: Train },
         { label: 'AI Deal Hunter', href: '/ai-deal-hunter', icon: Search },
+        { label: 'Real-Time Public Transit Information', href: '/real-time-public-transit-information', icon: Train },
       ]
     },
     {
