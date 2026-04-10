@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plane, Hotel, Ship, Search, MapPin, Calendar, Bus, Car, Utensils, Star, Loader2, ArrowRight } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { usePremiumStatus } from '../hooks/usePremiumStatus';
+import SubscriptionManager from './SubscriptionManager';
 
 type BookingType = 'flight' | 'hotel' | 'cruise' | 'bus' | 'cab' | 'dining';
 
@@ -10,6 +11,7 @@ export default function BookingHub() {
   const [activeTab, setActiveTab] = useState<BookingType>('flight');
   const [isSearching, setIsSearching] = useState(false);
   const [results, setResults] = useState<any[] | null>(null);
+  const isPremium = usePremiumStatus();
 
   const handleSearch = async () => {
     setIsSearching(true);
@@ -65,7 +67,7 @@ export default function BookingHub() {
         </div>
         <div>
           <h2 className="text-2xl font-display font-bold">Booking Hub</h2>
-          <p className="text-sm text-foreground/50">Simulated high-fidelity global booking engine.</p>
+          <p className="text-sm text-foreground/50">Global booking engine.</p>
         </div>
       </div>
 
@@ -111,7 +113,7 @@ export default function BookingHub() {
           className="bg-primary text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
         >
           {isSearching ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
-          Search Synthesis
+          Search
         </button>
       </div>
 
@@ -140,17 +142,23 @@ export default function BookingHub() {
                     </div>
                   </div>
                 </div>
-                <button className="w-full py-3 bg-white/5 hover:bg-primary hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
-                  Book Now
-                  <ArrowRight className="w-3 h-3" />
-                </button>
+                {isPremium ? (
+                  <button className="w-full py-3 bg-white/5 hover:bg-primary hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                    Book Now
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                ) : (
+                  <div className="mt-4">
+                     <SubscriptionManager />
+                  </div>
+                )}
               </div>
             ))}
           </motion.div>
         ) : !isSearching && (
           <div className="py-12 text-center glass rounded-3xl border-dashed border-2 border-white/5">
             <Search className="w-12 h-12 text-foreground/10 mx-auto mb-4" />
-            <p className="text-sm text-foreground/40">Enter details to synthesize {activeTab} options.</p>
+            <p className="text-sm text-foreground/40">Enter details to explore {activeTab} options.</p>
           </div>
         )}
       </AnimatePresence>

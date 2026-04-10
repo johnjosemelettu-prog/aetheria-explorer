@@ -1,52 +1,15 @@
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import * as AI from '../services/gemini';
-import { Button } from './ui/button';
+import { Footprints, Shield } from 'lucide-react';
 
-const EscapeTheCity = () => {
-  const [gameState, setGameState] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const startGame = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const city = "Venice"; // Replace with user's current city
-      const result = await AI.startEscapeTheCity(city);
-      setGameState(result);
-    } catch (err) {
-      setError("Failed to start the game. Please try again.");
-      console.error(err);
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    startGame();
-  }, []);
-
+export default function EscapeTheCity() {
   return (
-    <div className="p-8 bg-gray-900 min-h-screen text-white flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">Escape the City</h1>
-      {loading && <p>Loading Game...</p>}
-      {error && <p className="text-red-500">{error}</p>}
-      {gameState && (
-        <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md text-center">
-          <h2 className="text-2xl font-semibold mb-4">Your First Clue:</h2>
-          <p className="text-lg italic">{gameState.firstClue}</p>
-          <div className="mt-6">
-            <p className="text-gray-400">Safe Zone ETA: {gameState.safeZoneETA}</p>
-            <p className="text-gray-400">Difficulty: {gameState.difficulty}</p>
-          </div>
-          <Button onClick={startGame} className="mt-8">
-            Start Over
-          </Button>
-        </div>
-      )}
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        <Footprints className="w-16 h-16 mx-auto text-primary mb-6" />
+        <h1 className="text-4xl font-bold mb-4">Escape the City</h1>
+        <p className="text-foreground/60 mb-8">An AR game where you follow clues to find a "safe zone" outside of a city's main tourist area. Coming soon.</p>
+      </motion.div>
     </div>
   );
-};
-
-export default EscapeTheCity;
+}

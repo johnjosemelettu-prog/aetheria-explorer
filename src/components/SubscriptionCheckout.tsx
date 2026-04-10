@@ -77,7 +77,7 @@ export default function SubscriptionCheckout() {
           transition={{ delay: 0.2 }}
           className="text-xl text-foreground/60 max-w-2xl mx-auto"
         >
-          Aetheria Prime gives you the ultimate tools to synthesize, book, and experience the globe without limits.
+          Aetheria Prime gives you the ultimate tools to synthesize, book, and experience the globe without limits. Note: A subscription is required for unlimited bookings.
         </motion.p>
       </div>
 

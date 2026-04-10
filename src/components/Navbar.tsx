@@ -1,38 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Compass, 
-  Map as MapIcon, 
-  Wallet, 
-  User as UserIcon, 
-  LogOut, 
-  Menu, 
-  X,
-  Shield,
-  Store as StoreIcon,
-  Globe,
-  Sparkles,
-  Crown,
-  Zap,
-  Activity,
-  TrendingUp,
-  Heart,
-  Camera,
-  BookOpen,
-  PieChart,
-  ScanFace,
-  Book,
-  ChevronRight,
-  Film,
-  Image as ImageIcon,
-  Eye,
-  PersonStanding,
-  Wifi,
-  Plane,
-  Recycle,
-  Users,
-  Footprints,
-  Leaf
+  Compass, Map as MapIcon, Wallet, User as UserIcon, LogOut, Menu, X, Shield, Store as StoreIcon, Globe, Sparkles, Crown, Zap, Activity, TrendingUp, Heart, Camera, BookOpen, PieChart, ScanFace, Book, ChevronRight, Film, Image as ImageIcon, Eye, PersonStanding, Wifi, Plane, Recycle, Users, Footprints, Leaf, Languages, ShieldCheck, Gift, MessageSquare, Brain, Lightbulb, MessageCircle, Utensils, Target, Cloud, CheckSquare, Glasses, Palette, Train, Star, Building, Castle, UserPlus, Mailbox, Handshake, Receipt, Award, ShieldAlert, Hourglass, Swords, Hammer, Network, Wind, CheckCircle, ImagePlus, PenTool, Radio, Box, Ear, Home, AlertTriangle, Route, Navigation, AlertOctagon, PhoneCall, Package, Bike, Laptop, Coins, Ticket, Car, Music, Calendar, Search, EyeOff, Dna, Headphones, CloudRain, TreePine, Droplets, Bird, SplitSquareHorizontal, Brush
 } from 'lucide-react';
 import { auth } from '../lib/firebase';
 import { signOut, onAuthStateChanged, User } from 'firebase/auth';
@@ -118,25 +87,24 @@ export default function Navbar({ user }: NavbarProps) {
         { name: t('actions.digitalTailor'), icon: Activity, path: '/digital-tailor' },
         { name: t('actions.vibeMarket'), icon: TrendingUp, path: '/vibe-market' },
         { name: t('actions.wallet'), icon: Wallet, path: '/wallet' },
-      ]
-    },
-    {
-      title: "Digital Nomads",
-      items: [
-        { name: t('actions.esim'), icon: Wifi, path: '/esim' },
-        { name: t('actions.budget'), icon: PieChart, path: '/budget-synthesis' },
         { name: 'Store', icon: StoreIcon, path: '/store' },
-        { name: t('actions.guide'), icon: Compass, path: '/guide' },
       ]
     },
     {
-      title: "Memories & Vibes",
+      title: "AI & Planning (Smart Journey)",
       items: [
-        { name: t('actions.vibe'), icon: Heart, path: '/vibe' },
-        { name: t('actions.journal'), icon: BookOpen, path: '/journal' },
-        { name: t('actions.localLegends'), icon: Book, path: '/local-legends' },
-        { name: 'Video Teaser', icon: Film, path: '/video-teaser' },
-        { name: 'Postcard Studio', icon: ImageIcon, path: '/postcard-studio' },
+        { name: 'Serendipity Engine', icon: Sparkles, path: '/serendipity-engine' },
+        { name: 'Cognitive Load Balancer', icon: Brain, path: '/cognitive-load-balancer' },
+        { name: '"What If" Scenario Planner', icon: Lightbulb, path: '/scenario-planner' },
+        { name: 'Mood Synthesis', icon: Heart, path: '/mood-synthesis' },
+        { name: 'AI Travel Mentor', icon: MessageCircle, path: '/ai-travel-mentor' },
+        { name: 'Flavor Seeker', icon: Utensils, path: '/flavor-seeker' },
+        { name: 'Dynamic Itinerary A/B Testing', icon: SplitSquareHorizontal, path: '/ab-testing' },
+        { name: 'Personalized Challenge Generator', icon: Target, path: '/challenge-generator' },
+        { name: 'Dream Weaver', icon: Cloud, path: '/dream-weaver' },
+        { name: 'Habit Integration', icon: CheckSquare, path: '/habit-integration' },
+        { name: 'Group Vibe Calibration', icon: Users, path: '/group-vibe-calibration' },
+        { name: 'Sentient AI Companion', icon: Brain, path: '/sentient-companion' },
       ]
     },
     {
@@ -146,16 +114,131 @@ export default function Navbar({ user }: NavbarProps) {
         { name: t('actions.arWayfinding'), icon: ScanFace, path: '/ar-wayfinding' },
         { name: 'Vision Hub', icon: Eye, path: '/vision-hub' },
         { name: 'Heritage Mirror', icon: PersonStanding, path: '/heritage-mirror' },
+        { name: 'AR Time-Lapse View', icon: Clock, path: '/ar-time-lapse' },
+        { name: 'VR Pre-Travel Scout', icon: Glasses, path: '/vr-scout' },
+        { name: 'AR Menu Visualizer', icon: Utensils, path: '/ar-menu' },
+        { name: 'Geocached AR Art Gallery', icon: Palette, path: '/ar-art-gallery' },
+        { name: 'AR Public Transit X-Ray', icon: Train, path: '/ar-transit' },
+        { name: 'Sky Gazer AR', icon: Star, path: '/sky-gazer' },
+        { name: 'Interactive AR Storytelling', icon: BookOpen, path: '/ar-storytelling' },
+        { name: '"Paint the Town" AR', icon: Brush, path: '/paint-the-town' },
+        { name: 'Architecture Deconstructor', icon: Building, path: '/architecture-deconstructor' },
+        { name: 'AR Language Helper', icon: Languages, path: '/ar-language-helper' },
+        { name: 'AR Memory Palace', icon: Castle, path: '/memory-palace' },
+      ]
+    },
+    {
+      title: "Community & Connections",
+      items: [
+        { name: 'Local Hero Connect', icon: UserPlus, path: '/local-hero-connect' },
+        { name: 'Odyssey Relay', icon: Mailbox, path: '/odyssey-relay' },
+        { name: 'Skill Exchange Hub', icon: Handshake, path: '/skill-exchange-hub' },
+        { name: 'Echoes of Past Travelers', icon: Users, path: '/echoes-of-past-travelers' },
+        { name: 'Shared Expense Synthesizer', icon: Receipt, path: '/shared-expense' },
+        { name: 'Aetheria Ambassador Program', icon: Award, path: '/ambassador-program' },
+        { name: 'Traveler\'s Guilds', icon: Shield, path: '/travelers-guilds' },
+        { name: 'Global Gift Network', icon: Gift, path: '/global-gift-network' },
+        { name: 'Spontaneous Meetups', icon: Users, path: '/spontaneous-meetups' },
+        { name: 'Safety Swarm', icon: ShieldAlert, path: '/safety-swarm' },
+        { name: 'Aetheria DAO', icon: Globe, path: '/aetheria-dao' },
+      ]
+    },
+    {
+      title: "Gamification & Quests",
+      items: [
+        { name: 'Chrono-Quests', icon: Hourglass, path: '/chrono-quests' },
+        { name: 'Faction Wars', icon: Swords, path: '/faction-wars' },
+        { name: 'Digital Souvenir Forging', icon: Hammer, path: '/digital-souvenir-forging' },
+        { name: 'World Grid Unveiling', icon: Globe, path: '/world-grid-unveiling' },
+        { name: 'Achievement Trees', icon: Network, path: '/achievement-trees' },
+        { name: 'Bounty Board', icon: Target, path: '/bounty-board' },
+        { name: '\'Dérive\' Mode', icon: Wind, path: '/derive-mode' },
+        { name: 'Local Legend Verification', icon: CheckCircle, path: '/local-legend-verification' },
+        { name: 'Escape the City', icon: Footprints, path: '/escape-the-city' },
+        { name: 'Culture Collector', icon: Palette, path: '/culture-collector' },
+        { name: '"Lost in Translation" Game', icon: MessageSquare, path: '/lost-in-translation' },
+        { name: 'Local Produce Challenge', icon: Leaf, path: '/local-produce-challenge' },
       ]
     },
     {
       title: "Eco-Conscious",
       items: [
-        { name: 'Local Produce Challenge', icon: Recycle, path: '/local-produce-challenge' },
-        { name: 'Green Transit Score', icon: Footprints, path: '/green-transit-score' },
+        { name: 'Carbon Footprint Synthesis 2.0', icon: Leaf, path: '/carbon-synthesis' },
+        { name: 'Eco-Warrior Quests', icon: Leaf, path: '/eco-warrior-quests' },
+        { name: 'Sustainable Partner Spotlight', icon: Star, path: '/sustainable-partners' },
+        { name: '"Leave a Positive Trace"', icon: Heart, path: '/positive-trace' },
+        { name: 'Reforestation Rewards', icon: TreePine, path: '/reforestation-rewards' },
+        { name: 'Water Refill Station Finder', icon: Droplets, path: '/water-refill' },
+        { name: 'Green Transit Score', icon: Train, path: '/green-transit-score' },
         { name: 'Conservation Circle', icon: Users, path: '/conservation-circle' },
-        { name: 'Wildlife Sighting Ethos', icon: Leaf, path: '/wildlife-sighting-ethos' },
-        { name: 'Collaborative Journals', icon: Book, path: '/collaborative-journal' },
+        { name: 'Wildlife Sighting Ethos', icon: Bird, path: '/wildlife-sighting' },
+      ]
+    },
+    {
+      title: "Memories & Storytelling",
+      items: [
+        { name: t('actions.journal'), icon: BookOpen, path: '/journal' },
+        { name: 'Video Teaser', icon: Film, path: '/video-teaser' },
+        { name: 'Postcard Studio', icon: ImageIcon, path: '/postcard-studio' },
+        { name: 'Collaborative Journals', icon: Users, path: '/collaborative-journal' },
+        { name: '"Then & Now" Photo Mixer', icon: ImagePlus, path: '/then-and-now' },
+        { name: 'AI Travel Blogger', icon: PenTool, path: '/ai-blogger' },
+        { name: 'Aetheria Radio Host', icon: Radio, path: '/radio-host' },
+        { name: 'Vibe-based Photo Filters', icon: Camera, path: '/vibe-filters' },
+        { name: 'Interactive Travel Maps', icon: MapIcon, path: '/interactive-maps' },
+        { name: 'Travel Comic Strip Creator', icon: BookOpen, path: '/comic-creator' },
+        { name: '3D Photo Sculptures', icon: Box, path: '/3d-sculptures' },
+        { name: 'AI Story Scout', icon: Compass, path: '/story-scout' },
+        { name: 'Sensory Journal', icon: Ear, path: '/sensory-journal' },
+        { name: 'Quantum Entanglement Souvenirs', icon: Zap, path: '/quantum-souvenirs' },
+      ]
+    },
+    {
+      title: "Safety & Wellbeing",
+      items: [
+        { name: 'Travel Insurance', icon: ShieldCheck, path: '/travel-insurance' },
+        { name: '"Get Me Home" Button', icon: Home, path: '/get-me-home' },
+        { name: 'Crowd Density Predictor', icon: Users, path: '/crowd-density' },
+        { name: 'Chronosync', icon: Clock, path: '/chronosync' },
+        { name: 'Automated "Check-in" System', icon: CheckSquare, path: '/automated-check-in' },
+        { name: 'Scam Alert Radar', icon: AlertTriangle, path: '/scam-radar' },
+        { name: 'Virtual Embassy', icon: Building, path: '/virtual-embassy' },
+        { name: 'Trusted Route Corridors', icon: Route, path: '/trusted-routes' },
+        { name: '"Follow Me" Digital Escort', icon: Navigation, path: '/follow-me' },
+        { name: 'Allergen Alert System', icon: AlertOctagon, path: '/allergen-alert' },
+        { name: 'Privacy Scrubber', icon: Shield, path: '/privacy-scrubber' },
+        { name: 'Aura Shield', icon: ShieldAlert, path: '/aura-shield' },
+        { name: 'Emergency Services Dialogue', icon: PhoneCall, path: '/emergency-dialogue' },
+        { name: 'Bio-Data Integration', icon: Activity, path: '/bio-data' },
+        { name: 'Haptic Feedback Integration', icon: Activity, path: '/haptic-controller' },
+        { name: 'Weather-Adaptive Itinerary', icon: CloudRain, path: '/weather-adaptive' },
+      ]
+    },
+    {
+      title: "Digital Nomads & Utilities",
+      items: [
+        { name: t('actions.esim'), icon: Wifi, path: '/esim' },
+        { name: t('actions.budget'), icon: PieChart, path: '/budget-synthesis' },
+        { name: t('actions.guide'), icon: Compass, path: '/guide' },
+        { name: 'Translator', icon: Languages, path: '/translator' },
+        { name: 'Intelligent Souvenir Shipper', icon: Package, path: '/souvenir-shipper' },
+        { name: '"Last-Mile" Transit Solver', icon: Bike, path: '/last-mile' },
+        { name: 'Digital Nomad Hub', icon: Laptop, path: '/digital-nomad-hub' },
+        { name: 'Predictive Currency Exchange', icon: Coins, path: '/currency-exchange' },
+        { name: 'Universal Ticket Aggregator', icon: Ticket, path: '/ticket-aggregator' },
+        { name: '"Wait or Go" Advisor', icon: Clock, path: '/wait-or-go' },
+        { name: 'Rental Synthesizer', icon: Car, path: '/rental-synthesizer' },
+        { name: 'Cultural Etiquette Guide', icon: Book, path: '/cultural-etiquette' },
+        { name: 'Myth & Folklore Hotspots', icon: MapIcon, path: '/myth-folklore' },
+        { name: 'Street Art Sagas', icon: Palette, path: '/street-art-sagas' },
+        { name: 'Local Music Scene Explorer', icon: Music, path: '/local-music' },
+        { name: 'Festival Forecaster', icon: Calendar, path: '/festival-forecaster' },
+        { name: 'Artisan Craft Finder', icon: Search, path: '/artisan-finder' },
+        { name: 'Historical Dialogue Bot', icon: MessageSquare, path: '/historical-bot' },
+        { name: '"Silent Observer" Mode', icon: EyeOff, path: '/silent-observer' },
+        { name: 'DNA-based Ancestry Trail', icon: Dna, path: '/ancestry-trail' },
+        { name: 'Drone-as-a-Service', icon: Plane, path: '/drone-service' },
+        { name: 'Real-time Translation Earbuds', icon: Headphones, path: '/translation-earbuds' },
       ]
     }
   ];
@@ -275,7 +358,7 @@ export default function Navbar({ user }: NavbarProps) {
                           "w-4 h-4 transition-colors", 
                           isActive ? "text-primary" : "text-foreground/40 group-hover:text-white"
                         )} />
-                        {item.name}
+                        <span className="truncate max-w-[170px] text-left">{item.name}</span>
                       </div>
                       <ChevronRight className={cn(
                         "w-4 h-4 opacity-0 -translate-x-2 transition-all",
