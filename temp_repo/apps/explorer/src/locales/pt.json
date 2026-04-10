@@ -837,5 +837,139 @@
   "realTimePublicTransit": {
     "title": "Transporte público em tempo real",
     "description": "Receba atualizações em tempo real sobre o transporte público."
+  },
+  "termsPage": {
+    "badge": "Protocolo Operacional Aetheria",
+    "title": "Termos de Serviço",
+    "description": "Ao acessar o Ecossistema de Inteligência Aetheria, você concorda com os seguintes protocolos que regem seus direitos e responsabilidades como explorador em nossa grade.",
+    "sections": {
+      "accountIntegrity": {
+        "title": "1. Nó de Identidade e Segurança",
+        "content": "Você é responsável por manter a segurança do seu <strong>Nó de Identidade</strong> e sua <strong>Chave de Segurança</strong> associada. Todas as atividades, comunicações e transações originadas do seu nó são consideradas suas. A Aetheria não se responsabiliza por acesso não autorizado ou ações baseadas na grade resultantes de uma Chave de Segurança comprometida ou perdida. Relate qualquer violação suspeita ao Nó de Segurança da Aetheria imediatamente."
+      },
+      "responsibleUse": {
+        "title": "2. Interação com Agente de IA e Sistema",
+        "content": "Você concorda em não usar a grade Aetheria ou seus agentes de IA para qualquer finalidade ilegal, não autorizada ou maliciosa. Isso inclui, mas não se limita a, tentar fazer jailbreak, engenharia reversa ou explorar a IA para fins não intencionais. Os agentes de IA são projetados para síntese e assistência em viagens; qualquer manipulação ou uso indevido que viole as leis locais ou internacionais é estritamente proibido e resultará na terminação imediata do nó."
+      },
+      "dataSynthesis": {
+        "title": "3. Dados, Conteúdo e Síntese de IA",
+        "content": "Para potencializar sua jornada, a Aetheria sintetiza os dados que você fornece, como seu <strong>DNA de Viagem</strong> e <strong>Parâmetros da Odisseia</strong>. Embora nossa IA se esforce para obter resultados hiperprecisos e relevantes, todas as recomendações, traduções и informações sintetizadas são fornecidas sem garantia. Você concede à Aetheria uma licença não exclusiva, mundial e isenta de royalties para usar, processar e exibir seu conteúdo gerado pelo usuário (por exemplo, entradas de Diário, criações do Estúdio de Cartões Postais) exclusivamente para fins de operação e aprimoramento do serviço. Você mantém a propriedade total do seu conteúdo."
+      },
+      "bookingsFinancials": {
+        "title": "4. Reservas e Protocolos Financeiros",
+        "content": "A Aetheria atua como um facilitador inteligente para serviços de terceiros, como voos, hotéis e aluguéis. Embora sintetizemos o processo de reserva, o contrato final e a responsabilidade são seus e do provedor terceirizado. Todas as transações processadas através da <strong>Carteira Inteligente</strong> estão sujeitas aos termos de nossos parceiros de processamento de pagamentos. Você é responsável por garantir fundos suficientes e por quaisquer responsabilidades incorridas."
+      },
+      "gamificationRewards": {
+        "title": "5. XP de Explorador e Gamificação",
+        "content": "O <strong>XP de Explorador</strong>, os níveis do Passe de Temporada, as medalhas e outros elementos gamificados são recompensas digitais que reconhecem seu engajamento na grade. Esses elementos não têm valor em dinheiro no mundo real e não podem ser trocados ou resgatados fora do ecossistema Aetheria. A Aetheria se reserva o direito de modificar, reequilibrar ou redefinir a mecânica de gamificação a qualquer momento."
+      },
+      "safetyFeatures": {
+        "title": "6. Hub de Pânico SOS e Utilitários de Segurança",
+        "content": "Recursos como o <strong>Hub de Pânico SOS</strong>, o <strong>Enxame de Segurança</strong> e os <strong>Check-ins Automatizados</strong> são projetados como auxílios poderosos, não como garantias infalíveis de segurança. Sua eficácia pode ser limitada por fatores como conectividade de rede, infraestrutura local e erro do usuário. Você é o responsável final por sua própria segurança pessoal e concorda em usar esses recursos de forma responsável."
+      },
+      "termination": {
+        "title": "7. Rescisão do Serviço",
+        "content": "A Aetheria se reserva o direito de suspender ou desinicializar seu Nó de Identidade e encerrar seu acesso à grade a qualquer momento, sem aviso prévio, por qualquer conduta que viole estes Termos de Serviço ou quaisquer leis aplicáveis. Após a rescisão, seu direito de usar o serviço cessará imediatamente, embora você possa solicitar uma exportação de seus dados pessoais de acordo com nosso Protocolo de Privacidade."
+      },
+      "disclaimers": {
+        "title": "8. Isenções de Responsabilidade e Limitação de Responsabilidade",
+        "content": "O Ecossistema de Inteligência Aetheria é fornecido \"como está\" e \"conforme disponível\". Isentamo-nos de todas as garantias de qualquer tipo, expressas ou implícitas. Em nenhum caso a Aetheria será responsável por quaisquer danos indiretos, incidentais, especiais, consequenciais ou punitivos decorrentes ou relacionados ao seu uso do serviço."
+      }
+    }
+  },
+  "privacyPage": {
+    "badge": "Protocolo de Privacidade Aetheria",
+    "title": "Política de Privacidade",
+    "description": "Sua privacidade é fundamental para a integridade da grade Aetheria. Este protocolo descreve como coletamos, sintetizamos e protegemos seus dados.",
+    "sections": {
+      "dataCollection": {
+        "title": "1. Dados que Coletamos e Sintetizamos",
+        "content": "Para criar uma experiência hiper-personalizada, a Aetheria coleta e sintetiza vários tipos de dados:",
+        "list": [
+          "<strong>Dados do Nó de Identidade:</strong> Nome, informações de contato, identidade de gênero, cidadania e base. Isso forma sua identidade digital principal na grade.",
+          "<strong>DNA de Viagem:</strong> Suas preferências de estilo de viagem especificadas (por exemplo, Lazer, Cinético) e matriz de interesses (por exemplo, História, Gastronomia).",
+          "<strong>Parâmetros da Odisseia:</strong> Destino, intervalo de tempo, orçamento e descrições de vibe que você fornece ao Planejador de Odisseia de IA.",
+          "<strong>Telemetria de Uso:</strong> Dados de interação anônimos com nossos recursos, usados para identificar padrões e melhorar o desempenho do sistema.",
+          "<strong>Dados de Localização:</strong> Coordenadas GPS quando você usa ativamente recursos baseados em localização, como Navegação por RA ou Lendas Locais de IA. Isso nunca é rastreado em segundo plano."
+        ]
+      },
+      "aiProcessing": {
+        "title": "2. Síntese de IA e Seus Dados",
+        "content": "Nossos agentes de IA usam seus dados como um projeto para construir suas experiências. Por exemplo, seu <strong>DNA de Viagem</strong> e <strong>Parâmetros da Odisseia</strong> são inseridos em nossa IA para gerar um itinerário sob medida. Quando você usa o Hub de Visão de IA, as imagens que você captura são processadas para fornecer contexto, mas não são armazenadas a longo prazo, a menos que você as salve em seu Diário. Estamos comprometidos em usar IA poderosa de forma ética, garantindo que o processamento de dados esteja diretamente a serviço do aprimoramento de sua jornada."
+      },
+      "dataStorageSecurity": {
+        "title": "3. Armazenamento e Segurança de Dados",
+        "content": "Todos os dados pessoais são criptografados tanto em trânsito quanto em repouso usando protocolos criptográficos padrão do setor. Seu <strong>Nó de Identidade</strong> é protegido em nosso banco de dados principal com medidas de segurança avançadas. As informações financeiras processadas pela <strong>Carteira Inteligente</strong> são tratadas por nossos parceiros de pagamento em conformidade com o PCI e nunca são armazenadas nos servidores da Aetheria."
+      },
+      "dataSharing": {
+        "title": "4. Compartilhamento de Dados com Terceiros",
+        "content": "Não vendemos seus dados pessoais. Apenas compartilhamos dados com terceiros em circunstâncias específicas e necessárias:",
+        "list": [
+          "<strong>Provedores de Reserva:</strong> Quando você usa o Hub de Reservas Consolidadas, transmitimos as informações necessárias para companhias aéreas, hotéis ou outros provedores para garantir sua reserva.",
+          "<strong>Processadores de Pagamento:</strong> Para facilitar as transações através de sua Carteira Inteligente.",
+          "<strong>Conformidade Legal:</strong> Se exigido por lei ou para proteger a segurança e a integridade da grade Aetheria."
+        ],
+        "conclusion": "Dados anônimos e agregados podem ser usados para pesquisa e para melhorar nossos modelos de IA, mas nunca serão pessoalmente identificáveis."
+      },
+      "userControl": {
+        "title": "5. Seu Controle e Direitos de Dados",
+        "content": "Você tem controle total sobre seu <strong>Nó de Identidade</strong>. Você pode acessar, modificar ou desinicializar seus dados pessoais a qualquer momento através do Centro de Comando do seu perfil. Após a desinicialização, seus dados pessoais serão removidos permanentemente de nossa grade ativa em 30 dias, sujeito aos requisitos de retenção legais e regulatórios."
+      },
+      "policyUpdates": {
+        "title": "6. Atualizações da Política",
+        "content": "À medida que o ecossistema Aetheria evolui, este Protocolo de Privacidade pode ser atualizado. Notificaremos você sobre quaisquer alterações significativas através de seu endereço neural registrado ou através de uma notificação no aplicativo. O uso contínuo da grade após tal notificação constitui sua aceitação do protocolo atualizado."
+      }
+    }
+  },
+  "legalPage": {
+    "badge": "Estrutura Legal da Aetheria",
+    "title": "Avisos Legais",
+    "description": "Este documento descreve a estrutura legal que rege o uso do Ecossistema de Inteligência Aetheria, incluindo propriedade intelectual e outros avisos legais importantes.",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. Direitos de Propriedade Intelectual",
+        "content": "O nome, logotipo, design de interface, modelos de IA e todo o software e código relacionados da Aetheria são propriedade intelectual exclusiva da Aetheria AI e de seus licenciadores, protegidos por direitos autorais, marcas registradas e outras leis. O uso, reprodução ou distribuição não autorizada de nossa propriedade intelectual é estritamente proibido. Os termos \"Jornada Sintetizada\", \"Itinerário Aura\", \"Nó de Identidade\" e \"DNA de Viagem\" são marcas comerciais da Aetheria AI."
+      },
+      "userContent": {
+        "title": "2. Conteúdo Gerado pelo Usuário",
+        "content": "Você retém todos os direitos de propriedade sobre o conteúdo que cria e carrega na grade Aetheria, como entradas de diário e criações do Estúdio de Cartões Postais. Ao usar nosso serviço, você concede à Aetheria AI uma licença limitada, não exclusiva e isenta de royalties para usar, processar e exibir este conteúdo conforme necessário para fornecer e aprimorar o serviço. Nunca reivindicaremos a propriedade de sua produção criativa."
+      },
+      "thirdPartyLinks": {
+        "title": "3. Serviços e Links de Terceiros",
+        "content": "A Aetheria se integra e se vincula a serviços de terceiros (por exemplo, companhias aéreas, hotéis, plataformas de reserva) para fornecer uma experiência consolidada. Não somos responsáveis pelo conteúdo, políticas de privacidade ou práticas desses terceiros. Suas interações com eles são regidas por seus respectivos termos e políticas. Fornecemos esses links para sua conveniência e não endossamos esses serviços."
+      },
+      "indemnification": {
+        "title": "4. Indenização",
+        "content": "Você concorda em indenizar e isentar a Aetheria AI, suas afiliadas, executivos e funcionários de qualquer reclamação ou demanda, incluindo honorários advocatícios razoáveis, feita por qualquer terceiro devido a ou decorrente de sua violação de nossos Termos de Serviço, seu uso indevido da grade Aetheria ou sua violação de qualquer lei ou dos direitos de um terceiro."
+      },
+      "governingLaw": {
+        "title": "5. Lei Aplicável e Resolução de Disputas",
+        "content": "Estes avisos legais e qualquer disputa decorrente do seu uso do ecossistema Aetheria serão regidos e interpretados de acordo com as leis da jurisdição em que a Aetheria AI está sediada, sem levar em conta suas disposições sobre conflitos de leis. Qualquer ação ou processo legal será movido exclusivamente nos tribunais localizados nessa jurisdição."
+      }
+    }
+  },
+  "contactPage": {
+    "badge": "Nó de Conexão Aetheria",
+    "title": "Contate o Hub",
+    "description": "Estabeleça um link direto com o centro de comando da Aetheria. Nossos agentes de suporte estão de prontidão para ajudá-lo com suas dúvidas.",
+    "reasons": {
+      "support": "Consulta de Suporte",
+      "security": "Nó de Segurança",
+      "bug": "Relatório de Bug",
+      "feature": "Síntese de Recurso"
+    },
+    "form": {
+      "reasonLabel": "Motivo do Contato",
+      "emailLabel": "Sua Identidade Neural (Email)",
+      "emailPlaceholder": "explorer@aetheria.ai",
+      "messageLabel": "Detalhes da Mensagem",
+      "messagePlaceholder": "Descreva sua dúvida em detalhes...",
+      "submitButton": "Despachar Mensagem para o Hub",
+      "submittingButton": "Transmitindo..."
+    },
+    "toast": {
+      "title": "Transmissão Recebida",
+      "description": "Sua mensagem foi despachada com segurança para o hub de comando da Aetheria."
+    }
   }
 }

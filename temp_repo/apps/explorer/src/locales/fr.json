@@ -1,4 +1,4 @@
-{
+ {
   "common": {
     "save": "Enregistrer les modifications",
     "cancel": "Annuler",
@@ -337,11 +337,114 @@
       "utility": "Utilitaire",
       "ar": "RA",
       "vr": "RV",
-      "ai": "IA"
+      "ai": "IA",
+      "newFeatures": "Nouvelles fonctionnalités"
     },
     "promo": {
       "spotlights": "Pleins feux sur les partenaires",
       "verified": "Nœuds vérifiés"
+    },
+    "newFeatures": {
+      "serendipityEngine": "Moteur de sérendipité",
+      "cognitiveLoadBalancer": "Équilibreur de charge cognitive",
+      "whatIfScenarioPlanner": "Planificateur de scénarios \"Et si\"",
+      "emotionalSpectrumAnalysis": "Analyse du spectre émotionnel",
+      "aiTravelMentor": "Mentor de voyage IA",
+      "flavorSeeker": "Chercheur de saveurs",
+      "dynamicItineraryABTesting": "Tests A/B d'itinéraire dynamique",
+      "personalizedChallengeGenerator": "Générateur de défis personnalisés",
+      "dreamWeaver": "Tisseur de rêves",
+      "habitIntegration": "Intégration des habitudes",
+      "arTimeLapseView": "Vue en accéléré RA",
+      "vrPreTravelScout": "Éclaireur de pré-voyage RV",
+      "arMenuVisualizer": "Visualiseur de menu RA",
+      "geocachedArArtGallery": "Galerie d'art RA géocachée",
+      "arPublicTransitXRay": "Rayons X des transports en commun RA",
+      "skyGazerAr": "Observateur du ciel RA",
+      "interactiveArStorytelling": "Narration interactive en RA",
+      "paintTheTownAr": "Peindre la ville en RA",
+      "architectureDeconstructor": "Déconstructeur d'architecture",
+      "arLanguageHelper": "Assistant linguistique RA",
+      "localHeroConnect": "Connexion avec les héros locaux",
+      "odysseyRelay": "Relais d'odyssée",
+      "skillExchangeHub": "Centre d'échange de compétences",
+      "groupVibeCalibration": "Étalonnage de l'ambiance de groupe",
+      "echoesOfPastTravelers": "Échos des voyageurs passés",
+      "sharedExpenseSynthesizer": "Synthétiseur de dépenses partagées",
+      "aetheriaAmbassadorProgram": "Programme d'ambassadeurs Aetheria",
+      "travelersGuilds": "Guildes de voyageurs",
+      "globalGiftNetwork": "Réseau mondial de cadeaux",
+      "spontaneousMeetups": "Rencontres spontanées",
+      "chronoQuests": "Quêtes chrono",
+      "factionWars": "Guerres de factions",
+      "digitalSouvenirForging": "Forge de souvenirs numériques",
+      "worldGridUnveiling": "Dévoilement de la grille mondiale",
+      "achievementTrees": "Arbres de réussites",
+      "bountyBoard": "Tableau des primes",
+      "deriveMode": "Mode dérive",
+      "localLegendVerification": "Vérification de la légende locale",
+      "escapeTheCity": "S'échapper de la ville",
+      "cultureCollectorMinigame": "Mini-jeu de collectionneur de culture",
+      "getMeHomeButton": "Bouton \"Ramenez-moi à la maison\"",
+      "crowdDensityPredictor": "Prédicteur de densité de foule",
+      "chronosync": "Chronosync",
+      "intelligentSouvenirShipper": "Expéditeur de souvenirs intelligent",
+      "lastMileTransitSolver": "Solveur de transit du dernier kilomètre",
+      "digitalNomadHub": "Centre pour nomades numériques",
+      "predictiveCurrencyExchange": "Échange de devises prédictif",
+      "universalTicketAggregator": "Agrégateur de billets universel",
+      "waitOrGoAdvisor": "Conseiller \"Attendre ou partir\"",
+      "rentalSynthesizer": "Synthétiseur de location",
+      "safetySwarm": "Essaim de sécurité",
+      "automatedCheckInSystem": "Système d'enregistrement automatisé",
+      "scamAlertRadar": "Radar d'alerte aux escroqueries",
+      "virtualEmbassy": "Ambassade virtuelle",
+      "trustedRouteCorridors": "Couloirs d'itinéraires de confiance",
+      "followMeDigitalEscort": "Escorte numérique \"Suivez-moi\"",
+      "allergenAlertSystem": "Système d'alerte aux allergènes",
+      "privacyScrubber": "Nettoyeur de confidentialité",
+      "auraShield": "Bouclier Aura",
+      "emergencyServicesDialogue": "Dialogue des services d'urgence",
+      "carbonFootprintSynthesis2": "Synthèse de l'empreinte carbone 2.0",
+      "ecoWarriorQuests": "Quêtes d'éco-guerrier",
+      "sustainablePartnerSpotlight": "Pleins feux sur les partenaires durables",
+      "leaveAPositiveTraceFeature": "Fonctionnalité \"Laisser une trace positive\"",
+      "reforestationRewards": "Récompenses de reboisement",
+      "waterRefillStationFinder": "Localisateur de stations de remplissage d'eau",
+      "localProduceChallenge": "Défi des produits locaux",
+      "greenTransitScore": "Score de transit écologique",
+      "conservationCircle": "Cercle de conservation",
+      "wildlifeSightingEthos": "Éthique de l'observation de la faune",
+      "collaborativeJournals": "Journaux collaboratifs",
+      "thenAndNowPhotoMixer": "Mélangeur de photos d'hier et d'aujourd'hui",
+      "aiTravelBlogger": "Blogueur de voyage IA",
+      "aetheriaRadioHost": "Animateur de radio Aetheria",
+      "vibeBasedPhotoFilters": "Filtres photo basés sur l'ambiance",
+      "interactiveTravelMaps": "Cartes de voyage interactives",
+      "travelComicStripCreator": "Créateur de bandes dessinées de voyage",
+      "dPhotoSculptures": "Sculptures photo 3D",
+      "aiStoryScout": "Éclaireur d'histoires IA",
+      "sensoryJournal": "Journal sensoriel",
+      "liveLikeALocalSimulation": "Simulation \"Vivre comme un local\"",
+      "culturalEtiquetteGuide": "Guide de l'étiquette culturelle",
+      "mythAndFolkloreHotspots": "Points d'accès aux mythes et au folklore",
+      "streetArtSagas": "Sagas d'art de rue",
+      "localMusicSceneExplorer": "Explorateur de la scène musicale locale",
+      "lostInTranslationGame": "Jeu \"Lost in Translation\"",
+      "festivalForecaster": "Prévisionniste de festivals",
+      "artisanCraftFinder": "Localisateur d'artisanat",
+      "historicalDialogueBot": "Bot de dialogue historique",
+      "silentObserverMode": "Mode observateur silencieux",
+      "dnaBasedAncestryTrail": "Piste d'ascendance basée sur l'ADN",
+      "droneAsAServiceIntegration": "Intégration de drones en tant que service",
+      "realtimeLanguageTranslationEarbuds": "Écouteurs de traduction linguistique en temps réel",
+      "augmentedRealityMemoryPalace": "Palais de la mémoire en réalité augmentée",
+      "aetheriaDao": "DAO Aetheria",
+      "sentientAiCompanion": "Compagnon IA sensible",
+      "hapticFeedbackIntegration": "Intégration du retour haptique",
+      "weatherAdaptiveItinerary": "Itinéraire adaptatif à la météo",
+      "bioDataIntegration": "Intégration des données biologiques",
+      "quantumEntanglementSouvenirs": "Souvenirs d'intrication quantique"
     }
   },
   "explorerQuests": {
@@ -837,5 +940,139 @@
   "realTimePublicTransit": {
     "title": "Transports en commun en temps réel",
     "description": "Obtenez des mises à jour en temps réel sur les transports en commun."
+  },
+  "termsPage": {
+    "badge": "Protocole Opérationnel Aetheria",
+    "title": "Conditions d'Utilisation",
+    "description": "En accédant à l'Écosystème d'Intelligence Aetheria, vous acceptez les protocoles suivants qui régissent vos droits et responsabilités en tant qu'explorateur sur notre grille.",
+    "sections": {
+      "accountIntegrity": {
+        "title": "1. Nœud d'Identité & Sécurité",
+        "content": "Vous êtes responsable du maintien de la sécurité de votre <strong>Nœud d'Identité</strong> et de sa <strong>Clé de Sécurité</strong> associée. Toutes les activités, communications et transactions provenant de votre nœud sont considérées comme les vôtres. Aetheria n'est pas responsable des accès non autorisés ou des actions basées sur la grille résultant d'une Clé de Sécurité compromise ou perdue. Signalez toute violation présumée au Nœud de Sécurité Aetheria immédiatement."
+      },
+      "responsibleUse": {
+        "title": "2. Interaction avec l'Agent IA & le Système",
+        "content": "Vous acceptez de ne pas utiliser la grille Aetheria ou ses agents IA à des fins illégales, non autorisées ou malveillantes. Cela inclut, mais sans s'y limiter, la tentative de jailbreak, de rétro-ingénierie ou d'exploitation de l'IA à des fins non prévues. Les agents IA sont conçus pour la synthèse et l'assistance au voyage ; toute manipulation ou mauvaise utilisation qui viole les lois locales ou internationales est strictement interdite et entraînera la résiliation immédiate du nœud."
+      },
+      "dataSynthesis": {
+        "title": "3. Données, Contenu & Synthèse IA",
+        "content": "Pour alimenter votre voyage, Aetheria synthétise les données que vous fournissez, telles que votre <strong>ADN de Voyage</strong> et vos <strong>Paramètres d'Odyssée</strong>. Bien que notre IA s'efforce de produire des résultats hyper-précis et pertinents, toutes les recommandations, traductions et informations synthétisées sont fournies sans garantie. Vous accordez à Aetheria une licence non exclusive, mondiale et libre de droits pour utiliser, traiter et afficher votre contenu généré par l'utilisateur (par exemple, les entrées du Journal, les créations du Studio de Cartes Postales) uniquement dans le but d'exploiter et d'améliorer le service. Vous conservez l'entière propriété de votre contenu."
+      },
+      "bookingsFinancials": {
+        "title": "4. Réservations & Protocoles Financiers",
+        "content": "Aetheria agit en tant que facilitateur intelligent pour les services tiers tels que les vols, les hôtels et les locations. Bien que nous synthétisions le processus de réservation, le contrat final et la responsabilité vous incombent, ainsi qu'au fournisseur tiers. Toutes les transactions traitées via le <strong>Portefeuille Intelligent</strong> sont soumises aux conditions de nos partenaires de traitement des paiements. Vous êtes responsable de vous assurer que les fonds sont suffisants et de toute responsabilité encourue."
+      },
+      "gamificationRewards": {
+        "title": "5. XP d'Explorateur & Gamification",
+        "content": "Le <strong>XP d'Explorateur</strong>, les niveaux du Passe de Saison, les médailles et autres éléments de gamification sont des récompenses numériques qui reconnaissent votre engagement sur la grille. Ces éléments n'ont aucune valeur monétaire dans le monde réel et ne peuvent être ni échangés ni utilisés en dehors de l'écosystème Aetheria. Aetheria se réserve le droit de modifier, de rééquilibrer ou de réinitialiser les mécanismes de gamification à tout moment."
+      },
+      "safetyFeatures": {
+        "title": "6. Hub de Panique SOS & Utilitaires de Sécurité",
+        "content": "Des fonctionnalités comme le <strong>Hub de Panique SOS</strong>, <strong>l'Essaim de Sécurité</strong> et les <strong>Enregistrements Automatisés</strong> sont conçues comme des aides puissantes, et non comme des garanties de sécurité infaillibles. Leur efficacité peut être limitée par des facteurs tels que la connectivité réseau, l'infrastructure locale et l'erreur de l'utilisateur. Vous êtes ultimement responsable de votre propre sécurité personnelle et vous acceptez d'utiliser ces fonctionnalités de manière responsable."
+      },
+      "termination": {
+        "title": "7. Résiliation du Service",
+        "content": "Aetheria se réserve le droit de suspendre ou de désinitialiser votre Nœud d'Identité et de mettre fin à votre accès à la grille à tout moment, sans préavis, pour toute conduite qui viole ces Conditions d'Utilisation ou toute loi applicable. En cas de résiliation, votre droit d'utiliser le service cessera immédiatement, bien que vous puissiez demander une exportation de vos données personnelles conformément à notre Protocole de Confidentialité."
+      },
+      "disclaimers": {
+        "title": "8. Clauses de Non-responsabilité & Limitation de Responsabilité",
+        "content": "L'Écosystème d'Intelligence Aetheria est fourni \"en l'état\" et \"selon la disponibilité\". Nous déclinons toute garantie de quelque nature que ce soit, expresse ou implicite. En aucun cas, Aetheria ne pourra être tenu responsable de tout dommage indirect, accessoire, spécial, consécutif ou punitif découlant de ou lié à votre utilisation du service."
+      }
+    }
+  },
+  "privacyPage": {
+    "badge": "Protocole de Confidentialité Aetheria",
+    "title": "Politique de Confidentialité",
+    "description": "Votre vie privée est fondamentale pour l'intégrité de la grille Aetheria. Ce protocole décrit comment nous collectons, synthétisons et protégeons vos données.",
+    "sections": {
+      "dataCollection": {
+        "title": "1. Données que nous Collectons & Synthétisons",
+        "content": "Pour créer une expérience hyper-personnalisée, Aetheria collecte et synthétise plusieurs types de données :",
+        "list": [
+          "<strong>Données du Nœud d'Identité :</strong> Nom, coordonnées, identité de genre, citoyenneté et port d'attache. Cela constitue votre identité numérique principale sur la grille.",
+          "<strong>ADN de Voyage :</strong> Vos préférences de style de voyage spécifiées (par exemple, Loisirs, Cinétique) et votre matrice d'intérêts (par exemple, Histoire, Gastronomie).",
+          "<strong>Paramètres d'Odyssée :</strong> Destination, plage temporelle, budget et descriptions d'ambiance que vous fournissez au Planificateur d'Odyssée IA.",
+          "<strong>Télémétrie d'Utilisation :</strong> Données d'interaction anonymisées avec nos fonctionnalités, utilisées pour identifier des modèles et améliorer les performances du système.",
+          "<strong>Données de Localisation :</strong> Coordonnées GPS lorsque vous utilisez activement des fonctionnalités basées sur la localisation comme la Navigation RA ou les Légendes Locales IA. Celles-ci ne sont jamais suivies en arrière-plan."
+        ]
+      },
+      "aiProcessing": {
+        "title": "2. Synthèse IA & Vos Données",
+        "content": "Nos agents IA utilisent vos données comme un plan pour construire vos expériences. Par exemple, votre <strong>ADN de Voyage</strong> et vos <strong>Paramètres d'Odyssée</strong> sont introduits dans notre IA pour générer un itinéraire sur mesure. Lorsque vous utilisez le Hub de Vision IA, les images que vous capturez sont traitées pour fournir un contexte, mais ne sont pas stockées à long terme à moins que vous ne les enregistriez dans votre Journal. Nous nous engageons à utiliser une IA puissante de manière éthique, en veillant à ce que le traitement des données soit directement au service de l'amélioration de votre voyage."
+      },
+      "dataStorageSecurity": {
+        "title": "3. Stockage & Sécurité des Données",
+        "content": "Toutes les données personnelles sont cryptées à la fois en transit et au repos à l'aide de protocoles cryptographiques standard de l'industrie. Votre <strong>Nœud d'Identité</strong> est sécurisé dans notre base de données principale avec des mesures de sécurité avancées. Les informations financières traitées par le <strong>Portefeuille Intelligent</strong> sont gérées par nos partenaires de paiement conformes à la norme PCI et ne sont jamais stockées sur les serveurs d'Aetheria."
+      },
+      "dataSharing": {
+        "title": "4. Partage de Données avec des Tiers",
+        "content": "Nous ne vendons pas vos données personnelles. Nous ne partageons les données avec des tiers que dans des circonstances spécifiques et nécessaires :",
+        "list": [
+          "<strong>Fournisseurs de Réservation :</strong> Lorsque vous utilisez le Hub de Réservation Consolidé, nous transmettons les informations nécessaires aux compagnies aériennes, hôtels ou autres fournisseurs pour sécuriser votre réservation.",
+          "<strong>Processeurs de Paiement :</strong> Pour faciliter les transactions via votre Portefeuille Intelligent.",
+          "<strong>Conformité Légale :</strong> Si la loi l'exige ou pour protéger la sécurité et l'intégrité de la grille Aetheria."
+        ],
+        "conclusion": "Les données anonymisées et agrégées могут être utilisées pour la recherche et pour améliorer nos modèles d'IA, mais elles ne seront jamais personnellement identifiables."
+      },
+      "userControl": {
+        "title": "5. Votre Contrôle & Vos Droits sur les Données",
+        "content": "Vous avez un contrôle total sur votre <strong>Nœud d'Identité</strong>. Vous pouvez accéder, modifier ou désinitialiser vos données personnelles à tout moment via le Centre de Commande de votre profil. Lors de la désinitialisation, vos données personnelles seront définitivement supprimées de notre grille active dans les 30 jours, sous réserve des exigences de conservation légales et réglementaires."
+      },
+      "policyUpdates": {
+        "title": "6. Mises à jour de la Politique",
+        "content": "À mesure que l'écosystème Aetheria évolue, ce Protocole de Confidentialité peut être mis à jour. Nous vous informerons de tout changement important via votre adresse neuronale enregistrée ou via une notification dans l'application. L'utilisation continue de la grille après une telle notification constitue votre acceptation du protocole mis à jour."
+      }
+    }
+  },
+  "legalPage": {
+    "badge": "Cadre Juridique Aetheria",
+    "title": "Mentions Légales",
+    "description": "Ce document décrit le cadre juridique régissant l'utilisation de l'Écosystème d'Intelligence Aetheria, y compris la propriété intellectuelle et d'autres mentions légales clés.",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. Droits de Propriété Intellectuelle",
+        "content": "Le nom, le logo, la conception de l'interface, les modèles d'IA et tous les logiciels et codes associés d'Aetheria sont la propriété intellectuelle exclusive d'Aetheria AI et de ses concédants de licence, protégés par le droit d'auteur, les marques de commerce et d'autres lois. L'utilisation, la reproduction ou la distribution non autorisée de notre propriété intellectuelle est strictement interdite. Les termes \"Voyage Synthétisé\", \"Itinéraire Aura\", \"Nœud d'Identité\" et \"ADN de Voyage\" sont des marques commerciales d'Aetheria AI."
+      },
+      "userContent": {
+        "title": "2. Contenu Généré par l'Utilisateur",
+        "content": "Vous conservez tous les droits de propriété sur le contenu que vous créez et téléchargez sur la grille Aetheria, tels que les entrées de journal et les créations du Studio de Cartes Postales. En utilisant notre service, vous accordez à Aetheria AI une licence limitée, non exclusive et libre de droits pour utiliser, traiter et afficher ce contenu si nécessaire pour fournir et améliorer le service. Nous ne revendiquerons jamais la propriété de votre production créative."
+      },
+      "thirdPartyLinks": {
+        "title": "3. Services & Liens Tiers",
+        "content": "Aetheria s'intègre à des services tiers (par exemple, compagnies aériennes, hôtels, plateformes de réservation) et propose des liens vers ceux-ci pour offrir une expérience consolidée. Nous ne sommes pas responsables du contenu, des politiques de confidentialité ou des pratiques de ces tiers. Vos interactions avec eux sont régies par leurs conditions et politiques respectives. Nous fournissons ces liens pour votre commodité et n'approuvons pas ces services."
+      },
+      "indemnification": {
+        "title": "4. Indemnisation",
+        "content": "Vous acceptez d'indemniser et de dégager de toute responsabilité Aetheria AI, ses sociétés affiliées, ses dirigeants et ses employés de toute réclamation ou demande, y compris les honoraires d'avocat raisonnables, faite par un tiers en raison de ou découlant de votre violation de nos Conditions d'Utilisation, de votre mauvaise utilisation de la grille Aetheria, ou de votre violation de toute loi ou des droits d'un tiers."
+      },
+      "governingLaw": {
+        "title": "5. Droit Applicable & Résolution des Litiges",
+        "content": "Ces mentions légales et tout litige découlant de votre utilisation de l'écosystème Aetheria seront régis et interprétés conformément aux lois de la juridiction dans laquelle Aetheria AI a son siège social, sans égard à ses dispositions en matière de conflit de lois. Toute action ou procédure judiciaire sera exclusivement portée devant les tribunaux situés dans cette juridiction."
+      }
+    }
+  },
+  "contactPage": {
+    "badge": "Nœud de Connexion Aetheria",
+    "title": "Contacter le Hub",
+    "description": "Établissez un lien direct avec le centre de commande Aetheria. Nos agents de support sont en attente pour vous aider avec vos demandes.",
+    "reasons": {
+      "support": "Demande de Support",
+      "security": "Nœud de Sécurité",
+      "bug": "Rapport de Bogue",
+      "feature": "Synthèse de Fonctionnalité"
+    },
+    "form": {
+      "reasonLabel": "Raison du Contact",
+      "emailLabel": "Votre Identité Neurale (Email)",
+      "emailPlaceholder": "explorateur@aetheria.ai",
+      "messageLabel": "Détails du Message",
+      "messagePlaceholder": "Décrivez votre demande en détail...",
+      "submitButton": "Envoyer le Message au Hub",
+      "submittingButton": "Transmission..."
+    },
+    "toast": {
+      "title": "Transmission Reçue",
+      "description": "Votre message a été envoyé en toute sécurité au hub de commande Aetheria."
+    }
   }
 }

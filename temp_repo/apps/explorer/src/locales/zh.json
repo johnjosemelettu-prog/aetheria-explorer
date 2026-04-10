@@ -681,7 +681,7 @@
       "adjustPlaceholder": "例如：包括更多街头美食节点，或降低动态强度...",
       "processing": "正在处理合成...",
       "updateBtn": "更新路径",
-      "proposedTitle": "建议的重新校准",
+      "proposedTitle": "建议的重新校준",
       "rejectBtn": "拒绝",
       "authorizeBtn": "授权更改"
     },
@@ -837,5 +837,139 @@
   "realTimePublicTransit": {
     "title": "实时公共交通",
     "description": "获取有关公共交通的实时更新。"
+  },
+  "termsPage": {
+    "badge": "Aetheria 操作协议",
+    "title": "服务条款",
+    "description": "访问 Aetheria 智能生态系统，即表示您同意以下协议，这些协议规定了您作为我们网络上的探险家的权利和责任。",
+    "sections": {
+      "accountIntegrity": {
+        "title": "1. 身份节点和安全",
+        "content": "您有责任维护您的<strong>身份节点</strong>及其关联的<strong>安全密钥</strong>的安全性。源自您节点的所有活动、通信和交易均被视为您自己的行为。Aetheria 对因安全密钥泄露或丢失而导致的未经授权的访问或基于网络的操作概不负责。立即向 Aetheria 安全节点报告任何可疑的违规行为。"
+      },
+      "responsibleUse": {
+        "title": "2. AI 代理和系统交互",
+        "content": "您同意不将 Aetheria 网络或其 AI 代理用于任何非法、未经授权或恶意的目的。这包括但不限于试图越狱、逆向工程或利用 AI 用于非预期目的。AI 代理旨在用于旅行综合和协助；任何违反当地或国际法律的操纵或滥用都是严格禁止的，并将导致立即终止节点。"
+      },
+      "dataSynthesis": {
+        "title": "3. 数据、内容和 AI 综合",
+        "content": "为了增强您的旅程，Aetheria 会综合您提供的数据，例如您的<strong>旅行 DNA</strong> 和<strong>冒险参数</strong>。虽然我们的 AI 努力提供超准确和相关的输出，但所有建议、翻译和综合信息均不提供任何保证。您授予 Aetheria 非独占、全球性、免版税的许可，以仅出于运营和改进服务的目的使用、处理和显示您的用户生成内容（例如，日记条目、明信片工作室创作）。您保留对您的内容的完全所有权。"
+      },
+      "bookingsFinancials": {
+        "title": "4. 预订和财务协议",
+        "content": "Aetheria 充当航班、酒店和租赁等第三方服务的智能促进者。虽然我们综合了预订流程，但最终合同和责任由您和第三方提供商承担。通过<strong>智能钱包</strong>处理的所有交易均受我们的支付处理合作伙伴的条款约束。您有责任确保有足够的资金并承担任何由此产生的责任。"
+      },
+      "gamificationRewards": {
+        "title": "5. 探险家 XP 和游戏化",
+        "content": "<strong>探险家 XP</strong>、赛季通行证等级、奖章和其他游戏化元素是表彰您在网络上参与度的数字奖励。这些元素没有现实世界的现金价值，不能在 Aetheria 生态系统之外交易或兑换。Aetheria 保留随时修改、重新平衡或重置游戏化机制的权利。"
+      },
+      "safetyFeatures": {
+        "title": "6. SOS 紧急中心和安全实用程序",
+        "content": "<strong>SOS 紧急中心</strong>、<strong>安全蜂群</strong>和<strong>自动签到</strong>等功能被设计为强大的辅助工具，而非绝对可靠的安全保证。它们的有效性可能会受到网络连接、当地基础设施和用户错误等因素的限制。您最终对自己的个人安全负责，并同意负责任地使用这些功能。"
+      },
+      "termination": {
+        "title": "7. 服务终止",
+        "content": "对于任何违反本服务条款或任何适用法律的行为，Aetheria 保留随时暂停或取消初始化您的身份节点并终止您访问网络的权利，恕不另行通知。终止后，您使用服务的权利将立即停止，但您可以根据我们的隐私协议请求导出您的个人数据。"
+      },
+      "disclaimers": {
+        "title": "8. 免责声明和责任限制",
+        "content": "Aetheria 智能生态系统按“原样”和“可用”的基础提供。我们不承担任何形式的明示或暗示的保证。在任何情况下，Aetheria 均不对因您使用本服务而引起或与之相关的任何间接、附带、特殊、后果性或惩罚性损害负责。"
+      }
+    }
+  },
+  "privacyPage": {
+    "badge": "Aetheria 隐私协议",
+    "title": "隐私政策",
+    "description": "您的隐私对于 Aetheria 网络的完整性至关重要。本协议概述了我们如何收集、综合和保护您的数据。",
+    "sections": {
+      "dataCollection": {
+        "title": "1. 我们收集和综合的数据",
+        "content": "为了创造超个性化的体验，Aetheria 收集并综合了多种类型的数据：",
+        "list": [
+          "<strong>身份节点数据：</strong>姓名、联系信息、性别认同、公民身份和居住地。这构成了您在网络上的核心数字身份。",
+          "<strong>旅行 DNA：</strong>您指定的旅行风格偏好（例如，休闲、动态）和兴趣矩阵（例如，历史、美食）。",
+          "<strong>冒险参数：</strong>您提供给 AI 冒险规划器的目的地、时间范围、预算和氛围描述。",
+          "<strong>使用遥测：</strong>与我们功能的匿名交互数据，用于识别模式和提高系统性能。",
+          "<strong>位置数据：</strong>当您主动使用基于位置的功能（如 AR 寻路或本地传奇 AI）时的 GPS 坐标。这绝不会在后台跟踪。"
+        ]
+      },
+      "aiProcessing": {
+        "title": "2. AI 综合与您的数据",
+        "content": "我们的 AI 代理使用您的数据作为蓝图来构建您的体验。例如，您的<strong>旅行 DNA</strong> 和<strong>冒险参数</strong>被输入到我们的 AI 中以生成定制的行程。当您使用 Vision AI Hub 时，您捕获的图像会被处理以提供上下文，但除非您将它们保存到您的日记中，否则不会长期存储。我们致力于以合乎道德的方式使用强大的 AI，确保数据处理直接服务于增强您的旅程。"
+      },
+      "dataStorageSecurity": {
+        "title": "3. 数据存储和安全",
+        "content": "所有个人数据在传输和静态时都使用行业标准加密协议进行加密。您的<strong>身份节点</strong>使用高级安全措施在我们的核心数据库中得到保护。由<strong>智能钱包</strong>处理的财务信息由我们的 PCI 兼容支付合作伙伴处理，绝不会存储在 Aetheria 的服务器上。"
+      },
+      "dataSharing": {
+        "title": "4. 与第三方共享数据",
+        "content": "我们不出售您的个人数据。我们仅在特定、必要的情况下与第三方共享数据：",
+        "list": [
+          "<strong>预订提供商：</strong>当您使用综合预订中心时，我们会将必要的信息传输给航空公司、酒店或其他提供商以确保您的预订。",
+          "<strong>支付处理商：</strong>为了方便通过您的智能钱包进行交易。",
+          "<strong>法律合规：</strong>如果法律要求或为了保护 Aetheria 网络的安​​全和完整性。"
+        ],
+        "conclusion": "匿名和汇总的数据可用于研究和改进我们的 AI 模型，但绝不会泄露个人身份。"
+      },
+      "userControl": {
+        "title": "5. 您的控制和数据权利",
+        "content": "您可以完全控制您的<strong>身份节点</strong>。您可以随时通过个人资料的指挥中心访问、修改或取消初始化您的个人数据。取消初始化后，您的个人数据将在 30 天内从我们的活动网络中永久删除，但须遵守法律和法规的保留要求。"
+      },
+      "policyUpdates": {
+        "title": "6. 政策更新",
+        "content": "随着 Aetheria 生态系统的发展，本隐私协议可能会更新。我们会通过您注册的神经地址或通过应用内通知将任何重大更改通知您。在此类通知后继续使用网络即表示您接受更新后的协议。"
+      }
+    }
+  },
+  "legalPage": {
+    "badge": "Aetheria 法律框架",
+    "title": "法律声明",
+    "description": "本文件概述了管辖 Aetheria 智能生态系统使用的法律框架，包括知识产权和其他关键法律声明。",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. 知识产权",
+        "content": "Aetheria 名称、徽标、界面设计、AI 模型以及所有相关软件和代码均为 Aetheria AI 及其许可方受版权、商标和其他法律保护的专有知识产权。严禁未经授权使用、复制或分发我们的知识产权。“旅程综合”、“光环行程”、“身份节点”和“旅行 DNA”是 Aetheria AI 的商标。"
+      },
+      "userContent": {
+        "title": "2. 用户生成内容",
+        "content": "您保留您创建并上传到 Aetheria 网络的内容的所有所有权，例如日记条目和明信片工作室创作。通过使用我们的服务，您授予 Aetheria AI 有限的、非独家的、免版税的许可，以在提供和增强服务所需的情况下使用、处理和显示此内容。我们绝不会声称对您的创作成果拥有所有权。"
+      },
+      "thirdPartyLinks": {
+        "title": "3. 第三方服务和链接",
+        "content": "Aetheria 与第三方服务（例如，航空公司、酒店、预订平台）集成并链接，以提供综合体验。我们不对这些第三方的内容、隐私政策或做法负责。您与他们的互动受其各自的条款和政策管辖。我们提供这些链接是为了您的方便，并不认可这些服务。"
+      },
+      "indemnification": {
+        "title": "4. 赔偿",
+        "content": "您同意赔偿并使 Aetheria AI、其关联公司、高级职员和员工免于因您违反我们的服务条款、您不当使用 Aetheria 网络或您违反任何法律或第三方权利而由任何第三方提出的任何索赔或要求（包括合理的律师费）而受到损害。"
+      },
+      "governingLaw": {
+        "title": "5. 管辖法律和争议解决",
+        "content": "这些法律声明以及因您使用 Aetheria 生态系统而引起的任何争议应受 Aetheria AI 总部所在司法管辖区的法律管辖并按其解释，不考虑其法律冲突规定。任何法律诉讼或程序均应仅在位于该司法管辖区的法院提起。"
+      }
+    }
+  },
+  "contactPage": {
+    "badge": "Aetheria 连接节点",
+    "title": "联系中心",
+    "description": "与 Aetheria 指挥中心建立直接链接。我们的支持人员随时待命，以协助您进行查询。",
+    "reasons": {
+      "support": "支持查询",
+      "security": "安全节点",
+      "bug": "错误报告",
+      "feature": "功能综合"
+    },
+    "form": {
+      "reasonLabel": "联系原因",
+      "emailLabel": "您的神经身份（电子邮件）",
+      "emailPlaceholder": "explorer@aetheria.ai",
+      "messageLabel": "消息详情",
+      "messagePlaceholder": "详细描述您的查询...",
+      "submitButton": "向中心发送消息",
+      "submittingButton": "正在传输..."
+    },
+    "toast": {
+      "title": "传输已收到",
+      "description": "您的消息已安全地发送到 Aetheria 指挥中心。"
+    }
   }
 }

@@ -1,841 +1,1078 @@
 {
   "common": {
-    "save": "حفظ التغييرات",
-    "cancel": "إلغاء",
-    "close": "إغلاق",
-    "delete": "حذف",
-    "edit": "تعديل",
-    "loading": "جاري التحميل...",
-    "search": "بحث",
-    "filter": "تصفية",
-    "back": "رجوع",
-    "next": "التالي",
-    "continue": "متابعة",
-    "confirm": "تأكيد",
-    "active": "نشط",
-    "inactive": "غير نشط",
-    "verified": "تم التحقق",
-    "unlocked": "مفتوح",
-    "locked": "مغلق",
-    "authorized": "مصرح به",
-    "error": "خطأ في النظام",
-    "returnToDashboard": "العودة إلى لوحة التحكم",
-    "initialize": "تهيئة"
+    "save": "Commit Changes",
+    "cancel": "Abort",
+    "close": "Terminate",
+    "delete": "De-initialize",
+    "edit": "Modify Node",
+    "loading": "Synthesizing...",
+    "search": "Scan Grid",
+    "filter": "Filter Nodes",
+    "back": "Return",
+    "next": "Proceed",
+    "continue": "Maintain Link",
+    "confirm": "Authorize",
+    "active": "Online",
+    "inactive": "Offline",
+    "verified": "Authenticated",
+    "unlocked": "Access Granted",
+    "locked": "Restricted",
+    "authorized": "Cleared",
+    "error": "System Breach",
+    "returnToDashboard": "Return to Command Center",
+    "initialize": "Initialize Node"
   },
   "landingPage": {
     "header": {
-      "brand": "أثيريا",
-      "ai": "ذكاء اصطناعي",
-      "journeySynthesized": "رحلة مركبة",
+      "brand": "AETHERIA",
+      "ai": "AI",
+      "journeySynthesized": "Journey Synthesized",
       "links": {
-        "home": "الرئيسية",
-        "features": "المميزات",
-        "workflow": "سير العمل",
-        "cta": "ابدأ الآن"
+        "home": "Home",
+        "features": "Features",
+        "workflow": "Workflow",
+        "cta": "Get Started"
       },
-      "logo": "شعار أثيريا"
+      "logo": "Aetheria Logo"
     },
     "footer": {
-      "tagline": "تركيب رحلتك عبر الأثير الرقمي.",
-      "copyright": "© 2026 أثيريا للذكاء الاصطناعي. جميع الحقوق محفوظة.",
+      "tagline": "Synthesizing your journey through the digital ether.",
+      "copyright": "© 2026 Aetheria AI. All rights reserved.",
       "links": {
-        "privacy": "سياسة الخصوصية",
-        "terms": "شروط الخدمة",
-        "contact": "اتصل بنا"
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "contact": "Contact Us"
       },
       "sections": {
-        "company": "الشركة",
-        "connect": "تواصل"
+        "company": "Company",
+        "connect": "Connect"
       }
     },
     "body": {
       "hero": {
-        "badge": "عقدة ذكاء أثيريا",
-        "title": "رحلتك، مركبة",
-        "subtitle": "استغل قوة الذكاء الاصطناعي لاستكشاف المشهد الرقمي كما لم يحدث من قبل.",
-        "description1": "تخلص من الخدمات اللوجستية. عزز التجارب.",
-        "description2": "جرب أول تركيبة سفر متعددة الوكلاء في العالم.",
-        "cta": "ابدأ رحلتك",
-        "signUp": "إنشاء هوية",
-        "login": "الوصول إلى العقدة",
-        "scroll": "مرر للمسح"
+        "badge": "Aetheria Intelligence Node",
+        "title": "Your Journey, Synthesized",
+        "subtitle": "Harness the power of AI to explore the digital landscape like never before.",
+        "description1": "Eliminate logistics. Amplify experiences.",
+        "description2": "Experience the world’s first multi-agent AI travel synthesis.",
+        "cta": "Start Your Journey",
+        "signUp": "Establish Identity",
+        "login": "Access Node",
+        "scroll": "Scroll to Scan"
       },
       "links": {
-        "itinerary": "مسار أورا",
-        "postcard": "استوديو البطاقات البريدية",
-        "legends": "الأساطير المحلية",
-        "packing": "مساعد التعبئة",
-        "signup": "إنشاء هوية",
-        "login": "تسجيل الدخول"
+        "itinerary": "Aura Itinerary",
+        "postcard": "Postcard Studio",
+        "legends": "Local Legends",
+        "packing": "Packing Assistant",
+        "signup": "Establish Identity",
+        "login": "Login"
       },
       "features": {
-        "badge": "الفصل 01 من البروتوكول",
-        "title": "مميزات قوية",
-        "description": "اكتشف ما يجعل أثيريا فريدة من نوعها.",
-        "quote": "مستقبل السفر ليس إلى أين تذهب، ولكن كيف تقوم بتركيب واقع رحلتك.",
+        "badge": "Protocol Chapter 01",
+        "title": "Powerful Features",
+        "description": "Discover what makes Aetheria unique.",
+        "quote": "The future of travel is not where you go, but how you synthesize the reality of your journey.",
         "itinerary": {
-          "badge": "تنسيق",
-          "title": "مسار أورا",
-          "desc": "قم بتركيب أوديسة متعددة الأيام بناءً على حمضك النووي النفسي."
+          "badge": "Orchestration",
+          "title": "Aura Itinerary",
+          "desc": "Synthesize a multi-day Odyssey based on your psychological DNA."
         },
         "postcard": {
-          "badge": "استوديو",
-          "title": "استوديو البطاقات البريدية",
-          "desc": "حول لقطاتك إلى أشكال فنية مركبة بالذكاء الاصطناعي."
+          "badge": "Studio",
+          "title": "Postcard Studio",
+          "desc": "Transform your captures into AI-synthesized art forms."
         },
         "legends": {
-          "badge": "ذكاء",
-          "title": "الأساطير المحلية",
-          "desc": "اكتشف الروايات الخفية للشبكة من خلال معلومات مرتبطة بنظام تحديد المواقع العالمي (GPS)."
+          "badge": "Intelligence",
+          "title": "Local Legends",
+          "desc": "Uncover the Grid's hidden narratives through GPS-linked intel."
         },
         "packing": {
-          "badge": "أداة",
-          "title": "مساعد التعبئة",
-          "desc": "قم بتركيب متطلبات المعدات بناءً على المناخ ومعايير الأوديسة."
+          "badge": "Utility",
+          "title": "Packing Assistant",
+          "desc": "Synthesize gear requirements based on climate and Odyssey parameters."
         },
         "items": [
           {
-            "title": "رؤى مدعومة بالذكاء الاصطناعي",
-            "description": "احصل على رؤى عميقة لبياناتك باستخدام نماذج الذكاء الاصطناعي المتقدمة لدينا."
+            "title": "AI-Powered Insights",
+            "description": "Get deep insights into your data with our advanced AI models."
           },
           {
-            "title": "سير عمل سلس",
-            "description": "ادمج أثيريا في سير عملك الحالي بسهولة."
+            "title": "Seamless Workflow",
+            "description": "Integrate Aetheria into your existing workflow with ease."
           },
           {
-            "title": "تعاون في الوقت الفعلي",
-            "description": "اعمل مع فريقك في الوقت الفعلي على أي مشروع."
+            "title": "Real-time Collaboration",
+            "description": "Work with your team in real-time on any project."
           }
         ]
       },
       "workflow": {
-        "badge": "بروتوكول التشغيل",
-        "title": "كيف يعمل",
-        "description": "عملية بسيطة من 3 خطوات لتبدأ.",
+        "badge": "Operational Protocol",
+        "title": "How it Works",
+        "description": "A simple 3-step process to get started.",
         "step1": {
-          "title": "تحديد الهدف",
-          "desc": "أدخل عقدة وجهتك ومعلمات الاهتمام."
+          "title": "Define Objective",
+          "desc": "Input your destination node and interest parameters."
         },
         "step2": {
-          "title": "تصميم الأوديسة",
-          "desc": "تقوم شبكة أثيريا العصبية ببناء مسار مخصص لرحلتك."
+          "title": "Design Odyssey",
+          "desc": "The Aetheria Neural Grid constructs a bespoke path for your journey."
         },
         "step3": {
-          "title": "بدء الأوديسة",
-          "desc": "اجتاز العالم بمعلومات وبروتوكولات أمان في الوقت الفعلي."
+          "title": "Initiate Odyssey",
+          "desc": "Traverse the world with real-time intel and security protocols."
         },
         "steps": [
           {
-            "title": "ربط بياناتك",
-            "description": "اربط مصادر بياناتك بأمان مع أثيريا."
+            "title": "Connect Your Data",
+            "description": "Securely connect your data sources to Aetheria."
           },
           {
-            "title": "التحليل والتركيب",
-            "description": "دع ذكاءنا الاصطناعي يحلل ويركب بياناتك في رؤى قابلة للتنفيذ."
+            "title": "Analyze & Synthesize",
+            "description": "Let our AI analyze and synthesize your data into actionable insights."
           },
           {
-            "title": "الاستكشاف والاكتشاف",
-            "description": "استكشف بياناتك المركبة واكتشف فرصًا جديدة."
+            "title": "Explore & Discover",
+            "description": "Explore your synthesized data and discover new opportunities."
           }
         ],
         "floating": {
-          "title": "إعادة المعايرة الديناميكية",
-          "desc": "تعديلات في الوقت الفعلي بناءً على القياس عن بعد البيئي."
+          "title": "Dynamic Recalibration",
+          "desc": "Real-time adjustments based on environmental telemetry."
         }
       },
       "cta": {
-        "title": "هل أنت مستعد لبدء رحلتك؟",
-        "subtitle": "انضم إلى آلاف المستخدمين الذين يستخدمون أثيريا بالفعل لتحويل عملهم.",
-        "description": "انضم إلى شبكة من المستكشفين المعاصرين الذين يستخدمون ذكاءً لا نهائيًا.",
-        "button": "ابدأ مجانًا",
-        "signUpNow": "ربط بالشبكة"
+        "title": "Ready to Start Your Journey?",
+        "subtitle": "Join thousands of users who are already using Aetheria to transform their work.",
+        "description": "Join a network of modern explorers utilizing infinite intelligence.",
+        "button": "Get Started for Free",
+        "signUpNow": "Link to Grid"
       },
       "images": {
-        "featureAlt": "تصور ميزة أثيريا",
-        "processAlt": "سير عمل عملية أثيريا"
+        "featureAlt": "Aetheria Feature Visualization",
+        "processAlt": "Aetheria Process Workflow"
       }
     }
   },
   "login": {
-    "title": "الوصول إلى العقدة",
-    "emailLabel": "الهوية العصبية",
+    "title": "Access Node",
+    "emailLabel": "Neural Identity",
     "emailPlaceholder": "explorer@aetheria.ai",
-    "passwordLabel": "مفتاح الأمان",
+    "passwordLabel": "Security Key",
     "passwordPlaceholder": "••••••••",
-    "signInButton": "بدء الجلسة",
-    "signingInButton": "جاري التحقق من الهوية...",
-    "noAccount": "لست على الشبكة؟",
-    "signUpLink": "إنشاء هوية",
+    "signInButton": "Initialize Session",
+    "signingInButton": "Verifying Identity...",
+    "noAccount": "Not on the Grid?",
+    "signUpLink": "Establish Identity",
     "toast": {
-      "successTitle": "تم استعادة الاتصال",
-      "successDescription": "جلستك في أثيريا نشطة الآن على الشبكة.",
-      "errorTitle": "فشل البدء",
-      "genericError": "غير قادر على التحقق من أوراق الاعتماد.",
-      "invalidCredentials": "هوية أو مفتاح أمان غير صالح.",
-      "operationNotAllowed": "الوصول إلى العقدة مقيد حاليًا."
+      "successTitle": "Connection Restored",
+      "successDescription": "Your Aetheria session is now active on the Grid.",
+      "errorTitle": "Initialization Failed",
+      "genericError": "Unable to verify credentials.",
+      "invalidCredentials": "Invalid Identity or Security Key.",
+      "operationNotAllowed": "Node access is currently restricted."
     }
   },
   "signup": {
-    "title": "إنشاء هوية",
-    "description": "انضم إلى شبكة تركيب السفر العالمية في أثيريا.",
-    "emailLabel": "الهوية العصبية",
+    "title": "Establish Identity",
+    "description": "Join the Aetheria global travel synthesis network.",
+    "emailLabel": "Neural Identity",
     "emailPlaceholder": "explorer@aetheria.ai",
-    "passwordLabel": "مفتاح الأمان",
-    "createButton": "بدء الحساب",
-    "creatingButton": "جاري إنشاء الملف الشخصي...",
-    "haveAccount": "عقدة موجودة؟",
-    "signInLink": "الوصول إلى الجلسة",
+    "passwordLabel": "Security Key",
+    "createButton": "Initialize Account",
+    "creatingButton": "Constructing Profile...",
+    "haveAccount": "Existing Node?",
+    "signInLink": "Access Session",
     "toast": {
-      "successTitle": "تم إنشاء الهوية",
-      "successDescription": "مرحبًا بك في شبكة أثيريا.",
-      "errorTitle": "فشل التركيب",
-      "emailInUse": "هذه الهوية مسجلة بالفعل على الشبكة.",
-      "operationNotAllowed": "التسجيل مقيد حاليًا.",
-      "genericError": "حدث خطأ أثناء إنشاء الهوية."
+      "successTitle": "Identity Established",
+      "successDescription": "Welcome to the Aetheria Grid.",
+      "errorTitle": "Synthesis Failed",
+      "emailInUse": "This Identity is already registered on the Grid.",
+      "operationNotAllowed": "Registration is currently restricted.",
+      "genericError": "An error occurred during Identity construction."
     }
   },
   "home": {
     "hero": {
-      "badge": "عقدة ذكاء أثيريا",
-      "title": "العالم، مُعاد تصوره.",
-      "subtitle": "تخلص من الخدمات اللوجستية. عزز التجارب. جرب أول تركيبة سفر متعددة الوكلاء في العالم.",
-      "scroll": "مرر للمسح",
+      "badge": "Aetheria Intelligence Node",
+      "title": "The World, Reimagined.",
+      "subtitle": "Eliminate logistics. Amplify experiences. Experience the world’s first multi-agent AI travel synthesis.",
+      "scroll": "Scroll to Scan",
       "cta": {
-        "start": "بدء الأوديسة",
-        "signin": "الوصول إلى العقدة"
+        "start": "Commence Odyssey",
+        "signin": "Access Node"
       }
     },
     "features": {
-      "chapter": "الفصل 01 من البروتوكول",
-      "title": "عدسات الذكاء",
-      "initNode": "بدء العقدة",
+      "chapter": "Protocol Chapter 01",
+      "title": "Intelligence Lenses",
+      "initNode": "Initialize Node",
       "itinerary": {
-        "badge": "تنسيق",
-        "title": "مسار أورا",
-        "desc": "قم بتركيب أوديسة متعددة الأيام بناءً على حمضك النووي النفسي."
+        "badge": "Orchestration",
+        "title": "Aura Itinerary",
+        "desc": "Synthesize a multi-day Odyssey based on your psychological DNA."
       },
       "postcard": {
-        "badge": "استوديو",
-        "title": "استوديو البطاقات البريدية",
-        "desc": "حول لقطاتك إلى أشكال فنية مركبة بالذكاء الاصطناعي."
+        "badge": "Studio",
+        "title": "Postcard Studio",
+        "desc": "Transform your captures into AI-synthesized art forms."
       },
       "legends": {
-        "badge": "ذكاء",
-        "title": "الأساطير المحلية",
-        "desc": "اكتشف الروايات الخفية للشبكة من خلال معلومات مرتبطة بنظام تحديد المواقع العالمي (GPS)."
+        "badge": "Intelligence",
+        "title": "Local Legends",
+        "desc": "Uncover the Grid's hidden narratives through GPS-linked intel."
       },
       "packing": {
-        "badge": "أداة",
-        "title": "مساعد التعبئة",
-        "desc": "قم بتركيب متطلبات المعدات بناءً على المناخ ومعايير الأوديسة."
+        "badge": "Utility",
+        "title": "Packing Assistant",
+        "desc": "Synthesize gear requirements based on climate and Odyssey parameters."
       }
     },
     "workflow": {
-      "badge": "بروتوكول التشغيل",
-      "title": "منطق النظام",
-      "phase": "المرحلة {{num}}",
+      "badge": "Operational Protocol",
+      "title": "System Logic",
+      "phase": "Phase {{num}}",
       "step1": {
-        "title": "تحديد الهدف",
-        "desc": "أدخل عقدة وجهتك ومعلمات الاهتمام."
+        "title": "Define Objective",
+        "desc": "Input your destination node and interest parameters."
       },
       "step2": {
-        "title": "تصميم الأوديسة",
-        "desc": "تقوم شبكة أثيريا العصبية ببناء مسار مخصص لرحلتك."
+        "title": "Design Odyssey",
+        "desc": "The Aetheria Neural Grid constructs a bespoke path for your journey."
       },
       "step3": {
-        "title": "بدء الأوديسة",
-        "desc": "اجتاز العالم بمعلومات وبروتوكولات أمان في الوقت الفعلي."
+        "title": "Initiate Odyssey",
+        "desc": "Traverse the world with real-time intel and security protocols."
       }
     },
     "cta": {
-      "badge": "انضم إلى الشبكة",
-      "title": "هل أنت مستعد لإعادة بناء العالم؟",
-      "subtitle": "انضم إلى شبكة من المستكشفين المعاصرين الذين يستخدمون ذكاءً لا نهائيًا.",
-      "start": "ربط بالشبكة",
-      "feed": "موجز عالمي"
+      "badge": "Join the Network",
+      "title": "Ready to Reconstruct the World?",
+      "subtitle": "Join a network of modern explorers utilizing infinite intelligence.",
+      "start": "Link to Grid",
+      "feed": "Global Feed"
     }
   },
   "header": {
-    "brandName": "أثيريا",
-    "brandTagline": "رحلة مركبة",
-    "linguisticGrid": "شبكة لغوية",
-    "login": "تسجيل الدخول",
-    "signup": "إنشاء هوية",
-    "sos": "مركز استغاثة الذعر",
-    "aiItinerary": "مسار أورا",
-    "aiItineraryCustomization": "تخصيص مسار الذكاء الاصطناعي",
-    "pathfinder": "مستكشف المسار",
-    "vibeMarketplace": "سوق الفايب",
-    "vibeShopping": "متجر مخصص",
-    "bookingHub": "مركز الخدمات اللوجستية",
-    "myTrips": "أوديساتي",
-    "visionHub": "مركز رؤية الذكاء الاصطناعي",
-    "intelligenceCenter": "مركز الذكاء",
-    "arIndoorNavigation": "ملاحة داخلية بالواقع المعزز",
-    "arWayfinding": "ملاحة بالواقع المعزز",
-    "localLegends": "الأساطير المحلية",
-    "explorerQuests": "مهام المستكشف",
-    "culturalPulse": "نبض ثقافي",
-    "tripOdyssey": "أوديسة الرحلة",
-    "realTimePublicTransit": "وسائل النقل العام في الوقت الفعلي",
-    "postcardStudio": "استوديو البطاقات البريدية",
-    "heritageMirror": "مرآة التراث",
-    "journal": "دفتر المستكشف",
-    "visaArchitect": "مهندس التأشيرات",
-    "carbonSynthesis": "متتبع الكربون",
-    "esim": "شريحة إلكترونية عالمية",
-    "flightStatus": "رادار الخدمات اللوجستية",
-    "layoverOdyssey": "أوديسة التوقف",
-    "safety": "مساعد الأمان",
-    "hotels": "سكن",
-    "flights": "خدمات جوية لوجستية",
-    "insurance": "بروتوكول الأمان",
-    "trains": "تركيب السكك الحديدية",
-    "buses": "نقل سطحي",
-    "cruises": "أوديسة مائية",
-    "cabs": "نقل بري",
-    "dining": "عقد النكهات",
-    "profile": "عقدة الهوية",
-    "loyaltyHub": "مركز الولاء",
-    "wallet": "محفظة ذكية",
-    "rentals": "إيجارات الأصول",
-    "scanAndPay": "امسح وادفع",
-    "subscription": "تصاريح الأوديسة",
-    "partners": "عقد الشركاء",
-    "digitalBrochure": "بروتوكول أثيريا",
-    "appTrailer": "مقطع دعائي للنظام",
-    "events": "أحداث الوجهة",
-    "gearArchitect": "مهندس المعدات",
-    "jetLag": "منطق الساعة البيولوجية",
-    "digitalTailor": "خياط رقمي",
-    "translator": "مختبر لغوي",
-    "gamifiedLanguageLearning": "تعلم لغة باللعب",
-    "corporate": "وضع المؤسسة",
-    "dashboard": "مركز القيادة",
-    "budgetSynthesis": "تركيب الميزانية",
-    "moodSynthesis": "تركيب الحالة المزاجية",
-    "auraBeats": "إيقاعات أورا",
-    "equilibriumSync": "مزامنة التوازن",
-    "flavorDna": "حمض نكهة نووي",
-    "audioGuide": "صوت مكاني",
-    "menuExplorer": "محلل القائمة",
-    "localInsider": "معلومات محلية",
-    "cultureScout": "مستكشف الثقافة",
-    "packingassistant": "عقدة الأداة",
+    "brandName": "AETHERIA",
+    "brandTagline": "Journey Synthesized",
+    "linguisticGrid": "Linguistic Grid",
+    "login": "Login",
+    "signup": "Establish Identity",
+    "sos": "SOS Panic Hub",
+    "aiItinerary": "Aura Itinerary",
+    "aiItineraryCustomization": "AI Itinerary Customization",
+    "pathfinder": "Pathfinder",
+    "vibeMarketplace": "Vibe Marketplace",
+    "vibeShopping": "Bespoke Store",
+    "bookingHub": "Logistics Hub",
+    "myTrips": "My Odysseys",
+    "visionHub": "Vision AI Hub",
+    "intelligenceCenter": "Intelligence Hub",
+    "arIndoorNavigation": "AR Indoor Navigation",
+    "arWayfinding": "AR Navigation",
+    "localLegends": "Local Legends",
+    "explorerQuests": "Explorer Quests",
+    "culturalPulse": "Cultural Pulse",
+    "tripOdyssey": "Trip Odyssey",
+    "realTimePublicTransit": "Real-time Public Transit",
+    "postcardStudio": "Postcard Studio",
+    "heritageMirror": "Heritage Mirror",
+    "journal": "Explorer Journal",
+    "visaArchitect": "Visa Architect",
+    "carbonSynthesis": "Carbon Tracker",
+    "esim": "Global eSIM",
+    "flightStatus": "Logistics Radar",
+    "layoverOdyssey": "Layover Odyssey",
+    "safety": "Security Assistant",
+    "hotels": "Habitation",
+    "flights": "Aero-Logistics",
+    "insurance": "Safety Protocol",
+    "trains": "Rail Synthesis",
+    "buses": "Surface Transit",
+    "cruises": "Aquatic Odyssey",
+    "cabs": "Ground Transport",
+    "dining": "Flavor Nodes",
+    "profile": "Identity Node",
+    "loyaltyHub": "Loyalty Hub",
+    "wallet": "Smart Wallet",
+    "rentals": "Asset Leases",
+    "scanAndPay": "Scan & Transact",
+    "subscription": "Odyssey Passes",
+    "partners": "Partner Nodes",
+    "digitalBrochure": "Aetheria Protocol",
+    "appTrailer": "System Trailer",
+    "events": "Destination Events",
+    "gearArchitect": "Gear Architect",
+    "jetLag": "Circadian Logic",
+    "digitalTailor": "Digital Tailor",
+    "translator": "Linguistic Lab",
+    "gamifiedLanguageLearning": "Gamified Language Learning",
+    "corporate": "Enterprise Mode",
+    "dashboard": "Command Center",
+    "budgetSynthesis": "Budget Synthesis",
+    "moodSynthesis": "Mood Synthesis",
+    "auraBeats": "Aura Beats",
+    "equilibriumSync": "Equilibrium Sync",
+    "flavorDna": "Flavor DNA",
+    "audioGuide": "Spatial Audio",
+    "menuExplorer": "Menu Decoder",
+    "localInsider": "Local Intel",
+    "cultureScout": "Culture Scout",
+    "packingassistant": "Utility Node",
     "aria": {
-      "back": "رجوع",
-      "wallet": "عقدة المحفظة",
-      "tailor": "عقدة الخياط",
-      "cart": "حمولة",
-      "language": "شبكة لغوية",
-      "menu": "الإطار الرئيسي"
+      "back": "Return",
+      "wallet": "Wallet Node",
+      "tailor": "Tailor Node",
+      "cart": "Payload",
+      "language": "Language Grid",
+      "menu": "Mainframe"
     },
     "categories": {
-      "orchestration": "تنسيق",
-      "intelligence": "ذكاء",
-      "studios": "استوديوهات",
-      "utility": "أداة",
-      "ar": "واقع معزز",
-      "vr": "واقع افتراضي",
-      "ai": "ذكاء اصطناعي"
+      "orchestration": "Orchestrate",
+      "intelligence": "Intelligence",
+      "studios": "Studios",
+      "utility": "Utility",
+      "ar": "AR",
+      "vr": "VR",
+      "ai": "AI",
+      "newFeatures": "New Features"
     },
     "promo": {
-      "spotlights": "أضواء على الشركاء",
-      "verified": "عقد تم التحقق منها"
+      "spotlights": "Partner Spotlights",
+      "verified": "Verified Nodes"
+    },
+    "newFeatures": {
+      "serendipityEngine": "Serendipity Engine",
+      "cognitiveLoadBalancer": "Cognitive Load Balancer",
+      "whatIfScenarioPlanner": "What If Scenario Planner",
+      "emotionalSpectrumAnalysis": "Emotional Spectrum Analysis",
+      "aiTravelMentor": "AI Travel Mentor",
+      "flavorSeeker": "Flavor Seeker",
+      "dynamicItineraryABTesting": "Dynamic Itinerary A/B Testing",
+      "personalizedChallengeGenerator": "Personalized Challenge Generator",
+      "dreamWeaver": "Dream Weaver",
+      "habitIntegration": "Habit Integration",
+      "arTimeLapseView": "AR Time-Lapse View",
+      "vrPreTravelScout": "VR Pre-Travel Scout",
+      "arMenuVisualizer": "AR Menu Visualizer",
+      "geocachedArArtGallery": "Geocached AR Art Gallery",
+      "arPublicTransitXRay": "AR Public Transit X-Ray",
+      "skyGazerAr": "Sky Gazer AR",
+      "interactiveArStorytelling": "Interactive AR Storytelling",
+      "paintTheTownAr": "Paint the Town AR",
+      "architectureDeconstructor": "Architecture Deconstructor",
+      "arLanguageHelper": "AR Language Helper",
+      "localHeroConnect": "Local Hero Connect",
+      "odysseyRelay": "Odyssey Relay",
+      "skillExchangeHub": "Skill Exchange Hub",
+      "groupVibeCalibration": "Group Vibe Calibration",
+      "echoesOfPastTravelers": "Echoes of Past Travelers",
+      "sharedExpenseSynthesizer": "Shared Expense Synthesizer",
+      "aetheriaAmbassadorProgram": "Aetheria Ambassador Program",
+      "travelersGuilds": "Traveler's Guilds",
+      "globalGiftNetwork": "Global Gift Network",
+      "spontaneousMeetups": "Spontaneous Meetups",
+      "chronoQuests": "Chrono-Quests",
+      "factionWars": "Faction Wars",
+      "digitalSouvenirForging": "Digital Souvenir Forging",
+      "worldGridUnveiling": "World Grid Unveiling",
+      "achievementTrees": "Achievement Trees",
+      "bountyBoard": "Bounty Board",
+      "deriveMode": "Dérive Mode",
+      "localLegendVerification": "Local Legend Verification",
+      "escapeTheCity": "Escape the City",
+      "cultureCollectorMinigame": "Culture Collector Minigame",
+      "getMeHomeButton": "Get Me Home Button",
+      "crowdDensityPredictor": "Crowd Density Predictor",
+      "chronosync": "Chronosync",
+      "intelligentSouvenirShipper": "Intelligent Souvenir Shipper",
+      "lastMileTransitSolver": "Last-Mile Transit Solver",
+      "digitalNomadHub": "Digital Nomad Hub",
+      "predictiveCurrencyExchange": "Predictive Currency Exchange",
+      "universalTicketAggregator": "Universal Ticket Aggregator",
+      "waitOrGoAdvisor": "Wait or Go Advisor",
+      "rentalSynthesizer": "Rental Synthesizer",
+      "safetySwarm": "Safety Swarm",
+      "automatedCheckInSystem": "Automated Check-in System",
+      "scamAlertRadar": "Scam Alert Radar",
+      "virtualEmbassy": "Virtual Embassy",
+      "trustedRouteCorridors": "Trusted Route Corridors",
+      "followMeDigitalEscort": "Follow Me Digital Escort",
+      "allergenAlertSystem": "Allergen Alert System",
+      "privacyScrubber": "Privacy Scrubber",
+      "auraShield": "Aura Shield",
+      "emergencyServicesDialogue": "Emergency Services Dialogue",
+      "carbonFootprintSynthesis2": "Carbon Footprint Synthesis 2.0",
+      "ecoWarriorQuests": "Eco-Warrior Quests",
+      "sustainablePartnerSpotlight": "Sustainable Partner Spotlight",
+      "leaveAPositiveTraceFeature": "Leave a Positive Trace feature",
+      "reforestationRewards": "Reforestation Rewards",
+      "waterRefillStationFinder": "Water Refill Station Finder",
+      "localProduceChallenge": "Local Produce Challenge",
+      "greenTransitScore": "Green Transit Score",
+      "conservationCircle": "Conservation Circle",
+      "wildlifeSightingEthos": "Wildlife Sighting Ethos",
+      "collaborativeJournals": "Collaborative Journals",
+      "thenAndNowPhotoMixer": "Then & Now Photo Mixer",
+      "aiTravelBlogger": "AI Travel Blogger",
+      "aetheriaRadioHost": "Aetheria Radio Host",
+      "vibeBasedPhotoFilters": "Vibe-based Photo Filters",
+      "interactiveTravelMaps": "Interactive Travel Maps",
+      "travelComicStripCreator": "Travel Comic Strip Creator",
+      "dPhotoSculptures": "3D Photo Sculptures",
+      "aiStoryScout": "AI Story Scout",
+      "sensoryJournal": "Sensory Journal",
+      "liveLikeALocalSimulation": "Live Like a Local Simulation",
+      "culturalEtiquetteGuide": "Cultural Etiquette Guide",
+      "mythAndFolkloreHotspots": "Myth & Folklore Hotspots",
+      "streetArtSagas": "Street Art Sagas",
+      "localMusicSceneExplorer": "Local Music Scene Explorer",
+      "lostInTranslationGame": "Lost in Translation Game",
+      "festivalForecaster": "Festival Forecaster",
+      "artisanCraftFinder": "Artisan Craft Finder",
+      "historicalDialogueBot": "Historical Dialogue Bot",
+      "silentObserverMode": "Silent Observer Mode",
+      "dnaBasedAncestryTrail": "DNA-based Ancestry Trail",
+      "droneAsAServiceIntegration": "Drone-as-a-Service Integration",
+      "realtimeLanguageTranslationEarbuds": "Real-time Language Translation Earbuds",
+      "augmentedRealityMemoryPalace": "Augmented Reality Memory Palace",
+      "aetheriaDao": "Aetheria DAO",
+      "sentientAiCompanion": "Sentient AI Companion",
+      "hapticFeedbackIntegration": "Haptic Feedback Integration",
+      "weatherAdaptiveItinerary": "Weather-Adaptive Itinerary",
+      "bioDataIntegration": "Bio-Data Integration",
+      "quantumEntanglementSouvenirs": "Quantum Entanglement Souvenirs"
     }
   },
   "explorerQuests": {
-    "title": "مهام المستكشف",
-    "subtitle": "حول استكشافك الحضري إلى أوديسة غامضة.",
-    "initTitle": "بدء شبكة المهام",
-    "initDesc": "اختر محطة لمهام استكشافية متخصصة.",
-    "cityPlaceholder": "على سبيل المثال، كيوتو، اليابان",
-    "generateBtn": "إنشاء المهمة",
-    "newCityBtn": "محطة جديدة",
-    "progress": "مزامنة: {{completed}} / {{total}}",
+    "title": "Explorer Quests",
+    "subtitle": "Transform your urban exploration into a cryptic odyssey.",
+    "initTitle": "Initialize Quest Grid",
+    "initDesc": "Select a terminal for specialized expedition missions.",
+    "cityPlaceholder": "e.g., Kyoto, Japan",
+    "generateBtn": "Construct Quest",
+    "newCityBtn": "New Terminal",
+    "progress": "Sync: {{completed}} / {{total}}",
     "xp": "{{current}} / {{total}} XP",
-    "hint": "معلومات: {{hint}}",
-    "xpSynthesized": "{{points}} XP مركبة",
-    "resolvedTitle": "تم حل المحطة!",
-    "resolvedDesc": "لقد نجحت في فك شفرة أسرار {{city}}.",
-    "returnBtn": "العودة إلى مركز القيادة"
+    "hint": "Intel: {{hint}}",
+    "xpSynthesized": "{{points}} XP Synthesized",
+    "resolvedTitle": "Terminal Resolved!",
+    "resolvedDesc": "You have successfully decrypted the secrets of {{city}}.",
+    "returnBtn": "Return to Command Hub"
   },
   "languageLab": {
-    "badge": "ذكاء لغوي",
-    "title": "مختبر اللغة",
-    "subtitle": "أتقن اللهجات باستخدام مجموعات البقاء المركبة بالذكاء الاصطناعي وأدلة النطق.",
-    "cityPlaceholder": "أدخل عقدة الوجهة...",
-    "synthesizeBtn": "تركيب المجموعة",
-    "survivalTitle": "البروتوكولات الأساسية",
-    "pronounce": "النطق: {{pronunciation}}",
-    "slangTitle": "التعبيرات المحلية",
-    "listenBtn": "مراقبة الصوت",
-    "pendingTitle": "معالجة لغوية",
-    "pendingDesc": "قدم وجهة لتركيب مجموعة لغوية لأوديستك.",
+    "badge": "Linguistic Intelligence",
+    "title": "Language Lab",
+    "subtitle": "Master dialects using AI-synthesized survival kits and articulation guides.",
+    "cityPlaceholder": "Input Destination Node...",
+    "synthesizeBtn": "Synthesize Kit",
+    "survivalTitle": "Core Protocols",
+    "pronounce": "Articulation: {{pronunciation}}",
+    "slangTitle": "Local Idioms",
+    "listenBtn": "Monitor Audio",
+    "pendingTitle": "Linguistic Processing",
+    "pendingDesc": "Provide a destination to synthesize a linguistic kit for your Odyssey.",
     "toast": {
-      "errorTitle": "فشل التركيب",
-      "errorDescription": "الشبكة اللغوية غير متصلة بالإنترنت.",
-      "audioErrorTitle": "خطأ في الصوت",
-      "audioErrorDescription": "تعذر تركيب الأنماط الصوتية."
+      "errorTitle": "Synthesis Failed",
+      "errorDescription": "Linguistic Grid is offline.",
+      "audioErrorTitle": "Audio Error",
+      "audioErrorDescription": "Could not synthesize vocal patterns."
     }
   },
   "layoverOdyssey": {
-    "badge": "ذكاء العبور",
-    "title": "أوديسة التوقف",
-    "subtitle": "قم بتركيب وقت العبور الخاص بك في رحلة استكشافية صغيرة.",
-    "initTitle": "بدء عقدة التوقف",
-    "initDesc": "أدخل القياس عن بعد للعبور للحصول على مسار مختصر.",
-    "airportPlaceholder": "رمز المطار/العقدة (على سبيل المثال، SIN)",
-    "durationLabel": "نافذة (ساعات)",
-    "synthesizeBtn": "إنشاء الأوديسة",
-    "resultTitle": "أوديسة التوقف الخاصة بك",
-    "newBtn": "رحلة استكشافية جديدة",
-    "timelineTitle": "تسلسل زمني",
-    "logisticsTitle": "عقدة الخدمات اللوجستية",
-    "transport": "النقل",
-    "budget": "التخصيص",
-    "visa": "معلومات التصريح",
-    "pendingTitle": "لم يتم العثور على الأوديسة",
-    "pendingDesc": "قدم معلمات التوقف لإنشاء رحلة استكشافية.",
-    "missionParameters": "معلمات المهمة",
-    "currentTerminal": "عقدة المحطة الحالية",
-    "layoverDuration": "نافذة التوقف",
-    "synthesizeOdyssey": "تركيب الأوديسة",
-    "radarSilent": "الرادار صامت",
-    "enterCodeDesc": "أدخل رمز العقدة لإنشاء أوديسة توقف."
+    "badge": "Transit Intelligence",
+    "title": "Layover Odyssey",
+    "subtitle": "Synthesize your transit time into a mini-expedition.",
+    "initTitle": "Initialize Layover Node",
+    "initDesc": "Input transit telemetry for a brief itinerary.",
+    "airportPlaceholder": "Airport/Node Code (e.g., SIN)",
+    "durationLabel": "Window (Hours)",
+    "synthesizeBtn": "Construct Odyssey",
+    "resultTitle": "Your Layover Odyssey",
+    "newBtn": "New Expedition",
+    "timelineTitle": "Temporal Sequence",
+    "logisticsTitle": "Logistics Node",
+    "transport": "Transit",
+    "budget": "Allocation",
+    "visa": "Permit Intel",
+    "pendingTitle": "Odyssey Not Found",
+    "pendingDesc": "Provide layover parameters to construct an expedition.",
+    "missionParameters": "Mission Parameters",
+    "currentTerminal": "Current Terminal Node",
+    "layoverDuration": "Layover Window",
+    "synthesizeOdyssey": "Synthesize Odyssey",
+    "radarSilent": "Radar Silent",
+    "enterCodeDesc": "Input node code to construct a Layover Odyssey."
   },
   "transitConnect": {
-    "title": "توصيل العبور",
-    "subtitle": "تعرف على أقرانك في المحطة. تواصل مع المستكشفين على نفس الرحلة أو ذوي الاهتمامات المشتركة.",
+    "title": "Transit Connect",
+    "subtitle": "Identify peers in the terminal. Link with explorers on the same flight or with shared interests.",
     "step1": {
-      "title": "التحقق من بطاقة الصعود إلى الطائرة",
-      "description": "امسح بطاقتك للتحقق من الهوية والقياس عن بعد للرحلة.",
-      "scanningButton": "جاري مسح القياس عن بعد...",
-      "scanButton": "مسح البطاقة",
-      "cameraError": "عقدة الكاميرا غير متصلة بالإنترنت.",
-      "scanErrorTitle": "تم إحباط المسح",
-      "scanErrorDescription": "فشل فك تشفير بيانات بطاقة الصعود إلى الطائرة."
+      "title": "Verify Boarding Pass",
+      "description": "Scan your pass to verify identity and flight telemetry.",
+      "scanningButton": "Scanning Telemetry...",
+      "scanButton": "Scan Pass",
+      "cameraError": "Camera Node Offline.",
+      "scanErrorTitle": "Scan Aborted",
+      "scanErrorDescription": "Failed to decrypt boarding pass data."
     },
     "verification": {
-      "title": "اكتمل التحقق",
-      "description": "تمت مزامنة بيانات الرحلة بنجاح مع شبكة أثيريا.",
-      "passenger": "مستكشف",
-      "flight": "رمز جوي",
-      "gate": "بوابة المحطة",
-      "seat": "موضع العقدة",
-      "departs": "البداية"
+      "title": "Verification Complete",
+      "description": "Flight data successfully synced to the Aetheria Grid.",
+      "passenger": "Explorer",
+      "flight": "Aero-Code",
+      "gate": "Terminal Gate",
+      "seat": "Node Position",
+      "departs": "Commencement"
     },
     "step2": {
-      "title": "تحديد وضع المزامنة",
-      "description": "اختر كيف ترغب في التواصل مع الآخرين.",
-      "goLiveButton": "البث المباشر على الشبكة",
+      "title": "Select Sync Mode",
+      "description": "Choose how you wish to link with others.",
+      "goLiveButton": "Go Live on Grid",
       "vibes": {
-        "networking": "التواصل المهني",
-        "networkingDescription": "تواصل مع المحترفين على متن رحلتك.",
-        "coffee": "تركيب القهوة",
-        "coffeeDescription": "محادثة غير رسمية أثناء تناول مشروب.",
-        "shareLounge": "مشاركة الصالة",
-        "shareLoungeDescription": "الاستفادة المشتركة من الموارد المتميزة.",
-        "cardGame": "لعب استراتيجي",
-        "cardGameDescription": "قضاء الوقت من خلال اللعب التكتيكي."
+        "networking": "Networking",
+        "networkingDescription": "Link with professionals on your flight.",
+        "coffee": "Coffee Synthesis",
+        "coffeeDescription": "Casual conversation over a beverage.",
+        "shareLounge": "Share Lounge",
+        "shareLoungeDescription": "Co-utilize premium resources.",
+        "cardGame": "Strategic Gaming",
+        "cardGameDescription": "Spend time through tactical play."
       }
     },
     "step3": {
-      "title": "شبكة المحطة",
-      "description": "الاتصالات النشطة في محيطك.",
-      "nearbyTab": "القرب",
-      "arViewTab": "رؤية الواقع المعزز",
-      "sameFlight": "رمز جوي مطابق",
-      "chatButton": "إنشاء رابط",
-      "arViewDescription": "رؤية الواقع المعزز نشطة",
+      "title": "Terminal Network",
+      "description": "Active connections in your proximity.",
+      "nearbyTab": "Proximity",
+      "arViewTab": "AR Vision",
+      "sameFlight": "Matching Aero-Code",
+      "chatButton": "Establish Link",
+      "arViewDescription": "AR Vision Active",
       "toast": {
-        "chatTitle": "تم إنشاء الرابط",
-        "chatDescription": "جاري الاتصال بعقدة {{name}}..."
+        "chatTitle": "Link Established",
+        "chatDescription": "Connecting to {{name}}'s node..."
       }
     }
   },
   "footer": {
-    "brandName": "أثيريا",
-    "brandTagline": "رحلة مركبة",
-    "copyright": "أثيريا للذكاء الاصطناعي",
-    "quote": "مستقبل السفر ليس إلى أين تذهب، ولكن كيف تقوم بتركيب واقع رحلتك.",
+    "brandName": "AETHERIA",
+    "brandTagline": "Journey Synthesized",
+    "copyright": "Aetheria AI",
+    "quote": "The future of travel is not where you go, but how you synthesize the reality of your journey.",
     "sections": {
-      "protocols": "البروتوكولات",
-      "network": "الشبكة",
-      "support": "الدعم",
-      "connect": "تواصل"
+      "protocols": "Protocols",
+      "network": "Network",
+      "support": "Support",
+      "connect": "Connect"
     },
     "links": {
-      "itinerary": "مسار أورا",
-      "pathfinder": "مستكشف المسار",
-      "marketplace": "سوق الفايب",
-      "vision": "مركز الرؤية",
-      "intelligence": "مركز الذكاء",
-      "ar": "ملاحة بالواقع المعزز",
-      "odyssey": "أوديسة الرحلة",
-      "postcard": "استوديو البطاقات البريدية",
-      "heritage": "مرآة التراث",
-      "journal": "دفتر المستكشف",
-      "help": "مركز الدعم",
-      "safety": "عقدة الأمان",
-      "status": "حالة النظام",
-      "api": "وصول API",
-      "terms": "شروط الاستخدام",
-      "privacy": "بروتوكول الخصوصية",
-      "security": "أمان البيانات",
-      "legal": "إشعارات قانونية",
-      "brochure": "كتيب البروتوكول",
-      "partners": "عقد الشركاء",
-      "hub": "مركز الاتصال",
-      "faq": "الأسئلة الشائعة"
+      "itinerary": "Aura Itinerary",
+      "pathfinder": "Pathfinder",
+      "marketplace": "Vibe Market",
+      "vision": "Vision Center",
+      "intelligence": "Intelligence Center",
+      "ar": "AR Navigation",
+      "odyssey": "Trip Odyssey",
+      "postcard": "Postcard Studio",
+      "heritage": "Heritage Mirror",
+      "journal": "Explorer Journal",
+      "help": "Support Hub",
+      "safety": "Security Node",
+      "status": "System Status",
+      "api": "API Access",
+      "terms": "Terms of Use",
+      "privacy": "Privacy Protocol",
+      "security": "Data Security",
+      "legal": "Legal Notices",
+      "brochure": "Protocol Brochure",
+      "partners": "Partner Nodes",
+      "hub": "Contact Hub",
+      "faq": "FAQ"
     },
     "status": {
-      "description": "الشبكة العالمية قيد التشغيل",
-      "poweredBy": "مدعوم من Aetheria Core"
+      "description": "Global Grid Operational",
+      "poweredBy": "Powered by Aetheria Core"
     },
     "aria": {
-      "x": "X (تويتر سابقًا)",
-      "instagram": "انستغرام",
-      "youtube": "يوتيوب"
+      "x": "X (formerly Twitter)",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
     }
   },
   "profile": {
     "toast": {
-      "nodeInterruption": "انقطاع العقدة",
-      "nodeInterruptionDesc": "فشل إرسال مفتاح الأمان. قد يكون اتصال الشبكة غير مستقر.",
-      "syncFailed": "فشلت المزامنة",
-      "resetDispatched": "تم إرسال إعادة التعيين",
-      "resetDispatchedDesc": "تم إرسال رابط إعادة تعيين مفتاح الأمان إلى عنوانك العصبي."
+      "nodeInterruption": "Node Interruption",
+      "nodeInterruptionDesc": "Security key dispatch failed. Grid connection may be unstable.",
+      "syncFailed": "Sync Failed",
+      "resetDispatched": "Reset Dispatched",
+      "resetDispatchedDesc": "A security key reset link has been dispatched to your neural address."
     },
     "role": {
-      "verified": "تم التحقق"
+      "verified": "Verified"
     },
-    "saveSuccessTitle": "تم تحديث عقدة الهوية",
-    "saveSuccessDescription": "تمت إعادة مزامنة ملف تعريف المستكشف الخاص بك.",
-    "authorizeChanges": "تفويض التغييرات",
-    "saveButton": "تفويض التغييرات",
-    "savingButton": "جاري تحديث الشبكة...",
+    "saveSuccessTitle": "Identity Node Updated",
+    "saveSuccessDescription": "Your explorer profile has been resynced.",
+    "authorizeChanges": "Authorize Changes",
+    "saveButton": "Authorize Changes",
+    "savingButton": "Updating Grid...",
     "tabs": {
-      "identity": "عقدة الهوية",
-      "travelDna": "حمض السفر النووي",
-      "settings": "إعدادات النظام",
-      "security": "عقدة الأمان"
+      "identity": "Identity Node",
+      "travelDna": "Travel DNA",
+      "settings": "System Settings",
+      "security": "Security Node"
     },
     "personalInfo": {
-      "title": "القياس عن بعد الشخصي",
-      "description": "هذه هي مصفوفة هويتك الأساسية على شبكة أثيريا.",
-      "firstName": "الاسم الأول",
-      "lastName": "اللقب",
-      "gender": "الهوية الجنسية",
+      "title": "Personal Telemetry",
+      "description": "This is your core identity matrix on the Aetheria Grid.",
+      "firstName": "Given Name",
+      "lastName": "Surname",
+      "gender": "Gender Identity",
       "genders": {
-        "male": "ذكر",
-        "female": "أنثى",
-        "other": "غير ثنائي",
-        "preferNotToSay": "غير معلن"
+        "male": "Male",
+        "female": "Female",
+        "other": "Non-Binary",
+        "preferNotToSay": "Undisclosed"
       },
-      "citizenship": "الجنسية",
-      "citizenshipPlaceholder": "على سبيل المثال، الولايات المتحدة",
-      "citizenshipDesc": "مطلوب لمطابقة سفارة مساعد الأمان.",
-      "homeBase": "القاعدة الرئيسية",
-      "homeBasePlaceholder": "على سبيل المثال، نيويورك، نيويورك",
-      "networkAddress": "عنوان الشبكة",
+      "citizenship": "Citizenship",
+      "citizenshipPlaceholder": "e.g., United States",
+      "citizenshipDesc": "Required for Safety Assistant embassy matching.",
+      "homeBase": "Home Base",
+      "homeBasePlaceholder": "e.g., New York, NY",
+      "networkAddress": "Network Address",
       "networkAddressPlaceholder": "explorer@aetheria.ai",
-      "networkAddressDesc": "هذا العنوان مقفل بشكل دائم لهويتك."
+      "networkAddressDesc": "This address is permanently locked to your identity."
     },
     "travelStyle": {
-      "title": "تركيب أسلوب السفر",
-      "description": "قم بمعايرة وضع الاستكشاف المفضل لديك.",
+      "title": "Travel Style Synthesis",
+      "description": "Calibrate your preferred mode of exploration.",
       "relaxed": {
-        "label": "تركيب ترفيهي",
-        "description": "استكشاف بطيء."
+        "label": "Leisure Synthesis",
+        "description": "Slow-paced exploration."
       },
       "active": {
-        "label": "حركي",
-        "description": "حركة عالية الطاقة."
+        "label": "Kinetic",
+        "description": "High-energy movement."
       },
       "adventurous": {
-        "label": "وضع الاكتشاف",
-        "description": "الكشف عن حدود جديدة."
+        "label": "Discovery Mode",
+        "description": "Uncovering new frontiers."
       },
       "packed": {
-        "label": "أقصى كفاءة",
-        "description": "أقصى تغطية للعقدة."
+        "label": "Max Efficiency",
+        "description": "Maximum node coverage."
       },
       "familyFriendly": {
-        "label": "أمن جماعي",
-        "description": "سفر جماعي مع إعطاء الأولوية للسلامة."
+        "label": "Collective Security",
+        "description": "Safety-prioritized group travel."
       }
     },
     "interests": {
-      "title": "مصفوفة الاهتمامات",
-      "description": "قم بمعايرة عقد اهتمامك لتحسين توصيات الذكاء الاصطناعي.",
+      "title": "Interest Matrix",
+      "description": "Calibrate your interest nodes to refine AI recommendations.",
       "items": {
-        "history": "تاريخ",
-        "food": "فن الطهو",
-        "hiking": "رحلات",
-        "art": "فن",
-        "nightlife": "حياة ليلية",
-        "shopping": "تجارة",
-        "nature": "بيئة",
-        "wellness": "عافية"
+        "history": "History",
+        "food": "Gastronomy",
+        "hiking": "Trekking",
+        "art": "Art",
+        "nightlife": "Nightlife",
+        "shopping": "Commerce",
+        "nature": "Ecology",
+        "wellness": "Wellness"
       }
     },
     "settings": {
-      "title": "تكوين النظام",
-      "language": "شبكة لغوية",
-      "languageDesc": "حدد لغة الاتصال الأساسية الخاصة بك.",
-      "theme": "سمة الواجهة",
-      "themeDesc": "قم بمعايرة المعلمات المرئية لواجهتك.",
+      "title": "System Configuration",
+      "language": "Linguistic Grid",
+      "languageDesc": "Select your core communication language.",
+      "theme": "Interface Theme",
+      "themeDesc": "Calibrate the visual parameters of your interface.",
       "themes": {
-        "light": "فاتح",
-        "dark": "داكن",
-        "system": "نظام"
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
       }
     },
     "financial": {
-      "title": "العقدة المالية",
-      "description": "مزامنة بروتوكولاتك النقدية الأساسية.",
-      "baseCurrency": "العملة الأساسية",
-      "baseCurrencyDesc": "سيكون هذا هو الإعداد الافتراضي لجميع عمليات التركيب المالي.",
+      "title": "Financial Node",
+      "description": "Synchronize your core monetary protocols.",
+      "baseCurrency": "Base Currency",
+      "baseCurrencyDesc": "This will be the default for all financial synthesis.",
       "currencies": {
-        "USD": "دولار أمريكي",
-        "EUR": "يورو",
-        "GBP": "جنيه إسترليني",
-        "JPY": "ين ياباني",
-        "INR": "روبية هندية",
-        "THB": "بات تايلاندي"
+        "USD": "United States Dollar",
+        "EUR": "Euro",
+        "GBP": "British Pound",
+        "JPY": "Japanese Yen",
+        "INR": "Indian Rupee",
+        "THB": "Thai Baht"
       }
     },
     "security": {
-      "title": "الأمان والوصول",
-      "description": "إدارة بروتوكولات الوصول الخاصة بك وأمان الشبكة.",
-      "resetTitle": "إرسال إعادة تعيين مفتاح الأمان",
-      "resetDesc": "أرسل رابط إعادة تعيين إلى عنوانك العصبي الأساسي.",
-      "resetButton": "إرسال إعادة التعيين",
-      "alertTitle": "تنبيه أمني",
-      "alertDesc": "لأسباب أمنية، لا يتم عرض مفتاحك الحالي. يلزم إعادة تعيين المفتاح لتغييره. يتم تخزين مفتاحك بشكل آمن في شبكة أثيريا."
+      "title": "Security & Access",
+      "description": "Manage your access protocols and grid security.",
+      "resetTitle": "Dispatch Security Key Reset",
+      "resetDesc": "Send a reset link to your primary neural address.",
+      "resetButton": "Dispatch Reset",
+      "alertTitle": "Security Alert",
+      "alertDesc": "For security reasons, your current key is not displayed. A key reset is required to change it. Your key is stored securely in the Aetheria Grid."
     }
   },
   "onboarding": {
     "steps": {
       "header": {
-        "title": "مركز أورا نشط",
-        "content": "رابطك العصبي مباشر. تشير هذه الشارة إلى أن ذكاء أثيريا الاصطناعي يقوم بتركيب قياسات السفر الخاصة بك عن بعد بشكل فعال."
+        "title": "Aura Hub Active",
+        "content": "Your neural link is live. This badge indicates Aetheria AI is actively synthesizing your travel telemetry."
       },
       "season": {
-        "title": "تقدم الموسم",
-        "content": "تتبع نقاط خبرتك وارتقِ بمستوى أوديستك. أكمل المهام لفتح الأصول الرقمية الحصرية وامتيازات السفر."
+        "title": "Season Progression",
+        "content": "Track your XP and level up your Odyssey. Complete quests to unlock exclusive digital assets and travel perks."
       },
       "itinerary": {
-        "title": "مسار أورا",
-        "content": "محرك الذكاء الاصطناعي الأساسي لدينا. قم بتركيب أوديسة متعددة الأيام مصممة خصيصًا لحمضك النووي النفسي وأجواء سفرك."
+        "title": "Aura Itinerary",
+        "content": "Our core AI engine. Synthesize a multi-day Odyssey tailored to your psychological DNA and travel vibe."
       },
       "vision": {
-        "title": "مركز رؤية الذكاء الاصطناعي",
-        "content": "استخدم الكاميرا لمسح المعالم والتحف. يوفر الذكاء الاصطناعي لدينا تركيبًا تاريخيًا وثقافيًا في الوقت الفعلي."
+        "title": "Vision AI Hub",
+        "content": "Use your camera to scan landmarks and artifacts. Our AI provides real-time historical and cultural synthesis."
       },
       "postcard": {
-        "title": "استوديو البطاقات البريدية",
-        "content": "حول لقطات سفرك إلى فن عالي الدقة تم إنشاؤه بواسطة الذكاء الاصطناعي. شارك منظورك الفريد مع الشبكة."
+        "title": "Postcard Studio",
+        "content": "Convert your travel snapshots into high-fidelity AI-generated art. Share your unique perspective with the network."
       },
       "vibe": {
-        "title": "رادار الفايب",
-        "content": "اكتشف المستكشفين الآخرين في محيطك الذين لديهم توقيعات عصبية مطابقة. تواصل وقم بمزامنة رحلاتك."
+        "title": "Vibe Radar",
+        "content": "Detect other explorers in your vicinity with matching neural signatures. Connect and synchronize your journeys."
       }
     },
-    "finish": "إكمال التهيئة",
-    "next": "متابعة"
+    "finish": "Complete Initializing",
+    "next": "Proceed"
   },
   "itineraryGenerator": {
     "toast": {
-      "bookingInitiated": "تم بدء الخدمات اللوجستية",
-      "reserving": "جاري حجز {{activity}}...",
-      "adjustmentFailed": "فشل التعديل",
-      "adjustmentFailedDesc": "تعذر إعادة معايرة المسار.",
-      "pathRecalibrated": "تمت إعادة معايرة المسار",
-      "pathRecalibratedDesc": "تم تحديث الأوديسة بالتعديلات المقترحة.",
-      "generateSuccessTitle": "الأوديسة جاهزة",
-      "generateSuccessDescription": "تم تركيب مسارك إلى {{destination}} بالكامل.",
-      "generateErrorTitle": "فشل التركيب",
-      "generateErrorDescription": "تعذر إنشاء المسار. خطأ في النظام.",
-      "refineSuccessTitle": "تم تحسين المسار",
-      "refineErrorTitle": "فشل التحسين",
-      "refineErrorDescription": "تعذر تعديل معلمات المسار."
+      "bookingInitiated": "Logistics Initiated",
+      "reserving": "Reserving {{activity}}...",
+      "adjustmentFailed": "Adjustment Failed",
+      "adjustmentFailedDesc": "Could not recalibrate path.",
+      "pathRecalibrated": "Path Recalibrated",
+      "pathRecalibratedDesc": "Odyssey updated with suggested modifications.",
+      "generateSuccessTitle": "Odyssey Ready",
+      "generateSuccessDescription": "Your path to {{destination}} is fully synthesized.",
+      "generateErrorTitle": "Synthesis Failed",
+      "generateErrorDescription": "Could not construct itinerary. System error.",
+      "refineSuccessTitle": "Path Refined",
+      "refineErrorTitle": "Refinement Failed",
+      "refineErrorDescription": "Could not adjust path parameters."
     },
     "display": {
-      "pendingTitle": "في انتظار التركيب",
-      "pendingDesc": "فوض وجهة لإنشاء أوديستك عالية الدقة.",
-      "upgradeTitle": "افتح الطيف الكامل",
-      "upgradeDesc": "قم بالترقية إلى Pro للحصول على تحسينات غير محدودة من الذكاء الاصطناعي ومعلومات عالية الدقة.",
-      "upgradeBtn": "ترقية العقدة الآن",
-      "resultBadge": "أوديسة مركبة",
-      "pathTitle": "مسار أوديستك",
-      "recalibrateTitle": "إعادة المعايرة الديناميكية",
-      "recalibrateDesc": "تغيرت أنماط الطقس. هل تريد إعادة معايرة مسارك للأنشطة الداخلية؟",
-      "recalibrateContext": "الأنشطة الخارجية غير مثالية بسبب هطول الأمطار المفاجئ.",
-      "recalibrateBtn": "إعادة معايرة المسار",
-      "reserveBtn": "حجز العقدة",
-      "notes": "ملاحظات البروتوكول",
-      "adjustTitle": "تحسين يدوي",
-      "adjustDesc": "اطلب إعادة معايرة محددة لمسارك المركب.",
-      "adjustPlaceholder": "على سبيل المثال، قم بتضمين المزيد من عقد طعام الشارع، أو قلل من شدة الحركة...",
-      "processing": "جاري معالجة التركيب...",
-      "updateBtn": "تحديث المسار",
-      "proposedTitle": "إعادة المعايرة المقترحة",
-      "rejectBtn": "تجاهل",
-      "authorizeBtn": "تفويض التغييرات"
+      "pendingTitle": "Awaiting Synthesis",
+      "pendingDesc": "Authorize a destination to construct your high-fidelity Odyssey.",
+      "upgradeTitle": "Unlock Full Spectrum",
+      "upgradeDesc": "Upgrade to Pro for unlimited AI refinements and high-fidelity intel.",
+      "upgradeBtn": "Upgrade Node Now",
+      "resultBadge": "Synthesized Odyssey",
+      "pathTitle": "Your Odyssey Path",
+      "recalibrateTitle": "Dynamic Recalibration",
+      "recalibrateDesc": "Weather patterns have shifted. Recalibrate your path for indoor activities?",
+      "recalibrateContext": "Outdoor activities are non-optimal due to sudden precipitation.",
+      "recalibrateBtn": "Recalibrate Path",
+      "reserveBtn": "Reserve Node",
+      "notes": "Protocol Notes",
+      "adjustTitle": "Manual Refinement",
+      "adjustDesc": "Request specific recalibrations for your synthesized path.",
+      "adjustPlaceholder": "e.g., Include more street food nodes, or decrease kinetic intensity...",
+      "processing": "Processing Synthesis...",
+      "updateBtn": "Update Path",
+      "proposedTitle": "Proposed Recalibration",
+      "rejectBtn": "Discard",
+      "authorizeBtn": "Authorize Changes"
     },
     "form": {
-      "title": "إنشاء الأوديسة",
-      "description": "أنشئ رحلة متعددة العقد بناءً على معلماتك وقيودك الفريدة.",
-      "destinationLabel": "عقدة الوجهة",
-      "destinationPlaceholder": "على سبيل المثال، طوكيو، اليابان",
-      "datesLabel": "نطاق زمني",
-      "pickDateRange": "تحديد التواريخ",
-      "budgetLabel": "تخصيص الموارد",
-      "budgetPlaceholder": "تحديد الميزانية",
-      "budgetLow": "اقتصادي (أدنى)",
-      "budgetMedium": "قياسي (متوازن)",
-      "budgetHigh": "ممتاز (مرتفع)",
-      "vibeLabel": "تركيب الفايب",
-      "vibePlaceholder": "صف أجواء هذه الرحلة...",
-      "vibeDescription": "سيستخدم الذكاء الاصطناعي هذا لتعيين ملف التعريف المحيطي لأوديستك.",
-      "generatingButton": "جاري تركيب المسار...",
-      "generateButton": "تفويض الأوديسة"
+      "title": "Construct Odyssey",
+      "description": "Build a multi-node journey based on your unique parameters and constraints.",
+      "destinationLabel": "Destination Node",
+      "destinationPlaceholder": "e.g., Tokyo, Japan",
+      "datesLabel": "Temporal Range",
+      "pickDateRange": "Select Dates",
+      "budgetLabel": "Resource Allocation",
+      "budgetPlaceholder": "Select Budget",
+      "budgetLow": "Economy (Minimal)",
+      "budgetMedium": "Standard (Balanced)",
+      "budgetHigh": "Premium (High)",
+      "vibeLabel": "Vibe Synthesis",
+      "vibePlaceholder": "Describe the atmosphere of this journey...",
+      "vibeDescription": "AI will use this to set the ambient profile of your Odyssey.",
+      "generatingButton": "Synthesizing Path...",
+      "generateButton": "Authorize Odyssey"
     },
     "validation": {
-      "destination": "يجب أن تتكون الوجهة من حرفين على الأقل.",
-      "interests": "يرجى تحديد عقدة اهتمام واحدة على الأقل."
+      "destination": "Destination must be at least 2 characters.",
+      "interests": "Please select at least one interest node."
     },
-    "title": "مركب المسار",
-    "subtitle": "أنشئ رحلتك التالية عالية الدقة بتنسيق من الذكاء الاصطناعي.",
-    "authError": "مطلوب تفويض",
-    "authErrorDesc": "يرجى تسجيل الدخول لتفويض إنشاء الأوديسة.",
-    "odysseySuffix": "أوديسة"
+    "title": "Itinerary Synthesizer",
+    "subtitle": "Construct your next high-fidelity journey with AI orchestration.",
+    "authError": "Authorization Required",
+    "authErrorDesc": "Please sign in to authorize Odyssey construction.",
+    "odysseySuffix": "Odyssey"
   },
   "subscription": {
-    "badge": "بروتوكول نقدي",
-    "title": "مركز الاشتراك",
-    "subtitle": "عزز أوديستك بخدمات متميزة وبروتوكولات أمان عالمية.",
-    "itineraryRequired": "مطلوب أوديسة نشطة",
-    "itineraryRequiredDesc": "يجب أن يكون لديك أوديسة نشطة لتحديد بروتوكول اشتراك.",
-    "createItineraryBtn": "بدء الأوديسة",
+    "badge": "Monetary Protocol",
+    "title": "Subscription Center",
+    "subtitle": "Enhance your Odyssey with premium services and global security protocols.",
+    "itineraryRequired": "Active Odyssey Required",
+    "itineraryRequiredDesc": "You must have an active Odyssey to select a subscription protocol.",
+    "createItineraryBtn": "Initialize Odyssey",
     "plans": {
       "free": {
-        "name": "قياسي",
-        "description": "أدوات سفر أساسية.",
+        "name": "Standard",
+        "description": "Basic travel utilities.",
         "price": "₹0",
-        "itinerariesValue": "1 أوديسة نشطة",
-        "immersiveValue": "معلومات قياسية",
-        "loyaltyValue": "مكافآت أساسية"
+        "itinerariesValue": "1 Active Odyssey",
+        "immersiveValue": "Standard Intel",
+        "loyaltyValue": "Basic Rewards"
       },
       "voyager": {
-        "name": "فوياجر",
-        "description": "للاستكشاف المعزز.",
+        "name": "Voyager",
+        "description": "For enhanced exploration.",
         "price": "₹750",
-        "itinerariesValue": "3 أوديسات نشطة",
-        "immersiveValue": "معلومات معززة",
-        "packingValue": "عقدة تعبئة بالذكاء الاصطناعي",
-        "loyaltyValue": "مكافآت فضية"
+        "itinerariesValue": "3 Active Odysseys",
+        "immersiveValue": "Enhanced Intel",
+        "packingValue": "AI Packing Node",
+        "loyaltyValue": "Silver Rewards"
       },
       "pathfinder": {
-        "name": "باثفايندر",
-        "description": "للمستكشفين المحترفين.",
+        "name": "Pathfinder",
+        "description": "For professional explorers.",
         "price": "₹1600",
-        "itinerariesValue": "أوديسات لا نهائية",
-        "immersiveValue": "ذكاء عصبي",
-        "insiderValue": "الأساطير المحلية",
-        "loyaltyValue": "مكافآت ذهبية"
+        "itinerariesValue": "Infinite Odysseys",
+        "immersiveValue": "Neural Intelligence",
+        "insiderValue": "Local Legends",
+        "loyaltyValue": "Gold Rewards"
       },
       "sovereign": {
-        "name": "سيادي",
-        "description": "وصول لا نهائي وتنسيق نخبوي.",
+        "name": "Sovereign",
+        "description": "Infinite access and elite orchestration.",
         "price": "₹4000",
-        "itinerariesValue": "أوديسات لا نهائية",
-        "immersiveValue": "معلومات لا نهائية",
-        "mirrorValue": "عقدة مرآة التراث",
-        "fees": "رسوم إضافية صفرية"
+        "itinerariesValue": "Infinite Odysseys",
+        "immersiveValue": "Infinite Intel",
+        "mirrorValue": "Heritage Mirror Node",
+        "fees": "Zero Surcharges"
       },
       "legend": {
-        "name": "أسطورة",
-        "description": "تركيب السفر النهائي.",
+        "name": "Legend",
+        "description": "The ultimate travel synthesis.",
         "price": "₹8000",
-        "itinerariesValue": "أوديسات لا نهائية",
-        "immersiveValue": "معلومات لا نهائية",
-        "mirrorValue": "عقدة مرآة التراث",
-        "insiderValue": "الأساطير المحلية",
-        "fees": "رسوم إضافية صفرية"
+        "itinerariesValue": "Infinite Odysseys",
+        "immersiveValue": "Infinite Intel",
+        "mirrorValue": "Heritage Mirror Node",
+        "insiderValue": "Local Legends",
+        "fees": "Zero Surcharges"
       }
     },
     "period": {
-      "monthly": "/ شهر"
+      "monthly": "/ mo"
     },
     "features": {
-      "itineraries": "سعة الأوديسة",
-      "immersive": "درجة الذكاء",
-      "loyalty": "فئة المكافأة",
-      "packing": "عقدة التعبئة",
-      "insider": "معلومات محلية",
-      "mirror": "عقدة التراث",
-      "fees": "رسوم خدمة إضافية"
+      "itineraries": "Odyssey Capacity",
+      "immersive": "Intelligence Grade",
+      "loyalty": "Reward Tier",
+      "packing": "Packing Node",
+      "insider": "Local Intel",
+      "mirror": "Heritage Node",
+      "fees": "Service Surcharge"
     },
-    "upgrade": "ترقية العقدة",
-    "processingBtn": "جاري المعالجة...",
-    "currentPlan": "بروتوكول نشط"
+    "upgrade": "Upgrade Node",
+    "processingBtn": "Processing...",
+    "currentPlan": "Active Protocol"
   },
   "dashboard": {
-    "welcomeBack": "مرحبًا بعودتك، {{name}}",
-    "odysseyLevel": "مستوى الأوديسة {{level}}",
-    "seasonPass": "تذكرة الموسم",
-    "xpSynthesized": "نقاط الخبرة المركبة",
-    "progressionToLevel": "التقدم إلى المستوى {{level}}",
-    "vibeStreak": "سلسلة الفايب",
-    "tasksResolved": "المهام المنجزة",
-    "totalMedals": "إجمالي الميداليات",
-    "premiumRequired": "مطلوب بروتوكول ممتاز",
-    "explorerStatus": "فئة المستكشف: {{tier}}",
-    "points": "نقاط",
-    "medals": "ميداليات",
-    "editProfile": "تعديل عقدة الهوية",
+    "welcomeBack": "Welcome back, {{name}}",
+    "odysseyLevel": "Odyssey Level {{level}}",
+    "seasonPass": "Season Pass",
+    "xpSynthesized": "XP Synthesized",
+    "progressionToLevel": "Progress to Level {{level}}",
+    "vibeStreak": "Vibe Streak",
+    "tasksResolved": "Tasks Resolved",
+    "totalMedals": "Total Medals",
+    "premiumRequired": "Premium Protocol Required",
+    "explorerStatus": "Explorer Tier: {{tier}}",
+    "points": "Points",
+    "medals": "Medals",
+    "editProfile": "Modify Identity Node",
     "shortDesc": {
-      "itinerary": "تركيب أوديسة عصبية.",
-      "pathfinder": "تحسين المسار الذكي.",
-      "marketplace": "تبادل فايب عالمي.",
-      "store": "شراء المعدات.",
-      "booking": "تنسيق الخدمات اللوجستية.",
-      "wallet": "عقدة عملة ذكية.",
-      "budget": "تركيب مالي.",
-      "vision": "عقدة التعرف على الأشياء.",
-      "guide": "مركز معلومات عالمي.",
-      "ar": "ملاحة معززة.",
-      "legends": "فك تشفير التاريخ.",
-      "pulse": "رادار الاتجاهات الثقافية.",
-      "audio": "سرد مكاني.",
-      "odyssey": "تركيب رحلة سينمائية.",
-      "postcard": "إنشاء فن بالذكاء الاصطناعي.",
-      "mirror": "تصور التراث.",
-      "journal": "تشفير الذاكرة."
+      "itinerary": "Neural Odyssey synthesis.",
+      "pathfinder": "Smart route optimization.",
+      "marketplace": "Global Vibe Exchange.",
+      "store": "Gear procurement.",
+      "booking": "Logistics orchestration.",
+      "wallet": "Smart currency node.",
+      "budget": "Financial synthesis.",
+      "vision": "Object recognition node.",
+      "guide": "Global Intel Hub.",
+      "ar": "Augmented navigation.",
+      "legends": "Deciphering history.",
+      "pulse": "Cultural trend radar.",
+      "audio": "Spatial narration.",
+      "odyssey": "Cinematic trip synthesis.",
+      "postcard": "AI art generation.",
+      "mirror": "Heritage visualization.",
+      "journal": "Memory encryption."
     },
     "vibeRadar": {
-      "title": "رادار الفايب",
-      "desc": "مسح توقيعات {{vibe}} في {{location}}."
+      "title": "Vibe Radar",
+      "desc": "Scanning {{vibe}} signatures in {{location}}."
     }
   },
-  "english": "الإنجليزية",
+  "english": "English",
   "aiItineraryCustomization": {
-    "title": "تخصيص مسار الذكاء الاصطناعي",
-    "description": "يمكن للذكاء الاصطناعي لدينا تخصيص مسارك بناءً على تفضيلاتك."
+    "title": "AI Itinerary Customization",
+    "description": "Our AI can customize your itinerary based on your preferences."
   },
   "arIndoorNavigation": {
-    "title": "ملاحة داخلية بالواقع المعزز",
-    "description": "تنقل في الداخل باستخدام نظام الملاحة المدعوم بالواقع المعزز."
+    "title": "AR Indoor Navigation",
+    "description": "Navigate indoors with our AR-powered navigation system."
   },
   "gamifiedLanguageLearning": {
-    "title": "تعلم لغة باللعب",
-    "description": "تعلم لغة جديدة أثناء لعب لعبة."
+    "title": "Gamified Language Learning",
+    "description": "Learn a new language while playing a game."
   },
   "realTimePublicTransit": {
-    "title": "وسائل النقل العام في الوقت الفعلي",
-    "description": "احصل على تحديثات في الوقت الفعلي حول وسائل النقل العام."
+    "title": "Real-time Public Transit",
+    "description": "Get real-time updates on public transit."
+  },
+  "termsPage": {
+    "badge": "Aetheria Operational Protocol",
+    "title": "Terms of Service",
+    "description": "By accessing the Aetheria Intelligence Ecosystem, you agree to the following protocols that govern your rights and responsibilities as an explorer on our grid.",
+    "sections": {
+      "accountIntegrity": {
+        "title": "1. Identity Node & Security",
+        "content": "You are responsible for maintaining the security of your <strong>Identity Node</strong> and its associated <strong>Security Key</strong>. All activity, communication, and transactions originating from your node are considered your own. Aetheria is not liable for unauthorized access or grid-based actions resulting from a compromised or lost Security Key. Report any suspected breach to the Aetheria Security Node immediately."
+      },
+      "responsibleUse": {
+        "title": "2. AI Agent & System Interaction",
+        "content": "You agree not to use the Aetheria grid or its AI agents for any illegal, unauthorized, or malicious purpose. This includes, but is not limited to, attempting to jailbreak, reverse-engineer, or exploit the AI for unintended purposes. The AI agents are designed for travel synthesis and assistance; any manipulation or misuse that violates local or international laws is strictly prohibited and will result in immediate node termination."
+      },
+      "dataSynthesis": {
+        "title": "3. Data, Content & AI Synthesis",
+        "content": "To power your journey, Aetheria synthesizes data you provide, such as your <strong>Travel DNA</strong> and <strong>Odyssey Parameters</strong>. While our AI strives for hyper-accurate and relevant output, all recommendations, translations, and synthesized information are provided without warranty. You grant Aetheria a non-exclusive, worldwide, royalty-free license to use, process, and display your user-generated content (e.g., Journal entries, Postcard Studio creations) solely for the purpose of operating and improving the service. You retain full ownership of your content."
+      },
+      "bookingsFinancials": {
+        "title": "4. Bookings & Financial Protocols",
+        "content": "Aetheria acts as an intelligent facilitator for third-party services like flights, hotels, and rentals. While we synthesize the booking process, the ultimate contract and responsibility lie with you and the third-party provider. All transactions processed through the <strong>Smart Wallet</strong> are subject to the terms of our payment processing partners. You are responsible for ensuring sufficient funds and for any liabilities incurred."
+      },
+      "gamificationRewards": {
+        "title": "5. Explorer XP & Gamification",
+        "content": "The <strong>Explorer XP</strong>, Season Pass levels, medals, and other gamified elements are digital rewards that recognize your engagement on the grid. These elements have no real-world cash value and cannot be traded or redeemed outside of the Aetheria ecosystem. Aetheria reserves the right to modify, rebalance, or reset gamification mechanics at any time."
+      },
+      "safetyFeatures": {
+        "title": "6. SOS Panic Hub & Safety Utilities",
+        "content": "Features like the <strong>SOS Panic Hub</strong>, <strong>Safety Swarm</strong>, and <strong>Automated Check-ins</strong> are designed as powerful aids, not infallible guarantees of safety. Their effectiveness can be limited by factors such as network connectivity, local infrastructure, and user error. You are ultimately responsible for your own personal safety, and you agree to use these features responsibly."
+      },
+      "termination": {
+        "title": "7. Termination of Service",
+        "content": "Aetheria reserves the right to suspend or de-initialize your Identity Node and terminate your access to the grid at any time, without notice, for any conduct that violates these Terms of Service or any applicable laws. Upon termination, your right to use the service will immediately cease, though you may request an export of your personal data in accordance with our Privacy Protocol."
+      },
+      "disclaimers": {
+        "title": "8. Disclaimers & Limitation of Liability",
+        "content": "The Aetheria Intelligence Ecosystem is provided on an \"as is\" and \"as available\" basis. We disclaim all warranties of any kind, whether express or implied. In no event shall Aetheria be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the service."
+      }
+    }
+  },
+  "privacyPage": {
+    "badge": "Aetheria Privacy Protocol",
+    "title": "Privacy Policy",
+    "description": "Your privacy is fundamental to the integrity of the Aetheria grid. This protocol outlines how we collect, synthesize, and protect your data.",
+    "sections": {
+      "dataCollection": {
+        "title": "1. Data We Collect & Synthesize",
+        "content": "To create a hyper-personalized experience, Aetheria collects and synthesizes several types of data:",
+        "list": [
+          "<strong>Identity Node Data:</strong> Name, contact information, gender identity, citizenship, and home base. This forms your core digital identity on the grid.",
+          "<strong>Travel DNA:</strong> Your specified travel style preferences (e.g., Leisure, Kinetic) and interest matrix (e.g., History, Gastronomy).",
+          "<strong>Odyssey Parameters:</strong> Destination, temporal range, budget, and vibe descriptions you provide to the AI Odyssey Planner.",
+          "<strong>Usage Telemetry:</strong> Anonymized interaction data with our features, used to identify patterns and improve system performance.",
+          "<strong>Location Data:</strong> GPS coordinates when you actively use location-based features like AR Wayfinding or Local Legends AI. This is never tracked in the background."
+        ]
+      },
+      "aiProcessing": {
+        "title": "2. AI Synthesis & Your Data",
+        "content": "Our AI agents use your data as a blueprint to construct your experiences. For example, your <strong>Travel DNA</strong> and <strong>Odyssey Parameters</strong> are fed into our AI to generate a bespoke itinerary. When you use the Vision AI Hub, images you capture are processed to provide context, but are not stored long-term unless you save them to your Journal. We are committed to using powerful AI ethically, ensuring that data processing is directly in service of enhancing your journey."
+      },
+      "dataStorageSecurity": {
+        "title": "3. Data Storage & Security",
+        "content": "All personal data is encrypted both in transit and at rest using industry-standard cryptographic protocols. Your <strong>Identity Node</strong> is secured in our core database with advanced security measures. Financial information processed by the <strong>Smart Wallet</strong> is handled by our PCI-compliant payment partners and is never stored on Aetheria's servers."
+      },
+      "dataSharing": {
+        "title": "4. Third-Party Data Sharing",
+        "content": "We do not sell your personal data. We only share data with third parties under specific, necessary circumstances:",
+        "list": [
+          "<strong>Booking Providers:</strong> When you use the Consolidated Booking Hub, we transmit the necessary information to airlines, hotels, or other providers to secure your reservation.",
+          "<strong>Payment Processors:</strong> To facilitate transactions through your Smart Wallet.",
+          "<strong>Legal Compliance:</strong> If required by law or to protect the safety and integrity of the Aetheria grid."
+        ],
+        "conclusion": "Anonymized and aggregated data may be used for research and to improve our AI models, but it will never be personally identifiable."
+      },
+      "userControl": {
+        "title": "5. Your Control & Data Rights",
+        "content": "You have full control over your <strong>Identity Node</strong>. You can access, modify, or de-initialize your personal data at any time through your profile's Command Center. Upon de-initialization, your personal data will be permanently removed from our active grid within 30 days, subject to legal and regulatory retention requirements."
+      },
+      "policyUpdates": {
+        "title": "6. Policy Updates",
+        "content": "As the Aetheria ecosystem evolves, this Privacy Protocol may be updated. We will notify you of any significant changes via your registered neural address or through an in-app notification. Continued use of the grid after such notification constitutes your acceptance of the updated protocol."
+      }
+    }
+  },
+  "legalPage": {
+    "badge": "Aetheria Legal Framework",
+    "title": "Legal Notices",
+    "description": "This document outlines the legal framework governing the use of the Aetheria Intelligence Ecosystem, including intellectual property and other key legal notices.",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. Intellectual Property Rights",
+        "content": "The Aetheria name, logo, interface design, AI models, and all related software and code are the exclusive intellectual property of Aetheria AI. and its licensors, protected by copyright, trademark, and other laws. Unauthorized use, reproduction, or distribution of our intellectual property is strictly prohibited. The terms \"Journey Synthesized,\" \"Aura Itinerary,\" \"Identity Node,\" and \"Travel DNA\" are trademarks of Aetheria AI."
+      },
+      "userContent": {
+        "title": "2. User-Generated Content",
+        "content": "You retain all ownership rights to the content you create and upload to the Aetheria grid, such as journal entries and Postcard Studio creations. By using our service, you grant Aetheria AI a limited, non-exclusive, royalty-free license to use, process, and display this content as necessary to provide and enhance the service. We will never claim ownership of your creative output."
+      },
+      "thirdPartyLinks": {
+        "title": "3. Third-Party Services & Links",
+        "content": "Aetheria integrates with and links to third-party services (e.g., airlines, hotels, booking platforms) to provide a consolidated experience. We are not responsible for the content, privacy policies, or practices of these third parties. Your interactions with them are governed by their respective terms and policies. We provide these links for convenience and do not endorse these services."
+      },
+      "indemnification": {
+        "title": "4. Indemnification",
+        "content": "You agree to indemnify and hold harmless Aetheria AI, its affiliates, officers, and employees from any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of your breach of our Terms of Service, your improper use of the Aetheria grid, or your violation of any law or the rights of a third party."
+      },
+      "governingLaw": {
+        "title": "5. Governing Law & Dispute Resolution",
+        "content": "These legal notices and any dispute arising from your use of the Aetheria ecosystem shall be governed by and construed in accordance with the laws of the jurisdiction in which Aetheria AI is headquartered, without regard to its conflict of law provisions. Any legal action or proceeding shall be brought exclusively in the courts located in that jurisdiction."
+      }
+    }
+  },
+  "contactPage": {
+    "badge": "Aetheria Connection Node",
+    "title": "Contact the Hub",
+    "description": "Establish a direct link to the Aetheria command center. Our support agents are on standby to assist with your inquiries.",
+    "reasons": {
+      "support": "Support Inquiry",
+      "security": "Security Node",
+      "bug": "Bug Report",
+      "feature": "Feature Synthesis"
+    },
+    "form": {
+      "reasonLabel": "Reason for Contact",
+      "emailLabel": "Your Neural Identity (Email)",
+      "emailPlaceholder": "explorer@aetheria.ai",
+      "messageLabel": "Message Details",
+      "messagePlaceholder": "Describe your inquiry in detail...",
+      "submitButton": "Dispatch Message to Hub",
+      "submittingButton": "Transmitting..."
+    },
+    "toast": {
+      "title": "Transmission Received",
+      "description": "Your message has been securely dispatched to the Aetheria command hub."
+    }
   }
 }

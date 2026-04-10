@@ -337,11 +337,114 @@
       "utility": "Utility",
       "ar": "AR",
       "vr": "VR",
-      "ai": "AI"
+      "ai": "AI",
+      "newFeatures": "New Features"
     },
     "promo": {
       "spotlights": "Partner Spotlights",
       "verified": "Verified Nodes"
+    },
+    "newFeatures": {
+      "serendipityEngine": "Serendipity Engine",
+      "cognitiveLoadBalancer": "Cognitive Load Balancer",
+      "whatIfScenarioPlanner": "What If Scenario Planner",
+      "emotionalSpectrumAnalysis": "Emotional Spectrum Analysis",
+      "aiTravelMentor": "AI Travel Mentor",
+      "flavorSeeker": "Flavor Seeker",
+      "dynamicItineraryABTesting": "Dynamic Itinerary A/B Testing",
+      "personalizedChallengeGenerator": "Personalized Challenge Generator",
+      "dreamWeaver": "Dream Weaver",
+      "habitIntegration": "Habit Integration",
+      "arTimeLapseView": "AR Time-Lapse View",
+      "vrPreTravelScout": "VR Pre-Travel Scout",
+      "arMenuVisualizer": "AR Menu Visualizer",
+      "geocachedArArtGallery": "Geocached AR Art Gallery",
+      "arPublicTransitXRay": "AR Public Transit X-Ray",
+      "skyGazerAr": "Sky Gazer AR",
+      "interactiveArStorytelling": "Interactive AR Storytelling",
+      "paintTheTownAr": "Paint the Town AR",
+      "architectureDeconstructor": "Architecture Deconstructor",
+      "arLanguageHelper": "AR Language Helper",
+      "localHeroConnect": "Local Hero Connect",
+      "odysseyRelay": "Odyssey Relay",
+      "skillExchangeHub": "Skill Exchange Hub",
+      "groupVibeCalibration": "Group Vibe Calibration",
+      "echoesOfPastTravelers": "Echoes of Past Travelers",
+      "sharedExpenseSynthesizer": "Shared Expense Synthesizer",
+      "aetheriaAmbassadorProgram": "Aetheria Ambassador Program",
+      "travelersGuilds": "Traveler's Guilds",
+      "globalGiftNetwork": "Global Gift Network",
+      "spontaneousMeetups": "Spontaneous Meetups",
+      "chronoQuests": "Chrono-Quests",
+      "factionWars": "Faction Wars",
+      "digitalSouvenirForging": "Digital Souvenir Forging",
+      "worldGridUnveiling": "World Grid Unveiling",
+      "achievementTrees": "Achievement Trees",
+      "bountyBoard": "Bounty Board",
+      "deriveMode": "Dérive Mode",
+      "localLegendVerification": "Local Legend Verification",
+      "escapeTheCity": "Escape the City",
+      "cultureCollectorMinigame": "Culture Collector Minigame",
+      "getMeHomeButton": "Get Me Home Button",
+      "crowdDensityPredictor": "Crowd Density Predictor",
+      "chronosync": "Chronosync",
+      "intelligentSouvenirShipper": "Intelligent Souvenir Shipper",
+      "lastMileTransitSolver": "Last-Mile Transit Solver",
+      "digitalNomadHub": "Digital Nomad Hub",
+      "predictiveCurrencyExchange": "Predictive Currency Exchange",
+      "universalTicketAggregator": "Universal Ticket Aggregator",
+      "waitOrGoAdvisor": "Wait or Go Advisor",
+      "rentalSynthesizer": "Rental Synthesizer",
+      "safetySwarm": "Safety Swarm",
+      "automatedCheckInSystem": "Automated Check-in System",
+      "scamAlertRadar": "Scam Alert Radar",
+      "virtualEmbassy": "Virtual Embassy",
+      "trustedRouteCorridors": "Trusted Route Corridors",
+      "followMeDigitalEscort": "Follow Me Digital Escort",
+      "allergenAlertSystem": "Allergen Alert System",
+      "privacyScrubber": "Privacy Scrubber",
+      "auraShield": "Aura Shield",
+      "emergencyServicesDialogue": "Emergency Services Dialogue",
+      "carbonFootprintSynthesis2": "Carbon Footprint Synthesis 2.0",
+      "ecoWarriorQuests": "Eco-Warrior Quests",
+      "sustainablePartnerSpotlight": "Sustainable Partner Spotlight",
+      "leaveAPositiveTraceFeature": "Leave a Positive Trace feature",
+      "reforestationRewards": "Reforestation Rewards",
+      "waterRefillStationFinder": "Water Refill Station Finder",
+      "localProduceChallenge": "Local Produce Challenge",
+      "greenTransitScore": "Green Transit Score",
+      "conservationCircle": "Conservation Circle",
+      "wildlifeSightingEthos": "Wildlife Sighting Ethos",
+      "collaborativeJournals": "Collaborative Journals",
+      "thenAndNowPhotoMixer": "Then & Now Photo Mixer",
+      "aiTravelBlogger": "AI Travel Blogger",
+      "aetheriaRadioHost": "Aetheria Radio Host",
+      "vibeBasedPhotoFilters": "Vibe-based Photo Filters",
+      "interactiveTravelMaps": "Interactive Travel Maps",
+      "travelComicStripCreator": "Travel Comic Strip Creator",
+      "dPhotoSculptures": "3D Photo Sculptures",
+      "aiStoryScout": "AI Story Scout",
+      "sensoryJournal": "Sensory Journal",
+      "liveLikeALocalSimulation": "Live Like a Local Simulation",
+      "culturalEtiquetteGuide": "Cultural Etiquette Guide",
+      "mythAndFolkloreHotspots": "Myth & Folklore Hotspots",
+      "streetArtSagas": "Street Art Sagas",
+      "localMusicSceneExplorer": "Local Music Scene Explorer",
+      "lostInTranslationGame": "Lost in Translation Game",
+      "festivalForecaster": "Festival Forecaster",
+      "artisanCraftFinder": "Artisan Craft Finder",
+      "historicalDialogueBot": "Historical Dialogue Bot",
+      "silentObserverMode": "Silent Observer Mode",
+      "dnaBasedAncestryTrail": "DNA-based Ancestry Trail",
+      "droneAsAServiceIntegration": "Drone-as-a-Service Integration",
+      "realtimeLanguageTranslationEarbuds": "Real-time Language Translation Earbuds",
+      "augmentedRealityMemoryPalace": "Augmented Reality Memory Palace",
+      "aetheriaDao": "Aetheria DAO",
+      "sentientAiCompanion": "Sentient AI Companion",
+      "hapticFeedbackIntegration": "Haptic Feedback Integration",
+      "weatherAdaptiveItinerary": "Weather-Adaptive Itinerary",
+      "bioDataIntegration": "Bio-Data Integration",
+      "quantumEntanglementSouvenirs": "Quantum Entanglement Souvenirs"
     }
   },
   "explorerQuests": {
@@ -837,5 +940,139 @@
   "realTimePublicTransit": {
     "title": "Real-time Public Transit",
     "description": "Get real-time updates on public transit."
+  },
+  "termsPage": {
+    "badge": "Aetheria Operational Protocol",
+    "title": "Terms of Service",
+    "description": "By accessing the Aetheria Intelligence Ecosystem, you agree to the following protocols that govern your rights and responsibilities as an explorer on our grid.",
+    "sections": {
+      "accountIntegrity": {
+        "title": "1. Identity Node & Security",
+        "content": "You are responsible for maintaining the security of your <strong>Identity Node</strong> and its associated <strong>Security Key</strong>. All activity, communication, and transactions originating from your node are considered your own. Aetheria is not liable for unauthorized access or grid-based actions resulting from a compromised or lost Security Key. Report any suspected breach to the Aetheria Security Node immediately."
+      },
+      "responsibleUse": {
+        "title": "2. AI Agent & System Interaction",
+        "content": "You agree not to use the Aetheria grid or its AI agents for any illegal, unauthorized, or malicious purpose. This includes, but is not limited to, attempting to jailbreak, reverse-engineer, or exploit the AI for unintended purposes. The AI agents are designed for travel synthesis and assistance; any manipulation or misuse that violates local or international laws is strictly prohibited and will result in immediate node termination."
+      },
+      "dataSynthesis": {
+        "title": "3. Data, Content & AI Synthesis",
+        "content": "To power your journey, Aetheria synthesizes data you provide, such as your <strong>Travel DNA</strong> and <strong>Odyssey Parameters</strong>. While our AI strives for hyper-accurate and relevant output, all recommendations, translations, and synthesized information are provided without warranty. You grant Aetheria a non-exclusive, worldwide, royalty-free license to use, process, and display your user-generated content (e.g., Journal entries, Postcard Studio creations) solely for the purpose of operating and improving the service. You retain full ownership of your content."
+      },
+      "bookingsFinancials": {
+        "title": "4. Bookings & Financial Protocols",
+        "content": "Aetheria acts as an intelligent facilitator for third-party services like flights, hotels, and rentals. While we synthesize the booking process, the ultimate contract and responsibility lie with you and the third-party provider. All transactions processed through the <strong>Smart Wallet</strong> are subject to the terms of our payment processing partners. You are responsible for ensuring sufficient funds and for any liabilities incurred."
+      },
+      "gamificationRewards": {
+        "title": "5. Explorer XP & Gamification",
+        "content": "The <strong>Explorer XP</strong>, Season Pass levels, medals, and other gamified elements are digital rewards that recognize your engagement on the grid. These elements have no real-world cash value and cannot be traded or redeemed outside of the Aetheria ecosystem. Aetheria reserves the right to modify, rebalance, or reset gamification mechanics at any time."
+      },
+      "safetyFeatures": {
+        "title": "6. SOS Panic Hub & Safety Utilities",
+        "content": "Features like the <strong>SOS Panic Hub</strong>, <strong>Safety Swarm</strong>, and <strong>Automated Check-ins</strong> are designed as powerful aids, not infallible guarantees of safety. Their effectiveness can be limited by factors such as network connectivity, local infrastructure, and user error. You are ultimately responsible for your own personal safety, and you agree to use these features responsibly."
+      },
+      "termination": {
+        "title": "7. Termination of Service",
+        "content": "Aetheria reserves the right to suspend or de-initialize your Identity Node and terminate your access to the grid at any time, without notice, for any conduct that violates these Terms of Service or any applicable laws. Upon termination, your right to use the service will immediately cease, though you may request an export of your personal data in accordance with our Privacy Protocol."
+      },
+      "disclaimers": {
+        "title": "8. Disclaimers & Limitation of Liability",
+        "content": "The Aetheria Intelligence Ecosystem is provided on an \"as is\" and \"as available\" basis. We disclaim all warranties of any kind, whether express or implied. In no event shall Aetheria be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the service."
+      }
+    }
+  },
+  "privacyPage": {
+    "badge": "Aetheria Privacy Protocol",
+    "title": "Privacy Policy",
+    "description": "Your privacy is fundamental to the integrity of the Aetheria grid. This protocol outlines how we collect, synthesize, and protect your data.",
+    "sections": {
+      "dataCollection": {
+        "title": "1. Data We Collect & Synthesize",
+        "content": "To create a hyper-personalized experience, Aetheria collects and synthesizes several types of data:",
+        "list": [
+          "<strong>Identity Node Data:</strong> Name, contact information, gender identity, citizenship, and home base. This forms your core digital identity on the grid.",
+          "<strong>Travel DNA:</strong> Your specified travel style preferences (e.g., Leisure, Kinetic) and interest matrix (e.g., History, Gastronomy).",
+          "<strong>Odyssey Parameters:</strong> Destination, temporal range, budget, and vibe descriptions you provide to the AI Odyssey Planner.",
+          "<strong>Usage Telemetry:</strong> Anonymized interaction data with our features, used to identify patterns and improve system performance.",
+          "<strong>Location Data:</strong> GPS coordinates when you actively use location-based features like AR Wayfinding or Local Legends AI. This is never tracked in the background."
+        ]
+      },
+      "aiProcessing": {
+        "title": "2. AI Synthesis & Your Data",
+        "content": "Our AI agents use your data as a blueprint to construct your experiences. For example, your <strong>Travel DNA</strong> and <strong>Odyssey Parameters</strong> are fed into our AI to generate a bespoke itinerary. When you use the Vision AI Hub, images you capture are processed to provide context, but are not stored long-term unless you save them to your Journal. We are committed to using powerful AI ethically, ensuring that data processing is directly in service of enhancing your journey."
+      },
+      "dataStorageSecurity": {
+        "title": "3. Data Storage & Security",
+        "content": "All personal data is encrypted both in transit and at rest using industry-standard cryptographic protocols. Your <strong>Identity Node</strong> is secured in our core database with advanced security measures. Financial information processed by the <strong>Smart Wallet</strong> is handled by our PCI-compliant payment partners and is never stored on Aetheria's servers."
+      },
+      "dataSharing": {
+        "title": "4. Third-Party Data Sharing",
+        "content": "We do not sell your personal data. We only share data with third parties under specific, necessary circumstances:",
+        "list": [
+          "<strong>Booking Providers:</strong> When you use the Consolidated Booking Hub, we transmit the necessary information to airlines, hotels, or other providers to secure your reservation.",
+          "<strong>Payment Processors:</strong> To facilitate transactions through your Smart Wallet.",
+          "<strong>Legal Compliance:</strong> If required by law or to protect the safety and integrity of the Aetheria grid."
+        ],
+        "conclusion": "Anonymized and aggregated data may be used for research and to improve our AI models, but it will never be personally identifiable."
+      },
+      "userControl": {
+        "title": "5. Your Control & Data Rights",
+        "content": "You have full control over your <strong>Identity Node</strong>. You can access, modify, or de-initialize your personal data at any time through your profile's Command Center. Upon de-initialization, your personal data will be permanently removed from our active grid within 30 days, subject to legal and regulatory retention requirements."
+      },
+      "policyUpdates": {
+        "title": "6. Policy Updates",
+        "content": "As the Aetheria ecosystem evolves, this Privacy Protocol may be updated. We will notify you of any significant changes via your registered neural address or through an in-app notification. Continued use of the grid after such notification constitutes your acceptance of the updated protocol."
+      }
+    }
+  },
+  "legalPage": {
+    "badge": "Aetheria Legal Framework",
+    "title": "Legal Notices",
+    "description": "This document outlines the legal framework governing the use of the Aetheria Intelligence Ecosystem, including intellectual property and other key legal notices.",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. Intellectual Property Rights",
+        "content": "The Aetheria name, logo, interface design, AI models, and all related software and code are the exclusive intellectual property of Aetheria AI. and its licensors, protected by copyright, trademark, and other laws. Unauthorized use, reproduction, or distribution of our intellectual property is strictly prohibited. The terms \"Journey Synthesized,\" \"Aura Itinerary,\" \"Identity Node,\" and \"Travel DNA\" are trademarks of Aetheria AI."
+      },
+      "userContent": {
+        "title": "2. User-Generated Content",
+        "content": "You retain all ownership rights to the content you create and upload to the Aetheria grid, such as journal entries and Postcard Studio creations. By using our service, you grant Aetheria AI a limited, non-exclusive, royalty-free license to use, process, and display this content as necessary to provide and enhance the service. We will never claim ownership of your creative output."
+      },
+      "thirdPartyLinks": {
+        "title": "3. Third-Party Services & Links",
+        "content": "Aetheria integrates with and links to third-party services (e.g., airlines, hotels, booking platforms) to provide a consolidated experience. We are not responsible for the content, privacy policies, or practices of these third parties. Your interactions with them are governed by their respective terms and policies. We provide these links for convenience and do not endorse these services."
+      },
+      "indemnification": {
+        "title": "4. Indemnification",
+        "content": "You agree to indemnify and hold harmless Aetheria AI, its affiliates, officers, and employees from any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of your breach of our Terms of Service, your improper use of the Aetheria grid, or your violation of any law or the rights of a third party."
+      },
+      "governingLaw": {
+        "title": "5. Governing Law & Dispute Resolution",
+        "content": "These legal notices and any dispute arising from your use of the Aetheria ecosystem shall be governed by and construed in accordance with the laws of the jurisdiction in which Aetheria AI is headquartered, without regard to its conflict of law provisions. Any legal action or proceeding shall be brought exclusively in the courts located in that jurisdiction."
+      }
+    }
+  },
+  "contactPage": {
+    "badge": "Aetheria Connection Node",
+    "title": "Contact the Hub",
+    "description": "Establish a direct link to the Aetheria command center. Our support agents are on standby to assist with your inquiries.",
+    "reasons": {
+      "support": "Support Inquiry",
+      "security": "Security Node",
+      "bug": "Bug Report",
+      "feature": "Feature Synthesis"
+    },
+    "form": {
+      "reasonLabel": "Reason for Contact",
+      "emailLabel": "Your Neural Identity (Email)",
+      "emailPlaceholder": "explorer@aetheria.ai",
+      "messageLabel": "Message Details",
+      "messagePlaceholder": "Describe your inquiry in detail...",
+      "submitButton": "Dispatch Message to Hub",
+      "submittingButton": "Transmitting..."
+    },
+    "toast": {
+      "title": "Transmission Received",
+      "description": "Your message has been securely dispatched to the Aetheria command hub."
+    }
   }
 }

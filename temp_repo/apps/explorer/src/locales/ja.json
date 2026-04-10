@@ -337,11 +337,114 @@
       "utility": "ユーティリティ",
       "ar": "AR",
       "vr": "VR",
-      "ai": "AI"
+      "ai": "AI",
+      "newFeatures": "新機能"
     },
     "promo": {
       "spotlights": "パートナースポットライト",
       "verified": "検証済みノード"
+    },
+    "newFeatures": {
+      "serendipityEngine": "セレンディピティエンジン",
+      "cognitiveLoadBalancer": "認知負荷バランサー",
+      "whatIfScenarioPlanner": "「もしも」シナリオプランナー",
+      "emotionalSpectrumAnalysis": "感情スペクトル分析",
+      "aiTravelMentor": "AI トラベルメンター",
+      "flavorSeeker": "フレーバーシーカー",
+      "dynamicItineraryABTesting": "動的旅程 A/B テスト",
+      "personalizedChallengeGenerator": "パーソナライズチャレンジジェネレーター",
+      "dreamWeaver": "ドリームウィーバー",
+      "habitIntegration": "習慣の統合",
+      "arTimeLapseView": "AR タイムラプスビュー",
+      "vrPreTravelScout": "VR 旅行前スカウト",
+      "arMenuVisualizer": "AR メニュービジュアライザー",
+      "geocachedArArtGallery": "ジオキャッシュ AR アートギャラリー",
+      "arPublicTransitXRay": "AR 公共交通機関 X 線",
+      "skyGazerAr": "スカイゲイザー AR",
+      "interactiveArStorytelling": "インタラクティブ AR ストーリーテリング",
+      "paintTheTownAr": "ペイントザタウン AR",
+      "architectureDeconstructor": "建築デコンストラクタ",
+      "arLanguageHelper": "AR 言語ヘルパー",
+      "localHeroConnect": "ローカルヒーローコネクト",
+      "odysseyRelay": "オデッセイリレー",
+      "skillExchangeHub": "スキル交換ハブ",
+      "groupVibeCalibration": "グループバイブキャリブレーション",
+      "echoesOfPastTravelers": "過去の旅行者のこだま",
+      "sharedExpenseSynthesizer": "共有経費シンセサイザー",
+      "aetheriaAmbassadorProgram": "Aetheria アンバサダープログラム",
+      "travelersGuilds": "旅行者ギルド",
+      "globalGiftNetwork": "グローバルギフトネットワーク",
+      "spontaneousMeetups": "自発的なミートアップ",
+      "chronoQuests": "クロノクエスト",
+      "factionWars": "ファクションウォーズ",
+      "digitalSouvenirForging": "デジタルお土産鍛造",
+      "worldGridUnveiling": "ワールドグリッド公開",
+      "achievementTrees": "実績ツリー",
+      "bountyBoard": "バウンティボード",
+      "deriveMode": "Dérive モード",
+      "localLegendVerification": "ローカルレジェンド検証",
+      "escapeTheCity": "エスケープザシティ",
+      "cultureCollectorMinigame": "カルチャーコレクターミニゲーム",
+      "getMeHomeButton": "家に帰るボタン",
+      "crowdDensityPredictor": "混雑密度予測",
+      "chronosync": "クロノシンク",
+      "intelligentSouvenirShipper": "インテリジェントお土産シッパー",
+      "lastMileTransitSolver": "ラストマイルトランジットソルバー",
+      "digitalNomadHub": "デジタルノマドハブ",
+      "predictiveCurrencyExchange": "予測通貨交換",
+      "universalTicketAggregator": "ユニバーサルチケットアグリゲーター",
+      "waitOrGoAdvisor": "待つか行くかアドバイザー",
+      "rentalSynthesizer": "レンタルシンセサイザー",
+      "safetySwarm": "セーフティスウォーム",
+      "automatedCheckInSystem": "自動チェックインシステム",
+      "scamAlertRadar": "詐欺警告レーダー",
+      "virtualEmbassy": "バーチャル大使館",
+      "trustedRouteCorridors": "信頼できるルートコリドー",
+      "followMeDigitalEscort": "フォローミーデジタルエスコート",
+      "allergenAlertSystem": "アレルゲン警告システム",
+      "privacyScrubber": "プライバシースクラバー",
+      "auraShield": "オーラシールド",
+      "emergencyServicesDialogue": "緊急サービスダイアログ",
+      "carbonFootprintSynthesis2": "カーボンフットプリント統合 2.0",
+      "ecoWarriorQuests": "エコウォリアークエスト",
+      "sustainablePartnerSpotlight": "サステナブルパートナースポットライト",
+      "leaveAPositiveTraceFeature": "ポジティブな痕跡を残す機能",
+      "reforestationRewards": "森林再生報酬",
+      "waterRefillStationFinder": "給水ステーションファインダー",
+      "localProduceChallenge": "地元農産物チャレンジ",
+      "greenTransitScore": "グリーン乗換スコア",
+      "conservationCircle": "保全サークル",
+      "wildlifeSightingEthos": "野生生物目撃エトス",
+      "collaborativeJournals": "共同ジャーナル",
+      "thenAndNowPhotoMixer": "今昔写真ミキサー",
+      "aiTravelBlogger": "AI 旅行ブロガー",
+      "aetheriaRadioHost": "Aetheria ラジオホスト",
+      "vibeBasedPhotoFilters": "バイブベースの写真フィルター",
+      "interactiveTravelMaps": "インタラクティブ旅行マップ",
+      "travelComicStripCreator": "旅行漫画クリエーター",
+      "dPhotoSculptures": "3D 写真彫刻",
+      "aiStoryScout": "AI ストーリースカウト",
+      "sensoryJournal": "感覚ジャーナル",
+      "liveLikeALocalSimulation": "地元民のように生きるシミュレーション",
+      "culturalEtiquetteGuide": "文化エチケットガイド",
+      "mythAndFolkloreHotspots": "神話と民間伝承のホットスポット",
+      "streetArtSagas": "ストリートアートサガ",
+      "localMusicSceneExplorer": "地元音楽シーンエクスプローラー",
+      "lostInTranslationGame": "ロストイントランスレーションゲーム",
+      "festivalForecaster": "フェスティバル予報",
+      "artisanCraftFinder": "職人クラフトファインダー",
+      "historicalDialogueBot": "歴史対話ボット",
+      "silentObserverMode": "サイレントオブザーバーモード",
+      "dnaBasedAncestryTrail": "DNA ベースの祖先トレイル",
+      "droneAsAServiceIntegration": "サービスとしてのドローン統合",
+      "realtimeLanguageTranslationEarbuds": "リアルタイム言語翻訳イヤホン",
+      "augmentedRealityMemoryPalace": "拡張現実記憶宮殿",
+      "aetheriaDao": "Aetheria DAO",
+      "sentientAiCompanion": "感覚 AI コンパニオン",
+      "hapticFeedbackIntegration": "触覚フィードバック統合",
+      "weatherAdaptiveItinerary": "天候適応型旅程",
+      "bioDataIntegration": "生体データ統合",
+      "quantumEntanglementSouvenirs": "量子もつれのお土産"
     }
   },
   "explorerQuests": {
@@ -760,7 +863,7 @@
         "name": "伝説",
         "description": "究極の旅行統合。",
         "price": "¥8000",
-        "itinerariesValue": "無制限のオデッセY",
+        "itinerariesValue": "無制限のオデッセイ",
         "immersiveValue": "無制限のインテル",
         "mirrorValue": "ヘリテージミラーノード",
         "insiderValue": "地域の伝説",
@@ -837,5 +940,139 @@
   "realTimePublicTransit": {
     "title": "リアルタイム公共交通機関",
     "description": "公共交通機関に関するリアルタイムの最新情報を入手してください。"
+  },
+  "termsPage": {
+    "badge": "Aetheria 運用プロトコル",
+    "title": "利用規約",
+    "description": "Aetheria インテリジェンスエコシステムにアクセスすることにより、あなたはグリッド上の探検家としてのあなたの権利と責任を規定する以下のプロトコルに同意するものとします。",
+    "sections": {
+      "accountIntegrity": {
+        "title": "1. ID ノードとセキュリティ",
+        "content": "あなたは、あなたの <strong>ID ノード</strong>とその関連する <strong>セキュリティキー</strong>のセキュリティを維持する責任があります。あなたのノードから発信されるすべてのアクティビティ、通信、およびトランザクションは、あなた自身のものと見なされます。Aetheria は、侵害されたまたは紛失したセキュリティキーに起因する不正アクセスまたはグリッドベースのアクションについて責任を負いません。疑わしい侵害は、直ちに Aetheria セキュリティノードに報告してください。"
+      },
+      "responsibleUse": {
+        "title": "2. AI エージェントとシステムの相互作用",
+        "content": "あなたは、Aetheria グリッドまたはその AI エージェントを、違法、不正、または悪意のある目的で使用しないことに同意します。これには、AI をジェイルブレイク、リバースエンジニアリング、または意図しない目的で悪用しようとすることを含みますが、これに限定されません。AI エージェントは、旅行の統合と支援のために設計されています。地方または国際法に違反する操作または誤用は固く禁じられており、即時のノード終了につながります。"
+      },
+      "dataSynthesis": {
+        "title": "3. データ、コンテンツ、AI 統合",
+        "content": "あなたの旅を強化するために、Aetheria は、あなたの <strong>旅行 DNA</strong> や <strong>オデッセイパラメータ</strong>など、あなたが提供するデータを統合します。当社の AI は、超高精度で関連性の高い出力を目指していますが、すべての推奨事項、翻訳、および統合された情報は、保証なしで提供されます。あなたは、Aetheria に、サービスの運営および改善の目的でのみ、ユーザー生成コンテンツ (例: ジャーナルエントリ、ポストカードスタジオの作成物) を使用、処理、および表示するための非独占的、世界的、ロイヤリティフリーのライセンスを付与します。あなたは、あなたのコンテンツの完全な所有権を保持します。"
+      },
+      "bookingsFinancials": {
+        "title": "4. 予約と財務プロトコル",
+        "content": "Aetheria は、フライト、ホテル、レンタルなどのサードパーティサービスのインテリジェントなファシリテーターとして機能します。私たちは予約プロセスを統合しますが、最終的な契約と責任は、あなたとサードパーティプロバイダーにあります。<strong>スマートウォレット</strong> を介して処理されるすべてのトランザクションは、当社の支払い処理パートナーの条件に従います。あなたは、十分な資金を確保し、発生した責任について責任を負います。"
+      },
+      "gamificationRewards": {
+        "title": "5. エクスプローラー XP とゲーミフィケーション",
+        "content": "<strong>エクスプローラー XP</strong>、シーズンパスレベル、メダル、およびその他のゲーミフィケーション要素は、グリッドでのあなたのエンゲージメントを認識するデジタル報酬です。これらの要素には、現実世界の現金価値はなく、Aetheria エコシステム以外で取引または償還することはできません。Aetheria は、いつでもゲーミフィケーションの仕組みを変更、再調整、またはリセットする権利を留保します。"
+      },
+      "safetyFeatures": {
+        "title": "6. SOS パニックハブと安全ユーティリティ",
+        "content": "<strong>SOS パニックハブ</strong>、<strong>セーフティスウォーム</strong>、<strong>自動チェックイン</strong>などの機能は、強力な支援として設計されており、安全を保証するものではありません。その有効性は、ネットワーク接続、地域のインフラストラクチャ、ユーザーエラーなどの要因によって制限される可能性があります。あなたは、最終的にあなた自身の個人の安全に責任があり、これらの機能を責任を持って使用することに同意します。"
+      },
+      "termination": {
+        "title": "7. サービスの終了",
+        "content": "Aetheria は、本利用規約または適用法に違反する行為に対して、いつでも、予告なしに、あなたの ID ノードを一時停止または初期化解除し、グリッドへのアクセスを終了する権利を留保します。終了すると、サービスを使用するあなたの権利は直ちに停止しますが、あなたは当社のプライバシープロトコルに従って個人データのエクスポートを要求することができます。"
+      },
+      "disclaimers": {
+        "title": "8. 免責事項と責任の制限",
+        "content": "Aetheria インテリジェンスエコシステムは、「現状有姿」および「提供可能な範囲」で提供されます。当社は、明示または黙示を問わず、いかなる種類の保証も否認します。いかなる場合も、Aetheria は、本サービスの使用に起因または関連して生じる間接的、付随的、特別、結果的、または懲罰的損害について責任を負わないものとします。"
+      }
+    }
+  },
+  "privacyPage": {
+    "badge": "Aetheria プライバシープロトコル",
+    "title": "プライバシーポリシー",
+    "description": "あなたのプライバシーは、Aetheria グリッドの整合性にとって不可欠です。このプロトコルは、当社があなたのデータをどのように収集、統合、保護するかを概説しています。",
+    "sections": {
+      "dataCollection": {
+        "title": "1. 当社が収集および統合するデータ",
+        "content": "超パーソナライズされた体験を作成するために、Aetheria はいくつかの種類のデータを収集および統合します。",
+        "list": [
+          "<strong>ID ノードデータ:</strong> 名前、連絡先情報、性同一性、市民権、および本拠地。これは、グリッド上のあなたのコアデジタル ID を形成します。",
+          "<strong>旅行 DNA:</strong> 指定した旅行スタイルの好み (例: レジャー、キネティック) と興味のマトリックス (例: 歴史、美食)。",
+          "<strong>オデッセイパラメータ:</strong> AI オデッセイプランナーに提供する目的地、時間範囲、予算、および雰囲気の説明。",
+          "<strong>使用状況テレメトリ:</strong> 当社の機能との匿名化されたインタラクションデータ。パターンの特定とシステムパフォーマンスの向上に使用されます。",
+          "<strong>位置データ:</strong> AR ウェイファインディングやローカルレジェンド AI などの位置情報ベースの機能をアクティブに使用する場合の GPS 座標。これはバックグラウンドで追跡されることはありません。"
+        ]
+      },
+      "aiProcessing": {
+        "title": "2. AI 統合とあなたのデータ",
+        "content": "当社の AI エージェントは、あなたのデータを青写真として使用して、あなたの体験を構築します。たとえば、あなたの <strong>旅行 DNA</strong> と <strong>オデッセイパラメータ</strong>は、オーダーメイドの旅程を生成するために当社の AI に入力されます。Vision AI ハブを使用すると、キャプチャした画像はコンテキストを提供するために処理されますが、ジャーナルに保存しない限り、長期間保存されることはありません。私たちは、強力な AI を倫理的に使用し、データ処理があなたの旅を向上させるサービスに直接役立つようにすることに取り組んでいます。"
+      },
+      "dataStorageSecurity": {
+        "title": "3. データストレージとセキュリティ",
+        "content": "すべての個人データは、業界標準の暗号化プロトコルを使用して、転送中と保存中の両方で暗号化されます。あなたの <strong>ID ノード</strong>は、高度なセキュリティ対策を備えた当社のコアデータベースで保護されています。<strong>スマートウォレット</strong> によって処理される財務情報は、PCI 準拠の支払いパートナーによって処理され、Aetheria のサーバーに保存されることはありません。"
+      },
+      "dataSharing": {
+        "title": "4. サードパーティとのデータ共有",
+        "content": "当社はあなたの個人データを販売しません。当社は、特定の必要な状況下でのみ、サードパーティとデータを共有します。",
+        "list": [
+          "<strong>予約プロバイダー:</strong> 統合予約ハブを使用する場合、予約を確保するために、航空会社、ホテル、またはその他のプロバイダーに必要な情報を送信します。",
+          "<strong>支払い処理業者:</strong> スマートウォレットを介した取引を容易にするため。",
+          "<strong>法的遵守:</strong> 法律で義務付けられている場合、または Aetheria グリッドの安全性と整合性を保護するため。"
+        ],
+        "conclusion": "匿名化および集計されたデータは、調査および AI モデルの改善に使用される場合がありますが、個人を特定できるものではありません。"
+      },
+      "userControl": {
+        "title": "5. あなたの管理とデータ権",
+        "content": "あなたは、あなたの <strong>ID ノード</strong>を完全に管理できます。プロファイルのコマンドセンターからいつでも個人データにアクセス、変更、または初期化解除できます。初期化解除すると、あなたの個人データは、法的および規制上の保持要件に従い、30 日以内にアクティブなグリッドから完全に削除されます。"
+      },
+      "policyUpdates": {
+        "title": "6. ポリシーの更新",
+        "content": "Aetheria エコシステムの進化に伴い、このプライバシープロトコルは更新される場合があります。重要な変更については、登録済みのニューラルアドレスまたはアプリ内通知でお知らせします。そのような通知後もグリッドを継続して使用すると、更新されたプロトコルに同意したことになります。"
+      }
+    }
+  },
+  "legalPage": {
+    "badge": "Aetheria 法的枠組み",
+    "title": "法的通知",
+    "description": "このドキュメントでは、知的財産やその他の主要な法的通知を含む、Aetheria インテリジェンスエコシステムの使用を規定する法的枠組みについて概説します。",
+    "sections": {
+      "intellectualProperty": {
+        "title": "1. 知的財産権",
+        "content": "Aetheria の名前、ロゴ、インターフェイスデザイン、AI モデル、およびすべての関連ソフトウェアとコードは、著作権、商標、およびその他の法律によって保護されている Aetheria AI およびそのライセンサーの独占的な知的財産です。当社の知的財産の不正な使用、複製、または配布は固く禁じられています。「Journey Synthesized」、「Aura Itinerary」、「Identity Node」、「Travel DNA」という用語は、Aetheria AI の商標です。"
+      },
+      "userContent": {
+        "title": "2. ユーザー生成コンテンツ",
+        "content": "あなたは、ジャーナルエントリやポストカードスタジオの作成物など、Aetheria グリッドに作成およびアップロードするコンテンツのすべての所有権を保持します。当社のサービスを使用することにより、あなたは、Aetheria AI に、サービスの提供および改善に必要な範囲で、このコンテンツを使用、処理、および表示するための限定的、非独占的、ロイヤリティフリーのライセンスを付与します。当社があなたの創造的な成果物の所有権を主張することはありません。"
+      },
+      "thirdPartyLinks": {
+        "title": "3. サードパーティのサービスとリンク",
+        "content": "Aetheria は、統合されたエクスペリエンスを提供するために、サードパーティのサービス (航空会社、ホテル、予約プラットフォームなど) と統合し、リンクしています。当社は、これらのサードパーティのコンテンツ、プライバシーポリシー、または慣行について責任を負いません。それらとのあなたのやり取りは、それぞれの条件とポリシーに準拠します。当社は、便宜のためにこれらのリンクを提供しており、これらのサービスを推奨するものではありません。"
+      },
+      "indemnification": {
+        "title": "4. 補償",
+        "content": "あなたは、当社の利用規約の違反、Aetheria グリッドの不適切な使用、または法律または第三者の権利の違反に起因または関連して、第三者からなされた合理的な弁護士費用を含む請求または要求から、Aetheria AI、その関連会社、役員、および従業員を補償し、免責することに同意します。"
+      },
+      "governingLaw": {
+        "title": "5. 準拠法と紛争解決",
+        "content": "これらの法的通知および Aetheria エコシステムの使用から生じる紛争は、その法の抵触に関する規定にかかわらず、Aetheria AI が本社を置く管轄区域の法律に準拠し、それに従って解釈されるものとします。いかなる法的手続きまたは訴訟も、その管轄区域にある裁判所で専属的に提起されるものとします。"
+      }
+    }
+  },
+  "contactPage": {
+    "badge": "Aetheria 接続ノード",
+    "title": "ハブに連絡する",
+    "description": "Aetheria コマンドセンターへの直接リンクを確立します。当社のサポートエージェントが待機しており、お問い合わせを支援します。",
+    "reasons": {
+      "support": "サポートに関するお問い合わせ",
+      "security": "セキュリティノード",
+      "bug": "バグレポート",
+      "feature": "機能統合"
+    },
+    "form": {
+      "reasonLabel": "お問い合わせの理由",
+      "emailLabel": "あなたのニューラル ID (メールアドレス)",
+      "emailPlaceholder": "explorer@aetheria.ai",
+      "messageLabel": "メッセージの詳細",
+      "messagePlaceholder": "お問い合わせ内容を詳しくご記入ください...",
+      "submitButton": "ハブにメッセージを送信",
+      "submittingButton": "送信中..."
+    },
+    "toast": {
+      "title": "送信を受信しました",
+      "description": "あなたのメッセージは Aetheria コマンドハブに安全に送信されました。"
+    }
   }
 }
