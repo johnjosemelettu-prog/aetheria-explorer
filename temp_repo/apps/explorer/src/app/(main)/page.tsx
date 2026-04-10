@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Card,
@@ -15,6 +15,19 @@ import {
   Images,
   Eye,
   Route,
+  Users,
+  Music,
+  ChefHat,
+  Ghost,
+  GalleryVertical,
+  Sparkles,
+  Plane,
+  Bed,
+  MessageSquare,
+  MessageCircle,
+  Briefcase,
+  AlertTriangle,
+  Leaf,
 } from "lucide-react";
 
 const features = [
@@ -59,6 +72,104 @@ const features = [
     icon: Images,
     path: "/postcard-studio",
     color: "text-yellow-500",
+  },
+  {
+    title: "Heritage Mirror",
+    description: "See historical landmarks as they were in their glory days.",
+    icon: Users,
+    path: "/heritage-mirror",
+    color: "text-indigo-500",
+  },
+  {
+    title: "Trip Soundtrack Generator",
+    description: "Create a unique soundtrack for your travels.",
+    icon: Music,
+    path: "/trip-soundtrack-generator",
+    color: "text-pink-500",
+  },
+  {
+    title: "AI-Assisted Culinary Creator",
+    description: "Design your own meals based on local ingredients.",
+    icon: ChefHat,
+    path: "/culinary-creator",
+    color: "text-green-500",
+  },
+  {
+    title: "'Meet My Travel Twin' Social Feature",
+    description: "Connect with travelers who share your interests.",
+    icon: Users,
+    path: "/travel-twin",
+    color: "text-teal-500",
+  },
+  {
+    title: "AR Ghost Tours",
+    description: "Explore haunted locations with a spooky AR guide.",
+    icon: Ghost,
+    path: "/ar-ghost-tours",
+    color: "text-gray-500",
+  },
+  {
+    title: "AI-Curated Digital Art Exhibitions",
+    description: "Visit virtual art galleries with AI-selected pieces.",
+    icon: GalleryVertical,
+    path: "/digital-art-exhibitions",
+    color: "text-cyan-500",
+  },
+  {
+    title: "AI Spontaneity Engine",
+    description: "Get spontaneous suggestions for your trip.",
+    icon: Sparkles,
+    path: "/spontaneity-engine",
+    color: "text-amber-500",
+  },
+  {
+    title: "Layover Odyssey Generator",
+    description: "Turn your layover into a mini-adventure.",
+    icon: Plane,
+    path: "/layover-odyssey-generator",
+    color: "text-lime-500",
+  },
+  {
+    title: "Biometric Jet Lag Sync",
+    description: "Adjust your sleep schedule to your destination's time zone.",
+    icon: Bed,
+    path: "/biometric-jet-lag-sync",
+    color: "text-blue-500",
+  },
+  {
+    title: "AI Haggling Coach",
+    description: "Learn how to haggle like a local.",
+    icon: MessageSquare,
+    path: "/ai-haggling-coach",
+    color: "text-fuchsia-500",
+  },
+  {
+    title: "'Local Pal' AI Chatbot",
+    description: "Get tips and advice from a local AI.",
+    icon: MessageCircle,
+    path: "/local-pal-ai-chatbot",
+    color: "text-violet-500",
+  },
+  {
+    title: "Dynamic Packing List Adjuster",
+    description: "Get a packing list that adjusts to your trip's weather.",
+    icon: Briefcase,
+    path: "/dynamic-packing-list-adjuster",
+    color: "text-rose-500",
+  },
+  {
+    title: "Personalized Safety Alerts",
+    description: "Get safety alerts tailored to your location.",
+    icon: AlertTriangle,
+    path: "/personalized-safety-alerts",
+    color: "text-red-500",
+  },
+  {
+    title: "'Mindful Travel' Meditation Series",
+    description: "Find your inner peace with a series of guided meditations.",
+    icon: Leaf,
+    path: "/mindful-travel-meditation-series",
+    color: "text-emerald-500",
   },
 ];
 

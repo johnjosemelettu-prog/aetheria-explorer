@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -27,7 +26,50 @@ import {
   Leaf, 
   Backpack, 
   Home,
-  FlaskConical
+  FlaskConical,
+  Languages,
+  User,
+  Trophy,
+  Star,
+  Briefcase,
+  Zap,
+  Ticket,
+  Route as RouteIcon,
+  Binoculars,
+  SprayCan,
+  UtensilsCrossed,
+  ShoppingBasket,
+  PersonStanding,
+  Music,
+  Beaker,
+  Calendar,
+  PlaneTakeoff,
+  Ship,
+  Utensils,
+  Car,
+  Train,
+  QrCode,
+  Fingerprint,
+  Scissors,
+  Mic,
+  Users,
+  Newspaper,
+  Mail,
+  HelpCircle,
+  Gavel,
+  FileText,
+  Shield,
+  Lock,
+  Building2,
+  Handshake,
+  Eye,
+  GalleryVertical,
+  ChefHat, 
+  Ghost, 
+  Bed,
+  MessageSquare,
+  MessageCircle,
+  AlertTriangle,
 } from 'lucide-react';
 import {
   Sidebar,
@@ -54,13 +96,24 @@ export function AppSidebar() {
 
   const menuGroups = [
     {
+      label: 'Main',
+      items: [
+        { label: 'Home', href: '/dashboard', icon: Home },
+        { label: 'Profile', href: '/profile', icon: User },
+        { label: 'Achievements', href: '/achievements', icon: Trophy },
+        { label: 'Loyalty', href: '/loyalty', icon: Star },
+      ]
+    },
+    {
       label: 'Plan ✨',
       items: [
         { label: 'AI Itinerary 🤖', href: '/itinerary-generator', icon: Bot },
+        { label: 'Layover Odyssey', href: '/layover-odyssey-generator', icon: Briefcase },
+        { label: 'Spontaneity Engine', href: '/spontaneity-engine', icon: Zap },
         { label: 'Budgeting 📊', href: '/budget-synthesis', icon: BarChart3 },
-        { label: 'Packing Helper 🎒', href: '/packing-assistant', icon: Backpack },
-        { label: 'Flight Tracker ✈️', href: '/flight-status', icon: Plane },
-        { label: 'Travel Insurance 🛡️', href: '/insurance', icon: ShieldCheck },
+        { label: 'Packing Helper 🎒', href: '/dynamic-packing-list-adjuster', icon: Backpack },
+        { label: 'Visa Architect 🛂', href: '/visa-architect', icon: Ticket },
+        { label: 'Jet Lag Helper ✈️', href: '/biometric-jet-lag-sync', icon: Plane },
       ]
     },
     {
@@ -72,19 +125,44 @@ export function AppSidebar() {
         { label: 'Local Stories 📚', href: '/local-legends', icon: History },
         { label: 'Cultural Vibes 📻', href: '/cultural-pulse', icon: Radio },
         { label: 'Audio Tours 🎧', href: '/audio-guide', icon: Wifi },
-		{ label: 'AR Time-Travel', href: '/ar-time-travel', icon: History },
-		{ label: 'AR Culinary Explorer', href: '/ar-culinary-explorer', icon: Camera },
-		{ label: 'AR Ghost Tour', href: '/ar-ghost-tour', icon: Radio },
+        { label: 'AR Time-Travel', href: '/ar-time-travel', icon: History },
+        { label: 'AR Culinary Explorer', href: '/culinary-creator', icon: Camera },
+        { label: 'AR Ghost Tour', href: '/ar-ghost-tours', icon: Ghost },
+        { label: 'Pathfinder', href: '/pathfinder', icon: RouteIcon },
+        { label: 'Culture Scout', href: '/culture-scout', icon: Binoculars },
+        { label: 'Street Art Decoder', href: '/street-art-decoder', icon: SprayCan },
+        { label: 'Menu Explorer', href: '/menu-explorer', icon: UtensilsCrossed },
+        { label: 'Souvenir Storyteller', href: '/souvenir-storyteller', icon: ShoppingBasket },
+        { label: 'AR Language Tutor', href: '/ar-language-tutor', icon: Languages },
+        { label: 'AR Fashion Try-On', href: '/ar-fashion-try-on', icon: ShoppingBag },
+        { label: 'AR Art Galleries', href: '/ar-art-galleries', icon: GalleryVertical },
+        { label: 'AR Escape Rooms', href: '/ar-escape-rooms', icon: Ghost },
       ]
     },
     {
       label: 'Creative 🎨',
       items: [
-        { label: 'Vision AI 📸', href: '/scanner', icon: Camera },
+        { label: 'Vision AI 📸', href: '/vision-ai-hub', icon: Camera },
         { label: 'Trip Videos 🎬', href: '/video-teaser', icon: Clapperboard },
         { label: 'AI Postcards 🎨', href: '/postcard-studio', icon: Wand2 },
         { label: 'Travel Journal 📓', href: '/journal', icon: BookOpen },
-		{ label: 'Generative Souvenirs', href: '/generative-souvenir-studio', icon: Wand2 },
+        { label: 'Generative Souvenirs', href: '/generative-souvenir-studio', icon: Wand2 },
+        { label: 'Heritage Mirror', href: '/heritage-mirror', icon: PersonStanding },
+        { label: 'Trip Soundtrack', href: '/trip-soundtrack-generator', icon: Music },
+        { label: 'Flavor DNA', href: '/flavor-dna', icon: Beaker },
+		{ label: 'Digital Art Exhibitions', href: '/digital-art-exhibitions', icon: GalleryVertical },
+		{ label: 'Culinary Creator', href: '/culinary-creator', icon: ChefHat },
+      ]
+    },
+    {
+      label: 'Booking 🏨',
+      items: [
+        { label: 'Bookings', href: '/bookings', icon: Calendar },
+        { label: 'Flights', href: '/flights', icon: PlaneTakeoff },
+        { label: 'Cruises', href: '/cruises', icon: Ship },
+        { label: 'Dining', href: '/dining', icon: Utensils },
+        { label: 'Rentals', href: '/rentals', icon: Car },
+        { label: 'Transit Connect', href: '/transit-connect', icon: Train },
       ]
     },
     {
@@ -93,17 +171,60 @@ export function AppSidebar() {
         { label: 'Marketplace 🛍️', href: '/marketplace', icon: ShoppingBag },
         { label: 'My Wallet 💰', href: '/wallet', icon: Wallet },
         { label: 'eSIM Plans 📶', href: '/esim', icon: Signal },
-        { label: 'Eco Footprint 🌱', href: '/carbon-synthesis', icon: Leaf },
+        { label: 'Eco Footprint 🌱', href: '/mindful-travel-meditation-series', icon: Leaf },
         { label: 'SOS Button 🆘', href: '/sos', icon: Siren },
+        { label: 'Translator 🌐', href: '/translator', icon: Languages },
+        { label: 'Scan & Pay', href: '/scan-and-pay', icon: QrCode },
+        { label: 'Biometric Sync', href: '/biometric-jet-lag-sync', icon: Fingerprint },
+        { label: 'Digital Tailor', href: '/digital-tailor', icon: Scissors },
+        { label: 'Haggling Coach', href: '/ai-haggling-coach', icon: Mic },
+		{ label: 'Local Pal AI Chatbot', href: '/local-pal-ai-chatbot', icon: MessageCircle },
+		{ label: 'Personalized Safety Alerts', href: '/personalized-safety-alerts', icon: AlertTriangle },
+      ]
+    },
+    {
+        label: 'Social & Utility',
+        items: [
+            { label: 'Digital Nomad Network', href: '/digital-nomad-network', icon: Users },
+        ]
+    },
+    {
+      label: 'VR Experiences 🕶️',
+      items: [
+        { label: 'VR Destination Previews', href: '/vr-previews', icon: Eye },
+        { label: 'VR Adventure Trials', href: '/vr-adventure-trials', icon: FlaskConical },
+        { label: 'VR Social Meetups', href: '/travel-twin', icon: Users },
+        { label: 'VR Language Immersion', href: '/vr-language-immersion', icon: Languages },
+        { label: 'VR Cultural Festivals', href: '/vr-cultural-festivals', icon: Music },
+        { label: 'VR Hotel Tours', href: '/vr-hotel-tours', icon: Bed },
+        { label: 'VR Museum and Gallery Tours', href: '/vr-museum-and-gallery-tours', icon: GalleryVertical },
+        { label: 'VR Cooking Classes', href: '/vr-cooking-classes', icon: ChefHat },
+        { label: 'VR Concerts and Events', href: '/vr-concerts-and-events', icon: Music },
+      ]
+    },
+    {
+      label: 'Information',
+      items: [
+        { label: 'News', href: '/news', icon: Newspaper },
+        { label: 'Contact', href: '/contact', icon: Mail },
+        { label: 'FAQ', href: '/faq', icon: HelpCircle },
+        { label: 'Legal', href: '/legal', icon: Gavel },
+        { label: 'Terms of Service', href: '/terms', icon: FileText },
+        { label: 'Privacy Policy', href: '/privacy', icon: Shield },
+        { label: 'Data Security', href: '/data-security', icon: Lock },
+      ]
+    },
+    {
+      label: 'Corporate',
+      items: [
+        { label: 'About Us', href: '/corporate', icon: Building2 },
+        { label: 'Partners', href: '/partners', icon: Handshake },
       ]
     },
 	{
 		label: 'Lab 🧪',
 		items: [
-			{ label: 'VR Adventure Trials', href: '/vr-adventure-trials', icon: FlaskConical },
-			{ label: 'VR Social Meetups', href: '/vr-social-meetups', icon: FlaskConical },
 			{ label: 'AI Trip Companion', href: '/ai-trip-companion', icon: FlaskConical },
-			{ label: 'AI Spontaneity Engine', href: '/ai-spontaneity-engine', icon: FlaskConical },
 		]
 	}
   ];

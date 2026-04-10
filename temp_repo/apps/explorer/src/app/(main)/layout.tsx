@@ -3,6 +3,7 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
 import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/layout/AppSidebar';
 
@@ -21,6 +22,16 @@ export default function MainLayout({
 }: {
   children: React.ReactNode
 }) {
+  const pathname = usePathname();
+
+  if (pathname === '/') {
+    return (
+      <div className="container mx-auto max-w-7xl min-h-full">
+        {children}
+      </div>
+    );
+  }
+
   return (
     <SidebarProvider>
       <div className="flex min-h-screen w-full bg-slate-50/50">
