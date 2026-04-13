@@ -1,94 +1,76 @@
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Walking, Bicycle, Bus, Leaf } from 'lucide-react';
-import * as AI from '../services/gemini';
-import { useTranslation } from 'react-i18next';
+import { Footprints, Bike, Bus, Leaf } from 'lucide-react';
 
 const GreenTransitScore = () => {
-    const { t } = useTranslation();
-    const [transitScore, setTransitScore] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
+    // Dummy data - replace with actual data from your backend or state management
+    const scores = {
+        walking: 85,
+        cycling: 92,
+        publicTransport: 78,
+    };
 
-    useEffect(() => {
-        const fetchTransitScore = async () => {
-            setLoading(true);
-            try {
-                const score = await AI.getGreenTransitScore();
-                setTransitScore(score);
-            } catch (err) {
-                console.error(err);
-            }
-            setLoading(false);
-        };
-
-        fetchTransitScore();
-    }, []);
-
-    if (loading) {
-        return <div className="flex justify-center items-center min-h-screen bg-gray-900"><p className="text-white">{t('greenTransitScore.loading')}</p></div>;
-    }
+    const overallScore = Math.round((scores.walking + scores.cycling + scores.publicTransport) / 3);
 
     const getScoreColor = (score: number) => {
         if (score > 80) return 'text-green-400';
         if (score > 60) return 'text-yellow-400';
         return 'text-red-400';
-    }
+    };
 
     return (
-        <div className="p-8 bg-gray-900 min-h-screen text-white">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-3xl mx-auto">
-                <h1 className="text-4xl font-bold mb-4 text-center text-green-300">{t('greenTransitScore.title')}</h1>
-                <p className="text-center text-gray-400 mb-12">{t('greenTransitScore.description')}</p>
+        <div className="bg-gray-900 text-white p-8 rounded-lg max-w-md mx-auto">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-2xl font-bold">Green Transit Score</h2>
+                    <div className={`flex items-center font-bold text-3xl ${getScoreColor(overallScore)}`}>
+                        <Leaf className="w-6 h-6 mr-2" />
+                        {overallScore}
+                    </div>
+                </div>
+                <p className="text-gray-400 mb-8">Your eco-friendly transportation rating for this trip.</p>
 
-                <div className="bg-gray-800 rounded-2xl shadow-2xl p-8 flex flex-col items-center">
-                    <div className="relative mb-6">
-                        <motion.div initial={{ strokeDashoffset: 1000 }} animate={{ strokeDashoffset: 1000 - (transitScore.score * 10) }} transition={{ duration: 2, ease: "easeInOut" }}>
-                            <svg className="w-48 h-48" viewBox="0 0 250 250">
-                                <circle className="stroke-current text-gray-700" cx="125" cy="125" r="100" strokeWidth="20" fill="none" />
-                                <motion.circle className={`stroke-current ${getScoreColor(transitScore.score)}`} cx="125" cy="125" r="100" strokeWidth="20" fill="none"
-                                    strokeDasharray="628"
-                                    strokeDashoffset={628 - (628 * transitScore.score) / 100}
-                                    strokeLinecap="round"
-                                    transform="rotate(-90 125 125)" />
-                            </svg>
-                        </motion.div>
-                        <div className="absolute inset-0 flex flex-col items-center justify-center">
-                            <span className={`text-6xl font-bold ${getScoreColor(transitScore.score)}`}>{transitScore.score}</span>
-                            <span className="text-lg text-gray-300">/ 100</span>
+                <div className="space-y-6">
+                    <div className="flex items-center">
+                        <div className="w-2/3 flex items-center">
+                            <Footprints className="w-8 h-8 mr-4 text-blue-400" />
+                            <span className="font-semibold">Walking Friendliness</span>
+                        </div>
+                        <div className="w-1/3 text-right">
+                            <span className={`font-bold text-xl ${getScoreColor(scores.walking)}`}>{scores.walking}</span>
                         </div>
                     </div>
-
-                    <p className="text-lg font-semibold text-center mb-8">{transitScore.feedback}</p>
-
-                    <div className="w-full">
-                        <h3 className="text-xl font-bold mb-4 text-center">{t('greenTransitScore.breakdown')}</h3>
-                        <div className="space-y-4">
-                            <div className="flex items-center justify-between p-4 bg-gray-700 rounded-lg">
-                                <div className="flex items-center">
-                                    <Walking className="w-8 h-8 mr-4 text-blue-400" />
-                                    <span className="text-lg">{t('greenTransitScore.walking')}</span>
-                                </div>
-                                <span className="font-bold text-lg">{transitScore.breakdown.walking}%</span>
-                            </div>
-                            <div className="flex items-center justify-between p-4 bg-gray-700 rounded-lg">
-                                <div className="flex items-center">
-                                    <Bicycle className="w-8 h-8 mr-4 text-yellow-400" />
-                                    <span className="text-lg">{t('greenTransitScore.cycling')}</span>
-                                </div>
-                                <span className="font-bold text-lg">{transitScore.breakdown.cycling}%</span>
-                            </div>
-                            <div className="flex items-center justify-between p-4 bg-gray-700 rounded-lg">
-                                <div className="flex items-center">
-                                    <Bus className="w-8 h-8 mr-4 text-red-400" />
-                                    <span className="text-lg">{t('greenTransitScore.publicTransport')}</span>
-                                </div>
-                                <span className="font-bold text-lg">{transitScore.breakdown.public_transport}%</span>
-                            </div>
+                    <div className="flex items-center">
+                        <div className="w-2/3 flex items-center">
+                            <Bike className="w-8 h-8 mr-4 text-yellow-400" />
+                            <span className="font-semibold">Cycling Infrastructure</span>
+                        </div>
+                        <div className="w-1/3 text-right">
+                            <span className={`font-bold text-xl ${getScoreColor(scores.cycling)}`}>{scores.cycling}</span>
+                        </div>
+                    </div>
+                    <div className="flex items-center">
+                        <div className="w-2/3 flex items-center">
+                            <Bus className="w-8 h-8 mr-4 text-purple-400" />
+                            <span className="font-semibold">Public Transport</span>
+                        </div>
+                        <div className="w-1/3 text-right">
+                            <span className={`font-bold text-xl ${getScoreColor(scores.publicTransport)}`}>{scores.publicTransport}</span>
                         </div>
                     </div>
                 </div>
 
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="mt-10 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
+                >
+                    Improve Your Score
+                </motion.button>
             </motion.div>
         </div>
     );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Sparkles, 
   MapPin, 
@@ -19,11 +19,11 @@ import {
   CloudRain,
   Snowflake
 } from 'lucide-react';
-import { generateItinerary } from '../services/gemini';
-import { db, auth } from '../lib/firebase';
+import { generateItinerary } from '@/services/gemini';
+import { db, auth } from '@/lib/firebase';
 import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
-import { UserProfile, Itinerary as ItineraryType } from '../types';
-import { cn } from '../lib/utils';
+import { UserProfile, Itinerary as ItineraryType } from '@/types';
+import { cn } from '@/lib/utils';
 
 interface Activity {
   id: string;
@@ -92,7 +92,7 @@ export default function AIItinerary() {
         ? Math.ceil((new Date(endDate).getTime() - new Date(startDate).getTime()) / (1000 * 3600 * 24))
         : 3;
       
-      const result = await generateItinerary(destination, duration, interests, vibe, startDate, endDate);
+      const result = await generateItinerary(destination, duration, interests.join(', '), vibe);
       setItinerary(result);
       await findMatchingUsers(vibe);
     } catch (error) {

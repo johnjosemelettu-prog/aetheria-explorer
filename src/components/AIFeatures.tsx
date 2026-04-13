@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import * as AI from '../services/gemini';
+import * as AI from '@/services/gemini';
 
 const AIFeatureShowcase = () => {
   const [itinerary, setItinerary] = useState<any>(null);

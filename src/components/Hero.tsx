@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Globe, Sparkles, ArrowRight, ShieldCheck, Zap, Store } from 'lucide-react';
 import { auth } from '../lib/firebase';
 import AuthModal from './AuthModal';

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { AIPhotoEditor } from './AIPhotoEditor';
 import { MemeGenerator } from './MemeGenerator';
 import { VibeRecommender } from './VibeRecommender';
-import { cn } from '../lib/utils';
+import { cn } from '@/lib/utils';
 import { Sparkles, Wand2, Search } from 'lucide-react';
 
 export const AIGenerator = () => {
