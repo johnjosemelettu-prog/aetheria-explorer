@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ShoppingBag, 
   MapPin, 
@@ -13,7 +13,7 @@ import {
   Heart,
   Share2
 } from 'lucide-react';
-import { generateVibeMarket } from '../services/gemini';
+import { generateVibeMarket } from '@/services/gemini';
 
 interface Vibe {
   title: string;

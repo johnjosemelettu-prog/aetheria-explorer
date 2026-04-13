@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { fetchEntangledData } from '../services/gemini';
+import { fetchEntangledData } from '@/services/gemini';
 
 interface QuantumSouvenirProps {
     souvenirId: string;

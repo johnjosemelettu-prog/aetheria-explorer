@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Languages, Sparkles, Send, Loader2, X, Globe, Wand2 } from 'lucide-react';
-import { translateText } from '../services/gemini';
-import { cn } from '../lib/utils';
+import { translateText } from '@/services/gemini';
+import { cn } from '@/lib/utils';
 
 export default function LinguisticSynthesis() {
   const [text, setText] = useState('');
@@ -17,7 +17,7 @@ export default function LinguisticSynthesis() {
     setIsTranslating(true);
     try {
       const translated = await translateText(text, targetLanguage);
-      setResult(translated);
+      setResult(translated.translatedText);
     } catch (error) {
       console.error('Linguistic Synthesis Error:', error);
     } finally {
