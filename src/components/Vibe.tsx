@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 
-export const Vibe = () => {
-  const { t } = useTranslation();
-
+const Vibe: React.FC = () => {
   return (
-    <div className="vibe">
-      <p>{t('Vibe Feature Coming Soon!')}</p>
+    <div>
+      <h1>Vibe Feature Coming Soon!</h1>
     </div>
   );
 };

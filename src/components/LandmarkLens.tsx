@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 
-export const LandmarkLens = () => {
-  const { t } = useTranslation();
-
+const LandmarkLens: React.FC = () => {
   return (
-    <div className="landmark-lens">
-      <p>{t('Landmark Lens Feature Coming Soon!')}</p>
+    <div>
+      <h1>Landmark Lens Feature Coming Soon!</h1>
     </div>
   );
 };
