@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from 'react';
-import { decodeStreetArt, getSouvenirStory } from '@/src/services/gemini';
+import { decodeStreetArt, getSouvenirStory } from '@/services/gemini';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Camera, Paintbrush, Gift, Loader2 } from 'lucide-react';

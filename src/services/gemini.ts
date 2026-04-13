@@ -836,3 +836,56 @@ export const getLastMileSolution = async (start: {lat: number, lng: number}, end
         ]
     };
 };
+
+export const getFestivalForecast = async (location: string): Promise<any> => {
+    console.log(`Getting festival forecast for ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    return [
+        {
+            id: 1,
+            name: "Gion Matsuri",
+            date: "July 1 - July 31",
+            location: "Kyoto, Japan",
+            description: "One of the most famous festivals in Japan, with a history of over a thousand years. The highlight is the grand procession of floats (Yamaboko Junko) on July 17th and 24th.",
+            imageUrl: "/placeholder-gion.webp",
+            tags: ["History", "Culture", "Parade"]
+        },
+        {
+            id: 2,
+            name: "Aoi Matsuri",
+            date: "May 15",
+            location: "Kyoto, Japan",
+            description: "A graceful and elegant festival that recreates the processions of the Heian court. Participants dress in elaborate ancient costumes.",
+            imageUrl: "/placeholder-aoi.webp",
+            tags: ["History", "Culture", "Procession"]
+        }
+    ];
+};
+
+export const findLocalMusicScene = async (location: string): Promise<any> => {
+    console.log(`Finding local music scene in ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return [
+        {
+            id: 1,
+            name: "Live House Nano",
+            genre: "Indie Rock, Punk",
+            description: "A small, intimate venue known for showcasing up-and-coming local bands.",
+            imageUrl: "/placeholder-nano.webp"
+        },
+        {
+            id: 2,
+            name: "Kyoto Metro",
+            genre: "Electronic, Techno, House",
+            description: "A legendary nightclub that has been a staple of Kyoto's electronic music scene for decades.",
+            imageUrl: "/placeholder-metro.webp"
+        },
+        {
+            id: 3,
+            name: "Rag G",
+            genre: "Jazz, Blues",
+            description: "A cozy jazz club with a relaxed atmosphere, featuring talented local and international musicians.",
+            imageUrl: "/placeholder-rag-g.webp"
+        }
+    ];
+};
