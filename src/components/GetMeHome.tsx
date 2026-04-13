@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import * as AI from '../services/gemini';
-import { Button } from './ui/button';
+import * as AI from '@/services/gemini';
+import { Button } from '@/components/ui/button';
 
 const GetMeHome = () => {
   const [route, setRoute] = useState<any>(null);

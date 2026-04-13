@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
   appId: 'com.aetheria.explorer',
   appName: 'Aetheria Explorer',
   webDir: 'dist',
-  bundledWebRuntime: false,
+  
   plugins: {
     SplashScreen: {
       launchShowDuration: 3000,

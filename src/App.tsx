@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, Suspense } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
@@ -359,7 +360,7 @@ export default function App() {
       case '/haptic-controller': return <HapticController />;
       case '/weather-adaptive': return <WeatherAdaptiveController />;
       case '/bio-data': return <BioDataMonitor />;
-      case '/quantum-souvenirs': return <QuantumSouvenir />;
+      case '/quantum-souvenirs': return <QuantumSouvenir souvenirId="qs-paris-01" baseImageUrl="/placeholder-souvenir.webp" location="Paris, France" />;
       default:
         return <ExplorerDashboard />;
     }

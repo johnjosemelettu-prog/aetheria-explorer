@@ -3,7 +3,7 @@ import { defineConfig, loadEnv } from 'vite';
 
 export default defineConfig(async ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  const { default: react } = await import('@vitejs/plugin-react');
+  const { default: react } = await import('@vitejs/plugin-react-swc');
   const { default: tailwindcss } = await import('@tailwindcss/vite');
 
   return {
@@ -13,7 +13,7 @@ export default defineConfig(async ({ mode }) => {
     },
     resolve: {
       alias: {
-        '@': path.resolve(process.cwd(), '.'),
+        '@': path.resolve(process.cwd(), 'src'),
       },
     },
     server: {

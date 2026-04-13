@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import * as AI from '../services/gemini';
-import { Button } from './ui/button';
+import * as AI from '@/services/gemini';
+import { Button } from '@/components/ui/button';
 
 const UniversalTicketAggregator = () => {
   const [tickets, setTickets] = useState<any[]>([]);

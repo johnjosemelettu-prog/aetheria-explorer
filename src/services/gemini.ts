@@ -395,7 +395,7 @@ export const analyzeEmotionalSpectrum = async (mood: string): Promise<any> => {
 };
 
 export const getTravelMentorAdvice = async (personality: string[]): Promise<any> => {
-    console.log(`Generating travel mentor advice for personality: ${personality.join(', ')}`);
+    console.log(`Generating travel mentor advice for personality: ${personality.join(', ')}...`);
     await new Promise(resolve => setTimeout(resolve, 1600));
 
     let advice = "Based on your profile, here's a little challenge to help you grow as a traveler: ";
@@ -1256,5 +1256,55 @@ export const fetchEntangledData = async (location: string): Promise<any> => {
         // In the future, this could include other real-time data like:
         // localTime: new Date().toLocaleTimeString(),
         // crowdLevel: Math.random(), 
+    };
+};
+export const findAllergensInImage = async (imageName: string, allergens: string[]): Promise<any> => {
+    console.log(`Scanning ${imageName} for allergens: ${allergens.join(', ')}...`);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    const found_allergens = allergens.filter(a => a === 'Peanuts');
+    return {
+        contains_allergens: found_allergens.length > 0,
+        found_allergens: found_allergens,
+        summary: found_allergens.length > 0 ? 'Potential allergens found!' : 'No target allergens detected.',
+    };
+};
+
+export const findLocalRentals = async (city: string, item: string): Promise<any> => {
+    console.log(`Finding rentals for ${item} in ${city}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    return [
+        { provider: 'City Bikes', price: '€15/day', rating: 4.5, features: ['Includes helmet', '24/7 support'] },
+        { provider: 'Scoot & Go', price: '€10/day', rating: 4.2, features: ['App-based rental', 'GPS tracking'] },
+    ];
+};
+
+export const getStoredDocuments = async (): Promise<any> => {
+    console.log('Fetching stored documents...');
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return [
+        { type: 'Passport', document_id: 'PA12345678' },
+        { type: 'Visa', document_id: 'VISA9876543' },
+    ];
+};
+
+export const getEmbassyInfo = async (country: string, currentCity: string): Promise<any> => {
+    console.log(`Getting embassy info for ${country} in ${currentCity}...`);
+    await new Promise(resolve => setTimeout(resolve, 1200));
+    return {
+        name: `${country} Embassy, ${currentCity}`,
+        address: '123 Embassy Row, Capital City',
+        phone: '+1-202-555-0123',
+        email: 'contact@usembassy.gov',
+        hours: '9:00 AM - 5:00 PM',
+    };
+}; 
+export const getWaitOrGoAdvice = async (location: string): Promise<any> => {
+    console.log(`Getting wait-or-go advice for ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1400));
+    return {
+        decision: 'Wait',
+        reason: 'The queue is expected to shorten in the next 30 minutes.',
+        current_wait_time: '45 minutes',
+        better_time_to_visit: 'After 3 PM',
     };
 };

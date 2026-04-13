@@ -1,7 +1,7 @@
 
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import * as AI from '../services/gemini';
+import * as AI from '@/services/gemini';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Input } from './ui/input';

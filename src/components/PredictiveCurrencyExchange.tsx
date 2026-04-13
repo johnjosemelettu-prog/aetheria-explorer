@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import * as AI from '../services/gemini';
-import { Button } from './ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import * as AI from '@/services/gemini';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const PredictiveCurrencyExchange = () => {
   const [from, setFrom] = useState('USD');

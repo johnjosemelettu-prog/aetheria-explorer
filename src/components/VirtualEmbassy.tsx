@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import * as AI from '../services/gemini';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 const VirtualEmbassy = () => {
   const [documents, setDocuments] = useState<any[]>([]);
