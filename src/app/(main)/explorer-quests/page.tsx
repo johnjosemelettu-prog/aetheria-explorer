@@ -3,9 +3,9 @@
 
 import { useState } from 'react';
 import { generateExplorerQuest } from '@/src/services/gemini';
-import { Button } from '@/temp_repo/src/components/ui/button';
-import { Input } from '@/temp_repo/src/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/temp_repo/src/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Map, Compass, Loader2 } from 'lucide-react';
 
 export default function ExplorerQuestsPage() {

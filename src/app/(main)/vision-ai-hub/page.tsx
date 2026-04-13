@@ -3,8 +3,8 @@
 
 import { useState } from 'react';
 import { decodeStreetArt, getSouvenirStory } from '@/src/services/gemini';
-import { Button } from '@/temp_repo/src/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/temp_repo/src/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Camera, Paintbrush, Gift, Loader2 } from 'lucide-react';
 
 export default function VisionAiHubPage() {

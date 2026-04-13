@@ -3,9 +3,9 @@
 
 import { useState } from 'react';
 import { generatePostcard } from '@/src/services/gemini';
-import { Button } from '@/temp_repo/src/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/temp_repo/src/components/ui/select";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/temp_repo/src/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Images, Loader2 } from 'lucide-react';
 
 const artStyles = ["Van Gogh", "Picasso", "Monet", "Anime", "Cyberpunk"];

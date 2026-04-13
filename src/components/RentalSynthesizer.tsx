@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import * as AI from '../services/gemini';
-import { Button } from '@/temp_repo/src/components/ui/button';
-import { Input } from '@/temp_repo/src/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/temp_repo/src/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const RentalSynthesizer = () => {
   const [city, setCity] = useState("Kyoto");
