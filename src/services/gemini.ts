@@ -1308,3 +1308,32 @@ export const getWaitOrGoAdvice = async (location: string): Promise<any> => {
         better_time_to_visit: 'After 3 PM',
     };
 };
+
+export const findDigitalNomadHubs = async (city: string): Promise<any> => {
+    console.log(`Finding digital nomad hubs near ${city}...`);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return [
+        { city: 'Bali', country: 'Indonesia', score: 9.5, reason: 'Great community and affordable living.' },
+        { city: 'Lisbon', country: 'Portugal', score: 9.2, reason: 'Excellent weather and tech scene.' }
+    ];
+};
+
+export const getCurrencyPrediction = async (from: string, to: string): Promise<any> => {
+    console.log(`Getting currency prediction for ${from} to ${to}...`);
+    await new Promise(resolve => setTimeout(resolve, 1200));
+    return {
+        pair: `${from}/${to}`,
+        predictedTrend: 'Stable',
+        confidence: '85%',
+        advice: 'Good time to exchange.'
+    };
+};
+
+export const importTicketsFromEmail = async (userEmail: string): Promise<any> => {
+    console.log(`Importing tickets from email ${userEmail}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    return [
+        { type: 'Flight', destination: 'Tokyo', date: '2024-05-15', status: 'Confirmed' },
+        { type: 'Hotel', name: 'Shibuya Grand', checkIn: '2024-05-15', status: 'Confirmed' }
+    ];
+};
