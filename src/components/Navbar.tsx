@@ -273,9 +273,7 @@ export default function Navbar({ user }: NavbarProps) {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => navigate('/')}
           >
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Compass className="text-white w-5 h-5" />
-            </div>
+            <img src="/logo.png" alt="Aetheria Logo" className="w-8 h-8" />
             <span className="text-xl font-display font-bold tracking-tighter">AETHERIA</span>
           </div>
         {/* Close button only visible on mobile */}
@@ -396,7 +394,7 @@ export default function Navbar({ user }: NavbarProps) {
         >
           <Menu className="w-6 h-6" />
         </button>
-        <span className="text-xl font-display font-bold tracking-tighter">AETHERIA</span>
+        <img src="/logo.png" alt="Aetheria Logo" className="w-8 h-8" />
       </div>
     </nav>
 
