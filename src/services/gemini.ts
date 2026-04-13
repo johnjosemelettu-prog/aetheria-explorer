@@ -889,3 +889,327 @@ export const findLocalMusicScene = async (location: string): Promise<any> => {
         }
     ];
 };
+
+export const generateMultiverseRoutes = async (location: string): Promise<any> => {
+    console.log(`Generating multiverse routes for crossroad near ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    return {
+        crossroad: location,
+        branches: [
+            {
+                id: "A",
+                action: "Take the train",
+                immediateOutcome: "Quick transit to the arts district.",
+                downstreamEffects: "Leads to a vibrant jazz club. 80% chance of rain later.",
+                vibe: "Energetic & Musical",
+                icon: "train"
+            },
+            {
+                id: "B",
+                action: "Walk through the alley",
+                immediateOutcome: "Discover hidden street art and local life.",
+                downstreamEffects: "Leads to a bustling night market with highly rated street food.",
+                vibe: "Local & Culinary",
+                icon: "walk"
+            }
+        ]
+    };
+};
+
+export const generateSoundtrack = async (biometrics: any, environment: any): Promise<any> => {
+    console.log(`Generating cinematic OST for ${environment.location}...`);
+    await new Promise(resolve => setTimeout(resolve, 2400));
+    let trackName = "Ambient Exploration";
+    let genre = "Ambient";
+    let description = "A calm, neutral soundtrack for wandering.";
+
+    if (biometrics.heartRate > 100) {
+        trackName = "Pulse of the City";
+        genre = "Rhythmic Synth-wave";
+        description = "Upbeat, driving rhythms matching your fast pace.";
+    } else if (environment.timeOfDay === "Night") {
+        trackName = "Nocturnal Echoes";
+        genre = "Dark Ambient";
+        description = "Deep, mysterious tones for nighttime exploration.";
+    } else if (environment.location.includes("Ruins") || environment.location.includes("Ancient") || environment.location.includes("history")) {
+        trackName = "Echoes of Antiquity";
+        genre = "Orchestral Ambient";
+        description = "Sweeping, majestic orchestral sweeps.";
+    }
+
+    return {
+        trackName,
+        genre,
+        description,
+        streamUrl: "/placeholder-audio.mp3"
+    };
+};
+
+export const generateSensoryRoute = async (destination: string, preferences: string[]): Promise<any> => {
+    console.log(`Generating sensory route to ${destination} focusing on ${preferences.join(', ')}...`);
+    await new Promise(resolve => setTimeout(resolve, 2200));
+    return {
+        destination,
+        routeType: preferences.includes("Quiet") ? "Acoustic Minimal" : "Sensory Rich",
+        waypoints: [
+            { id: 1, name: "Departure", description: "Leaving current location." },
+            { id: 2, name: "The Quiet Alleys", description: "Routing through residential backstreets. Ambient noise drops below 45dB." },
+            { id: 3, name: "Pâtisserie Row", description: "Maximizing olfactory experience. High concentration of fresh bread scent detected." },
+            { id: 4, name: "Canopy Path", description: "80% tree cover for the next 1km, providing optimal shade and cooling." }
+        ],
+        metrics: {
+            avgNoise: "42 dB",
+            shadeCoverage: "75%",
+            floralScentIndex: "High"
+        }
+    };
+};
+
+export const fetchGhostLogs = async (location: string): Promise<any> => {
+    console.log(`Scanning for ephemeral ghost logs near ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    return [
+        {
+            id: "ghost_1029",
+            author: "Marcus",
+            timestamp: "4 years ago",
+            triggerRadius: "5 meters",
+            prompt: "A traveler named Marcus left a 3D binaural story here 4 years ago. It captures the exact sounds of this plaza before the renovation.",
+            type: "3D Audio",
+            icon: "headphones"
+        },
+        {
+            id: "ghost_3304",
+            author: "Elena_V",
+            timestamp: "1 month ago",
+            triggerRadius: "10 meters",
+            prompt: "Elena planted an olfactory memory. 'The jasmine was blooming perfectly right next to this bench.'",
+            type: "Sensory Note",
+            icon: "flower"
+        }
+    ];
+};
+
+export const executeChaosDial = async (chaosLevel: number, maxBudget: number): Promise<any> => {
+    console.log(`Executing Chaos Dial at level ${chaosLevel} with budget ${maxBudget}...`);
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    
+    if (chaosLevel < 50) {
+        return {
+            status: "Mild Serendipity",
+            action: "Booked a highly-rated local omakase experience that had a last-minute cancellation.",
+            cost: "$" + Math.floor(maxBudget * 0.4),
+            destination: "Sushi Nakazawa",
+            instructions: "Head to the coordinates. Dinner is at 8PM."
+        };
+    } else if (chaosLevel < 90) {
+        return {
+            status: "High Serendipity",
+            action: "Purchased a discounted high-speed train ticket to an anomalous destination.",
+            cost: "$" + Math.floor(maxBudget * 0.7),
+            destination: "Classified until departure",
+            instructions: "Arrive at Central Station Platform 9 by 14:00."
+        };
+    } else {
+        return {
+            status: "Maximum Chaos",
+            action: "Booked an anomalous budget flight + mystery hostel stay.",
+            cost: "$" + maxBudget,
+            destination: "Classified until landing",
+            instructions: "Proceed to Terminal 3 immediately. Bring a jacket."
+        };
+    }
+};
+
+export const generateCircadianProtocol = async (flightDetails: any): Promise<any> => {
+    console.log(`Generating Nomadic Circadian Protocol for flight...`);
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    return {
+        protocolId: `CP-${Date.now()}`,
+        status: "Active",
+        instructions: [
+            { time: "T-24h", action: "Fast for 16 hours. Stop caffeine intake.", type: "Diet" },
+            { time: "In-Flight", action: "Equip blue-light blocking glasses. Sleep requested.", type: "Environment" },
+            { time: "Arrival + 1h", action: "Maximum sun exposure for 30 minutes.", type: "Biological" },
+        ],
+        smartHotelSync: {
+            status: "Synced",
+            details: "Hotel room temp will drop to 65°F at 22:00 local time. Blackout curtains automatically engaged."
+        }
+    };
+};
+
+export const analyzeCulinaryHistory = async (imageUrl: string): Promise<any> => {
+    console.log(`Ancestral Culinary Scan tracing history...`);
+    await new Promise(resolve => setTimeout(resolve, 2800));
+    return {
+        dishName: "Mole Poblano",
+        era: "17th Century",
+        geoPoliticalContext: "Created in the Convent of Santa Rosa in Puebla as a fusion of pre-Hispanic indigenous ingredients and colonial Spanish introductions.",
+        deconstructedIngredients: [
+            { name: "Cacao", origin: "Indigenous Mesoamerica", historicalUsage: "Currency and sacred beverage." },
+            { name: "Chili Peppers (Mulato, Ancho, Pasilla)", origin: "Indigenous Mesoamerica", historicalUsage: "Staple flavor and medicinal crop." },
+            { name: "Spices (Cinnamon, Anise, Cloves)", origin: "Eurasia", historicalUsage: "Brought via the Manila Galleons trade route connecting Asia, Mexico, and Spain." }
+        ],
+        hiddenVendor: {
+            name: "Doña Elena's Unmapped Cocina",
+            distance: "1.2 km",
+            technique: "Still grinds cacao manually on a volcanic stone metate.",
+            vibe: "Secret courtyard, no menu."
+        }
+    };
+};
+
+export const startDigitalDetoxTracker = async (durationHours: number): Promise<any> => {
+    console.log(`Initializing Silent Compass detox for ${durationHours} hours...`);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return {
+        sessionActive: true,
+        endTime: new Date(Date.now() + durationHours * 3600 * 1000).toISOString(),
+        guidance: {
+            bearing: "North-West",
+            targetAesthetic: "Quiet waterfront with old-growth trees",
+            warning: "All non-essential notifications are now firewalled."
+        }
+    };
+};
+
+export const generateMainCharacterItinerary = async (era: string, location: string): Promise<any> => {
+    console.log(`Generating Main Character Itinerary for ${era} in ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 2400));
+    
+    const eraThemes: Record<string, any> = {
+        "Villain Era": {
+            filter: "film-noir-filter",
+            narrator: "The city was sleeping, but you were just getting started. It was time to take what was yours.",
+            palette: "from-red-900 via-stone-900 to-black",
+            locations: [
+                { time: "22:00", place: "Abandoned Rooftop overlooking the financial district", action: "Contemplate your empire." },
+                { time: "00:00", place: "Dimly lit speakeasy beneath a laundromat", action: "Meet with an 'associate'." }
+            ]
+        },
+        "Indie Sleaze Retro": {
+            filter: "disposable-camera-filter",
+            narrator: "Another dizzying night. Smudged eyeliner, cheap flashes, and music too loud to think.",
+            palette: "from-fuchsia-900 via-pink-900 to-yellow-900",
+            locations: [
+                { time: "21:00", place: "Sticky-floored dive bar with a broken neon sign", action: "Take flash photos of strangers." },
+                { time: "02:00", place: "24-hour fluorescent-lit diner", action: "Eat cold fries while arguing about obscure bands." }
+            ]
+        },
+        "Cyberpunk Protagonist": {
+            filter: "neon-glitch-filter",
+            narrator: "The rain washed the neon reflections into the gutter. You checked your cyberware. Time to move.",
+            palette: "from-cyan-900 via-indigo-900 to-purple-900",
+            locations: [
+                { time: "23:00", place: "Underground noodle bar near the transit hub", action: "Eat synthetics while watching the mag-lev trains go by." },
+                { time: "03:00", place: "Abandoned arcade in sector 4", action: "Hack the mainframe (or play Galaga)." }
+            ]
+        }
+    };
+
+    const selectedTheme = eraThemes[era] || eraThemes["Villain Era"];
+
+    return {
+        itineraryId: `MC-${Date.now()}`,
+        era,
+        location,
+        theme: selectedTheme
+    };
+};
+
+export const fetchAntiTouristLocations = async (location: string): Promise<any> => {
+    console.log(`Scrubbing basic tourist traps in ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    
+    return {
+        metrics: {
+            trapsAvoided: 847,
+            socialMediaFootprintScrubbed: "99.8%",
+            basicVibeDetected: "Critical Threat Level neutralized."
+        },
+        safeZones: [
+            {
+                id: "zn-1",
+                name: "[REDACTED] Basement Venue",
+                description: "Zero google reviews. Door is unmarked. Must knock 3 times. Local hardcore punk show tonight.",
+                digitalFootprint: "0.01%",
+                coordinates: "Hidden (Proximity Audio Guidance Only)"
+            },
+            {
+                id: "zn-2",
+                name: "Grandma's Unlicensed Tamale Stand",
+                description: "No Instagram. No Yelp. Just a lady with a cooler under a bridge. Best food in the city.",
+                digitalFootprint: "0%",
+                coordinates: "Under the I-95 Overpass"
+            },
+            {
+                id: "zn-3",
+                name: "The Dust Library",
+                description: "An illegal bookstore operating out of an abandoned subway car. Cash only. No photos allowed.",
+                digitalFootprint: "0.05%",
+                coordinates: "End of the Red Line Tunnel"
+            }
+        ]
+    };
+};
+
+export const analyzeOutfitAesthetic = async (imageInput: string): Promise<any> => {
+    console.log("Analyzing Fit...");
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    return {
+        aesthetic: "Y2K Cyber-Fairy",
+        analysis: "Detected parachute pants, star clips, and metallic accents.",
+        thriftSpots: [
+            { name: "Silo 4 Pop-up", distance: "0.4 miles", matches: 92, status: "Open until 8PM", vibe: "Tons of oversized cargos and archived 90s streetwear." },
+            { name: "Basement Curators", distance: "1.2 miles", matches: 85, status: "Secret Entrance", vibe: "Highly curated subversive basics." }
+        ]
+    };
+};
+
+export const triggerEphemeralDrop = async (): Promise<any> => {
+    console.log("Triggering anomalous drop event...");
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return {
+        dropId: `DRP-${Math.random().toString(36).substring(7).toUpperCase()}`,
+        title: "Underground Rooftop Set",
+        description: "Local DJ playing an unannounced 30-minute set.",
+        reward: "Free Entry (+ Secret Cocktail Menu)",
+        coordinates: "40.7128° N, 74.0060° W",
+        expiresInSeconds: 120
+    };
+};
+
+export const broadcastSideQuest = async (questType: string): Promise<any> => {
+    console.log(`Broadcasting side quest: ${questType}...`);
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    return {
+        questId: `SQ-${Date.now()}`,
+        status: "Party Formed",
+        type: questType,
+        partyMembers: [
+            { id: "u84", pseudo: "neon_drifter", distance: "0.2 mi", avatar: "👽" },
+            { id: "u12", pseudo: "matcha_fiend", distance: "0.4 mi", avatar: "👻" }
+        ],
+        objective: "Meet at the corner of 5th and Main. You have 30 minutes to complete the Boba Run. Disband immediately after.",
+        timeLimit: 1800
+    };
+};
+
+export const triggerLowBatteryProtocol = async (): Promise<any> => {
+    console.log(`User hasn't moved. Initiating Low-Battery Protocol...`);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return {
+        status: "Active",
+        actionsTaken: [
+            "Canceled 2:00 PM Museum Tour",
+            "Rescheduled dinner reservation to tomorrow",
+            "Silenced all non-essential notifications"
+        ],
+        lowEffortSuggestions: [
+            { type: "Delivery", title: "Max Comfort Noodles", detail: "Highest rated ramen 10 mins away. Unlocking seamless order." },
+            { type: "Audio", title: "Rain & Lo-Fi Playlist", detail: "Acoustic generation matching your room's acoustics." },
+            { type: "Location", title: "The Quiet Hill", detail: "A sloped grass patch exactly 3 minutes walk away. 15% sunlight, zero crowds." }
+        ]
+    };
+};
