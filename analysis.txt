@@ -1,0 +1,94 @@
+
+Mock Data and 3rd Party API Analysis
+
+File: temp_repo/src/ai/flows/analyze-culinary-dna-flow.ts
+
+Mock Data:
+
+The function `analyzeCulinaryDna` returns a hardcoded object when running in a browser environment (i.e., `typeof window !== 'undefined'`). This is likely for development or testing purposes.
+
+Snippet:
+'''
+if (typeof window !== 'undefined') {
+    return {
+      palateProfile: "A sophisticated explorer palate with a heavy lean towards Umami and Fermentation nodes.",
+      dominantFlavors: ["Umami", "Spice", "Charred"],
+      sensitivityAlert: "High sensitivity to overly processed dairy nodes detected.",
+      nextDishRecommendation: {
+        name: "Aged Wagyu Tataki",
+        reasoning: "Matches your preference for intense protein synthesis and light searing.",
+        whereToFind: "Back-alley Roppongi Speakeasy"
+      }
+    };
+  }
+'''
+
+3rd Party API Dependency:
+
+The code imports an `ai` object from `@/ai/genkit` and uses it to call a `generate` function. This indicates a dependency on a 3rd party AI service for generating culinary DNA analysis.
+
+Snippet:
+'''
+try {
+    const { ai } = await import('@/ai/genkit');
+    const response = await ai.generate({
+      prompt: `You are the 'Aura Culinary Architect.' 
+      Analyze the explorer's food history: ${JSON.stringify(input.foodHistory)}
+      Current Destination: ${input.currentDestination}
+      Output Language: ${input.language || 'English'}.`,
+      output: { schema: CulinaryDnaOutputSchema },
+    });
+
+    if (!response.output) throw new Error("Culinary DNA synthesis failed.");
+    return response.output;
+  } catch (error) {
+    console.error("Culinary DNA node error:", error);
+    throw error;
+  }
+'''
+
+File: temp_repo/src/ai/flows/analyze-mood-synthesis-flow.ts
+
+Mock Data:
+
+The function `analyzeMoodSynthesis` returns a hardcoded object when running in a browser environment (i.e., `typeof window !== 'undefined'`). This is likely for development or testing purposes.
+
+Snippet:
+'''
+if (typeof window !== 'undefined') {
+    return {
+      detectedVibe: "Exhausted but Fulfilled",
+      happinessScore: 8,
+      burnoutRisk: "Low",
+      emotionalAnalysis: "The explorer is operating at peak sensory immersion, but physical nodes are nearing depletion.",
+      itineraryPivot: {
+        suggestedShift: "Delay tomorrow's 07:00 node by 3 hours.",
+        reasoning: "Restoring biological equilibrium will prevent a logic collapse by midday."
+      }
+    };
+  }
+'''
+
+3rd Party API Dependency:
+
+The code imports an `ai` object from `@/ai/genkit` and uses it to call a `generate` function. This indicates a dependency on a 3rd party AI service for generating mood synthesis analysis.
+
+Snippet:
+'''
+try {
+    const { ai } = await import('@/ai/genkit');
+    const response = await ai.generate({
+      prompt: `You are the 'Aura Emotional Architect.' 
+      Analyze the explorer's day: "${input.dailySummary}"
+      ${input.photoDataUri ? "Also analyze the visual mood from the provided media." : ""}
+      Output Language: ${input.language || 'English'}.`,
+      output: { schema: MoodSynthesisOutputSchema },
+    });
+
+    if (!response.output) throw new Error("Mood synthesis node failed.");
+    return response.output;
+  } catch (error) {
+    console.error("Mood synthesis node error:", error);
+    throw error;
+  }
+'''
