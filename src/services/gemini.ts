@@ -24,7 +24,7 @@ export const generateItinerary = async (destination: string, duration: number, v
                 day: 1, theme: "Arrival & Cultural Immersion",
                 activities: [
                     { id: "act1", time: "14:00", title: "Arrive & Check-in", description: "Settle into your hotel.", location: { lat: 35.6895, lng: 139.6917 }, type: 'transport' },
-                    { id: "act2", time: "16:00", title: "Shibuya Crossing", description: "Experience the world's busiest intersection.", estimatedCost: 0, type: 'sightseeing' },
+                    { id: "act2", time: "16:00", title: "Shibuya Crossing", description: "Experience the world\'s busiest intersection.", estimatedCost: 0, type: 'sightseeing' },
                     { id: "act3", time: "19:00", title: "Dinner at a Traditional Izakaya", description: "Enjoy your first taste of authentic Japanese cuisine.", estimatedCost: 50, bookingLink: "https://example.com/booking?id=izakaya123", type: 'dining' },
                 ]
             },
@@ -42,7 +42,7 @@ export const getLandmarkLens = async (imageUrl: string): Promise<any> => {
         architect: 'Stephen Sauvestre', 
         yearCompleted: 1889,
         description: 'Originally built for the 1889 World\'s Fair, it has become a global cultural icon.',
-        funFacts: ["The tower's height changes by up to 15 cm depending on the temperature.", "It was the world's tallest man-made structure for 41 years."]
+        funFacts: ["The tower\'s height changes by up to 15 cm depending on the temperature.", "It was the world\'s tallest man-made structure for 41 years."]
     };
 };
 
@@ -64,7 +64,7 @@ export const getLocalLegends = async (location: {lat: number, lng: number}): Pro
     return {
         title: "The Ghost of the Old Opera House",
         story: "They say that late at night, you can sometimes hear a faint, sorrowful aria drifting from the old opera house down the street...",
-        historicalContext: "The Grand Opera House was the city's premier cultural venue from 1910 until it tragically burned down in 1932.",
+        historicalContext: "The Grand Opera House was the city\'s premier cultural venue from 1910 until it tragically burned down in 1932.",
         audioNarrationUrl: "/placeholder-audio.mp3"
     };
 };
@@ -73,8 +73,8 @@ export const searchInsurancePlans = async (destination: string, duration: number
     console.log(`Searching for insurance plans for ${destination}...`);
     await new Promise(resolve => setTimeout(resolve, 2000));
     return [
-        { id: 'plan_premium_123', name: "Wanderer's Shield - Premium", provider: 'Global Travel Assurance', price: 150.75, features: ['Comprehensive medical', 'Trip cancellation', 'Adventure sports coverage'], aiSummary: 'A comprehensive plan for maximum peace of mind.' },
-        { id: 'plan_standard_456', name: "Explorer's Net - Standard", provider: 'SafeJourney Partners', price: 85.50, features: ['Balanced medical', 'Baggage loss', 'Rental car protection'], aiSummary: 'A popular choice for leisure and business travelers.' }
+        { id: 'plan_premium_123', name: "Wanderer\'s Shield - Premium", provider: 'Global Travel Assurance', price: 150.75, features: ['Comprehensive medical', 'Trip cancellation', 'Adventure sports coverage'], aiSummary: 'A comprehensive plan for maximum peace of mind.' },
+        { id: 'plan_standard_456', name: "Explorer\'s Net - Standard", provider: 'SafeJourney Partners', price: 85.50, features: ['Balanced medical', 'Baggage loss', 'Rental car protection'], aiSummary: 'A popular choice for leisure and business travelers.' }
     ];
 };
 
@@ -86,8 +86,8 @@ export const generateExplorerQuest = async (destination: string): Promise<any> =
         theme: "A scavenger hunt to uncover a hidden message left by a secret society along the banks of the Seine.",
         waypoints: [
             { name: "The Whispering Bookstore", riddle: "I have no voice, but I speak in volumes. Find me where stories sleep.", location: { lat: 48.853, lng: 2.348 } },
-            { name: "The Artist's Bridge", riddle: "I am a canvas of love, locked away with a key. Where lovers leave their mark, you will find me.", location: { lat: 48.858, lng: 2.337 } },
-            { name: "The Sun King's Garden", riddle: "My owner commanded the sun, but I offer shade. Find the geometric patterns I have laid.", location: { lat: 48.863, lng: 2.326 } }
+            { name: "The Artist\'s Bridge", riddle: "I am a canvas of love, locked away with a key. Where lovers leave their mark, you will find me.", location: { lat: 48.858, lng: 2.337 } },
+            { name: "The Sun King\'s Garden", riddle: "My owner commanded the sun, but I offer shade. Find the geometric patterns I have laid.", location: { lat: 48.863, lng: 2.326 } }
         ]
     };
 };
@@ -109,7 +109,7 @@ export const getSouvenirStory = async (imageUrl: string): Promise<any> => {
     return {
         name: "Maneki-neko (Beckoning Cat)",
         history: "A common Japanese figurine which is believed to bring good luck to the owner. It is first recorded to have appeared during the later part of the Edo period in Japan.",
-        artisanTradition: "Traditionally made from ceramic, modern versions can be found in a variety of materials. The cat's raised paw, color, and adornments all carry specific meanings."
+        artisanTradition: "Traditionally made from ceramic, modern versions can be found in a variety of materials. The cat\'s raised paw, color, and adornments all carry specific meanings."
     };
 };
 
@@ -156,7 +156,7 @@ export const generateVideo = async (itinerary: any): Promise<any> => {
 export const chatWithRuth = async (message: string, personality: string[]): Promise<any> => {
     console.log(`Chatting with Ruth. Personality: ${personality.join(', ')}. Message: ${message}`);
     await new Promise(resolve => setTimeout(resolve, 1200));
-    let response = "Hello! I'm Ruth. How can I help you today?";
+    let response = "Hello! I\'m Ruth. How can I help you today?";
     if (message.toLowerCase().includes('recommend')) {
         response = "Of course! What kind of experience are you in the mood for?";
     }
@@ -406,7 +406,7 @@ export const suggestActivityBasedOnBioData = async (bioData: any): Promise<strin
 export const findStoryLocations = async (storyQuery: string): Promise<any> => {
     console.log(`Scouting story locations for: ${storyQuery}...`);
     await new Promise(resolve => setTimeout(resolve, 2200));
-    return { query: storyQuery, locations: [{ name: "Platform 9 3/4 (King's Cross Station)", relevance: "The famous magical platform from Harry Potter." }] };
+    return { query: storyQuery, locations: [{ name: "Platform 9 3/4 (King\'s Cross Station)", relevance: "The famous magical platform from Harry Potter." }] };
 };
 
 export const getThenAndNowPhoto = async (location: string): Promise<any> => {
@@ -514,7 +514,7 @@ export const getAuraShieldSuggestion = async (bioData: any): Promise<any> => {
     console.log("AuraShield is monitoring your bio-data...");
     await new Promise(resolve => setTimeout(resolve, 900));
     if (bioData.stressLevel > 0.75) {
-        return { isActive: true, suggestion: "Your stress levels seem a bit high. I've found a quiet Zen garden nearby." };
+        return { isActive: true, suggestion: "Your stress levels seem a bit high. I\'ve found a quiet Zen garden nearby." };
     }
     return { isActive: false };
 };
@@ -597,3 +597,242 @@ export const fetchEntangledData = async (location: string): Promise<any> => {
     };
 };
 
+export const analyzeEmotionalSpectrum = async (mood: string): Promise<any> => {
+    console.log(`Analyzing emotional spectrum for mood: ${mood}...`);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return {
+        mood: mood,
+        dominantEmotion: "Anxious",
+        secondaryEmotion: "Excited",
+        emotionalAnalysis: "The user is feeling a mix of anxiety and excitement about their upcoming trip.",
+        recommendation: "Consider some calming activities to ease the pre-travel jitters."
+    };
+};
+
+export const generateTravelConcept = async (prompt: string): Promise<any> => {
+    console.log(`Generating travel concept for prompt: "${prompt}"...`);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    return {
+        concept: "The 'Uncharted Territory' Experience",
+        description: "A journey designed to push you out of your comfort zone and into the thrill of the unknown. This trip will focus on spontaneous exploration, local encounters, and unexpected adventures.",
+        suggestedDestinations: ["Patagonia, Argentina", "Mongolia", "The Faroe Islands"]
+    };
+};
+
+export const getARTransit = async (station: string): Promise<any> => {
+    console.log(`Getting AR transit information for ${station}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    return {
+        station: station,
+        lines: [
+            { name: "Line 1", direction: "La Défense", nextArrival: "2 min", status: "On Time" },
+            { name: "RER A", direction: "Boissy-Saint-Léger", nextArrival: "5 min", status: "Delayed" }
+        ],
+        holographicMapUrl: "/models/transit_map.glb"
+    };
+};
+
+export const getARSkyGazer = async (): Promise<any> => {
+    console.log("Getting AR skygazer information...");
+    await new Promise(resolve => setTimeout(resolve, 1200));
+    return {
+        constellations: [
+            { name: "Orion", isVisible: true, modelUrl: "/models/orion.glb" },
+            { name: "Ursa Major", isVisible: true, modelUrl: "/models/ursa_major.glb" }
+        ],
+        planets: [
+            { name: "Mars", isVisible: true, modelUrl: "/models/mars.glb" }
+        ]
+    };
+};
+
+export const getARStory = async (location: string): Promise<any> => {
+    console.log(`Getting AR story for ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 2200));
+    return {
+        title: "The Medici Conspiracy",
+        chapters: [
+            { number: 1, title: "The Secret Meeting", location: { lat: 43.7731, lng: 11.2552 } },
+            { number: 2, title: "The Hidden Dagger", location: { lat: 43.7696, lng: 11.2558 } }
+        ],
+        audioNarrationUrl: "/placeholder-audio.mp3"
+    };
+};
+
+export const paintTheTown = async (location: {lat: number, lng: number}, graffitiUrl: string): Promise<any> => {
+    console.log(`Painting the town at ${location.lat}, ${location.lng}...`);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return {
+        success: true,
+        arObjectUrl: graffitiUrl,
+        message: "Your AR graffiti has been placed."
+    };
+};
+
+export const getARLanguageHelper = async (imageUrl: string): Promise<any> => {
+    console.log("Getting AR language helper for image...");
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    return {
+        object: "Apple",
+        translations: [
+            { language: "Japanese", translation: "Ringo (りんご)" },
+            { language: "French", translation: "Pomme" }
+        ]
+    };
+};
+
+export const leaveOdysseyRelayMessage = async (location: {lat: number, lng: number}, message: string): Promise<any> => {
+    console.log(`Leaving Odyssey Relay message at ${location.lat}, ${location.lng}...`);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return {
+        success: true,
+        messageId: `msg_${Date.now()}`,
+        message: message
+    };
+};
+
+export const findSkillExchange = async (location: string): Promise<any> => {
+    console.log(`Finding skill exchanges in ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1600));
+    return {
+        exchanges: [
+            { user: "Javier", offering: "Salsa Dancing Lessons", seeking: "English Conversation Practice" },
+            { user: "Yuki", offering: "Calligraphy Workshop", seeking: "Photography Tips" }
+        ]
+    };
+};
+
+export const getTravelerHeatmap = async (location: string): Promise<any> => {
+    console.log(`Getting traveler heatmap for ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    return {
+        location: location,
+        heatmapUrl: "/placeholder-heatmap.png",
+        insights: [
+            "High concentration of 'foodie' travelers in the Gion district.",
+            "Recent spike in 'adventure' travelers near Fushimi Inari-taisha."
+        ]
+    };
+};
+
+export const sendGlobalGift = async (userId: string, gift: any): Promise<any> => {
+    console.log(`Sending global gift to ${userId}...`);
+    await new Promise(resolve => setTimeout(resolve, 1200));
+    return {
+        success: true,
+        gift: gift,
+        message: `Your gift has been sent to user ${userId}!`
+    };
+};
+
+export const findSpontaneousMeetups = async (location: {lat: number, lng: number}, interests: string[]): Promise<any> => {
+    console.log(`Finding spontaneous meetups near ${location.lat}, ${location.lng}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    return {
+        meetups: [
+            { title: "Coffee for Creatives", location: "Blue Bottle Coffee", time: "3:00 PM", interests: ["art", "tech"] },
+            { title: "Indie Game Dev Meetup", location: "Bit-Bar", time: "6:00 PM", interests: ["tech", "gaming"] }
+        ]
+    };
+};
+
+export const generateChronoQuest = async (location: string): Promise<any> => {
+    console.log(`Generating Chrono-Quest for ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    return {
+        title: "The Ghost of Le Marais",
+        era: "17th Century Paris",
+        objective: "Find the hidden message left by a phantom of the French Revolution.",
+        firstStep: "Seek the oldest clock in the Marais district. It holds the first key."
+    };
+};
+
+export const getFactionWarStatus = async (): Promise<any> => {
+    console.log("Getting faction war status...");
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return {
+        factions: [
+            { name: "The Cartographers", score: 10500, rank: 1 },
+            { name: "The Gastronomes", score: 9800, rank: 2 },
+            { name: "The Historians", score: 9750, rank: 3 }
+        ],
+        activeConflict: "The Battle for the Best Gelato in Rome"
+    };
+};
+
+export const getDeriveModeInstructions = async (location: string): Promise<any> => {
+    console.log(`Getting 'Dérive' mode instructions for ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1200));
+    return {
+        location: location,
+        instructions: [
+            "Put away your map.",
+            "Follow the person in the red coat for five minutes.",
+            "Turn left at the next street that has a bakery.",
+            "Walk until you hear music."
+        ]
+    };
+};
+
+export const verifyLocalLegend = async (legendId: string, imageUrl: string): Promise<any> => {
+    console.log(`Verifying local legend ${legendId}...`);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    return {
+        isVerified: true,
+        legendTitle: "The Ghost of the Old Opera House",
+        reward: "250 XP"
+    };
+};
+
+export const startEscapeTheCity = async (location: string): Promise<any> => {
+    console.log(`Starting 'Escape the City' from ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    return {
+        objective: "Reach a designated green space outside the city limits using only public transport and your wits.",
+        firstClue: "Find the station where the iron birds sleep."
+    };
+};
+
+export const getCultureCollectorMissions = async (location: string): Promise<any> => {
+    console.log(`Getting Culture Collector missions for ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1600));
+    return {
+        missions: [
+            { title: "Taste of Tradition", objective: "Try a traditional tea ceremony and document your experience.", reward: "150 XP" },
+            { title: "Sounds of the City", objective: "Record a 30-second audio clip of a unique sound in the city.", reward: "100 XP" }
+        ]
+    };
+};
+
+export const getCrowdDensity = async (location: string): Promise<any> => {
+    console.log(`Getting crowd density for ${location}...`);
+    await new Promise(resolve => setTimeout(resolve, 1200));
+    return {
+        location: location,
+        density: 0.85,
+        status: "Very Crowded",
+        historicalData: [0.7, 0.75, 0.8, 0.85, 0.9]
+    };
+};
+
+export const shipSouvenirs = async (souvenirs: any[], address: string): Promise<any> => {
+    console.log("Shipping souvenirs...");
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    return {
+        success: true,
+        trackingNumber: `AETH${Date.now()}`,
+        estimatedDelivery: "5-7 business days"
+    };
+};
+
+export const getLastMileSolution = async (start: {lat: number, lng: number}, end: {lat: number, lng: number}): Promise<any> => {
+    console.log("Getting last-mile solution...");
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return {
+        solutions: [
+            { type: "E-scooter", provider: "Lime", cost: "$3.50", duration: "8 minutes" },
+            { type: "Bike Share", provider: "Vélib'", cost: "$1.00", duration: "12 minutes" },
+            { type: "Walk", cost: "$0", duration: "20 minutes" }
+        ]
+    };
+};
