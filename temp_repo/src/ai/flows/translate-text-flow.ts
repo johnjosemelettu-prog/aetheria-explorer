@@ -1,4 +1,5 @@
-import { z } from 'zod';
+import {- z -} from 'zod';
+import { defineFlow } from 'genkit';
 
 /**
  * @fileOverview A Genkit flow for translating text into a specified language.
@@ -36,14 +37,24 @@ export async function translateText(
   try {
     const { ai } = await import('@/ai/genkit');
 
-    const response = await ai.generate({
-      prompt: `Translate the following text to ${input.targetLanguage}: "${input.text}"`,
-      output: { schema: TranslateTextOutputSchema },
+    const response = await ai.translate({
+      text: input.text,
+      targetLanguage: input.targetLanguage,
+      sourceLanguage: input.sourceLanguage,
     });
 
-    return response.output || { translatedText: input.text };
+    return { translatedText: response };
   } catch (error) {
     console.error('Translation synthesis node failure:', error);
     return { translatedText: input.text };
   }
 }
+
+defineFlow(
+  {
+    name: 'translateText',
+    inputSchema: TranslateTextInputSchema,
+    outputSchema: TranslateTextOutputSchema,
+  },
+  translateText
+);

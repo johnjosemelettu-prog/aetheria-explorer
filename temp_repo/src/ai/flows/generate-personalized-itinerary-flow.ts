@@ -27,7 +27,7 @@ export async function generatePersonalizedItinerary(
     const { GeneratePersonalizedItineraryOutputSchema } = await import('./itinerary-schemas');
     
     const response = await ai.generate({
-      prompt: `You are the Aura Odyssey Architect. Generate a high-fidelity itinerary for ${input.destination}.`,
+      prompt: `You are the Aura Odyssey Architect. Generate a high-fidelity itinerary for ${input.destination} and translate it to ${input.language}`,
       output: { schema: GeneratePersonalizedItineraryOutputSchema },
     });
 
