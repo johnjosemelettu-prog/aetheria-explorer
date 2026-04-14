@@ -31,7 +31,7 @@ export default function LocalExpertVerification() {
               </div>
               <div className="flex-1">
                  <h4 className="font-bold text-lg text-emerald-100">Live in Region</h4>
-                 <p className="text-sm text-emerald-200/50">Geofence validation passed for > 6 months.</p>
+                 <p className="text-sm text-emerald-200/50">Geofence validation passed for &gt; 6 months.</p>
               </div>
               <div className="text-emerald-400 font-bold font-mono text-xs bg-emerald-400/10 px-3 py-1 rounded">VERIFIED</div>
            </div>
