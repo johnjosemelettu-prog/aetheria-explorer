@@ -11,7 +11,7 @@ export default function BookingHub() {
   const [activeTab, setActiveTab] = useState<BookingType>('flight');
   const [isSearching, setIsSearching] = useState(false);
   const [results, setResults] = useState<any[] | null>(null);
-  const isPremium = usePremiumStatus();
+  const { isPremium } = usePremiumStatus();
 
   const handleSearch = async () => {
     setIsSearching(true);

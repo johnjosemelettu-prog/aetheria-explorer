@@ -5,7 +5,7 @@ import { usePremiumStatus } from '../hooks/usePremiumStatus';
 
 export default function SubscriptionManager() {
   const { t } = useTranslation();
-  const isPremium = usePremiumStatus();
+  const { isPremium } = usePremiumStatus();
 
   if (isPremium) return null;
 

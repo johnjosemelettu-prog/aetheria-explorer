@@ -30,7 +30,7 @@ export default function ExplorerDashboard() {
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
   const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
   const [isGeneratorOpen, setIsGeneratorOpen] = useState(false);
-  const isPremium = usePremiumStatus();
+  const { isPremium } = usePremiumStatus();
 
   useEffect(() => {
     if (!auth.currentUser) return;

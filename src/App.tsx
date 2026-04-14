@@ -4,6 +4,7 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { auth, db } from './lib/firebase';
 import Navbar from './components/Navbar';
+import PremiumGate from './components/PremiumGate';
 import Hero from './components/Hero';
 import ExplorerDashboard from './components/ExplorerDashboard';
 import ItinerariesPage from './components/ItinerariesPage';
@@ -914,7 +915,23 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {renderContent()}
+              {(() => {
+                const PRO_ROUTES = [
+                  '/ai-itinerary', '/serendipity-engine', '/cognitive-load-balancer', '/scenario-planner',
+                  '/mood-synthesis', '/ar-wayfinding', '/landmark-lens', '/vision-hub', '/ar-menu',
+                  '/paint-the-town', '/memory-palace', '/sky-gazer', '/ar-time-lapse'
+                ];
+                
+                const content = renderContent();
+                
+                if (PRO_ROUTES.includes(currentPath)) {
+                  // We need to import PremiumGate. Oh wait, I can just render it. 
+                  // I'll ensure PremiumGate is imported at the top.
+                  return <PremiumGate featureName="This Advanced Feature">{content}</PremiumGate>;
+                }
+                
+                return content;
+              })()}
             </motion.div>
           </AnimatePresence>
         </main>

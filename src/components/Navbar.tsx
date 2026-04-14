@@ -87,7 +87,7 @@ export default function Navbar({ user }: NavbarProps) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const isPremium = usePremiumStatus();
+  const { isPremium } = usePremiumStatus();
 
   useEffect(() => {
     const fetchProfile = async () => {
