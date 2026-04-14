@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, Plane, Building, Activity, CheckCircle, CreditCard, ChevronRight, Lock, Umbrella, Map, ArrowLeft, Loader2, FileShield } from 'lucide-react';
+import { Shield, Plane, Building, Activity, CheckCircle, CreditCard, ChevronRight, Lock, Umbrella, Map, ArrowLeft, Loader2, FileText } from 'lucide-react';
 
 const MOCK_BOOKINGS = [
   { id: 'b1', type: 'flight', title: 'Roundtrip Flight', destination: 'Tokyo, Japan', date: 'Oct 12 - Oct 20', cost: 1200, icon: Plane },
@@ -90,7 +90,7 @@ export default function TravelInsuranceComparison() {
               <div className="lg:col-span-4 space-y-6">
                 <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
                   <h3 className="font-bold text-lg mb-6 flex items-center gap-2">
-                     <FileShield className="text-indigo-500 w-5 h-5" /> Covered Itinerary
+                     <FileText className="text-indigo-500 w-5 h-5" /> Covered Itinerary
                   </h3>
                   <div className="space-y-4">
                     {MOCK_BOOKINGS.map(booking => (
@@ -120,7 +120,7 @@ export default function TravelInsuranceComparison() {
                     <div 
                       key={policy.id} 
                       onClick={() => setSelectedPolicyId(policy.id)}
-                      className={`relative cursor-pointer rounded-3xl border-2 transition-all duration-300 p-6 flex flex-col ${selectedPolicyId === policy.id ? \`bg-white shadow-xl shadow-indigo-100/50 \${policy.activeBorder}\` : \`bg-white shadow-sm hover:shadow-md \${policy.border} border-slate-100\`}`}
+                      className={`relative cursor-pointer rounded-3xl border-2 transition-all duration-300 p-6 flex flex-col ${selectedPolicyId === policy.id ? 'bg-white shadow-xl shadow-indigo-100/50 ' + policy.activeBorder : 'bg-white shadow-sm hover:shadow-md border-slate-100 ' + policy.border}`}
                     >
                       {policy.popular && (
                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
