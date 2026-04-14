@@ -65,3 +65,11 @@ This plan focuses on **System/End-to-End Testing**. Each feature will be tested 
 | **TC-SUB-05** | `usePremiumStatus` Hook | Verify hook returns `false` for a user with an expired premium pass. | 1. Log in with a user that has an expired premium pass.<br>2. Access a component that uses the `usePremiumStatus` hook. | The hook should return `false`. | Pass/Fail |
 | **TC-PFW-01** | `PremiumFeatureWrapper` | Verify the wrapper shows the "premium feature" message for non-premium users. | 1. Log in with a non-premium user.<br>2. Navigate to a page that uses the `PremiumFeatureWrapper` to protect content. | The user should see the message "This feature is only available to premium users." and the protected content should not be visible. | Pass/Fail |
 | **TC-PFW-02** | `PremiumFeatureWrapper` | Verify the wrapper renders its children for premium users. | 1. Log in with a premium user.<br>2. Navigate to a page that uses the `PremiumFeatureWrapper` to protect content. | The user should be able to see and interact with the protected content. | Pass/Fail |
+
+### Test Suite: Accessibility & Aetheria+ Gates
+- **Gating**: Attempt to access `/ai-itinerary` without being authenticated or subscribed. Verify that `PremiumGate.tsx` intercepts with the Aetheria+ Upgrade pane.
+- **Booking Inheritance**: Mint a mocked document to `premium_passes` for the user's UID and route back to `/landmark-lens`. Verify access is cleanly granted.
+
+### Test Suite: Travel Insurance Flow
+- **Bookings Sync**: Navigate to `/travel-insurance` and assert that your itinerary mock activities (e.g., flights, resorts) generate a dynamically calculated Total Trip Value matching the sum of costs.
+- **Checkout Integrity**: Enter mock Card Name/Number combos. Monitor the 2500ms processing delay before reaching the Success page and assert receipt of an `AETH-` policy number string.

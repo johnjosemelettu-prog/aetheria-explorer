@@ -56,3 +56,10 @@ Given the deep integration of AI, this section is vital for monitoring performan
 *   **Vibe Market Management (`/admin` -> `Vibe Market` tab):**
     *   **Vibe Editor:** Create new "vibes" or edit existing ones. Define their name, description, associated aesthetics (color palettes, music styles), and the experiences they include.
     *   **Market Curation:** Control the Vibe Market by featuring specific vibes, creating thematic collections (e.g., "Winter Wonderland Vibes"), and managing their visibility.
+
+## Aetheria+ Subscription Strategy
+Access handling is resolved by `src/hooks/usePremiumStatus.ts`. This hook monitors the Firestore `subscriptions` collection (global status) independently against the `premium_passes` collection (booking-specific).
+If neither yields an active flag, premium restricted routes intercept the user with the `PremiumGate` UI preventing feature access.
+
+## Navbar Autoscale Routine
+The App's central DOM handles over 300 discrete mapped routes. The `Navbar.tsx` handles them elegantly using a keyword categorization schema, dynamically bundling them into collapsible categories. Make sure your `lucide-react` packages are strictly compatible when pushing generic categorizations.

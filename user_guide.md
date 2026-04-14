@@ -36,3 +36,13 @@ Your safety is paramount. The **Scam Alert** system, powered by admin verificati
 *   **Admin:** A platform administrator with moderation and management privileges.
 
 Active and trusted members of the community may be promoted to roles like "Local Hero" or even "Admin" based on their contributions. Keep exploring, sharing, and helping fellow travelers!
+## Navigating the Ecosystem
+Aetheria Explorer has successfully scaled to over 300 distinctive features. To streamline your journey, the main sidebar menu dynamically categorizes tools into 9 main hubs: Core Hub, AR & Immersive, Gastronomy, Wellness & Fitness, Nightlife & Entertainment, Local Culture, Transit & Finance, Safety & Legal, and Explorer Utilities.
+
+## Aetheria+ and Premium Booking Passes
+Advanced platform capabilities, including generative AI planners, AR Time-Lapses, and Landmark Lenses, route through Aetheria+.
+- **Global Subscription**: A universal subscription unlocks everything worldwide.
+- **Booking Passes**: If you lack a global subscription, you can purchase an isolated Premium Pass mapped strictly to a specific itinerary booking ID.
+
+## Integrated Travel Insurance
+Navigate to the Travel Insurance hub to synthesize a unified policy over all your individual trip bookings cleanly. Review basic, premium, and extreme adventure coverage tiers, and seamlessly checkout natively inside the app using the new, highly secure Aetheria Payments form.
