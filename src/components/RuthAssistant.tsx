@@ -4,13 +4,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, Send, X, Bot, User as UserIcon } from 'lucide-react';
 import { chatWithRuth } from '../services/gemini';
 import { cn } from '../lib/utils';
+import { User as FirebaseUser } from 'firebase/auth';
+import { UserProfile } from '../types';
 
 interface Message {
   role: 'user' | 'model';
   parts: string;
 }
 
-export default function RuthAssistant() {
+interface RuthAssistantProps {
+  user?: FirebaseUser | null;
+  profile?: UserProfile | null;
+}
+
+export default function RuthAssistant({ user, profile }: RuthAssistantProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { role: 'model', parts: "Hello! I'm Ruth, your Aetheria Smart Travel Assistant. How can I help you explore the world today?" }
@@ -19,8 +26,7 @@ export default function RuthAssistant() {
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // TODO: This should be dynamically determined based on user interactions.
-  const userPersonality = ['adventurous', 'foodie']; 
+  const userPersonality = profile?.vibe ? [profile.vibe] : ['adventurous', 'foodie']; 
 
   const handleSend = async () => {
     if (!input.trim() || isTyping) return;
