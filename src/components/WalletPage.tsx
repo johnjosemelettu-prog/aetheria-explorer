@@ -14,7 +14,9 @@ import {
   DollarSign,
   PieChart,
   Activity,
-  Loader2
+  Loader2,
+  RefreshCw,
+  Camera
 } from 'lucide-react';
 import { db, auth } from '../lib/firebase';
 import { 
@@ -40,14 +42,31 @@ import {
   ResponsiveContainer 
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
+import ScanAndPayModal from './ScanAndPayModal';
 
 export default function WalletPage() {
   const { t } = useTranslation();
   const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
   const [balance, setBalance] = useState(0);
   const [isTopUpOpen, setIsTopUpOpen] = useState(false);
+  const [isScanPayOpen, setIsScanPayOpen] = useState(false);
   const [topUpAmount, setTopUpAmount] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
+
+  const [fromCurrency, setFromCurrency] = useState('USD');
+  const [toCurrency, setToCurrency] = useState('EUR');
+  const [conversionAmount, setConversionAmount] = useState('');
+  const [convertedAmount, setConvertedAmount] = useState<number | null>(null);
+
+  const currencies = ['USD', 'EUR', 'JPY', 'GBP', 'AUD', 'CAD'];
+  const conversionRates: { [key: string]: { [key: string]: number } } = {
+    USD: { EUR: 0.92, JPY: 157.5, GBP: 0.79, AUD: 1.5, CAD: 1.37 },
+    EUR: { USD: 1.08, JPY: 170.5, GBP: 0.85, AUD: 1.63, CAD: 1.48 },
+    JPY: { USD: 0.0063, EUR: 0.0059, GBP: 0.005, AUD: 0.0095, CAD: 0.0087 },
+    GBP: { USD: 1.27, EUR: 1.18, JPY: 199.5, AUD: 1.9, CAD: 1.73 },
+    AUD: { USD: 0.67, EUR: 0.61, JPY: 105.0, GBP: 0.53, CAD: 0.91 },
+    CAD: { USD: 0.73, EUR: 0.67, JPY: 115.0, GBP: 0.58, AUD: 1.1 },
+  };
 
   useEffect(() => {
     if (!auth.currentUser) return;
@@ -95,6 +114,19 @@ export default function WalletPage() {
     }
   };
 
+  const handleConversion = () => {
+    const amount = parseFloat(conversionAmount);
+    if (!amount || !fromCurrency || !toCurrency) return;
+    if (fromCurrency === toCurrency) {
+      setConvertedAmount(amount);
+      return;
+    }
+    const rate = conversionRates[fromCurrency]?.[toCurrency];
+    if (rate) {
+      setConvertedAmount(amount * rate);
+    }
+  };
+
   // Mock data for spending chart
   const spendingData = [
     { name: 'Mon', amount: 120 },
@@ -118,6 +150,14 @@ export default function WalletPage() {
             <p className="text-foreground/50">{t('wallet.subtitle')}</p>
           </div>
         </div>
+        <div className='flex gap-4'>
+        <button 
+          onClick={() => setIsScanPayOpen(true)}
+          className="flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-2xl font-bold shadow-xl shadow-primary/20 hover:scale-[1.02] transition-all"
+        >
+          <Camera className="w-5 h-5" />
+          Scan & Pay
+        </button>
         <button 
           onClick={() => setIsTopUpOpen(true)}
           className="flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white rounded-2xl font-bold shadow-xl shadow-accent/20 hover:scale-[1.02] transition-all"
@@ -125,6 +165,7 @@ export default function WalletPage() {
           <Plus className="w-5 h-5" />
           {t('wallet.topUp')}
         </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -175,6 +216,39 @@ export default function WalletPage() {
                   <span className="text-[10px] text-foreground/40 uppercase font-bold block mb-1">{t('wallet.tier')}</span>
                   <div className="text-lg font-bold">{t('wallet.explorer')}</div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="glass p-8 rounded-[32px]">
+            <h3 className="text-xl font-display font-bold mb-8">Currency Converter</h3>
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <div className="relative w-full">
+                <input
+                  type="number"
+                  value={conversionAmount}
+                  onChange={(e) => setConversionAmount(e.target.value)}
+                  placeholder="Amount"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4"
+                />
+                <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)} className="absolute left-2 top-1/2 -translate-y-1/2 bg-transparent font-bold">
+                  {currencies.map(c => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+              <button onClick={handleConversion} className="p-3 glass-hover rounded-full">
+                  <RefreshCw className="w-6 h-6 text-foreground/50" />
+              </button>
+              <div className="relative w-full">
+                 <input
+                  type="text"
+                  readOnly
+                  value={convertedAmount ? convertedAmount.toFixed(2) : ''}
+                  placeholder="Converted Amount"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4"
+                />
+                <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)} className="absolute left-2 top-1/2 -translate-y-1/2 bg-transparent font-bold">
+                  {currencies.map(c => <option key={c} value={c}>{c}</option>)}
+                </select>
               </div>
             </div>
           </section>
@@ -357,6 +431,7 @@ export default function WalletPage() {
           </div>
         )}
       </AnimatePresence>
+      <ScanAndPayModal isOpen={isScanPayOpen} onClose={() => setIsScanPayOpen(false)} />
     </div>
   );
 }

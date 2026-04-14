@@ -1,29 +1,35 @@
-
 import React, { useState } from 'react';
 import EsimPaymentModal from './EsimPaymentModal';
 
 const EsimPurchase: React.FC = () => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState({ name: 'Global Roaming', price: 45 });
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handlePurchase = () => {
     setShowPaymentModal(true);
   };
 
-  const handleSuccessfulCheckout = () => {
-    setShowPaymentModal(false);
-    // Add logic to provision the eSIM after successful purchase
-    alert('eSIM purchased successfully! Ready for activation.');
+  const handleConfirmPurchase = () => {
+    setIsProcessing(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsProcessing(false);
+      setShowPaymentModal(false);
+      alert('eSIM purchased successfully! Ready for activation.');
+    }, 2000);
   };
 
   return (
     <div>
       <button onClick={handlePurchase}>Purchase eSIM</button>
       {showPaymentModal && (
-        <EsimPaymentModal 
-          plan={selectedPlan} 
-          onClose={() => setShowPaymentModal(false)} 
-          onSuccessfulCheckout={handleSuccessfulCheckout} 
+        <EsimPaymentModal
+          country={selectedPlan.name}
+          price={selectedPlan.price}
+          onClose={() => setShowPaymentModal(false)}
+          onConfirm={handleConfirmPurchase}
+          isProcessing={isProcessing}
         />
       )}
     </div>

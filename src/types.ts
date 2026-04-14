@@ -51,7 +51,7 @@ export interface WalletTransaction {
   type: 'credit' | 'debit';
   description: string;
   category: 'booking' | 'topup' | 'refund' | 'esim';
-  timestamp: string;
+  timestamp: { seconds: number };
 }
 
 export interface ESimProfile {
@@ -62,6 +62,7 @@ export interface ESimProfile {
   dataUsed: number;
   expiryDate: string;
   status: 'active' | 'expired' | 'pending';
+  createdAt: { seconds: number };
 }
 
 export interface WalletState {
