@@ -4,6 +4,8 @@
 // In a real application, these would be calls to a secure backend that interacts with the Gemini API.
 // This file contains mock functions that simulate the rich data output from Google Gemini 2.5.
 
+import { UserProfile } from "../types";
+
 export const synthesizeWeather = async (destination: string, startDate?: string, endDate?: string): Promise<any> => {
     console.log(`Synthesizing weather for ${destination}...`);
     await new Promise(resolve => setTimeout(resolve, 1200));
@@ -1212,4 +1214,28 @@ export const triggerLowBatteryProtocol = async (): Promise<any> => {
             { type: "Location", title: "The Quiet Hill", detail: "A sloped grass patch exactly 3 minutes walk away. 15% sunlight, zero crowds." }
         ]
     };
+};
+
+// Mock Admin functions
+const mockUsers: UserProfile[] = [
+    { uid: 'admin01', displayName: 'Admin Zero', email: 'admin@aetheria.io', role: 'admin', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
+    { uid: 'explorer01', displayName: 'Nina', email: 'nina@example.com', role: 'explorer', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
+    { uid: 'partner01', displayName: 'Kyoto Tourism', email: 'partner@kyoto.jp', role: 'partner', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
+];
+
+export const getAllUsers = async (): Promise<UserProfile[]> => {
+    console.log("Fetching all users (mock)...");
+    await new Promise(resolve => setTimeout(resolve, 800));
+    return mockUsers;
+};
+
+export const updateUserRole = async (uid: string, newRole: 'explorer' | 'admin' | 'partner'): Promise<UserProfile> => {
+    console.log(`Updating role for user ${uid} to ${newRole} (mock)...`);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    const userIndex = mockUsers.findIndex(u => u.uid === uid);
+    if (userIndex !== -1) {
+        mockUsers[userIndex].role = newRole;
+        return { ...mockUsers[userIndex] };
+    }
+    throw new Error("User not found");
 };

@@ -9,6 +9,7 @@ export interface UserProfile {
   vibe?: string;
   bodyMeasurements?: BodyMeasurements;
   preferences?: TravelPreferences;
+  foodPreferences?: string[];
   createdAt: string;
   updatedAt: string;
 }
@@ -18,6 +19,7 @@ export interface TravelPreferences {
   language: string;
   timezone: string;
   units: 'metric' | 'imperial';
+  habits?: string[];
 }
 
 export interface Itinerary {

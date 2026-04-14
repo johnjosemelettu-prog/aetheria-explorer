@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../lib/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query } from 'firebase/firestore';
 import { Product } from '../types';
-import ProductCard from './ProductCard.tsx';
+import ProductCard from './ProductCard';
 import { useTranslation } from 'react-i18next';
-import { Search, SlidersHorizontal } from 'lucide-react';
+import { Search, SlidersHorizontal, Loader2 } from 'lucide-react';
 
 const Store: React.FC = () => {
   const { t } = useTranslation();
@@ -18,17 +18,15 @@ const Store: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
-      // In a real app, you'd fetch this from your backend/CMS
-      const mockProducts: Product[] = [
-        { id: '1', name: 'Tokyo Streetwear Guide', description: 'Exclusive guide to the hidden streetwear gems of Tokyo.', price: 25, category: 'Digital Guide', vibe: 'urban', destination: 'Tokyo', imageUrl: 'https://source.unsplash.com/random/800x600?tokyo,streetwear' },
-        { id: '2', name: 'Kyoto Temple Pass', description: 'Unlimited access to 5 historic temples in Kyoto.', price: 40, category: 'Pass', vibe: 'serene', destination: 'Kyoto', imageUrl: 'https://source.unsplash.com/random/800x600?kyoto,temple' },
-        { id: '3', name: 'Parisian Art Scene Zine', description: 'A curated zine on the modern art of Paris.', price: 15, category: 'Digital Guide', vibe: 'artistic', destination: 'Paris', imageUrl: 'https://source.unsplash.com/random/800x600?paris,art' },
-        { id: '4', name: 'NYC Culinary Secrets', description: 'Chef-led video tour of New York\'s best eats.', price: 50, category: 'Video Tour', vibe: 'culinary', destination: 'New York', imageUrl: 'https://source.unsplash.com/random/800x600?new-york,food' },
-        { id: '5', name: 'Roman Holiday Preset Pack', description: 'Lightroom presets for that classic Rome look.', price: 18, category: 'Digital Asset', vibe: 'classic', destination: 'Rome', imageUrl: 'https://source.unsplash.com/random/800x600?rome' },
-        { id: '6', name: 'Bali Wellness Retreat Itinerary', description: 'A 7-day plan for ultimate relaxation in Bali.', price: 30, category: 'Itinerary', vibe: 'wellness', destination: 'Bali', imageUrl: 'https://source.unsplash.com/random/800x600?bali,yoga' },
-      ];
-      setProducts(mockProducts);
-      setFilteredProducts(mockProducts);
+      try {
+        const productsCollection = collection(db, 'products');
+        const productsSnapshot = await getDocs(productsCollection);
+        const productsList = productsSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id } as Product));
+        setProducts(productsList);
+        setFilteredProducts(productsList);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
       setLoading(false);
     };
 
@@ -51,8 +49,8 @@ const Store: React.FC = () => {
     setFilteredProducts(tempProducts);
   }, [searchTerm, vibe, destination, products]);
 
-  const uniqueVibes = [...new Set(products.map(p => p.vibe))];
-  const uniqueDestinations = [...new Set(products.map(p => p.destination))];
+  const uniqueVibes = [...new Set(products.map(p => p.vibe))].filter(Boolean);
+  const uniqueDestinations = [...new Set(products.map(p => p.destination))].filter(Boolean);
 
 
   return (
@@ -95,7 +93,9 @@ const Store: React.FC = () => {
         </div>
 
       {loading ? (
-        <p>Loading products...</p>
+        <div className="flex justify-center items-center py-20">
+          <Loader2 className="w-12 h-12 animate-spin text-accent" />
+        </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredProducts.map((product) => (
