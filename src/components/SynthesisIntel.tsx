@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { useRead } from '../hooks/useFirebase';
+import { useRead } from '../hooks/useRead';
 
 const SynthesisIntel: React.FC = () => {
     const [intel, setIntel] = useState<any>(null);

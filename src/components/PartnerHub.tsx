@@ -22,7 +22,7 @@ import {
   AreaChart,
   Area
 } from 'recharts';
-import { SynthesisIntel } from './SynthesisIntel';
+import SynthesisIntel from './SynthesisIntel';
 import { VibeTrends } from './VibeTrends.tsx';
 
 const yieldData = [
