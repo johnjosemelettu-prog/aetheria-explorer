@@ -8,7 +8,7 @@ const AIGeneratedTravelThemedPickupLines = () => {
     const lines = [
       'Are you a passport? Because I want to take you all over the world.',
       'Do you have a map? I keep getting lost in your eyes.',
-      'Is your name Google Maps? Because you have everything I've been searching for.',
+      "Is your name Google Maps? Because you have everything I've been searching for.",
       'Are you a suitcase? Because I want to pack you for my next adventure.',
     ];
     const randomLine = lines[Math.floor(Math.random() * lines.length)];
