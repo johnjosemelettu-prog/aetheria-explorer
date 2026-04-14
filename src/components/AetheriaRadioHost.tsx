@@ -1,15 +1,93 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Radio } from 'lucide-react';
 
-export default function AetheriaRadioHost() {
-  return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-        <Radio className="w-16 h-16 mx-auto text-primary mb-6" />
-        <h1 className="text-4xl font-bold mb-4">Aetheria Radio Host</h1>
-        <p className="text-foreground/60 mb-8">Record audio clips, and AI strings them into a podcast episode of your journey. Coming soon.</p>
-      </motion.div>
-    </div>
-  );
-}
+import React, { useState, useEffect } from 'react';
+import { Button } from './ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Input } from './ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { useRead } from '../hooks/useRead';
+import { useWrite } from '../hooks/useWrite';
+
+const AetheriaRadioHost: React.FC = () => {
+    const [stationName, setStationName] = useState('');
+    const [djName, setDjName] = useState('');
+    const [currentTrack, setCurrentTrack] = useState('');
+    const [playlist, setPlaylist] = useState<string[]>([]);
+    const [newTrack, setNewTrack] = useState('');
+
+    const { data: radioData, loading: radioLoading } = useRead('radio/station');
+    const write = useWrite('radio/station');
+
+    useEffect(() => {
+        if (radioData) {
+            setStationName(radioData.name || 'Aetheria Radio');
+            setDjName(radioData.dj || 'AI DJ');
+            setCurrentTrack(radioData.currentTrack || 'None');
+            setPlaylist(radioData.playlist || []);
+        }
+    }, [radioData]);
+
+    const handleUpdate = () => {
+        write.mutate({ name: stationName, dj: djName });
+    };
+
+    const handlePlayNext = () => {
+        if (playlist.length > 0) {
+            const [nextTrack, ...rest] = playlist;
+            setCurrentTrack(nextTrack);
+            setPlaylist(rest);
+            write.mutate({ currentTrack: nextTrack, playlist: rest });
+        }
+    };
+
+    const handleAddTrack = () => {
+        if (newTrack) {
+            const updatedPlaylist = [...playlist, newTrack];
+            setPlaylist(updatedPlaylist);
+            write.mutate({ playlist: updatedPlaylist });
+            setNewTrack('');
+        }
+    };
+    
+    if (radioLoading) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Aetheria Radio Host</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <div className="flex items-center space-x-2">
+                    <Input value={stationName} onChange={(e) => setStationName(e.target.value)} placeholder="Station Name" />
+                    <Input value={djName} onChange={(e) => setDjName(e.target.value)} placeholder="DJ Name" />
+                    <Button onClick={handleUpdate}>Update</Button>
+                </div>
+
+                <div>
+                    <p>Current Track: {currentTrack}</p>
+                </div>
+                
+                <div>
+                    <Button onClick={handlePlayNext} disabled={playlist.length === 0}>Play Next</Button>
+                </div>
+
+                <div className="flex items-center space-x-2">
+                    <Input value={newTrack} onChange={(e) => setNewTrack(e.target.value)} placeholder="New Track URL" />
+                    <Button onClick={handleAddTrack}>Add Track</Button>
+                </div>
+
+                <div>
+                    <h3 className="font-bold">Playlist</h3>
+                    <ul>
+                        {playlist.map((track, index) => (
+                            <li key={index}>{track}</li>
+                        ))}
+                    </ul>
+                </div>
+            </CardContent>
+        </Card>
+    );
+};
+
+export default AetheriaRadioHost;
