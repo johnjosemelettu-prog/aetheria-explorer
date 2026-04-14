@@ -119,3 +119,25 @@ A suite of features that use a device's camera to analyze and interpret the real
 - **Souvenir Story**:
     - Analyzes an image of a physical souvenir (e.g., a figurine).
     - Provides the item's history and details about the artisan traditions behind its creation.
+
+---
+
+## 6. Subscription and Premium Features
+
+### `usePremiumStatus` Hook
+- A custom hook that checks if a user has premium access.
+- It verifies against two conditions:
+    - An active, top-level premium subscription.
+    - An active "premium pass" that may be granted with a specific booking.
+- The hook listens for changes in the user's authentication state and updates the premium status in real-time.
+
+### `PremiumFeatureWrapper` Component
+- A wrapper component that restricts access to its children to premium users only.
+- It uses the `usePremiumStatus` hook to determine the user's access level.
+- If the user is not premium, it displays a message indicating that the feature is for premium members.
+- This allows for a modular and reusable way to protect premium features across the application.
+
+### Booking-wise Subscriptions
+- Users can gain temporary premium access through a "premium pass" associated with a booking.
+- This provides a flexible way to offer premium features as part of a travel package.
+- The `usePremiumStatus` hook automatically recognizes these passes and grants access accordingly.

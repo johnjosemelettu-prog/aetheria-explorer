@@ -1,52 +1,63 @@
 import { useState, useEffect } from 'react';
 import { auth, db } from '../lib/firebase';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
+import { PremiumPass } from '../types';
+import { User } from 'firebase/auth';
 
 export const usePremiumStatus = () => {
-  const [isPremium, setIsPremium] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [hasPremiumSub, setHasPremiumSub] = useState(false);
+  const [hasActivePass, setHasActivePass] = useState(false);
+  const [user, setUser] = useState<User | null>(() => auth.currentUser);
 
   useEffect(() => {
-    if (!auth.currentUser) {
-      setIsPremium(false);
-      setLoading(false);
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    if (!user) {
+      setHasPremiumSub(false);
+      setHasActivePass(false);
       return;
     }
 
-    let isSubPremium = false;
-    let isPassPremium = false;
-
-    const subQ = query(
+    // Check for active premium subscription
+    const subsQuery = query(
       collection(db, 'subscriptions'),
-      where('userId', '==', auth.currentUser.uid),
-      where('status', '==', 'active')
+      where('userId', '==', user.uid),
+      where('status', '==', 'active'),
+      where('tier', '==', 'premium')
     );
-
-    const passQ = query(
-      collection(db, 'premium_passes'),
-      where('userId', '==', auth.currentUser.uid),
-      where('status', '==', 'active')
-    );
-
-    const unsubSub = onSnapshot(subQ, (snapshot) => {
-      isSubPremium = !snapshot.empty;
-      setIsPremium(isSubPremium || isPassPremium);
-      setLoading(false);
+    const unsubscribeSubs = onSnapshot(subsQuery, (snapshot) => {
+      setHasPremiumSub(!snapshot.empty);
     });
 
-    const unsubPass = onSnapshot(passQ, (snapshot) => {
-      const now = new Date().toISOString();
-      const hasValidPass = snapshot.docs.some(doc => doc.data().expiresAt > now);
-      isPassPremium = hasValidPass;
-      setIsPremium(isSubPremium || isPassPremium);
-      setLoading(false);
+    // Check for active premium pass from a booking
+    const passQuery = query(
+      collection(db, 'premiumPasses'),
+      where('userId', '==', user.uid),
+      where('status', '==', 'active')
+    );
+    const unsubscribePasses = onSnapshot(passQuery, (snapshot) => {
+      let activePassFound = false;
+      if (!snapshot.empty) {
+        snapshot.forEach((doc) => {
+          const pass = doc.data() as PremiumPass;
+          if (pass.expiresAt && new Date(pass.expiresAt).getTime() > new Date().getTime()) {
+            activePassFound = true;
+          }
+        });
+      }
+      setHasActivePass(activePassFound);
     });
 
     return () => {
-      unsubSub();
-      unsubPass();
+      unsubscribeSubs();
+      unsubscribePasses();
     };
-  }, []);
+  }, [user]);
 
-  return { isPremium, loading };
+  return hasPremiumSub || hasActivePass;
 };
