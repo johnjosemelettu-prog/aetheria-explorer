@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -10,7 +11,6 @@ import { db } from '../lib/firebase';
 import { UserProfile } from '../types';
 import { cn } from '../lib/utils';
 import AuthModal from './AuthModal';
-import { usePremiumStatus } from '../hooks/usePremiumStatus';
 import CartIcon from './CartIcon';
 import Cart from './Cart';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +19,6 @@ interface NavbarProps {
   user: User | null;
 }
 
-// New Collapsible Section Component
 const CollapsibleSection = ({ title, items, navigate, isExpanded, initiallyOpen = false }: any) => {
   const [isOpen, setIsOpen] = useState(initiallyOpen);
 
@@ -87,7 +86,7 @@ export default function Navbar({ user }: NavbarProps) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const { isPremium } = usePremiumStatus();
+  const [isPremium, setIsPremium] = useState(false);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -95,10 +94,16 @@ export default function Navbar({ user }: NavbarProps) {
         const docRef = doc(db, 'users', user.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-          setProfile(docSnap.data() as UserProfile);
+          const userProfile = docSnap.data() as UserProfile;
+          setProfile(userProfile);
+          
+          const premiumRef = doc(db, 'premium', user.uid);
+          const premiumSnap = await getDoc(premiumRef);
+          setIsPremium(premiumSnap.exists());
         }
       } else {
         setProfile(null);
+        setIsPremium(false);
       }
     };
     fetchProfile();
@@ -601,6 +606,20 @@ export default function Navbar({ user }: NavbarProps) {
 
   return (
     <>
+      <AnimatePresence>
+        {isPremium && (
+          <motion.div 
+            initial={{ height: 0 }} 
+            animate={{ height: 'auto' }} 
+            exit={{ height: 0 }} 
+            className="overflow-hidden"
+          >
+            <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center text-sm font-semibold p-2">
+              <p>Premium user!</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     {/* Sidebar Navigation */}
     <aside 
       className={cn(
