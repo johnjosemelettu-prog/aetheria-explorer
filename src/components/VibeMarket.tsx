@@ -1,12 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Input } from './ui/input';
 import { useRead } from '../hooks/useRead';
-import { useWrite } from '../hooks/useWrite';
+import Balance from './Balance';
+import Vibe from './Vibe';
 
-interface Vibe {
+interface VibeData {
     id: string;
     name: string;
     description: string;
@@ -14,35 +13,14 @@ interface Vibe {
 }
 
 const VibeMarket: React.FC = () => {
-    const [vibes, setVibes] = useState<Vibe[]>([]);
-    const [newVibeName, setNewVibeName] = useState('');
-    const [newVibeDescription, setNewVibeDescription] = useState('');
-    const [newVibePrice, setNewVibePrice] = useState('');
-
-    const { data: vibeData, loading: vibeLoading } = useRead<{[key: string]: Vibe}>('vibes');
-    const { write } = useWrite<Vibe>('vibes');
+    const [vibes, setVibes] = useState<VibeData[]>([]);
+    const { data: vibeData, loading: vibeLoading } = useRead<{[key: string]: VibeData}>('vibes');
 
     useEffect(() => {
         if (vibeData) {
             setVibes(Object.values(vibeData));
         }
     }, [vibeData]);
-
-    const handleAddVibe = () => {
-        if (newVibeName && newVibeDescription && newVibePrice) {
-            const newId = `vibe_${Date.now()}`;
-            const newVibe: Vibe = {
-                id: newId,
-                name: newVibeName,
-                description: newVibeDescription,
-                price: parseFloat(newVibePrice),
-            };
-            write('update', newVibe, newId);
-            setNewVibeName('');
-            setNewVibeDescription('');
-            setNewVibePrice('');
-        }
-    };
 
     if (vibeLoading) {
         return <div>Loading...</div>;
@@ -54,19 +32,14 @@ const VibeMarket: React.FC = () => {
                 <CardTitle>Vibe Market</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-                <div className="space-y-2">
-                    <Input value={newVibeName} onChange={(e) => setNewVibeName(e.target.value)} placeholder="Vibe Name" />
-                    <Input value={newVibeDescription} onChange={(e) => setNewVibeDescription(e.target.value)} placeholder="Vibe Description" />
-                    <Input type="number" value={newVibePrice} onChange={(e) => setNewVibePrice(e.target.value)} placeholder="Vibe Price" />
-                    <Button onClick={handleAddVibe}>Add Vibe</Button>
-                </div>
+                <Balance />
                 <div>
                     <h3 className="font-bold">Available Vibes</h3>
-                    <ul>
+                    <div>
                         {vibes.map((vibe) => (
-                            <li key={vibe.id}>{vibe.name} - {vibe.price}</li>
+                            <Vibe key={vibe.id} vibe={vibe} />
                         ))}
-                    </ul>
+                    </div>
                 </div>
             </CardContent>
         </Card>

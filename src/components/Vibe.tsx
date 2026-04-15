@@ -1,44 +1,64 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Button } from './ui/button';
+import { useAuth } from '../hooks/useAuth';
+import { useWrite } from '../hooks/useWrite';
 import { useRead } from '../hooks/useRead';
 
-interface Vibe {
+interface VibeData {
     id: string;
     name: string;
     description: string;
     price: number;
 }
 
-const Vibe: React.FC = () => {
-    const [vibes, setVibes] = useState<Vibe[]>([]);
-    const { data: vibeData, loading: vibeLoading } = useRead<Vibe>('vibes');
+interface VibeProps {
+    vibe: VibeData;
+}
 
-    useEffect(() => {
-        if (vibeData) {
-            setVibes(Object.values(vibeData));
+interface UserProfile {
+    id: string;
+    balance: number;
+    vibes: string[];
+}
+
+interface UserProfileWrite {
+    id?: string;
+    balance?: number;
+    vibes?: string[];
+}
+
+const Vibe: React.FC<VibeProps> = ({ vibe }) => {
+    const user = useAuth();
+    const { write } = useWrite<UserProfileWrite>('users');
+    const { data: userProfile, refetch } = useRead<UserProfile>('users', user?.uid);
+
+    const handleBuy = async () => {
+        if (!user || !userProfile) return;
+
+        if (userProfile.balance >= vibe.price) {
+            const newBalance = userProfile.balance - vibe.price;
+            const newVibes = [...(userProfile.vibes || []), vibe.id];
+
+            await write(
+                'update',
+                { balance: newBalance, vibes: newVibes },
+                user.uid
+            );
+            refetch();
         }
-    }, [vibeData]);
-
-    if (vibeLoading) {
-        return <div>Loading Vibes...</div>;
-    }
+    };
 
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4">Vibes</h1>
-            {vibes.length > 0 ? (
-                <ul>
-                    {vibes.map((vibe) => (
-                        <li key={vibe.id} className="border-b p-2">
-                            <p className="font-semibold">{vibe.name}</p>
-                            <p>{vibe.description}</p>
-                            <p className="text-sm text-gray-500">Price: {vibe.price}</p>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>No vibes available at the moment. Check back later!</p>
-            )}
+        <div className="flex items-center justify-between p-2 border-b">
+            <div>
+                <p className="font-bold">{vibe.name}</p>
+                <p>{vibe.description}</p>
+                <p>Price: {vibe.price}</p>
+            </div>
+            <Button onClick={handleBuy} disabled={!user || !userProfile || userProfile.balance < vibe.price}>
+                Buy
+            </Button>
         </div>
     );
 };
