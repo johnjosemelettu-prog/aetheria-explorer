@@ -19,8 +19,8 @@ const VibeMarket: React.FC = () => {
     const [newVibeDescription, setNewVibeDescription] = useState('');
     const [newVibePrice, setNewVibePrice] = useState('');
 
-    const { data: vibeData, loading: vibeLoading } = useRead('vibes');
-    const write = useWrite('vibes');
+    const { data: vibeData, loading: vibeLoading } = useRead<{[key: string]: Vibe}>('vibes');
+    const { write } = useWrite<Vibe>('vibes');
 
     useEffect(() => {
         if (vibeData) {
@@ -30,12 +30,14 @@ const VibeMarket: React.FC = () => {
 
     const handleAddVibe = () => {
         if (newVibeName && newVibeDescription && newVibePrice) {
-            const newVibe: Omit<Vibe, 'id'> = {
+            const newId = `vibe_${Date.now()}`;
+            const newVibe: Vibe = {
+                id: newId,
                 name: newVibeName,
                 description: newVibeDescription,
                 price: parseFloat(newVibePrice),
             };
-            write.mutate(newVibe);
+            write('update', newVibe, newId);
             setNewVibeName('');
             setNewVibeDescription('');
             setNewVibePrice('');

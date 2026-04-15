@@ -3,9 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { useRead } from '../hooks/useRead';
 import { useWrite } from '../hooks/useWrite';
+
+interface RadioData {
+    id?: string;
+    name?: string;
+    dj?: string;
+    currentTrack?: string;
+    playlist?: string[];
+}
 
 const AetheriaRadioHost: React.FC = () => {
     const [stationName, setStationName] = useState('');
@@ -14,8 +21,8 @@ const AetheriaRadioHost: React.FC = () => {
     const [playlist, setPlaylist] = useState<string[]>([]);
     const [newTrack, setNewTrack] = useState('');
 
-    const { data: radioData, loading: radioLoading } = useRead('radio/station');
-    const write = useWrite('radio/station');
+    const { data: radioData, loading: radioLoading } = useRead<RadioData>('radio/station');
+    const { write } = useWrite<RadioData>('radio/station');
 
     useEffect(() => {
         if (radioData) {
@@ -27,7 +34,7 @@ const AetheriaRadioHost: React.FC = () => {
     }, [radioData]);
 
     const handleUpdate = () => {
-        write.mutate({ name: stationName, dj: djName });
+        write('update', { name: stationName, dj: djName });
     };
 
     const handlePlayNext = () => {
@@ -35,7 +42,7 @@ const AetheriaRadioHost: React.FC = () => {
             const [nextTrack, ...rest] = playlist;
             setCurrentTrack(nextTrack);
             setPlaylist(rest);
-            write.mutate({ currentTrack: nextTrack, playlist: rest });
+            write('update', { currentTrack: nextTrack, playlist: rest });
         }
     };
 
@@ -43,7 +50,7 @@ const AetheriaRadioHost: React.FC = () => {
         if (newTrack) {
             const updatedPlaylist = [...playlist, newTrack];
             setPlaylist(updatedPlaylist);
-            write.mutate({ playlist: updatedPlaylist });
+            write('update', { playlist: updatedPlaylist });
             setNewTrack('');
         }
     };
