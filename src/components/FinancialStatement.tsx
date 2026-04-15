@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { db, auth } from '../../lib/firebase';
+import { db, auth } from '@/lib/firebase';
 import { collection, query, where, orderBy, onSnapshot, Timestamp } from 'firebase/firestore';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
-import { Badge } from './ui/badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
 
 // This should match the structure in Firestore from WalletPage.tsx and EsimPurchase.tsx
 export interface WalletTransaction {
