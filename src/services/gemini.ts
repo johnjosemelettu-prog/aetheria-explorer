@@ -180,6 +180,52 @@ export const injectSerendipity = async (itinerary: any): Promise<any> => {
     return { title: "Live Street Art", description: "A famous street artist is creating a new mural just a few blocks from your next activity.", type: "spontaneous_event" };
 };
 
+export const assessCognitiveLoad = async (itinerary: any): Promise<any> => {
+    console.log('Assessing cognitive load of itinerary...');
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    // In a real scenario, this would involve a complex analysis of the itinerary\'s density, travel times, and activity types.
+    const activityCount = itinerary?.itinerary?.reduce((acc: number, day: any) => acc + day.activities.length, 0) || 0;
+    let score = 100 - (activityCount * 10);
+    if (score < 0) score = 0;
+
+    let assessment = "This itinerary seems well-paced.";
+    if (score < 40) {
+        assessment = "This itinerary is packed! Consider simplifying for a more relaxed experience.";
+    } else if (score > 80) {
+        assessment = "This is a very light itinerary. You have plenty of room to add more activities.";
+    }
+
+    return { score, assessment };
+};
+
+export const adjustItinerary = async (itinerary: any, adjustment: 'simplify' | 'enrich'): Promise<any> => {
+    console.log(`Adjusting itinerary to ${adjustment}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    const newItinerary = JSON.parse(JSON.stringify(itinerary)); // Deep copy
+
+    if (adjustment === 'simplify') {
+        newItinerary.title += " (Simplified)";
+        // Remove the last activity of the first day, if it exists
+        if (newItinerary.itinerary?.[0]?.activities?.length > 1) {
+            newItinerary.itinerary[0].activities.pop();
+        }
+    } else { // enrich
+        newItinerary.title += " (Enriched)";
+        // Add a new activity to the first day
+        if (newItinerary.itinerary?.[0]?.activities) {
+            newItinerary.itinerary[0].activities.push({
+                id: `act_new_${Date.now()}`,
+                time: "21:00",
+                title: "Spontaneous Late-night Snack",
+                description: "Grab a delicious local snack from a nearby street vendor.",
+                estimatedCost: 10,
+                type: 'dining'
+            });
+        }
+    }
+    return newItinerary;
+};
+
 export const balanceCognitiveLoad = async (itinerary: any): Promise<any> => {
     console.log('Analyzing cognitive load of itinerary...');
     await new Promise(resolve => setTimeout(resolve, 1500));
@@ -879,7 +925,7 @@ export const findLocalMusicScene = async (location: string): Promise<any> => {
             id: 2,
             name: "Kyoto Metro",
             genre: "Electronic, Techno, House",
-            description: "A legendary nightclub that has been a staple of Kyoto's electronic music scene for decades.",
+            description: "A legendary nightclub that has been a staple of Kyoto\'s electronic music scene for decades.",
             imageUrl: "/placeholder-metro.webp"
         },
         {

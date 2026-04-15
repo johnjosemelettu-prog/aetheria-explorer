@@ -1,15 +1,43 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
 
-export default function SerendipityEngine() {
-  return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-        <Sparkles className="w-16 h-16 mx-auto text-primary mb-6" />
-        <h1 className="text-4xl font-bold mb-4">Serendipity Engine</h1>
-        <p className="text-foreground/60 mb-8">AI injects spontaneous, unexpected micro-adventures. Coming soon.</p>
-      </motion.div>
-    </div>
-  );
-}
+import React, { useState } from 'react';
+import { Button } from './ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { injectSerendipity } from '../services/gemini';
+
+const SerendipityEngine: React.FC = () => {
+    const [serendipity, setSerendipity] = useState<any>(null);
+    const [loading, setLoading] = useState(false);
+
+    const handleInjectSerendipity = async () => {
+        setLoading(true);
+        // In a real app, you would pass a real itinerary here.
+        const mockItinerary = { id: '123', title: 'My Trip' }; 
+        const result = await injectSerendipity(mockItinerary);
+        setSerendipity(result);
+        setLoading(false);
+    };
+
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Serendipity Engine</CardTitle>
+                <CardDescription>Inject a little spontaneous magic into your trip.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <Button onClick={handleInjectSerendipity} disabled={loading}>
+                    {loading ? 'Analyzing...' : 'Find a Spontaneous Event'}
+                </Button>
+
+                {serendipity && (
+                    <div className="p-4 bg-gray-100 rounded-lg">
+                        <h3 className="font-bold">Spontaneous Event!</h3>
+                        <p><strong>{serendipity.title}</strong></p>
+                        <p>{serendipity.description}</p>
+                    </div>
+                )}
+            </CardContent>
+        </Card>
+    );
+};
+
+export default SerendipityEngine;
