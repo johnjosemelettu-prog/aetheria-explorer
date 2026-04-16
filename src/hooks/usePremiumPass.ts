@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth'; // Assuming you have a useAuth hook
 import { db } from '../lib/firebase';
-import { collection, query, where, getDocs, Timestamp } from 'firebase/firestore';
+import { collection, query, where, getDocs, Timestamp, doc, updateDoc } from 'firebase/firestore';
 
 export const usePremiumPass = (bookingId: string | null) => {
   const [isPremium, setIsPremium] = useState(false);
@@ -29,12 +29,15 @@ export const usePremiumPass = (bookingId: string | null) => {
         const querySnapshot = await getDocs(q);
 
         if (!querySnapshot.empty) {
-          const pass = querySnapshot.docs[0].data();
+          const passDoc = querySnapshot.docs[0];
+          const pass = passDoc.data();
           const now = Timestamp.now();
           if (pass.expiresAt && pass.expiresAt > now) {
             setIsPremium(true);
           } else {
-            // Optional: Handle expired passes, e.g., update their status
+            // Handle expired passes, e.g., update their status
+            const passDocRef = doc(db, 'premium_passes', passDoc.id);
+            await updateDoc(passDocRef, { status: 'expired' });
             setIsPremium(false);
           }
         } else {

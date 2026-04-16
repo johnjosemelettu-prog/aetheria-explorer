@@ -1,14 +1,18 @@
-const fs = require('fs');
-const path = require('path');
+
+import { translateText } from '../src/services/gemini.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const LOCALES_DIR = path.join(__dirname, '..', 'public', 'locales');
 const EN_JSON_PATH = path.join(LOCALES_DIR, 'en.json');
 
-// Simulated translation function (replace with a real translation API)
 async function translate(text, targetLang) {
-  // In a real application, you would use a translation service like Google Translate, DeepL, etc.
-  // For this example, we'll just return a placeholder.
-  return `[${targetLang}] ${text}`;
+  const translation = await translateText(text, targetLang);
+  return translation.translatedText;
 }
 
 async function translateAll() {
@@ -35,7 +39,7 @@ async function translateAll() {
 
     let updated = false;
     for (const key of keys) {
-      if (!langJson[key]) {
+      if (!langJson[key] || langJson[key].startsWith(`[${lang}]`)) {
         const translation = await translate(enJson[key], lang);
         langJson[key] = translation;
         updated = true;
