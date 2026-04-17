@@ -1,10 +1,11 @@
 import React from 'react';
-import SkillExchangeHub from '@/components/SkillExchangeHub';
+import SkillSwap from '@/components/SkillSwap';
 
 const SkillSwapPage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <SkillExchangeHub />
+      <h1 className="text-4xl font-bold mb-8">Skill Swap</h1>
+      <SkillSwap />
     </div>
   );
 };

@@ -1,11 +1,10 @@
 import React from 'react';
-import HaikuGenerator from '@/components/HaikuGenerator';
+import AITravelHaikus from '@/components/AITravelHaikus';
 
 const HaikuGeneratorPage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">Haiku Generator</h1>
-      <HaikuGenerator />
+      <AITravelHaikus />
     </div>
   );
 };
