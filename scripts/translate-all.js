@@ -20,9 +20,11 @@ async function translateAll() {
   const enJson = JSON.parse(enJsonContent);
   const keys = Object.keys(enJson);
 
+  const excludedLanguages = ['ar', 'de', 'hi', 'ja', 'ml', 'ms', 'ta', 'tl', 'es'];
   const languages = fs.readdirSync(LOCALES_DIR)
     .filter(file => file.endsWith('.json') && file !== 'en.json')
-    .map(file => file.replace('.json', ''));
+    .map(file => file.replace('.json', ''))
+    .filter(lang => !excludedLanguages.includes(lang));
 
   for (const lang of languages) {
     const langJsonPath = path.join(LOCALES_DIR, `${lang}.json`);
@@ -56,7 +58,7 @@ async function translateAll() {
 }
 
 async function main() {
-  console.log('Starting translation process...');
+  console.log('Starting translation process with exclusions...');
   await translateAll();
   console.log('Translation process finished.');
 }

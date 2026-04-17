@@ -132,5 +132,11 @@
     "arWayfinding": "Navegación RA",
     "localLegends": "Leyendas Locales",
     "profile": "Perfil"
+  },
+  "healthAndWellness": {
+    "jetLagAdvisor": "Asesor de Jet Lag",
+    "mindfulTravel": "Viaje Consciente",
+    "allergyCard": "Tarjeta de Alergia",
+    "digitalDetox": "Desintoxicación Digital"
   }
 }
