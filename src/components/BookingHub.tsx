@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plane, Hotel, Ship, Search, MapPin, Calendar, Bus, Car, Utensils, Star, Loader2, ArrowRight } from 'lucide-react';
+import { Plane, Hotel, Ship, Search, MapPin, Calendar, Bus, Car, Utensils, Star, Loader2, ArrowRight, Bike } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { usePremiumStatus } from '../hooks/usePremiumStatus';
 import SubscriptionManager from './SubscriptionManager';
 
-type BookingType = 'flight' | 'hotel' | 'cruise' | 'bus' | 'cab' | 'dining';
+type BookingType = 'flight' | 'hotel' | 'cruise' | 'bus' | 'cab' | 'dining' | 'ebike';
 
 export default function BookingHub() {
   const [activeTab, setActiveTab] = useState<BookingType>('flight');
@@ -42,6 +42,10 @@ export default function BookingHub() {
       dining: [
         { id: 1, title: 'The Floating Garden', price: 120, rating: 4.9, detail: 'Fine Dining • Table for 2 Available' },
         { id: 2, title: 'Neon Noodle Bar', price: 40, rating: 4.5, detail: 'Casual • Walk-ins Welcome' },
+      ],
+      ebike: [
+        { id: 1, title: 'Aetheria Swift-E', price: 15, rating: 4.8, detail: 'Range: 40km • Located 0.2mi away' },
+        { id: 2, title: 'Mountain Trail eBike', price: 25, rating: 4.6, detail: 'Range: 60km • Off-road capable' },
       ]
     };
 
@@ -55,6 +59,7 @@ export default function BookingHub() {
     { id: 'cruise', icon: Ship, label: 'Cruises' },
     { id: 'bus', icon: Bus, label: 'Bus' },
     { id: 'cab', icon: Car, label: 'Cab' },
+    { id: 'ebike', icon: Bike, label: 'eBikes' },
     { id: 'dining', icon: Utensils, label: 'Dining' }
   ];
 

@@ -1,117 +1,73 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldAlert, Lock, Eye, Database, Globe, CheckCircle2, FileText, Fingerprint } from 'lucide-react';
+import { Shield, Lock, Eye, Database, Globe, Fingerprint, Server, Activity } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function PrivacyPolicy() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState(0);
-
-  const sections = [
-    {
-      title: "Introduction",
-      icon: <FileText className="w-5 h-5" />,
-      content: "Welcome to Aetheria Explorer. We respect your privacy and are committed to protecting your personal data in the digital age. This policy outlines our cutting-edge security architecture and how we treat your data as your sovereign property."
-    },
-    {
-      title: "Data Sovereignty",
-      icon: <Fingerprint className="w-5 h-5" />,
-      content: "We collect only what's necessary. Identity Data, Contact Data, and Usage Data are encrypted end-to-end. Your travel preferences and AI itinerary generation data belong solely to you. We strictly never sell your data to third-party data brokers."
-    },
-    {
-      title: "Biometrics & AR",
-      icon: <Eye className="w-5 h-5" />,
-      content: "Our Augmented Reality and Biometric features (such as Face Scan for premium boarding) process everything locally on your device whenever possible. Ephemeral cloud processing is purged immediately after AI computation."
-    },
-    {
-      title: "Blockchain Security",
-      icon: <Database className="w-5 h-5" />,
-      content: "Aetheria utilizes decentralized ledgers for digital passports and verifiable credentials. This guarantees tamper-proof records of your achievements without centralizing your PII (Personally Identifiable Information)."
-    },
-    {
-      title: "Global Compliance",
-      icon: <Globe className="w-5 h-5" />,
-      content: "We guarantee compliance with GDPR, CCPA, and upcoming spatial computing privacy regulations. Your data localized processing respects your geographical jurisdiction."
-    }
-  ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground pt-32 pb-24 relative overflow-hidden">
-      {/* Background Orbs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[150px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center justify-center p-4 rounded-full bg-primary/20 text-primary mb-6 border border-primary/30">
-            <Lock className="w-12 h-12" />
+    <div className="min-h-screen bg-slate-50 text-slate-900 pt-32 pb-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
+          <div className="inline-flex items-center justify-center p-4 rounded-full bg-blue-100 text-blue-600 mb-6 border border-blue-200">
+            <Shield className="w-12 h-12" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-display font-black mb-6">Privacy Policy</h1>
-          <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
-            Your data is your property. Discover our blueprint for maintaining your digital sovereignty while exploring the world.
+          <h1 className="text-4xl md:text-6xl font-display font-black tracking-tight mb-4">Privacy Policy</h1>
+          <p className="text-slate-500 font-mono text-sm max-w-xl mx-auto">
+            Last Updated: April 20, 2026<br/>
+            Your digital, physical, and biometric data is secured with zero-knowledge cryptography.
           </p>
-          <p className="text-sm font-mono text-primary mt-6">LAST PROTOCOL UPDATE: 2026.10.26</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Sidebar Navigation */}
-          <div className="lg:col-span-4 space-y-4">
-            {sections.map((section, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveTab(idx)}
-                className={`w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 text-left ${
-                  activeTab === idx 
-                    ? 'bg-primary/20 border border-primary/50 text-white shadow-[0_0_30px_rgba(var(--primary),0.2)]' 
-                    : 'glass hover:bg-white/10 text-foreground/60 hover:text-white'
-                }`}
-              >
-                <div className={`p-2 rounded-xl ${activeTab === idx ? 'bg-primary/30 text-primary' : 'bg-black/20 text-foreground/40'}`}>
-                  {section.icon}
-                </div>
-                <span className="font-bold text-lg">{section.title}</span>
-              </button>
-            ))}
-          </div>
+        <div className="space-y-12 bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-slate-100">
+          
+          <section>
+            <h2 className="text-2xl font-bold flex items-center gap-3 mb-4"><Database className="w-6 h-6 text-blue-600" /> 1. Information We Collect</h2>
+            <div className="space-y-4 text-slate-600 leading-relaxed">
+              <p>When you utilize Aetheria Explorer, particularly our AI, AR, and biometric rendering features, we collect several categories of information to facilitate these high-end travel experiences:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Identity Context:</strong> Basic profile information including name, email, payment methods, and Aetheria+ subscription statuses.</li>
+                <li><strong>Geospatial & Semantic Data:</strong> Real-time location parameters necessary for AR wayfinding, Landmark Lenses, and local scam-radar routing.</li>
+                <li><strong>Biometric Data (Ancestry Trail):</strong> For the Ancestry Trail module, we process cryptographic hashes of your submitted DNA markers. <em>Note: Biological data is never stored on our servers; it is processed entirely on-device to generate the historical mapping, then immediately excised.</em></li>
+              </ul>
+            </div>
+          </section>
 
-          {/* Content Area */}
-          <div className="lg:col-span-8">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3 }}
-              className="glass p-10 rounded-[40px] relative overflow-hidden group"
-            >
-              <div className="absolute top-0 right-0 p-8 opacity-5">
-                {sections[activeTab].icon}
-              </div>
-              <h2 className="text-3xl font-bold mb-6 text-white flex items-center gap-3">
-                {sections[activeTab].title}
-                <CheckCircle2 className="w-6 h-6 text-primary" />
-              </h2>
-              <div className="space-y-6 text-foreground/80 leading-relaxed text-lg">
-                <p>{sections[activeTab].content}</p>
-                <p>We implement automated data lifecycle management to ensure your digital footprint is minimized. Any telemetry data gathered for app optimizations is completely anonymized.</p>
-                
-                <div className="mt-8 p-6 bg-black/40 rounded-2xl border border-white/5">
-                  <h3 className="font-bold text-white mb-2 flex items-center gap-2">
-                    <ShieldAlert className="w-4 h-4 text-secondary" />
-                    Your Rights
-                  </h3>
-                  <ul className="list-disc pl-5 space-y-2 text-sm">
-                    <li>Right to complete data erasure ("Right to be Forgotten")</li>
-                    <li>Right to data portability (export in standardized JSON)</li>
-                    <li>Right to algorithm transparency</li>
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          <section>
+            <h2 className="text-2xl font-bold flex items-center gap-3 mb-4"><Server className="w-6 h-6 text-blue-600" /> 2. Use of Vision AI & Telemetry</h2>
+            <div className="space-y-4 text-slate-600 leading-relaxed">
+              <p>Aetheria explicitly uses live camera feeds for "Vision Hub" operations (e.g. Menu Explorer, Street Art Decoder, and Quantum Souvenirs).</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Camera feeds are processed locally on the Edge runtime whenever possible.</li>
+                <li>If a cloud pipeline is required to resolve a neural synthesis, visual frames are stripped of personal identifiers, encrypted, and discarded within 600 milliseconds.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold flex items-center gap-3 mb-4"><Lock className="w-6 h-6 text-blue-600" /> 3. Data Protection & Zero-Knowledge Architecture</h2>
+            <div className="space-y-4 text-slate-600 leading-relaxed">
+              <p>We believe travel should be private. We employ Zero-Knowledge (ZK) Proofs for sharing safety coordinates with Trusted Route Corridors and DAO verification matrices.</p>
+              <p>Your travel DNA, journal inputs, and dietary specifics are isolated from ad networks. Information shared with local heroes or "Side-Quest" merchants is fully anonymized until explicitly authorized by your cryptographic signature.</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold flex items-center gap-3 mb-4"><Globe className="w-6 h-6 text-blue-600" /> 4. International Data Transfers</h2>
+            <div className="space-y-4 text-slate-600 leading-relaxed">
+              <p>As a global tool, Aetheria Explorer transmits minimal configuration packets to planetary nodes to ensure seamless e-SIM handoffs and localized translation services. All nodes comply strictly with GDPR, CCPA, and the 2025 Global Digital Nomad Privacy Accord.</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold flex items-center gap-3 mb-4"><Fingerprint className="w-6 h-6 text-blue-600" /> 5. Your Rights and Controls</h2>
+            <div className="space-y-4 text-slate-600 leading-relaxed">
+              <p>You may, at any time, execute a "Digital Ghost" command within your Aetheria Dashboard. Activating this will dynamically purge your location history, clear your biometric hashes, and revoke third-party merchant telemetry access instantly.</p>
+              <p>If you have questions concerning privacy operations, contact the Aetheria Ethics Board at <a href="mailto:privacy@aetheria-explorer.com" className="text-blue-600 font-bold hover:underline">privacy@aetheria-explorer.com</a>.</p>
+            </div>
+          </section>
         </div>
       </div>
     </div>
