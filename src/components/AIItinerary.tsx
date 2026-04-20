@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -14,6 +15,8 @@ import {
   recordSensoryData, composeSoundtrack
 } from '@/services/gemini';
 import { cn } from '@/lib/utils';
+import PremiumGate from '@/components/PremiumGate';
+import { usePremiumStatus } from '@/hooks/usePremiumStatus';
 
 interface Itinerary { [key: string]: any; }
 
@@ -26,6 +29,7 @@ export default function AIItinerary() {
   const [activeTab, setActiveTab] = useState('itinerary');
   const [modules, setModules] = useState<any>({});
   const [moduleLoading, setModuleLoading] = useState<string | null>(null);
+  const isPremium = usePremiumStatus();
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -43,11 +47,14 @@ export default function AIItinerary() {
   };
 
   const loadModule = async (moduleName: string) => {
+    if (!isPremium) {
+      setModules((prev: any) => ({...prev, [moduleName]: { needsPremium: true }}));
+      return;
+    }
     if (modules[moduleName] || moduleLoading) return;
     setModuleLoading(moduleName);
     try {
         let result;
-        // This switch is now a monster, but it demonstrates the principle!
         switch(moduleName) {
             case 'vrScout': result = await getVRScout(destination); break;
             case 'vrHotel': result = await getVRHotelTour('hotel123'); break;
@@ -63,7 +70,7 @@ export default function AIItinerary() {
             
             case 'safetyScams': result = await getScamAlerts(destination); break;
             case 'safetyCorridors': result = await getSafetyCorridors(destination); break;
-            case 'safetyHome': result = await getMeHome({}, {}); break;
+            case 'safetyHome': result = await getMeHome({lat: 35.68, lng: 139.76}, {lat: 35.0116, lng: 135.7681}); break;
 
             case 'communityHeroes': result = await connectWithLocalHero(destination); break;
             case 'communityGuilds': result = await getTravelersGuilds('foodie'); break;
@@ -77,6 +84,24 @@ export default function AIItinerary() {
             case 'comicStrip': result = itinerary ? await generateTravelComicStrip(itinerary.itinerary[0]) : { title: "Generate itinerary first"}; break;
             case 'photoFilters': result = await getVibePhotoFilters(mood); break;
             case 'haikuGenerator': result = await generateAIHaiku('photo.jpg'); break;
+
+            case 'adaptItineraryToWeather': result = itinerary ? await adaptItineraryToWeather(itinerary, { temp: 25, condition: 'Sunny' }) : { title: "Generate itinerary first"}; break;
+            case 'suggestActivityBasedOnBioData': result = await suggestActivityBasedOnBioData({ heartRate: 65, sleepHours: 7.5 }); break;
+            case 'findStoryLocations': result = itinerary ? await findStoryLocations(itinerary.itinerary[0].activities[0].description) : { title: "Generate itinerary first"}; break;
+            case 'bookFlight': result = await bookFlight({destination, date: new Date().toISOString().split('T')[0]}); break;
+            case 'getAetheriaRadioHost': result = await getAetheriaRadioHost(destination); break;
+            case 'generate3DPhotoSculpture': result = await generate3DPhotoSculpture('photo.jpg'); break;
+            case 'generateTravelBlogPost': result = itinerary ? await generateTravelBlogPost(itinerary) : { title: "Generate itinerary first"}; break;
+            case 'findArtisanCrafts': result = await findArtisanCrafts(destination); break;
+            case 'chatWithHistoricalFigure': result = await chatWithHistoricalFigure('Oda Nobunaga', 'What was it like unifying Japan?'); break;
+            case 'generatePersonalMythology': result = itinerary ? await generatePersonalMythology(itinerary) : { title: "Generate itinerary first"}; break;
+            case 'getSentientCompassReading': result = await getSentientCompassReading({ lat: 35.68, lng: 139.76 }); break;
+            case 'syncCollaborativeJournal': result = await syncCollaborativeJournal('journal123', 'Just visited the Golden Pavilion, it was amazing!'); break;
+            case 'getHapticEvents': result = itinerary ? await getHapticEvents(itinerary.itinerary[0].activities[0]) : { title: "Generate itinerary first"}; break;
+            case 'generateDreamItinerary': result = await generateDreamItinerary(['lucid dream about ancient rome']); break;
+            case 'getAuraShieldSuggestion': result = await getAuraShieldSuggestion({ stressLevel: 0.8, crowdDensity: 0.9 }); break;
+            case 'recordSensoryData': result = await recordSensoryData({ lat: 35.039, lng: 135.729 }, { sound: 'temple bells', smell: 'incense', taste: 'matcha' }); break;
+            case 'composeSoundtrack': result = itinerary ? await composeSoundtrack(itinerary) : { title: "Generate itinerary first"}; break;
         }
         setModules((prev: any) => ({...prev, [moduleName]: result}));
     } catch (e) {
@@ -87,17 +112,59 @@ export default function AIItinerary() {
   };
 
   const renderModuleContent = (moduleName: string) => {
-      const data = modules[moduleName];
-      if (moduleLoading === moduleName) return <p className="text-xs text-foreground/50">Loading...</p>;
-      if (!data) return <p className="text-xs text-foreground/50">Click to load.</p>;
-      
-      switch(moduleName) {
-          case 'vrScout': return <p className="text-xs text-green-400">VR Scout loaded: {data.description}</p>;
-          case 'communityHeroes': return <p className="text-xs text-green-400">Local Hero: {data.heroes[0].name}</p>;
-          case 'ancestryTrail': return <p className="text-xs text-green-400">Ancestry Trail: {data.title}</p>;
-          case 'comicStrip': return <p className="text-xs text-green-400">Comic Strip: {data.title}</p>;
-          default: return <p className="text-xs text-green-400">Module loaded successfully.</p>;
-      }
+    const data = modules[moduleName];
+    if (moduleLoading === moduleName) {
+        return (
+            <div className="flex items-center gap-2 mt-2">
+                <Bot className="w-4 h-4 animate-spin text-primary" />
+                <p className="text-xs text-foreground/50">Synthesizing...</p>
+            </div>
+        );
+    }
+    if (!data) {
+        return <p className="text-xs text-foreground/50 mt-2">Click to learn more.</p>;
+    }
+
+    if (data.needsPremium) {
+      return <PremiumGate />;
+    }
+    
+    const renderWrapper = (title: string, content: React.ReactNode, url: string, urlText: string) => (
+      <div className="text-xs text-green-400 mt-2 p-2 bg-green-900/20 rounded-md border border-green-400/20">
+        <p className="font-bold">{title}</p>
+        <div className="text-foreground/80">{content}</div>
+        <a href={url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline mt-2 inline-block">{urlText}</a>
+      </div>
+    );
+
+    switch (moduleName) {
+      case 'vrScout':
+        return renderWrapper(`VR Scout: ${data.location}`, <p>{data.description}</p>, data.vrExperienceUrl, "Launch VR Experience");
+
+      case 'vrHotel':
+        return renderWrapper(`Virtual Tour: ${data.hotelName}`, <p>{data.description}</p>, data.tourUrl, "Launch Virtual Tour");
+
+      case 'vrAdventure':
+        return renderWrapper(`Adventure Sim: ${data.simulationName}`, <p>{data.description}</p>, data.simulationUrl, "Start Simulation");
+
+      case 'vrEtiquette':
+        return renderWrapper(`Etiquette Training: ${data.destination}`, <p>{data.summary}</p>, data.trainingUrl, "Begin Training");
+
+      case 'vrHistory':
+        return renderWrapper(`Historical Reenactment: ${data.event}`, <p>{data.description}</p>, data.experienceUrl, "Witness History");
+
+      case 'vrTimeMachine':
+        return renderWrapper(`Time Machine: ${data.location} - ${data.era}`, <p>{data.description}</p>, data.timeTravelUrl, "Travel Through Time");
+
+      default:
+        return (
+            <div className="text-xs text-green-400 mt-2 p-2 bg-green-900/20 rounded-md border border-green-400/20">
+                <pre className="whitespace-pre-wrap font-mono text-xs">
+                    {JSON.stringify(data, null, 2)}
+                </pre>
+            </div>
+        );
+    }
   }
 
   const tabs = [
@@ -142,6 +209,23 @@ export default function AIItinerary() {
           { icon: Orbit, title: 'Memory Palace', name: 'memoryPalace' },
           { icon: Feather, title: 'Haiku Generator', name: 'haikuGenerator' },
           { icon: FileText, title: 'Comic Strip', name: 'comicStrip' },
+          { icon: Bot, title: 'Weather Adapt', name: 'adaptItineraryToWeather' },
+          { icon: Heart, title: 'Bio-Data Suggestions', name: 'suggestActivityBasedOnBioData' },
+          { icon: BookOpen, title: 'Story Locations', name: 'findStoryLocations' },
+          { icon: Briefcase, title: 'Book Flight', name: 'bookFlight' },
+          { icon: Users, title: 'Aetheria Radio', name: 'getAetheriaRadioHost' },
+          { icon: Camera, title: '3D Photo Sculpture', name: 'generate3DPhotoSculpture' },
+          { icon: FileText, title: 'Travel Blog Post', name: 'generateTravelBlogPost' },
+          { icon: HandHeart, title: 'Artisan Crafts', name: 'findArtisanCrafts' },
+          { icon: Users, title: 'Chat with History', name: 'chatWithHistoricalFigure' },
+          { icon: GitMerge, title: 'Personal Mythology', name: 'generatePersonalMythology' },
+          { icon: Orbit, title: 'Sentient Compass', name: 'getSentientCompassReading' },
+          { icon: Users, title: 'Collab Journal', name: 'syncCollaborativeJournal' },
+          { icon: Award, title: 'Haptic Events', name: 'getHapticEvents' },
+          { icon: Eye, title: 'Dream Itinerary', name: 'generateDreamItinerary' },
+          { icon: Shield, title: 'Aura Shield', name: 'getAuraShieldSuggestion' },
+          { icon: MapPin, title: 'Sensory Data', name: 'recordSensoryData' },
+          { icon: Feather, title: 'Compose Soundtrack', name: 'composeSoundtrack' },
       ]
   };
 
@@ -185,12 +269,24 @@ export default function AIItinerary() {
                 <AnimatePresence mode="wait">
                   <motion.div key={activeTab} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
                       {activeTab === 'itinerary' && (
-                          <div className="space-y-4">
-                              {itinerary.itinerary[0].activities.map((activity: any) => (
-                                  <div key={activity.id} className="glass-light p-4 rounded-xl">
-                                      <h3 className="text-md font-bold">{activity.title}</h3>
-                                      <p className="text-xs text-foreground/60 leading-relaxed mt-1">{activity.description}</p>
+                          <div className="space-y-8">
+                              {itinerary.itinerary.map((day: any, index: number) => (
+                                <div key={index}>
+                                  <h3 className="text-2xl font-bold font-display mb-4">Day {index + 1}: {day.theme}</h3>
+                                  <div className="space-y-4">
+                                    {day.activities.map((activity: any, actIndex: number) => (
+                                      <div key={actIndex} className="glass-light p-4 rounded-xl border border-white/10">
+                                        <h4 className="text-md font-bold">{activity.title}</h4>
+                                        <p className="text-sm text-foreground/60 leading-relaxed mt-1">{activity.description}</p>
+                                        <div className="flex items-center gap-4 mt-3 text-xs text-foreground/50">
+                                          <span><strong>Time:</strong> {activity.time}</span>
+                                          <span><strong>Cost:</strong> ${activity.estimated_cost}</span>
+                                          <span><strong>Type:</strong> {activity.type}</span>
+                                        </div>
+                                      </div>
+                                    ))}
                                   </div>
+                                </div>
                               ))}
                           </div>
                       )}
