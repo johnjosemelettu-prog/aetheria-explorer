@@ -57,11 +57,9 @@ async function translateAll() {
   const enJsonContent = fs.readFileSync(EN_JSON_PATH, 'utf8');
   const enJson = JSON.parse(enJsonContent);
 
-  const includedLanguages = ['fr', 'id', 'it', 'kn', 'nl'];
   const languages = fs.readdirSync(LOCALES_DIR)
     .filter(file => file.endsWith('.json') && file !== 'en.json')
-    .map(file => file.replace('.json', ''))
-    .filter(lang => includedLanguages.includes(lang));
+    .map(file => file.replace('.json', ''));
 
   for (const lang of languages) {
     const langJsonPath = path.join(LOCALES_DIR, `${lang}.json`);

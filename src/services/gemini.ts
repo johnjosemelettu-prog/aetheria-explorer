@@ -626,8 +626,6 @@ export const generateVibeMarket = async (location: string): Promise<any> => {
 };
 
 export const translateText = async (text: string, targetLanguage: string): Promise<any> => {
-    console.log(`Translating '${text}' to ${targetLanguage}...`);
-    await new Promise(resolve => setTimeout(resolve, 600));
     return {
         originalText: text,
         translatedText: `[${targetLanguage}] ${text}`,
