@@ -29,7 +29,7 @@ export default function AIItinerary() {
   const [activeTab, setActiveTab] = useState('itinerary');
   const [modules, setModules] = useState<any>({});
   const [moduleLoading, setModuleLoading] = useState<string | null>(null);
-  const isPremium = usePremiumStatus();
+  const { isPremium } = usePremiumStatus();
 
   const handleGenerate = async () => {
     setLoading(true);
@@ -111,6 +111,36 @@ export default function AIItinerary() {
     }
   };
 
+  const renderDynamicObject = (obj: any): React.ReactNode => {
+    if (typeof obj !== 'object' || obj === null) {
+      return <span className="text-foreground/80">{String(obj)}</span>;
+    }
+    if (Array.isArray(obj)) {
+      return (
+        <ul className="list-disc pl-5 space-y-2 mt-2 text-foreground/80">
+          {obj.map((item, i) => <li key={i}>{renderDynamicObject(item)}</li>)}
+        </ul>
+      );
+    }
+    return (
+      <div className="space-y-3 mt-2">
+        {Object.entries(obj).map(([key, val]) => {
+          if (typeof val === 'string' && (val.startsWith('http') || val.startsWith('/'))) {
+             return <a key={key} href={val} target="_blank" rel="noopener noreferrer" className="text-accent font-bold hover:underline inline-block items-center">{key} &rarr;</a>;
+          }
+          return (
+            <div key={key} className="bg-white/5 p-3 rounded-xl border border-white/10">
+              <span className="text-primary font-mono text-[10px] uppercase tracking-widest block mb-1">
+                {key.replace(/([A-Z])/g, ' $1').trim()}
+              </span>
+              <div className="text-sm">{renderDynamicObject(val)}</div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   const renderModuleContent = (moduleName: string) => {
     const data = modules[moduleName];
     if (moduleLoading === moduleName) {
@@ -130,10 +160,16 @@ export default function AIItinerary() {
     }
     
     const renderWrapper = (title: string, content: React.ReactNode, url: string, urlText: string) => (
-      <div className="text-xs text-green-400 mt-2 p-2 bg-green-900/20 rounded-md border border-green-400/20">
-        <p className="font-bold">{title}</p>
-        <div className="text-foreground/80">{content}</div>
-        <a href={url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline mt-2 inline-block">{urlText}</a>
+      <div className="mt-4 p-4 bg-white/5 rounded-2xl border border-white/10 space-y-3 relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <h4 className="font-bold text-lg text-white flex items-center gap-2">{title}</h4>
+        <div className="text-sm text-foreground/80 leading-relaxed">{content}</div>
+        {url && (
+            <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary rounded-xl font-bold transition-all text-xs uppercase tracking-widest border border-primary/20">
+              <Eye className="w-4 h-4" />
+              {urlText}
+            </a>
+        )}
       </div>
     );
 
@@ -170,10 +206,8 @@ export default function AIItinerary() {
 
       default:
         return (
-            <div className="text-xs text-green-400 mt-2 p-2 bg-green-900/20 rounded-md border border-green-400/20">
-                <pre className="whitespace-pre-wrap font-mono text-xs">
-                    {JSON.stringify(data, null, 2)}
-                </pre>
+            <div className="mt-3 text-sm">
+                {renderDynamicObject(data)}
             </div>
         );
     }

@@ -6,7 +6,7 @@ interface PremiumFeatureWrapperProps {
 }
 
 export const PremiumFeatureWrapper: React.FC<PremiumFeatureWrapperProps> = ({ children }) => {
-  const isPremium = usePremiumStatus();
+  const { isPremium } = usePremiumStatus();
 
   if (!isPremium) {
     return (

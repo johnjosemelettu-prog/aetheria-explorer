@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Crown, Sparkles, Shield, ArrowRight } from 'lucide-react';
 
 interface PremiumGateProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   featureName?: string;
   isBookingSpecific?: boolean;
 }
