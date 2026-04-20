@@ -156,6 +156,18 @@ export default function AIItinerary() {
       case 'vrTimeMachine':
         return renderWrapper(`Time Machine: ${data.location} - ${data.era}`, <p>{data.description}</p>, data.timeTravelUrl, "Travel Through Time");
 
+      case 'arTimelapse':
+        return renderWrapper(`AR Time-Lapse: ${data.location}`, <p>{data.description}</p>, data.arExperienceUrl, "Activate AR");
+
+      case 'arMenu':
+        return renderWrapper("AR Menu", <p>{data.restaurantName}</p>, data.arMenuUrl, "View Menu in AR");
+
+      case 'arGallery':
+        return renderWrapper(`AR Art Gallery: ${data.artist}`, <p>{data.description}</p>, data.arGalleryUrl, "Enter Gallery");
+
+      case 'arArchitecture':
+        return renderWrapper(`Architecture Deconstruction: ${data.buildingName}`, <div><p>{data.era}</p><p>{data.style}</p></div>, data.arModelUrl, "Deconstruct Building");
+
       default:
         return (
             <div className="text-xs text-green-400 mt-2 p-2 bg-green-900/20 rounded-md border border-green-400/20">
