@@ -101,7 +101,7 @@ export default function Navbar({ user }: NavbarProps) {
     };
   }, []);
 
-  const isLandingPage = pathname === '/';
+  const isLandingPage = !user && pathname === '/';
 
   useEffect(() => {
     const fetchProfile = async () => {
