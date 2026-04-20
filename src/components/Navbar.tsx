@@ -87,6 +87,21 @@ export default function Navbar({ user }: NavbarProps) {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const [isPremium, setIsPremium] = useState(false);
+  const [pathname, setPathname] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setPathname(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
+  const isLandingPage = pathname === '/';
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -666,7 +681,7 @@ export default function Navbar({ user }: NavbarProps) {
 
       {/* Scrollable Nav Links */}
       <div className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar py-6">
-        {menuSections.map((section, idx) => (
+        {!isLandingPage && menuSections.map((section, idx) => (
           <CollapsibleSection 
             key={idx} 
             title={section.title} 
