@@ -1,57 +1,119 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShieldAlert } from 'lucide-react';
+import { ShieldAlert, Lock, Eye, Database, Globe, CheckCircle2, FileText, Fingerprint } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function PrivacyPolicy() {
   const { t } = useTranslation();
+  const [activeTab, setActiveTab] = useState(0);
+
+  const sections = [
+    {
+      title: "Introduction",
+      icon: <FileText className="w-5 h-5" />,
+      content: "Welcome to Aetheria Explorer. We respect your privacy and are committed to protecting your personal data in the digital age. This policy outlines our cutting-edge security architecture and how we treat your data as your sovereign property."
+    },
+    {
+      title: "Data Sovereignty",
+      icon: <Fingerprint className="w-5 h-5" />,
+      content: "We collect only what's necessary. Identity Data, Contact Data, and Usage Data are encrypted end-to-end. Your travel preferences and AI itinerary generation data belong solely to you. We strictly never sell your data to third-party data brokers."
+    },
+    {
+      title: "Biometrics & AR",
+      icon: <Eye className="w-5 h-5" />,
+      content: "Our Augmented Reality and Biometric features (such as Face Scan for premium boarding) process everything locally on your device whenever possible. Ephemeral cloud processing is purged immediately after AI computation."
+    },
+    {
+      title: "Blockchain Security",
+      icon: <Database className="w-5 h-5" />,
+      content: "Aetheria utilizes decentralized ledgers for digital passports and verifiable credentials. This guarantees tamper-proof records of your achievements without centralizing your PII (Personally Identifiable Information)."
+    },
+    {
+      title: "Global Compliance",
+      icon: <Globe className="w-5 h-5" />,
+      content: "We guarantee compliance with GDPR, CCPA, and upcoming spatial computing privacy regulations. Your data localized processing respects your geographical jurisdiction."
+    }
+  ];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <div className="flex items-center gap-3 mb-8">
-          <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center">
-            <ShieldAlert className="text-primary w-6 h-6" />
+    <div className="min-h-screen bg-background text-foreground pt-32 pb-24 relative overflow-hidden">
+      {/* Background Orbs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center justify-center p-4 rounded-full bg-primary/20 text-primary mb-6 border border-primary/30">
+            <Lock className="w-12 h-12" />
           </div>
-          <h1 className="text-4xl font-display font-bold">Privacy Policy</h1>
+          <h1 className="text-5xl md:text-6xl font-display font-black mb-6">Privacy Policy</h1>
+          <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
+            Your data is your property. Discover our blueprint for maintaining your digital sovereignty while exploring the world.
+          </p>
+          <p className="text-sm font-mono text-primary mt-6">LAST PROTOCOL UPDATE: 2026.10.26</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Sidebar Navigation */}
+          <div className="lg:col-span-4 space-y-4">
+            {sections.map((section, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveTab(idx)}
+                className={`w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 text-left ${
+                  activeTab === idx 
+                    ? 'bg-primary/20 border border-primary/50 text-white shadow-[0_0_30px_rgba(var(--primary),0.2)]' 
+                    : 'glass hover:bg-white/10 text-foreground/60 hover:text-white'
+                }`}
+              >
+                <div className={`p-2 rounded-xl ${activeTab === idx ? 'bg-primary/30 text-primary' : 'bg-black/20 text-foreground/40'}`}>
+                  {section.icon}
+                </div>
+                <span className="font-bold text-lg">{section.title}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Content Area */}
+          <div className="lg:col-span-8">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+              className="glass p-10 rounded-[40px] relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 p-8 opacity-5">
+                {sections[activeTab].icon}
+              </div>
+              <h2 className="text-3xl font-bold mb-6 text-white flex items-center gap-3">
+                {sections[activeTab].title}
+                <CheckCircle2 className="w-6 h-6 text-primary" />
+              </h2>
+              <div className="space-y-6 text-foreground/80 leading-relaxed text-lg">
+                <p>{sections[activeTab].content}</p>
+                <p>We implement automated data lifecycle management to ensure your digital footprint is minimized. Any telemetry data gathered for app optimizations is completely anonymized.</p>
+                
+                <div className="mt-8 p-6 bg-black/40 rounded-2xl border border-white/5">
+                  <h3 className="font-bold text-white mb-2 flex items-center gap-2">
+                    <ShieldAlert className="w-4 h-4 text-secondary" />
+                    Your Rights
+                  </h3>
+                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                    <li>Right to complete data erasure ("Right to be Forgotten")</li>
+                    <li>Right to data portability (export in standardized JSON)</li>
+                    <li>Right to algorithm transparency</li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
-
-        <div className="glass p-8 rounded-[32px] space-y-6 text-foreground/80 leading-relaxed">
-          <p><strong>Last Updated: October 26, 2026</strong></p>
-          
-          <h2 className="text-2xl font-bold mt-8 mb-4 text-white">1. Introduction</h2>
-          <p>Welcome to Aetheria Explorer. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our application and tell you about your privacy rights and how the law protects you.</p>
-
-          <h2 className="text-2xl font-bold mt-8 mb-4 text-white">2. The Data We Collect About You</h2>
-          <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
-            <li><strong>Contact Data</strong> includes email address and telephone numbers.</li>
-            <li><strong>Financial Data</strong> includes bank account and payment card details (managed securely via Stripe).</li>
-            <li><strong>Transaction Data</strong> includes details about payments to and from you and other details of products and services you have purchased from us.</li>
-            <li><strong>Technical Data</strong> includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location.</li>
-            <li><strong>Profile Data</strong> includes your username and password, purchases or orders made by you, your interests, preferences, feedback and survey responses.</li>
-            <li><strong>Usage Data</strong> includes information about how you use our website, products and services.</li>
-          </ul>
-
-          <h2 className="text-2xl font-bold mt-8 mb-4 text-white">3. How We Use Your Personal Data</h2>
-          <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Where we need to perform the contract we are about to enter into or have entered into with you.</li>
-            <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
-            <li>Where we need to comply with a legal obligation.</li>
-          </ul>
-
-          <h2 className="text-2xl font-bold mt-8 mb-4 text-white">4. Data Security</h2>
-          <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.</p>
-
-          <h2 className="text-2xl font-bold mt-8 mb-4 text-white">5. Your Legal Rights</h2>
-          <p>Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to request access, correction, erasure, restriction, transfer, to object to processing, to portability of data and (where the lawful ground of processing is consent) to withdraw consent.</p>
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
