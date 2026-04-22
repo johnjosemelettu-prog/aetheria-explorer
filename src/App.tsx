@@ -551,7 +551,7 @@ export default function App() {
       case '/mood-synthesis': return <MoodSynthesis />;
       case '/video-teaser': return <VideoTeaser />;
       case '/postcard-studio': return <PostcardStudio />;
-      case '/vibe': return <Vibe />;
+      case '/vibe': return <Vibe vibe={{id: '1', name: 'Ethereal', description: 'A dreamy, otherworldly experience.', price: 100}} />;
       case '/landmark-lens': return <LandmarkLens />;
       case '/booking': return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24"><BookingHub /></div>;
       case '/travel-insurance': return <TravelInsurance />;
