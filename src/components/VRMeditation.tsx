@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Infinity } from 'lucide-react';
+import { Infinity as InfinityIcon } from 'lucide-react';
 import XRLayout from './XRLayout';
 
 export default function VRMeditation() {
@@ -9,7 +9,7 @@ export default function VRMeditation() {
       mode="VR"
       title="Sanctuary Mode" 
       description="Disconnect and find peace. Meditate in ultra-realistic, impossible locations generated just for you."
-      overlayIcon={<Infinity className="w-8 h-8 text-purple-400" />}
+      overlayIcon={<InfinityIcon className="w-8 h-8 text-purple-400" />}
     >
       <div className="absolute inset-0 bg-black overflow-hidden perspective-[1000px] pointer-events-none">
         

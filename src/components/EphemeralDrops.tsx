@@ -71,7 +71,7 @@ const EphemeralDrops = () => {
                 
                 <div className="bg-zinc-900 border border-rose-600 rounded-3xl p-8 relative overflow-hidden text-left shadow-2xl">
                   {/* Warning Striping */}
-                  <div className="absolute top-0 left-0 w-full h-2" style={{ repeatingLinearGradient: "45deg, #e11d48, #e11d48 10px, transparent 10px, transparent 20px" }} />
+                  <div className="absolute top-0 left-0 w-full h-2" style={{ backgroundImage: "repeating-linear-gradient(45deg, #e11d48, #e11d48 10px, transparent 10px, transparent 20px)" }} />
                   
                   <div className="flex justify-between items-start mb-6 border-b border-white/10 pb-6">
                     <div>
