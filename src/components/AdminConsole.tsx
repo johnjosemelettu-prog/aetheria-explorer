@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UserManagement from './UserManagement';
-import { Shield, Trophy, Users, ShieldAlert, PieChart, Sparkles, AlertTriangle, Palette } from 'lucide-react';
+import { Shield, Trophy, Users, ShieldAlert, PieChart, Sparkles, AlertTriangle, Palette, Briefcase, DollarSign, Flag, Settings, Megaphone } from 'lucide-react';
 
 const AdminConsole: React.FC = () => {
   const [activeTab, setActiveTab] = useState('users');
@@ -15,6 +15,11 @@ const AdminConsole: React.FC = () => {
     { id: 'ai-review', name: 'AI Performance', icon: Sparkles },
     { id: 'logs', name: 'System Logs', icon: AlertTriangle },
     { id: 'vibe-market', name: 'Vibe Market', icon: Palette },
+    { id: 'partners', name: 'Partner Management', icon: Briefcase },
+    { id: 'transactions', name: 'Transactions', icon: DollarSign },
+    { id: 'feature-flags', name: 'Feature Flags', icon: Flag },
+    { id: 'ai-config', name: 'AI Configuration', icon: Settings },
+    { id: 'announcements', name: 'Announcements', icon: Megaphone },
   ];
 
   const renderContent = () => {
@@ -39,12 +44,12 @@ const AdminConsole: React.FC = () => {
           <div className="lg:w-1/4">
             <div className="bg-gray-800 rounded-lg p-4 sticky top-24">
               <h2 className="text-lg font-bold mb-4 text-white">Navigation</h2>
-              <nav className="flex flex-row lg:flex-col gap-2">
+              <nav className="flex flex-row lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0">
                 {tabs.map(tab => (
                   <button 
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-3 w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    className={`flex items-center gap-3 w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors flex-shrink-0 lg:flex-shrink-1 ${
                       activeTab === tab.id 
                         ? 'bg-primary/10 text-primary'
                         : 'text-gray-300 hover:bg-white/5 hover:text-white'

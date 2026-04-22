@@ -1,3 +1,4 @@
+
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -14,95 +15,87 @@ service cloud.firestore {
     }
 
     function isAdmin() {
-      let userRole = get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
-      return isAuthenticated() && (userRole == 'admin');
-    }
-
-    function isPartner() {
-      let userRole = get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
-      return isAuthenticated() && (userRole == 'partner');
+      return isAuthenticated() && request.auth.token.admin == true;
     }
 
     // ===============================================================
-    // Data Validation Functions
+    // Admin Rules
     // ===============================================================
-
-    function isValidUser(data) {
-      return data.uid == request.auth.uid &&
-             data.email is string && data.email.matches('.+@.+\\..+') &&
-             data.displayName is string && data.displayName.size() > 0 && data.displayName.size() < 100 &&
-             data.role in ['explorer', 'admin', 'partner'] &&
-             data.createdAt is timestamp &&
-             (!data.keys().hasAny(['bodyMeasurements']) || data.bodyMeasurements is map);
-    }
-
-    function isValidItinerary(data) {
-      return data.userId == request.auth.uid &&
-             data.title is string && data.title.size() > 0 && data.title.size() < 200 &&
-             data.destination is string && data.destination.size() > 0 &&
-             data.status in ['draft', 'confirmed', 'completed'] &&
-             data.carbonFootprint is number && data.carbonFootprint >= 0;
-    }
-
-    function isValidTransaction(data) {
-      return data.userId == request.auth.uid &&
-             data.amount is number &&
-             data.type in ['credit', 'debit'] &&
-             data.status in ['completed', 'pending', 'failed'];
-    }
-
-    function isValidVibe(data) {
-        return data.creatorId is string &&
-               data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
-               data.price is number && data.price >= 0;
-    }
-
-    function isValidDigitalTailorOrder(data) {
-        return data.userId == request.auth.uid &&
-               data.measurements is map &&
-               data.style is string &&
-               data.status in ['pending', 'processing', 'shipped', 'delivered'];
+    match /admins/{userId} {
+      get() {
+        return isAdmin() || isOwner(userId);
+      }
+      allow read, write: if isAdmin();
     }
 
     // ===============================================================
-    // Rules
+    // User Rules
     // ===============================================================
-
     match /users/{userId} {
-      allow read: if isOwner(userId) || isAdmin();
-      allow create: if isAuthenticated() && isValidUser(request.resource.data);
-      allow update: if isOwner(userId) && isValidUser(request.resource.data);
-      // Deletion of user data should be handled by a backend process for data integrity
-      allow delete: if isAdmin(); 
+      get() {
+        return isAuthenticated();
+      }
+      create() {
+        return isOwner(userId);
+      }
+      update(userId) {
+        return isOwner(userId);
+      }
+      delete() {
+        return isAdmin();
+      }
     }
 
-    match /itineraries/{itineraryId} {
-      allow read, delete: if isOwner(resource.data.userId) || isAdmin();
-      allow create: if isAuthenticated() && isValidItinerary(request.resource.data);
-      allow update: if (isOwner(resource.data.userId) || isAdmin()) && isValidItinerary(request.resource.data);
+    // ===============================================================
+    // Content Moderation Rules
+    // ===============================================================
+    match /scamAlerts/{alertId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
     }
 
-    match /transactions/{txId} {
-      allow read: if isOwner(resource.data.userId) || isAdmin();
-      allow create: if isAuthenticated() && isValidTransaction(request.resource.data);
-      // Only allow updating the status of a transaction
-      allow update: if (isOwner(resource.data.userId) || isAdmin()) && request.resource.data.keys().hasOnly(['status']);
-      // Transactions should not be deletable to maintain financial records
-      allow delete: if false;
+    match /localHeroes/{heroId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
     }
 
-    match /vibeMarket/{vibeId} {
-        allow read: if isAuthenticated();
-        allow create: if (isPartner() || isAdmin()) && isValidVibe(request.resource.data);
-        allow update: if (isOwner(resource.data.creatorId) || isAdmin()) && isValidVibe(request.resource.data);
-        allow delete: if isOwner(resource.data.creatorId) || isAdmin();
+    match /guilds/{guildId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
     }
 
-    match /digitalTailorOrders/{orderId} {
-        allow read, update: if isOwner(resource.data.userId) || isPartner() || isAdmin();
-        allow create: if isAuthenticated() && isValidDigitalTailorOrder(request.resource.data);
-        // Orders can be cancelled by the user or managed by a partner/admin
-        allow delete: if isOwner(resource.data.userId) || isPartner() || isAdmin();
+    // ===============================================================
+    // Financial & Partner Rules
+    // ===============================================================
+    match /partners/{partnerId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    match /transactions/{transactionId} {
+      allow read: if isAdmin();
+    }
+
+    match /payouts/{payoutId} {
+      allow read: if isAdmin();
+    }
+
+    // ===============================================================
+    // Feature Flag & Configuration Rules
+    // ===============================================================
+    match /featureFlags/{flagId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    match /aiModels/{modelId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    match /announcements/{announcementId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
     }
   }
 }

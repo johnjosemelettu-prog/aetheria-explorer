@@ -1,98 +1,81 @@
 import React from 'react';
-import { Users, Map, Globe, Sparkles, Brain, Coins, TrendingUp, TrendingDown } from 'lucide-react';
-
-const StatCard = ({ icon: Icon, title, value, change, changeType }: { icon: React.ElementType, title: string, value: string, change?: string, changeType?: 'increase' | 'decrease' }) => (
-  <div className="bg-gray-800/50 p-6 rounded-xl border border-white/10 flex flex-col justify-between">
-    <div>
-      <div className="flex items-center gap-3 mb-2">
-        <Icon className="w-5 h-5 text-primary" />
-        <h3 className="text-sm font-semibold text-gray-300">{title}</h3>
-      </div>
-      <p className="text-3xl font-bold text-white">{value}</p>
-    </div>
-    {change && (
-      <div className={`mt-4 flex items-center gap-1 text-xs ${changeType === 'increase' ? 'text-green-400' : 'text-red-400'}`}>
-        {changeType === 'increase' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-        <span>{change} vs yesterday</span>
-      </div>
-    )}
-  </div>
-);
-
-const BarListItem = ({ name, value, total }: { name: string, value: number, total: number }) => (
-  <li>
-    <div className="flex justify-between items-center mb-1">
-      <span className="text-sm text-gray-300">{name}</span>
-      <span className="text-sm font-medium text-white">{value.toLocaleString()}</span>
-    </div>
-    <div className="w-full bg-gray-700 rounded-full h-1.5">
-      <div className="bg-primary h-1.5 rounded-full" style={{ width: `${(value / total) * 100}%` }}></div>
-    </div>
-  </li>
-);
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
+import { useTranslation } from 'react-i18next';
 
 const AnalyticsDashboard: React.FC = () => {
-  const popularFeatures = [
-    { name: 'AI Itinerary', value: 450 },
-    { name: 'Landmark Lens', value: 320 },
-    { name: 'Vibe Market', value: 280 },
-    { name: 'Heritage Mirror', value: 150 },
-    { name: 'AR Wayfinding', value: 90 },
+  const { t } = useTranslation('common');
+
+  const userGrowthData = [
+    { name: t('months.jan'), signups: 400, active: 240 },
+    { name: t('months.feb'), signups: 300, active: 139 },
+    { name: t('months.mar'), signups: 200, active: 980 },
+    { name: t('months.apr'), signups: 278, active: 390 },
+    { name: t('months.may'), signups: 189, active: 480 },
+    { name: t('months.jun'), signups: 239, active: 380 },
+    { name: t('months.jul'), signups: 349, active: 430 },
   ];
-  const totalFeatureUsage = popularFeatures.reduce((acc, f) => acc + f.value, 0);
-  
-  const modelUsage = [
-      { name: 'Gemini 2.5 Pro', value: 12500 },
-      { name: 'Imagen 3', value: 3400 },
-      { name: 'Lyra', value: 8900 },
+
+  const financialData = [
+    { name: t('admin.analytics.aetheriaSubs'), value: 4000 },
+    { name: t('admin.analytics.vibeMarketFees'), value: 3000 },
+    { name: t('admin.analytics.partnerCommissions'), value: 2000 },
+    { name: t('admin.analytics.other'), value: 1000 },
   ];
-  const totalModelUsage = modelUsage.reduce((acc, m) => acc + m.value, 0);
+
+  const popularFeaturesData = [
+    { name: 'AI Itinerary', usage: 4000 },
+    { name: 'Traveler Guilds', usage: 3000 },
+    { name: 'Vibe Market', usage: 2000 },
+    { name: 'Local Heroes', usage: 2780 },
+    { name: 'Scam Alerts', usage: 1890 },
+  ];
+
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   return (
-    <div className="space-y-6">
-       <h2 className="text-2xl font-bold text-primary">Analytics Dashboard</h2>
-       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <StatCard icon={Users} title="Daily Active Users" value="1,254" change="+5.2%" changeType="increase" />
-        <StatCard icon={Map} title="Itineraries Generated (24h)" value="312" />
-        <StatCard icon={Coins} title="Estimated AI Costs (24h)" value="$87.45" change="-2.1%" changeType="decrease" />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="col-span-1 md:col-span-2 bg-gray-800 p-6 rounded-lg">
+        <h3 className="text-xl font-bold mb-4 text-white">{t('admin.analytics.userGrowth')}</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={userGrowthData}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#4A5568" />
+            <XAxis dataKey="name" stroke="#A0AEC0" />
+            <YAxis stroke="#A0AEC0" />
+            <Tooltip contentStyle={{ backgroundColor: '#2D3748', border: 'none' }} />
+            <Legend />
+            <Line type="monotone" dataKey="signups" stroke="#8884d8" name={t('admin.analytics.newSignups')} />
+            <Line type="monotone" dataKey="active" stroke="#82ca9d" name={t('admin.analytics.dailyActiveUsers')} />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
 
-        <div className="bg-gray-800/50 p-6 rounded-xl border border-white/10 sm:col-span-1">
-          <div className="flex items-center gap-3 mb-4">
-            <Globe className="w-5 h-5 text-primary" />
-            <h3 className="text-sm font-semibold text-gray-300">Popular Destinations</h3>
-          </div>
-          <ol className="space-y-3 text-sm text-gray-200 list-decimal list-inside">
-            <li>Tokyo, Japan</li>
-            <li>Paris, France</li>
-            <li>Kyoto, Japan</li>
-            <li>Rome, Italy</li>
-            <li>New York, USA</li>
-          </ol>
-        </div>
+      <div className="col-span-1 bg-gray-800 p-6 rounded-lg">
+        <h3 className="text-xl font-bold mb-4 text-white">{t('admin.analytics.financialOverview')}</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <PieChart>
+            <Pie data={financialData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} fill="#8884d8" label>
+              {financialData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip contentStyle={{ backgroundColor: '#2D3748', border: 'none' }} />
+            <Legend />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
 
-        <div className="bg-gray-800/50 p-6 rounded-xl border border-white/10 sm:col-span-1">
-          <div className="flex items-center gap-3 mb-4">
-            <Sparkles className="w-5 h-5 text-primary" />
-            <h3 className="text-sm font-semibold text-gray-300">Most Used AI Features</h3>
-          </div>
-          <ul className="space-y-4">
-            {popularFeatures.map(feature => (
-              <BarListItem key={feature.name} name={feature.name} value={feature.value} total={totalFeatureUsage} />
-            ))}
-          </ul>
-        </div>
-        
-        <div className="bg-gray-800/50 p-6 rounded-xl border border-white/10 sm:col-span-1">
-          <div className="flex items-center gap-3 mb-4">
-            <Brain className="w-5 h-5 text-primary" />
-            <h3 className="text-sm font-semibold text-gray-300">AI Model Usage (Requests)</h3>
-          </div>
-           <ul className="space-y-4">
-            {modelUsage.map(model => (
-              <BarListItem key={model.name} name={model.name} value={model.value} total={totalModelUsage} />
-            ))}
-          </ul>
-        </div>
+      <div className="col-span-1 bg-gray-800 p-6 rounded-lg">
+        <h3 className="text-xl font-bold mb-4 text-white">{t('admin.analytics.popularFeatures')}</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={popularFeaturesData}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#4A5568" />
+            <XAxis dataKey="name" stroke="#A0AEC0" angle={-45} textAnchor="end" height={80} interval={0}/>
+            <YAxis stroke="#A0AEC0" />
+            <Tooltip contentStyle={{ backgroundColor: '#2D3748', border: 'none' }} />
+            <Legend />
+            <Bar dataKey="usage" fill="#82ca9d" />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );
