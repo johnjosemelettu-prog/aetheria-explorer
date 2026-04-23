@@ -1,0 +1,1 @@
+import{c as t,a as s,s as o}from"./index-O_U9hr4j.js";class a{log(r,e){console.error("🔥 Error Captured:",r,e),t(r,{extra:e||{}})}trackEvent(r,e="info"){s(r,e)}setUserContext(r,e){o({id:r,email:e})}clearUserContext(){o(null)}}const i=new a;export{i as monitor};
