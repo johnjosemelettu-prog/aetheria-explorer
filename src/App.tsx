@@ -424,29 +424,6 @@ export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
-    // Global Fallback Error Trackers
-    const handleGlobalError = (event: ErrorEvent) => {
-      import('./lib/errorMonitor').then(({ monitor }) => {
-        monitor.log(event.error || new Error(event.message), { source: 'window.onerror' });
-      });
-    };
-    
-    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-      import('./lib/errorMonitor').then(({ monitor }) => {
-        monitor.log(event.reason, { source: 'unhandledrejection' });
-      });
-    };
-
-    window.addEventListener('error', handleGlobalError);
-    window.addEventListener('unhandledrejection', handleUnhandledRejection);
-
-    return () => {
-      window.removeEventListener('error', handleGlobalError);
-      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
-    };
-  }, []);
-
-  useEffect(() => {
     if (profile?.preferences?.language) {
       i18n.changeLanguage(profile.preferences.language);
     }
