@@ -3,6 +3,9 @@
   "appName": "Aetheria Explorer",
   "webDir": "dist",
   "server": {
-    "androidScheme": "https"
+    "androidScheme": "https",
+    "allowNavigation": [
+      "localhost"
+    ]
   }
 }
