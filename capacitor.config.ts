@@ -1,10 +1,12 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.aetheria.explorer',
+  appId: 'ai.aetheria.travel',
   appName: 'Aetheria Explorer',
-  webDir: 'dist',
-  
+  webDir: 'out',
+  server: {
+    androidScheme: 'https'
+  },
   plugins: {
     SplashScreen: {
       launchShowDuration: 3000,
