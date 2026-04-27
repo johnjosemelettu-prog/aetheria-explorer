@@ -52,7 +52,7 @@ import AITravelMentor from './components/AITravelMentor';
 import FlavorSeeker from './components/FlavorSeeker';
 import DynamicItineraryABTesting from './components/DynamicItineraryABTesting';
 import PersonalizedChallengeGenerator from './components/PersonalizedChallengeGenerator';
-import DreamWeaver from './components/DreamWeaver';
+
 import HabitIntegration from './components/HabitIntegration';
 import ARTimeLapseView from './components/ARTimeLapseView';
 import ARMenuVisualizer from './components/ARMenuVisualizer';
@@ -131,10 +131,10 @@ import GroupVibeCalibration from './components/GroupVibeCalibration';
 import EchoesOfPastTravelers from './components/EchoesOfPastTravelers';
 import SharedExpenseSynthesizer from './components/SharedExpenseSynthesizer';
 import AetheriaAmbassadorProgram from './components/AetheriaAmbassadorProgram';
-import TravelersGuilds from './components/TravelersGuilds';
+import TravelGuilds from './components/TravelGuilds';
 import GlobalGiftNetwork from './components/GlobalGiftNetwork';
 import SpontaneousMeetups from './components/SpontaneousMeetups';
-import ChronoQuests from './components/ChronoQuests';
+
 import FactionWars from './components/FactionWars';
 import DigitalSouvenirForging from './components/DigitalSouvenirForging';
 import WorldGridUnveiling from './components/WorldGridUnveiling';
@@ -175,15 +175,15 @@ import GreenTransitScore from './components/GreenTransitScore';
 import ConservationCircle from './components/ConservationCircle';
 import WildlifeSightingEthos from './components/WildlifeSightingEthos';
 import CollaborativeJournal from './components/CollaborativeJournal';
-import ThenAndNowPhotoMixer from './components/ThenAndNowPhotoMixer';
+
 import AITravelBlogger from './components/AITravelBlogger';
 import AetheriaRadioHost from './components/AetheriaRadioHost';
 import VibeBasedPhotoFilters from './components/VibeBasedPhotoFilters';
 import InteractiveTravelMaps from './components/InteractiveTravelMaps';
-import TravelComicStripCreator from './components/TravelComicStripCreator';
+
 import ThreeDPhotoSculptures from './components/3DPhotoSculptures';
 import AIStoryScout from './components/AIStoryScout';
-import SensoryJournal from './components/SensoryJournal';
+
 import LiveLikeALocalSimulation from './components/LiveLikeALocalSimulation';
 import CulturalEtiquetteGuide from './components/CulturalEtiquetteGuide';
 import MythFolkloreHotspots from './components/MythFolkloreHotspots';
@@ -199,11 +199,11 @@ import DroneRental from './components/DroneRental';
 import TranslationEarbuds from './components/TranslationEarbuds';
 import MemoryPalace from './components/MemoryPalace';
 import AetheriaDAO from './components/AetheriaDAO';
-import SentientAICompanion from './components/SentientAICompanion';
+
 import HapticController from './components/HapticController';
 import WeatherAdaptiveController from './components/WeatherAdaptiveController';
 import BioDataMonitor from './components/BioDataMonitor';
-import QuantumSouvenir from './components/QuantumSouvenir';
+
 import PersonalizedMeditation from './components/PersonalizedMeditation';
 import TravelAnthem from './components/TravelAnthem';
 import LocalNewsFeed from './components/LocalNewsFeed';
@@ -530,7 +530,7 @@ export default function App() {
       case '/flavor-seeker': return <FlavorSeeker />;
       case '/ab-testing': return <DynamicItineraryABTesting />;
       case '/challenge-generator': return <PersonalizedChallengeGenerator />;
-      case '/dream-weaver': return <DreamWeaver />;
+      case '/dream-weaver': return <DreamWeavingFeature />;
       case '/habit-integration': return <HabitIntegration />;
       case '/ar-time-lapse': return <ARTimeLapseView />;
       case '/ar-menu': return <ARMenuVisualizer />;
@@ -609,10 +609,10 @@ export default function App() {
       case '/echoes-of-past-travelers': return <EchoesOfPastTravelers />;
       case '/shared-expense': return <SharedExpenseSynthesizer />;
       case '/ambassador-program': return <AetheriaAmbassadorProgram />;
-      case '/travelers-guilds': return <TravelersGuilds />;
+      case '/travelers-guilds': return <TravelGuilds />;
       case '/global-gift-network': return <GlobalGiftNetwork />;
       case '/spontaneous-meetups': return <SpontaneousMeetups />;
-      case '/chrono-quests': return <ChronoQuests />;
+      case '/chrono-quests': return <ChronoQuestGame />;
       case '/faction-wars': return <FactionWars />;
       case '/digital-souvenir-forging': return <DigitalSouvenirForging />;
       case '/world-grid-unveiling': return <WorldGridUnveiling />;
@@ -653,15 +653,15 @@ export default function App() {
       case '/conservation-circle': return <ConservationCircle />;
       case '/wildlife-sighting': return <WildlifeSightingEthos />;
       case '/collaborative-journal': return <CollaborativeJournal />;
-      case '/then-and-now': return <ThenAndNowPhotoMixer />;
+      case '/then-and-now': return <ThenAndNowBlenderFeature />;
       case '/ai-blogger': return <AITravelBlogger />;
       case '/radio-host': return <AetheriaRadioHost />;
       case '/vibe-filters': return <VibeBasedPhotoFilters />;
       case '/interactive-maps': return <InteractiveTravelMaps />;
-      case '/comic-creator': return <TravelComicStripCreator />;
+      case '/comic-creator': return <TravelComicCreatorFeature />;
       case '/3d-sculptures': return <ThreeDPhotoSculptures />;
       case '/story-scout': return <AIStoryScout />;
-      case '/sensory-journal': return <SensoryJournal />;
+      case '/sensory-journal': return <SensoryDiaryFeature />;
       case '/live-like-a-local-sim': return <LiveLikeALocalSimulation />;
       case '/cultural-etiquette-guide': return <CulturalEtiquetteGuide />;
       case '/myth-folklore': return <MythFolkloreHotspots />;
@@ -677,11 +677,11 @@ export default function App() {
       case '/translation-earbuds': return <TranslationEarbuds />;
       case '/memory-palace': return <MemoryPalace />;
       case '/aetheria-dao': return <AetheriaDAO />;
-      case '/sentient-companion': return <SentientAICompanion />;
+      case '/sentient-companion': return <SentientCompanionFeature />;
       case '/haptic-controller': return <HapticController />;
       case '/weather-adaptive': return <WeatherAdaptiveController />;
       case '/bio-data': return <BioDataMonitor />;
-      case '/quantum-souvenirs': return <QuantumSouvenir souvenirId="qs-paris-01" baseImageUrl="/placeholder-souvenir.webp" location="Paris, France" />;
+      case '/quantum-souvenirs': return <QuantumSouvenirFeature />;
       case '/personalized-meditation': return <PersonalizedMeditation />;
       case '/travel-anthem': return <TravelAnthem />;
       case '/local-news': return <LocalNewsFeed />;

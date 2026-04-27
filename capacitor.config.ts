@@ -3,7 +3,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'ai.aetheria.travel',
   appName: 'Aetheria Explorer',
-  webDir: 'out',
+  webDir: 'dist',
   server: {
     androidScheme: 'https'
   },
