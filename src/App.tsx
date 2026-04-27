@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, Suspense } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
@@ -46,8 +45,6 @@ import RealtimeItinerary from './components/RealtimeItinerary';
 import UserProfile from './components/UserProfile';
 import SplashScreen from './components/SplashScreen';
 import { cn } from './lib/utils';
-
-// Missing 100 features
 import SerendipityEngine from './components/SerendipityEngine';
 import CognitiveLoadBalancer from './components/CognitiveLoadBalancer';
 import WhatIfScenarioPlanner from './components/WhatIfScenarioPlanner';
@@ -207,8 +204,6 @@ import HapticController from './components/HapticController';
 import WeatherAdaptiveController from './components/WeatherAdaptiveController';
 import BioDataMonitor from './components/BioDataMonitor';
 import QuantumSouvenir from './components/QuantumSouvenir';
-
-// Features 101-150
 import PersonalizedMeditation from './components/PersonalizedMeditation';
 import TravelAnthem from './components/TravelAnthem';
 import LocalNewsFeed from './components/LocalNewsFeed';
@@ -259,8 +254,6 @@ import SustainableSouvenirGuide from './components/SustainableSouvenirGuide';
 import SecondHandStoreMap from './components/SecondHandStoreMap';
 import PlantATree from './components/PlantATree';
 import CommunityTourismDirectory from './components/CommunityTourismDirectory';
-
-// Features 151-200
 import LiveLikeLocalDay from './components/LiveLikeLocalDay';
 import HomeCookedMeal from './components/HomeCookedMeal';
 import LocalSkillSwap from './components/LocalSkillSwap';
@@ -311,8 +304,6 @@ import HolographicJournal from './components/HolographicJournal';
 import TelepathicCommunication from './components/TelepathicCommunication';
 import AugmentedTasteAR from './components/AugmentedTasteAR';
 import DreamWeavingFeature from './components/DreamWeavingFeature';
-
-// Features 201-250
 import PersonalForceFieldAR from './components/PersonalForceFieldAR';
 import BioluminescentFashion from './components/BioluminescentFashion';
 import AlienArcheologyGame from './components/AlienArcheologyGame';
@@ -363,8 +354,6 @@ import ColorAnalysisTool from './components/ColorAnalysisTool';
 import FashionHistoryAR from './components/FashionHistoryAR';
 import LocalBeautyProducts from './components/LocalBeautyProducts';
 import WhatsInMyBagOrganizer from './components/WhatsInMyBagOrganizer';
-
-// Features 251-300
 import SmartLuggageIntegration from './components/SmartLuggageIntegration';
 import VisaPassportReminders from './components/VisaPassportReminders';
 import FlightDelayPredictor from './components/FlightDelayPredictor';
@@ -497,7 +486,6 @@ export default function App() {
       return <UserProfile userId={userIdMatch[1]} />;
     }
 
-    // Role-based routing
     if (currentPath === '/admin' && profile?.role === 'admin') {
       return <AdminConsole />;
     }
@@ -505,7 +493,6 @@ export default function App() {
       return <PartnerHub />;
     }
 
-    // Explorer routing
     switch (currentPath) {
       case '/itineraries': return <ItinerariesPage />;
       case '/create-itinerary': return <CreateItinerary />;
@@ -675,8 +662,8 @@ export default function App() {
       case '/3d-sculptures': return <ThreeDPhotoSculptures />;
       case '/story-scout': return <AIStoryScout />;
       case '/sensory-journal': return <SensoryJournal />;
-      case '/live-like-a-local': return <LiveLikeALocalSimulation />;
-      case '/cultural-etiquette': return <CulturalEtiquetteGuide />;
+      case '/live-like-a-local-sim': return <LiveLikeALocalSimulation />;
+      case '/cultural-etiquette-guide': return <CulturalEtiquetteGuide />;
       case '/myth-folklore': return <MythFolkloreHotspots />;
       case '/street-art-sagas': return <StreetArtSagas />;
       case '/local-music': return <LocalMusicScene />;
