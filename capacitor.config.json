@@ -1,9 +1,0 @@
-{
-  "appId": "com.aetheria.explorer",
-  "appName": "Aetheria Explorer",
-  "webDir": "dist",
-  "server": {
-    "androidScheme": "https",
-    "hostname": "localhost"
-  }
-}
