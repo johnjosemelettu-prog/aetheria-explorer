@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: 'Aetheria Explorer',
   webDir: 'dist',
   server: {
-    url: 'http://localhost:5173',
+    url: 'http://192.168.0.183:5173',
     cleartext: true,
     androidScheme: 'https'
   },
