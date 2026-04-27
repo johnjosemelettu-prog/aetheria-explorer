@@ -23,7 +23,7 @@ import {
   Area
 } from 'recharts';
 import SynthesisIntel from './SynthesisIntel';
-import { VibeTrends } from './VibeTrends.tsx';
+import VibeTrends from './VibeTrends';
 
 const yieldData = [
   { name: 'Mon', yield: 400 },

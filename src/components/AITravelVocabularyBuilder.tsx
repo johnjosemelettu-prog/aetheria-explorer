@@ -10,7 +10,7 @@ const AITravelVocabularyBuilder = () => {
       { term: 'Itinerary', definition: 'A detailed plan for a journey.' },
       { term: 'Backpacking', definition: 'Traveling or hiking with a backpack.' },
       { term: 'Jet lag', definition: 'Extreme tiredness and other physical effects felt by a person after a long flight across different time zones.' },
-      { term: 'Staycation', definition: 'A vacation spent in one's home country rather than abroad, or one spent at home and involving day trips to local attractions.' },
+      { term: 'Staycation', definition: "A vacation spent in one's home country rather than abroad, or one spent at home and involving day trips to local attractions." },
     ];
     setVocabulary(newVocabulary);
   };

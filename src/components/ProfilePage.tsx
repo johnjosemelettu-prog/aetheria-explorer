@@ -19,7 +19,7 @@ import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { updateProfile } from 'firebase/auth';
 import { UserProfile, TravelPreferences } from '../types';
 import { useTranslation } from 'react-i18next';
-import { FlavorDNA } from './FlavorDNA';
+import FlavorDNA from './FlavorDNA';
 
 export default function ProfilePage() {
   const { t, i18n } = useTranslation();

@@ -12,14 +12,14 @@ import ESimPage from './components/ESimPage';
 import ProfilePage from './components/ProfilePage';
 import AIItinerary from './components/AIItinerary';
 import DigitalTailor from './components/DigitalTailor';
-import VibeMarket from './components/VibeMarket';
+
 import AdminConsole from './components/AdminConsole';
 import PartnerHub from './components/PartnerHub';
 import RuthAssistant from './components/RuthAssistant';
 import Journal from './components/Journal';
 import BudgetSynthesis from './components/BudgetSynthesis';
 import Store from './components/Store';
-import Marketplace from './components/Marketplace';
+
 import Pathfinder from './components/Pathfinder';
 import Guide from './components/Guide';
 import ARWayfinding from './components/ARWayfinding';
@@ -38,9 +38,9 @@ import Contact from './components/Contact';
 import { UserProfile as UserProfileType } from './types';
 import { motion, AnimatePresence } from 'framer-motion';
 import i18n from './lib/i18n';
-import Vibe from './components/Vibe';
+
 import LandmarkLens from './components/LandmarkLens';
-import CreateItinerary from './components/CreateItinerary';
+
 import RealtimeItinerary from './components/RealtimeItinerary';
 import UserProfile from './components/UserProfile';
 import SplashScreen from './components/SplashScreen';
@@ -110,7 +110,7 @@ import GuessTheLocation from './components/GuessTheLocation';
 import TravelStoryContest from './components/TravelStoryContest';
 import TimeCapsuleMessages from './components/TimeCapsuleMessages';
 import LocalSlangChallenge from './components/LocalSlangChallenge';
-import SkillBartering from './components/SkillBartering';
+
 import UrbanExplorationLeaderboard from './components/UrbanExplorationLeaderboard';
 import TravelersRadio from './components/TravelersRadio';
 import MemeMyTrip from './components/MemeMyTrip';
@@ -209,7 +209,7 @@ import TravelAnthem from './components/TravelAnthem';
 import LocalNewsFeed from './components/LocalNewsFeed';
 import CustomTourBuilder from './components/CustomTourBuilder';
 import AncestorConnect from './components/AncestorConnect';
-import TravelBudgetTracker from './components/TravelBudgetTracker';
+
 import SpiritAnimal from './components/SpiritAnimal';
 import DoNotDisturbSigns from './components/DoNotDisturbSigns';
 import CustomTravelAlerts from './components/CustomTravelAlerts';
@@ -234,10 +234,10 @@ import TravelInsuranceComparison from './components/TravelInsuranceComparison';
 import FirstAidGuide from './components/FirstAidGuide';
 import MedicationReminder from './components/MedicationReminder';
 import TrustedTravelerNetwork from './components/TrustedTravelerNetwork';
-import CarbonFootprintTracker from './components/CarbonFootprintTracker';
+
 import EcoTravelChallenges from './components/EcoTravelChallenges';
 import SustainableBusinessDirectory from './components/SustainableBusinessDirectory';
-import CarbonOffsetter from './components/CarbonOffsetter';
+
 import LeaveNoTraceGuide from './components/LeaveNoTraceGuide';
 import LocalProduceFinder from './components/LocalProduceFinder';
 import VolunteerOpportunities from './components/VolunteerOpportunities';
@@ -247,7 +247,7 @@ import ShopLocalChallenges from './components/ShopLocalChallenges';
 import EcoWarriorLeaderboard from './components/EcoWarriorLeaderboard';
 import AnimalFriendlyTourism from './components/AnimalFriendlyTourism';
 import RecyclingGuide from './components/RecyclingGuide';
-import LocalArtisansMarketplace from './components/LocalArtisansMarketplace';
+
 import ForageableFoodMap from './components/ForageableFoodMap';
 import GreenAccommodationRatings from './components/GreenAccommodationRatings';
 import SustainableSouvenirGuide from './components/SustainableSouvenirGuide';
@@ -256,7 +256,7 @@ import PlantATree from './components/PlantATree';
 import CommunityTourismDirectory from './components/CommunityTourismDirectory';
 import LiveLikeLocalDay from './components/LiveLikeLocalDay';
 import HomeCookedMeal from './components/HomeCookedMeal';
-import LocalSkillSwap from './components/LocalSkillSwap';
+
 import SecretLocalSpots from './components/SecretLocalSpots';
 import LocalDialectTutor from './components/LocalDialectTutor';
 import LocalWeddingCrusher from './components/LocalWeddingCrusher';
@@ -346,7 +346,7 @@ import WhatToWearPredictor from './components/WhatToWearPredictor';
 import EthicalBrandGuide from './components/EthicalBrandGuide';
 import LocalFleaMarketGuide from './components/LocalFleaMarketGuide';
 import AntiqueStoreFinder from './components/AntiqueStoreFinder';
-import ArtisanCraftMarketplace2 from './components/ArtisanCraftMarketplace2';
+
 import BookstoreFinder from './components/BookstoreFinder';
 import TaxFreeShoppingGuide from './components/TaxFreeShoppingGuide';
 import SizeConversionChart from './components/SizeConversionChart';
@@ -495,17 +495,17 @@ export default function App() {
 
     switch (currentPath) {
       case '/itineraries': return <ItinerariesPage />;
-      case '/create-itinerary': return <CreateItinerary />;
+
       case '/wallet': return <WalletPage />;
       case '/esim': return <ESimPage />;
       case '/profile': return <ProfilePage />;
       case '/ai-itinerary': return <AIItinerary />;
       case '/digital-tailor': return <DigitalTailor />;
-      case '/vibe-market': return <VibeMarket />;
+
       case '/journal': return <Journal />;
       case '/budget-synthesis': return <BudgetSynthesis />;
       case '/store': return <Store />;
-      case '/marketplace': return <Marketplace />;
+
       case '/pathfinder': return <Pathfinder />;
       case '/guide': return <Guide />;
       case '/ar-wayfinding': return <ARWayfinding />;
@@ -515,7 +515,7 @@ export default function App() {
       case '/mood-synthesis': return <MoodSynthesis />;
       case '/video-teaser': return <VideoTeaser />;
       case '/postcard-studio': return <PostcardStudio />;
-      case '/vibe': return <Vibe vibe={{id: '1', name: 'Ethereal', description: 'A dreamy, otherworldly experience.', price: 100}} />;
+
       case '/landmark-lens': return <LandmarkLens />;
       case '/booking': return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24"><BookingHub /></div>;
       case '/travel-insurance': return <TravelInsurance />;
@@ -588,7 +588,7 @@ export default function App() {
       case '/travel-story-contest': return <TravelStoryContest />;
       case '/time-capsule': return <TimeCapsuleMessages />;
       case '/local-slang': return <LocalSlangChallenge />;
-      case '/skill-bartering': return <SkillBartering />;
+
       case '/urban-exploration': return <UrbanExplorationLeaderboard />;
       case '/travelers-radio': return <TravelersRadio />;
       case '/meme-my-trip': return <MemeMyTrip />;
@@ -687,7 +687,7 @@ export default function App() {
       case '/local-news': return <LocalNewsFeed />;
       case '/build-tour': return <CustomTourBuilder />;
       case '/ancestor-connect': return <AncestorConnect />;
-      case '/budget-tracker': return <TravelBudgetTracker />;
+
       case '/spirit-animal': return <SpiritAnimal />;
       case '/dnd-signs': return <DoNotDisturbSigns />;
       case '/travel-alerts': return <CustomTravelAlerts />;
@@ -712,10 +712,10 @@ export default function App() {
       case '/first-aid': return <FirstAidGuide />;
       case '/medication-reminder': return <MedicationReminder />;
       case '/trusted-traveler': return <TrustedTravelerNetwork />;
-      case '/carbon-tracker': return <CarbonFootprintTracker />;
+
       case '/eco-challenges': return <EcoTravelChallenges />;
       case '/sustainable-directory': return <SustainableBusinessDirectory />;
-      case '/carbon-offset': return <CarbonOffsetter />;
+
       case '/leave-no-trace': return <LeaveNoTraceGuide />;
       case '/produce-finder': return <LocalProduceFinder />;
       case '/volunteer-opportunities': return <VolunteerOpportunities />;
@@ -725,7 +725,7 @@ export default function App() {
       case '/eco-leaderboard': return <EcoWarriorLeaderboard />;
       case '/animal-friendly': return <AnimalFriendlyTourism />;
       case '/recycling-guide': return <RecyclingGuide />;
-      case '/artisan-marketplace': return <LocalArtisansMarketplace />;
+
       case '/forage-map': return <ForageableFoodMap />;
       case '/green-ratings': return <GreenAccommodationRatings />;
       case '/sustainable-souvenirs': return <SustainableSouvenirGuide />;
@@ -734,7 +734,7 @@ export default function App() {
       case '/community-tourism': return <CommunityTourismDirectory />;
       case '/live-like-local': return <LiveLikeLocalDay />;
       case '/home-cooked-meal': return <HomeCookedMeal />;
-      case '/skill-swap': return <LocalSkillSwap />;
+
       case '/secret-spots': return <SecretLocalSpots />;
       case '/local-dialect': return <LocalDialectTutor />;
       case '/local-wedding': return <LocalWeddingCrusher />;
@@ -874,7 +874,7 @@ export default function App() {
       case '/ethical-brands': return <EthicalBrandGuide />;
       case '/flea-market': return <LocalFleaMarketGuide />;
       case '/antique-store': return <AntiqueStoreFinder />;
-      case '/artisan-craft-v2': return <ArtisanCraftMarketplace2 />;
+
       case '/bookstore-finder': return <BookstoreFinder />;
       case '/tax-free': return <TaxFreeShoppingGuide />;
       case '/size-conversion': return <SizeConversionChart />;
