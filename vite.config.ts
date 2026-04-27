@@ -7,6 +7,7 @@ export default defineConfig(async ({ mode }) => {
   const { default: tailwindcss } = await import('@tailwindcss/vite');
 
   return {
+    base: './',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),

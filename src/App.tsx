@@ -410,7 +410,8 @@ export default function App() {
   const [profile, setProfile] = useState<UserProfileType | null>(null);
   const [loading, setLoading] = useState(true);
   const [showSplash, setShowSplash] = useState(true);
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const initialPath = window.location.pathname === '/index.html' ? '/' : window.location.pathname;
+  const [currentPath, setCurrentPath] = useState(initialPath);
 
   useEffect(() => {
     if (profile?.preferences?.language) {
@@ -420,7 +421,8 @@ export default function App() {
 
   useEffect(() => {
     const handlePathChange = () => {
-      setCurrentPath(window.location.pathname);
+      const p = window.location.pathname;
+      setCurrentPath(p === '/index.html' ? '/' : p);
     };
 
     window.addEventListener('popstate', handlePathChange);
@@ -428,6 +430,10 @@ export default function App() {
     const splashTimer = setTimeout(() => {
       setShowSplash(false);
     }, 2000);
+    
+    const fallbackTimer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
 
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
@@ -463,6 +469,7 @@ export default function App() {
       unsubscribe();
       window.removeEventListener('popstate', handlePathChange);
       clearTimeout(splashTimer);
+      clearTimeout(fallbackTimer);
     };
   }, []);
 

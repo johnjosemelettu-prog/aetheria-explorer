@@ -4,8 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Google AI Studio App</title>
-    <script type="module" crossorigin src="/assets/index-6mOiHFta.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-xtcnoC-G.css">
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        alert("JS Error: " + msg + "\nLine: " + line + "\nCol: " + col + "\nError: " + error);
+        return false;
+      };
+      window.addEventListener('unhandledrejection', function(event) {
+        alert("Unhandled Promise Rejection: " + event.reason);
+      });
+    </script>
+    <script type="module" src="./assets/index-CxerxtOa.js"></script>
+    <link rel="stylesheet" href="./assets/index-BLKLpp6H.css">
   </head>
   <body>
     <div id="root"></div>

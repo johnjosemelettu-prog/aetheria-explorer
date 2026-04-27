@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Google AI Studio App</title>
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        alert("JS Error: " + msg + "\nLine: " + line + "\nCol: " + col + "\nError: " + error);
+        return false;
+      };
+      window.addEventListener('unhandledrejection', function(event) {
+        alert("Unhandled Promise Rejection: " + event.reason);
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>

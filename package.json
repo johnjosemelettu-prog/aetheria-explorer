@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "cap:sync": "npm run build && npx cap sync",
+    "cap:sync": "npm run build && sed -i '' 's/ crossorigin//g' dist/index.html && npx cap sync",
     "cap:open:ios": "npx cap open ios",
     "cap:open:android": "npx cap open android"
   },
