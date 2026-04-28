@@ -1,29 +1,11 @@
-import React, { useState } from 'react';
-import { motion } from 'motion/react';
-import { 
-  Store, 
-  Package, 
-  TrendingUp, 
-  Users, 
-  MessageSquare,
-  Settings,
-  ChevronRight,
-  Clock,
-  BarChart3
-} from 'lucide-react';
-import { 
-  LineChart, 
-  Line, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  ResponsiveContainer,
-  AreaChart,
-  Area
-} from 'recharts';
+import React from 'react';
+import { Store } from 'lucide-react';
+import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import SynthesisIntel from './SynthesisIntel';
 import VibeTrends from './VibeTrends';
+import BookingManager from './partner/BookingManager';
+import PartnerFinancialsDashboard from './partner/FinancialsDashboard';
+import VibeFeed from './partner/VibeFeed';
 
 const yieldData = [
   { name: 'Mon', yield: 400 },
@@ -111,59 +93,12 @@ export default function PartnerHub() {
             </div>
           </section>
 
-          <section className="glass p-8 rounded-3xl">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-xl font-display font-bold">Pending Orders</h2>
-              <span className="px-3 py-1 rounded-full bg-secondary/20 text-secondary text-[10px] font-bold uppercase tracking-widest">
-                4 New
-              </span>
-            </div>
-            <div className="space-y-4">
-              {[
-                { id: 'ORD-8821', user: 'John Doe', service: 'Luxury SUV Transfer', status: 'Pending' },
-                { id: 'ORD-8822', user: 'Jane Smith', service: 'Guided City Tour', status: 'In Progress' }
-              ].map((order) => (
-                <div key={order.id} className="flex items-center justify-between p-4 rounded-2xl glass-hover group cursor-pointer">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
-                      <Package className="w-6 h-6 text-foreground/30" />
-                    </div>
-                    <div>
-                      <p className="font-bold">{order.service}</p>
-                      <p className="text-xs text-foreground/40">{order.user} • {order.id}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-xs font-bold text-secondary">{order.status}</span>
-                    <ChevronRight className="w-4 h-4 text-foreground/20 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          <BookingManager />
         </div>
 
         <div className="space-y-8">
-          <section className="glass p-8 rounded-3xl bg-gradient-to-br from-secondary/10 to-transparent border border-white/10">
-            <h2 className="text-xl font-display font-bold mb-6">Partner Wallet</h2>
-            <div className="mb-8">
-              <span className="text-sm text-foreground/50 block mb-1">Total Earnings</span>
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-display font-bold tracking-tighter">$12,840.00</span>
-              </div>
-            </div>
-            <button className="w-full py-3 bg-white text-background rounded-xl font-bold hover:bg-white/90 transition-all">
-              Withdraw Funds
-            </button>
-          </section>
-
-          <section className="glass p-8 rounded-3xl">
-            <h2 className="text-xl font-display font-bold mb-6">Vibe Feed</h2>
-            <div className="spacey-4">
-              <p className="text-sm text-foreground/60">Get a real-time pulse on what's hot. See what explorers are vibing with right now, and use this intel to curate your offerings.</p>
-              <button className="text-sm font-bold text-primary">Learn More</button>
-            </div>
-          </section>
+          <PartnerFinancialsDashboard />
+          <VibeFeed />
         </div>
       </div>
     </div>
