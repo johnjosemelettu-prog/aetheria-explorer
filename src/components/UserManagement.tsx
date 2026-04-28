@@ -1,16 +1,5 @@
 
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../ui/card';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../ui/table";
+import React, { useState } from 'react';
 import { MoreVertical } from 'lucide-react';
 
 const mockUsers = [
@@ -21,55 +10,83 @@ const mockUsers = [
   { id: 'user_5', name: 'Eve', email: 'eve@example.com', role: 'Partner', status: 'Suspended' },
 ];
 
+const statusColor: Record<string, string> = {
+  Active: 'bg-green-500/20 text-green-400',
+  Inactive: 'bg-yellow-500/20 text-yellow-400',
+  Suspended: 'bg-red-500/20 text-red-400',
+};
+
 const UserManagement: React.FC = () => {
-    return (
-        <Card>
-            <CardHeader>
-                <CardTitle>User Management</CardTitle>
-                <CardDescription>Manage all users in the system.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <div className="mb-4 flex items-center justify-between">
-                    <Input placeholder="Filter users..." className="max-w-sm" />
-                    <Button>Add User</Button>
-                </div>
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead>Name</TableHead>
-                            <TableHead>Email</TableHead>
-                            <TableHead>Role</TableHead>
-                            <TableHead>Status</TableHead>
-                            <TableHead className="text-right">Actions</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {mockUsers.map((user) => (
-                            <TableRow key={user.id}>
-                                <TableCell>{user.name}</TableCell>
-                                <TableCell>{user.email}</TableCell>
-                                <TableCell>{user.role}</TableCell>
-                                <TableCell>
-                                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                                        user.status === 'Active' ? 'bg-green-100 text-green-800' :
-                                        user.status === 'Inactive' ? 'bg-yellow-100 text-yellow-800' :
-                                        'bg-red-100 text-red-800'
-                                    }`}>
-                                        {user.status}
-                                    </span>
-                                </TableCell>
-                                <TableCell className="text-right">
-                                    <Button variant="ghost" size="icon">
-                                        <MoreVertical className="h-4 w-4" />
-                                    </Button>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </CardContent>
-        </Card>
-    );
+  const [filter, setFilter] = useState('');
+  const filtered = mockUsers.filter(
+    (u) =>
+      u.name.toLowerCase().includes(filter.toLowerCase()) ||
+      u.email.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  return (
+    <div className="glass rounded-2xl border border-white/10 overflow-hidden">
+      {/* Header */}
+      <div className="p-6 border-b border-white/10">
+        <h2 className="text-lg font-bold">User Management</h2>
+        <p className="text-sm text-foreground/50 mt-1">Manage all users in the system.</p>
+      </div>
+
+      {/* Toolbar */}
+      <div className="p-4 flex items-center justify-between gap-4 border-b border-white/5">
+        <input
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Filter users..."
+          className="bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary w-full max-w-xs"
+        />
+        <button className="px-4 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-xl transition-colors whitespace-nowrap">
+          Add User
+        </button>
+      </div>
+
+      {/* Table */}
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-white/5 text-foreground/40 uppercase text-xs tracking-widest">
+              <th className="text-left px-6 py-3">Name</th>
+              <th className="text-left px-6 py-3">Email</th>
+              <th className="text-left px-6 py-3">Role</th>
+              <th className="text-left px-6 py-3">Status</th>
+              <th className="text-right px-6 py-3">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.map((user) => (
+              <tr key={user.id} className="border-b border-white/5 hover:bg-white/[0.03] transition-colors">
+                <td className="px-6 py-4 font-medium">{user.name}</td>
+                <td className="px-6 py-4 text-foreground/60">{user.email}</td>
+                <td className="px-6 py-4 text-foreground/60">{user.role}</td>
+                <td className="px-6 py-4">
+                  <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusColor[user.status] ?? ''}`}>
+                    {user.status}
+                  </span>
+                </td>
+                <td className="px-6 py-4 text-right">
+                  <button className="p-1.5 rounded-lg hover:bg-white/10 transition-colors text-foreground/50 hover:text-white">
+                    <MoreVertical className="w-4 h-4" />
+                  </button>
+                </td>
+              </tr>
+            ))}
+            {filtered.length === 0 && (
+              <tr>
+                <td colSpan={5} className="px-6 py-10 text-center text-foreground/40">
+                  No users match your filter.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default UserManagement;

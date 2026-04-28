@@ -65,7 +65,7 @@ export default function Hero() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button 
-              onClick={() => navigate('/vendor/dashboard')}
+              onClick={() => navigate('/partner-login')}
               className="w-full sm:w-auto px-8 py-4 glass glass-hover rounded-2xl font-bold transition-all flex items-center justify-center gap-2"
             >
               <Store className="w-5 h-5" />

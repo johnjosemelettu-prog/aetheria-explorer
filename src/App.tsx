@@ -15,6 +15,7 @@ import DigitalTailor from './components/DigitalTailor';
 
 import AdminConsole from './components/AdminConsole';
 import PartnerHub from './components/PartnerHub';
+import PartnerLogin from './components/partner/PartnerLogin';
 import RuthAssistant from './components/RuthAssistant';
 import Journal from './components/Journal';
 import BudgetSynthesis from './components/BudgetSynthesis';
@@ -496,8 +497,14 @@ export default function App() {
     if (currentPath === '/admin' && profile?.role === 'admin') {
       return <AdminConsole />;
     }
-    if (currentPath === '/vendor/dashboard' && profile?.role === 'partner') {
+    if (currentPath === '/partner-login') {
+      return <PartnerLogin onLogin={() => { window.history.pushState({}, '', '/vendor/dashboard'); window.dispatchEvent(new PopStateEvent('popstate')); }} />;
+    }
+    if (currentPath === '/vendor/dashboard' && (profile?.role === 'partner' || sessionStorage.getItem('partnerAuthed') === '1')) {
       return <PartnerHub />;
+    }
+    if (currentPath === '/vendor/dashboard') {
+      return <PartnerLogin onLogin={() => { sessionStorage.setItem('partnerAuthed','1'); window.history.pushState({}, '', '/vendor/dashboard'); window.dispatchEvent(new PopStateEvent('popstate')); }} />;
     }
 
     switch (currentPath) {

@@ -1,53 +1,34 @@
-
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../ui/card';
-import { MessageSquare, ThumbsUp, Heart } from 'lucide-react';
+import { ThumbsUp, Heart, MessageSquare } from 'lucide-react';
 
-const mockVibeFeed = [
-  {
-    id: 'vibe_1',
-    user: 'ExplorerAlice',
-    vibe: 'Amazed by the historical accuracy of the Culinary Time Machine! Felt like I was really there.',
-    timestamp: '2 hours ago',
-    reaction: <ThumbsUp className="w-4 h-4 text-green-500" />
-  },
-  {
-    id: 'vibe_2',
-    user: 'TravelerBob',
-    vibe: 'The AR Ghost Tour was spooky and fun! A must-try for thrill-seekers.',
-    timestamp: '5 hours ago',
-    reaction: <Heart className="w-4 h-4 text-red-500" />
-  },
-  {
-    id: 'vibe_3',
-    user: 'WandererCharlie',
-    vibe: 'My AI Dream Trip was... well, a dream! The itinerary was flawless.',
-    timestamp: '1 day ago',
-    reaction: <ThumbsUp className="w-4 h-4 text-green-500" />
-  },
+const mockVibes = [
+  { id:'v1', user:'ExplorerAlice', text:'Culinary Time Machine felt like I was really there!', ts:'2 hours ago', type:'thumbs' },
+  { id:'v2', user:'TravelerBob', text:'AR Ghost Tour was spooky and fun! A must-try.', ts:'5 hours ago', type:'heart' },
+  { id:'v3', user:'WandererCharlie', text:'AI Dream Trip itinerary was absolutely flawless.', ts:'1 day ago', type:'thumbs' },
+  { id:'v4', user:'NomadDiana', text:'Heritage Mirror blew my mind. Loved the animation.', ts:'2 days ago', type:'comment' },
 ];
-
-const VibeFeed: React.FC = () => {
-    return (
-        <Card>
-            <CardHeader>
-                <CardTitle>VibeFeed</CardTitle>
-                <CardDescription>Latest user sentiments and feedback.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-                {mockVibeFeed.map((vibe) => (
-                    <div key={vibe.id} className="flex items-start gap-4">
-                        <div className="flex-shrink-0">{vibe.reaction}</div>
-                        <div className="flex-grow">
-                            <p className="text-sm font-medium">{vibe.user}</p>
-                            <p className="text-sm text-muted-foreground">{vibe.vibe}</p>
-                            <p className="text-xs text-muted-foreground/50 mt-1">{vibe.timestamp}</p>
-                        </div>
-                    </div>
-                ))}
-            </CardContent>
-        </Card>
-    );
+const Icon = ({ type }: { type: string }) => {
+  if (type === 'heart') return <Heart className="w-4 h-4 text-red-400 shrink-0"/>;
+  if (type === 'comment') return <MessageSquare className="w-4 h-4 text-blue-400 shrink-0"/>;
+  return <ThumbsUp className="w-4 h-4 text-green-400 shrink-0"/>;
 };
 
+const VibeFeed: React.FC = () => (
+  <div className="glass rounded-2xl p-6">
+    <h2 className="text-lg font-bold mb-1">Vibe Feed</h2>
+    <p className="text-sm text-foreground/50 mb-4">Latest user sentiment & feedback.</p>
+    <div className="space-y-3">
+      {mockVibes.map(v => (
+        <div key={v.id} className="flex items-start gap-3 bg-white/[0.03] rounded-xl p-3">
+          <Icon type={v.type} />
+          <div>
+            <p className="text-sm font-semibold">{v.user}</p>
+            <p className="text-xs text-foreground/60 mt-0.5">{v.text}</p>
+            <p className="text-xs text-foreground/30 mt-1">{v.ts}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
 export default VibeFeed;
