@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { auth, db } from './lib/firebase';
@@ -479,9 +479,29 @@ export default function App() {
     window.dispatchEvent(new PopStateEvent('popstate'));
   };
 
+  const [partnerAuthed, setPartnerAuthed] = useState(false);
   const isLandingPage = !user && currentPath === '/';
+  const hideShell = isLandingPage ||
+    currentPath === '/partner-login' ||
+    (currentPath === '/vendor/dashboard' && !partnerAuthed && profile?.role !== 'partner');
 
   const renderContent = () => {
+    // Partner routes must work WITHOUT Firebase auth
+    const partnerOnLogin = () => {
+      setPartnerAuthed(true);
+      window.history.pushState({}, '', '/vendor/dashboard');
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    };
+    if (currentPath === '/partner-login') {
+      return <PartnerLogin onLogin={partnerOnLogin} />;
+    }
+    if (currentPath === '/vendor/dashboard' && (partnerAuthed || profile?.role === 'partner')) {
+      return <PartnerHub />;
+    }
+    if (currentPath === '/vendor/dashboard') {
+      return <PartnerLogin onLogin={partnerOnLogin} />;
+    }
+
     if (!user) return <Hero />;
 
     const itineraryIdMatch = currentPath.match(/\/itineraries\/(.+)/);
@@ -496,15 +516,6 @@ export default function App() {
 
     if (currentPath === '/admin' && profile?.role === 'admin') {
       return <AdminConsole />;
-    }
-    if (currentPath === '/partner-login') {
-      return <PartnerLogin onLogin={() => { window.history.pushState({}, '', '/vendor/dashboard'); window.dispatchEvent(new PopStateEvent('popstate')); }} />;
-    }
-    if (currentPath === '/vendor/dashboard' && (profile?.role === 'partner' || sessionStorage.getItem('partnerAuthed') === '1')) {
-      return <PartnerHub />;
-    }
-    if (currentPath === '/vendor/dashboard') {
-      return <PartnerLogin onLogin={() => { sessionStorage.setItem('partnerAuthed','1'); window.history.pushState({}, '', '/vendor/dashboard'); window.dispatchEvent(new PopStateEvent('popstate')); }} />;
     }
 
     switch (currentPath) {
@@ -908,9 +919,9 @@ export default function App() {
   return (
     <Suspense fallback={<SplashScreen />}>
       <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
-        {!isLandingPage && <Navbar user={user} />}
+        {!hideShell && <Navbar user={user} />}
         
-        <div className={cn(!isLandingPage && "lg:pl-[280px]", "transition-all duration-300")}>
+        <div className={cn(!hideShell && "lg:pl-[280px]", "transition-all duration-300")}>
           <main>
             <AnimatePresence mode="wait">
               <motion.div

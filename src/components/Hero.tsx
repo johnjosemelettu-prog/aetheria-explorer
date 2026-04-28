@@ -57,19 +57,19 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
+            <button
               onClick={handleStart}
               className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-2xl font-bold transition-all flex items-center justify-center gap-2 group shadow-xl shadow-primary/20"
             >
               {t('hero.cta')}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button 
+            <button
               onClick={() => navigate('/partner-login')}
-              className="w-full sm:w-auto px-8 py-4 glass glass-hover rounded-2xl font-bold transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 bg-secondary/20 hover:bg-secondary/30 border border-secondary/40 text-secondary rounded-2xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-secondary/10"
             >
               <Store className="w-5 h-5" />
-              Partner Hub
+              Partner Login
             </button>
           </div>
         </motion.div>
@@ -144,6 +144,44 @@ export default function Hero() {
             </div>
           ))}
         </motion.div>
+
+        {/* Partner Login Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-16 glass rounded-3xl border border-secondary/20 p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-left"
+        >
+          <div className="flex items-center gap-5">
+            <div className="w-14 h-14 bg-secondary/20 rounded-2xl flex items-center justify-center shrink-0">
+              <Store className="w-7 h-7 text-secondary" />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-1">For Business Partners</p>
+              <h3 className="text-xl font-display font-bold">Access Partner Hub</h3>
+              <p className="text-sm text-foreground/50 mt-1">
+                Manage bookings, view analytics, and grow your travel business on Aetheria.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <button
+              onClick={() => navigate('/partner-login')}
+              className="px-6 py-3 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-secondary/20"
+            >
+              <Store className="w-4 h-4" />
+              Partner Login
+            </button>
+            <button
+              onClick={() => { navigate('/partner-login'); }}
+              className="px-6 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-all text-sm flex items-center justify-center gap-2"
+            >
+              Register as Partner
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </motion.div>
+
       </div>
     </div>
   );
