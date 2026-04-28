@@ -1,63 +1,75 @@
-import React, { useState, useEffect } from 'react';
-import { getAllUsers } from '../services/gemini';
-import { UserProfile } from '../types';
+
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../ui/card';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
+import { MoreVertical } from 'lucide-react';
+
+const mockUsers = [
+  { id: 'user_1', name: 'Alice', email: 'alice@example.com', role: 'Explorer', status: 'Active' },
+  { id: 'user_2', name: 'Bob', email: 'bob@example.com', role: 'Partner', status: 'Active' },
+  { id: 'user_3', name: 'Charlie', email: 'charlie@example.com', role: 'Admin', status: 'Inactive' },
+  { id: 'user_4', name: 'David', email: 'david@example.com', role: 'Explorer', status: 'Active' },
+  { id: 'user_5', name: 'Eve', email: 'eve@example.com', role: 'Partner', status: 'Suspended' },
+];
 
 const UserManagement: React.FC = () => {
-  const [users, setUsers] = useState<UserProfile[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const fetchedUsers = await getAllUsers();
-        setUsers(fetchedUsers);
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-      setLoading(false);
-    };
-
-    fetchUsers();
-  }, []);
-
-  if (loading) {
-    return <p className="text-gray-400">Loading users...</p>;
-  }
-
-  return (
-    <div className="bg-gray-800 p-6 rounded-lg">
-      <h2 className="text-2xl font-bold mb-4 text-primary">User Management</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full text-sm text-left text-gray-400">
-          <thead className="text-xs text-gray-300 uppercase bg-gray-700">
-            <tr>
-              <th scope="col" className="px-6 py-3">User</th>
-              <th scope="col" className="px-6 py-3">Email</th>
-              <th scope="col" className="px-6 py-3">Role</th>
-              <th scope="col" className="px-6 py-3">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map(user => (
-              <tr key={user.uid} className="bg-gray-800 border-b border-gray-700">
-                <td className="px-6 py-4 font-medium text-white whitespace-nowrap">
-                  <div className="flex items-center gap-3">
-                    <img src={user.photoURL || '/placeholder-user.png'} alt={user.displayName} className="w-8 h-8 rounded-full" />
-                    <span>{user.displayName}</span>
-                  </div>
-                </td>
-                <td className="px-6 py-4">{user.email}</td>
-                <td className="px-6 py-4">{user.role}</td>
-                <td className="px-6 py-4">
-                  <button className="font-medium text-blue-500 hover:underline">Edit</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>User Management</CardTitle>
+                <CardDescription>Manage all users in the system.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <div className="mb-4 flex items-center justify-between">
+                    <Input placeholder="Filter users..." className="max-w-sm" />
+                    <Button>Add User</Button>
+                </div>
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead>Name</TableHead>
+                            <TableHead>Email</TableHead>
+                            <TableHead>Role</TableHead>
+                            <TableHead>Status</TableHead>
+                            <TableHead className="text-right">Actions</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {mockUsers.map((user) => (
+                            <TableRow key={user.id}>
+                                <TableCell>{user.name}</TableCell>
+                                <TableCell>{user.email}</TableCell>
+                                <TableCell>{user.role}</TableCell>
+                                <TableCell>
+                                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                                        user.status === 'Active' ? 'bg-green-100 text-green-800' :
+                                        user.status === 'Inactive' ? 'bg-yellow-100 text-yellow-800' :
+                                        'bg-red-100 text-red-800'
+                                    }`}>
+                                        {user.status}
+                                    </span>
+                                </TableCell>
+                                <TableCell className="text-right">
+                                    <Button variant="ghost" size="icon">
+                                        <MoreVertical className="h-4 w-4" />
+                                    </Button>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </CardContent>
+        </Card>
+    );
 };
 
 export default UserManagement;
