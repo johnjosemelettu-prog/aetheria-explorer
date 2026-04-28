@@ -1,66 +1,53 @@
-import React from 'react';
-import { Rss, Star, MapPin } from 'lucide-react';
 
-const mockFeed = [
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../ui/card';
+import { MessageSquare, ThumbsUp, Heart } from 'lucide-react';
+
+const mockVibeFeed = [
   {
-    id: 1,
-    action: 'rated',
-    item: 'Cyber-Samurai Sushi',
-    rating: 5,
-    user: 'NeoExplorer',
-    location: 'Shibuya',
+    id: 'vibe_1',
+    user: 'ExplorerAlice',
+    vibe: 'Amazed by the historical accuracy of the Culinary Time Machine! Felt like I was really there.',
+    timestamp: '2 hours ago',
+    reaction: <ThumbsUp className="w-4 h-4 text-green-500" />
   },
   {
-    id: 2,
-    action: 'vibed_with',
-    item: 'Zen Garden',
-    user: 'QuietWanderer',
-    location: 'Kyoto',
+    id: 'vibe_2',
+    user: 'TravelerBob',
+    vibe: 'The AR Ghost Tour was spooky and fun! A must-try for thrill-seekers.',
+    timestamp: '5 hours ago',
+    reaction: <Heart className="w-4 h-4 text-red-500" />
   },
   {
-    id: 3,
-    action: 'added_to_itinerary',
-    item: 'Ghibli Museum',
-    user: 'AnimeFanatic',
-    location: 'Mitaka',
-  },
-    {
-    id: 4,
-    action: 'rated',
-    item: 'Robot Restaurant',
-    rating: 4,
-    user: 'FutureSeeker',
-    location: 'Shinjuku',
+    id: 'vibe_3',
+    user: 'WandererCharlie',
+    vibe: 'My AI Dream Trip was... well, a dream! The itinerary was flawless.',
+    timestamp: '1 day ago',
+    reaction: <ThumbsUp className="w-4 h-4 text-green-500" />
   },
 ];
 
 const VibeFeed: React.FC = () => {
-  return (
-    <section className="glass p-8 rounded-3xl">
-      <h2 className="text-xl font-display font-bold mb-6">Vibe Feed</h2>
-      <div className="space-y-4">
-        {mockFeed.map((feedItem) => (
-          <div key={feedItem.id} className="flex items-start gap-4 p-4 rounded-2xl glass-hover">
-            <div className="w-10 h-10 bg-secondary/20 rounded-xl flex items-center justify-center">
-              {feedItem.action === 'rated' ? <Star className="w-5 h-5 text-secondary" /> : <Rss className="w-5 h-5 text-secondary" />}
-            </div>
-            <div>
-              <p className="text-sm text-foreground/80">
-                <span className="font-bold">{feedItem.user}</span>
-                {feedItem.action === 'rated' ? ` rated ` : ` is vibing with `}
-                <span className="font-bold text-primary">{feedItem.item}</span>
-                {feedItem.rating && ` ${feedItem.rating} stars`}
-              </p>
-              <div className="flex items-center gap-2 text-xs text-foreground/50 mt-1">
-                  <MapPin className="w-3 h-3" />
-                  <span>{feedItem.location}</span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>VibeFeed</CardTitle>
+                <CardDescription>Latest user sentiments and feedback.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                {mockVibeFeed.map((vibe) => (
+                    <div key={vibe.id} className="flex items-start gap-4">
+                        <div className="flex-shrink-0">{vibe.reaction}</div>
+                        <div className="flex-grow">
+                            <p className="text-sm font-medium">{vibe.user}</p>
+                            <p className="text-sm text-muted-foreground">{vibe.vibe}</p>
+                            <p className="text-xs text-muted-foreground/50 mt-1">{vibe.timestamp}</p>
+                        </div>
+                    </div>
+                ))}
+            </CardContent>
+        </Card>
+    );
 };
 
 export default VibeFeed;
