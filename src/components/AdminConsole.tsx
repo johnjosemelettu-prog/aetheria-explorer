@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UserManagement from './UserManagement';
-import { Shield, Trophy, Users, ShieldAlert, PieChart, Sparkles, AlertTriangle, Briefcase, DollarSign, Flag, Settings, Megaphone, CheckCircle, XCircle, RefreshCw, ToggleLeft, ToggleRight, Send, Plus, Copy, Eye, EyeOff, Building2, Globe, Phone, Mail, Lock, Loader2, UserPlus, ChevronDown, ChevronUp, CheckSquare } from 'lucide-react';
+import { Shield, Trophy, Users, ShieldAlert, PieChart, Sparkles, AlertTriangle, Briefcase, DollarSign, Flag, Settings, Megaphone, CheckCircle, XCircle, RefreshCw, ToggleLeft, ToggleRight, Send, Plus, Copy, Eye, EyeOff, Building2, Globe, Phone, Mail, Lock, Loader2, UserPlus, ChevronDown, ChevronUp, CheckSquare, Headphones } from 'lucide-react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp, collection, getDocs } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
@@ -594,6 +594,234 @@ const Announcements = () => {
   );
 };
 
+// --- Support Agent Management ---
+const DEPARTMENTS = ['General Support', 'Billing & Payments', 'Technical Issues', 'Partner Support', 'Safety & Emergency', 'VIP Concierge'];
+
+const SupportAgentManagement = () => {
+  const [view, setView] = useState<'list' | 'enroll'>('list');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [enrolled, setEnrolled] = useState<{ email: string; password: string; name: string } | null>(null);
+  const [showPwd, setShowPwd] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [department, setDepartment] = useState('');
+  const [phone, setPhone] = useState('');
+  const [employeeId, setEmployeeId] = useState('');
+
+  const [agents, setAgents] = useState([
+    { id:'a1', name:'Sarah Mitchell', email:'sarah.mitchell@aetheria-support.com', dept:'General Support', status:'Active', tickets:142, enrolled:'2026-01-10' },
+    { id:'a2', name:'James Park', email:'james.park@aetheria-support.com', dept:'Billing & Payments', status:'Active', tickets:98, enrolled:'2026-02-14' },
+    { id:'a3', name:'Priya Sharma', email:'priya.sharma@aetheria-support.com', dept:'Technical Issues', status:'Active', tickets:211, enrolled:'2026-03-01' },
+  ]);
+
+  const copyToClipboard = (text: string, key: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(key);
+    setTimeout(() => setCopied(null), 2000);
+  };
+
+  const resetForm = () => {
+    setFirstName(''); setLastName(''); setEmail('');
+    setDepartment(''); setPhone(''); setEmployeeId('');
+    setError(''); setEnrolled(null);
+  };
+
+  const handleEnroll = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    if (!firstName || !lastName || !email || !department) {
+      setError('Please fill in all required fields.'); return;
+    }
+    const tempPassword = generatePassword();
+    setLoading(true);
+    try {
+      const cred = await createUserWithEmailAndPassword(auth, email, tempPassword);
+      await setDoc(doc(db, 'users', cred.user.uid), {
+        uid: cred.user.uid,
+        email,
+        displayName: `${firstName} ${lastName}`,
+        role: 'support',
+        department,
+        phone,
+        employeeId,
+        status: 'Active',
+        ticketsResolved: 0,
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+      const fullName = `${firstName} ${lastName}`;
+      setAgents(prev => [{ id: cred.user.uid, name: fullName, email, dept: department, status: 'Active', tickets: 0, enrolled: new Date().toISOString().slice(0,10) }, ...prev]);
+      setEnrolled({ email, password: tempPassword, name: fullName });
+    } catch (err: any) {
+      const msgs: Record<string,string> = {
+        'auth/email-already-in-use': 'An account with this email already exists.',
+        'auth/invalid-email': 'Invalid email address.',
+      };
+      setError(msgs[err.code] ?? err.message ?? 'Enrollment failed.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const inputClass = 'w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-accent/60 transition-all placeholder:text-foreground/30';
+  const labelClass = 'text-xs font-semibold text-foreground/40 uppercase tracking-widest mb-1 block';
+
+  if (enrolled) return (
+    <div className="max-w-lg mx-auto">
+      <div className="text-center mb-8">
+        <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <CheckCircle className="w-8 h-8 text-green-400"/>
+        </div>
+        <h2 className="text-2xl font-bold">Agent Enrolled!</h2>
+        <p className="text-foreground/50 mt-2">Account created for <strong className="text-white">{enrolled.name}</strong>. Share these credentials securely.</p>
+      </div>
+      <div className="glass rounded-2xl p-6 space-y-4 border border-white/10">
+        <p className="text-sm font-semibold text-foreground/40 uppercase tracking-widest">Login Credentials</p>
+        <div>
+          <label className={labelClass}>Email / Username</label>
+          <div className="flex items-center gap-2">
+            <div className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm font-mono">{enrolled.email}</div>
+            <button onClick={() => copyToClipboard(enrolled.email, 'email')} className="p-2.5 glass rounded-xl hover:bg-white/10 transition-colors">
+              {copied === 'email' ? <CheckSquare className="w-4 h-4 text-green-400"/> : <Copy className="w-4 h-4"/>}
+            </button>
+          </div>
+        </div>
+        <div>
+          <label className={labelClass}>Temporary Password</label>
+          <div className="flex items-center gap-2">
+            <div className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm font-mono tracking-widest">
+              {showPwd ? enrolled.password : '•'.repeat(enrolled.password.length)}
+            </div>
+            <button onClick={() => setShowPwd(!showPwd)} className="p-2.5 glass rounded-xl hover:bg-white/10 transition-colors">
+              {showPwd ? <EyeOff className="w-4 h-4"/> : <Eye className="w-4 h-4"/>}
+            </button>
+            <button onClick={() => copyToClipboard(enrolled.password, 'pwd')} className="p-2.5 glass rounded-xl hover:bg-white/10 transition-colors">
+              {copied === 'pwd' ? <CheckSquare className="w-4 h-4 text-green-400"/> : <Copy className="w-4 h-4"/>}
+            </button>
+          </div>
+        </div>
+        <div className="bg-white/[0.03] border border-white/10 rounded-xl p-3 text-xs text-foreground/50">
+          <strong className="text-white">Login URL:</strong> <span className="font-mono">/support-login</span>
+        </div>
+        <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-3 text-xs text-yellow-300">
+          ⚠️ This password is shown only once. Share it securely and ask the agent to change it on first login.
+        </div>
+        <div className="flex gap-3 pt-2">
+          <button onClick={() => { resetForm(); setView('list'); }} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">Back to List</button>
+          <button onClick={() => { setEnrolled(null); resetForm(); }} className="flex-1 py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 transition-colors text-sm">Enroll Another</button>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h2 className="text-xl font-bold">Support Agent Management</h2>
+          <p className="text-sm text-foreground/40 mt-1">{agents.length} active agents</p>
+        </div>
+        <div className="flex gap-2">
+          <button onClick={() => setView('list')} className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${view==='list' ? 'bg-white/10 text-white' : 'text-foreground/40 hover:text-white'}`}>Agent List</button>
+          <button onClick={() => { setView('enroll'); resetForm(); }} className="flex items-center gap-2 px-4 py-2 bg-accent text-white text-sm font-semibold rounded-xl hover:bg-accent/90 transition-colors">
+            <UserPlus className="w-4 h-4"/>Enroll Agent
+          </button>
+        </div>
+      </div>
+
+      {view === 'list' && (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead><tr className="border-b border-white/10 text-foreground/40 text-xs uppercase tracking-widest">
+              <th className="text-left px-4 py-3">Agent</th>
+              <th className="text-left px-4 py-3">Department</th>
+              <th className="text-left px-4 py-3">Tickets Resolved</th>
+              <th className="text-left px-4 py-3">Enrolled</th>
+              <th className="text-left px-4 py-3">Status</th>
+              <th className="text-left px-4 py-3">Actions</th>
+            </tr></thead>
+            <tbody>{agents.map(a => (
+              <tr key={a.id} className="border-b border-white/5 hover:bg-white/[0.03] transition-colors">
+                <td className="px-4 py-3">
+                  <p className="font-medium">{a.name}</p>
+                  <p className="text-xs text-foreground/40">{a.email}</p>
+                </td>
+                <td className="px-4 py-3 text-foreground/60 text-xs">{a.dept}</td>
+                <td className="px-4 py-3 text-foreground/60">{a.tickets}</td>
+                <td className="px-4 py-3 text-foreground/40 text-xs">{a.enrolled}</td>
+                <td className="px-4 py-3">
+                  <span className={`px-2 py-1 rounded-full text-xs font-semibold ${a.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>{a.status}</span>
+                </td>
+                <td className="px-4 py-3">
+                  <button className="text-xs text-accent hover:underline">Manage</button>
+                </td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+      )}
+
+      {view === 'enroll' && (
+        <form onSubmit={handleEnroll} className="max-w-2xl space-y-5">
+          <p className="text-sm text-foreground/50">Fill in the agent details. A Firebase account will be created with <code className="bg-white/10 px-1 rounded">role: support</code> and temporary credentials generated.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className={labelClass}>First Name *</label>
+              <input value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder="Sarah" className={inputClass}/>
+            </div>
+            <div>
+              <label className={labelClass}>Last Name *</label>
+              <input value={lastName} onChange={e=>setLastName(e.target.value)} placeholder="Mitchell" className={inputClass}/>
+            </div>
+            <div className="sm:col-span-2">
+              <label className={labelClass}>Agent Email * (used for login)</label>
+              <div className="relative"><Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30"/>
+                <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="agent@aetheria-support.com" className={inputClass + ' pl-10'}/>
+              </div>
+            </div>
+            <div>
+              <label className={labelClass}>Department *</label>
+              <select value={department} onChange={e=>setDepartment(e.target.value)} className={inputClass + ' cursor-pointer'}>
+                <option value="" disabled>Select department…</option>
+                {DEPARTMENTS.map(d => <option key={d}>{d}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className={labelClass}>Phone</label>
+              <div className="relative"><Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30"/>
+                <input value={phone} onChange={e=>setPhone(e.target.value)} placeholder="+1 555 000 0000" className={inputClass + ' pl-10'}/>
+              </div>
+            </div>
+            <div>
+              <label className={labelClass}>Employee ID</label>
+              <input value={employeeId} onChange={e=>setEmployeeId(e.target.value)} placeholder="EMP-0042" className={inputClass}/>
+            </div>
+          </div>
+          <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 flex items-start gap-3">
+            <Headphones className="w-4 h-4 text-accent shrink-0 mt-0.5"/>
+            <p className="text-xs text-foreground/50">The agent will receive <code className="bg-white/10 px-1 rounded">role: support</code> in Firestore, granting access only to the Support Desk at <code className="bg-white/10 px-1 rounded">/support-login</code>. A secure temporary password is auto-generated and shown once.</p>
+          </div>
+          {error && (
+            <div className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 rounded-xl px-3 py-2">
+              <XCircle className="w-4 h-4 shrink-0"/>{error}
+            </div>
+          )}
+          <div className="flex gap-3">
+            <button type="button" onClick={() => setView('list')} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">Cancel</button>
+            <button type="submit" disabled={loading} className="flex-1 py-3 bg-accent hover:bg-accent/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-60">
+              {loading ? <Loader2 className="w-4 h-4 animate-spin"/> : <><UserPlus className="w-4 h-4"/><span>Enroll & Generate Credentials</span></>}
+            </button>
+          </div>
+        </form>
+      )}
+    </div>
+  );
+};
+
 // --- Main AdminConsole ---
 const AdminConsole: React.FC = () => {
   const [activeTab, setActiveTab] = useState('users');
@@ -608,6 +836,7 @@ const AdminConsole: React.FC = () => {
     { id: 'ai-review', name: 'AI Performance', icon: Sparkles },
     { id: 'logs', name: 'System Logs', icon: AlertTriangle },
     { id: 'partners', name: 'Partner Management', icon: Briefcase },
+    { id: 'support-agents', name: 'Support Agents', icon: Headphones },
     { id: 'transactions', name: 'Transactions', icon: DollarSign },
     { id: 'feature-flags', name: 'Feature Flags', icon: Flag },
     { id: 'ai-config', name: 'AI Configuration', icon: Settings },
@@ -625,6 +854,7 @@ const AdminConsole: React.FC = () => {
       case 'ai-review': return <AIPerformance />;
       case 'logs': return <SystemLogs />;
       case 'partners': return <PartnerManagement />;
+      case 'support-agents': return <SupportAgentManagement />;
       case 'transactions': return <Transactions />;
       case 'feature-flags': return <FeatureFlags />;
       case 'ai-config': return <AIConfiguration />;

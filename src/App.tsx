@@ -36,6 +36,8 @@ import Translator from './components/Translator';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import Contact from './components/Contact';
+import SupportLogin from './components/support/SupportLogin';
+import SupportDesk from './components/support/SupportDesk';
 import { UserProfile as UserProfileType } from './types';
 import { motion, AnimatePresence } from 'framer-motion';
 import i18n from './lib/i18n';
@@ -480,10 +482,13 @@ export default function App() {
   };
 
   const [partnerAuthed, setPartnerAuthed] = useState(false);
+  const [supportAuthed, setSupportAuthed] = useState(false);
   const isLandingPage = !user && currentPath === '/';
+  const publicPaths = ['/partner-login', '/support-login', '/privacy-policy', '/terms-of-service', '/contact'];
   const hideShell = isLandingPage ||
-    currentPath === '/partner-login' ||
-    (currentPath === '/vendor/dashboard' && !partnerAuthed && profile?.role !== 'partner');
+    publicPaths.includes(currentPath) ||
+    (currentPath === '/vendor/dashboard' && !partnerAuthed && profile?.role !== 'partner') ||
+    (currentPath === '/support/desk' && !supportAuthed && profile?.role !== 'support' && profile?.role !== 'admin');
 
   const renderContent = () => {
     // Partner routes must work WITHOUT Firebase auth
@@ -501,6 +506,21 @@ export default function App() {
     if (currentPath === '/vendor/dashboard') {
       return <PartnerLogin onLogin={partnerOnLogin} />;
     }
+
+    // Support agent routes
+    const supportOnLogin = () => {
+      setSupportAuthed(true);
+      window.history.pushState({}, '', '/support/desk');
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    };
+    if (currentPath === '/support-login') return <SupportLogin onLogin={supportOnLogin} />;
+    if (currentPath === '/support/desk' && (supportAuthed || profile?.role === 'support' || profile?.role === 'admin')) return <SupportDesk />;
+    if (currentPath === '/support/desk') return <SupportLogin onLogin={supportOnLogin} />;
+
+    // Public routes — accessible without Firebase auth
+    if (currentPath === '/privacy-policy') return <PrivacyPolicy />;
+    if (currentPath === '/terms-of-service') return <TermsOfService />;
+    if (currentPath === '/contact') return <Contact />;
 
     if (!user) return <Hero />;
 
