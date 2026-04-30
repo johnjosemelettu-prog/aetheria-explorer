@@ -54,13 +54,13 @@ const content: Record<string, React.ReactNode> = {
   ),
   payments: (
     <div className="space-y-3">
-      <p>Certain features of the Service require payment ("Premium Features"). By subscribing or making a purchase, you agree to the following:</p>
+      <p>Certain travel services, priority booking capabilities, and continuous AI routing via the Service require payment or active subscriptions ("Travel & Booking Subscriptions"). By subscribing or booking through Aetheria, you agree to the following:</p>
       <ul className="space-y-2 pl-4 border-l-2 border-secondary/30">
-        <li><strong className="text-white">Aetheria+ Subscriptions</strong> are billed monthly or annually in advance and automatically renew unless cancelled at least 24 hours before the renewal date.</li>
-        <li>All payments are processed through our secure payment partners. Aetheria does not store full card details.</li>
-        <li>Prices are displayed in your local currency where possible and are inclusive of applicable taxes.</li>
-        <li>Refunds are available within 14 days of initial purchase if the feature has not been substantially used, in accordance with applicable consumer protection laws.</li>
-        <li>We reserve the right to change pricing with 30 days' notice to existing subscribers.</li>
+        <li><strong className="text-white">Aetheria+ Travel Subscriptions</strong> provide access to zero-commission bookings, unlimited AI itinerary generations, and priority emergency routing. Subscriptions are billed automatically and renew unless cancelled 24 hours prior.</li>
+        <li><strong className="text-white">Third-Party Bookings:</strong> Payments for flights, hotels, and local activities made through our Booking Hub are processed via secure partners. Aetheria acts as an intermediary; specific cancellation policies of the end provider apply.</li>
+        <li><strong className="text-white">Dynamic Pricing:</strong> Travel pricing fluctuates based on live global inventory. Aetheria guarantees the price only at the exact moment of final transaction confirmation.</li>
+        <li><strong className="text-white">eSIMs & Insurance:</strong> Digital products like global eSIMs and dynamic travel insurance policies are non-refundable once activated or past the 14-day cooling-off period prior to travel.</li>
+        <li>We reserve the right to modify subscription pricing for future travel seasons with 30 days' advance notice to active subscribers.</li>
       </ul>
     </div>
   ),

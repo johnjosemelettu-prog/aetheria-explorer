@@ -1283,3 +1283,28 @@ export const updateUserRole = async (uid: string, newRole: 'explorer' | 'admin' 
     }
     throw new Error("User not found");
 };
+
+export const findLocalRentals = async (city: string, item: string): Promise<any[]> => {
+    console.log(`Finding local rentals for ${item} in ${city}...`);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return [
+        {
+            provider: `${city} City ${item.charAt(0).toUpperCase() + item.slice(1)}s`,
+            price: "$15/day",
+            rating: 4.8,
+            features: ["Free delivery to hotel", "Includes insurance", "24/7 support"]
+        },
+        {
+            provider: "Wanderer Gear Co.",
+            price: "$20/day",
+            rating: 4.9,
+            features: ["Premium quality", "No deposit required", "Flexible return"]
+        },
+        {
+            provider: "Local Hub Rentals",
+            price: "$12/day",
+            rating: 4.5,
+            features: ["Budget friendly", "Central location pickup", "Basic equipment"]
+        }
+    ];
+};
