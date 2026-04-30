@@ -2,19 +2,32 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, MessageSquare, Send, Loader2, MapPin, Phone, Globe, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { db } from '../lib/firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 export default function Contact() {
   const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate sending message
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setSubmitted(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      await addDoc(collection(db, 'contact_messages'), {
+        identifier: formData.get('identifier'),
+        email: formData.get('email'),
+        protocol: formData.get('protocol'),
+        payload: formData.get('payload'),
+        createdAt: new Date().toISOString()
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error sending message:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -173,6 +186,7 @@ export default function Contact() {
                           <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">Identifier</label>
                           <input 
                             type="text" 
+                            name="identifier"
                             required
                             placeholder="Commander Shepard"
                             className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:bg-white/5 focus:ring-1 focus:ring-accent/50 transition-all font-mono"
@@ -182,6 +196,7 @@ export default function Contact() {
                           <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">Ping Address</label>
                           <input 
                             type="email" 
+                            name="email"
                             required
                             placeholder="you@domain.com"
                             className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:bg-white/5 focus:ring-1 focus:ring-accent/50 transition-all font-mono"
@@ -190,7 +205,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">Protocol</label>
-                        <select className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 text-white focus:outline-none focus:border-accent/50 focus:bg-white/5 focus:ring-1 focus:ring-accent/50 transition-all appearance-none font-mono cursor-pointer">
+                        <select name="protocol" className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 text-white focus:outline-none focus:border-accent/50 focus:bg-white/5 focus:ring-1 focus:ring-accent/50 transition-all appearance-none font-mono cursor-pointer">
                           <option value="support" className="bg-[#111]">Technical Assistance</option>
                           <option value="billing" className="bg-[#111]">Credential Billing</option>
                           <option value="partnership" className="bg-[#111]">Guild Alliance</option>
@@ -200,6 +215,7 @@ export default function Contact() {
                       <div>
                         <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">Payload Details</label>
                         <textarea 
+                          name="payload"
                           required
                           rows={5}
                           placeholder="Decrypt your message here..."

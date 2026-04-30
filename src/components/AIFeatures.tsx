@@ -80,7 +80,7 @@ const AIFeatureShowcase: React.FC<AIFeatureShowcaseProps> = ({ itinerary }) => {
     AI.calibrateGroupVibe(itinerary.invitedUsers ? userTraits : [vibe]).then(setGroupVibe);
     AI.getAmbassadorProgramStatus(user.uid).then(setAmbassadorStatus);
     AI.getTravelersGuilds(vibe).then(setGuilds);
-    AI.sendGlobalGift("user456", {name: "Espresso", type: "coffee"}).then(setGlobalGift); // Example gift
+    AI.sendGlobalGift(itinerary.invitedUsers?.[0] || "friend", {name: "Virtual Postcard", type: "digital_gift"}).then(setGlobalGift);
     AI.generateChronoQuest(destination).then(setChronoQuest);
     AI.getFactionWarStatus().then(setFactionWar);
     AI.getAchievementTree(user.uid).then(setAchievementTree);
@@ -89,7 +89,7 @@ const AIFeatureShowcase: React.FC<AIFeatureShowcaseProps> = ({ itinerary }) => {
     AI.startEscapeTheCity(destination).then(setEscapeTheCity);
     AI.getCultureCollectorMissions(destination).then(setCultureCollector);
     AI.getChronosyncPlan(userProfile?.preferences?.timezone || "UTC").then(setChronosync);
-    AI.shipSouvenirs([{name: "Vase", weight: 1.2}], userProfile?.displayName || "user").then(setSouvenirShipper);
+    AI.shipSouvenirs([], userProfile?.displayName || "user").then(setSouvenirShipper);
 
   }, [itinerary, user, userProfile]);
 

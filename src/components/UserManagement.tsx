@@ -1,14 +1,15 @@
+import React, { useState, useEffect } from 'react';
+import { MoreVertical, Loader2 } from 'lucide-react';
+import { db } from '../lib/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
-import React, { useState } from 'react';
-import { MoreVertical } from 'lucide-react';
-
-const mockUsers = [
-  { id: 'user_1', name: 'Alice', email: 'alice@example.com', role: 'Explorer', status: 'Active' },
-  { id: 'user_2', name: 'Bob', email: 'bob@example.com', role: 'Partner', status: 'Active' },
-  { id: 'user_3', name: 'Charlie', email: 'charlie@example.com', role: 'Admin', status: 'Inactive' },
-  { id: 'user_4', name: 'David', email: 'david@example.com', role: 'Explorer', status: 'Active' },
-  { id: 'user_5', name: 'Eve', email: 'eve@example.com', role: 'Partner', status: 'Suspended' },
-];
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  status: string;
+}
 
 const statusColor: Record<string, string> = {
   Active: 'bg-green-500/20 text-green-400',
@@ -18,7 +19,35 @@ const statusColor: Record<string, string> = {
 
 const UserManagement: React.FC = () => {
   const [filter, setFilter] = useState('');
-  const filtered = mockUsers.filter(
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      setLoading(true);
+      try {
+        const usersCol = collection(db, 'users');
+        const userSnapshot = await getDocs(usersCol);
+        const usersList = userSnapshot.docs.map(doc => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            name: data.displayName || data.name || 'Unknown',
+            email: data.email || 'No Email',
+            role: data.role || 'Explorer',
+            status: data.status || 'Active',
+          };
+        });
+        setUsers(usersList);
+      } catch (err) {
+        console.error("Error fetching users:", err);
+      }
+      setLoading(false);
+    };
+    fetchUsers();
+  }, []);
+
+  const filtered = users.filter(
     (u) =>
       u.name.toLowerCase().includes(filter.toLowerCase()) ||
       u.email.toLowerCase().includes(filter.toLowerCase())
@@ -47,43 +76,49 @@ const UserManagement: React.FC = () => {
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-white/5 text-foreground/40 uppercase text-xs tracking-widest">
-              <th className="text-left px-6 py-3">Name</th>
-              <th className="text-left px-6 py-3">Email</th>
-              <th className="text-left px-6 py-3">Role</th>
-              <th className="text-left px-6 py-3">Status</th>
-              <th className="text-right px-6 py-3">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((user) => (
-              <tr key={user.id} className="border-b border-white/5 hover:bg-white/[0.03] transition-colors">
-                <td className="px-6 py-4 font-medium">{user.name}</td>
-                <td className="px-6 py-4 text-foreground/60">{user.email}</td>
-                <td className="px-6 py-4 text-foreground/60">{user.role}</td>
-                <td className="px-6 py-4">
-                  <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusColor[user.status] ?? ''}`}>
-                    {user.status}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-right">
-                  <button className="p-1.5 rounded-lg hover:bg-white/10 transition-colors text-foreground/50 hover:text-white">
-                    <MoreVertical className="w-4 h-4" />
-                  </button>
-                </td>
+        {loading ? (
+          <div className="flex justify-center p-8">
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          </div>
+        ) : (
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-white/5 text-foreground/40 uppercase text-xs tracking-widest">
+                <th className="text-left px-6 py-3">Name</th>
+                <th className="text-left px-6 py-3">Email</th>
+                <th className="text-left px-6 py-3">Role</th>
+                <th className="text-left px-6 py-3">Status</th>
+                <th className="text-right px-6 py-3">Actions</th>
               </tr>
-            ))}
-            {filtered.length === 0 && (
-              <tr>
-                <td colSpan={5} className="px-6 py-10 text-center text-foreground/40">
-                  No users match your filter.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filtered.map((user) => (
+                <tr key={user.id} className="border-b border-white/5 hover:bg-white/[0.03] transition-colors">
+                  <td className="px-6 py-4 font-medium">{user.name}</td>
+                  <td className="px-6 py-4 text-foreground/60">{user.email}</td>
+                  <td className="px-6 py-4 text-foreground/60">{user.role}</td>
+                  <td className="px-6 py-4">
+                    <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusColor[user.status] ?? ''}`}>
+                      {user.status}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 text-right">
+                    <button className="p-1.5 rounded-lg hover:bg-white/10 transition-colors text-foreground/50 hover:text-white">
+                      <MoreVertical className="w-4 h-4" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+              {filtered.length === 0 && (
+                <tr>
+                  <td colSpan={5} className="px-6 py-10 text-center text-foreground/40">
+                    No users match your filter.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
