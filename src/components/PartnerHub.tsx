@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Store, BarChart2, Calendar, List, Users, TrendingUp, Activity } from 'lucide-react';
+import { Store, BarChart2, Calendar, List, Users, TrendingUp, Activity, Megaphone } from 'lucide-react';
 import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import SynthesisIntel from './SynthesisIntel';
 import VibeTrends from './VibeTrends';
@@ -9,6 +9,7 @@ import VibeFeed from './partner/VibeFeed';
 import ServiceListings from './partner/ServiceListings';
 import PerformanceDashboard from './partner/PerformanceDashboard';
 import CommunityTools from './partner/CommunityTools';
+import PromotionsManager from './partner/PromotionsManager';
 
 const yieldData = [
   { name: 'Mon', yield: 400 },{ name: 'Tue', yield: 300 },{ name: 'Wed', yield: 500 },
@@ -22,6 +23,7 @@ const tabs = [
   { id: 'financials', label: 'Financials', icon: TrendingUp },
   { id: 'performance', label: 'Performance', icon: BarChart2 },
   { id: 'community', label: 'Community', icon: Users },
+  { id: 'promotions', label: 'Promotions', icon: Megaphone },
 ];
 
 export default function PartnerHub() {
@@ -96,6 +98,7 @@ export default function PartnerHub() {
       {activeTab === 'financials' && <div className="grid grid-cols-1 lg:grid-cols-2 gap-8"><PartnerFinancialsDashboard /><VibeFeed /></div>}
       {activeTab === 'performance' && <div className="glass rounded-2xl p-6"><PerformanceDashboard /></div>}
       {activeTab === 'community' && <div className="glass rounded-2xl p-6"><CommunityTools /></div>}
+      {activeTab === 'promotions' && <div className="glass rounded-2xl p-6"><PromotionsManager /></div>}
     </div>
   );
 }

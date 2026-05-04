@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import UserManagement from './UserManagement';
 import { Shield, Trophy, Users, ShieldAlert, PieChart, Sparkles, AlertTriangle, Briefcase, DollarSign, Flag, Settings, Megaphone, CheckCircle, XCircle, RefreshCw, ToggleLeft, ToggleRight, Send, Plus, Copy, Eye, EyeOff, Building2, Globe, Phone, Mail, Lock, Loader2, UserPlus, ChevronDown, ChevronUp, CheckSquare, Headphones } from 'lucide-react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc, serverTimestamp, collection, getDocs, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
+import { doc, setDoc, serverTimestamp, collection, getDocs, query, orderBy, limit, onSnapshot, where, updateDoc } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 
 // --- Sub-panels ---
@@ -311,11 +311,55 @@ const PartnerManagement = () => {
   const [city, setCity] = useState('');
   const [notes, setNotes] = useState('');
 
-  const [partners, setPartners] = useState([
-    { id:'p1', name:'Kyoto Tourism Board', type:'Tour Operator', email:'kyoto@tourism.jp', contact:'Hana Sato', status:'Active', city:'Kyoto', country:'Japan', enrolled:'2026-01-15' },
-    { id:'p2', name:'TokyoStay Hotels', type:'Accommodation', email:'ops@tokyostay.co.jp', contact:'Ken Mori', status:'Active', city:'Tokyo', country:'Japan', enrolled:'2026-02-03' },
-    { id:'p3', name:'NomadGear Co.', type:'Retail / Souvenirs', email:'hello@nomadgear.com', contact:'Lisa Park', status:'Pending', city:'Seoul', country:'South Korea', enrolled:'2026-04-20' },
-  ]);
+  const [partners, setPartners] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const q = query(collection(db, 'users'), where('role', '==', 'partner'));
+        const snapshot = await getDocs(q);
+        const fetchedPartners = snapshot.docs.map(d => {
+          const data = d.data();
+          return {
+            id: d.id,
+            name: data.displayName || data.businessName || 'Unknown',
+            type: data.businessType || 'Other',
+            email: data.email,
+            contact: data.contactName || '',
+            status: data.status || 'Pending',
+            city: data.city || '',
+            country: data.country || '',
+            enrolled: data.createdAt?.toDate ? data.createdAt.toDate().toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10)
+          };
+        });
+        if (fetchedPartners.length > 0) {
+          setPartners(fetchedPartners);
+        } else {
+          setPartners([
+            { id:'p1', name:'Kyoto Tourism Board', type:'Tour Operator', email:'kyoto@tourism.jp', contact:'Hana Sato', status:'Active', city:'Kyoto', country:'Japan', enrolled:'2026-01-15' },
+            { id:'p2', name:'TokyoStay Hotels', type:'Accommodation', email:'ops@tokyostay.co.jp', contact:'Ken Mori', status:'Active', city:'Tokyo', country:'Japan', enrolled:'2026-02-03' },
+            { id:'p3', name:'NomadGear Co.', type:'Retail / Souvenirs', email:'hello@nomadgear.com', contact:'Lisa Park', status:'Pending', city:'Seoul', country:'South Korea', enrolled:'2026-04-20' },
+          ]);
+        }
+      } catch (err) {
+        console.error("Error fetching partners:", err);
+      }
+    };
+    fetchPartners();
+  }, []);
+
+  const togglePartnerStatus = async (id: string, currentStatus: string) => {
+    const newStatus = currentStatus === 'Active' ? 'Pending' : 'Active';
+    setPartners(prev => prev.map(p => p.id === id ? { ...p, status: newStatus } : p));
+    if (!id.startsWith('p')) { // Don't try to update mock data
+      try {
+        await updateDoc(doc(db, 'users', id), { status: newStatus });
+      } catch (err) {
+        console.error("Failed to update status", err);
+        setPartners(prev => prev.map(p => p.id === id ? { ...p, status: currentStatus } : p));
+      }
+    }
+  };
 
   const copyToClipboard = (text: string, key: string) => {
     navigator.clipboard.writeText(text);
@@ -459,7 +503,12 @@ const PartnerManagement = () => {
                   <span className={`px-2 py-1 rounded-full text-xs font-semibold ${p.status==='Active' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'}`}>{p.status}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <button className="text-xs text-primary hover:underline">Manage</button>
+                  <button 
+                    onClick={() => togglePartnerStatus(p.id, p.status)}
+                    className="text-xs text-primary hover:underline"
+                  >
+                    {p.status === 'Active' ? 'Deactivate' : 'Approve'}
+                  </button>
                 </td>
               </tr>
             ))}</tbody>

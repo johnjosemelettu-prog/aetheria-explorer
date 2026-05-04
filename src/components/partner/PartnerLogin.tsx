@@ -10,7 +10,7 @@ import {
   sendPasswordResetEmail,
   signInWithPopup,
 } from 'firebase/auth';
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db, googleProvider } from '../../lib/firebase';
 
 interface PartnerLoginProps {
@@ -60,7 +60,25 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
     if (!email || !password) { setError('Please fill in all fields.'); return; }
     setLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const cred = await signInWithEmailAndPassword(auth, email, password);
+      
+      const userDocRef = doc(db, 'users', cred.user.uid);
+      const userDoc = await getDoc(userDocRef);
+      
+      if (!userDoc.exists()) {
+        await auth.signOut();
+        setError('Partner profile not found.'); return;
+      }
+      const data = userDoc.data();
+      if (data.role !== 'partner') {
+        await auth.signOut();
+        setError('Unauthorized account type.'); return;
+      }
+      if (data.status !== 'Active') {
+        await auth.signOut();
+        setError('Your account is pending approval by an administrator.'); return;
+      }
+
       sessionStorage.setItem('partnerAuthed', '1');
       onLogin();
     } catch (err: any) {
@@ -80,7 +98,25 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
     clearMessages();
     setLoading(true);
     try {
-      await signInWithPopup(auth, googleProvider);
+      const cred = await signInWithPopup(auth, googleProvider);
+      
+      const userDocRef = doc(db, 'users', cred.user.uid);
+      const userDoc = await getDoc(userDocRef);
+      
+      if (!userDoc.exists()) {
+        await auth.signOut();
+        setError('No partner profile found for this Google account.'); return;
+      }
+      const data = userDoc.data();
+      if (data.role !== 'partner') {
+        await auth.signOut();
+        setError('Unauthorized account type.'); return;
+      }
+      if (data.status !== 'Active') {
+        await auth.signOut();
+        setError('Your account is pending approval by an administrator.'); return;
+      }
+
       sessionStorage.setItem('partnerAuthed', '1');
       onLogin();
     } catch (err: any) {
@@ -109,11 +145,14 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
         businessType,
         phone,
         website,
+        status: 'Pending',
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       });
-      sessionStorage.setItem('partnerAuthed', '1');
-      onLogin();
+      await auth.signOut();
+      setSuccess('Registration successful! Please wait for an admin to approve your account.');
+      setTab('signin');
+      setEmail(regEmail);
     } catch (err: any) {
       const msg: Record<string, string> = {
         'auth/email-already-in-use': 'An account with this email already exists.',
@@ -228,6 +267,11 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
                 {error && (
                   <div className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 rounded-xl px-3 py-2">
                     <AlertCircle className="w-4 h-4 shrink-0" />{error}
+                  </div>
+                )}
+                {success && (
+                  <div className="flex items-center gap-2 text-green-400 text-sm bg-green-500/10 rounded-xl px-3 py-2">
+                    <CheckCircle className="w-4 h-4 shrink-0" />{success}
                   </div>
                 )}
 

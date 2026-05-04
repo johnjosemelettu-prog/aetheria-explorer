@@ -137,7 +137,7 @@ import AetheriaAmbassadorProgram from './components/AetheriaAmbassadorProgram';
 import TravelGuilds from './components/TravelGuilds';
 import GlobalGiftNetwork from './components/GlobalGiftNetwork';
 import SpontaneousMeetups from './components/SpontaneousMeetups';
-
+import PartnerPromotions from './components/PartnerPromotions';
 import FactionWars from './components/FactionWars';
 import DigitalSouvenirForging from './components/DigitalSouvenirForging';
 import WorldGridUnveiling from './components/WorldGridUnveiling';
@@ -564,6 +564,7 @@ export default function App() {
       case '/landmark-lens': return <LandmarkLens />;
       case '/booking': return <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24"><BookingHub /></div>;
       case '/travel-insurance': return <TravelInsurance />;
+      case '/local-deals': return <PartnerPromotions />;
       case '/translator': return <Translator />;
       case '/privacy-policy': return <PrivacyPolicy />;
       case '/terms-of-service': return <TermsOfService />;
