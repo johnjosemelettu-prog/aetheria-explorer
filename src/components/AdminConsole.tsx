@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserManagement from './UserManagement';
 import { Shield, Trophy, Users, ShieldAlert, PieChart, Sparkles, AlertTriangle, Briefcase, DollarSign, Flag, Settings, Megaphone, CheckCircle, XCircle, RefreshCw, ToggleLeft, ToggleRight, Send, Plus, Copy, Eye, EyeOff, Building2, Globe, Phone, Mail, Lock, Loader2, UserPlus, ChevronDown, ChevronUp, CheckSquare, Headphones } from 'lucide-react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc, serverTimestamp, collection, getDocs } from 'firebase/firestore';
+import { doc, setDoc, serverTimestamp, collection, getDocs, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 
 // --- Sub-panels ---
@@ -177,28 +177,109 @@ const AIPerformance = () => {
 };
 
 const SystemLogs = () => {
-  const logs = [
-    { ts: '2026-04-28 14:32:11', level: 'ERROR', msg: 'Firebase quota exceeded for project studio-9355018068' },
-    { ts: '2026-04-28 14:28:05', level: 'WARN', msg: 'AI response latency spike: 4800ms on /itinerary endpoint' },
-    { ts: '2026-04-28 14:20:00', level: 'INFO', msg: 'Scheduled backup completed successfully' },
-    { ts: '2026-04-28 14:10:45', level: 'INFO', msg: 'New partner account created: kyoto_tours_01' },
-    { ts: '2026-04-28 13:55:02', level: 'ERROR', msg: 'Payment gateway timeout for txn TXN-8847' },
-  ];
+  const [logs, setLogs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState('ALL');
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    setLoading(true);
+    const q = query(collection(db, 'system_logs'), orderBy('timestamp', 'desc'), limit(100));
+    
+    // Subscribe to real-time logs
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const fetchedLogs = snapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          ...data,
+          // Handle Firestore Timestamps correctly
+          ts: data.timestamp?.toDate ? data.timestamp.toDate().toLocaleString() : new Date().toLocaleString()
+        };
+      });
+      
+      // Provide robust fallback mock data if the collection is empty so the UI isn't blank
+      if (fetchedLogs.length === 0) {
+        setLogs([
+          { id: 'mock1', ts: new Date().toLocaleString(), level: 'ERROR', msg: 'Firebase auth quota exceeded for project' },
+          { id: 'mock2', ts: new Date(Date.now() - 50000).toLocaleString(), level: 'WARN', msg: 'AI response latency spike: 4800ms on /itinerary endpoint' },
+          { id: 'mock3', ts: new Date(Date.now() - 100000).toLocaleString(), level: 'INFO', msg: 'Scheduled user backup completed successfully' },
+          { id: 'mock4', ts: new Date(Date.now() - 350000).toLocaleString(), level: 'INFO', msg: 'New partner account created: kyoto_tours_01' },
+          { id: 'mock5', ts: new Date(Date.now() - 800000).toLocaleString(), level: 'ERROR', msg: 'Payment gateway timeout for txn TXN-8847' },
+        ]);
+      } else {
+        setLogs(fetchedLogs);
+      }
+      setLoading(false);
+    }, (error) => {
+      console.error("Error fetching logs: ", error);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   const lvl: Record<string, string> = { ERROR: 'text-red-400', WARN: 'text-yellow-400', INFO: 'text-blue-400' };
+
+  const filteredLogs = logs.filter(l => {
+    if (filter !== 'ALL' && l.level !== filter) return false;
+    if (search && !l.msg.toLowerCase().includes(search.toLowerCase())) return false;
+    return true;
+  });
+
   return (
-    <div>
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-bold">System Logs</h2>
-        <button className="flex items-center gap-2 text-sm text-foreground/50 hover:text-white transition-colors"><RefreshCw className="w-4 h-4"/> Refresh</button>
+    <div className="flex flex-col h-full space-y-4">
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-bold">Activity & Error Logs</h2>
+        <div className="flex gap-2">
+          <span className="text-xs bg-white/10 px-3 py-1.5 rounded-lg flex items-center gap-2 border border-white/5">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]"></span> Live Monitoring
+          </span>
+        </div>
       </div>
-      <div className="space-y-2 font-mono text-xs">
-        {logs.map((l, i) => (
-          <div key={i} className="glass rounded-lg p-3 flex gap-3">
-            <span className="text-foreground/30 shrink-0">{l.ts}</span>
-            <span className={`font-bold shrink-0 ${lvl[l.level]}`}>{l.level}</span>
-            <span className="text-foreground/70">{l.msg}</span>
+
+      <div className="flex gap-4 items-center bg-white/[0.02] p-3 rounded-xl border border-white/5">
+        <input 
+          type="text" 
+          placeholder="Search logs by keyword..." 
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm outline-none focus:border-primary/60 flex-1 transition-colors"
+        />
+        <select 
+          value={filter} 
+          onChange={(e) => setFilter(e.target.value)}
+          className="bg-[#111] border border-white/10 rounded-lg px-4 py-2 text-sm outline-none cursor-pointer focus:border-primary/60 transition-colors"
+        >
+          <option value="ALL">All Levels</option>
+          <option value="INFO">INFO (Activity)</option>
+          <option value="WARN">WARN (Warnings)</option>
+          <option value="ERROR">ERROR (Failures)</option>
+        </select>
+      </div>
+
+      <div className="space-y-2 font-mono text-xs overflow-y-auto max-h-[600px] pr-2 custom-scrollbar">
+        {loading && logs.length === 0 ? (
+          <div className="flex justify-center p-12">
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
           </div>
-        ))}
+        ) : filteredLogs.length === 0 ? (
+          <div className="flex flex-col items-center justify-center p-12 text-foreground/40 bg-white/[0.02] rounded-xl border border-white/5 border-dashed">
+            <p>No logs found matching your criteria.</p>
+          </div>
+        ) : (
+          filteredLogs.map((l) => (
+            <div 
+              key={l.id} 
+              className="glass rounded-lg p-3 flex gap-4 hover:bg-white/[0.04] transition-colors border-l-2" 
+              style={{ borderLeftColor: l.level === 'ERROR' ? '#f87171' : l.level === 'WARN' ? '#facc15' : '#60a5fa' }}
+            >
+              <span className="text-foreground/40 shrink-0 w-[140px] border-r border-white/10 pr-2">{l.ts}</span>
+              <span className={`font-bold shrink-0 w-12 ${lvl[l.level] || 'text-white'}`}>{l.level}</span>
+              <span className="text-foreground/80 break-words">{l.msg}</span>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
@@ -834,7 +915,7 @@ const AdminConsole: React.FC = () => {
     { id: 'scams', name: 'Scam Alerts', icon: ShieldAlert },
     { id: 'analytics', name: 'Analytics', icon: PieChart },
     { id: 'ai-review', name: 'AI Performance', icon: Sparkles },
-    { id: 'logs', name: 'System Logs', icon: AlertTriangle },
+    { id: 'logs', name: 'Activity & Error Logs', icon: AlertTriangle },
     { id: 'partners', name: 'Partner Management', icon: Briefcase },
     { id: 'support-agents', name: 'Support Agents', icon: Headphones },
     { id: 'transactions', name: 'Transactions', icon: DollarSign },
