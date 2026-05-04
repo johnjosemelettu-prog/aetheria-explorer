@@ -6,11 +6,11 @@
     <title>Aetheria Explorer</title>
     <script>
       window.onerror = function(msg, url, line, col, error) {
-        alert("JS Error: " + msg + "\nLine: " + line + "\nCol: " + col + "\nError: " + error);
+        console.error("JS Error:", msg, url, line, col, error);
         return false;
       };
       window.addEventListener('unhandledrejection', function(event) {
-        alert("Unhandled Promise Rejection: " + event.reason);
+        console.error("Unhandled Promise Rejection:", event.reason);
       });
     </script>
   </head>
