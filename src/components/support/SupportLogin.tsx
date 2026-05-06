@@ -7,9 +7,10 @@ import {
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  signInWithPopup,
 } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
-import { auth, db } from '../../lib/firebase';
+import { auth, db, microsoftProvider } from '../../lib/firebase';
 
 interface SupportLoginProps {
   onLogin: () => void;
@@ -67,6 +68,28 @@ export default function SupportLogin({ onLogin }: SupportLoginProps) {
       setLoading(false);
     }
   };
+
+  const handleMicrosoftSignIn = async () => {
+    clearMessages();
+    setLoading(true);
+    try {
+      const cred = await signInWithPopup(auth, microsoftProvider);
+      const userDoc = await getDoc(doc(db, 'users', cred.user.uid));
+      const role = userDoc.data()?.role;
+      if (role !== 'support' && role !== 'admin') {
+        await auth.signOut();
+        setError('Access denied. This portal is for support agents only.');
+        setLoading(false);
+        return;
+      }
+      sessionStorage.setItem('supportAuthed', '1');
+      onLogin();
+    } catch (err: any) {
+      setError(err.message ?? 'Microsoft sign in failed.');
+      setLoading(false);
+    }
+  };
+
 
   const handleForgot = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -162,6 +185,23 @@ export default function SupportLogin({ onLogin }: SupportLoginProps) {
                 <button type="submit" disabled={loading}
                   className="w-full py-3.5 bg-accent hover:bg-accent/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-60">
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><span>Access Support Desk</span><ArrowRight className="w-4 h-4" /></>}
+                </button>
+                
+                <div className="relative flex items-center gap-3 py-2">
+                  <div className="flex-1 h-px bg-white/10" />
+                  <span className="text-xs text-foreground/30 uppercase tracking-widest">or</span>
+                  <div className="flex-1 h-px bg-white/10" />
+                </div>
+
+                <button type="button" onClick={handleMicrosoftSignIn} disabled={loading}
+                  className="w-full py-3 glass border border-white/10 hover:bg-white/10 font-semibold rounded-xl transition-all flex items-center justify-center gap-3 text-sm disabled:opacity-60">
+                  <svg className="w-4 h-4" viewBox="0 0 21 21">
+                    <rect x="1" y="1" width="9" height="9" fill="#f25022"/>
+                    <rect x="11" y="1" width="9" height="9" fill="#7fba00"/>
+                    <rect x="1" y="11" width="9" height="9" fill="#00a4ef"/>
+                    <rect x="11" y="11" width="9" height="9" fill="#ffb900"/>
+                  </svg>
+                  Continue with Microsoft
                 </button>
                 <p className="text-center text-xs text-foreground/30 pt-1">
                   Forgot password?{' '}

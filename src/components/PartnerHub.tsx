@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Store, BarChart2, Calendar, List, Users, TrendingUp, Activity, Megaphone } from 'lucide-react';
+import { Store, BarChart2, Calendar, List, Users, TrendingUp, Activity, Megaphone, Settings, ToggleLeft, ToggleRight } from 'lucide-react';
 import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import SynthesisIntel from './SynthesisIntel';
 import VibeTrends from './VibeTrends';
@@ -24,7 +24,32 @@ const tabs = [
   { id: 'performance', label: 'Performance', icon: BarChart2 },
   { id: 'community', label: 'Community', icon: Users },
   { id: 'promotions', label: 'Promotions', icon: Megaphone },
+  { id: 'settings', label: 'Settings', icon: Settings },
 ];
+
+const PartnerSettings = () => {
+  const [msAuthEnabled, setMsAuthEnabled] = useState(true);
+  
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-xl font-bold mb-4">Account Settings</h2>
+        <div className="glass rounded-xl p-4 flex items-center justify-between">
+          <div>
+            <p className="font-medium">Microsoft Authenticator Authentication</p>
+            <p className="text-xs text-foreground/40 mt-1">Allow signing in with your Microsoft account to the Partner Hub.</p>
+          </div>
+          <button 
+            onClick={() => setMsAuthEnabled(!msAuthEnabled)} 
+            className={`transition-colors ${msAuthEnabled ? 'text-green-400' : 'text-foreground/30'}`}
+          >
+            {msAuthEnabled ? <ToggleRight className="w-8 h-8"/> : <ToggleLeft className="w-8 h-8"/>}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function PartnerHub() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -99,6 +124,7 @@ export default function PartnerHub() {
       {activeTab === 'performance' && <div className="glass rounded-2xl p-6"><PerformanceDashboard /></div>}
       {activeTab === 'community' && <div className="glass rounded-2xl p-6"><CommunityTools /></div>}
       {activeTab === 'promotions' && <div className="glass rounded-2xl p-6"><PromotionsManager /></div>}
+      {activeTab === 'settings' && <div className="glass rounded-2xl p-6"><PartnerSettings /></div>}
     </div>
   );
 }

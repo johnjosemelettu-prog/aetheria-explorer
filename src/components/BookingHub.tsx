@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plane, Hotel, Ship, Search, MapPin, Calendar, Bus, Car, Utensils, Star, Loader2, ArrowRight, Bike } from 'lucide-react';
@@ -8,6 +9,7 @@ import SubscriptionManager from './SubscriptionManager';
 type BookingType = 'flight' | 'hotel' | 'cruise' | 'bus' | 'cab' | 'dining' | 'ebike';
 
 export default function BookingHub() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<BookingType>('flight');
   const [isSearching, setIsSearching] = useState(false);
   const [results, setResults] = useState<any[] | null>(null);
@@ -54,13 +56,13 @@ export default function BookingHub() {
   };
 
   const bookingOptions = [
-    { id: 'flight', icon: Plane, label: 'Flights' },
-    { id: 'hotel', icon: Hotel, label: 'Hotels' },
-    { id: 'cruise', icon: Ship, label: 'Cruises' },
-    { id: 'bus', icon: Bus, label: 'Bus' },
-    { id: 'cab', icon: Car, label: 'Cab' },
-    { id: 'ebike', icon: Bike, label: 'eBikes' },
-    { id: 'dining', icon: Utensils, label: 'Dining' }
+    { id: 'flight', icon: Plane, label: t('booking.tabs.flights') },
+    { id: 'hotel', icon: Hotel, label: t('booking.tabs.hotels') },
+    { id: 'cruise', icon: Ship, label: t('booking.tabs.cruises') },
+    { id: 'bus', icon: Bus, label: t('booking.tabs.bus') },
+    { id: 'cab', icon: Car, label: t('booking.tabs.cab') },
+    { id: 'ebike', icon: Bike, label: t('booking.tabs.ebikes') },
+    { id: 'dining', icon: Utensils, label: t('booking.tabs.dining') }
   ];
 
 
@@ -71,8 +73,8 @@ export default function BookingHub() {
           <Search className="text-primary w-6 h-6" />
         </div>
         <div>
-          <h2 className="text-2xl font-display font-bold">Booking Hub</h2>
-          <p className="text-sm text-foreground/50">Global booking engine.</p>
+          <h2 className="text-2xl font-display font-bold">{t('booking.title')}</h2>
+          <p className="text-sm text-foreground/50">{t('booking.subtitle')}</p>
         </div>
       </div>
 
@@ -100,7 +102,7 @@ export default function BookingHub() {
           <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
           <input 
             type="text" 
-            placeholder="Destination or Location..."
+            placeholder={t('booking.placeholderDestination') as string}
             className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
           />
         </div>
@@ -108,7 +110,7 @@ export default function BookingHub() {
           <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
           <input 
             type="text" 
-            placeholder="Dates or Time..."
+            placeholder={t('booking.placeholderDates') as string}
             className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
           />
         </div>
@@ -118,7 +120,7 @@ export default function BookingHub() {
           className="bg-primary text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
         >
           {isSearching ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
-          Search
+          {t('booking.search')}
         </button>
       </div>
 
@@ -143,13 +145,13 @@ export default function BookingHub() {
                   <div className="text-right">
                     <div className="text-xl font-display font-bold text-primary">${item.price}</div>
                     <div className="text-[10px] text-foreground/30 uppercase font-bold">
-                      {activeTab === 'dining' ? 'Est. Total' : 'Per Person'}
+                      {activeTab === 'dining' ? t('booking.estTotal') : t('booking.perPerson')}
                     </div>
                   </div>
                 </div>
                 {isPremium ? (
                   <button className="w-full py-3 bg-white/5 hover:bg-primary hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
-                    Book Now
+                    {t('booking.bookNow')}
                     <ArrowRight className="w-3 h-3" />
                   </button>
                 ) : (
@@ -163,7 +165,7 @@ export default function BookingHub() {
         ) : !isSearching && (
           <div className="py-12 text-center glass rounded-3xl border-dashed border-2 border-white/5">
             <Search className="w-12 h-12 text-foreground/10 mx-auto mb-4" />
-            <p className="text-sm text-foreground/40">Enter details to explore {activeTab} options.</p>
+            <p className="text-sm text-foreground/40">{t('booking.enterDetails', { type: activeTab })}</p>
           </div>
         )}
       </AnimatePresence>

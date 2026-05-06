@@ -42,7 +42,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 text-xs font-medium text-primary mb-8">
             <Sparkles className="w-3 h-3" />
-            <span>AI-Powered Travel Orchestration</span>
+            <span>{t('hero.tagline')}</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight mb-6 leading-[1.1]">
@@ -68,9 +68,7 @@ export default function Hero() {
               onClick={() => navigate('/partner-login')}
               className="w-full sm:w-auto px-8 py-4 bg-secondary/20 hover:bg-secondary/30 border border-secondary/40 text-secondary rounded-2xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-secondary/10"
             >
-              <Store className="w-5 h-5" />
-              Partner Login
-            </button>
+              <Store className="w-5 h-5" />{t('hero.partnerLogin')}</button>
           </div>
         </motion.div>
 
@@ -104,7 +102,7 @@ export default function Hero() {
             <div className="w-20 h-20 bg-primary/20 rounded-3xl flex items-center justify-center mb-6 animate-pulse">
               <Zap className="text-primary w-10 h-10" />
             </div>
-            <div className="text-sm font-bold tracking-[0.3em] uppercase text-foreground/40">Orchestrating Synthesis</div>
+            <div className="text-sm font-bold tracking-[0.3em] uppercase text-foreground/40">{t('hero.orchestratingSynthesis')}</div>
           </div>
         </div>
 
@@ -118,20 +116,20 @@ export default function Hero() {
           {[
             {
               icon: Globe,
-              title: "Global Connectivity",
-              desc: "Instant eSIM synthesis across 190+ countries.",
+              title: t('hero.globalConnectivity'),
+              desc: t('hero.globalConnectivityDesc'),
               color: "text-primary"
             },
             {
               icon: ShieldCheck,
-              title: "Smart Security",
-              desc: "Blockchain-verified identities and secure payments.",
+              title: t('hero.smartSecurity'),
+              desc: t('hero.smartSecurityDesc'),
               color: "text-secondary"
             },
             {
               icon: Zap,
-              title: "AI Itineraries",
-              desc: "Personalized journeys generated in seconds.",
+              title: t('hero.aiItineraries'),
+              desc: t('hero.aiItinerariesDesc'),
               color: "text-accent"
             }
           ].map((feature, i) => (
@@ -157,10 +155,10 @@ export default function Hero() {
               <Store className="w-7 h-7 text-secondary" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-1">For Business Partners</p>
-              <h3 className="text-xl font-display font-bold">Access Partner Hub</h3>
+              <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-1">{t('hero.forBusinessPartners')}</p>
+              <h3 className="text-xl font-display font-bold">{t('hero.accessPartnerHub')}</h3>
               <p className="text-sm text-foreground/50 mt-1">
-                Manage bookings, view analytics, and grow your travel business on Aetheria.
+                {t('hero.partnerHubDesc')}
               </p>
             </div>
           </div>
@@ -169,14 +167,12 @@ export default function Hero() {
               onClick={() => navigate('/partner-login')}
               className="px-6 py-3 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-secondary/20"
             >
-              <Store className="w-4 h-4" />
-              Partner Login
-            </button>
+              <Store className="w-4 h-4" />{t('hero.partnerLogin')}</button>
             <button
               onClick={() => { navigate('/partner-login'); }}
               className="px-6 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-all text-sm flex items-center justify-center gap-2"
             >
-              Register as Partner
+              {t('hero.registerPartner')}
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

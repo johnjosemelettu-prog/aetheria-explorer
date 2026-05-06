@@ -632,6 +632,7 @@ const FeatureFlags = () => {
     { key: 'faction_wars', label: 'Faction Wars', enabled: false },
     { key: 'dao_voting', label: 'DAO Voting', enabled: false },
     { key: 'live_translation', label: 'Live Translation', enabled: true },
+    { key: 'microsoft_auth', label: 'Microsoft Authenticator Auth', enabled: true },
   ]);
   const toggle = (key: string) => setFlags(f => f.map(fl => fl.key === key ? { ...fl, enabled: !fl.enabled } : fl));
   return (
