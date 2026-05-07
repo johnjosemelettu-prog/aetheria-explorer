@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Utensils, Award } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function LocalFoodBingo() {
+    const { t } = useTranslation();
   const items = [
     { name: "Takoyaki", done: true }, { name: "Okonomiyaki", done: true }, { name: "Matcha Ice Cream", done: false },
     { name: "Yakisoba", done: false }, { name: "Kushikatsu", done: true }, { name: "Taiyaki", done: false },
@@ -16,14 +18,14 @@ export default function LocalFoodBingo() {
       <div className="max-w-4xl mx-auto">
         <header className="text-center mb-12">
           <Utensils className="w-12 h-12 text-amber-500 mx-auto mb-4" />
-          <h1 className="text-5xl font-display font-black text-transparent bg-clip-text bg-gradient-to-br from-amber-400 to-orange-600 uppercase">Local Food Bingo</h1>
-          <p className="text-stone-400 mt-2 font-mono">OSAKA CULINARY EDITION</p>
+          <h1 className="text-5xl font-display font-black text-transparent bg-clip-text bg-gradient-to-br from-amber-400 to-orange-600 uppercase">{t('auto.auto_local_food_bingo_1731')}</h1>
+          <p className="text-stone-400 mt-2 font-mono">{t('auto.auto_osaka_culinary_editi_1730')}</p>
         </header>
 
         <div className="bg-stone-800 border-4 border-stone-700/50 p-6 rounded-3xl shadow-2xl relative">
           <div className="absolute -top-4 -right-4 bg-amber-500 text-stone-900 font-bold p-3 rounded-full shadow-xl flex gap-1">
-             <Award className="w-5 h-5" /> REWARD: 250 XP
-          </div>
+             <Award className="w-5 h-5" /> {t('auto.auto_reward__250_xp_1729')}
+                                </div>
 
           <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
             {items.map((item, i) => (
@@ -47,8 +49,8 @@ export default function LocalFoodBingo() {
         </div>
 
         <div className="mt-12 text-center text-stone-500 font-mono text-sm">
-          Snap a photo of the dish to check off a tile. First to get a line wins the local badge!
-        </div>
+          {t('auto.auto_snap_a_photo_of_the__1728')}
+                          </div>
       </div>
     </div>
   );

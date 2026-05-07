@@ -4,10 +4,12 @@ import { Shield, Trophy, Users, ShieldAlert, PieChart, Sparkles, AlertTriangle, 
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp, collection, getDocs, query, orderBy, limit, onSnapshot, where, updateDoc } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
+import { useTranslation } from "react-i18next";
 
 // --- Sub-panels ---
 
 const BountyBoard = () => {
+    const { t } = useTranslation();
   const bounties = [
     { id: 'B001', title: 'Map 50 hidden cafés in Tokyo', reward: '500 XP', status: 'Active', claims: 12 },
     { id: 'B002', title: 'Translate 100 menu items in Vietnam', reward: '300 XP', status: 'Active', claims: 7 },
@@ -16,13 +18,13 @@ const BountyBoard = () => {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between mb-2">
-        <h2 className="text-xl font-bold">Bounty Board Management</h2>
-        <button className="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-xl">+ New Bounty</button>
+        <h2 className="text-xl font-bold">{t('auto.auto_bounty_board_managem_158')}</h2>
+        <button className="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-xl">{t('auto.auto___new_bounty_157')}</button>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead><tr className="border-b border-white/10 text-foreground/40 text-xs uppercase tracking-widest">
-            <th className="text-left px-4 py-3">ID</th><th className="text-left px-4 py-3">Title</th><th className="text-left px-4 py-3">Reward</th><th className="text-left px-4 py-3">Claims</th><th className="text-left px-4 py-3">Status</th>
+            <th className="text-left px-4 py-3">{t('auto.auto_id_156')}</th><th className="text-left px-4 py-3">{t('auto.auto_title_155')}</th><th className="text-left px-4 py-3">{t('auto.auto_reward_154')}</th><th className="text-left px-4 py-3">{t('auto.auto_claims_153')}</th><th className="text-left px-4 py-3">{t('auto.auto_status_152')}</th>
           </tr></thead>
           <tbody>{bounties.map(b => (
             <tr key={b.id} className="border-b border-white/5 hover:bg-white/[0.03]">
@@ -40,6 +42,7 @@ const BountyBoard = () => {
 };
 
 const LocalHeroes = () => {
+    const { t } = useTranslation();
   const heroes = [
     { name: 'Aiko Tanaka', city: 'Kyoto', speciality: 'Tea Ceremonies', rating: 4.9, verified: true },
     { name: 'Carlos Mendez', city: 'Mexico City', speciality: 'Street Food Tours', rating: 4.8, verified: true },
@@ -47,7 +50,7 @@ const LocalHeroes = () => {
   ];
   return (
     <div className="space-y-3">
-      <h2 className="text-xl font-bold mb-4">Local Hero Verification</h2>
+      <h2 className="text-xl font-bold mb-4">{t('auto.auto_local_hero_verificat_151')}</h2>
       {heroes.map((h, i) => (
         <div key={i} className="glass rounded-xl p-4 flex items-center justify-between">
           <div>
@@ -55,8 +58,8 @@ const LocalHeroes = () => {
             <p className="text-sm text-foreground/50">{h.speciality} · ⭐ {h.rating}</p>
           </div>
           <div className="flex items-center gap-2">
-            {h.verified ? <span className="flex items-center gap-1 text-green-400 text-xs font-semibold"><CheckCircle className="w-4 h-4"/>Verified</span>
-              : <button className="px-3 py-1.5 bg-primary text-white text-xs font-semibold rounded-lg">Verify</button>}
+            {h.verified ? <span className="flex items-center gap-1 text-green-400 text-xs font-semibold"><CheckCircle className="w-4 h-4"/>{t('auto.auto_verified_150')}</span>
+              : <button className="px-3 py-1.5 bg-primary text-white text-xs font-semibold rounded-lg">{t('auto.auto_verify_149')}</button>}
           </div>
         </div>
       ))}
@@ -65,6 +68,7 @@ const LocalHeroes = () => {
 };
 
 const TravelersGuilds = () => {
+    const { t } = useTranslation();
   const guilds = [
     { name: 'The Cartographers', members: 1240, score: 10500, active: true },
     { name: 'The Gastronomes', members: 980, score: 9800, active: true },
@@ -73,7 +77,7 @@ const TravelersGuilds = () => {
   ];
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Traveler's Guilds</h2>
+      <h2 className="text-xl font-bold mb-4">{t('auto.auto_traveler_s_guilds_148')}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {guilds.map((g, i) => (
           <div key={i} className="glass rounded-xl p-4">
@@ -81,7 +85,7 @@ const TravelersGuilds = () => {
               <p className="font-semibold">{g.name}</p>
               <span className={`text-xs px-2 py-1 rounded-full ${g.active ? 'bg-green-500/20 text-green-400' : 'bg-white/10 text-foreground/40'}`}>{g.active ? 'Active' : 'Inactive'}</span>
             </div>
-            <p className="text-sm text-foreground/50 mt-1">{g.members} members · {g.score.toLocaleString()} pts</p>
+            <p className="text-sm text-foreground/50 mt-1">{g.members} {t('auto.auto_members___147')} {g.score.toLocaleString()} {t('auto.auto_pts_146')}</p>
           </div>
         ))}
       </div>
@@ -90,6 +94,7 @@ const TravelersGuilds = () => {
 };
 
 const ScamAlerts = () => {
+    const { t } = useTranslation();
   const alerts = [
     { id: 'SA-001', type: 'Fake Tour Operator', location: 'Rome, Italy', severity: 'High', reports: 23 },
     { id: 'SA-002', type: 'ATM Skimming Device', location: 'Bangkok, Thailand', severity: 'Critical', reports: 47 },
@@ -98,11 +103,11 @@ const ScamAlerts = () => {
   const sev: Record<string, string> = { Critical: 'bg-red-500/20 text-red-400', High: 'bg-orange-500/20 text-orange-400', Medium: 'bg-yellow-500/20 text-yellow-400' };
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Scam Alert Management</h2>
+      <h2 className="text-xl font-bold mb-4">{t('auto.auto_scam_alert_managemen_145')}</h2>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead><tr className="border-b border-white/10 text-foreground/40 text-xs uppercase tracking-widest">
-            <th className="text-left px-4 py-3">ID</th><th className="text-left px-4 py-3">Type</th><th className="text-left px-4 py-3">Location</th><th className="text-left px-4 py-3">Severity</th><th className="text-left px-4 py-3">Reports</th><th className="text-left px-4 py-3">Action</th>
+            <th className="text-left px-4 py-3">{t('auto.auto_id_144')}</th><th className="text-left px-4 py-3">{t('auto.auto_type_143')}</th><th className="text-left px-4 py-3">{t('auto.auto_location_142')}</th><th className="text-left px-4 py-3">{t('auto.auto_severity_141')}</th><th className="text-left px-4 py-3">{t('auto.auto_reports_140')}</th><th className="text-left px-4 py-3">{t('auto.auto_action_139')}</th>
           </tr></thead>
           <tbody>{alerts.map(a => (
             <tr key={a.id} className="border-b border-white/5 hover:bg-white/[0.03]">
@@ -124,6 +129,7 @@ const ScamAlerts = () => {
 };
 
 const Analytics = () => {
+    const { t } = useTranslation();
   const stats = [
     { label: 'Total Users', value: '24,831', delta: '+12%' },
     { label: 'Active Sessions', value: '1,204', delta: '+5%' },
@@ -134,13 +140,13 @@ const Analytics = () => {
   ];
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Platform Analytics</h2>
+      <h2 className="text-xl font-bold mb-4">{t('auto.auto_platform_analytics_138')}</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {stats.map((s, i) => (
           <div key={i} className="glass rounded-xl p-4">
             <p className="text-foreground/50 text-xs uppercase tracking-widest">{s.label}</p>
             <p className="text-2xl font-bold mt-1">{s.value}</p>
-            <p className={`text-xs mt-1 font-semibold ${s.delta.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>{s.delta} vs last week</p>
+            <p className={`text-xs mt-1 font-semibold ${s.delta.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>{s.delta} {t('auto.auto_vs_last_week_137')}</p>
           </div>
         ))}
       </div>
@@ -149,6 +155,7 @@ const Analytics = () => {
 };
 
 const AIPerformance = () => {
+    const { t } = useTranslation();
   const models = [
     { name: 'Itinerary Generator', calls: 12840, avgMs: 2400, successRate: 98.2 },
     { name: 'Translation Engine', calls: 9320, avgMs: 340, successRate: 99.8 },
@@ -157,18 +164,18 @@ const AIPerformance = () => {
   ];
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">AI Model Performance</h2>
+      <h2 className="text-xl font-bold mb-4">{t('auto.auto_ai_model_performance_136')}</h2>
       <div className="space-y-3">
         {models.map((m, i) => (
           <div key={i} className="glass rounded-xl p-4">
             <div className="flex justify-between mb-2">
               <p className="font-semibold">{m.name}</p>
-              <span className="text-green-400 text-sm font-semibold">{m.successRate}% success</span>
+              <span className="text-green-400 text-sm font-semibold">{m.successRate}{t('auto.auto___success_135')}</span>
             </div>
             <div className="w-full bg-white/10 rounded-full h-1.5 mb-2">
               <div className="bg-primary h-1.5 rounded-full" style={{ width: `${m.successRate}%` }} />
             </div>
-            <p className="text-xs text-foreground/40">{m.calls.toLocaleString()} calls · Avg {m.avgMs}ms</p>
+            <p className="text-xs text-foreground/40">{m.calls.toLocaleString()} {t('auto.auto_calls___avg_134')} {m.avgMs}{t('auto.auto_ms_133')}</p>
           </div>
         ))}
       </div>
@@ -177,6 +184,7 @@ const AIPerformance = () => {
 };
 
 const SystemLogs = () => {
+    const { t } = useTranslation();
   const [logs, setLogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('ALL');
@@ -230,18 +238,18 @@ const SystemLogs = () => {
   return (
     <div className="flex flex-col h-full space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold">Activity & Error Logs</h2>
+        <h2 className="text-xl font-bold">{t('auto.auto_activity___error_log_132')}</h2>
         <div className="flex gap-2">
           <span className="text-xs bg-white/10 px-3 py-1.5 rounded-lg flex items-center gap-2 border border-white/5">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]"></span> Live Monitoring
-          </span>
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]"></span> {t('auto.auto_live_monitoring_131')}
+                                </span>
         </div>
       </div>
 
       <div className="flex gap-4 items-center bg-white/[0.02] p-3 rounded-xl border border-white/5">
         <input 
           type="text" 
-          placeholder="Search logs by keyword..." 
+          placeholder={t('auto.auto_search_logs_by_keywo_130')} 
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm outline-none focus:border-primary/60 flex-1 transition-colors"
@@ -251,10 +259,10 @@ const SystemLogs = () => {
           onChange={(e) => setFilter(e.target.value)}
           className="bg-[#111] border border-white/10 rounded-lg px-4 py-2 text-sm outline-none cursor-pointer focus:border-primary/60 transition-colors"
         >
-          <option value="ALL">All Levels</option>
-          <option value="INFO">INFO (Activity)</option>
-          <option value="WARN">WARN (Warnings)</option>
-          <option value="ERROR">ERROR (Failures)</option>
+          <option value="ALL">{t('auto.auto_all_levels_129')}</option>
+          <option value="INFO">{t('auto.auto_info__activity__128')}</option>
+          <option value="WARN">{t('auto.auto_warn__warnings__127')}</option>
+          <option value="ERROR">{t('auto.auto_error__failures__126')}</option>
         </select>
       </div>
 
@@ -265,7 +273,7 @@ const SystemLogs = () => {
           </div>
         ) : filteredLogs.length === 0 ? (
           <div className="flex flex-col items-center justify-center p-12 text-foreground/40 bg-white/[0.02] rounded-xl border border-white/5 border-dashed">
-            <p>No logs found matching your criteria.</p>
+            <p>{t('auto.auto_no_logs_found_matchi_125')}</p>
           </div>
         ) : (
           filteredLogs.map((l) => (
@@ -293,6 +301,7 @@ const generatePassword = () => {
 };
 
 const PartnerManagement = () => {
+    const { t } = useTranslation();
   const [view, setView] = useState<'list' | 'enroll'>('list');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -423,13 +432,13 @@ const PartnerManagement = () => {
         <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle className="w-8 h-8 text-green-400"/>
         </div>
-        <h2 className="text-2xl font-bold">Partner Enrolled!</h2>
-        <p className="text-foreground/50 mt-2">Account created for <strong className="text-white">{enrolled.name}</strong>. Share these credentials securely.</p>
+        <h2 className="text-2xl font-bold">{t('auto.auto_partner_enrolled__124')}</h2>
+        <p className="text-foreground/50 mt-2">{t('auto.auto_account_created_for_123')} <strong className="text-white">{enrolled.name}</strong>{t('auto.auto___share_these_creden_122')}</p>
       </div>
       <div className="glass rounded-2xl p-6 space-y-4 border border-white/10">
-        <p className="text-sm font-semibold text-foreground/40 uppercase tracking-widest">Login Credentials</p>
+        <p className="text-sm font-semibold text-foreground/40 uppercase tracking-widest">{t('auto.auto_login_credentials_121')}</p>
         <div>
-          <label className={labelClass}>Email / Username</label>
+          <label className={labelClass}>{t('auto.auto_email___username_120')}</label>
           <div className="flex items-center gap-2">
             <div className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm font-mono">{enrolled.email}</div>
             <button onClick={() => copyToClipboard(enrolled.email, 'email')} className="p-2.5 glass rounded-xl hover:bg-white/10 transition-colors">
@@ -438,7 +447,7 @@ const PartnerManagement = () => {
           </div>
         </div>
         <div>
-          <label className={labelClass}>Temporary Password</label>
+          <label className={labelClass}>{t('auto.auto_temporary_password_119')}</label>
           <div className="flex items-center gap-2">
             <div className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm font-mono tracking-widest">
               {showPwd ? enrolled.password : '•'.repeat(enrolled.password.length)}
@@ -452,11 +461,11 @@ const PartnerManagement = () => {
           </div>
         </div>
         <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-3 text-xs text-yellow-300">
-          ⚠️ This password is shown only once. Share it with the partner securely and ask them to change it on first login.
-        </div>
+          {t('auto.auto____this_password_is__118')}
+                          </div>
         <div className="flex gap-3 pt-2">
-          <button onClick={() => { resetForm(); setView('list'); }} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">Back to List</button>
-          <button onClick={() => { setEnrolled(null); resetForm(); }} className="flex-1 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors text-sm">Enroll Another</button>
+          <button onClick={() => { resetForm(); setView('list'); }} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">{t('auto.auto_back_to_list_117')}</button>
+          <button onClick={() => { setEnrolled(null); resetForm(); }} className="flex-1 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors text-sm">{t('auto.auto_enroll_another_116')}</button>
         </div>
       </div>
     </div>
@@ -466,14 +475,14 @@ const PartnerManagement = () => {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-bold">Partner Management</h2>
-          <p className="text-sm text-foreground/40 mt-1">{partners.length} enrolled partners</p>
+          <h2 className="text-xl font-bold">{t('auto.auto_partner_management_115')}</h2>
+          <p className="text-sm text-foreground/40 mt-1">{partners.length} {t('auto.auto_enrolled_partners_114')}</p>
         </div>
         <div className="flex gap-2">
-          <button onClick={() => setView('list')} className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${view==='list' ? 'bg-white/10 text-white' : 'text-foreground/40 hover:text-white'}`}>Partner List</button>
+          <button onClick={() => setView('list')} className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${view==='list' ? 'bg-white/10 text-white' : 'text-foreground/40 hover:text-white'}`}>{t('auto.auto_partner_list_113')}</button>
           <button onClick={() => { setView('enroll'); resetForm(); }} className="flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary/90 transition-colors">
-            <UserPlus className="w-4 h-4"/>Enroll Partner
-          </button>
+            <UserPlus className="w-4 h-4"/>{t('auto.auto_enroll_partner_112')}
+                                </button>
         </div>
       </div>
 
@@ -481,13 +490,13 @@ const PartnerManagement = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead><tr className="border-b border-white/10 text-foreground/40 text-xs uppercase tracking-widest">
-              <th className="text-left px-4 py-3">Business</th>
-              <th className="text-left px-4 py-3">Type</th>
-              <th className="text-left px-4 py-3">Contact</th>
-              <th className="text-left px-4 py-3">Location</th>
-              <th className="text-left px-4 py-3">Enrolled</th>
-              <th className="text-left px-4 py-3">Status</th>
-              <th className="text-left px-4 py-3">Actions</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_business_111')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_type_110')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_contact_109')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_location_108')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_enrolled_107')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_status_106')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_actions_105')}</th>
             </tr></thead>
             <tbody>{partners.map((p) => (
               <tr key={p.id} className="border-b border-white/5 hover:bg-white/[0.03] transition-colors">
@@ -518,63 +527,63 @@ const PartnerManagement = () => {
 
       {view === 'enroll' && (
         <form onSubmit={handleEnroll} className="max-w-2xl space-y-5">
-          <p className="text-sm text-foreground/50">Fill in the partner details. A Firebase account will be created and temporary credentials generated.</p>
+          <p className="text-sm text-foreground/50">{t('auto.auto_fill_in_the_partner__104')}</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="sm:col-span-2">
-              <label className={labelClass}>Business Name *</label>
+              <label className={labelClass}>{t('auto.auto_business_name___103')}</label>
               <div className="relative"><Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30"/>
-                <input value={businessName} onChange={e=>setBusinessName(e.target.value)} placeholder="Kyoto Tourism Board" className={inputClass + ' pl-10'}/>
+                <input value={businessName} onChange={e=>setBusinessName(e.target.value)} placeholder={t('auto.auto_kyoto_tourism_board_102')} className={inputClass + ' pl-10'}/>
               </div>
             </div>
             <div>
-              <label className={labelClass}>Business Type *</label>
+              <label className={labelClass}>{t('auto.auto_business_type___101')}</label>
               <select value={businessType} onChange={e=>setBusinessType(e.target.value)} className={inputClass + ' cursor-pointer'}>
-                <option value="" disabled>Select type…</option>
+                <option value="" disabled>{t('auto.auto_select_type__100')}</option>
                 {BUSINESS_TYPES.map(t => <option key={t}>{t}</option>)}
               </select>
             </div>
             <div>
-              <label className={labelClass}>Primary Contact Name *</label>
+              <label className={labelClass}>{t('auto.auto_primary_contact_name_99')}</label>
               <div className="relative"><Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30"/>
-                <input value={contactName} onChange={e=>setContactName(e.target.value)} placeholder="Jane Smith" className={inputClass + ' pl-10'}/>
+                <input value={contactName} onChange={e=>setContactName(e.target.value)} placeholder={t('auto.auto_jane_smith_98')} className={inputClass + ' pl-10'}/>
               </div>
             </div>
             <div className="sm:col-span-2">
-              <label className={labelClass}>Partner Email * (used for login)</label>
+              <label className={labelClass}>{t('auto.auto_partner_email____use_97')}</label>
               <div className="relative"><Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30"/>
-                <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="partner@business.com" className={inputClass + ' pl-10'}/>
+                <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder={t('auto.auto_partner_business_com_96')} className={inputClass + ' pl-10'}/>
               </div>
             </div>
             <div>
-              <label className={labelClass}>Phone</label>
+              <label className={labelClass}>{t('auto.auto_phone_95')}</label>
               <div className="relative"><Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30"/>
                 <input value={phone} onChange={e=>setPhone(e.target.value)} placeholder="+1 555 000 0000" className={inputClass + ' pl-10'}/>
               </div>
             </div>
             <div>
-              <label className={labelClass}>Website</label>
+              <label className={labelClass}>{t('auto.auto_website_94')}</label>
               <div className="relative"><Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30"/>
-                <input value={website} onChange={e=>setWebsite(e.target.value)} placeholder="https://business.com" className={inputClass + ' pl-10'}/>
+                <input value={website} onChange={e=>setWebsite(e.target.value)} placeholder={t('auto.auto_https___business_com_93')} className={inputClass + ' pl-10'}/>
               </div>
             </div>
             <div>
-              <label className={labelClass}>City</label>
-              <input value={city} onChange={e=>setCity(e.target.value)} placeholder="Tokyo" className={inputClass}/>
+              <label className={labelClass}>{t('auto.auto_city_92')}</label>
+              <input value={city} onChange={e=>setCity(e.target.value)} placeholder={t('auto.auto_tokyo_91')} className={inputClass}/>
             </div>
             <div>
-              <label className={labelClass}>Country</label>
-              <input value={country} onChange={e=>setCountry(e.target.value)} placeholder="Japan" className={inputClass}/>
+              <label className={labelClass}>{t('auto.auto_country_90')}</label>
+              <input value={country} onChange={e=>setCountry(e.target.value)} placeholder={t('auto.auto_japan_89')} className={inputClass}/>
             </div>
             <div className="sm:col-span-2">
-              <label className={labelClass}>Internal Notes</label>
-              <textarea value={notes} onChange={e=>setNotes(e.target.value)} rows={3} placeholder="Commission rate, contract number, special terms…" className={inputClass + ' resize-none'}/>
+              <label className={labelClass}>{t('auto.auto_internal_notes_88')}</label>
+              <textarea value={notes} onChange={e=>setNotes(e.target.value)} rows={3} placeholder={t('auto.auto_commission_rate__con_87')} className={inputClass + ' resize-none'}/>
             </div>
           </div>
 
           <div className="bg-white/[0.03] border border-white/10 rounded-xl p-4 flex items-start gap-3">
             <Lock className="w-4 h-4 text-primary shrink-0 mt-0.5"/>
-            <p className="text-xs text-foreground/50">A secure temporary password will be auto-generated and shown once after enrollment. The partner should change it on first login via the Partner Hub settings.</p>
+            <p className="text-xs text-foreground/50">{t('auto.auto_a_secure_temporary_p_86')}</p>
           </div>
 
           {error && (
@@ -584,9 +593,9 @@ const PartnerManagement = () => {
           )}
 
           <div className="flex gap-3">
-            <button type="button" onClick={() => setView('list')} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">Cancel</button>
+            <button type="button" onClick={() => setView('list')} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">{t('auto.auto_cancel_85')}</button>
             <button type="submit" disabled={loading} className="flex-1 py-3 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-60">
-              {loading ? <Loader2 className="w-4 h-4 animate-spin"/> : <><UserPlus className="w-4 h-4"/><span>Enroll & Generate Credentials</span></>}
+              {loading ? <Loader2 className="w-4 h-4 animate-spin"/> : <><UserPlus className="w-4 h-4"/><span>{t('auto.auto_enroll___generate_cr_84')}</span></>}
             </button>
           </div>
         </form>
@@ -596,6 +605,7 @@ const PartnerManagement = () => {
 };
 
 const Transactions = () => {
+    const { t } = useTranslation();
   const txns = [
     { id: 'TXN-9901', user: 'nina@example.com', amount: '$29.99', type: 'Premium Sub', status: 'Success', date: '2026-04-28' },
     { id: 'TXN-9900', user: 'bob@example.com', amount: '$4.99', type: 'eSIM', status: 'Success', date: '2026-04-28' },
@@ -603,11 +613,11 @@ const Transactions = () => {
   ];
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Transaction Ledger</h2>
+      <h2 className="text-xl font-bold mb-4">{t('auto.auto_transaction_ledger_83')}</h2>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead><tr className="border-b border-white/10 text-foreground/40 text-xs uppercase tracking-widest">
-            <th className="text-left px-4 py-3">ID</th><th className="text-left px-4 py-3">User</th><th className="text-left px-4 py-3">Amount</th><th className="text-left px-4 py-3">Type</th><th className="text-left px-4 py-3">Status</th><th className="text-left px-4 py-3">Date</th>
+            <th className="text-left px-4 py-3">{t('auto.auto_id_82')}</th><th className="text-left px-4 py-3">{t('auto.auto_user_81')}</th><th className="text-left px-4 py-3">{t('auto.auto_amount_80')}</th><th className="text-left px-4 py-3">{t('auto.auto_type_79')}</th><th className="text-left px-4 py-3">{t('auto.auto_status_78')}</th><th className="text-left px-4 py-3">{t('auto.auto_date_77')}</th>
           </tr></thead>
           <tbody>{txns.map((t, i) => (
             <tr key={i} className="border-b border-white/5 hover:bg-white/[0.03]">
@@ -626,6 +636,7 @@ const Transactions = () => {
 };
 
 const FeatureFlags = () => {
+    const { t } = useTranslation();
   const [flags, setFlags] = useState([
     { key: 'ar_wayfinding', label: 'AR Wayfinding', enabled: true },
     { key: 'ai_itinerary_v2', label: 'AI Itinerary V2', enabled: true },
@@ -637,7 +648,7 @@ const FeatureFlags = () => {
   const toggle = (key: string) => setFlags(f => f.map(fl => fl.key === key ? { ...fl, enabled: !fl.enabled } : fl));
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Feature Flags</h2>
+      <h2 className="text-xl font-bold mb-4">{t('auto.auto_feature_flags_76')}</h2>
       <div className="space-y-2">
         {flags.map(f => (
           <div key={f.key} className="glass rounded-xl p-4 flex items-center justify-between">
@@ -656,38 +667,40 @@ const FeatureFlags = () => {
 };
 
 const AIConfiguration = () => {
+    const { t } = useTranslation();
   const [temp, setTemp] = useState(0.7);
   const [maxTokens, setMaxTokens] = useState(2048);
   const [model, setModel] = useState('gemini-2.0-flash');
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">AI Configuration</h2>
+      <h2 className="text-xl font-bold mb-4">{t('auto.auto_ai_configuration_75')}</h2>
       <div className="space-y-6 max-w-lg">
         <div className="glass rounded-xl p-4">
-          <label className="text-sm font-semibold text-foreground/60 uppercase tracking-widest">Model</label>
+          <label className="text-sm font-semibold text-foreground/60 uppercase tracking-widest">{t('auto.auto_model_74')}</label>
           <select value={model} onChange={e => setModel(e.target.value)} className="w-full mt-2 bg-white/5 border border-white/10 rounded-lg p-2 text-sm outline-none focus:border-primary">
-            <option value="gemini-2.0-flash">gemini-2.0-flash</option>
-            <option value="gemini-2.0-pro">gemini-2.0-pro</option>
-            <option value="gemini-1.5-pro">gemini-1.5-pro</option>
+            <option value="gemini-2.0-flash">{t('auto.auto_gemini_2_0_flash_73')}</option>
+            <option value="gemini-2.0-pro">{t('auto.auto_gemini_2_0_pro_72')}</option>
+            <option value="gemini-1.5-pro">{t('auto.auto_gemini_1_5_pro_71')}</option>
           </select>
         </div>
         <div className="glass rounded-xl p-4">
-          <label className="text-sm font-semibold text-foreground/60 uppercase tracking-widest">Temperature: {temp}</label>
+          <label className="text-sm font-semibold text-foreground/60 uppercase tracking-widest">{t('auto.auto_temperature__70')} {temp}</label>
           <input type="range" min="0" max="1" step="0.05" value={temp} onChange={e => setTemp(+e.target.value)} className="w-full mt-2 accent-primary"/>
         </div>
         <div className="glass rounded-xl p-4">
-          <label className="text-sm font-semibold text-foreground/60 uppercase tracking-widest">Max Tokens: {maxTokens}</label>
+          <label className="text-sm font-semibold text-foreground/60 uppercase tracking-widest">{t('auto.auto_max_tokens__69')} {maxTokens}</label>
           <input type="range" min="256" max="8192" step="256" value={maxTokens} onChange={e => setMaxTokens(+e.target.value)} className="w-full mt-2 accent-primary"/>
         </div>
         <button className="w-full py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
-          <Settings className="w-4 h-4"/> Save Configuration
-        </button>
+          <Settings className="w-4 h-4"/> {t('auto.auto_save_configuration_68')}
+                          </button>
       </div>
     </div>
   );
 };
 
 const Announcements = () => {
+    const { t } = useTranslation();
   const [msg, setMsg] = useState('');
   const [audience, setAudience] = useState('all');
   const sent = [
@@ -696,28 +709,28 @@ const Announcements = () => {
   ];
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-bold">Announcements</h2>
+      <h2 className="text-xl font-bold">{t('auto.auto_announcements_67')}</h2>
       <div className="glass rounded-xl p-4 space-y-3">
-        <p className="text-sm font-semibold text-foreground/60 uppercase tracking-widest">New Announcement</p>
-        <textarea value={msg} onChange={e => setMsg(e.target.value)} rows={3} placeholder="Write your announcement..." className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-sm outline-none focus:border-primary resize-none"/>
+        <p className="text-sm font-semibold text-foreground/60 uppercase tracking-widest">{t('auto.auto_new_announcement_66')}</p>
+        <textarea value={msg} onChange={e => setMsg(e.target.value)} rows={3} placeholder={t('auto.auto_write_your_announcem_65')} className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-sm outline-none focus:border-primary resize-none"/>
         <div className="flex gap-3 items-center">
           <select value={audience} onChange={e => setAudience(e.target.value)} className="bg-white/5 border border-white/10 rounded-lg p-2 text-sm outline-none flex-1">
-            <option value="all">All Users</option>
-            <option value="explorers">Explorers</option>
-            <option value="partners">Partners</option>
-            <option value="admins">Admins</option>
+            <option value="all">{t('auto.auto_all_users_64')}</option>
+            <option value="explorers">{t('auto.auto_explorers_63')}</option>
+            <option value="partners">{t('auto.auto_partners_62')}</option>
+            <option value="admins">{t('auto.auto_admins_61')}</option>
           </select>
           <button className="flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary/90 transition-colors">
-            <Send className="w-4 h-4"/> Send
-          </button>
+            <Send className="w-4 h-4"/> {t('auto.auto_send_60')}
+                                </button>
         </div>
       </div>
       <div>
-        <p className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">Sent</p>
+        <p className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">{t('auto.auto_sent_59')}</p>
         {sent.map((s, i) => (
           <div key={i} className="glass rounded-xl p-4 mb-2">
             <p className="font-medium text-sm">{s.text}</p>
-            <p className="text-xs text-foreground/40 mt-1">{s.audience} · {s.date} · {s.views.toLocaleString()} views</p>
+            <p className="text-xs text-foreground/40 mt-1">{s.audience} · {s.date} · {s.views.toLocaleString()} {t('auto.auto_views_58')}</p>
           </div>
         ))}
       </div>
@@ -729,6 +742,7 @@ const Announcements = () => {
 const DEPARTMENTS = ['General Support', 'Billing & Payments', 'Technical Issues', 'Partner Support', 'Safety & Emergency', 'VIP Concierge'];
 
 const SupportAgentManagement = () => {
+    const { t } = useTranslation();
   const [view, setView] = useState<'list' | 'enroll'>('list');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -807,13 +821,13 @@ const SupportAgentManagement = () => {
         <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle className="w-8 h-8 text-green-400"/>
         </div>
-        <h2 className="text-2xl font-bold">Agent Enrolled!</h2>
-        <p className="text-foreground/50 mt-2">Account created for <strong className="text-white">{enrolled.name}</strong>. Share these credentials securely.</p>
+        <h2 className="text-2xl font-bold">{t('auto.auto_agent_enrolled__57')}</h2>
+        <p className="text-foreground/50 mt-2">{t('auto.auto_account_created_for_56')} <strong className="text-white">{enrolled.name}</strong>{t('auto.auto___share_these_creden_55')}</p>
       </div>
       <div className="glass rounded-2xl p-6 space-y-4 border border-white/10">
-        <p className="text-sm font-semibold text-foreground/40 uppercase tracking-widest">Login Credentials</p>
+        <p className="text-sm font-semibold text-foreground/40 uppercase tracking-widest">{t('auto.auto_login_credentials_54')}</p>
         <div>
-          <label className={labelClass}>Email / Username</label>
+          <label className={labelClass}>{t('auto.auto_email___username_53')}</label>
           <div className="flex items-center gap-2">
             <div className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm font-mono">{enrolled.email}</div>
             <button onClick={() => copyToClipboard(enrolled.email, 'email')} className="p-2.5 glass rounded-xl hover:bg-white/10 transition-colors">
@@ -822,7 +836,7 @@ const SupportAgentManagement = () => {
           </div>
         </div>
         <div>
-          <label className={labelClass}>Temporary Password</label>
+          <label className={labelClass}>{t('auto.auto_temporary_password_52')}</label>
           <div className="flex items-center gap-2">
             <div className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm font-mono tracking-widest">
               {showPwd ? enrolled.password : '•'.repeat(enrolled.password.length)}
@@ -836,14 +850,14 @@ const SupportAgentManagement = () => {
           </div>
         </div>
         <div className="bg-white/[0.03] border border-white/10 rounded-xl p-3 text-xs text-foreground/50">
-          <strong className="text-white">Login URL:</strong> <span className="font-mono">/support-login</span>
+          <strong className="text-white">{t('auto.auto_login_url__51')}</strong> <span className="font-mono">{t('auto.auto__support_login_50')}</span>
         </div>
         <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-3 text-xs text-yellow-300">
-          ⚠️ This password is shown only once. Share it securely and ask the agent to change it on first login.
-        </div>
+          {t('auto.auto____this_password_is__49')}
+                          </div>
         <div className="flex gap-3 pt-2">
-          <button onClick={() => { resetForm(); setView('list'); }} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">Back to List</button>
-          <button onClick={() => { setEnrolled(null); resetForm(); }} className="flex-1 py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 transition-colors text-sm">Enroll Another</button>
+          <button onClick={() => { resetForm(); setView('list'); }} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">{t('auto.auto_back_to_list_48')}</button>
+          <button onClick={() => { setEnrolled(null); resetForm(); }} className="flex-1 py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 transition-colors text-sm">{t('auto.auto_enroll_another_47')}</button>
         </div>
       </div>
     </div>
@@ -853,14 +867,14 @@ const SupportAgentManagement = () => {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-bold">Support Agent Management</h2>
-          <p className="text-sm text-foreground/40 mt-1">{agents.length} active agents</p>
+          <h2 className="text-xl font-bold">{t('auto.auto_support_agent_manage_46')}</h2>
+          <p className="text-sm text-foreground/40 mt-1">{agents.length} {t('auto.auto_active_agents_45')}</p>
         </div>
         <div className="flex gap-2">
-          <button onClick={() => setView('list')} className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${view==='list' ? 'bg-white/10 text-white' : 'text-foreground/40 hover:text-white'}`}>Agent List</button>
+          <button onClick={() => setView('list')} className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${view==='list' ? 'bg-white/10 text-white' : 'text-foreground/40 hover:text-white'}`}>{t('auto.auto_agent_list_44')}</button>
           <button onClick={() => { setView('enroll'); resetForm(); }} className="flex items-center gap-2 px-4 py-2 bg-accent text-white text-sm font-semibold rounded-xl hover:bg-accent/90 transition-colors">
-            <UserPlus className="w-4 h-4"/>Enroll Agent
-          </button>
+            <UserPlus className="w-4 h-4"/>{t('auto.auto_enroll_agent_43')}
+                                </button>
         </div>
       </div>
 
@@ -868,12 +882,12 @@ const SupportAgentManagement = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead><tr className="border-b border-white/10 text-foreground/40 text-xs uppercase tracking-widest">
-              <th className="text-left px-4 py-3">Agent</th>
-              <th className="text-left px-4 py-3">Department</th>
-              <th className="text-left px-4 py-3">Tickets Resolved</th>
-              <th className="text-left px-4 py-3">Enrolled</th>
-              <th className="text-left px-4 py-3">Status</th>
-              <th className="text-left px-4 py-3">Actions</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_agent_42')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_department_41')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_tickets_resolved_40')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_enrolled_39')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_status_38')}</th>
+              <th className="text-left px-4 py-3">{t('auto.auto_actions_37')}</th>
             </tr></thead>
             <tbody>{agents.map(a => (
               <tr key={a.id} className="border-b border-white/5 hover:bg-white/[0.03] transition-colors">
@@ -888,7 +902,7 @@ const SupportAgentManagement = () => {
                   <span className={`px-2 py-1 rounded-full text-xs font-semibold ${a.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>{a.status}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <button className="text-xs text-accent hover:underline">Manage</button>
+                  <button className="text-xs text-accent hover:underline">{t('auto.auto_manage_36')}</button>
                 </td>
               </tr>
             ))}</tbody>
@@ -898,43 +912,43 @@ const SupportAgentManagement = () => {
 
       {view === 'enroll' && (
         <form onSubmit={handleEnroll} className="max-w-2xl space-y-5">
-          <p className="text-sm text-foreground/50">Fill in the agent details. A Firebase account will be created with <code className="bg-white/10 px-1 rounded">role: support</code> and temporary credentials generated.</p>
+          <p className="text-sm text-foreground/50">{t('auto.auto_fill_in_the_agent_de_35')} <code className="bg-white/10 px-1 rounded">{t('auto.auto_role__support_34')}</code> {t('auto.auto_and_temporary_creden_33')}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className={labelClass}>First Name *</label>
-              <input value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder="Sarah" className={inputClass}/>
+              <label className={labelClass}>{t('auto.auto_first_name___32')}</label>
+              <input value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder={t('auto.auto_sarah_31')} className={inputClass}/>
             </div>
             <div>
-              <label className={labelClass}>Last Name *</label>
-              <input value={lastName} onChange={e=>setLastName(e.target.value)} placeholder="Mitchell" className={inputClass}/>
+              <label className={labelClass}>{t('auto.auto_last_name___30')}</label>
+              <input value={lastName} onChange={e=>setLastName(e.target.value)} placeholder={t('auto.auto_mitchell_29')} className={inputClass}/>
             </div>
             <div className="sm:col-span-2">
-              <label className={labelClass}>Agent Email * (used for login)</label>
+              <label className={labelClass}>{t('auto.auto_agent_email____used__28')}</label>
               <div className="relative"><Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30"/>
-                <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="agent@aetheria-support.com" className={inputClass + ' pl-10'}/>
+                <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder={t('auto.auto_agent_aetheria_suppo_27')} className={inputClass + ' pl-10'}/>
               </div>
             </div>
             <div>
-              <label className={labelClass}>Department *</label>
+              <label className={labelClass}>{t('auto.auto_department___26')}</label>
               <select value={department} onChange={e=>setDepartment(e.target.value)} className={inputClass + ' cursor-pointer'}>
-                <option value="" disabled>Select department…</option>
+                <option value="" disabled>{t('auto.auto_select_department__25')}</option>
                 {DEPARTMENTS.map(d => <option key={d}>{d}</option>)}
               </select>
             </div>
             <div>
-              <label className={labelClass}>Phone</label>
+              <label className={labelClass}>{t('auto.auto_phone_24')}</label>
               <div className="relative"><Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30"/>
                 <input value={phone} onChange={e=>setPhone(e.target.value)} placeholder="+1 555 000 0000" className={inputClass + ' pl-10'}/>
               </div>
             </div>
             <div>
-              <label className={labelClass}>Employee ID</label>
-              <input value={employeeId} onChange={e=>setEmployeeId(e.target.value)} placeholder="EMP-0042" className={inputClass}/>
+              <label className={labelClass}>{t('auto.auto_employee_id_23')}</label>
+              <input value={employeeId} onChange={e=>setEmployeeId(e.target.value)} placeholder={t('auto.auto_emp_0042_22')} className={inputClass}/>
             </div>
           </div>
           <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 flex items-start gap-3">
             <Headphones className="w-4 h-4 text-accent shrink-0 mt-0.5"/>
-            <p className="text-xs text-foreground/50">The agent will receive <code className="bg-white/10 px-1 rounded">role: support</code> in Firestore, granting access only to the Support Desk at <code className="bg-white/10 px-1 rounded">/support-login</code>. A secure temporary password is auto-generated and shown once.</p>
+            <p className="text-xs text-foreground/50">{t('auto.auto_the_agent_will_recei_21')} <code className="bg-white/10 px-1 rounded">{t('auto.auto_role__support_20')}</code> {t('auto.auto_in_firestore__granti_19')} <code className="bg-white/10 px-1 rounded">{t('auto.auto__support_login_18')}</code>{t('auto.auto___a_secure_temporary_17')}</p>
           </div>
           {error && (
             <div className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 rounded-xl px-3 py-2">
@@ -942,9 +956,9 @@ const SupportAgentManagement = () => {
             </div>
           )}
           <div className="flex gap-3">
-            <button type="button" onClick={() => setView('list')} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">Cancel</button>
+            <button type="button" onClick={() => setView('list')} className="flex-1 py-3 glass border border-white/10 font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm">{t('auto.auto_cancel_16')}</button>
             <button type="submit" disabled={loading} className="flex-1 py-3 bg-accent hover:bg-accent/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-60">
-              {loading ? <Loader2 className="w-4 h-4 animate-spin"/> : <><UserPlus className="w-4 h-4"/><span>Enroll & Generate Credentials</span></>}
+              {loading ? <Loader2 className="w-4 h-4 animate-spin"/> : <><UserPlus className="w-4 h-4"/><span>{t('auto.auto_enroll___generate_cr_15')}</span></>}
             </button>
           </div>
         </form>
@@ -955,6 +969,7 @@ const SupportAgentManagement = () => {
 
 // --- Main AdminConsole ---
 const AdminConsole: React.FC = () => {
+    const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('users');
 
   const tabs = [
@@ -1002,8 +1017,8 @@ const AdminConsole: React.FC = () => {
             <Shield className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold">Admin Console</h1>
-            <p className="text-foreground/40 text-sm">Aetheria Platform Management</p>
+            <h1 className="text-2xl font-bold">{t('auto.auto_admin_console_14')}</h1>
+            <p className="text-foreground/40 text-sm">{t('auto.auto_aetheria_platform_ma_13')}</p>
           </div>
         </div>
         <div className="flex flex-col lg:flex-row gap-6">

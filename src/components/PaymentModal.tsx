@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/useAuth';
 import { db } from '../lib/firebase';
 import { doc, getDoc, runTransaction } from 'firebase/firestore';
 import { X } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 interface PaymentModalProps {
   product: Product;
@@ -20,6 +21,7 @@ const exchangeRates: { [key: string]: number } = {
 };
 
 const PaymentModal: React.FC<PaymentModalProps> = ({ product, onClose }) => {
+    const { t } = useTranslation();
   const user = useAuth();
   const [wallet, setWallet] = useState<{ balance: number; currency: string } | null>(null);
   const [convertedAmount, setConvertedAmount] = useState<number | null>(null);
@@ -85,26 +87,26 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ product, onClose }) => {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-background p-8 rounded-2xl shadow-lg max-w-sm w-full">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold">Pay with Wallet</h2>
+          <h2 className="text-2xl font-bold">{t('auto.auto_pay_with_wallet_1996')}</h2>
           <button onClick={onClose}><X /></button>
         </div>
         {wallet && convertedAmount !== null ? (
           <div>
-            <p className="mb-2">Product: {product.name}</p>
-            <p className="mb-2">Price: ${product.price.toFixed(2)} USD</p>
-            <p className="mb-4">Your wallet: {wallet.balance.toFixed(2)} {wallet.currency}</p>
+            <p className="mb-2">{t('auto.auto_product__1995')} {product.name}</p>
+            <p className="mb-2">{t('auto.auto_price____1994')}{product.price.toFixed(2)} {t('auto.auto_usd_1993')}</p>
+            <p className="mb-4">{t('auto.auto_your_wallet__1992')} {wallet.balance.toFixed(2)} {wallet.currency}</p>
             <p className="text-lg font-bold mb-4">
-              Converted: {convertedAmount.toFixed(2)} {wallet.currency}
+              {t('auto.auto_converted__1991')} {convertedAmount.toFixed(2)} {wallet.currency}
             </p>
             <button
               onClick={handlePayment}
               className="w-full bg-green-500 text-white py-2 rounded-lg font-semibold"
             >
-              Confirm Payment
-            </button>
+              {t('auto.auto_confirm_payment_1990')}
+                                      </button>
           </div>
         ) : (
-          <p>Loading wallet...</p>
+          <p>{t('auto.auto_loading_wallet____1989')}</p>
         )}
         {status && <p className="mt-4 text-center">{status}</p>}
       </div>

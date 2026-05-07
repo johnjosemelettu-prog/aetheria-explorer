@@ -50,7 +50,7 @@ const AetheriaDAO = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="bg-purple-900/30 p-6 rounded-xl border border-purple-500/50 flex flex-col items-center justify-center">
                 <Landmark size={32} className="mb-3 text-purple-300"/>
-                <h2 className="text-4xl font-bold">{dao.treasury.balance.toLocaleString()} ETH</h2>
+                <h2 className="text-4xl font-bold">{dao.treasury.balance.toLocaleString()} {t('auto.auto_eth_168')}</h2>
                 <p className="text-purple-300 flex items-center gap-1"><TrendingUp size={16}/> {dao.treasury.growth}% {t('aetheriaDAO.growth')}</p>
             </div>
              <div className="bg-purple-900/30 p-6 rounded-xl border border-purple-500/50 flex flex-col items-center justify-center">

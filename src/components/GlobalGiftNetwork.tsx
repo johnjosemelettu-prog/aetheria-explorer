@@ -22,11 +22,11 @@ export default function GlobalGiftNetwork() {
           <Gift className="w-12 h-12 text-secondary" />
         </div>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-secondary">
-          Global Gift Network
-        </h1>
+          {t('auto.auto_global_gift_network_1396')}
+                          </h1>
         <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-          Perform digital acts of kindness. Buy a coffee for an explorer in Tokyo or support a local cause in Peru directly from your wallet.
-        </p>
+          {t('auto.auto_perform_digital_acts_1395')}
+                          </p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -52,20 +52,20 @@ export default function GlobalGiftNetwork() {
         className={`max-w-2xl mx-auto p-1 rounded-3xl transition-opacity ${selectedGift ? 'opacity-100' : 'opacity-50 pointer-events-none'}`}
       >
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[22px]">
-          <h4 className="font-bold text-xl mb-6 flex items-center gap-2"><Send className="w-5 h-5 text-primary" /> Send Gift</h4>
+          <h4 className="font-bold text-xl mb-6 flex items-center gap-2"><Send className="w-5 h-5 text-primary" /> {t('auto.auto_send_gift_1394')}</h4>
           
           <div className="space-y-4">
             <div>
-              <label className="text-xs uppercase tracking-wider text-foreground/50 font-bold mb-2 block">Recipient Username</label>
-              <input type="text" placeholder="@explorer_name" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50" />
+              <label className="text-xs uppercase tracking-wider text-foreground/50 font-bold mb-2 block">{t('auto.auto_recipient_username_1393')}</label>
+              <input type="text" placeholder={t('auto.auto__explorer_name_1392')} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50" />
             </div>
             <div>
-              <label className="text-xs uppercase tracking-wider text-foreground/50 font-bold mb-2 block">Attach a Digital Note</label>
-              <textarea placeholder="Hope this keeps you energized on your hike!" rows={3} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"></textarea>
+              <label className="text-xs uppercase tracking-wider text-foreground/50 font-bold mb-2 block">{t('auto.auto_attach_a_digital_not_1391')}</label>
+              <textarea placeholder={t('auto.auto_hope_this_keeps_you__1390')} rows={3} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"></textarea>
             </div>
             <button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground py-4 rounded-xl font-bold shadow-lg shadow-primary/20 transition-all flex justify-center items-center gap-2">
-              Pay with Aetheria Wallet
-            </button>
+              {t('auto.auto_pay_with_aetheria_wa_1389')}
+                                      </button>
           </div>
         </div>
       </motion.div>

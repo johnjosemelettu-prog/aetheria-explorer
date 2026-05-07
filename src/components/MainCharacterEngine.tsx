@@ -5,10 +5,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Camera, Film, Loader2, PlayCircle, Star, Music, MapPin } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const ERAS = ["Villain Era", "Indie Sleaze Retro", "Cyberpunk Protagonist"];
 
 const MainCharacterEngine = () => {
+    const { t } = useTranslation();
   const [selectedEra, setSelectedEra] = useState(ERAS[0]);
   const [location, setLocation] = useState("Downtown Metropolis");
   const [loading, setLoading] = useState(false);
@@ -33,17 +35,17 @@ const MainCharacterEngine = () => {
           <div className="inline-flex justify-center items-center p-4 bg-zinc-800/50 rounded-full border border-zinc-700 backdrop-blur-md mb-6">
             <Film className="w-10 h-10 text-zinc-300" />
           </div>
-          <h1 className="text-5xl font-black mb-4 uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 to-zinc-500">Main Character Engine</h1>
+          <h1 className="text-5xl font-black mb-4 uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 to-zinc-500">{t('auto.auto_main_character_engin_1831')}</h1>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto font-light">
-            You are the protagonist. Define your current "era," and the AI will reskin your entire itinerary into a mood-board and storyboard.
-          </p>
+            {t('auto.auto_you_are_the_protagon_1830')}
+                                </p>
         </div>
 
         <Card className="bg-black/40 border-white/10 backdrop-blur-xl mb-12">
           <CardContent className="p-8">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3">Define Your Era</label>
+                <label className="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3">{t('auto.auto_define_your_era_1829')}</label>
                 <div className="flex flex-col gap-3">
                   {ERAS.map(era => (
                     <Button 
@@ -60,7 +62,7 @@ const MainCharacterEngine = () => {
               </div>
               
               <div>
-                <label className="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3">Current Set Location</label>
+                <label className="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3">{t('auto.auto_current_set_location_1828')}</label>
                 <Input 
                   value={location} 
                   onChange={(e) => setLocation(e.target.value)} 
@@ -72,7 +74,7 @@ const MainCharacterEngine = () => {
                   disabled={loading}
                   className="w-full mt-6 py-6 font-bold uppercase tracking-widest bg-zinc-800 hover:bg-zinc-700 border border-white/10 text-white"
                 >
-                  {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Camera className="w-5 h-5 mr-2" /> Generate Storyboard</>}
+                  {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Camera className="w-5 h-5 mr-2" /> {t('auto.auto_generate_storyboard_1827')}</>}
                 </Button>
               </div>
             </div>
@@ -89,7 +91,7 @@ const MainCharacterEngine = () => {
                 
                 <div className="flex justify-between items-center mb-8 pb-6 border-b border-white/10">
                   <div>
-                    <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/50 mb-1">Scene 01 // {itinerary.era}</p>
+                    <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/50 mb-1">{t('auto.auto_scene_01____1826')} {itinerary.era}</p>
                     <h2 className="text-3xl font-black">{itinerary.location}</h2>
                   </div>
                   <div className="flex gap-2">

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, Maximize, Target, Info, Sparkles, MapPin } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function LandmarkLens() {
+    const { t } = useTranslation();
   const [scanning, setScanning] = useState(false);
   const [result, setResult] = useState<any>(null);
 
@@ -31,7 +33,7 @@ export default function LandmarkLens() {
         
         <div className="flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 mb-8 mt-4">
           <Camera className="w-4 h-4 text-cyan-400" />
-          <span className="font-mono text-xs uppercase tracking-widest text-white/70">Aetheria Vision: Landmark Lens</span>
+          <span className="font-mono text-xs uppercase tracking-widest text-white/70">{t('auto.auto_aetheria_vision__lan_1592')}</span>
         </div>
 
         {/* Viewfinder */}

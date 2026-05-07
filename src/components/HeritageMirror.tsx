@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ScanFace, Crown, Shield, Camera, X } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function HeritageMirror() {
+    const { t } = useTranslation();
   const [activeGarment, setActiveGarment] = useState(0);
   
   const GARMENTS = [
@@ -17,7 +19,7 @@ export default function HeritageMirror() {
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1542051842920-c7ba71114e27?auto=format&fit=crop&w=1200&q=80" 
-          alt="AR Background" 
+          alt={t('auto.auto_ar_background_1482')} 
           className="w-full h-full object-cover opacity-50 blur-[2px]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
@@ -27,7 +29,7 @@ export default function HeritageMirror() {
       <div className="relative z-10 p-6 flex justify-between items-center">
         <div className="glass px-4 py-2 rounded-full border border-white/10 flex items-center gap-2 backdrop-blur-md">
           <ScanFace className="w-5 h-5 text-amber-400" />
-          <span className="font-bold text-sm tracking-widest uppercase text-amber-400">Heritage Mirror</span>
+          <span className="font-bold text-sm tracking-widest uppercase text-amber-400">{t('auto.auto_heritage_mirror_1481')}</span>
         </div>
         <button className="w-10 h-10 rounded-full bg-black/50 flex items-center justify-center border border-white/10">
           <X className="w-5 h-5" />
@@ -49,8 +51,8 @@ export default function HeritageMirror() {
            
            {React.createElement(GARMENTS[activeGarment].icon, { className: "w-16 h-16 text-amber-400/50" })}
            <p className="mt-4 font-mono text-amber-400/80 text-sm uppercase tracking-widest text-center">
-             {GARMENTS[activeGarment].name}<br/>Overlay Active
-           </p>
+             {GARMENTS[activeGarment].name}<br/>{t('auto.auto_overlay_active_1480')}
+                                 </p>
          </motion.div>
       </div>
 

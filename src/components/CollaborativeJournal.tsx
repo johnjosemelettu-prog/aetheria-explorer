@@ -18,9 +18,9 @@ export default function CollaborativeJournal() {
         <div>
           <div className="flex items-center gap-3 mb-4">
             <Book className="w-10 h-10 text-primary" />
-            <h1 className="text-4xl font-bold">Collaborative Journal</h1>
+            <h1 className="text-4xl font-bold">{t('auto.auto_collaborative_journa_796')}</h1>
           </div>
-          <p className="text-lg text-foreground/60">Trip: <span className="font-bold text-foreground">The Lisbon Weekender</span></p>
+          <p className="text-lg text-foreground/60">{t('auto.auto_trip__795')} <span className="font-bold text-foreground">{t('auto.auto_the_lisbon_weekender_794')}</span></p>
         </div>
         
         <div className="flex items-center gap-4 bg-white/5 border border-white/10 p-3 rounded-2xl backdrop-blur-xl">
@@ -30,8 +30,8 @@ export default function CollaborativeJournal() {
             <div className="w-10 h-10 rounded-full border-2 border-background bg-purple-500 flex items-center justify-center font-bold text-sm">E</div>
           </div>
           <button className="flex items-center gap-2 pl-2 pr-4 text-sm font-medium text-emerald-400 hover:text-emerald-300">
-            <Plus className="w-4 h-4" /> Invite
-          </button>
+            <Plus className="w-4 h-4" /> {t('auto.auto_invite_793')}
+                                </button>
         </div>
       </motion.div>
 
@@ -39,14 +39,14 @@ export default function CollaborativeJournal() {
         {/* Sidebar / Dates */}
         <div className="md:col-span-1 space-y-4">
           <button className="w-full text-left px-6 py-4 rounded-2xl bg-white/10 border border-white/20 font-bold text-primary shadow-lg backdrop-blur-md">
-            Day 3 (Today)
-          </button>
+            {t('auto.auto_day_3__today__792')}
+                                </button>
           <button className="w-full text-left px-6 py-4 rounded-2xl bg-white/5 border border-white/5 font-medium text-foreground/50 hover:bg-white/10 transition-colors">
-            Day 2
-          </button>
+            {t('auto.auto_day_2_791')}
+                                </button>
           <button className="w-full text-left px-6 py-4 rounded-2xl bg-white/5 border border-white/5 font-medium text-foreground/50 hover:bg-white/10 transition-colors">
-            Day 1
-          </button>
+            {t('auto.auto_day_1_790')}
+                                </button>
         </div>
 
         {/* Timeline */}
@@ -57,8 +57,8 @@ export default function CollaborativeJournal() {
               <Plus className="w-4 h-4 text-primary-foreground" />
             </div>
             <div className="p-4 bg-dashed border-2 border-dashed border-white/20 rounded-3xl text-center text-foreground/50 cursor-pointer hover:border-primary/50 transition-colors py-8">
-              Click to add a memory to the shared timeline
-            </div>
+              {t('auto.auto_click_to_add_a_memor_789')}
+                                      </div>
           </motion.div>
 
           {entries.map((entry, idx) => (
@@ -91,7 +91,7 @@ export default function CollaborativeJournal() {
                 )}
                 
                 <div className="mt-4 pt-4 border-t border-white/10 flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button className="text-xs font-medium text-foreground/50 hover:text-white flex items-center gap-1"><Share2 className="w-3 h-3"/> React</button>
+                  <button className="text-xs font-medium text-foreground/50 hover:text-white flex items-center gap-1"><Share2 className="w-3 h-3"/> {t('auto.auto_react_788')}</button>
                 </div>
               </div>
             </motion.div>

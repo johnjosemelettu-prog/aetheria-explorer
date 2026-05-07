@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Box, Upload, Cuboid, RefreshCw, Download, Share2 } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function ThreeDPhotoSculptures() {
+    const { t } = useTranslation();
   const [photos, setPhotos] = useState<number>(0);
   const [processing, setProcessing] = useState(false);
   const [complete, setComplete] = useState(false);
@@ -25,18 +27,18 @@ export default function ThreeDPhotoSculptures() {
         <div className="w-20 h-20 bg-primary/20 rounded-3xl flex items-center justify-center mx-auto mb-6 rotate-12">
           <Cuboid className="w-10 h-10 text-primary -rotate-12" />
         </div>
-        <h1 className="text-5xl font-display font-bold mb-4">3D Photo Sculptures</h1>
+        <h1 className="text-5xl font-display font-bold mb-4">{t('auto.auto_3d_photo_sculptures_8')}</h1>
         <p className="text-foreground/60 text-lg max-w-2xl mx-auto">
-          Upload multi-angle photos of an object or monument and let our AI reconstruct it into a fully interactive 3D digital souvenir.
-        </p>
+          {t('auto.auto_upload_multi_angle_p_7')}
+                          </p>
       </div>
 
       {!complete ? (
         <div className="max-w-2xl mx-auto">
           <div className="glass p-8 rounded-3xl border border-white/10 mb-8">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="font-bold text-xl">Photo Dataset</h3>
-              <span className="px-3 py-1 bg-white/10 rounded-full text-sm">{photos}/12 Optimal</span>
+              <h3 className="font-bold text-xl">{t('auto.auto_photo_dataset_6')}</h3>
+              <span className="px-3 py-1 bg-white/10 rounded-full text-sm">{photos}{t('auto.auto__12_optimal_5')}</span>
             </div>
             
             <div 
@@ -44,8 +46,8 @@ export default function ThreeDPhotoSculptures() {
               className="w-full h-48 border-2 border-dashed border-white/20 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:border-primary/50 hover:bg-white/5 transition-all mb-6"
             >
               <Upload className="w-8 h-8 text-foreground/40 mb-3" />
-              <p className="font-bold">Click to Upload Angle</p>
-              <p className="text-sm text-foreground/50">Supports JPG, PNG (Max 10MB)</p>
+              <p className="font-bold">{t('auto.auto_click_to_upload_angl_4')}</p>
+              <p className="text-sm text-foreground/50">{t('auto.auto_supports_jpg__png__m_3')}</p>
             </div>
 
             <div className="flex gap-2 overflow-x-auto pb-4">
@@ -63,9 +65,9 @@ export default function ThreeDPhotoSculptures() {
             className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-2xl flex items-center justify-center gap-3 disabled:opacity-50 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
             {processing ? (
-              <><RefreshCw className="w-5 h-5 animate-spin" /> Reconstructing Mesh...</>
+              <><RefreshCw className="w-5 h-5 animate-spin" /> {t('auto.auto_reconstructing_mesh__2')}</>
             ) : (
-              <><Box className="w-5 h-5" /> Generate 3D Sculpture</>
+              <><Box className="w-5 h-5" /> {t('auto.auto_generate_3d_sculptur_1')}</>
             )}
           </button>
         </div>

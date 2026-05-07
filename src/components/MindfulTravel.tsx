@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from "react-i18next";
 
 const MindfulTravel = () => {
+    const { t } = useTranslation();
   const meditations = [
     { title: 'Mindful Walking', duration: '10 min' },
     { title: 'Body Scan for Relaxation', duration: '15 min' },
@@ -17,11 +19,11 @@ const MindfulTravel = () => {
         transition={{ duration: 0.5 }}
         className="mb-16"
       >
-        <h1 className="text-5xl md:text-7xl font-display font-medium tracking-tight mb-6">Mindful Travel</h1>
+        <h1 className="text-5xl md:text-7xl font-display font-medium tracking-tight mb-6">{t('auto.auto_mindful_travel_1873')}</h1>
         <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-rose-500 mb-8" />
         <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
-          A collection of guided meditations and mindfulness exercises tailored for travelers.
-        </p>
+          {t('auto.auto_a_collection_of_guid_1872')}
+                          </p>
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {meditations.map((meditation, index) => (
@@ -35,8 +37,8 @@ const MindfulTravel = () => {
             <h3 className="text-2xl font-display font-medium mb-2">{meditation.title}</h3>
             <p className="text-zinc-400 mb-4">{meditation.duration}</p>
             <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-md">
-              Listen Now
-            </button>
+              {t('auto.auto_listen_now_1871')}
+                                </button>
           </motion.div>
         ))}
       </div>

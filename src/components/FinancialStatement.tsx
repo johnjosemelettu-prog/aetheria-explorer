@@ -6,6 +6,7 @@ import { collection, query, where, orderBy, onSnapshot, Timestamp } from 'fireba
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
 import { Badge } from './ui/badge';
+import { useTranslation } from "react-i18next";
 
 // This should match the structure in Firestore from WalletPage.tsx and EsimPurchase.tsx
 export interface WalletTransaction {
@@ -21,6 +22,7 @@ export interface WalletTransaction {
 
 
 const FinancialStatement: React.FC = () => {
+    const { t } = useTranslation();
     const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
     const [loading, setLoading] = useState(true);
     const currentUser = auth.currentUser;
@@ -60,23 +62,23 @@ const FinancialStatement: React.FC = () => {
     };
     
     if (loading) {
-        return <p>Loading statement...</p>;
+        return <p>{t('auto.auto_loading_statement____1253')}</p>;
     }
 
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Financial Statement</CardTitle>
-                <CardDescription>A detailed report of your credits and debits.</CardDescription>
+                <CardTitle>{t('auto.auto_financial_statement_1252')}</CardTitle>
+                <CardDescription>{t('auto.auto_a_detailed_report_of_1251')}</CardDescription>
             </CardHeader>
             <CardContent>
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>Date</TableHead>
-                            <TableHead>Description</TableHead>
-                            <TableHead>Category</TableHead>
-                            <TableHead className="text-right">Amount</TableHead>
+                            <TableHead>{t('auto.auto_date_1250')}</TableHead>
+                            <TableHead>{t('auto.auto_description_1249')}</TableHead>
+                            <TableHead>{t('auto.auto_category_1248')}</TableHead>
+                            <TableHead className="text-right">{t('auto.auto_amount_1247')}</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -95,8 +97,8 @@ const FinancialStatement: React.FC = () => {
                         ) : (
                             <TableRow>
                                 <TableCell colSpan={4} className="text-center">
-                                    No transactions found.
-                                </TableCell>
+                                    {t('auto.auto_no_transactions_foun_1246')}
+                                                                        </TableCell>
                             </TableRow>
                         )}
                     </TableBody>

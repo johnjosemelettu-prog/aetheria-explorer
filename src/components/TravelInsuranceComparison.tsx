@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Plane, Building, Activity, CheckCircle, CreditCard, ChevronRight, Lock, Umbrella, Map, ArrowLeft, Loader2, FileText } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const MOCK_BOOKINGS = [
   { id: 'b1', type: 'flight', title: 'Roundtrip Flight', destination: 'Tokyo, Japan', date: 'Oct 12 - Oct 20', cost: 1200, icon: Plane },
@@ -33,6 +34,7 @@ const POLICIES = [
 ];
 
 export default function TravelInsuranceComparison() {
+    const { t } = useTranslation();
   const [step, setStep] = useState<'selection' | 'checkout' | 'success'>('selection');
   const [selectedPolicyId, setSelectedPolicyId] = useState<string>('premium');
   const [isProcessing, setIsProcessing] = useState(false);
@@ -63,8 +65,8 @@ export default function TravelInsuranceComparison() {
         <header className="mb-12">
           {step === 'checkout' && (
             <button onClick={() => setStep('selection')} className="flex items-center gap-2 text-slate-500 hover:text-indigo-600 font-medium mb-6 transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Back to Policies
-            </button>
+              <ArrowLeft className="w-4 h-4" /> {t('auto.auto_back_to_policies_2794')}
+                                      </button>
           )}
           <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
             {step === 'selection' && "Protect Your Journey"}
@@ -90,8 +92,8 @@ export default function TravelInsuranceComparison() {
               <div className="lg:col-span-4 space-y-6">
                 <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
                   <h3 className="font-bold text-lg mb-6 flex items-center gap-2">
-                     <FileText className="text-indigo-500 w-5 h-5" /> Covered Itinerary
-                  </h3>
+                     <FileText className="text-indigo-500 w-5 h-5" /> {t('auto.auto_covered_itinerary_2793')}
+                                                        </h3>
                   <div className="space-y-4">
                     {MOCK_BOOKINGS.map(booking => (
                       <div key={booking.id} className="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
@@ -107,7 +109,7 @@ export default function TravelInsuranceComparison() {
                     ))}
                   </div>
                   <div className="mt-6 pt-6 border-t border-slate-100 flex justify-between items-center">
-                    <span className="text-slate-500 font-medium">Total Trip Value</span>
+                    <span className="text-slate-500 font-medium">{t('auto.auto_total_trip_value_2792')}</span>
                     <span className="text-2xl font-black">${totalTripCost.toLocaleString()}</span>
                   </div>
                 </div>
@@ -124,14 +126,14 @@ export default function TravelInsuranceComparison() {
                     >
                       {policy.popular && (
                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
-                          Recommended
-                        </div>
+                          {t('auto.auto_recommended_2791')}
+                                                          </div>
                       )}
                       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${policy.bg} ${policy.color}`}>
                         <policy.icon className="w-7 h-7" />
                       </div>
                       <h3 className="text-xl font-bold mb-1">{policy.name}</h3>
-                      <p className="text-3xl font-black mb-6">${policy.price}<span className="text-sm text-slate-400 font-normal"> / trip</span></p>
+                      <p className="text-3xl font-black mb-6">${policy.price}<span className="text-sm text-slate-400 font-normal"> {t('auto.auto___trip_2790')}</span></p>
                       
                       <ul className="space-y-3 mb-8 flex-1">
                         {policy.coverage.map((item, idx) => (
@@ -153,7 +155,7 @@ export default function TravelInsuranceComparison() {
                     onClick={() => setStep('checkout')}
                     className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-indigo-200 transition-all hover:scale-105 active:scale-95"
                   >
-                    Proceed to Checkout <ChevronRight className="w-5 h-5" />
+                    {t('auto.auto_proceed_to_checkout_2789')} <ChevronRight className="w-5 h-5" />
                   </button>
                 </div>
               </div>
@@ -170,11 +172,11 @@ export default function TravelInsuranceComparison() {
               {/* Order Summary */}
               <div className="order-2 md:order-1">
                 <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-                  <h3 className="font-bold text-xl mb-6 flex items-center gap-2">Order Summary</h3>
+                  <h3 className="font-bold text-xl mb-6 flex items-center gap-2">{t('auto.auto_order_summary_2788')}</h3>
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <p className="font-bold text-lg">{selectedPolicy.name}</p>
-                      <p className="text-sm text-slate-500">Comprehensive Travel Coverage</p>
+                      <p className="text-sm text-slate-500">{t('auto.auto_comprehensive_travel_2787')}</p>
                     </div>
                     <p className="font-black text-xl">${selectedPolicy.price}</p>
                   </div>
@@ -186,7 +188,7 @@ export default function TravelInsuranceComparison() {
                     ))}
                   </ul>
                   <div className="flex justify-between items-center text-lg">
-                    <span className="font-medium text-slate-600">Total (USD)</span>
+                    <span className="font-medium text-slate-600">{t('auto.auto_total__usd__2786')}</span>
                     <span className="font-black text-2xl">${selectedPolicy.price}.00</span>
                   </div>
                 </div>
@@ -197,17 +199,17 @@ export default function TravelInsuranceComparison() {
                 <form onSubmit={handleCheckout} className="space-y-6">
                   <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
                     <h3 className="font-bold text-xl mb-6 flex items-center justify-between">
-                      Payment Details
-                      <Lock className="w-4 h-4 text-emerald-500" />
+                      {t('auto.auto_payment_details_2785')}
+                                                                <Lock className="w-4 h-4 text-emerald-500" />
                     </h3>
                     
                     <div className="space-y-5">
                       <div>
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Name on Card</label>
+                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">{t('auto.auto_name_on_card_2784')}</label>
                         <input 
                           required
                           type="text" 
-                          placeholder="Jane Doe"
+                          placeholder={t('auto.auto_jane_doe_2783')}
                           className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all"
                           value={formData.cardName}
                           onChange={(e) => setFormData({...formData, cardName: e.target.value})}
@@ -215,7 +217,7 @@ export default function TravelInsuranceComparison() {
                       </div>
                       
                       <div>
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Card Number</label>
+                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">{t('auto.auto_card_number_2782')}</label>
                         <div className="relative">
                           <input 
                             required
@@ -231,18 +233,18 @@ export default function TravelInsuranceComparison() {
 
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Expiry Date</label>
+                          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">{t('auto.auto_expiry_date_2781')}</label>
                           <input 
                             required
                             type="text" 
-                            placeholder="MM/YY"
+                            placeholder={t('auto.auto_mm_yy_2780')}
                             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all"
                             value={formData.expiry}
                             onChange={(e) => setFormData({...formData, expiry: e.target.value})}
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">CVV</label>
+                          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">{t('auto.auto_cvv_2779')}</label>
                           <input 
                             required
                             type="password" 
@@ -261,9 +263,9 @@ export default function TravelInsuranceComparison() {
                     className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-indigo-200 transition-all active:scale-[0.98]"
                   >
                     {isProcessing ? (
-                      <><Loader2 className="w-5 h-5 animate-spin" /> Processing Payment...</>
+                      <><Loader2 className="w-5 h-5 animate-spin" /> {t('auto.auto_processing_payment___2778')}</>
                     ) : (
-                      <><Lock className="w-4 h-4" /> Pay ${selectedPolicy.price}.00</>
+                      <><Lock className="w-4 h-4" /> {t('auto.auto_pay___2777')}{selectedPolicy.price}.00</>
                     )}
                   </button>
                 </form>
@@ -281,17 +283,16 @@ export default function TravelInsuranceComparison() {
               <div className="w-24 h-24 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl shadow-emerald-100">
                 <CheckCircle className="w-12 h-12" />
               </div>
-              <h2 className="text-3xl font-black mb-4">Payment Successful!</h2>
+              <h2 className="text-3xl font-black mb-4">{t('auto.auto_payment_successful__2776')}</h2>
               <p className="text-slate-500 text-lg mb-8">
-                Your <span className="font-bold text-slate-800">{selectedPolicy.name}</span> policy is now active. 
-                Your coverage number is <span className="font-mono bg-slate-100 px-2 py-1 rounded text-slate-800 font-bold tracking-widest">AETH-{Math.floor(100000 + Math.random() * 900000)}</span>.
+                {t('auto.auto_your_2775')} <span className="font-bold text-slate-800">{selectedPolicy.name}</span> {t('auto.auto_policy_is_now_active_2774')} <span className="font-mono bg-slate-100 px-2 py-1 rounded text-slate-800 font-bold tracking-widest">{t('auto.auto_aeth__2773')}{Math.floor(100000 + Math.random() * 900000)}</span>.
               </p>
               <button 
                 onClick={() => window.location.href = '/'}
                 className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-full font-bold inline-flex items-center gap-2 transition-all shadow-lg hover:scale-105"
               >
-                Return to Explorer Hub
-              </button>
+                {t('auto.auto_return_to_explorer_h_2772')}
+                                            </button>
             </motion.div>
           )}
         </AnimatePresence>

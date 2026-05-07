@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { Leaf, Plane, Train, Car } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const CarbonFootprintSynthesis = () => {
+    const { t } = useTranslation();
   const [footprintData, setFootprintData] = useState<any>(null);
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -40,14 +42,14 @@ const CarbonFootprintSynthesis = () => {
   }
 
   if (loading) {
-    return <div className="flex justify-center items-center min-h-screen bg-gray-900"><p className="text-white">Loading Carbon Footprint...</p></div>;
+    return <div className="flex justify-center items-center min-h-screen bg-gray-900"><p className="text-white">{t('auto.auto_loading_carbon_footp_661')}</p></div>;
   }
 
   return (
     <div className="p-8 bg-gray-900 min-h-screen text-white">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold mb-3 text-center text-green-400">Carbon Footprint Synthesis</h1>
-            <p className="text-center text-gray-400 mb-10">Understand your environmental impact and discover lower-carbon alternatives in real-time.</p>
+            <h1 className="text-4xl font-bold mb-3 text-center text-green-400">{t('auto.auto_carbon_footprint_syn_660')}</h1>
+            <p className="text-center text-gray-400 mb-10">{t('auto.auto_understand_your_envi_659')}</p>
 
             {/* Total Footprint */}
             <motion.div 
@@ -55,9 +57,9 @@ const CarbonFootprintSynthesis = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.2 }}
                 className="bg-gray-800 rounded-xl shadow-2xl p-8 mb-10 text-center">
-                <h2 className="text-xl text-gray-300 mb-2">This Month's Total Footprint</h2>
-                <p className="text-6xl font-bold text-green-300">{footprintData.total_footprint_kg} kg CO₂e</p>
-                <p className="text-md text-gray-500 mt-2">Equivalent to {footprintData.tree_equivalent} trees this year.</p>
+                <h2 className="text-xl text-gray-300 mb-2">{t('auto.auto_this_month_s_total_f_658')}</h2>
+                <p className="text-6xl font-bold text-green-300">{footprintData.total_footprint_kg} {t('auto.auto_kg_co_e_657')}</p>
+                <p className="text-md text-gray-500 mt-2">{t('auto.auto_equivalent_to_656')} {footprintData.tree_equivalent} {t('auto.auto_trees_this_year__655')}</p>
             </motion.div>
 
             {/* Breakdown */}
@@ -71,7 +73,7 @@ const CarbonFootprintSynthesis = () => {
                         className="bg-gray-800 rounded-lg p-6 flex flex-col items-center">
                         {renderIcon(item.category)}
                         <h3 className="text-xl font-semibold mt-4">{item.category}</h3>
-                        <p className="text-3xl font-bold text-green-400 mt-2">{item.footprint_kg} kg</p>
+                        <p className="text-3xl font-bold text-green-400 mt-2">{item.footprint_kg} {t('auto.auto_kg_654')}</p>
                         <p className="text-sm text-gray-500">({item.percentage}%)</p>
                     </motion.div>
                 ))}
@@ -79,7 +81,7 @@ const CarbonFootprintSynthesis = () => {
 
             {/* AI Suggestions */}
             <div>
-                <h2 className="text-2xl font-bold text-center mb-6">AI-Powered Lower-Carbon Alternatives</h2>
+                <h2 className="text-2xl font-bold text-center mb-6">{t('auto.auto_ai_powered_lower_car_653')}</h2>
                 <div className="space-y-4">
                     {suggestions.map((s, index) => (
                         <motion.div
@@ -93,10 +95,10 @@ const CarbonFootprintSynthesis = () => {
                                 <Leaf className="text-green-300"/>
                                 <div>
                                     <h4 className="font-semibold text-lg">{s.suggestion}</h4>
-                                    <p className="text-gray-400 text-sm">Potential Savings: <span className="font-bold text-green-300">{s.potential_savings_kg} kg CO₂e</span></p>
+                                    <p className="text-gray-400 text-sm">{t('auto.auto_potential_savings__652')} <span className="font-bold text-green-300">{s.potential_savings_kg} {t('auto.auto_kg_co_e_651')}</span></p>
                                 </div>
                             </div>
-                            <Button variant="outline" size="sm">Learn More</Button>
+                            <Button variant="outline" size="sm">{t('auto.auto_learn_more_650')}</Button>
                         </motion.div>
                     ))}
                 </div>

@@ -21,11 +21,11 @@ export default function FactionWars() {
           <Swords className="w-16 h-16 text-primary relative z-10" />
         </div>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white to-white/60">
-          Faction Wars <span className="text-primary text-2xl align-top block mt-2">Season 4</span>
+          {t('auto.auto_faction_wars_1219')} <span className="text-primary text-2xl align-top block mt-2">{t('auto.auto_season_4_1218')}</span>
         </h1>
         <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-          Pledge your allegiance to a global faction. Complete local quests, capture territories digitally, and rise to global dominance.
-        </p>
+          {t('auto.auto_pledge_your_allegian_1217')}
+                          </p>
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
@@ -41,7 +41,7 @@ export default function FactionWars() {
                 {faction.icon}
               </div>
               <div className="text-right">
-                <span className="text-xs text-foreground/50 font-bold tracking-widest uppercase mb-1 block">Global Score</span>
+                <span className="text-xs text-foreground/50 font-bold tracking-widest uppercase mb-1 block">{t('auto.auto_global_score_1216')}</span>
                 <span className="text-2xl font-mono font-bold flex items-center gap-2 justify-end">
                   {faction.score.toLocaleString()} <Trophy className="w-4 h-4 text-primary" />
                 </span>
@@ -65,10 +65,10 @@ export default function FactionWars() {
         <div className="bg-background rounded-[22px] p-8 lg:p-12 border border-white/5 flex flex-col md:flex-row items-center gap-8">
           <Target className="w-16 h-16 text-primary shrink-0" />
           <div>
-            <h3 className="text-2xl font-bold mb-2">Live Quest: "The Emerald Capture"</h3>
+            <h3 className="text-2xl font-bold mb-2">{t('auto.auto_live_quest___the_eme_1215')}</h3>
             <p className="text-foreground/70 mb-4">
-              The first faction to verify 500 sustainable cafe check-ins within the Kyoto region claims the territory for the month. Current leaders: The Vanguard.
-            </p>
+              {t('auto.auto_the_first_faction_to_1214')}
+                                      </p>
             <div className="w-full bg-white/5 h-4 rounded-full overflow-hidden border border-white/10">
               <div className="h-full bg-gradient-to-r from-amber-400 to-amber-600 w-3/4 rounded-full"></div>
             </div>

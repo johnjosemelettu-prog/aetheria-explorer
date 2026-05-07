@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as AI from '@/services/gemini';
 import { ShieldAlert, Crosshair, Navigation2, MapPin, Zap, Banknote, ShieldCheck } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const GetMeHome = () => {
+    const { t } = useTranslation();
   const [route, setRoute] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -39,11 +41,11 @@ const GetMeHome = () => {
           <ShieldAlert className="w-16 h-16" />
         </div>
         <h1 className="text-6xl md:text-8xl font-display font-black mb-4 uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-red-500">
-          Get Me Home
-        </h1>
+          {t('auto.auto_get_me_home_1356')}
+                          </h1>
         <p className="text-xl text-red-200/60 max-w-xl mx-auto font-mono text-sm tracking-widest">
-          EMERGENCY EXTRACTION PROTOCOL. INITIATE SAFE ROUTING.
-        </p>
+          {t('auto.auto_emergency_extraction_1355')}
+                          </p>
       </motion.div>
 
       <div className="z-10 w-full max-w-4xl px-4">
@@ -56,9 +58,9 @@ const GetMeHome = () => {
              className="w-full mx-auto md:w-2/3 h-32 bg-red-600 hover:bg-red-500 rounded-[40px] flex items-center justify-center gap-4 border-4 border-red-400 font-black text-3xl uppercase tracking-widest shadow-[0_0_60px_rgba(239,68,68,0.6)] disabled:opacity-50 disabled:animate-pulse transition-all"
           >
             {loading ? (
-              <>COMPUTING SAFE ROUTE...</>
+              <>{t('auto.auto_computing_safe_route_1354')}</>
             ) : (
-              <><Crosshair className="w-10 h-10" /> INITIATE PROTOCOL</>
+              <><Crosshair className="w-10 h-10" /> {t('auto.auto_initiate_protocol_1353')}</>
             )}
           </motion.button>
         ) : (
@@ -71,13 +73,13 @@ const GetMeHome = () => {
               <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
                 <h2 className="text-3xl font-display font-bold flex items-center gap-3">
                   <ShieldCheck className="w-8 h-8 text-green-400" />
-                  Routing Established
-                </h2>
+                  {t('auto.auto_routing_established_1352')}
+                                                      </h2>
                 <div className="text-right">
-                  <p className="text-xs font-mono text-white/40 mb-1 tracking-widest">DESTINATION</p>
+                  <p className="text-xs font-mono text-white/40 mb-1 tracking-widest">{t('auto.auto_destination_1351')}</p>
                   <p className="font-bold flex items-center gap-2 text-white">
-                     <MapPin className="w-4 h-4 text-red-500" /> Safehouse / Hotel
-                  </p>
+                     <MapPin className="w-4 h-4 text-red-500" /> {t('auto.auto_safehouse___hotel_1350')}
+                                                            </p>
                 </div>
               </div>
 
@@ -88,21 +90,21 @@ const GetMeHome = () => {
                     <Zap className="w-24 h-24" />
                   </div>
                   <h3 className="font-bold text-xl mb-4 flex items-center gap-2 text-yellow-400">
-                     <Zap className="w-5 h-5" /> Fastest Escape
-                  </h3>
+                     <Zap className="w-5 h-5" /> {t('auto.auto_fastest_escape_1349')}
+                                                            </h3>
                   <div className="space-y-3 font-mono text-sm">
                     <div className="flex justify-between bg-black/40 p-3 rounded-xl border border-white/5">
-                       <span className="text-white/50">Mode</span>
+                       <span className="text-white/50">{t('auto.auto_mode_1348')}</span>
                        <span className="font-bold text-white capitalize">{route.fastestRoute.mode}</span>
                     </div>
                     <div className="flex justify-between bg-black/40 p-3 rounded-xl border border-white/5">
-                       <span className="text-white/50">Duration</span>
+                       <span className="text-white/50">{t('auto.auto_duration_1347')}</span>
                        <span className="font-bold text-yellow-400">{route.fastestRoute.duration}</span>
                     </div>
                   </div>
                   
                   <div className="mt-6 pt-6 border-t border-white/10 font-mono text-xs text-white/60 space-y-2">
-                     <p className="text-white/40 uppercase tracking-widest mb-3">Turn-by-Turn</p>
+                     <p className="text-white/40 uppercase tracking-widest mb-3">{t('auto.auto_turn_by_turn_1346')}</p>
                      {route.fastestRoute.steps.map((step: string, i: number) => (
                        <div key={i} className="flex gap-3">
                          <span className="text-yellow-400 shrink-0">0{i+1}</span>
@@ -118,21 +120,21 @@ const GetMeHome = () => {
                     <Banknote className="w-24 h-24" />
                   </div>
                   <h3 className="font-bold text-xl mb-4 flex items-center gap-2 text-green-400">
-                     <Banknote className="w-5 h-5" /> Most Economical
-                  </h3>
+                     <Banknote className="w-5 h-5" /> {t('auto.auto_most_economical_1345')}
+                                                            </h3>
                   <div className="space-y-3 font-mono text-sm">
                     <div className="flex justify-between bg-black/40 p-3 rounded-xl border border-white/5">
-                       <span className="text-white/50">Mode</span>
+                       <span className="text-white/50">{t('auto.auto_mode_1344')}</span>
                        <span className="font-bold text-white capitalize">{route.cheapestRoute.mode}</span>
                     </div>
                     <div className="flex justify-between bg-black/40 p-3 rounded-xl border border-white/5">
-                       <span className="text-white/50">Duration & Cost</span>
+                       <span className="text-white/50">{t('auto.auto_duration___cost_1343')}</span>
                        <span className="font-bold text-green-400">{route.cheapestRoute.duration} / {route.cheapestRoute.cost}</span>
                     </div>
                   </div>
 
                   <div className="mt-6 pt-6 border-t border-white/10 font-mono text-xs text-white/60 space-y-2">
-                     <p className="text-white/40 uppercase tracking-widest mb-3">Turn-by-Turn</p>
+                     <p className="text-white/40 uppercase tracking-widest mb-3">{t('auto.auto_turn_by_turn_1342')}</p>
                      {route.cheapestRoute.steps.map((step: string, i: number) => (
                        <div key={i} className="flex gap-3">
                          <span className="text-green-400 shrink-0">0{i+1}</span>
@@ -147,8 +149,8 @@ const GetMeHome = () => {
                 onClick={() => setRoute(null)} 
                 className="mt-8 w-full py-4 text-center text-sm font-mono tracking-widest uppercase text-white/40 hover:text-white transition-colors"
               >
-                Abort Protocol & Restart
-              </button>
+                {t('auto.auto_abort_protocol___res_1341')}
+                                                </button>
             </motion.div>
           </AnimatePresence>
         )}

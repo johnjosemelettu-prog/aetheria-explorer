@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const AIGeneratedTravelThemedPickupLines = () => {
+    const { t } = useTranslation();
   const [pickupLine, setPickupLine] = useState('');
 
   const handleGenerate = () => {
@@ -17,10 +19,10 @@ const AIGeneratedTravelThemedPickupLines = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">AI-Generated "Travel-themed Pick-up Lines"</h1>
+      <h1 className="text-2xl font-bold mb-4">{t('auto.auto_ai_generated__travel_196')}</h1>
       <button onClick={handleGenerate} className="bg-blue-500 text-white p-2 rounded-lg mb-4">
-        Generate Pick-up Line
-      </button>
+        {t('auto.auto_generate_pick_up_lin_195')}
+                    </button>
       {pickupLine && <p className="text-lg">{pickupLine}</p>}
     </div>
   );

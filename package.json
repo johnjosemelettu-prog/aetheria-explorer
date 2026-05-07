@@ -98,6 +98,7 @@
     "@types/node": "^20.12.11",
     "autoprefixer": "^10.4.19",
     "jsdom": "^29.1.1",
+    "ts-morph": "^28.0.0",
     "tsx": "^4.9.3",
     "typescript": "^5.4.5",
     "vitest": "^4.1.5"

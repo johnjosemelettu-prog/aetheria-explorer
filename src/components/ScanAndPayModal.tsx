@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, X } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 interface ScanAndPayModalProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface ScanAndPayModalProps {
 }
 
 const ScanAndPayModal: React.FC<ScanAndPayModalProps> = ({ isOpen, onClose }) => {
+    const { t } = useTranslation();
   if (!isOpen) return null;
 
   return (
@@ -32,14 +34,14 @@ const ScanAndPayModal: React.FC<ScanAndPayModalProps> = ({ isOpen, onClose }) =>
                 <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center">
                   <Camera className="text-primary w-6 h-6" />
                 </div>
-                <h2 className="text-3xl font-display font-bold tracking-tighter">Scan & Pay</h2>
+                <h2 className="text-3xl font-display font-bold tracking-tighter">{t('auto.auto_scan___pay_2281')}</h2>
               </div>
               <button onClick={onClose} className="p-3 glass-hover rounded-2xl">
                 <X className="w-6 h-6 text-foreground/50" />
               </button>
             </div>
             <div className="aspect-square bg-white/5 rounded-3xl flex items-center justify-center">
-              <p className="text-foreground/50">Camera feed would be here</p>
+              <p className="text-foreground/50">{t('auto.auto_camera_feed_would_be_2280')}</p>
             </div>
           </motion.div>
         </div>

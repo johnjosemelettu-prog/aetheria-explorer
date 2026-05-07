@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { UserPlus, Star, MapPin, Award, MessageCircle, Navigation } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function LocalHeroConnect() {
+    const { t } = useTranslation();
   const [activeHero, setActiveHero] = useState<number>(0);
 
   const heroes = [
@@ -42,18 +44,18 @@ export default function LocalHeroConnect() {
           <div className="inline-flex items-center justify-center p-4 rounded-full bg-primary/20 text-primary mb-6 border border-primary/30">
             <UserPlus className="w-12 h-12" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-display font-black mb-6">Local Hero Connect</h1>
+          <h1 className="text-5xl md:text-6xl font-display font-black mb-6">{t('auto.auto_local_hero_connect_1739')}</h1>
           <p className="text-xl text-foreground/60 max-w-2xl mx-auto font-light">
-            Skip the tourist traps. Connect directly with highly-vetted local experts for authentic, unparalleled cultural immersion.
-          </p>
+            {t('auto.auto_skip_the_tourist_tra_1738')}
+                                </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Hero List Navigation */}
           <div className="lg:col-span-5 space-y-4">
              <h3 className="text-lg font-bold uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
-               <MapPin className="w-5 h-5"/> Live Nearby
-             </h3>
+               <MapPin className="w-5 h-5"/> {t('auto.auto_live_nearby_1737')}
+                                       </h3>
              {heroes.map((hero, idx) => (
                 <button
                   key={idx}
@@ -108,22 +110,22 @@ export default function LocalHeroConnect() {
 
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   <div className="bg-black/40 p-4 rounded-2xl border border-white/5">
-                    <p className="text-xs text-foreground/50 uppercase tracking-widest font-mono mb-1">Specialty</p>
+                    <p className="text-xs text-foreground/50 uppercase tracking-widest font-mono mb-1">{t('auto.auto_specialty_1736')}</p>
                     <p className="font-bold text-sm text-primary">{heroes[activeHero].specialty}</p>
                   </div>
                   <div className="bg-black/40 p-4 rounded-2xl border border-white/5">
-                    <p className="text-xs text-foreground/50 uppercase tracking-widest font-mono mb-1">Verification</p>
-                    <p className="font-bold text-sm text-green-400 flex items-center gap-1"><Award className="w-4 h-4"/> Certified</p>
+                    <p className="text-xs text-foreground/50 uppercase tracking-widest font-mono mb-1">{t('auto.auto_verification_1735')}</p>
+                    <p className="font-bold text-sm text-green-400 flex items-center gap-1"><Award className="w-4 h-4"/> {t('auto.auto_certified_1734')}</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
                   <button className="flex-1 bg-primary text-white py-4 rounded-xl font-bold flex justify-center items-center gap-2 hover:bg-primary/80 transition-colors shadow-[0_0_20px_rgba(var(--primary),0.3)]">
-                    <MessageCircle className="w-5 h-5" /> Request Intro
-                  </button>
+                    <MessageCircle className="w-5 h-5" /> {t('auto.auto_request_intro_1733')}
+                                                    </button>
                   <button className="flex-1 bg-white/10 text-white py-4 rounded-xl font-bold flex justify-center items-center gap-2 hover:bg-white/20 transition-colors border border-white/10">
-                    <Navigation className="w-5 h-5" /> View Past Itineraries
-                  </button>
+                    <Navigation className="w-5 h-5" /> {t('auto.auto_view_past_itinerarie_1732')}
+                                                    </button>
                 </div>
              </motion.div>
           </div>

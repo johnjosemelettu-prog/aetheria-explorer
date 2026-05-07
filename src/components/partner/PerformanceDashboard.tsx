@@ -1,6 +1,7 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { Star, TrendingUp, Users, Eye } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const bookingData = [
   {day:'Mon',bookings:12},{day:'Tue',bookings:8},{day:'Wed',bookings:15},{day:'Thu',bookings:10},
@@ -9,7 +10,7 @@ const bookingData = [
 
 const PerformanceDashboard: React.FC = () => (
   <div className="space-y-6">
-    <h2 className="text-xl font-bold">Performance Dashboard</h2>
+    <h2 className="text-xl font-bold">""Performance Dashboard""</h2>
     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
       {[
         { icon: Star, label: 'Avg Rating', value: '4.8', color: 'text-yellow-400' },
@@ -25,7 +26,7 @@ const PerformanceDashboard: React.FC = () => (
       ))}
     </div>
     <div className="glass rounded-2xl p-6">
-      <h3 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-4">Weekly Bookings</h3>
+      <h3 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-4">""Weekly Bookings""</h3>
       <div className="h-[200px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={bookingData} barSize={20}>
@@ -39,7 +40,7 @@ const PerformanceDashboard: React.FC = () => (
       </div>
     </div>
     <div className="glass rounded-2xl p-6">
-      <h3 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">Top Services</h3>
+      <h3 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">""Top Services""</h3>
       {[
         { name:'AR Ghost Tour', pct:68 },
         { name:'Culinary Time Machine', pct:51 },

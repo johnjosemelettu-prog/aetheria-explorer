@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Megaphone, Plus, Tag, Image as ImageIcon, Send, Clock, Activity } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function PromotionsManager() {
+    const { t } = useTranslation();
   const [promotions, setPromotions] = useState([
     { id: '1', title: '50% off Tokyo City Tour', status: 'Active', impressions: 12400, clicks: 840, endsAt: '2026-06-01' },
     { id: '2', title: 'Free Dessert with Dinner Booking', status: 'Scheduled', impressions: 0, clicks: 0, endsAt: '2026-07-01' },
@@ -13,11 +15,11 @@ export default function PromotionsManager() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold font-display">Advertisements & Promotions</h2>
-          <p className="text-foreground/50 text-sm mt-1">Create and manage your sponsored content across the Aetheria network.</p>
+          <h2 className="text-2xl font-bold font-display">{t('auto.auto_advertisements___pro_3173')}</h2>
+          <p className="text-foreground/50 text-sm mt-1">{t('auto.auto_create_and_manage_yo_3172')}</p>
         </div>
         <button onClick={() => setIsCreating(!isCreating)} className="px-5 py-2.5 bg-secondary text-white rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-secondary/90 transition-colors shadow-[0_0_15px_rgba(var(--secondary-rgb),0.3)]">
-          {isCreating ? 'Cancel' : <><Plus className="w-4 h-4"/> Create Ad Campaign</>}
+          {isCreating ? 'Cancel' : <><Plus className="w-4 h-4"/> {t('auto.auto_create_ad_campaign_3171')}</>}
         </button>
       </div>
 
@@ -28,47 +30,47 @@ export default function PromotionsManager() {
             <div className="w-10 h-10 bg-secondary/20 rounded-xl flex items-center justify-center">
               <Megaphone className="w-5 h-5 text-secondary" />
             </div>
-            <h3 className="text-xl font-bold">New Advertising Campaign</h3>
+            <h3 className="text-xl font-bold">{t('auto.auto_new_advertising_camp_3170')}</h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
              <div>
-               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">Headline</label>
-               <input type="text" placeholder="e.g. 50% Off Sushi Making Class" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-secondary transition-colors" />
+               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">{t('auto.auto_headline_3169')}</label>
+               <input type="text" placeholder={t('auto.auto_e_g__50__off_sushi_m_3168')} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-secondary transition-colors" />
              </div>
              <div>
-               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">Target Audience Vibe</label>
+               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">{t('auto.auto_target_audience_vibe_3167')}</label>
                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-secondary appearance-none cursor-pointer">
-                 <option>Foodie & Culinary</option>
-                 <option>Adventure & Outdoors</option>
-                 <option>Relaxation & Spa</option>
-                 <option>Culture & History</option>
-                 <option>Nightlife & Entertainment</option>
+                 <option>{t('auto.auto_foodie___culinary_3166')}</option>
+                 <option>{t('auto.auto_adventure___outdoors_3165')}</option>
+                 <option>{t('auto.auto_relaxation___spa_3164')}</option>
+                 <option>{t('auto.auto_culture___history_3163')}</option>
+                 <option>{t('auto.auto_nightlife___entertai_3162')}</option>
                </select>
              </div>
              <div className="md:col-span-2">
-               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">Offer Description</label>
-               <textarea placeholder="Describe your offer and terms..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-secondary h-28 resize-none transition-colors" />
+               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">{t('auto.auto_offer_description_3161')}</label>
+               <textarea placeholder={t('auto.auto_describe_your_offer__3160')} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-secondary h-28 resize-none transition-colors" />
              </div>
              <div>
-               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">Discount Badge Text</label>
-               <input type="text" placeholder="e.g. 50% OFF" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-secondary transition-colors" />
+               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">{t('auto.auto_discount_badge_text_3159')}</label>
+               <input type="text" placeholder={t('auto.auto_e_g__50__off_3158')} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-secondary transition-colors" />
              </div>
              <div>
-               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">Campaign Duration</label>
+               <label className="text-xs font-semibold text-foreground/40 uppercase tracking-widest block mb-2">{t('auto.auto_campaign_duration_3157')}</label>
                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-secondary appearance-none cursor-pointer">
-                 <option>1 Week</option>
-                 <option>2 Weeks</option>
-                 <option>1 Month</option>
-                 <option>Ongoing</option>
+                 <option>{t('auto.auto_1_week_3156')}</option>
+                 <option>{t('auto.auto_2_weeks_3155')}</option>
+                 <option>{t('auto.auto_1_month_3154')}</option>
+                 <option>{t('auto.auto_ongoing_3153')}</option>
                </select>
              </div>
           </div>
           <div className="flex justify-end gap-3 mt-4 pt-6 border-t border-white/5">
-            <button className="px-6 py-2.5 glass rounded-xl text-sm font-bold hover:bg-white/10 transition-colors">Save as Draft</button>
+            <button className="px-6 py-2.5 glass rounded-xl text-sm font-bold hover:bg-white/10 transition-colors">{t('auto.auto_save_as_draft_3152')}</button>
             <button onClick={() => setIsCreating(false)} className="px-6 py-2.5 bg-secondary hover:bg-secondary/90 text-white rounded-xl text-sm font-bold flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(var(--secondary-rgb),0.3)]">
-              <Send className="w-4 h-4"/> Publish Ad
-            </button>
+              <Send className="w-4 h-4"/> {t('auto.auto_publish_ad_3151')}
+                                      </button>
           </div>
         </div>
       )}
@@ -85,7 +87,7 @@ export default function PromotionsManager() {
               </div>
               <h4 className="font-bold text-lg mb-2 leading-tight group-hover:text-secondary transition-colors">{promo.title}</h4>
               <div className="flex items-center gap-2 text-xs font-semibold text-foreground/40 mb-6 uppercase tracking-widest">
-                <Clock className="w-3 h-3"/> Ends {promo.endsAt}
+                <Clock className="w-3 h-3"/> {t('auto.auto_ends_3150')} {promo.endsAt}
               </div>
             </div>
             
@@ -93,12 +95,12 @@ export default function PromotionsManager() {
               <div className="bg-white/5 p-4 rounded-2xl text-center group-hover:bg-white/10 transition-colors">
                 <Activity className="w-4 h-4 text-primary mx-auto mb-2 opacity-50" />
                 <p className="font-bold text-xl">{promo.impressions.toLocaleString()}</p>
-                <p className="text-[10px] text-foreground/40 uppercase tracking-widest mt-1">Impressions</p>
+                <p className="text-[10px] text-foreground/40 uppercase tracking-widest mt-1">{t('auto.auto_impressions_3149')}</p>
               </div>
               <div className="bg-white/5 p-4 rounded-2xl text-center group-hover:bg-white/10 transition-colors">
                 <Activity className="w-4 h-4 text-secondary mx-auto mb-2 opacity-50" />
                 <p className="font-bold text-xl">{promo.clicks.toLocaleString()}</p>
-                <p className="text-[10px] text-foreground/40 uppercase tracking-widest mt-1">Clicks</p>
+                <p className="text-[10px] text-foreground/40 uppercase tracking-widest mt-1">{t('auto.auto_clicks_3148')}</p>
               </div>
             </div>
           </div>

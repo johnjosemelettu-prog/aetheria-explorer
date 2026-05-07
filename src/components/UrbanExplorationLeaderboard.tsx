@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Flashlight, Skull, Map } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function UrbanExplorationLeaderboard() {
+    const { t } = useTranslation();
   const urblex = [
     { rank: 1, handle: "@GhostWalker", finds: 142, category: "Rooftops" },
     { rank: 2, handle: "@TunnelRat", finds: 128, category: "Subterranean" },
@@ -16,11 +18,11 @@ export default function UrbanExplorationLeaderboard() {
         <header className="mb-12 border-b border-stone-800 pb-8 flex items-center gap-6">
            <Flashlight className="w-16 h-16 text-yellow-600 drop-shadow-[0_0_15px_rgba(202,138,4,0.5)]" />
            <div>
-             <h1 className="text-4xl font-black text-white tracking-widest uppercase">UrbEx Syndicate</h1>
+             <h1 className="text-4xl font-black text-white tracking-widest uppercase">{t('auto.auto_urbex_syndicate_2885')}</h1>
              <p className="text-stone-500 mt-2 text-xs border-l-2 border-yellow-600 pl-3">
-               UNCOVERING THE FORGOTTEN GUTS OF THE CITY.<br/>
-               PROCEED AT YOUR OWN RISK.
-             </p>
+               {t('auto.auto_uncovering_the_forgo_2884')}<br/>
+               {t('auto.auto_proceed_at_your_own__2883')}
+                                       </p>
            </div>
         </header>
 
@@ -30,10 +32,10 @@ export default function UrbanExplorationLeaderboard() {
            <table className="w-full text-left">
               <thead>
                  <tr className="border-b border-stone-800 text-stone-500 text-xs tracking-widest uppercase">
-                    <th className="p-6 font-normal">Rank</th>
-                    <th className="p-6 font-normal">Operative</th>
-                    <th className="p-6 font-normal">Specialty</th>
-                    <th className="p-6 font-normal">Undiscovered Spots Logged</th>
+                    <th className="p-6 font-normal">{t('auto.auto_rank_2882')}</th>
+                    <th className="p-6 font-normal">{t('auto.auto_operative_2881')}</th>
+                    <th className="p-6 font-normal">{t('auto.auto_specialty_2880')}</th>
+                    <th className="p-6 font-normal">{t('auto.auto_undiscovered_spots_l_2879')}</th>
                  </tr>
               </thead>
               <tbody>
@@ -51,11 +53,11 @@ export default function UrbanExplorationLeaderboard() {
 
         <div className="mt-8 flex gap-4">
            <button className="flex-1 bg-stone-900 border border-stone-700 text-stone-300 py-3 font-bold hover:bg-stone-800 transition flex items-center justify-center gap-2">
-             <Map className="w-4 h-4" /> VIEW CLASSIFIED MAP
-           </button>
+             <Map className="w-4 h-4" /> {t('auto.auto_view_classified_map_2878')}
+                                 </button>
            <button className="flex-1 bg-yellow-700 text-black py-3 font-bold hover:bg-yellow-600 transition shadow-[0_0_15px_rgba(202,138,4,0.3)] flex items-center justify-center gap-2">
-             <Skull className="w-4 h-4" /> SUBMIT NEW FIND
-           </button>
+             <Skull className="w-4 h-4" /> {t('auto.auto_submit_new_find_2877')}
+                                 </button>
         </div>
       </div>
     </div>

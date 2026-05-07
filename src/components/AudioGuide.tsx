@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Pause, SkipForward, SkipBack, Headphones, MapPin } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function AudioGuide() {
+    const { t } = useTranslation();
   const [playing, setPlaying] = useState(false);
 
   return (
     <div className="max-w-md mx-auto px-4 py-24 min-h-screen flex flex-col justify-center">
       <div className="text-center mb-12">
         <Headphones className="w-16 h-16 text-indigo-400 mx-auto mb-4" />
-        <h1 className="text-4xl font-display font-bold mb-2">Sonic Immersions</h1>
-        <p className="text-foreground/60 text-sm">Location-aware audio documentary.</p>
+        <h1 className="text-4xl font-display font-bold mb-2">{t('auto.auto_sonic_immersions_568')}</h1>
+        <p className="text-foreground/60 text-sm">{t('auto.auto_location_aware_audio_567')}</p>
       </div>
 
       <div className="glass p-8 rounded-[40px] border border-white/10 relative overflow-hidden shadow-2xl shadow-indigo-500/10">
@@ -19,18 +21,18 @@ export default function AudioGuide() {
         <div className="aspect-square rounded-3xl overflow-hidden relative mb-8 border border-white/10 shadow-xl">
           <img 
             src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" 
-            alt="Audio Cover" 
+            alt={t('auto.auto_audio_cover_566')} 
             className="w-full h-full object-cover opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
           <div className="absolute bottom-4 left-4 px-3 py-1 bg-black/60 backdrop-blur-md rounded-full border border-white/10 flex items-center gap-1 text-xs font-bold text-indigo-300">
-            <MapPin className="w-3 h-3" /> The Golden Pavilion
-          </div>
+            <MapPin className="w-3 h-3" /> {t('auto.auto_the_golden_pavilion_565')}
+                                </div>
         </div>
 
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold mb-1">Secrets of the Shogun</h2>
-          <p className="text-foreground/50 text-sm">Narrated by Ken Watanabe</p>
+          <h2 className="text-2xl font-bold mb-1">{t('auto.auto_secrets_of_the_shogu_564')}</h2>
+          <p className="text-foreground/50 text-sm">{t('auto.auto_narrated_by_ken_wata_563')}</p>
         </div>
 
         {/* Fake Waveform */}

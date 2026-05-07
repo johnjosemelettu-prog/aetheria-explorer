@@ -2,12 +2,14 @@ import React from 'react';
 import { usePremiumStatus } from '../hooks/usePremiumStatus';
 import { Crown, Sparkles, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from "react-i18next";
 
 interface PremiumFeatureWrapperProps {
   children: React.ReactNode;
 }
 
 export const PremiumFeatureWrapper: React.FC<PremiumFeatureWrapperProps> = ({ children }) => {
+    const { t } = useTranslation();
   const { isPremium, loading } = usePremiumStatus();
 
   if (loading) {
@@ -33,13 +35,13 @@ export const PremiumFeatureWrapper: React.FC<PremiumFeatureWrapperProps> = ({ ch
           </div>
           <div className="flex-1">
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              Aetheria+ Exclusive <Crown className="w-4 h-4 text-amber-500" />
+              {t('auto.auto_aetheria__exclusive_2074')} <Crown className="w-4 h-4 text-amber-500" />
             </h2>
-            <p className="text-sm text-slate-400 mt-1">Unlock this feature by upgrading your account or purchasing a session pass.</p>
+            <p className="text-sm text-slate-400 mt-1">{t('auto.auto_unlock_this_feature__2073')}</p>
           </div>
           <button className="shrink-0 bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-widest text-xs px-6 py-3 rounded-full transition-colors hidden sm:block">
-             Upgrade
-          </button>
+             {t('auto.auto_upgrade_2072')}
+                              </button>
         </div>
       </motion.div>
     );

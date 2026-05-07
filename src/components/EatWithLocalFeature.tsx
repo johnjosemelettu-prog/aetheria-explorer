@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity, BarChart, Zap, Globe } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function EatWithLocalFeature() {
+    const { t } = useTranslation();
   const stats = [
     { label: "Authenticity", value: "98%", icon: Activity, color: "text-purple-500", bg: "bg-purple-100" },
     { label: "Local Connections", value: "14", icon: Globe, color: "text-teal-500", bg: "bg-teal-100" },
@@ -13,8 +15,8 @@ export default function EatWithLocalFeature() {
     <div className="min-h-screen bg-slate-50 p-8 lg:p-12 font-sans text-slate-900">
       <div className="max-w-6xl mx-auto">
         <header className="mb-12">
-          <h1 className="text-4xl font-black tracking-tight mb-2">Eat with a Local</h1>
-          <p className="text-slate-500">Advanced metrics and insights for your journey.</p>
+          <h1 className="text-4xl font-black tracking-tight mb-2">{t('auto.auto_eat_with_a_local_1118')}</h1>
+          <p className="text-slate-500">{t('auto.auto_advanced_metrics_and_1117')}</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -38,8 +40,8 @@ export default function EatWithLocalFeature() {
         <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 min-h-[400px] flex items-center justify-center">
            <div className="text-center">
              <BarChart className="w-16 h-16 text-slate-200 mx-auto mb-4" />
-             <h3 className="text-xl font-bold text-slate-700 mb-2">Synthesizing Experiences</h3>
-             <p className="text-slate-400 max-w-sm mx-auto">Your immersive journey is currently being analyzed and structured.</p>
+             <h3 className="text-xl font-bold text-slate-700 mb-2">{t('auto.auto_synthesizing_experie_1116')}</h3>
+             <p className="text-slate-400 max-w-sm mx-auto">{t('auto.auto_your_immersive_journ_1115')}</p>
            </div>
         </div>
       </div>

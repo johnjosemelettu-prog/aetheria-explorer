@@ -156,8 +156,8 @@ export default function WalletPage() {
           className="flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-2xl font-bold shadow-xl shadow-primary/20 hover:scale-[1.02] transition-all"
         >
           <Camera className="w-5 h-5" />
-          Scan & Pay
-        </button>
+          {t('auto.auto_scan___pay_2991')}
+                              </button>
         <button 
           onClick={() => setIsTopUpOpen(true)}
           className="flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white rounded-2xl font-bold shadow-xl shadow-accent/20 hover:scale-[1.02] transition-all"
@@ -195,7 +195,7 @@ export default function WalletPage() {
                   <span className="text-6xl font-display font-bold tracking-tighter">
                     ${balance.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                   </span>
-                  <span className="text-xl font-bold text-foreground/20 uppercase">USD</span>
+                  <span className="text-xl font-bold text-foreground/20 uppercase">{t('auto.auto_usd_2990')}</span>
                 </div>
               </div>
 
@@ -221,14 +221,14 @@ export default function WalletPage() {
           </section>
 
           <section className="glass p-8 rounded-[32px]">
-            <h3 className="text-xl font-display font-bold mb-8">Currency Converter</h3>
+            <h3 className="text-xl font-display font-bold mb-8">{t('auto.auto_currency_converter_2989')}</h3>
             <div className="flex flex-col sm:flex-row gap-4 items-center">
               <div className="relative w-full">
                 <input
                   type="number"
                   value={conversionAmount}
                   onChange={(e) => setConversionAmount(e.target.value)}
-                  placeholder="Amount"
+                  placeholder={t('auto.auto_amount_2988')}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4"
                 />
                 <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)} className="absolute left-2 top-1/2 -translate-y-1/2 bg-transparent font-bold">
@@ -243,7 +243,7 @@ export default function WalletPage() {
                   type="text"
                   readOnly
                   value={convertedAmount ? convertedAmount.toFixed(2) : ''}
-                  placeholder="Converted Amount"
+                  placeholder={t('auto.auto_converted_amount_2987')}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4"
                 />
                 <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)} className="absolute left-2 top-1/2 -translate-y-1/2 bg-transparent font-bold">
@@ -387,7 +387,7 @@ export default function WalletPage() {
 
               <div className="space-y-8">
                 <div>
-                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-3 block">{t('wallet.amount')} (USD)</label>
+                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-3 block">{t('wallet.amount')} {t('auto.auto__usd__2986')}</label>
                   <div className="relative">
                     <DollarSign className="absolute left-6 top-1/2 -translate-y-1/2 w-8 h-8 text-accent" />
                     <input

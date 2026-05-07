@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Languages, Volume2, Sparkles, Loader2, MessageSquare, Copy, Check, MapPin } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const destinations = [
   { id: 'london', name: 'London, UK', flag: '🇬🇧', example: 'That\'s brilliant' },
@@ -33,6 +34,7 @@ const mockTranslations: Record<string, Record<string, any>> = {
 };
 
 const AILocalSlangTranslator = () => {
+    const { t } = useTranslation();
   const [selectedDest, setSelectedDest] = useState(destinations[0]);
   const [inputText, setInputText] = useState('');
   const [isTranslating, setIsTranslating] = useState(false);
@@ -81,11 +83,11 @@ const AILocalSlangTranslator = () => {
             <Languages className="w-10 h-10" />
           </div>
           <h1 className="text-4xl md:text-6xl font-display font-black mb-4 tracking-tighter">
-            Speak Like a <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Local</span>
+            {t('auto.auto_speak_like_a_228')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{t('auto.auto_local_227')}</span>
           </h1>
           <p className="text-xl text-foreground/60 max-w-2xl mx-auto font-light">
-            Ditch the tourist phrasebook. Let AI translate your thoughts into authentic, street-level slang.
-          </p>
+            {t('auto.auto_ditch_the_tourist_ph_226')}
+                                </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -100,8 +102,8 @@ const AILocalSlangTranslator = () => {
             <div className="glass p-6 md:p-8 rounded-[32px] border border-white/10 relative overflow-hidden">
               <h2 className="text-xl font-bold mb-6 flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-primary" />
-                Select Destination
-              </h2>
+                {t('auto.auto_select_destination_225')}
+                                            </h2>
               
               <div className="flex flex-wrap gap-3 mb-8">
                 {destinations.map((dest) => (
@@ -123,8 +125,8 @@ const AILocalSlangTranslator = () => {
               <div className="space-y-4">
                 <label className="block text-sm font-semibold text-foreground/80 flex items-center gap-2">
                   <MessageSquare className="w-4 h-4" />
-                  What do you want to say?
-                </label>
+                  {t('auto.auto_what_do_you_want_to__224')}
+                                                  </label>
                 <textarea 
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
@@ -142,13 +144,13 @@ const AILocalSlangTranslator = () => {
                 {isTranslating ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    Analyzing Cultural Context...
-                  </>
+                    {t('auto.auto_analyzing_cultural_c_223')}
+                                                        </>
                 ) : (
                   <>
                     <Sparkles className="w-5 h-5" />
-                    Translate to Slang
-                  </>
+                    {t('auto.auto_translate_to_slang_222')}
+                                                            </>
                 )}
               </button>
             </div>
@@ -166,8 +168,8 @@ const AILocalSlangTranslator = () => {
               
               <h2 className="text-xl font-bold mb-6 flex items-center gap-3 relative z-10">
                 <Sparkles className="w-5 h-5 text-accent" />
-                Local Translation
-              </h2>
+                {t('auto.auto_local_translation_221')}
+                                            </h2>
 
               <AnimatePresence mode="wait">
                 {result ? (
@@ -187,25 +189,25 @@ const AILocalSlangTranslator = () => {
                         <button 
                           onClick={handleCopy}
                           className="p-2 bg-white/5 hover:bg-white/10 rounded-xl transition-colors text-foreground/60 hover:text-white"
-                          title="Copy to clipboard"
+                          title={t('auto.auto_copy_to_clipboard_220')}
                         >
                           {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
                         </button>
                         <button className="p-2 bg-white/5 hover:bg-white/10 rounded-xl transition-colors text-foreground/60 hover:text-white flex items-center gap-2 text-sm font-medium">
                           <Volume2 className="w-4 h-4" />
-                          Listen
-                        </button>
+                          {t('auto.auto_listen_219')}
+                                                                          </button>
                       </div>
                     </div>
 
                     <div className="space-y-4">
                       <div>
-                        <span className="text-xs font-mono uppercase tracking-widest text-accent/80 block mb-1">Literal Meaning</span>
+                        <span className="text-xs font-mono uppercase tracking-widest text-accent/80 block mb-1">{t('auto.auto_literal_meaning_218')}</span>
                         <p className="text-foreground/80">{result.literal}</p>
                       </div>
                       <div className="h-px w-full bg-white/10" />
                       <div>
-                        <span className="text-xs font-mono uppercase tracking-widest text-accent/80 block mb-1">When to use it</span>
+                        <span className="text-xs font-mono uppercase tracking-widest text-accent/80 block mb-1">{t('auto.auto_when_to_use_it_217')}</span>
                         <p className="text-foreground/80 text-sm">{result.context}</p>
                       </div>
                     </div>
@@ -219,7 +221,7 @@ const AILocalSlangTranslator = () => {
                     className="flex-1 flex flex-col items-center justify-center text-center opacity-40 relative z-10 py-12"
                   >
                     <Languages className="w-16 h-16 mb-4 opacity-50" />
-                    <p>Select a destination and type a phrase to get the local slang equivalent.</p>
+                    <p>{t('auto.auto_select_a_destination_216')}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

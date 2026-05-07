@@ -12,6 +12,7 @@ import {
 } from 'firebase/firestore';
 import { auth, db } from '../../lib/firebase';
 import { signOut } from 'firebase/auth';
+import { useTranslation } from "react-i18next";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -123,6 +124,7 @@ function TicketDetail({ ticket, onClose, onUpdate }: {
   onClose: () => void;
   onUpdate: (id: string, changes: Partial<Ticket>) => void;
 }) {
+    const { t } = useTranslation();
   const [reply, setReply] = useState('');
   const [note, setNote] = useState(ticket.agentNote ?? '');
   const [sending, setSending] = useState(false);
@@ -196,7 +198,7 @@ function TicketDetail({ ticket, onClose, onUpdate }: {
         {/* Original message */}
         <div className="bg-white/[0.03] rounded-2xl p-4 border border-white/5">
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-semibold text-foreground/40">ORIGINAL MESSAGE</span>
+            <span className="text-xs font-semibold text-foreground/40">{t('auto.auto_original_message_3197')}</span>
           </div>
           <p className="text-sm text-foreground/80 leading-relaxed">{ticket.message}</p>
         </div>
@@ -221,7 +223,7 @@ function TicketDetail({ ticket, onClose, onUpdate }: {
               value={reply}
               onChange={e => setReply(e.target.value)}
               rows={2}
-              placeholder="Type a reply to the customer…"
+              placeholder={t('auto.auto_type_a_reply_to_the__3196')}
               className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-accent/60 resize-none placeholder:text-foreground/30"
             />
             <button
@@ -239,13 +241,13 @@ function TicketDetail({ ticket, onClose, onUpdate }: {
       <div className="px-4 pb-3 border-t border-white/5">
         <div className="flex items-center gap-2 mt-3 mb-2">
           <StickyNote className="w-3.5 h-3.5 text-yellow-400" />
-          <span className="text-xs font-semibold text-foreground/40 uppercase tracking-widest">Internal Note</span>
+          <span className="text-xs font-semibold text-foreground/40 uppercase tracking-widest">{t('auto.auto_internal_note_3195')}</span>
         </div>
         <div className="flex gap-2">
           <input value={note} onChange={e => setNote(e.target.value)}
-            placeholder="Add a private note (not visible to user)…"
+            placeholder={t('auto.auto_add_a_private_note___3194')}
             className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs outline-none focus:border-yellow-500/40 placeholder:text-foreground/30" />
-          <button onClick={saveNote} className="px-3 py-2 text-xs font-semibold bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-400 rounded-xl transition-colors">Save</button>
+          <button onClick={saveNote} className="px-3 py-2 text-xs font-semibold bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-400 rounded-xl transition-colors">{t('auto.auto_save_3193')}</button>
         </div>
       </div>
 
@@ -254,20 +256,20 @@ function TicketDetail({ ticket, onClose, onUpdate }: {
         {ticket.status !== 'in_progress' && (
           <button onClick={() => changeStatus('in_progress')}
             className="flex-1 py-2.5 bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-400 font-semibold text-sm rounded-xl transition-colors flex items-center justify-center gap-2">
-            <RefreshCw className="w-4 h-4" />Mark In Progress
-          </button>
+            <RefreshCw className="w-4 h-4" />{t('auto.auto_mark_in_progress_3192')}
+                                </button>
         )}
         {ticket.status !== 'closed' && (
           <button onClick={() => changeStatus('closed')}
             className="flex-1 py-2.5 bg-green-500/20 hover:bg-green-500/30 text-green-400 font-semibold text-sm rounded-xl transition-colors flex items-center justify-center gap-2">
-            <CheckCircle2 className="w-4 h-4" />Close Ticket
-          </button>
+            <CheckCircle2 className="w-4 h-4" />{t('auto.auto_close_ticket_3191')}
+                                </button>
         )}
         {ticket.status === 'closed' && (
           <button onClick={() => changeStatus('open')}
             className="flex-1 py-2.5 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 font-semibold text-sm rounded-xl transition-colors flex items-center justify-center gap-2">
-            <ArrowUpRight className="w-4 h-4" />Reopen Ticket
-          </button>
+            <ArrowUpRight className="w-4 h-4" />{t('auto.auto_reopen_ticket_3190')}
+                                </button>
         )}
       </div>
     </motion.div>
@@ -277,6 +279,7 @@ function TicketDetail({ ticket, onClose, onUpdate }: {
 // ─── Main SupportDesk ───────────────────────────────────────────────────────
 
 export default function SupportDesk() {
+    const { t } = useTranslation();
   const [tickets, setTickets] = useState<Ticket[]>(MOCK_TICKETS);
   const [selected, setSelected] = useState<Ticket | null>(null);
   const [filter, setFilter] = useState<'all' | TicketStatus>('all');
@@ -340,16 +343,16 @@ export default function SupportDesk() {
             <Headphones className="text-accent w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-3xl font-display font-bold">Support Desk</h1>
+            <h1 className="text-3xl font-display font-bold">{t('auto.auto_support_desk_3189')}</h1>
             <p className="text-foreground/50 text-sm">
-              {auth.currentUser?.email} · {counts.open} open · {counts.urgent} urgent
-            </p>
+              {auth.currentUser?.email} · {counts.open} {t('auto.auto_open___3188')} {counts.urgent} {t('auto.auto_urgent_3187')}
+                                      </p>
           </div>
         </div>
         <button onClick={handleLogout}
           className="flex items-center gap-2 px-4 py-2 glass border border-white/10 rounded-xl text-sm text-foreground/50 hover:text-white hover:bg-white/10 transition-all">
-          <LogOut className="w-4 h-4" />Sign Out
-        </button>
+          <LogOut className="w-4 h-4" />{t('auto.auto_sign_out_3186')}
+                          </button>
       </div>
 
       {/* Stats */}
@@ -380,7 +383,7 @@ export default function SupportDesk() {
             <div className="relative flex-1 min-w-[180px]">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
               <input value={search} onChange={e => setSearch(e.target.value)}
-                placeholder="Search tickets…"
+                placeholder={t('auto.auto_search_tickets__3185')}
                 className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-sm outline-none focus:border-accent/50" />
             </div>
             <div className="flex gap-2">
@@ -393,11 +396,11 @@ export default function SupportDesk() {
             </div>
             <select value={priorityFilter} onChange={e => setPriorityFilter(e.target.value as any)}
               className="bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs outline-none focus:border-accent/50 cursor-pointer text-foreground/60">
-              <option value="all">All Priorities</option>
-              <option value="urgent">🔴 Urgent</option>
-              <option value="high">🟠 High</option>
-              <option value="medium">🔵 Medium</option>
-              <option value="low">⚪ Low</option>
+              <option value="all">{t('auto.auto_all_priorities_3184')}</option>
+              <option value="urgent">{t('auto.auto____urgent_3183')}</option>
+              <option value="high">{t('auto.auto____high_3182')}</option>
+              <option value="medium">{t('auto.auto____medium_3181')}</option>
+              <option value="low">{t('auto.auto___low_3180')}</option>
             </select>
           </div>
 
@@ -406,7 +409,7 @@ export default function SupportDesk() {
             {filtered.length === 0 && (
               <div className="text-center py-16 text-foreground/30">
                 <Inbox className="w-10 h-10 mx-auto mb-3 opacity-40" />
-                <p>No tickets match your filters.</p>
+                <p>{t('auto.auto_no_tickets_match_you_3179')}</p>
               </div>
             )}
             {filtered.map(t => {

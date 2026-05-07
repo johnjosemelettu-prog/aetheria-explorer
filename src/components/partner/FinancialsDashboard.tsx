@@ -1,6 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { TrendingUp, DollarSign, ShoppingBag, ArrowUpRight } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const revenueData = [
   { month: 'Jan', revenue: 4000 },{ month: 'Feb', revenue: 3000 },{ month: 'Mar', revenue: 5000 },
@@ -15,8 +16,8 @@ const recentTransactions = [
 const PartnerFinancialsDashboard: React.FC = () => (
   <div className="glass rounded-2xl p-6 space-y-6">
     <div>
-      <h2 className="text-lg font-bold">Financials</h2>
-      <p className="text-sm text-foreground/50">Your earnings & performance.</p>
+      <h2 className="text-lg font-bold">""Financials""</h2>
+      <p className="text-sm text-foreground/50">""Your earnings & performance.""</p>
     </div>
     <div className="grid grid-cols-3 gap-3 text-center">
       {[
@@ -41,7 +42,7 @@ const PartnerFinancialsDashboard: React.FC = () => (
       </ResponsiveContainer>
     </div>
     <div>
-      <h4 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">Recent Transactions</h4>
+      <h4 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">""Recent Transactions""</h4>
       <div className="space-y-2">
         {recentTransactions.map(t => (
           <div key={t.id} className="flex items-center justify-between text-sm bg-white/[0.03] rounded-lg px-3 py-2">

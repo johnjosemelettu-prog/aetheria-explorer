@@ -5,8 +5,10 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Wind, VolumeX, Trees, Flower2, Loader2, Navigation } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const SensoryWayfinding = () => {
+    const { t } = useTranslation();
   const [destination, setDestination] = useState("Le Marais, Paris");
   const [preferences, setPreferences] = useState<string[]>([]);
   const [routeData, setRouteData] = useState<any>(null);
@@ -41,17 +43,17 @@ const SensoryWayfinding = () => {
             <Wind className="w-10 h-10" />
           </motion.div>
           <h1 className="text-4xl font-extrabold mb-4 text-white drop-shadow-md">
-            Sensorial & Acoustic Wayfinding
-          </h1>
+            {t('auto.auto_sensorial___acoustic_2313')}
+                                </h1>
           <p className="text-green-300 max-w-2xl mx-auto text-lg leading-relaxed">
-            Move beyond shortest-distance routing. Find paths optimized for lower decibels, deep tree canopies, or the scent of local bakeries.
-          </p>
+            {t('auto.auto_move_beyond_shortest_2312')}
+                                </p>
         </div>
 
         <Card className="bg-green-900/60 border-green-800 backdrop-blur-md mb-10 p-6">
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold mb-2 text-green-300 uppercase tracking-widest">Where to?</label>
+              <label className="block text-sm font-semibold mb-2 text-green-300 uppercase tracking-widest">{t('auto.auto_where_to__2311')}</label>
               <Input 
                 value={destination} 
                 onChange={(e) => setDestination(e.target.value)} 
@@ -60,7 +62,7 @@ const SensoryWayfinding = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-semibold mb-3 text-green-300 uppercase tracking-widest">Sensory Optimizations</label>
+              <label className="block text-sm font-semibold mb-3 text-green-300 uppercase tracking-widest">{t('auto.auto_sensory_optimization_2310')}</label>
               <div className="flex flex-wrap gap-3">
                 {[
                   { id: 'Quiet', icon: VolumeX, label: 'Minimize Noise (< 50dB)' },
@@ -89,7 +91,7 @@ const SensoryWayfinding = () => {
               disabled={loading || preferences.length === 0}
               className="w-full py-6 mt-4 bg-green-600 hover:bg-green-500 text-white text-lg font-bold shadow-lg disabled:opacity-50"
             >
-              {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Navigation className="w-5 h-5 mr-2" /> Calculate Sensory Route</>}
+              {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Navigation className="w-5 h-5 mr-2" /> {t('auto.auto_calculate_sensory_ro_2309')}</>}
             </Button>
           </div>
         </Card>
@@ -104,15 +106,15 @@ const SensoryWayfinding = () => {
               <div className="flex items-center justify-between p-6 bg-green-900/40 rounded-2xl border border-green-800/50 backdrop-blur-xl">
                 <div>
                   <h3 className="text-xl font-bold text-white tracking-wide">{routeData.routeType}</h3>
-                  <p className="text-green-400 text-sm">Path to {routeData.destination}</p>
+                  <p className="text-green-400 text-sm">{t('auto.auto_path_to_2308')} {routeData.destination}</p>
                 </div>
                 <div className="flex gap-4">
                   <div className="text-center p-3 bg-green-950/50 rounded-xl border border-green-800">
-                    <p className="text-xs text-green-500 font-bold uppercase">Avg Noise</p>
+                    <p className="text-xs text-green-500 font-bold uppercase">{t('auto.auto_avg_noise_2307')}</p>
                     <p className="text-lg font-black text-white">{routeData.metrics.avgNoise}</p>
                   </div>
                   <div className="text-center p-3 bg-green-950/50 rounded-xl border border-green-800">
-                    <p className="text-xs text-green-500 font-bold uppercase">Shade</p>
+                    <p className="text-xs text-green-500 font-bold uppercase">{t('auto.auto_shade_2306')}</p>
                     <p className="text-lg font-black text-white">{routeData.metrics.shadeCoverage}</p>
                   </div>
                 </div>

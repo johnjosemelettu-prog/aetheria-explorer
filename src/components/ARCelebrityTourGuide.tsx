@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mic2, Star } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARCelebrityTourGuide() {
+    const { t } = useTranslation();
   const [speaking, setSpeaking] = useState(true);
 
   return (
     <XRLayout 
       mode="AR"
-      title="Celebrity Hologram Guide" 
-      description="Walk the streets with a hyper-realistic AI hologram of a famous historical or modern celebrity."
+      title={t('auto.auto_celebrity_hologram_g_413')} 
+      description={t('auto.auto_walk_the_streets_wit_412')}
       overlayIcon={<Star className="w-8 h-8 text-yellow-400" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -36,8 +38,8 @@ export default function ARCelebrityTourGuide() {
           </div>
           
           <div className="absolute -bottom-16 bg-black/80 border border-cyan-500/50 p-3 rounded text-cyan-300 font-mono text-xs text-center max-w-[250px] shadow-[0_0_15px_rgba(34,211,238,0.2)]">
-            "And just over there, you can see the café where I used to write my first drafts. Inspiring, isn't it?"
-          </div>
+            {t('auto.auto__and_just_over_there_411')}
+                                </div>
         </motion.div>
       </div>
 
@@ -47,8 +49,8 @@ export default function ARCelebrityTourGuide() {
              <Mic2 className="text-yellow-500 w-6 h-6" />
            </div>
            <div>
-             <h4 className="text-yellow-500 font-bold font-display">ANTHONY BOURDAIN AI</h4>
-             <p className="text-white/60 text-xs font-mono">Culinary Expedition Mode</p>
+             <h4 className="text-yellow-500 font-bold font-display">{t('auto.auto_anthony_bourdain_ai_410')}</h4>
+             <p className="text-white/60 text-xs font-mono">{t('auto.auto_culinary_expedition__409')}</p>
            </div>
         </div>
       </div>

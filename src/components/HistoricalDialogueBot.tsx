@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Scroll, Send, Sword } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function HistoricalDialogueBot() {
+    const { t } = useTranslation();
   const [messages, setMessages] = useState([
     { role: 'historical', text: "I am Oda Nobunaga. You stand before the ruins of my castle. What seeks a traveler from the future in these lands?" }
   ]);
@@ -26,8 +28,8 @@ export default function HistoricalDialogueBot() {
         <div className="w-20 h-20 bg-amber-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-amber-700/50">
           <Scroll className="w-10 h-10 text-amber-600" />
         </div>
-        <h1 className="text-4xl font-bold text-amber-100">Echoes of History</h1>
-        <p className="text-amber-600/80 mt-2 italic">Converse with the simulated minds of the past.</p>
+        <h1 className="text-4xl font-bold text-amber-100">{t('auto.auto_echoes_of_history_1492')}</h1>
+        <p className="text-amber-600/80 mt-2 italic">{t('auto.auto_converse_with_the_si_1491')}</p>
       </div>
 
       <div className="flex-grow bg-[#1a1511] rounded-t-3xl border-x border-t border-amber-900/50 flex flex-col overflow-hidden relative">
@@ -44,7 +46,7 @@ export default function HistoricalDialogueBot() {
                 {msg.role === 'historical' ? <Sword className="w-6 h-6 text-red-500" /> : <div className="w-4 h-4 bg-amber-600 rounded-full" />}
               </div>
               <div className={`p-4 rounded-xl relative ${msg.role === 'user' ? 'bg-amber-900/20 text-amber-100' : 'bg-red-950/40 text-amber-50 border border-red-900/30'}`}>
-                {msg.role === 'historical' && <span className="absolute -top-3 left-4 text-xs font-bold text-red-500 bg-[#1a1511] px-2">Oda Nobunaga</span>}
+                {msg.role === 'historical' && <span className="absolute -top-3 left-4 text-xs font-bold text-red-500 bg-[#1a1511] px-2">{t('auto.auto_oda_nobunaga_1490')}</span>}
                 <p className="text-lg leading-relaxed pt-1">{msg.text}</p>
               </div>
             </motion.div>
@@ -57,7 +59,7 @@ export default function HistoricalDialogueBot() {
               type="text" 
               value={input}
               onChange={e => setInput(e.target.value)}
-              placeholder="Speak to history..." 
+              placeholder={t('auto.auto_speak_to_history____1489')} 
               className="w-full bg-[#2a221c] border border-amber-900/50 rounded-lg py-4 pl-4 pr-16 focus:outline-none focus:border-amber-600 text-amber-100 placeholder-amber-700/50"
             />
             <button 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UtensilsCrossed, Star, X, Heart, Sparkles } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const MOCK_DISHES = [
   { id: 1, name: 'Spicy Tonkotsu Ramen', desc: 'Rich pork broth, spicy garlic oil, soft boiled egg.', match: 98, img: 'https://images.unsplash.com/photo-1557872943-16a5ac26437e?auto=format&fit=crop&w=800&q=80' },
@@ -9,6 +10,7 @@ const MOCK_DISHES = [
 ];
 
 export default function FlavorSeeker() {
+    const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleSwipe = (direction: 'left' | 'right') => {
@@ -23,8 +25,8 @@ export default function FlavorSeeker() {
     <div className="max-w-4xl mx-auto px-4 py-20 min-h-screen flex flex-col">
       <div className="text-center mb-10">
         <UtensilsCrossed className="w-12 h-12 text-orange-400 mx-auto mb-4" />
-        <h1 className="text-4xl font-display font-bold mb-2">Flavor Seeker</h1>
-        <p className="text-foreground/60">AI predicts your cravings based on past ratings.</p>
+        <h1 className="text-4xl font-display font-bold mb-2">{t('auto.auto_flavor_seeker_1293')}</h1>
+        <p className="text-foreground/60">{t('auto.auto_ai_predicts_your_cra_1292')}</p>
       </div>
 
       <div className="flex-grow flex items-center justify-center">
@@ -40,7 +42,7 @@ export default function FlavorSeeker() {
             >
               <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-1 z-10">
                 <Sparkles className="w-3 h-3 text-orange-400" />
-                <span className="text-sm font-bold text-orange-400">{currentDish.match}% Match</span>
+                <span className="text-sm font-bold text-orange-400">{currentDish.match}{t('auto.auto___match_1291')}</span>
               </div>
               
               <div className="aspect-[4/5] relative">
@@ -71,9 +73,9 @@ export default function FlavorSeeker() {
           ) : (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
                <Star className="w-16 h-16 text-orange-400 mx-auto mb-6" />
-               <h2 className="text-2xl font-bold mb-2">You're all caught up!</h2>
-               <p className="text-foreground/50">We're calculating new flavor profiles based on your swipes.</p>
-               <button onClick={() => setCurrentIndex(0)} className="mt-8 px-6 py-3 bg-white/5 border border-white/10 rounded-xl">Refresh Feed</button>
+               <h2 className="text-2xl font-bold mb-2">{t('auto.auto_you_re_all_caught_up_1290')}</h2>
+               <p className="text-foreground/50">{t('auto.auto_we_re_calculating_ne_1289')}</p>
+               <button onClick={() => setCurrentIndex(0)} className="mt-8 px-6 py-3 bg-white/5 border border-white/10 rounded-xl">{t('auto.auto_refresh_feed_1288')}</button>
             </motion.div>
           )}
         </AnimatePresence>

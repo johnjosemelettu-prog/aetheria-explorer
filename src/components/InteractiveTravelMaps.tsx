@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Map as MapIcon, Compass } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function InteractiveTravelMaps() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Holo-Map Deck" 
-      description="Summon a 3D topographic map of the city directly on your coffee table."
+      title={t('auto.auto_holo_map_deck_1535')} 
+      description={t('auto.auto_summon_a_3d_topograp_1534')}
       overlayIcon={<MapIcon className="w-8 h-8 text-sky-400" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none perspective-[800px]">
@@ -33,18 +35,18 @@ export default function InteractiveTravelMaps() {
       <div className="absolute top-32 left-8 bg-black/80 p-4 border border-sky-500/30 rounded-xl pointer-events-auto">
          <div className="flex items-center gap-3 text-sky-400 mb-4">
             <Compass className="w-8 h-8 animate-spin-slow" />
-            <h4 className="font-display font-bold">KYOTO DISTRICT</h4>
+            <h4 className="font-display font-bold">{t('auto.auto_kyoto_district_1533')}</h4>
          </div>
          <div className="flex flex-col gap-2 font-mono text-xs text-white">
            <label className="flex items-center gap-2 cursor-pointer hover:text-sky-300">
-             <input type="checkbox" defaultChecked className="accent-sky-500" /> Terrain
-           </label>
+             <input type="checkbox" defaultChecked className="accent-sky-500" /> {t('auto.auto_terrain_1532')}
+                                 </label>
            <label className="flex items-center gap-2 cursor-pointer hover:text-sky-300">
-             <input type="checkbox" defaultChecked className="accent-sky-500" /> Transit Lines
-           </label>
+             <input type="checkbox" defaultChecked className="accent-sky-500" /> {t('auto.auto_transit_lines_1531')}
+                                 </label>
            <label className="flex items-center gap-2 cursor-pointer hover:text-sky-300">
-             <input type="checkbox" className="accent-sky-500" /> Heatmap (Crowds)
-           </label>
+             <input type="checkbox" className="accent-sky-500" /> {t('auto.auto_heatmap__crowds__1530')}
+                                 </label>
          </div>
       </div>
     </XRLayout>

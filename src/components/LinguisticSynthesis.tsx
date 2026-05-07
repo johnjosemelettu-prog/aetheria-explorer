@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Languages, Sparkles, Send, Loader2, X, Globe, Wand2 } from 'lucide-react';
 import { translateText } from '@/services/gemini';
 import { cn } from '@/lib/utils';
+import { useTranslation } from "react-i18next";
 
 export default function LinguisticSynthesis() {
+    const { t } = useTranslation();
   const [text, setText] = useState('');
   const [targetLanguage, setTargetLanguage] = useState('Japanese');
   const [isTranslating, setIsTranslating] = useState(false);
@@ -37,8 +39,8 @@ export default function LinguisticSynthesis() {
             <Globe className="text-primary w-6 h-6" />
           </div>
           <div>
-            <h2 className="text-2xl font-display font-bold">Linguistic Synthesis</h2>
-            <p className="text-sm text-foreground/50">Real-time AI translation for global explorers.</p>
+            <h2 className="text-2xl font-display font-bold">{t('auto.auto_linguistic_synthesis_1646')}</h2>
+            <p className="text-sm text-foreground/50">{t('auto.auto_real_time_ai_transla_1645')}</p>
           </div>
         </div>
 
@@ -48,7 +50,7 @@ export default function LinguisticSynthesis() {
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Enter text to translate..."
+                placeholder={t('auto.auto_enter_text_to_transl_1644')}
                 className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-sm min-h-[120px] focus:outline-none focus:border-primary/50 transition-colors resize-none"
               />
             </div>
@@ -60,8 +62,8 @@ export default function LinguisticSynthesis() {
                 {isTranslating ? (
                   <div className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Synthesizing translation...
-                  </div>
+                    {t('auto.auto_synthesizing_transla_1643')}
+                                                        </div>
                 ) : result || "Translation result will appear here..."}
               </div>
             </div>
@@ -83,8 +85,8 @@ export default function LinguisticSynthesis() {
               className="w-full sm:flex-1 py-3 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
             >
               <Sparkles className="w-4 h-4" />
-              Synthesize Translation
-            </button>
+              {t('auto.auto_synthesize_translati_1642')}
+                                      </button>
           </div>
         </div>
       </div>

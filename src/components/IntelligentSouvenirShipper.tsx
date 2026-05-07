@@ -5,8 +5,10 @@ import * as AI from '../services/gemini';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { useTranslation } from "react-i18next";
 
 const IntelligentSouvenirShipper = () => {
+    const { t } = useTranslation();
   const [items, setItems] = useState([{ name: '', weight: '' }]);
   const [address, setAddress] = useState('');
   const [shippingInfo, setShippingInfo] = useState<any>(null);
@@ -43,31 +45,31 @@ const IntelligentSouvenirShipper = () => {
 
   return (
     <div className="p-8 bg-gray-900 min-h-screen text-white flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">Intelligent Souvenir Shipper</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center text-primary">{t('auto.auto_intelligent_souvenir_1522')}</h1>
       <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-lg">
-        <h2 className="text-2xl font-semibold mb-4">Items to Ship</h2>
+        <h2 className="text-2xl font-semibold mb-4">{t('auto.auto_items_to_ship_1521')}</h2>
         {items.map((item, index) => (
           <div key={index} className="flex gap-4 mb-4">
             <Input
               value={item.name}
               onChange={(e) => handleItemChange(index, 'name', e.target.value)}
-              placeholder="Item Name"
+              placeholder={t('auto.auto_item_name_1520')}
             />
             <Input
               type="number"
               value={item.weight}
               onChange={(e) => handleItemChange(index, 'weight', e.target.value)}
-              placeholder="Weight (kg)"
+              placeholder={t('auto.auto_weight__kg__1519')}
             />
           </div>
         ))}
-        <Button onClick={addItem} variant="outline" className="mb-6">+ Add Item</Button>
+        <Button onClick={addItem} variant="outline" className="mb-6">{t('auto.auto___add_item_1518')}</Button>
 
-        <h2 className="text-2xl font-semibold mb-4">Shipping Address</h2>
+        <h2 className="text-2xl font-semibold mb-4">{t('auto.auto_shipping_address_1517')}</h2>
         <Textarea 
           value={address} 
           onChange={(e) => setAddress(e.target.value)} 
-          placeholder="Enter full shipping address" 
+          placeholder={t('auto.auto_enter_full_shipping__1516')} 
           className="mb-6"
         />
 
@@ -83,14 +85,14 @@ const IntelligentSouvenirShipper = () => {
             animate={{ opacity: 1 }}
             className="mt-6"
           >
-            <h2 className="text-2xl font-semibold mb-4">Shipping Details</h2>
-            <p><strong>Tracking Number:</strong> {shippingInfo.trackingNumber}</p>
-            <p><strong>Estimated Delivery:</strong> {shippingInfo.estimatedDelivery}</p>
-            <p><strong>Cost:</strong> ${shippingInfo.cost}</p>
+            <h2 className="text-2xl font-semibold mb-4">{t('auto.auto_shipping_details_1515')}</h2>
+            <p><strong>{t('auto.auto_tracking_number__1514')}</strong> {shippingInfo.trackingNumber}</p>
+            <p><strong>{t('auto.auto_estimated_delivery__1513')}</strong> {shippingInfo.estimatedDelivery}</p>
+            <p><strong>{t('auto.auto_cost__1512')}</strong> ${shippingInfo.cost}</p>
             <a href={shippingInfo.shippingLabelUrl} target="_blank" rel="noreferrer" className="text-primary underline mt-2 inline-block">
-              View Shipping Label
-            </a>
-            <h3 className="font-bold mt-4">Customs Form:</h3>
+              {t('auto.auto_view_shipping_label_1511')}
+                                      </a>
+            <h3 className="font-bold mt-4">{t('auto.auto_customs_form__1510')}</h3>
             <pre className="text-xs bg-gray-700 p-2 rounded-md whitespace-pre-wrap">
               {JSON.stringify(shippingInfo.customsForm, null, 2)}
             </pre>

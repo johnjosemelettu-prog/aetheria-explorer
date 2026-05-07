@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { injectSerendipity } from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const SerendipityEngine: React.FC = () => {
+    const { t } = useTranslation();
     const [serendipity, setSerendipity] = useState<any>(null);
     const [loading, setLoading] = useState(false);
 
@@ -20,8 +22,8 @@ const SerendipityEngine: React.FC = () => {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Serendipity Engine</CardTitle>
-                <CardDescription>Inject a little spontaneous magic into your trip.</CardDescription>
+                <CardTitle>{t('auto.auto_serendipity_engine_2321')}</CardTitle>
+                <CardDescription>{t('auto.auto_inject_a_little_spon_2320')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
                 <Button onClick={handleInjectSerendipity} disabled={loading}>
@@ -30,7 +32,7 @@ const SerendipityEngine: React.FC = () => {
 
                 {serendipity && (
                     <div className="p-4 bg-gray-100 rounded-lg">
-                        <h3 className="font-bold">Spontaneous Event!</h3>
+                        <h3 className="font-bold">{t('auto.auto_spontaneous_event__2319')}</h3>
                         <p><strong>{serendipity.title}</strong></p>
                         <p>{serendipity.description}</p>
                     </div>

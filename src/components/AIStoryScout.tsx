@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Route, PlayCircle, Library } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function AIStoryScout() {
+    const { t } = useTranslation();
   const ARCS = [
     { title: 'The Ramen Quest', type: 'Culinary Journey', progress: 85, episodes: 4, active: true },
     { title: 'Lost in Shibuya', type: 'Urban Exploration', progress: 100, episodes: 1, active: false },
@@ -15,20 +17,20 @@ export default function AIStoryScout() {
         <div>
           <h1 className="text-5xl font-display font-bold mb-4 flex items-center gap-4">
             <Sparkles className="w-10 h-10 text-amber-400" />
-            Story Scout
-          </h1>
+            {t('auto.auto_story_scout_286')}
+                                </h1>
           <p className="text-foreground/60 text-lg max-w-xl">
-            AI is watching your journey and identifying potential narrative arcs. Live out the story.
-          </p>
+            {t('auto.auto_ai_is_watching_your__285')}
+                                </p>
         </div>
         <button className="px-6 py-3 bg-amber-500 text-black font-bold rounded-xl flex items-center gap-2 hover:bg-amber-400 transition-colors">
-          <PlayCircle className="w-5 h-5" /> Generate Movie Trailer
-        </button>
+          <PlayCircle className="w-5 h-5" /> {t('auto.auto_generate_movie_trail_284')}
+                          </button>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-6">
-          <h2 className="text-2xl font-bold flex items-center gap-2"><Route className="text-amber-400" /> Active Narratives</h2>
+          <h2 className="text-2xl font-bold flex items-center gap-2"><Route className="text-amber-400" /> {t('auto.auto_active_narratives_283')}</h2>
           
           {ARCS.map((arc, i) => (
             <motion.div 
@@ -42,12 +44,12 @@ export default function AIStoryScout() {
                   <p className="text-xs font-mono text-amber-400 uppercase tracking-widest">{arc.type}</p>
                 </div>
                 <div className="bg-white/10 px-3 py-1 rounded-full text-xs font-bold">
-                  {arc.episodes} Events Logged
-                </div>
+                  {arc.episodes} {t('auto.auto_events_logged_282')}
+                                          </div>
               </div>
               
               <div className="mb-2 flex justify-between text-sm">
-                <span className="text-foreground/60">Story Completion</span>
+                <span className="text-foreground/60">{t('auto.auto_story_completion_281')}</span>
                 <span className="font-bold">{arc.progress}%</span>
               </div>
               <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
@@ -57,8 +59,8 @@ export default function AIStoryScout() {
               {arc.active && (
                 <div className="mt-6 pt-4 border-t border-white/10">
                   <p className="text-sm italic text-foreground/70">
-                    "AI Suggestion: To complete the Ramen Quest arc, you need to find one more tonkotsu shop south of the river."
-                  </p>
+                    {t('auto.auto__ai_suggestion__to_c_280')}
+                                                </p>
                 </div>
               )}
             </motion.div>
@@ -66,19 +68,19 @@ export default function AIStoryScout() {
         </div>
 
         <div className="space-y-6">
-          <h2 className="text-2xl font-bold flex items-center gap-2"><Library className="text-foreground/50" /> Plot Hooks</h2>
+          <h2 className="text-2xl font-bold flex items-center gap-2"><Library className="text-foreground/50" /> {t('auto.auto_plot_hooks_279')}</h2>
           <div className="glass p-6 rounded-3xl border border-white/10 bg-black/40">
             <p className="text-sm text-foreground/60 mb-4">
-              AI has detected nearby elements that could start a new narrative arc for you.
-            </p>
+              {t('auto.auto_ai_has_detected_near_278')}
+                                      </p>
             <div className="space-y-4">
               <div className="p-4 border border-dashed border-white/20 rounded-xl hover:bg-white/5 cursor-pointer transition-colors">
-                <h4 className="font-bold text-emerald-400 mb-1">The Antique Map</h4>
-                <p className="text-xs text-foreground/60">Visit the flea market to kick off a scavenger hunt story.</p>
+                <h4 className="font-bold text-emerald-400 mb-1">{t('auto.auto_the_antique_map_277')}</h4>
+                <p className="text-xs text-foreground/60">{t('auto.auto_visit_the_flea_marke_276')}</p>
               </div>
               <div className="p-4 border border-dashed border-white/20 rounded-xl hover:bg-white/5 cursor-pointer transition-colors">
-                <h4 className="font-bold text-blue-400 mb-1">Neon Photography</h4>
-                <p className="text-xs text-foreground/60">Wait until dusk and head to the arcade district to start this arc.</p>
+                <h4 className="font-bold text-blue-400 mb-1">{t('auto.auto_neon_photography_275')}</h4>
+                <p className="text-xs text-foreground/60">{t('auto.auto_wait_until_dusk_and__274')}</p>
               </div>
             </div>
           </div>

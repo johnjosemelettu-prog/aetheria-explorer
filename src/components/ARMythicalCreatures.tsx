@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Trophy } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARMythicalCreatures() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Mythic Hunter" 
-      description="Track and photograph legendary creatures of local folklore in their native habitats (AR)."
+      title={t('auto.auto_mythic_hunter_519')} 
+      description={t('auto.auto_track_and_photograph_518')}
       overlayIcon={<Target className="w-8 h-8 text-violet-400" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
@@ -40,19 +42,19 @@ export default function ARMythicalCreatures() {
             <div className="w-16 h-1 border-b border-violet-400 absolute bottom-0" />
             <div className="h-16 w-1 border-l border-violet-400 absolute left-0" />
             <div className="h-16 w-1 border-r border-violet-400 absolute right-0" />
-            <div className="text-violet-500/50 font-mono tracking-widest text-[10px]">FOCUSING OPTICS</div>
+            <div className="text-violet-500/50 font-mono tracking-widest text-[10px]">{t('auto.auto_focusing_optics_517')}</div>
         </div>
       </div>
 
       <div className="absolute bottom-16 right-8 pointer-events-auto">
         <button className="bg-violet-600 hover:bg-violet-500 border border-white/20 text-white rounded-full p-6 shadow-[0_0_20px_rgba(139,92,246,0.5)] transition flex items-center gap-3">
-          <Trophy className="w-6 h-6" /> <span className="font-bold">CAPTURE</span>
+          <Trophy className="w-6 h-6" /> <span className="font-bold">{t('auto.auto_capture_516')}</span>
         </button>
       </div>
       
       <div className="absolute top-32 left-8 bg-black/60 p-4 border border-violet-500/30 rounded-lg max-w-[200px] pointer-events-auto">
-        <div className="text-violet-300 font-bold text-sm mb-2">TARGET: THE KAPPA</div>
-        <p className="text-white/60 text-xs font-mono">River demon from Japanese folklore. Approaches the water's edge.</p>
+        <div className="text-violet-300 font-bold text-sm mb-2">{t('auto.auto_target__the_kappa_515')}</div>
+        <p className="text-white/60 text-xs font-mono">{t('auto.auto_river_demon_from_jap_514')}</p>
       </div>
     </XRLayout>
   );

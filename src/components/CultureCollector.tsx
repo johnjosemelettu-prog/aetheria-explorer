@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Library, Quote, Utensils, Music, Unlock, Lock } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const COLLECTION = [
   { id: 1, type: 'idiom', title: 'Mono no aware', desc: 'The pathos of things, a gentle sadness at their transience.', icon: Quote, unlocked: true },
@@ -10,6 +11,7 @@ const COLLECTION = [
 ];
 
 export default function CultureCollector() {
+    const { t } = useTranslation();
   const [filter, setFilter] = useState('all');
 
   return (
@@ -18,14 +20,14 @@ export default function CultureCollector() {
         <div>
           <h1 className="text-5xl font-display font-bold mb-4 flex items-center gap-4">
             <Library className="w-10 h-10 text-rose-400" />
-            Culture Collector
-          </h1>
+            {t('auto.auto_culture_collector_898')}
+                                </h1>
           <p className="text-foreground/60 text-lg max-w-xl">
-            Gather idioms, secret recipes, and local traditions by engaging with the people and places around you.
-          </p>
+            {t('auto.auto_gather_idioms__secre_897')}
+                                </p>
         </div>
         <div className="glass px-6 py-4 rounded-2xl">
-          <div className="text-xs font-bold text-foreground/50 uppercase tracking-wider mb-1">Collection Progress</div>
+          <div className="text-xs font-bold text-foreground/50 uppercase tracking-wider mb-1">{t('auto.auto_collection_progress_896')}</div>
           <div className="flex items-end gap-2">
             <span className="text-3xl font-bold text-rose-400">3</span>
             <span className="text-xl text-foreground/40">/ 50</span>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const AITravelVocabularyBuilder = () => {
+    const { t } = useTranslation();
   const [vocabulary, setVocabulary] = useState([]);
   const [topic, setTopic] = useState('');
 
@@ -17,18 +19,18 @@ const AITravelVocabularyBuilder = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">AI-Powered "Travel Vocabulary" Builder</h1>
+      <h1 className="text-2xl font-bold mb-4">{t('auto.auto_ai_powered__travel_v_309')}</h1>
       <div className="flex mb-4">
         <input
           type="text"
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
-          placeholder="Enter a travel topic (e.g., food, adventure)"
+          placeholder={t('auto.auto_enter_a_travel_topic_308')}
           className="border rounded-l-lg p-2 w-full"
         />
         <button onClick={handleGenerate} className="bg-blue-500 text-white p-2 rounded-r-lg">
-          Generate
-        </button>
+          {t('auto.auto_generate_307')}
+                          </button>
       </div>
       <div>
         {vocabulary.map((item, index) => (

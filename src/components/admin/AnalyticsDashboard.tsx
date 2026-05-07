@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { Users, Activity, DollarSign, ArrowUp } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const engagementData = [
     { name: 'Jan', engagement: 65 },
@@ -44,47 +45,48 @@ const featureAdoptionData = [
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const AnalyticsDashboard: React.FC = () => {
+    const { t } = useTranslation();
     return (
         <div className="space-y-6">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Total Users</CardTitle>
+                        <CardTitle className="text-sm font-medium">{t('auto.auto_total_users_3062')}</CardTitle>
                         <Users className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">+1,250</div>
-                        <p className="text-xs text-muted-foreground">+15.2% from last month</p>
+                        <p className="text-xs text-muted-foreground">{t('auto.auto__15_2__from_last_mon_3061')}</p>
                     </CardContent>
                 </Card>
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Monthly Active Users</CardTitle>
+                        <CardTitle className="text-sm font-medium">{t('auto.auto_monthly_active_users_3060')}</CardTitle>
                         <Activity className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">+860</div>
-                        <p className="text-xs text-muted-foreground">+8.9% from last month</p>
+                        <p className="text-xs text-muted-foreground">{t('auto.auto__8_9__from_last_mont_3059')}</p>
                     </CardContent>
                 </Card>
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+                        <CardTitle className="text-sm font-medium">{t('auto.auto_total_revenue_3058')}</CardTitle>
                         <DollarSign className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">$12,345</div>
-                        <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+                        <p className="text-xs text-muted-foreground">{t('auto.auto__20_1__from_last_mon_3057')}</p>
                     </CardContent>
                 </Card>
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">New Subscriptions</CardTitle>
+                        <CardTitle className="text-sm font-medium">{t('auto.auto_new_subscriptions_3056')}</CardTitle>
                         <ArrowUp className="h-4 w-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                         <div className="text-2xl font-bold">+50</div>
-                        <p className="text-xs text-muted-foreground">+30 since last hour</p>
+                        <p className="text-xs text-muted-foreground">{t('auto.auto__30_since_last_hour_3055')}</p>
                     </CardContent>
                 </Card>
             </div>
@@ -92,7 +94,7 @@ const AnalyticsDashboard: React.FC = () => {
             <div className="grid gap-6 md:grid-cols-2">
                 <Card>
                     <CardHeader>
-                        <CardTitle>User Engagement</CardTitle>
+                        <CardTitle>{t('auto.auto_user_engagement_3054')}</CardTitle>
                     </CardHeader>
                     <CardContent className="h-[250px]">
                         <ResponsiveContainer width="100%" height="100%">
@@ -107,7 +109,7 @@ const AnalyticsDashboard: React.FC = () => {
                 </Card>
                 <Card>
                     <CardHeader>
-                        <CardTitle>Revenue</CardTitle>
+                        <CardTitle>{t('auto.auto_revenue_3053')}</CardTitle>
                     </CardHeader>
                     <CardContent className="h-[250px]">
                         <ResponsiveContainer width="100%" height="100%">
@@ -125,7 +127,7 @@ const AnalyticsDashboard: React.FC = () => {
             <div className="grid gap-6 md:grid-cols-2">
                  <Card>
                     <CardHeader>
-                        <CardTitle>Feature Adoption</CardTitle>
+                        <CardTitle>{t('auto.auto_feature_adoption_3052')}</CardTitle>
                     </CardHeader>
                     <CardContent className="h-[250px]">
                         <ResponsiveContainer width="100%" height="100%">
@@ -140,7 +142,7 @@ const AnalyticsDashboard: React.FC = () => {
                 </Card>
                 <Card>
                     <CardHeader>
-                        <CardTitle>User Growth</CardTitle>
+                        <CardTitle>{t('auto.auto_user_growth_3051')}</CardTitle>
                     </CardHeader>
                     <CardContent className="h-[250px]">
                         <ResponsiveContainer width="100%" height="100%">

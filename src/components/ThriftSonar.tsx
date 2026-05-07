@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Camera, Sparkles, MapPin, Search, Loader2 } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const ThriftSonar = () => {
+    const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<any>(null);
 
@@ -28,10 +30,10 @@ const ThriftSonar = () => {
           <div className="inline-flex justify-center items-center p-5 bg-fuchsia-900 border border-fuchsia-600 rounded-full shadow-[0_0_30px_rgba(192,38,211,0.3)] mb-6">
             <Sparkles className="w-10 h-10 text-fuchsia-300" />
           </div>
-          <h1 className="text-4xl font-extrabold mb-4 uppercase tracking-wider text-fuchsia-100 drop-shadow-md">Aesthetic Synthesizer</h1>
+          <h1 className="text-4xl font-extrabold mb-4 uppercase tracking-wider text-fuchsia-100 drop-shadow-md">{t('auto.auto_aesthetic_synthesize_2629')}</h1>
           <p className="text-fuchsia-300 text-lg max-w-2xl mx-auto">
-            Scan your current fit. The Vision AI perfectly categorizes your aesthetic core and maps a hidden sonar route to underground vintage curbs and unmapped pop-up thrift spots tailored for your vibe.
-          </p>
+            {t('auto.auto_scan_your_current_fi_2628')}
+                                </p>
         </div>
 
         {!data ? (
@@ -51,17 +53,17 @@ const ThriftSonar = () => {
               
               <div className="bg-fuchsia-900/40 p-8 rounded-3xl border border-fuchsia-700/50 flex flex-col md:flex-row items-center justify-between shadow-xl gap-6">
                 <div>
-                  <p className="text-sm font-bold uppercase tracking-widest text-fuchsia-400 mb-2">Detected Core Aesthetic</p>
+                  <p className="text-sm font-bold uppercase tracking-widest text-fuchsia-400 mb-2">{t('auto.auto_detected_core_aesthe_2627')}</p>
                   <h2 className="text-5xl font-black text-white">{data.aesthetic}</h2>
                   <p className="text-fuchsia-200 mt-4 font-mono text-sm border-l-2 border-fuchsia-500 pl-4">{data.analysis}</p>
                 </div>
                 <Button className="shrink-0 bg-white text-fuchsia-950 font-bold hover:bg-fuchsia-100 py-6 px-6 rounded-2xl">
-                  <Search className="w-5 h-5 mr-2" /> Share Fit
-                </Button>
+                  <Search className="w-5 h-5 mr-2" /> {t('auto.auto_share_fit_2626')}
+                                                      </Button>
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-sm font-bold uppercase tracking-widest text-fuchsia-500 mb-4 pl-2 border-l-4 border-fuchsia-600">Sonar Results: Hyper-Local Thrift Curators</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-fuchsia-500 mb-4 pl-2 border-l-4 border-fuchsia-600">{t('auto.auto_sonar_results__hyper_2625')}</h3>
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   {data.thriftSpots.map((spot: any, i: number) => (
@@ -75,16 +77,16 @@ const ThriftSonar = () => {
                               <p className="text-xs font-mono text-fuchsia-400 mt-1">{spot.status}</p>
                             </div>
                             <div className="text-center bg-fuchsia-900/50 border border-fuchsia-700/50 px-3 py-1 rounded-xl">
-                              <p className="text-[10px] uppercase font-bold text-fuchsia-400">Match</p>
+                              <p className="text-[10px] uppercase font-bold text-fuchsia-400">{t('auto.auto_match_2624')}</p>
                               <p className="text-lg font-black text-white">{spot.matches}%</p>
                             </div>
                           </div>
                           <p className="text-fuchsia-300 text-sm italic mb-6">"{spot.vibe}"</p>
                           <div className="flex items-center justify-between">
                             <span className="flex items-center text-xs font-bold uppercase text-fuchsia-500">
-                              <MapPin className="w-4 h-4 mr-1" /> {spot.distance} away
-                            </span>
-                            <Button variant="outline" size="sm" className="border-fuchsia-700 text-fuchsia-300 hover:bg-fuchsia-900 hover:text-white">Route</Button>
+                              <MapPin className="w-4 h-4 mr-1" /> {spot.distance} {t('auto.auto_away_2623')}
+                                                                      </span>
+                            <Button variant="outline" size="sm" className="border-fuchsia-700 text-fuchsia-300 hover:bg-fuchsia-900 hover:text-white">{t('auto.auto_route_2622')}</Button>
                           </div>
                         </CardContent>
                       </Card>

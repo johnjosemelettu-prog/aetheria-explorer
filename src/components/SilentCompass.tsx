@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { PowerOff, ShieldCheck, Loader2 } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const SilentCompass = () => {
+    const { t } = useTranslation();
   const [active, setActive] = useState(false);
   const [loading, setLoading] = useState(false);
   const [session, setSession] = useState<any>(null);
@@ -34,17 +36,17 @@ const SilentCompass = () => {
             <div className="inline-flex p-5 bg-zinc-900 border border-zinc-800 shadow-2xl rounded-full mb-8">
               <PowerOff className="w-12 h-12 text-zinc-400" />
             </div>
-            <h1 className="text-5xl font-black text-white mb-6 tracking-tight">Silent Compass</h1>
+            <h1 className="text-5xl font-black text-white mb-6 tracking-tight">{t('auto.auto_silent_compass_2362')}</h1>
             <p className="text-zinc-400 text-lg mb-10 leading-relaxed font-light">
-              Initiate a Digital Detox. Aetheria will lock down all non-essential UI, block notifications, and provide only a minimalist directional needle. Drift towards serene, scenic environments without maps, ETAs, or distractions.
-            </p>
+              {t('auto.auto_initiate_a_digital_d_2361')}
+                                      </p>
             
             <div className="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 mb-10 text-left">
-              <h3 className="text-zinc-100 font-bold mb-4 flex items-center text-sm uppercase tracking-widest"><ShieldCheck className="w-4 h-4 mr-2 text-indigo-400" /> Detox Parameters</h3>
+              <h3 className="text-zinc-100 font-bold mb-4 flex items-center text-sm uppercase tracking-widest"><ShieldCheck className="w-4 h-4 mr-2 text-indigo-400" /> {t('auto.auto_detox_parameters_2360')}</h3>
               <ul className="space-y-3 text-sm text-zinc-500">
-                <li>• Estimated Duration: <strong className="text-zinc-300">4 Hours</strong></li>
-                <li>• Objective: <strong className="text-zinc-300">Serendipitous Drift</strong></li>
-                <li>• Block Level: <strong className="text-zinc-300">Maximum (Emergency Comms Only)</strong></li>
+                <li>{t('auto.auto___estimated_duration_2359')} <strong className="text-zinc-300">{t('auto.auto_4_hours_2358')}</strong></li>
+                <li>{t('auto.auto___objective__2357')} <strong className="text-zinc-300">{t('auto.auto_serendipitous_drift_2356')}</strong></li>
+                <li>{t('auto.auto___block_level__2355')} <strong className="text-zinc-300">{t('auto.auto_maximum__emergency_c_2354')}</strong></li>
               </ul>
             </div>
 
@@ -59,8 +61,8 @@ const SilentCompass = () => {
         ) : (
           <motion.div initial={{ opacity: 0, scale: 1.1 }} animate={{ opacity: 1, scale: 1 }} className="absolute inset-0 bg-black flex flex-col items-center justify-center z-50">
             <div className="absolute top-12 text-center">
-              <p className="text-zinc-600 font-mono text-sm tracking-[0.3em] uppercase mb-2">Detox Protocol Active</p>
-              <p className="text-zinc-400 text-xs">Environment: {session.guidance.targetAesthetic}</p>
+              <p className="text-zinc-600 font-mono text-sm tracking-[0.3em] uppercase mb-2">{t('auto.auto_detox_protocol_activ_2353')}</p>
+              <p className="text-zinc-400 text-xs">{t('auto.auto_environment__2352')} {session.guidance.targetAesthetic}</p>
             </div>
 
             <div className="relative w-64 h-64 flex items-center justify-center">
@@ -82,8 +84,8 @@ const SilentCompass = () => {
 
             <div className="absolute bottom-12">
               <Button onClick={endDetox} variant="ghost" className="text-zinc-600 hover:text-white hover:bg-zinc-900 text-xs uppercase tracking-widest">
-                Force Reconnect
-              </Button>
+                {t('auto.auto_force_reconnect_2351')}
+                                                </Button>
             </div>
           </motion.div>
         )}

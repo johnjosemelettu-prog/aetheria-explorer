@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Palette, Play } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function PaintTheTownAR() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Street Art Live" 
-      description="Static street art is so last century. Watch murals animate, break the 4th wall, and tell their artist's story."
+      title={t('auto.auto_street_art_live_1961')} 
+      description={t('auto.auto_static_street_art_is_1960')}
       overlayIcon={<Palette className="w-8 h-8 text-pink-500" />}
     >
       {/* Animated Graffiti Effect */}
@@ -27,8 +29,8 @@ export default function PaintTheTownAR() {
             className="w-80 h-80 bg-black/40 backdrop-blur border border-pink-500/30 rounded-3xl p-6 relative"
           >
             <div className="absolute -top-4 -right-4 bg-pink-500 text-white p-2 text-xs font-bold font-mono rotate-12">
-              ANIMATING MURAL...
-            </div>
+              {t('auto.auto_animating_mural____1959')}
+                                      </div>
             
             <div className="w-full h-full border-2 border-dashed border-pink-500/50 rounded-xl flex items-center justify-center relative overflow-hidden">
                 <motion.div 
@@ -45,8 +47,8 @@ export default function PaintTheTownAR() {
 
       <div className="absolute bottom-40 right-8 pointer-events-auto flex flex-col gap-3">
         <button className="w-14 h-14 bg-pink-600 rounded-full flex justify-center items-center font-bold text-white shadow-[0_0_15px_rgba(236,72,153,0.5)]">
-          3D
-        </button>
+          {t('auto.auto_3d_1958')}
+                          </button>
         <button className="w-14 h-14 bg-sky-500 rounded-full flex justify-center items-center font-bold text-white shadow-[0_0_15px_rgba(56,189,248,0.5)]">
           <Palette className="w-6 h-6" />
         </button>

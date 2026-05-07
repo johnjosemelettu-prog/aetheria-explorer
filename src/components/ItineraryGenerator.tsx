@@ -16,6 +16,7 @@ import { db, auth } from '../lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { Itinerary } from '../types';
 import { cn } from '../lib/utils';
+import { useTranslation } from "react-i18next";
 
 interface ItineraryGeneratorProps {
   isOpen: boolean;
@@ -23,6 +24,7 @@ interface ItineraryGeneratorProps {
 }
 
 export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGeneratorProps) {
+    const { t } = useTranslation();
   const [destination, setDestination] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -98,7 +100,7 @@ export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGenerat
                   <div className="w-10 h-10 bg-primary/20 rounded-2xl flex items-center justify-center">
                     <Sparkles className="text-primary w-6 h-6" />
                   </div>
-                  <h2 className="text-2xl font-display font-bold">AI Travel Synthesis</h2>
+                  <h2 className="text-2xl font-display font-bold">{t('auto.auto_ai_travel_synthesis_1564')}</h2>
                 </div>
                 <button onClick={onClose} className="p-2 glass-hover rounded-xl">
                   <X className="w-6 h-6 text-foreground/50" />
@@ -108,14 +110,14 @@ export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGenerat
               {!result ? (
                 <div className="space-y-6">
                   <div>
-                    <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">Destination</label>
+                    <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">{t('auto.auto_destination_1563')}</label>
                     <div className="relative">
                       <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/30" />
                       <input
                         type="text"
                         value={destination}
                         onChange={(e) => setDestination(e.target.value)}
-                        placeholder="Where to?"
+                        placeholder={t('auto.auto_where_to__1562')}
                         className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-lg focus:outline-none focus:border-primary/50 transition-colors"
                       />
                     </div>
@@ -123,7 +125,7 @@ export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGenerat
 
                   <div className="grid grid-cols-2 gap-6">
                     <div>
-                      <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">Start Date</label>
+                      <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">{t('auto.auto_start_date_1561')}</label>
                       <div className="relative">
                         <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/30" />
                         <input
@@ -135,7 +137,7 @@ export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGenerat
                       </div>
                     </div>
                     <div>
-                      <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">End Date</label>
+                      <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">{t('auto.auto_end_date_1560')}</label>
                       <div className="relative">
                         <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/30" />
                         <input
@@ -149,7 +151,7 @@ export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGenerat
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">Vibe</label>
+                    <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">{t('auto.auto_vibe_1559')}</label>
                     <div className="grid grid-cols-4 gap-2">
                       {['Cyberpunk', 'Minimalist', 'Adventurous', 'Sophisticated'].map(v => (
                         <button
@@ -167,7 +169,7 @@ export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGenerat
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">Interests</label>
+                    <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">{t('auto.auto_interests_1558')}</label>
                     <div className="flex flex-wrap gap-2">
                       {interestOptions.slice(0, 4).map(option => (
                         <button
@@ -192,13 +194,13 @@ export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGenerat
                     {isGenerating ? (
                       <>
                         <Loader2 className="w-6 h-6 animate-spin" />
-                        Synthesizing Itinerary...
-                      </>
+                        {t('auto.auto_synthesizing_itinera_1557')}
+                                                                    </>
                     ) : (
                       <>
                         <Sparkles className="w-6 h-6" />
-                        Generate Journey
-                      </>
+                        {t('auto.auto_generate_journey_1556')}
+                                                                        </>
                     )}
                   </button>
                 </div>
@@ -213,8 +215,8 @@ export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGenerat
                       </span>
                       <span className="flex items-center gap-1.5 text-green-400 font-bold">
                         <Leaf className="w-4 h-4" />
-                        {result.carbonFootprint}kg CO2
-                      </span>
+                        {result.carbonFootprint}{t('auto.auto_kg_co2_1555')}
+                                                                        </span>
                     </div>
                   </div>
 
@@ -241,14 +243,14 @@ export default function ItineraryGenerator({ isOpen, onClose }: ItineraryGenerat
                       onClick={() => setResult(null)}
                       className="flex-1 py-4 glass glass-hover rounded-2xl font-bold"
                     >
-                      Regenerate
-                    </button>
+                      {t('auto.auto_regenerate_1554')}
+                                                                  </button>
                     <button
                       onClick={handleSave}
                       className="flex-1 py-4 bg-primary text-white rounded-2xl font-bold shadow-xl shadow-primary/20"
                     >
-                      Save Itinerary
-                    </button>
+                      {t('auto.auto_save_itinerary_1553')}
+                                                                  </button>
                   </div>
                 </div>
               )}

@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { History, FastForward, Rewind } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARTimeLapseView() {
+    const { t } = useTranslation();
   const [speed, setSpeed] = useState('1m');
 
   return (
     <XRLayout 
       mode="AR"
-      title="Geological Time-Lapse" 
-      description="Watch seasons change in seconds, or rewind centuries to see a building's construction from the ground up."
+      title={t('auto.auto_geological_time_laps_549')} 
+      description={t('auto.auto_watch_seasons_change_548')}
       overlayIcon={<History className="w-8 h-8 text-cyan-500" />}
     >
       {/* Time distortion effect */}
@@ -28,8 +30,8 @@ export default function ARTimeLapseView() {
           2 0 1 5
         </h1>
         <div className="text-cyan-400 font-mono tracking-[0.5em] bg-black/40 px-4 py-1 rounded">
-          SPRING EQUINOX
-        </div>
+          {t('auto.auto_spring_equinox_547')}
+                          </div>
       </div>
 
       {/* Control Deck */}

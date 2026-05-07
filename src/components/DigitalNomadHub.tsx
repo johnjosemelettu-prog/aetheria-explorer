@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import * as AI from '@/services/gemini';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useTranslation } from "react-i18next";
 
 const DigitalNomadHub = () => {
+    const { t } = useTranslation();
   const [locations, setLocations] = useState<any[]>([]);
   const [city, setCity] = useState('Lisbon');
   const [loading, setLoading] = useState(false);
@@ -31,13 +33,13 @@ const DigitalNomadHub = () => {
 
   return (
     <div className="p-8 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">Digital Nomad Hub</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center text-primary">{t('auto.auto_digital_nomad_hub_980')}</h1>
       <div className="max-w-2xl mx-auto">
         <div className="flex gap-4 mb-8">
           <Input 
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            placeholder="Enter a city"
+            placeholder={t('auto.auto_enter_a_city_979')}
           />
           <Button onClick={findHubs} disabled={loading}>
             {loading ? 'Searching...' : 'Find Hubs'}
@@ -58,9 +60,9 @@ const DigitalNomadHub = () => {
               <h2 className="text-xl font-bold text-primary">{loc.name}</h2>
               <p className="text-gray-400">{loc.address}</p>
               <div className="flex justify-between items-center mt-2">
-                <span>WiFi: {loc.wifi_speed}</span>
-                <span>Power: {loc.power_outlets}</span>
-                <span>Vibe: {loc.work_vibe}</span>
+                <span>{t('auto.auto_wifi__978')} {loc.wifi_speed}</span>
+                <span>{t('auto.auto_power__977')} {loc.power_outlets}</span>
+                <span>{t('auto.auto_vibe__976')} {loc.work_vibe}</span>
               </div>
             </motion.div>
           ))}

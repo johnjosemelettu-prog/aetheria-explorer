@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Aperture, Sparkles, Wand2, Download } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const FILTERS = [
   { id: 'normal', name: 'Original', class: '' },
@@ -11,14 +12,15 @@ const FILTERS = [
 ];
 
 export default function VibeBasedPhotoFilters() {
+    const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState(FILTERS[0]);
 
   return (
     <div className="min-h-screen bg-black text-white p-4 md:p-8 flex flex-col items-center">
       <div className="text-center mb-8 max-w-2xl mt-12">
         <Aperture className="w-12 h-12 text-pink-500 mx-auto mb-4" />
-        <h1 className="text-4xl font-display font-bold mb-2">Vibe Filters</h1>
-        <p className="text-white/50">Apply AI-powered atmospheric lenses matched to your exact location's energy.</p>
+        <h1 className="text-4xl font-display font-bold mb-2">{t('auto.auto_vibe_filters_2911')}</h1>
+        <p className="text-white/50">{t('auto.auto_apply_ai_powered_atm_2910')}</p>
       </div>
 
       <div className="w-full max-w-4xl relative">
@@ -26,7 +28,7 @@ export default function VibeBasedPhotoFilters() {
         <div className="aspect-[4/3] md:aspect-video w-full rounded-3xl overflow-hidden relative border border-white/10 bg-neutral-900 shadow-2xl">
           <img 
             src="https://images.unsplash.com/photo-1542051842920-c7ba71114e27?auto=format&fit=crop&w=1200&q=80" 
-            alt="Tokyo Street"
+            alt={t('auto.auto_tokyo_street_2909')}
             className={`w-full h-full object-cover transition-all duration-700 ease-in-out ${activeFilter.class}`}
           />
           
@@ -60,11 +62,11 @@ export default function VibeBasedPhotoFilters() {
 
         <div className="mt-8 flex justify-center gap-4">
           <button className="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl font-bold flex items-center gap-2 transition-colors">
-            <Wand2 className="w-5 h-5" /> Auto-Tune
-          </button>
+            <Wand2 className="w-5 h-5" /> {t('auto.auto_auto_tune_2908')}
+                                </button>
           <button className="px-6 py-3 bg-pink-500 text-white rounded-xl font-bold flex items-center gap-2 hover:bg-pink-600 transition-colors shadow-lg shadow-pink-500/20">
-            <Download className="w-5 h-5" /> Save Photo
-          </button>
+            <Download className="w-5 h-5" /> {t('auto.auto_save_photo_2907')}
+                                </button>
         </div>
       </div>
     </div>

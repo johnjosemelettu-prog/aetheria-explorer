@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Tag, MapPin, Star, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from "react-i18next";
 
 export default function PartnerPromotions() {
+    const { t } = useTranslation();
   const [promotions] = useState([
     { id: 1, type: 'Culinary', title: '50% off Tokyo City Tour', partner: 'Tokyo Explorers', location: 'Tokyo, Japan', image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&q=80&w=800', discount: '50% OFF', rating: 4.9 },
     { id: 2, type: 'Wellness', title: 'Free Massage with Spa Day', partner: 'Zen Kyoto Spa', location: 'Kyoto, Japan', image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=800', discount: 'FREE GIFT', rating: 4.8 },
@@ -18,8 +20,8 @@ export default function PartnerPromotions() {
         <div className="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(var(--secondary-rgb),0.3)]">
           <Tag className="w-10 h-10 text-secondary" />
         </div>
-        <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 tracking-tight">Local Deals & Promotions</h1>
-        <p className="text-xl text-foreground/60 max-w-2xl mx-auto">Discover exclusive offers and sponsored experiences from our verified local partners.</p>
+        <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 tracking-tight">{t('auto.auto_local_deals___promot_1972')}</h1>
+        <p className="text-xl text-foreground/60 max-w-2xl mx-auto">{t('auto.auto_discover_exclusive_o_1971')}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -50,7 +52,7 @@ export default function PartnerPromotions() {
                   {promo.partner.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-xs text-foreground/50 uppercase tracking-widest">Offered by</p>
+                  <p className="text-xs text-foreground/50 uppercase tracking-widest">{t('auto.auto_offered_by_1970')}</p>
                   <p className="text-sm font-bold">{promo.partner}</p>
                 </div>
               </div>
@@ -60,7 +62,7 @@ export default function PartnerPromotions() {
                   <Star className="w-4 h-4 text-yellow-400 fill-current"/> {promo.rating}
                 </div>
                 <button className="flex items-center gap-2 text-sm font-bold text-secondary group-hover:gap-3 transition-all px-4 py-2 bg-secondary/10 rounded-xl group-hover:bg-secondary group-hover:text-white">
-                  Claim Offer <ArrowRight className="w-4 h-4"/>
+                  {t('auto.auto_claim_offer_1969')} <ArrowRight className="w-4 h-4"/>
                 </button>
               </div>
             </div>

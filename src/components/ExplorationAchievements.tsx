@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Compass, Star, Map, Zap, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function ExplorationAchievements() {
+    const { t } = useTranslation();
   const achievements = [
     { title: "Iron Soles", desc: "Walk 50km in a single city", icon: <Compass />, progress: 100, done: true, rarity: "Epic" },
     { title: "Culinary Fearless", desc: "Try 10 local delicacies", icon: <Star />, progress: 80, done: false, rarity: "Rare" },
@@ -15,18 +17,18 @@ export default function ExplorationAchievements() {
       <div className="max-w-5xl mx-auto">
         <header className="mb-12 border-b border-slate-800 pb-8 flex flex-col md:flex-row justify-between items-end gap-6">
           <div>
-            <h1 className="text-4xl font-display font-bold">Hall of Echoes</h1>
-            <p className="text-slate-400 mt-2 font-mono text-sm">YOUR EXPLORATION ACHIEVEMENTS</p>
+            <h1 className="text-4xl font-display font-bold">{t('auto.auto_hall_of_echoes_1211')}</h1>
+            <p className="text-slate-400 mt-2 font-mono text-sm">{t('auto.auto_your_exploration_ach_1210')}</p>
           </div>
           <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-center gap-6">
             <div className="flex flex-col text-center">
               <span className="text-3xl font-black text-indigo-400">12</span>
-              <span className="text-[10px] text-slate-500 uppercase tracking-widest">Unlocks</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-widest">{t('auto.auto_unlocks_1209')}</span>
             </div>
             <div className="h-8 w-px bg-slate-700" />
             <div className="flex flex-col text-center">
-              <span className="text-3xl font-black text-fuchsia-400">14.5k</span>
-              <span className="text-[10px] text-slate-500 uppercase tracking-widest">Tally</span>
+              <span className="text-3xl font-black text-fuchsia-400">{t('auto.auto_14_5k_1208')}</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-widest">{t('auto.auto_tally_1207')}</span>
             </div>
           </div>
         </header>
@@ -56,7 +58,7 @@ export default function ExplorationAchievements() {
                     />
                  </div>
                  <div className="flex justify-between items-center mt-2 text-[10px] font-mono tracking-widest text-slate-500 uppercase">
-                   <span>{ach.progress}% completed</span>
+                   <span>{ach.progress}{t('auto.auto___completed_1206')}</span>
                    <span className={`${ach.rarity === 'Legendary' ? 'text-amber-400' : ach.rarity === 'Epic' ? 'text-fuchsia-400' : ''}`}>{ach.rarity}</span>
                  </div>
               </div>

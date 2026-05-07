@@ -41,6 +41,7 @@ import SupportDesk from './components/support/SupportDesk';
 import { UserProfile as UserProfileType } from './types';
 import { motion, AnimatePresence } from 'framer-motion';
 import i18n from './lib/i18n';
+import { useTranslation } from 'react-i18next';
 
 import LandmarkLens from './components/LandmarkLens';
 
@@ -409,6 +410,7 @@ import NightMarketExplorer from './components/NightMarketExplorer';
 import StargazingSpots from './components/StargazingSpots';
 
 export default function App() {
+  const { t } = useTranslation();
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<UserProfileType | null>(null);
   const [loading, setLoading] = useState(true);
@@ -980,15 +982,15 @@ export default function App() {
                   <div className="w-6 h-6 bg-primary/20 rounded flex items-center justify-center">
                     <div className="w-3 h-3 bg-primary rounded-sm" />
                   </div>
-                  <span className="font-display font-bold tracking-tighter">AETHERIA</span>
+                  <span className="font-display font-bold tracking-tighter">{t('os.brandAetheria')}</span>
                 </div>
                 <div className="flex gap-8 text-sm text-foreground/40">
-                  <button onClick={() => navigate('/privacy-policy')} className="hover:text-primary transition-colors">Privacy Policy</button>
-                  <button onClick={() => navigate('/terms-of-service')} className="hover:text-primary transition-colors">Terms of Service</button>
-                  <button onClick={() => navigate('/contact')} className="hover:text-primary transition-colors">Contact</button>
+                  <button onClick={() => navigate('/privacy-policy')} className="hover:text-primary transition-colors">{t('os.privacyPolicy')}</button>
+                  <button onClick={() => navigate('/terms-of-service')} className="hover:text-primary transition-colors">{t('os.termsOfService')}</button>
+                  <button onClick={() => navigate('/contact')} className="hover:text-primary transition-colors">{t('os.contact')}</button>
                 </div>
                 <p className="text-sm text-foreground/20">
-                  © 2026 Aetheria Ecosystem. All rights reserved.
+                  {t('os.copyright')}
                 </p>
               </div>
             </div>

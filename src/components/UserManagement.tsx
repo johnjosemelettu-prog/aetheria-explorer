@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MoreVertical, Loader2 } from 'lucide-react';
 import { db } from '../lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import { useTranslation } from "react-i18next";
 
 interface User {
   id: string;
@@ -18,6 +19,7 @@ const statusColor: Record<string, string> = {
 };
 
 const UserManagement: React.FC = () => {
+    const { t } = useTranslation();
   const [filter, setFilter] = useState('');
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -57,8 +59,8 @@ const UserManagement: React.FC = () => {
     <div className="glass rounded-2xl border border-white/10 overflow-hidden">
       {/* Header */}
       <div className="p-6 border-b border-white/10">
-        <h2 className="text-lg font-bold">User Management</h2>
-        <p className="text-sm text-foreground/50 mt-1">Manage all users in the system.</p>
+        <h2 className="text-lg font-bold">{t('auto.auto_user_management_2895')}</h2>
+        <p className="text-sm text-foreground/50 mt-1">{t('auto.auto_manage_all_users_in__2894')}</p>
       </div>
 
       {/* Toolbar */}
@@ -66,12 +68,12 @@ const UserManagement: React.FC = () => {
         <input
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          placeholder="Filter users..."
+          placeholder={t('auto.auto_filter_users____2893')}
           className="bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary w-full max-w-xs"
         />
         <button className="px-4 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-xl transition-colors whitespace-nowrap">
-          Add User
-        </button>
+          {t('auto.auto_add_user_2892')}
+                          </button>
       </div>
 
       {/* Table */}
@@ -84,11 +86,11 @@ const UserManagement: React.FC = () => {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/5 text-foreground/40 uppercase text-xs tracking-widest">
-                <th className="text-left px-6 py-3">Name</th>
-                <th className="text-left px-6 py-3">Email</th>
-                <th className="text-left px-6 py-3">Role</th>
-                <th className="text-left px-6 py-3">Status</th>
-                <th className="text-right px-6 py-3">Actions</th>
+                <th className="text-left px-6 py-3">{t('auto.auto_name_2891')}</th>
+                <th className="text-left px-6 py-3">{t('auto.auto_email_2890')}</th>
+                <th className="text-left px-6 py-3">{t('auto.auto_role_2889')}</th>
+                <th className="text-left px-6 py-3">{t('auto.auto_status_2888')}</th>
+                <th className="text-right px-6 py-3">{t('auto.auto_actions_2887')}</th>
               </tr>
             </thead>
             <tbody>
@@ -112,8 +114,8 @@ const UserManagement: React.FC = () => {
               {filtered.length === 0 && (
                 <tr>
                   <td colSpan={5} className="px-6 py-10 text-center text-foreground/40">
-                    No users match your filter.
-                  </td>
+                    {t('auto.auto_no_users_match_your__2886')}
+                                                            </td>
                 </tr>
               )}
             </tbody>

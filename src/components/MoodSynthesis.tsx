@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Loader2, Heart, Zap, Coffee, Moon } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { useTranslation } from "react-i18next";
 
 export default function MoodSynthesis() {
+    const { t } = useTranslation();
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [isSynthesizing, setIsSynthesizing] = useState(false);
   const [recommendation, setRecommendation] = useState<string | null>(null);
@@ -43,13 +45,13 @@ export default function MoodSynthesis() {
             <Sparkles className="text-primary w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-4xl font-display font-bold">Mood Synthesis</h1>
-            <p className="text-foreground/50">Let Aetheria guide you based on how you feel right now.</p>
+            <h1 className="text-4xl font-display font-bold">{t('auto.auto_mood_synthesis_1883')}</h1>
+            <p className="text-foreground/50">{t('auto.auto_let_aetheria_guide_y_1882')}</p>
           </div>
         </div>
 
         <div className="glass p-8 rounded-[32px] mb-8">
-          <h2 className="text-xl font-bold mb-6">Select your current vibe:</h2>
+          <h2 className="text-xl font-bold mb-6">{t('auto.auto_select_your_current__1881')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {moods.map((mood) => (
               <button
@@ -74,8 +76,8 @@ export default function MoodSynthesis() {
             className="w-full py-4 bg-primary text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
           >
             {isSynthesizing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
-            Synthesize Recommendation
-          </button>
+            {t('auto.auto_synthesize_recommend_1880')}
+                                </button>
         </div>
 
         {recommendation && !isSynthesizing && (
@@ -84,7 +86,7 @@ export default function MoodSynthesis() {
             animate={{ opacity: 1, y: 0 }}
             className="glass p-8 rounded-[32px] border border-primary/30 bg-primary/5"
           >
-            <h3 className="font-bold text-lg mb-2 text-primary">Aetheria Suggests:</h3>
+            <h3 className="font-bold text-lg mb-2 text-primary">{t('auto.auto_aetheria_suggests__1879')}</h3>
             <p className="text-foreground/80 leading-relaxed text-lg">{recommendation}</p>
           </motion.div>
         )}

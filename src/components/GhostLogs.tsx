@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Ghost, Headphones, MapPin, Play, Search, RadioTower } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const GhostLogs = () => {
+    const { t } = useTranslation();
   const [scanning, setScanning] = useState(false);
   const [logs, setLogs] = useState<any[]>([]);
   const [activeLog, setActiveLog] = useState<string | null>(null);
@@ -35,10 +37,10 @@ const GhostLogs = () => {
               <Ghost className={`w-10 h-10 ${scanning ? 'text-indigo-400 animate-pulse' : 'text-slate-400'}`} />
             </div>
           </div>
-          <h1 className="text-4xl font-extrabold mb-4 text-white">Ghost Logs (Context Drops)</h1>
+          <h1 className="text-4xl font-extrabold mb-4 text-white">{t('auto.auto_ghost_logs__context__1366')}</h1>
           <p className="text-slate-400 text-lg">
-            Discover ephemeral 3D binaural stories, scents, and memories anchored to physical coordinates left by past explorers.
-          </p>
+            {t('auto.auto_discover_ephemeral_3_1365')}
+                                </p>
         </div>
 
         <div className="flex justify-center mb-12">
@@ -48,9 +50,9 @@ const GhostLogs = () => {
             className="rounded-full px-8 py-6 text-lg bg-indigo-600 hover:bg-indigo-500 shadow-xl shadow-indigo-900/50 font-bold text-white border-0"
           >
             {scanning ? (
-              <><RadioTower className="w-5 h-5 mr-3 animate-ping" /> Scanning Local Frequencies...</>
+              <><RadioTower className="w-5 h-5 mr-3 animate-ping" /> {t('auto.auto_scanning_local_frequ_1364')}</>
             ) : (
-              <><Search className="w-5 h-5 mr-3" /> Ping Environment for Ghosts</>
+              <><Search className="w-5 h-5 mr-3" /> {t('auto.auto_ping_environment_for_1363')}</>
             )}
           </Button>
         </div>
@@ -64,7 +66,7 @@ const GhostLogs = () => {
             >
               <h3 className="text-indigo-300 font-semibold tracking-[0.2em] uppercase text-sm mb-6 flex items-center">
                 <MapPin className="w-4 h-4 mr-2" />
-                Detected Spatial Anomalies ({logs.length})
+                {t('auto.auto_detected_spatial_ano_1362')}{logs.length})
               </h3>
               
               <div className="grid gap-6">
@@ -85,11 +87,11 @@ const GhostLogs = () => {
                           <div className="flex-1">
                             <div className="flex justify-between items-start mb-2">
                               <div>
-                                <h4 className="text-lg font-bold text-white">{log.author}'s Echo</h4>
-                                <p className="text-xs text-slate-500 tracking-wider">Deposited {log.timestamp}</p>
+                                <h4 className="text-lg font-bold text-white">{log.author}{t('auto.auto__s_echo_1361')}</h4>
+                                <p className="text-xs text-slate-500 tracking-wider">{t('auto.auto_deposited_1360')} {log.timestamp}</p>
                               </div>
                               <span className="text-xs font-mono px-2 py-1 bg-slate-950 text-slate-400 rounded-md">
-                                D-{log.triggerRadius}
+                                {t('auto.auto_d__1359')}{log.triggerRadius}
                               </span>
                             </div>
                             
@@ -102,7 +104,7 @@ const GhostLogs = () => {
                                 <div className="flex items-center justify-between bg-black/40 p-3 rounded-xl border border-white/5">
                                   <div className="flex items-center gap-3">
                                     <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                                    <span className="text-sm font-mono text-indigo-300">Synchronizing {log.type}...</span>
+                                    <span className="text-sm font-mono text-indigo-300">{t('auto.auto_synchronizing_1358')} {log.type}...</span>
                                   </div>
                                   <div className="flex gap-1 h-4">
                                     {[1,2,3,4,5].map(bar => (
@@ -122,8 +124,8 @@ const GhostLogs = () => {
                                 variant="outline" 
                                 className="w-full border-slate-700 bg-slate-800 hover:bg-slate-700 hover:text-white text-slate-300 flex items-center gap-2"
                               >
-                                <Play className="w-4 h-4 fill-current" /> Experience Drop
-                              </Button>
+                                <Play className="w-4 h-4 fill-current" /> {t('auto.auto_experience_drop_1357')}
+                                                                                  </Button>
                             )}
                           </div>
                         </div>

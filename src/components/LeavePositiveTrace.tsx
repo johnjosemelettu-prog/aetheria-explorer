@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import * as AI from '../services/gemini';
 import { HandHeart, ShoppingBasket, Sparkles } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const LeavePositiveTrace = () => {
+    const { t } = useTranslation();
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -39,14 +41,14 @@ const LeavePositiveTrace = () => {
   };
 
   if (loading) {
-    return <div className="flex justify-center items-center min-h-screen bg-gray-900"><p className="text-white">Loading Suggestions...</p></div>;
+    return <div className="flex justify-center items-center min-h-screen bg-gray-900"><p className="text-white">{t('auto.auto_loading_suggestions__1641')}</p></div>;
   }
 
   return (
     <div className="p-8 bg-gray-900 min-h-screen text-white">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-5xl mx-auto">
-            <h1 className="text-4xl font-bold mb-3 text-center text-teal-300">Leave a Positive Trace</h1>
-            <p className="text-center text-gray-400 mb-12">Discover meaningful ways to contribute to the local community and environment during your journey.</p>
+            <h1 className="text-4xl font-bold mb-3 text-center text-teal-300">{t('auto.auto_leave_a_positive_tra_1640')}</h1>
+            <p className="text-center text-gray-400 mb-12">{t('auto.auto_discover_meaningful__1639')}</p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {suggestions.map((suggestion, index) => (
@@ -63,7 +65,7 @@ const LeavePositiveTrace = () => {
                         <h3 className="text-xl font-semibold text-white mb-3 h-14">{suggestion.title}</h3>
                         <p className="text-gray-400 flex-grow">{suggestion.description}</p>
                         <div className="mt-6">
-                           <Button variant="outline">Find Out How</Button>
+                           <Button variant="outline">{t('auto.auto_find_out_how_1638')}</Button>
                         </div>
                     </motion.div>
                 ))}

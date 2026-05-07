@@ -2,12 +2,14 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Camera } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 interface ImageUploaderProps {
   onImageUpload: (file: File) => void;
 }
 
 export default function ImageUploader({ onImageUpload }: ImageUploaderProps) {
+    const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,12 +31,12 @@ export default function ImageUploader({ onImageUpload }: ImageUploaderProps) {
       />
       <label htmlFor="image-upload" className="cursor-pointer">
         <Button asChild>
-          <span><Camera className="mr-2 h-4 w-4" /> Select Image</span>
+          <span><Camera className="mr-2 h-4 w-4" /> {t('auto.auto_select_image_1509')}</span>
         </Button>
       </label>
       {selectedImage && (
         <p className="text-sm text-muted-foreground">
-          Selected: {selectedImage.name}
+          {t('auto.auto_selected__1508')} {selectedImage.name}
         </p>
       )}
     </div>

@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Brush, Eraser, Check } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARPersonalizedGraffiti() {
+    const { t } = useTranslation();
   const [color, setColor] = useState('#EC4899');
   
   return (
     <XRLayout 
       mode="AR"
-      title="Digital Graffiti Wall" 
-      description="Leave your mark. Spray paint digital art on physical walls for other travelers to discover."
+      title={t('auto.auto_digital_graffiti_wal_523')} 
+      description={t('auto.auto_leave_your_mark__spr_522')}
       overlayIcon={<Brush className="w-8 h-8 text-pink-500" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -34,8 +36,8 @@ export default function ARPersonalizedGraffiti() {
           
           {/* Spray Paint Particles Mock */}
           <div className="absolute top-1/2 left-[40%] text-6xl font-display font-black text-transparent bg-clip-text" style={{ WebkitTextStroke: `2px ${color}` }}>
-             HELLO WORLD
-          </div>
+             {t('auto.auto_hello_world_521')}
+                                </div>
         </motion.div>
       </div>
 
@@ -56,8 +58,8 @@ export default function ARPersonalizedGraffiti() {
            <Eraser className="w-6 h-6" />
          </button>
          <button className="bg-pink-600 hover:bg-pink-500 text-white font-bold p-4 rounded-full shadow-[0_0_20px_rgba(236,72,153,0.5)] transition flex items-center gap-2 px-8">
-           <Check className="w-6 h-6" /> SAVE MURAL
-         </button>
+           <Check className="w-6 h-6" /> {t('auto.auto_save_mural_520')}
+                           </button>
       </div>
     </XRLayout>
   );

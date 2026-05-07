@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Dumbbell, Coffee, Book, Plus, Check } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const HABITS = [
   { name: 'Morning Run (5k)', icon: Dumbbell, color: 'text-emerald-400', time: '07:00 AM', active: true },
@@ -9,26 +10,27 @@ const HABITS = [
 ];
 
 export default function HabitIntegration() {
+    const { t } = useTranslation();
   return (
     <div className="max-w-5xl mx-auto px-4 py-24 min-h-screen">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
         <div>
           <h1 className="text-5xl font-display font-bold mb-4 flex items-center gap-4">
             <Activity className="w-10 h-10 text-emerald-400" />
-            Habit Sync
-          </h1>
+            {t('auto.auto_habit_sync_1473')}
+                                </h1>
           <p className="text-foreground/60 text-lg max-w-xl">
-            Don't lose your routine just because you're traveling. AI seamlessly integrates your daily habits into the local itinerary.
-          </p>
+            {t('auto.auto_don_t_lose_your_rout_1472')}
+                                </p>
         </div>
         <button className="px-6 py-3 glass glass-hover rounded-xl font-bold flex items-center gap-2">
-          <Plus className="w-5 h-5" /> Add Habit
-        </button>
+          <Plus className="w-5 h-5" /> {t('auto.auto_add_habit_1471')}
+                          </button>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-1 space-y-4">
-          <h2 className="font-bold text-xl mb-4">Your Routines</h2>
+          <h2 className="font-bold text-xl mb-4">{t('auto.auto_your_routines_1470')}</h2>
           {HABITS.map((habit, i) => (
             <motion.div 
               initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}
@@ -47,7 +49,7 @@ export default function HabitIntegration() {
         </div>
 
         <div className="lg:col-span-2">
-          <h2 className="font-bold text-xl mb-4">AI Integration Plan</h2>
+          <h2 className="font-bold text-xl mb-4">{t('auto.auto_ai_integration_plan_1469')}</h2>
           <div className="glass p-8 rounded-[40px] border border-white/10">
              
              <div className="relative border-l-2 border-white/10 pl-8 space-y-12 py-4">
@@ -58,23 +60,23 @@ export default function HabitIntegration() {
                    <Dumbbell className="w-4 h-4" />
                  </div>
                  <div className="mb-2">
-                   <span className="text-emerald-400 font-mono text-sm">07:00 AM</span>
-                   <h3 className="text-xl font-bold">Yoyogi Park 5k Loop</h3>
+                   <span className="text-emerald-400 font-mono text-sm">{t('auto.auto_07_00_am_1468')}</span>
+                   <h3 className="text-xl font-bold">{t('auto.auto_yoyogi_park_5k_loop_1467')}</h3>
                  </div>
                  <p className="text-foreground/60 text-sm mb-4">
-                   AI has routed your morning run through the shaded paths of Yoyogi Park, ending near your hotel.
-                 </p>
+                   {t('auto.auto_ai_has_routed_your_m_1466')}
+                                                   </p>
                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-bold rounded-lg border border-emerald-500/20">
-                   <Check className="w-3 h-3" /> Habit Secured
-                 </div>
+                   <Check className="w-3 h-3" /> {t('auto.auto_habit_secured_1465')}
+                                                   </div>
                </div>
 
                {/* Standard Itinerary item */}
                <div className="relative opacity-50">
                  <div className="absolute -left-[37px] top-2 w-6 h-6 rounded-full bg-white/10 border-2 border-white/20" />
                  <div className="mb-1">
-                   <span className="text-foreground/60 font-mono text-sm">08:00 AM</span>
-                   <h3 className="font-bold">Return to Hotel / Shower</h3>
+                   <span className="text-foreground/60 font-mono text-sm">{t('auto.auto_08_00_am_1464')}</span>
+                   <h3 className="font-bold">{t('auto.auto_return_to_hotel___sh_1463')}</h3>
                  </div>
                </div>
 
@@ -84,15 +86,15 @@ export default function HabitIntegration() {
                    <Coffee className="w-4 h-4" />
                  </div>
                  <div className="mb-2">
-                   <span className="text-amber-400 font-mono text-sm">08:30 AM</span>
-                   <h3 className="text-xl font-bold">Local Specialty Roaster</h3>
+                   <span className="text-amber-400 font-mono text-sm">{t('auto.auto_08_30_am_1462')}</span>
+                   <h3 className="text-xl font-bold">{t('auto.auto_local_specialty_roas_1461')}</h3>
                  </div>
                  <p className="text-foreground/60 text-sm mb-4">
-                   Found a highly-rated pour-over cafe 3 blocks from the hotel that opens early.
-                 </p>
+                   {t('auto.auto_found_a_highly_rated_1460')}
+                                                   </p>
                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-bold rounded-lg border border-emerald-500/20">
-                   <Check className="w-3 h-3" /> Habit Secured
-                 </div>
+                   <Check className="w-3 h-3" /> {t('auto.auto_habit_secured_1459')}
+                                                   </div>
                </div>
 
              </div>

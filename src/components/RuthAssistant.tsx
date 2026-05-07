@@ -6,6 +6,7 @@ import { chatWithRuth } from '../services/gemini';
 import { cn } from '../lib/utils';
 import { User as FirebaseUser } from 'firebase/auth';
 import { UserProfile } from '../types';
+import { useTranslation } from "react-i18next";
 
 interface Message {
   role: 'user' | 'model';
@@ -18,6 +19,7 @@ interface RuthAssistantProps {
 }
 
 export default function RuthAssistant({ user, profile }: RuthAssistantProps) {
+    const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { role: 'model', parts: "Hello! I'm Ruth, your Aetheria Smart Travel Assistant. How can I help you explore the world today?" }
@@ -70,10 +72,10 @@ export default function RuthAssistant({ user, profile }: RuthAssistantProps) {
                     <Bot className="text-white w-6 h-6" />
                     </div>
                     <div>
-                    <h3 className="font-display font-bold text-sm text-white">Ruth Assistant</h3>
+                    <h3 className="font-display font-bold text-sm text-white">{t('auto.auto_ruth_assistant_2258')}</h3>
                     <div className="flex items-center gap-1.5">
                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                        <span className="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Online</span>
+                        <span className="text-[10px] text-gray-400 uppercase font-bold tracking-widest">{t('auto.auto_online_2257')}</span>
                     </div>
                     </div>
                 </div>
@@ -128,7 +130,7 @@ export default function RuthAssistant({ user, profile }: RuthAssistantProps) {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Ask Ruth anything..."
+                  placeholder={t('auto.auto_ask_ruth_anything____2256')}
                   className="w-full bg-gray-900/50 border border-white/10 rounded-2xl py-3 pl-4 pr-12 text-sm text-white focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-colors"
                 />
                 <button

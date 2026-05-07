@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Bot, Send, User } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function AITravelMentor() {
+    const { t } = useTranslation();
   const [messages, setMessages] = useState([
     { role: 'assistant', text: "Hello! I'm your Aetheria Travel Mentor. How are you feeling about your upcoming trip? Nervous about navigation? Unsure what to pack?" }
   ]);
@@ -30,8 +32,8 @@ export default function AITravelMentor() {
         <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
           <Bot className="w-8 h-8 text-blue-400" />
         </div>
-        <h1 className="text-4xl font-display font-bold">Travel Mentor</h1>
-        <p className="text-foreground/60 mt-2">A conversational AI coach to overcome travel anxiety.</p>
+        <h1 className="text-4xl font-display font-bold">{t('auto.auto_travel_mentor_303')}</h1>
+        <p className="text-foreground/60 mt-2">{t('auto.auto_a_conversational_ai__302')}</p>
       </div>
 
       <div className="flex-grow glass rounded-[40px] border border-white/10 flex flex-col overflow-hidden bg-black/40 max-h-[600px]">
@@ -71,7 +73,7 @@ export default function AITravelMentor() {
               type="text" 
               value={input}
               onChange={e => setInput(e.target.value)}
-              placeholder="Ask for advice..." 
+              placeholder={t('auto.auto_ask_for_advice____301')} 
               className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-6 pr-16 focus:outline-none focus:border-blue-500/50 transition-colors"
             />
             <button 

@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity, BarChart, Zap, Globe } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function CurrencyExchangeTracker() {
+    const { t } = useTranslation();
   const stats = [
     { label: "Optimization", value: "92%", icon: Activity, color: "text-sky-500", bg: "bg-sky-100" },
     { label: "Data Points", value: "8.4k", icon: Globe, color: "text-fuchsia-500", bg: "bg-fuchsia-100" },
@@ -13,8 +15,8 @@ export default function CurrencyExchangeTracker() {
     <div className="min-h-screen bg-slate-50 p-8 lg:p-12 font-sans text-slate-900">
       <div className="max-w-6xl mx-auto">
         <header className="mb-12">
-          <h1 className="text-4xl font-black tracking-tight mb-2">Currency Exchange rate tracker</h1>
-          <p className="text-slate-500">Advanced tracking and logistics powered by real-time data.</p>
+          <h1 className="text-4xl font-black tracking-tight mb-2">{t('auto.auto_currency_exchange_ra_902')}</h1>
+          <p className="text-slate-500">{t('auto.auto_advanced_tracking_an_901')}</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -38,8 +40,8 @@ export default function CurrencyExchangeTracker() {
         <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 min-h-[400px] flex items-center justify-center">
            <div className="text-center">
              <BarChart className="w-16 h-16 text-slate-200 mx-auto mb-4" />
-             <h3 className="text-xl font-bold text-slate-700 mb-2">Aggregating Insights</h3>
-             <p className="text-slate-400 max-w-sm mx-auto">Visualizing the latest trends and data perfectly for your context.</p>
+             <h3 className="text-xl font-bold text-slate-700 mb-2">{t('auto.auto_aggregating_insights_900')}</h3>
+             <p className="text-slate-400 max-w-sm mx-auto">{t('auto.auto_visualizing_the_late_899')}</p>
            </div>
         </div>
       </div>

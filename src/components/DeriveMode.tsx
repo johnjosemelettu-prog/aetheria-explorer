@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Wind, Navigation } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const INSTRUCTIONS = [
   "Follow the scent of freshly baked bread.",
@@ -10,6 +11,7 @@ const INSTRUCTIONS = [
 ];
 
 export default function DeriveMode() {
+    const { t } = useTranslation();
   const [index, setIndex] = useState(0);
 
   const nextInstruction = () => {
@@ -33,7 +35,7 @@ export default function DeriveMode() {
       <div className="relative z-10 text-center max-w-2xl w-full">
         <Wind className="w-12 h-12 text-stone-300 mx-auto mb-12" />
         
-        <p className="text-xs uppercase tracking-[0.3em] text-stone-400 font-bold mb-12">Dérive Mode</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-stone-400 font-bold mb-12">{t('auto.auto_d_rive_mode_945')}</p>
 
         <div className="h-64 flex items-center justify-center">
           <AnimatePresence mode="wait">
@@ -58,8 +60,8 @@ export default function DeriveMode() {
         </button>
         
         <p className="mt-8 text-sm text-stone-400 max-w-md mx-auto">
-          Surrender control. Let the environment dictate your path. Tap to receive a new impulse.
-        </p>
+          {t('auto.auto_surrender_control__l_944')}
+                          </p>
       </div>
     </div>
   );

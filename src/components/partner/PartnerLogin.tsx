@@ -12,6 +12,7 @@ import {
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db, googleProvider, microsoftProvider } from '../../lib/firebase';
+import { useTranslation } from "react-i18next";
 
 interface PartnerLoginProps {
   onLogin: () => void;
@@ -29,6 +30,7 @@ const features = [
 ];
 
 const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
+    const { t } = useTranslation();
   const [tab, setTab] = useState<Tab>('signin');
 
   // Sign In state
@@ -220,8 +222,8 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
       {/* Left Panel – Branding */}
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-secondary/20 via-background to-primary/10 flex-col justify-between p-12 border-r border-white/5">
         <div className="flex items-center gap-3">
-          <img src="/logo.png" alt="Aetheria" className="w-9 h-9" />
-          <span className="text-xl font-display font-bold tracking-tighter">AETHERIA</span>
+          <img src="/logo.png" alt={t('auto.auto_aetheria_3144')} className="w-9 h-9" />
+          <span className="text-xl font-display font-bold tracking-tighter">{t('auto.auto_aetheria_3143')}</span>
         </div>
 
         <div>
@@ -229,11 +231,11 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
             <Store className="w-8 h-8 text-secondary" />
           </div>
           <h2 className="text-4xl font-display font-bold mb-4 leading-tight">
-            Grow your travel<br />business with Aetheria
-          </h2>
+            {t('auto.auto_grow_your_travel_3142')}<br />{t('auto.auto_business_with_aether_3141')}
+                                </h2>
           <p className="text-foreground/50 mb-10 text-lg leading-relaxed">
-            Join thousands of partners delivering unforgettable experiences to millions of explorers worldwide.
-          </p>
+            {t('auto.auto_join_thousands_of_pa_3140')}
+                                </p>
           <ul className="space-y-3">
             {features.map((f, i) => (
               <li key={i} className="flex items-center gap-3 text-sm text-foreground/70">
@@ -244,7 +246,7 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
           </ul>
         </div>
 
-        <p className="text-foreground/20 text-xs">© 2026 Aetheria Explorer. All rights reserved.</p>
+        <p className="text-foreground/20 text-xs">{t('auto.auto___2026_aetheria_expl_3139')}</p>
       </div>
 
       {/* Right Panel – Auth Form */}
@@ -252,8 +254,8 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
         <div className="w-full max-w-md">
           {/* Mobile logo */}
           <div className="flex items-center gap-2 mb-8 lg:hidden">
-            <img src="/logo.png" alt="Aetheria" className="w-8 h-8" />
-            <span className="text-lg font-display font-bold tracking-tighter">AETHERIA Partner Hub</span>
+            <img src="/logo.png" alt={t('auto.auto_aetheria_3138')} className="w-8 h-8" />
+            <span className="text-lg font-display font-bold tracking-tighter">{t('auto.auto_aetheria_partner_hub_3137')}</span>
           </div>
 
           {/* Tab Switcher */}
@@ -280,15 +282,15 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
                 onSubmit={handleSignIn} className="space-y-4"
               >
                 <div>
-                  <label className={labelClass}>Email</label>
+                  <label className={labelClass}>{t('auto.auto_email_3136')}</label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                     <input type="email" value={email} onChange={e => setEmail(e.target.value)}
-                      placeholder="partner@business.com" className={inputClass} />
+                      placeholder={t('auto.auto_partner_business_com_3135')} className={inputClass} />
                   </div>
                 </div>
                 <div>
-                  <label className={labelClass}>Password</label>
+                  <label className={labelClass}>{t('auto.auto_password_3134')}</label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)}
@@ -309,12 +311,12 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
 
                 <button type="submit" disabled={loading}
                   className="w-full py-3.5 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-60">
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><span>Sign In</span><ArrowRight className="w-4 h-4" /></>}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><span>{t('auto.auto_sign_in_3133')}</span><ArrowRight className="w-4 h-4" /></>}
                 </button>
 
                 <div className="relative flex items-center gap-3 py-2">
                   <div className="flex-1 h-px bg-white/10" />
-                  <span className="text-xs text-foreground/30 uppercase tracking-widest">or</span>
+                  <span className="text-xs text-foreground/30 uppercase tracking-widest">{t('auto.auto_or_3132')}</span>
                   <div className="flex-1 h-px bg-white/10" />
                 </div>
 
@@ -327,8 +329,8 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
                       <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                       <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                     </svg>
-                    Continue with Google
-                  </button>
+                    {t('auto.auto_continue_with_google_3131')}
+                                                        </button>
                   <button type="button" onClick={handleMicrosoftSignIn} disabled={loading}
                     className="w-full py-3 glass border border-white/10 hover:bg-white/10 font-semibold rounded-xl transition-all flex items-center justify-center gap-3 text-sm disabled:opacity-60">
                     <svg className="w-4 h-4" viewBox="0 0 21 21">
@@ -337,13 +339,13 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
                       <rect x="1" y="11" width="9" height="9" fill="#00a4ef"/>
                       <rect x="11" y="11" width="9" height="9" fill="#ffb900"/>
                     </svg>
-                    Continue with Microsoft
-                  </button>
+                    {t('auto.auto_continue_with_micros_3130')}
+                                                        </button>
                 </div>
 
                 <p className="text-center text-xs text-foreground/30 pt-2">
-                  Don't have a partner account?{' '}
-                  <button type="button" onClick={() => setTab('register')} className="text-secondary hover:underline font-semibold">Register here</button>
+                  {t('auto.auto_don_t_have_a_partner_3129')}{' '}
+                  <button type="button" onClick={() => setTab('register')} className="text-secondary hover:underline font-semibold">{t('auto.auto_register_here_3128')}</button>
                 </p>
               </motion.form>
             )}
@@ -357,33 +359,33 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
               >
                 <div className="grid grid-cols-2 gap-3">
                   <div className="col-span-2">
-                    <label className={labelClass}>Business Name *</label>
+                    <label className={labelClass}>{t('auto.auto_business_name___3127')}</label>
                     <div className="relative">
                       <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                       <input value={businessName} onChange={e => setBusinessName(e.target.value)}
-                        placeholder="Kyoto Tourism Co." className={inputClass} />
+                        placeholder={t('auto.auto_kyoto_tourism_co__3126')} className={inputClass} />
                     </div>
                   </div>
                   <div className="col-span-2">
-                    <label className={labelClass}>Business Type *</label>
+                    <label className={labelClass}>{t('auto.auto_business_type___3125')}</label>
                     <div className="relative">
                       <Store className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                       <select value={businessType} onChange={e => setBusinessType(e.target.value)}
                         className={inputClass + " appearance-none cursor-pointer"}>
-                        <option value="" disabled>Select type…</option>
-                        <option>Tour Operator</option>
-                        <option>Accommodation</option>
-                        <option>Restaurant / Food</option>
-                        <option>Transport</option>
-                        <option>Retail / Souvenirs</option>
-                        <option>Wellness & Spa</option>
-                        <option>Culture & Entertainment</option>
-                        <option>Other</option>
+                        <option value="" disabled>{t('auto.auto_select_type__3124')}</option>
+                        <option>{t('auto.auto_tour_operator_3123')}</option>
+                        <option>{t('auto.auto_accommodation_3122')}</option>
+                        <option>{t('auto.auto_restaurant___food_3121')}</option>
+                        <option>{t('auto.auto_transport_3120')}</option>
+                        <option>{t('auto.auto_retail___souvenirs_3119')}</option>
+                        <option>{t('auto.auto_wellness___spa_3118')}</option>
+                        <option>{t('auto.auto_culture___entertainm_3117')}</option>
+                        <option>{t('auto.auto_other_3116')}</option>
                       </select>
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Phone</label>
+                    <label className={labelClass}>{t('auto.auto_phone_3115')}</label>
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                       <input value={phone} onChange={e => setPhone(e.target.value)}
@@ -391,35 +393,35 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Website</label>
+                    <label className={labelClass}>{t('auto.auto_website_3114')}</label>
                     <div className="relative">
                       <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                       <input value={website} onChange={e => setWebsite(e.target.value)}
-                        placeholder="https://…" className={inputClass} />
+                        placeholder={t('auto.auto_https_____3113')} className={inputClass} />
                     </div>
                   </div>
                   <div className="col-span-2">
-                    <label className={labelClass}>Email *</label>
+                    <label className={labelClass}>{t('auto.auto_email___3112')}</label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                       <input type="email" value={regEmail} onChange={e => setRegEmail(e.target.value)}
-                        placeholder="partner@business.com" className={inputClass} />
+                        placeholder={t('auto.auto_partner_business_com_3111')} className={inputClass} />
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Password *</label>
+                    <label className={labelClass}>{t('auto.auto_password___3110')}</label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                       <input type="password" value={regPassword} onChange={e => setRegPassword(e.target.value)}
-                        placeholder="Min 8 chars" className={inputClass} />
+                        placeholder={t('auto.auto_min_8_chars_3109')} className={inputClass} />
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Confirm *</label>
+                    <label className={labelClass}>{t('auto.auto_confirm___3108')}</label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                       <input type="password" value={regConfirm} onChange={e => setRegConfirm(e.target.value)}
-                        placeholder="Repeat password" className={inputClass} />
+                        placeholder={t('auto.auto_repeat_password_3107')} className={inputClass} />
                     </div>
                   </div>
                 </div>
@@ -432,12 +434,12 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
 
                 <button type="submit" disabled={loading}
                   className="w-full py-3.5 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-60">
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><span>Create Partner Account</span><ArrowRight className="w-4 h-4" /></>}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><span>{t('auto.auto_create_partner_accou_3106')}</span><ArrowRight className="w-4 h-4" /></>}
                 </button>
 
                 <p className="text-center text-xs text-foreground/30">
-                  Already have an account?{' '}
-                  <button type="button" onClick={() => setTab('signin')} className="text-secondary hover:underline font-semibold">Sign in</button>
+                  {t('auto.auto_already_have_an_acco_3105')}{' '}
+                  <button type="button" onClick={() => setTab('signin')} className="text-secondary hover:underline font-semibold">{t('auto.auto_sign_in_3104')}</button>
                 </p>
               </motion.form>
             )}
@@ -453,10 +455,10 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
                     <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-8 h-8 text-green-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Reset Email Sent</h3>
-                    <p className="text-foreground/50 text-sm mb-6">Check your inbox at <strong className="text-white">{forgotEmail}</strong> for a password reset link.</p>
+                    <h3 className="text-xl font-bold mb-2">{t('auto.auto_reset_email_sent_3103')}</h3>
+                    <p className="text-foreground/50 text-sm mb-6">{t('auto.auto_check_your_inbox_at_3102')} <strong className="text-white">{forgotEmail}</strong> {t('auto.auto_for_a_password_reset_3101')}</p>
                     <button onClick={() => { setTab('signin'); setForgotSent(false); }}
-                      className="text-secondary hover:underline text-sm font-semibold">Back to Sign In</button>
+                      className="text-secondary hover:underline text-sm font-semibold">{t('auto.auto_back_to_sign_in_3100')}</button>
                   </div>
                 ) : (
                   <form onSubmit={handleForgot} className="space-y-4">
@@ -464,14 +466,14 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
                       <div className="w-14 h-14 bg-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <KeyRound className="w-7 h-7 text-secondary" />
                       </div>
-                      <p className="text-foreground/50 text-sm">Enter your partner email and we'll send a reset link.</p>
+                      <p className="text-foreground/50 text-sm">{t('auto.auto_enter_your_partner_e_3099')}</p>
                     </div>
                     <div>
-                      <label className={labelClass}>Partner Email</label>
+                      <label className={labelClass}>{t('auto.auto_partner_email_3098')}</label>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
                         <input type="email" value={forgotEmail} onChange={e => setForgotEmail(e.target.value)}
-                          placeholder="partner@business.com" className={inputClass} />
+                          placeholder={t('auto.auto_partner_business_com_3097')} className={inputClass} />
                       </div>
                     </div>
 
@@ -486,7 +488,7 @@ const PartnerLogin: React.FC<PartnerLoginProps> = ({ onLogin }) => {
                       {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Send Reset Link'}
                     </button>
                     <p className="text-center text-xs text-foreground/30">
-                      <button type="button" onClick={() => setTab('signin')} className="text-secondary hover:underline font-semibold">Back to Sign In</button>
+                      <button type="button" onClick={() => setTab('signin')} className="text-secondary hover:underline font-semibold">{t('auto.auto_back_to_sign_in_3096')}</button>
                     </p>
                   </form>
                 )}

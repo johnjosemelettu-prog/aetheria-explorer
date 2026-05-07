@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Route, ShieldCheck, MapPin, Eye, Camera, Clock } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function TrustedRouteCorridors() {
+    const { t } = useTranslation();
   const corridors = [
     {
       id: "C-109",
@@ -44,11 +46,11 @@ export default function TrustedRouteCorridors() {
             <Route className="w-12 h-12" />
           </div>
           <h1 className="text-5xl md:text-6xl font-display font-black mb-6 uppercase tracking-tighter">
-            Safety Corridors
-          </h1>
+            {t('auto.auto_safety_corridors_2858')}
+                                </h1>
           <p className="text-xl text-emerald-100/60 max-w-2xl mx-auto font-mono text-sm">
-            Navigate cities using community-verified, dynamically monitored physical routing channels.
-          </p>
+            {t('auto.auto_navigate_cities_usin_2857')}
+                                </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -91,9 +93,9 @@ export default function TrustedRouteCorridors() {
              <div className="absolute top-6 right-6 bg-black/80 backdrop-blur border border-emerald-500/30 p-4 rounded-2xl">
                <div className="flex items-center gap-2 mb-2 text-emerald-400">
                  <ShieldCheck className="w-5 h-5" />
-                 <span className="font-bold text-sm">Aetheria Shield Active</span>
+                 <span className="font-bold text-sm">{t('auto.auto_aetheria_shield_acti_2856')}</span>
                </div>
-               <p className="text-xs text-white/50 font-mono">Routing avoids known high-risk zones.</p>
+               <p className="text-xs text-white/50 font-mono">{t('auto.auto_routing_avoids_known_2855')}</p>
              </div>
           </div>
 
@@ -130,11 +132,11 @@ export default function TrustedRouteCorridors() {
 
                 <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-4">
                    <div>
-                     <p className="text-[10px] text-white/40 font-mono uppercase tracking-widest block mb-1">Safety Index</p>
+                     <p className="text-[10px] text-white/40 font-mono uppercase tracking-widest block mb-1">{t('auto.auto_safety_index_2854')}</p>
                      <p className="text-xl font-bold text-emerald-400">{c.metrics.safetyScore}%</p>
                    </div>
                    <div>
-                     <p className="text-[10px] text-white/40 font-mono uppercase tracking-widest block mb-1">Recent Incidents</p>
+                     <p className="text-[10px] text-white/40 font-mono uppercase tracking-widest block mb-1">{t('auto.auto_recent_incidents_2853')}</p>
                      <p className="text-xl font-bold text-white">{c.metrics.reports}</p>
                    </div>
                 </div>

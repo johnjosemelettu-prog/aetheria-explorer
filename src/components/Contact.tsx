@@ -54,11 +54,11 @@ export default function Contact() {
             <Globe className="w-12 h-12" />
           </motion.div>
           <h1 className="text-5xl md:text-7xl font-display font-black mb-6 tracking-tighter">
-            Initiate <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Contact</span>
+            {t('auto.auto_initiate_868')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">{t('auto.auto_contact_867')}</span>
           </h1>
           <p className="text-xl text-foreground/60 max-w-2xl mx-auto font-light">
-            Need emergency extraction? Questions about your itinerary? Or just want to send a postcard? Our global command center is standing by 24/7.
-          </p>
+            {t('auto.auto_need_emergency_extra_866')}
+                                </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -77,11 +77,11 @@ export default function Contact() {
                     <Mail className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl mb-1 text-white">Digital Dispatch</h3>
-                    <p className="text-sm text-foreground/60 mb-3">For general inquiries, bug reports, and partnership pings.</p>
+                    <h3 className="font-bold text-xl mb-1 text-white">{t('auto.auto_digital_dispatch_865')}</h3>
+                    <p className="text-sm text-foreground/60 mb-3">{t('auto.auto_for_general_inquirie_864')}</p>
                     <a href="mailto:operator@aetheria.com" className="text-primary font-mono hover:text-white transition-colors flex items-center gap-2 group-hover:underline">
-                      operator@aetheria.com
-                      <ChevronRight className="w-4 h-4" />
+                      {t('auto.auto_operator_aetheria_co_863')}
+                                                                <ChevronRight className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
@@ -101,9 +101,9 @@ export default function Contact() {
                     <Phone className="w-7 h-7 text-red-400 relative z-10" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl mb-1 text-white">Emergency Hotline</h3>
-                    <p className="text-sm text-foreground/60 mb-3">Immediate SOS and urgent travel extraction requests.</p>
-                    <p className="text-red-400 font-mono font-bold tracking-widest text-lg">+1 (800) AETHERIA</p>
+                    <h3 className="font-bold text-xl mb-1 text-white">{t('auto.auto_emergency_hotline_862')}</h3>
+                    <p className="text-sm text-foreground/60 mb-3">{t('auto.auto_immediate_sos_and_ur_861')}</p>
+                    <p className="text-red-400 font-mono font-bold tracking-widest text-lg">{t('auto.auto__1__800__aetheria_860')}</p>
                   </div>
                 </div>
               </div>
@@ -120,11 +120,11 @@ export default function Contact() {
                     <MapPin className="w-7 h-7 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl mb-1 text-white">Central Hub</h3>
+                    <h3 className="font-bold text-xl mb-1 text-white">{t('auto.auto_central_hub_859')}</h3>
                     <p className="text-sm text-foreground/60 mb-2">
-                      100 Synthesis Way<br />
-                      Neo-Tokyo, Japan 150-0001
-                    </p>
+                      {t('auto.auto_100_synthesis_way_858')}<br />
+                      {t('auto.auto_neo_tokyo__japan_150_857')}
+                                                              </p>
                   </div>
                 </div>
               </div>
@@ -144,11 +144,11 @@ export default function Contact() {
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                <span className="ml-4 text-xs font-mono text-foreground/40 hidden sm:block">guest@aetheria-hub:~/contact-protocol</span>
+                <span className="ml-4 text-xs font-mono text-foreground/40 hidden sm:block">{t('auto.auto_guest_aetheria_hub___856')}</span>
               </div>
               
               <div className="mt-10">
-                <h2 className="text-3xl font-display font-bold mb-8 text-white">Transmit Signal</h2>
+                <h2 className="text-3xl font-display font-bold mb-8 text-white">{t('auto.auto_transmit_signal_855')}</h2>
                 
                 <AnimatePresence mode="wait">
                   {submitted ? (
@@ -164,14 +164,14 @@ export default function Contact() {
                           <Send className="w-10 h-10" />
                         </div>
                       </div>
-                      <h3 className="text-3xl font-bold mb-4 text-white">Transmission Successful</h3>
-                      <p className="text-foreground/60 text-lg max-w-md">Our operators have received your packet and will establish a connection shortly.</p>
+                      <h3 className="text-3xl font-bold mb-4 text-white">{t('auto.auto_transmission_success_854')}</h3>
+                      <p className="text-foreground/60 text-lg max-w-md">{t('auto.auto_our_operators_have_r_853')}</p>
                       <button 
                         onClick={() => setSubmitted(false)}
                         className="mt-10 px-8 py-3 bg-white/5 hover:bg-white/10 rounded-2xl transition-colors font-mono uppercase tracking-widest text-sm"
                       >
-                        Initiate New Ping
-                      </button>
+                        {t('auto.auto_initiate_new_ping_852')}
+                                                                    </button>
                     </motion.div>
                   ) : (
                     <motion.form 
@@ -183,42 +183,42 @@ export default function Contact() {
                     >
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">Identifier</label>
+                          <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">{t('auto.auto_identifier_851')}</label>
                           <input 
                             type="text" 
                             name="identifier"
                             required
-                            placeholder="Commander Shepard"
+                            placeholder={t('auto.auto_commander_shepard_850')}
                             className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:bg-white/5 focus:ring-1 focus:ring-accent/50 transition-all font-mono"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">Ping Address</label>
+                          <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">{t('auto.auto_ping_address_849')}</label>
                           <input 
                             type="email" 
                             name="email"
                             required
-                            placeholder="you@domain.com"
+                            placeholder={t('auto.auto_you_domain_com_848')}
                             className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:bg-white/5 focus:ring-1 focus:ring-accent/50 transition-all font-mono"
                           />
                         </div>
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">Protocol</label>
+                        <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">{t('auto.auto_protocol_847')}</label>
                         <select name="protocol" className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 text-white focus:outline-none focus:border-accent/50 focus:bg-white/5 focus:ring-1 focus:ring-accent/50 transition-all appearance-none font-mono cursor-pointer">
-                          <option value="support" className="bg-[#111]">Technical Assistance</option>
-                          <option value="billing" className="bg-[#111]">Credential Billing</option>
-                          <option value="partnership" className="bg-[#111]">Guild Alliance</option>
-                          <option value="feedback" className="bg-[#111]">System Feedback</option>
+                          <option value="support" className="bg-[#111]">{t('auto.auto_technical_assistance_846')}</option>
+                          <option value="billing" className="bg-[#111]">{t('auto.auto_credential_billing_845')}</option>
+                          <option value="partnership" className="bg-[#111]">{t('auto.auto_guild_alliance_844')}</option>
+                          <option value="feedback" className="bg-[#111]">{t('auto.auto_system_feedback_843')}</option>
                         </select>
                       </div>
                       <div>
-                        <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">Payload Details</label>
+                        <label className="block text-xs font-mono uppercase tracking-widest text-accent mb-2 pl-2">{t('auto.auto_payload_details_842')}</label>
                         <textarea 
                           name="payload"
                           required
                           rows={5}
-                          placeholder="Decrypt your message here..."
+                          placeholder={t('auto.auto_decrypt_your_message_841')}
                           className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 text-white placeholder-white/20 focus:outline-none focus:border-accent/50 focus:bg-white/5 focus:ring-1 focus:ring-accent/50 transition-all resize-none font-mono"
                         />
                       </div>
@@ -229,8 +229,8 @@ export default function Contact() {
                       >
                         <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                         {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <Send className="w-6 h-6" />}
-                        Transmit Signal Now
-                      </button>
+                        {t('auto.auto_transmit_signal_now_840')}
+                                                                        </button>
                     </motion.form>
                   )}
                 </AnimatePresence>

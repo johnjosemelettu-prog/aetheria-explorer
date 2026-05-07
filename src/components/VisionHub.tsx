@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Image as ImageIcon, Sparkles, Download, Loader2, X, Wand2 } from 'lucide-react';
 import { generateImage } from '../services/gemini';
 import { cn } from '../lib/utils';
+import { useTranslation } from "react-i18next";
 
 export default function VisionHub() {
+    const { t } = useTranslation();
   const [prompt, setPrompt] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
@@ -34,8 +36,8 @@ export default function VisionHub() {
             <Sparkles className="text-accent w-6 h-6" />
           </div>
           <div>
-            <h2 className="text-2xl font-display font-bold">Vision Hub</h2>
-            <p className="text-sm text-foreground/50">Synthesize cinematic travel visuals with AI.</p>
+            <h2 className="text-2xl font-display font-bold">{t('auto.auto_vision_hub_2942')}</h2>
+            <p className="text-sm text-foreground/50">{t('auto.auto_synthesize_cinematic_2941')}</p>
           </div>
         </div>
 
@@ -44,7 +46,7 @@ export default function VisionHub() {
             <textarea
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Describe a cinematic travel scene... (e.g., 'A neon-lit street in Tokyo during a rainy night, 8k, cinematic lighting')"
+              placeholder={t('auto.auto_describe_a_cinematic_2940')}
               className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-sm min-h-[100px] focus:outline-none focus:border-accent/50 transition-colors resize-none"
             />
             <button
@@ -66,7 +68,7 @@ export default function VisionHub() {
               >
                 <img 
                   src={generatedImage} 
-                  alt="Generated travel scene" 
+                  alt={t('auto.auto_generated_travel_sce_2939')} 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -81,8 +83,8 @@ export default function VisionHub() {
                     className="flex items-center gap-2 px-4 py-2 bg-white text-background rounded-xl font-bold text-xs"
                   >
                     <Download className="w-4 h-4" />
-                    Download Synthesis
-                  </button>
+                    {t('auto.auto_download_synthesis_2938')}
+                                                        </button>
                 </div>
                 <button 
                   onClick={() => setGeneratedImage(null)}

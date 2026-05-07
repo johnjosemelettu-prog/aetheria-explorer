@@ -10,6 +10,7 @@ import ServiceListings from './partner/ServiceListings';
 import PerformanceDashboard from './partner/PerformanceDashboard';
 import CommunityTools from './partner/CommunityTools';
 import PromotionsManager from './partner/PromotionsManager';
+import { useTranslation } from "react-i18next";
 
 const yieldData = [
   { name: 'Mon', yield: 400 },{ name: 'Tue', yield: 300 },{ name: 'Wed', yield: 500 },
@@ -28,16 +29,17 @@ const tabs = [
 ];
 
 const PartnerSettings = () => {
+    const { t } = useTranslation();
   const [msAuthEnabled, setMsAuthEnabled] = useState(true);
   
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-bold mb-4">Account Settings</h2>
+        <h2 className="text-xl font-bold mb-4">{t('auto.auto_account_settings_1968')}</h2>
         <div className="glass rounded-xl p-4 flex items-center justify-between">
           <div>
-            <p className="font-medium">Microsoft Authenticator Authentication</p>
-            <p className="text-xs text-foreground/40 mt-1">Allow signing in with your Microsoft account to the Partner Hub.</p>
+            <p className="font-medium">{t('auto.auto_microsoft_authentica_1967')}</p>
+            <p className="text-xs text-foreground/40 mt-1">{t('auto.auto_allow_signing_in_wit_1966')}</p>
           </div>
           <button 
             onClick={() => setMsAuthEnabled(!msAuthEnabled)} 
@@ -52,6 +54,7 @@ const PartnerSettings = () => {
 };
 
 export default function PartnerHub() {
+    const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
@@ -62,8 +65,8 @@ export default function PartnerHub() {
           <Store className="text-secondary w-6 h-6" />
         </div>
         <div>
-          <h1 className="text-4xl font-display font-bold">Partner Hub</h1>
-          <p className="text-foreground/50">Manage your travel services and grow your business.</p>
+          <h1 className="text-4xl font-display font-bold">{t('auto.auto_partner_hub_1965')}</h1>
+          <p className="text-foreground/50">{t('auto.auto_manage_your_travel_s_1964')}</p>
         </div>
       </div>
 
@@ -89,8 +92,8 @@ export default function PartnerHub() {
             </div>
             <section className="glass p-8 rounded-3xl">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-xl font-display font-bold">Yield Monitoring</h2>
-                <span className="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest">+12.5% vs Last Week</span>
+                <h2 className="text-xl font-display font-bold">{t('auto.auto_yield_monitoring_1963')}</h2>
+                <span className="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest">{t('auto.auto__12_5__vs_last_week_1962')}</span>
               </div>
               <div className="h-[260px]">
                 <ResponsiveContainer width="100%" height="100%">

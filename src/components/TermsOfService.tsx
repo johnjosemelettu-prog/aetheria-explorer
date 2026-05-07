@@ -4,6 +4,7 @@ import {
   Scale, FileText, User, XCircle, Shield, Zap,
   CreditCard, Globe, AlertTriangle, BookOpen, Gavel
 } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const sections = [
   { id: 'acceptance', icon: FileText, title: '1. Acceptance of Terms' },
@@ -21,90 +22,91 @@ const sections = [
 
 const content: Record<string, React.ReactNode> = {
   acceptance: (
-    <p>By accessing or using the Aetheria Explorer application and its related services (collectively, the "Service"), you confirm that you are at least 18 years of age, have read and understood these Terms of Service ("Terms"), and agree to be legally bound by them. If you do not agree, you must immediately cease using the Service. These Terms constitute a binding legal agreement between you and Aetheria Explorer Pty Ltd ("Aetheria", "we", "us", "our").</p>
+    <p>""By accessing or using the Aetheria Explorer application and its related services (collectively, the "Service"), you confirm that you are at least 18 years of age, have read and understood these Terms of Service ("Terms"), and agree to be legally bound by them. If you do not agree, you must immediately cease using the Service. These Terms constitute a binding legal agreement between you and Aetheria Explorer Pty Ltd ("Aetheria", "we", "us", "our").""</p>
   ),
   accounts: (
     <div className="space-y-3">
-      <p>When you create an account, you agree to:</p>
+      <p>""When you create an account, you agree to:""</p>
       <ul className="space-y-2 pl-4 border-l-2 border-secondary/30">
-        <li>Provide accurate, complete, and current registration information.</li>
-        <li>Maintain the security of your credentials and not share your password with any third party.</li>
-        <li>Notify us immediately at <a href="mailto:security@aetheria-explorer.com" className="text-primary hover:underline">security@aetheria-explorer.com</a> of any suspected unauthorised access.</li>
-        <li>Accept responsibility for all activities conducted under your account.</li>
+        <li>""Provide accurate, complete, and current registration information.""</li>
+        <li>""Maintain the security of your credentials and not share your password with any third party.""</li>
+        <li>""Notify us immediately at"" <a href="mailto:security@aetheria-explorer.com" className="text-primary hover:underline">""security@aetheria-explorer.com""</a> ""of any suspected unauthorised access.""</li>
+        <li>""Accept responsibility for all activities conducted under your account.""</li>
       </ul>
-      <p>We reserve the right to suspend or terminate accounts that violate these Terms, contain false information, or that have been inactive for more than 24 months.</p>
+      <p>""We reserve the right to suspend or terminate accounts that violate these Terms, contain false information, or that have been inactive for more than 24 months.""</p>
     </div>
   ),
   content: (
     <div className="space-y-3">
-      <p>You may create and share content through the Service ("User Content"). You retain ownership of your User Content but grant Aetheria a worldwide, non-exclusive, royalty-free licence to use, reproduce, modify, and display it solely for the purposes of operating and improving the Service.</p>
-      <p>You agree <strong className="text-white">not</strong> to post or transmit content that:</p>
+      <p>""You may create and share content through the Service ("User Content"). You retain ownership of your User Content but grant Aetheria a worldwide, non-exclusive, royalty-free licence to use, reproduce, modify, and display it solely for the purposes of operating and improving the Service.""</p>
+      <p>""You agree"" <strong className="text-white">""not""</strong> ""to post or transmit content that:""</p>
       <ul className="space-y-2 pl-4 border-l-2 border-red-500/30">
-        <li>Is unlawful, defamatory, harassing, threatening, obscene, or fraudulent.</li>
-        <li>Infringes any third-party intellectual property, privacy, or publicity rights.</li>
-        <li>Contains malware, viruses, or other harmful code.</li>
-        <li>Impersonates any person or entity.</li>
-        <li>Violates the privacy or safety of other travellers.</li>
-        <li>Constitutes unsolicited advertising or spam.</li>
+        <li>""Is unlawful, defamatory, harassing, threatening, obscene, or fraudulent.""</li>
+        <li>""Infringes any third-party intellectual property, privacy, or publicity rights.""</li>
+        <li>""Contains malware, viruses, or other harmful code.""</li>
+        <li>""Impersonates any person or entity.""</li>
+        <li>""Violates the privacy or safety of other travellers.""</li>
+        <li>""Constitutes unsolicited advertising or spam.""</li>
       </ul>
     </div>
   ),
   ip: (
-    <p>The Service, including all software, algorithms, AI models, designs, brand elements, and original content (excluding User Content), is and will remain the exclusive property of Aetheria Explorer Pty Ltd and its licensors. These materials are protected by Australian and international copyright, trademark, patent, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written consent.</p>
+    <p>""The Service, including all software, algorithms, AI models, designs, brand elements, and original content (excluding User Content), is and will remain the exclusive property of Aetheria Explorer Pty Ltd and its licensors. These materials are protected by Australian and international copyright, trademark, patent, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written consent.""</p>
   ),
   payments: (
     <div className="space-y-3">
-      <p>Certain travel services, priority booking capabilities, and continuous AI routing via the Service require payment or active subscriptions ("Travel & Booking Subscriptions"). By subscribing or booking through Aetheria, you agree to the following:</p>
+      <p>""Certain travel services, priority booking capabilities, and continuous AI routing via the Service require payment or active subscriptions ("Travel & Booking Subscriptions"). By subscribing or booking through Aetheria, you agree to the following:""</p>
       <ul className="space-y-2 pl-4 border-l-2 border-secondary/30">
-        <li><strong className="text-white">Aetheria+ Travel Subscriptions</strong> provide access to zero-commission bookings, unlimited AI itinerary generations, and priority emergency routing. Subscriptions are billed automatically and renew unless cancelled 24 hours prior.</li>
-        <li><strong className="text-white">Third-Party Bookings:</strong> Payments for flights, hotels, and local activities made through our Booking Hub are processed via secure partners. Aetheria acts as an intermediary; specific cancellation policies of the end provider apply.</li>
-        <li><strong className="text-white">Dynamic Pricing:</strong> Travel pricing fluctuates based on live global inventory. Aetheria guarantees the price only at the exact moment of final transaction confirmation.</li>
-        <li><strong className="text-white">eSIMs & Insurance:</strong> Digital products like global eSIMs and dynamic travel insurance policies are non-refundable once activated or past the 14-day cooling-off period prior to travel.</li>
-        <li>We reserve the right to modify subscription pricing for future travel seasons with 30 days' advance notice to active subscribers.</li>
+        <li><strong className="text-white">""Aetheria+ Travel Subscriptions""</strong> ""provide access to zero-commission bookings, unlimited AI itinerary generations, and priority emergency routing. Subscriptions are billed automatically and renew unless cancelled 24 hours prior.""</li>
+        <li><strong className="text-white">""Third-Party Bookings:""</strong> ""Payments for flights, hotels, and local activities made through our Booking Hub are processed via secure partners. Aetheria acts as an intermediary; specific cancellation policies of the end provider apply.""</li>
+        <li><strong className="text-white">""Dynamic Pricing:""</strong> ""Travel pricing fluctuates based on live global inventory. Aetheria guarantees the price only at the exact moment of final transaction confirmation.""</li>
+        <li><strong className="text-white">""eSIMs & Insurance:""</strong> ""Digital products like global eSIMs and dynamic travel insurance policies are non-refundable once activated or past the 14-day cooling-off period prior to travel.""</li>
+        <li>""We reserve the right to modify subscription pricing for future travel seasons with 30 days' advance notice to active subscribers.""</li>
       </ul>
     </div>
   ),
   aifeatures: (
     <div className="space-y-3">
-      <p>Aetheria Explorer incorporates AI-powered features including AI Itinerary Generation, AR Wayfinding, Scam Alert Detection, and Safety Radar. These features are provided <strong className="text-white">for informational and assistive purposes only</strong>.</p>
+      <p>""Aetheria Explorer incorporates AI-powered features including AI Itinerary Generation, AR Wayfinding, Scam Alert Detection, and Safety Radar. These features are provided"" <strong className="text-white">""for informational and assistive purposes only""</strong>.</p>
       <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4">
-        <p className="text-yellow-300 text-sm font-semibold">⚠️ Important Disclaimer</p>
-        <p className="text-yellow-200/70 text-sm mt-1">AI-generated content may contain errors, inaccuracies, or outdated information. You are solely responsible for verifying information and for your own safety and decisions while travelling. Aetheria is not liable for any harm, financial loss, or injury resulting from reliance on AI-generated recommendations.</p>
+        <p className="text-yellow-300 text-sm font-semibold">""⚠️ Important Disclaimer""</p>
+        <p className="text-yellow-200/70 text-sm mt-1">""AI-generated content may contain errors, inaccuracies, or outdated information. You are solely responsible for verifying information and for your own safety and decisions while travelling. Aetheria is not liable for any harm, financial loss, or injury resulting from reliance on AI-generated recommendations.""</p>
       </div>
-      <p>AR navigation features supplement — they do not replace — conventional navigation tools. Always exercise caution and situational awareness in unfamiliar environments.</p>
+      <p>""AR navigation features supplement — they do not replace — conventional navigation tools. Always exercise caution and situational awareness in unfamiliar environments.""</p>
     </div>
   ),
   liability: (
     <div className="space-y-3">
-      <p>To the fullest extent permitted by applicable law, Aetheria Explorer Pty Ltd and its directors, employees, partners, and affiliates shall not be liable for any:</p>
+      <p>""To the fullest extent permitted by applicable law, Aetheria Explorer Pty Ltd and its directors, employees, partners, and affiliates shall not be liable for any:""</p>
       <ul className="space-y-2 pl-4 border-l-2 border-red-500/30">
-        <li>Indirect, incidental, special, consequential, or punitive damages.</li>
-        <li>Loss of profits, data, goodwill, or business opportunities.</li>
-        <li>Harm arising from reliance on AI-generated content, AR features, or third-party information.</li>
-        <li>Service interruptions, data breaches (except where caused by our gross negligence), or unauthorised access.</li>
-        <li>Actions or omissions of travel partners, local guides, or other third parties.</li>
+        <li>""Indirect, incidental, special, consequential, or punitive damages.""</li>
+        <li>""Loss of profits, data, goodwill, or business opportunities.""</li>
+        <li>""Harm arising from reliance on AI-generated content, AR features, or third-party information.""</li>
+        <li>""Service interruptions, data breaches (except where caused by our gross negligence), or unauthorised access.""</li>
+        <li>""Actions or omissions of travel partners, local guides, or other third parties.""</li>
       </ul>
-      <p>Where liability cannot be excluded by law (e.g., Australian Consumer Law guarantees), our total cumulative liability shall not exceed the amount paid by you to Aetheria in the 12 months preceding the claim.</p>
+      <p>""Where liability cannot be excluded by law (e.g., Australian Consumer Law guarantees), our total cumulative liability shall not exceed the amount paid by you to Aetheria in the 12 months preceding the claim.""</p>
     </div>
   ),
   termination: (
-    <p>We may suspend or permanently terminate your access to the Service at any time, with or without notice, if you breach these Terms, engage in fraudulent or abusive behaviour, or if we discontinue the Service. Upon termination, your right to use the Service ceases immediately. Provisions of these Terms that by their nature should survive termination (including intellectual property, disclaimers, and liability limitations) shall survive.</p>
+    <p>""We may suspend or permanently terminate your access to the Service at any time, with or without notice, if you breach these Terms, engage in fraudulent or abusive behaviour, or if we discontinue the Service. Upon termination, your right to use the Service ceases immediately. Provisions of these Terms that by their nature should survive termination (including intellectual property, disclaimers, and liability limitations) shall survive.""</p>
   ),
   disputes: (
     <div className="space-y-3">
-      <p>We encourage you to contact us first at <a href="mailto:legal@aetheria-explorer.com" className="text-primary hover:underline">legal@aetheria-explorer.com</a> to resolve any disputes informally.</p>
-      <p>If a dispute cannot be resolved informally within 30 days, it shall be submitted to binding arbitration administered by the Australian Centre for International Commercial Arbitration (ACICA) in Sydney, Australia, in accordance with its arbitration rules. The language of arbitration shall be English. This clause does not prevent either party from seeking urgent injunctive relief from a court of competent jurisdiction.</p>
+      <p>""We encourage you to contact us first at"" <a href="mailto:legal@aetheria-explorer.com" className="text-primary hover:underline">""legal@aetheria-explorer.com""</a> ""to resolve any disputes informally.""</p>
+      <p>""If a dispute cannot be resolved informally within 30 days, it shall be submitted to binding arbitration administered by the Australian Centre for International Commercial Arbitration (ACICA) in Sydney, Australia, in accordance with its arbitration rules. The language of arbitration shall be English. This clause does not prevent either party from seeking urgent injunctive relief from a court of competent jurisdiction.""</p>
     </div>
   ),
   governing: (
-    <p>These Terms are governed by and construed in accordance with the laws of New South Wales, Australia, without regard to its conflict of law principles. You consent to the exclusive jurisdiction of the courts of New South Wales for any matters not subject to arbitration. If you access the Service from outside Australia, you are responsible for compliance with local laws to the extent they apply.</p>
+    <p>""These Terms are governed by and construed in accordance with the laws of New South Wales, Australia, without regard to its conflict of law principles. You consent to the exclusive jurisdiction of the courts of New South Wales for any matters not subject to arbitration. If you access the Service from outside Australia, you are responsible for compliance with local laws to the extent they apply.""</p>
   ),
   changes: (
-    <p>We reserve the right to modify these Terms at any time. For material changes, we will provide at least 14 days' notice via in-app notification and/or email before the new terms take effect. Your continued use of the Service after the effective date constitutes acceptance of the revised Terms. If you do not agree to the revised Terms, you must stop using the Service before the effective date.</p>
+    <p>""We reserve the right to modify these Terms at any time. For material changes, we will provide at least 14 days' notice via in-app notification and/or email before the new terms take effect. Your continued use of the Service after the effective date constitutes acceptance of the revised Terms. If you do not agree to the revised Terms, you must stop using the Service before the effective date.""</p>
   ),
 };
 
 export default function TermsOfService() {
+    const { t } = useTranslation();
   const [active, setActive] = useState('acceptance');
 
   return (
@@ -121,11 +123,11 @@ export default function TermsOfService() {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-secondary/20 border border-secondary/30 mb-6">
             <Scale className="w-8 h-8 text-secondary" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-display font-bold mb-4">Terms of Service</h1>
-          <p className="text-foreground/50 text-sm">Last Updated: April 28, 2026 &nbsp;·&nbsp; Effective: May 12, 2026</p>
+          <h1 className="text-5xl md:text-6xl font-display font-bold mb-4">{t('auto.auto_terms_of_service_2556')}</h1>
+          <p className="text-foreground/50 text-sm">{t('auto.auto_last_updated__april__2555')}</p>
           <p className="text-foreground/60 mt-4 max-w-2xl mx-auto">
-            Please read these Terms carefully before using Aetheria Explorer. By using our Service, you agree to these Terms.
-          </p>
+            {t('auto.auto_please_read_these_te_2554')}
+                                </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -135,7 +137,7 @@ export default function TermsOfService() {
             className="lg:col-span-1"
           >
             <div className="glass rounded-2xl p-4 border border-white/10 sticky top-24">
-              <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-3 px-2">Contents</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-3 px-2">{t('auto.auto_contents_2553')}</p>
               <nav className="space-y-1">
                 {sections.map(s => (
                   <button key={s.id} onClick={() => {

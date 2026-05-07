@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Play, Pause, Activity, Clock, MapPin, Music4, Loader2, FastForward, SkipBack } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const GenerativeOST = () => {
+    const { t } = useTranslation();
   const [isPlaying, setIsPlaying] = useState(false);
   const [loading, setLoading] = useState(false);
   const [ostData, setOstData] = useState<any>(null);
@@ -63,11 +65,11 @@ const GenerativeOST = () => {
       <div className="z-10 w-full max-w-4xl">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-            Generative OST
-          </h1>
+            {t('auto.auto_generative_ost_1331')}
+                                </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Your life is a movie. This AI generates a continuous, bespoke soundtrack in real-time based on your heart rate, pace, time of day, and location.
-          </p>
+            {t('auto.auto_your_life_is_a_movie_1330')}
+                                </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -128,14 +130,14 @@ const GenerativeOST = () => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">Live Telemetry</h3>
+            <h3 className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">{t('auto.auto_live_telemetry_1329')}</h3>
             
             <Card className="bg-gray-900/60 border-gray-800 p-4">
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-red-500/20 rounded-lg text-red-400"><Activity className="w-5 h-5" /></div>
                 <div>
-                  <p className="text-xs text-gray-400 font-semibold uppercase">Heart Rate</p>
-                  <p className="text-xl font-bold text-white">{heartRate} BPM</p>
+                  <p className="text-xs text-gray-400 font-semibold uppercase">{t('auto.auto_heart_rate_1328')}</p>
+                  <p className="text-xl font-bold text-white">{heartRate} {t('auto.auto_bpm_1327')}</p>
                 </div>
               </div>
             </Card>
@@ -144,7 +146,7 @@ const GenerativeOST = () => {
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-orange-500/20 rounded-lg text-orange-400"><Clock className="w-5 h-5" /></div>
                 <div>
-                  <p className="text-xs text-gray-400 font-semibold uppercase">Time of Day</p>
+                  <p className="text-xs text-gray-400 font-semibold uppercase">{t('auto.auto_time_of_day_1326')}</p>
                   <p className="text-xl font-bold text-white">{timeOfDay}</p>
                 </div>
               </div>
@@ -154,19 +156,19 @@ const GenerativeOST = () => {
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-emerald-500/20 rounded-lg text-emerald-400"><MapPin className="w-5 h-5" /></div>
                 <div>
-                  <p className="text-xs text-gray-400 font-semibold uppercase">Location Context</p>
+                  <p className="text-xs text-gray-400 font-semibold uppercase">{t('auto.auto_location_context_1325')}</p>
                   <p className="text-lg font-bold text-white leading-tight">{location}</p>
                 </div>
               </div>
             </Card>
 
             <Button onClick={regenerateTrack} variant="outline" className="w-full mt-4 border-gray-700 hover:bg-gray-800 text-white">
-              <Music4 className="w-4 h-4 mr-2" /> Force Resync
-            </Button>
+              <Music4 className="w-4 h-4 mr-2" /> {t('auto.auto_force_resync_1324')}
+                                      </Button>
             
             <div className="text-xs text-center text-gray-600 mt-4">
-              In a full environment, these parameters update automatically from your device sensors.
-            </div>
+              {t('auto.auto_in_a_full_environmen_1323')}
+                                      </div>
           </div>
         </div>
       </div>

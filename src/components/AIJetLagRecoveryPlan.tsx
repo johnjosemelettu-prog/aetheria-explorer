@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const AIJetLagRecoveryPlan = () => {
+    const { t } = useTranslation();
   const [plan, setPlan] = useState(null);
 
   const generatePlan = () => {
@@ -29,13 +31,13 @@ const AIJetLagRecoveryPlan = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">AI-Based "Jet Lag Recovery" Plan</h1>
+      <h1 className="text-2xl font-bold mb-4">{t('auto.auto_ai_based__jet_lag_re_213')}</h1>
       <button
         onClick={generatePlan}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4"
       >
-        Generate Plan
-      </button>
+        {t('auto.auto_generate_plan_212')}
+                    </button>
       {plan && (
         <div>
           {Object.entries(plan).map(([day, data]) => (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Star, Utensils, Mountain, Camera, Music, Lock } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const SKILL_TREES = [
   {
@@ -36,23 +37,24 @@ const SKILL_TREES = [
 ];
 
 export default function AchievementTrees() {
+    const { t } = useTranslation();
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
         <div>
           <h1 className="text-5xl font-display font-bold mb-4 flex items-center gap-4">
             <Trophy className="w-10 h-10 text-yellow-400" />
-            Travel Masteries
-          </h1>
+            {t('auto.auto_travel_masteries_12')}
+                                </h1>
           <p className="text-foreground/60 text-lg max-w-xl">
-            Branching achievement trees that track your evolution as a traveler. Specialize your persona and unlock unique perks.
-          </p>
+            {t('auto.auto_branching_achievemen_11')}
+                                </p>
         </div>
         <div className="glass px-6 py-4 rounded-2xl flex items-center gap-4">
           <Star className="w-8 h-8 text-yellow-400 fill-yellow-400" />
           <div>
-            <div className="text-xs font-bold text-foreground/50 uppercase tracking-wider">Total Mastery</div>
-            <div className="text-2xl font-bold">Lvl 14</div>
+            <div className="text-xs font-bold text-foreground/50 uppercase tracking-wider">{t('auto.auto_total_mastery_10')}</div>
+            <div className="text-2xl font-bold">{t('auto.auto_lvl_14_9')}</div>
           </div>
         </div>
       </div>

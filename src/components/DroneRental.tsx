@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as AI from '../services/gemini';
 import { BatteryCharging, Crosshair, MapPin, Navigation, Video, Clock } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function DroneRental() {
+    const { t } = useTranslation();
   const [duration, setDuration] = useState(15);
   const [rental, setRental] = useState<any | null>(null);
   const [loading, setLoading] = useState(false);
@@ -35,11 +37,11 @@ export default function DroneRental() {
             <Crosshair className="w-16 h-16" />
           </div>
           <h1 className="text-5xl md:text-7xl font-display font-black mb-6 uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
-            Aetheria UAV
-          </h1>
+            {t('auto.auto_aetheria_uav_1092')}
+                                </h1>
           <p className="text-xl text-cyan-100/60 max-w-2xl mx-auto font-mono text-sm leading-relaxed">
-            Dispatch autonomous drones to scout paths, record aerial B-roll, and assess terrain. Live-link into the drone's optics feed.
-          </p>
+            {t('auto.auto_dispatch_autonomous__1091')}
+                                </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -47,10 +49,10 @@ export default function DroneRental() {
            <div className="lg:col-span-5 bg-black/60 backdrop-blur-md rounded-[40px] border border-cyan-500/20 p-8 flex flex-col justify-center">
               {!rental ? (
                 <>
-                  <h3 className="text-2xl font-bold mb-6 text-white uppercase tracking-widest text-center">Flight Parameters</h3>
+                  <h3 className="text-2xl font-bold mb-6 text-white uppercase tracking-widest text-center">{t('auto.auto_flight_parameters_1090')}</h3>
                   
                   <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8 text-center">
-                     <p className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">Select Duration</p>
+                     <p className="font-mono text-xs text-white/50 uppercase tracking-widest mb-4">{t('auto.auto_select_duration_1089')}</p>
                      
                      <div className="text-6xl font-black text-cyan-400 font-display mb-4">
                         {duration}<span className="text-2xl text-cyan-400/50">M</span>
@@ -70,9 +72,9 @@ export default function DroneRental() {
                     className="w-full bg-cyan-500 hover:bg-cyan-600 text-black py-5 rounded-2xl font-black uppercase tracking-widest text-lg transition-colors flex items-center justify-center gap-3 disabled:opacity-50"
                   >
                      {loading ? (
-                       <span className="animate-pulse">Locating Drone...</span>
+                       <span className="animate-pulse">{t('auto.auto_locating_drone____1088')}</span>
                      ) : (
-                       <><Navigation className="w-6 h-6" /> Deploy UAV</>
+                       <><Navigation className="w-6 h-6" /> {t('auto.auto_deploy_uav_1087')}</>
                      )}
                   </button>
                 </>
@@ -85,21 +87,21 @@ export default function DroneRental() {
                           <span className="font-bold uppercase tracking-widest">{rental.status}</span>
                         </div>
                         <span className="font-mono text-xs px-2 py-1 bg-cyan-500/20 text-cyan-300 rounded border border-cyan-500/30">
-                          ID: {rental.droneId}
+                          {t('auto.auto_id__1086')} {rental.droneId}
                         </span>
                      </div>
 
                      <div className="space-y-4 mb-8">
                        <div className="bg-black/40 p-4 rounded-xl border border-white/5 flex justify-between items-center font-mono text-sm">
-                          <span className="text-white/50">Model</span>
+                          <span className="text-white/50">{t('auto.auto_model_1085')}</span>
                           <span className="text-white">{rental.model}</span>
                        </div>
                        <div className="bg-black/40 p-4 rounded-xl border border-white/5 flex justify-between items-center font-mono text-sm">
-                          <span className="text-white/50">Flight Time</span>
-                          <span className="text-cyan-400">{rental.rentalPeriod} Minutes</span>
+                          <span className="text-white/50">{t('auto.auto_flight_time_1084')}</span>
+                          <span className="text-cyan-400">{rental.rentalPeriod} {t('auto.auto_minutes_1083')}</span>
                        </div>
                        <div className="bg-black/40 p-4 rounded-xl border border-white/5 flex justify-between items-center font-mono text-sm">
-                          <span className="text-white/50">Cost</span>
+                          <span className="text-white/50">{t('auto.auto_cost_1082')}</span>
                           <span className="text-red-400 font-bold">${rental.estimatedCost.toFixed(2)}</span>
                        </div>
                      </div>
@@ -108,8 +110,8 @@ export default function DroneRental() {
                        onClick={() => setRental(null)} 
                        className="w-full py-4 rounded-xl text-white/50 border border-white/10 hover:text-white transition-colors uppercase tracking-widest text-xs font-bold"
                      >
-                        Abort Mission
-                     </button>
+                        {t('auto.auto_abort_mission_1081')}
+                                                               </button>
                   </motion.div>
                 </AnimatePresence>
               )}
@@ -122,26 +124,26 @@ export default function DroneRental() {
                    <>
                      <video src={rental.flightPathPreviewUrl} controls autoPlay muted loop className="w-full h-full object-cover opacity-80" />
                      <div className="absolute top-6 left-6 flex items-center gap-2 bg-black/60 backdrop-blur px-3 py-1 rounded-full border border-red-500/30 text-red-500 font-mono text-xs uppercase tracking-widest">
-                       <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Live Optics Feed
-                     </div>
+                       <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> {t('auto.auto_live_optics_feed_1080')}
+                                                           </div>
                      <Crosshair className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 text-cyan-500/20 pointer-events-none" />
                      
                      <div className="absolute bottom-6 inset-x-6 flex justify-between items-end pointer-events-none">
                         <div className="font-mono text-xs text-cyan-400 space-y-1 drop-shadow-md">
-                          <p>ALT: 120m</p>
-                          <p>SPD: 42 km/h</p>
+                          <p>{t('auto.auto_alt__120m_1079')}</p>
+                          <p>{t('auto.auto_spd__42_km_h_1078')}</p>
                         </div>
                         <div className="font-mono text-xs text-cyan-400 text-right space-y-1 drop-shadow-md">
-                          <p className="flex items-center gap-1"><MapPin className="w-3 h-3" /> TGT: Fushimi Inari</p>
-                          <p>BAT: 89%</p>
+                          <p className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {t('auto.auto_tgt__fushimi_inari_1077')}</p>
+                          <p>{t('auto.auto_bat__89__1076')}</p>
                         </div>
                      </div>
                    </>
                  ) : (
                    <div className="text-center">
                      <Video className="w-16 h-16 text-cyan-500/20 mx-auto mb-4" />
-                     <p className="text-cyan-500/40 font-mono text-sm tracking-widest uppercase">Optics Offline</p>
-                     <p className="text-white/20 font-mono text-xs mt-2">Deploy UAV to establish visual link</p>
+                     <p className="text-cyan-500/40 font-mono text-sm tracking-widest uppercase">{t('auto.auto_optics_offline_1075')}</p>
+                     <p className="text-white/20 font-mono text-xs mt-2">{t('auto.auto_deploy_uav_to_establ_1074')}</p>
                    </div>
                  )}
               </div>

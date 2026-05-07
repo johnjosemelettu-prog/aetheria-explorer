@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile 
 } from 'firebase/auth';
+import { useTranslation } from "react-i18next";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -15,6 +16,7 @@ interface AuthModalProps {
 }
 
 export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
+    const { t } = useTranslation();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -103,7 +105,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
             <form onSubmit={handleEmailAuth} className="space-y-4">
               {!isLogin && (
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Full Name</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('auto.auto_full_name_584')}</label>
                   <div className="relative">
                     <input
                       type="text"
@@ -111,7 +113,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                       value={displayName}
                       onChange={(e) => setDisplayName(e.target.value)}
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 pl-11 focus:outline-none focus:border-primary/50 transition-colors"
-                      placeholder="John Doe"
+                      placeholder={t('auto.auto_john_doe_583')}
                     />
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/20" />
                   </div>
@@ -119,7 +121,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
               )}
               
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Email Address</label>
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('auto.auto_email_address_582')}</label>
                 <div className="relative">
                   <input
                     type="email"
@@ -127,14 +129,14 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 pl-11 focus:outline-none focus:border-primary/50 transition-colors"
-                    placeholder="explorer@aetheria.com"
+                    placeholder={t('auto.auto_explorer_aetheria_co_581')}
                   />
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/20" />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Password</label>
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('auto.auto_password_580')}</label>
                 <div className="relative">
                   <input
                     type="password"
@@ -169,7 +171,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 <div className="w-full border-t border-white/5"></div>
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-4 text-foreground/40 font-bold tracking-widest">Or continue with</span>
+                <span className="bg-background px-4 text-foreground/40 font-bold tracking-widest">{t('auto.auto_or_continue_with_579')}</span>
               </div>
             </div>
 

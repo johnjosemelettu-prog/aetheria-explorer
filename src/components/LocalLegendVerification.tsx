@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Camera, CheckCircle2, MapPin, ScanLine, ShieldCheck } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function LocalLegendVerification() {
+    const { t } = useTranslation();
   const [verifying, setVerifying] = useState(false);
   const [verified, setVerified] = useState(false);
 
@@ -24,9 +26,9 @@ export default function LocalLegendVerification() {
         <header className="flex justify-between items-center py-6">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-6 h-6 text-emerald-400" />
-            <span className="font-bold text-emerald-400 uppercase tracking-widest text-sm">Aetheria Verification</span>
+            <span className="font-bold text-emerald-400 uppercase tracking-widest text-sm">{t('auto.auto_aetheria_verificatio_1770')}</span>
           </div>
-          <span className="px-3 py-1 bg-black/50 border border-white/10 rounded-full text-xs font-mono">AR_MODE</span>
+          <span className="px-3 py-1 bg-black/50 border border-white/10 rounded-full text-xs font-mono">{t('auto.auto_ar_mode_1769')}</span>
         </header>
 
         <div className="flex-grow flex flex-col items-center justify-center">
@@ -55,16 +57,16 @@ export default function LocalLegendVerification() {
               <div className="w-24 h-24 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-emerald-500/50">
                 <CheckCircle2 className="w-12 h-12 text-emerald-400" />
               </div>
-              <h2 className="text-3xl font-display font-bold text-white mb-2">Legend Verified</h2>
-              <p className="text-emerald-400/80">You are the 42nd explorer to find this location.</p>
+              <h2 className="text-3xl font-display font-bold text-white mb-2">{t('auto.auto_legend_verified_1768')}</h2>
+              <p className="text-emerald-400/80">{t('auto.auto_you_are_the_42nd_exp_1767')}</p>
             </motion.div>
           )}
         </div>
 
         <div className="mt-auto pt-8">
           <div className="glass p-6 rounded-3xl border border-white/10 backdrop-blur-xl">
-            <h3 className="font-bold text-lg mb-2">The Hidden Shrine of Fox</h3>
-            <p className="text-sm text-foreground/60 mb-6 flex items-center gap-1"><MapPin className="w-4 h-4"/> Target Location Reached</p>
+            <h3 className="font-bold text-lg mb-2">{t('auto.auto_the_hidden_shrine_of_1766')}</h3>
+            <p className="text-sm text-foreground/60 mb-6 flex items-center gap-1"><MapPin className="w-4 h-4"/> {t('auto.auto_target_location_reac_1765')}</p>
             
             {!verified ? (
               <button 
@@ -77,8 +79,8 @@ export default function LocalLegendVerification() {
               </button>
             ) : (
               <button className="w-full py-4 bg-emerald-500 text-black font-bold rounded-xl hover:bg-emerald-400 transition-colors shadow-[0_0_20px_rgba(52,211,153,0.4)]">
-                Claim Achievement
-              </button>
+                {t('auto.auto_claim_achievement_1764')}
+                                                </button>
             )}
           </div>
         </div>

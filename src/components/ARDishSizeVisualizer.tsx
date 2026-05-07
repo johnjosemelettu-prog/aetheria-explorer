@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { UtensilsCrossed, Scale } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARDishSizeVisualizer() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Portion Visualizer" 
-      description="Scan the menu to see a hologram of the to-scale dish on your table before ordering. Never over-order again."
+      title={t('auto.auto_portion_visualizer_426')} 
+      description={t('auto.auto_scan_the_menu_to_see_425')}
       overlayIcon={<Scale className="w-8 h-8 text-amber-500" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none perspective-[800px]">
@@ -31,12 +33,12 @@ export default function ARDishSizeVisualizer() {
 
       <div className="absolute top-24 left-1/2 -translate-x-1/2 pointer-events-auto">
          <div className="bg-black/80 backdrop-blur border border-amber-500 p-4 rounded-xl text-center shadow-xl">
-             <div className="text-amber-400 font-bold font-display text-xl">Tomahawk Steak (For 2)</div>
-             <div className="text-white/60 text-xs font-mono mb-2">1020g • 34cm across</div>
+             <div className="text-amber-400 font-bold font-display text-xl">{t('auto.auto_tomahawk_steak__for__424')}</div>
+             <div className="text-white/60 text-xs font-mono mb-2">{t('auto.auto_1020g___34cm_across_423')}</div>
              <div className="w-full bg-white/10 h-1 mt-2">
                  <div className="bg-amber-500 h-1 w-[85%]" />
              </div>
-             <div className="text-xs text-amber-200 mt-1 uppercase font-bold">Portion Size: Large</div>
+             <div className="text-xs text-amber-200 mt-1 uppercase font-bold">{t('auto.auto_portion_size__large_422')}</div>
          </div>
       </div>
     </XRLayout>

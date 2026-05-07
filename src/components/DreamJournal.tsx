@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Moon, Stars, ArrowUpRight } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function DreamJournal() {
+    const { t } = useTranslation();
   const [analyzing, setAnalyzing] = useState(false);
 
   return (
@@ -18,27 +20,27 @@ export default function DreamJournal() {
          <div>
             <div className="flex items-center gap-4 mb-6">
                <Moon className="w-10 h-10 text-indigo-400" />
-               <h1 className="text-4xl font-display font-medium tracking-wide">The Somnus Log</h1>
+               <h1 className="text-4xl font-display font-medium tracking-wide">{t('auto.auto_the_somnus_log_1062')}</h1>
             </div>
             <p className="text-indigo-200/60 font-mono text-sm leading-relaxed mb-12">
-               Travel deeply affects our subconscious. Log your dreams. Our AI will analyze recurring symbols based on the locations you visited during the day to find psychological through-lines.
-            </p>
+               {t('auto.auto_travel_deeply_affect_1061')}
+                                  </p>
 
             <div className="bg-[#0B0F1F] border border-indigo-500/20 rounded-[2rem] p-8 shadow-2xl relative">
                 <Stars className="absolute top-6 right-6 text-indigo-500/30 w-8 h-8" />
-                <h3 className="font-bold text-indigo-300 font-mono text-xs uppercase tracking-widest mb-4">New Entry • Kyoto, Japan</h3>
+                <h3 className="font-bold text-indigo-300 font-mono text-xs uppercase tracking-widest mb-4">{t('auto.auto_new_entry___kyoto__j_1060')}</h3>
                 
                 <textarea 
                    className="w-full h-40 bg-transparent border-none text-xl font-serif italic text-indigo-100 placeholder-indigo-900/50 resize-none focus:outline-none mb-6"
-                   placeholder="I dreamt I was walking through the bamboo forest, but all the stalks were made of frozen glass..."
+                   placeholder={t('auto.auto_i_dreamt_i_was_walki_1059')}
                 ></textarea>
 
                 <button 
                    onClick={() => setAnalyzing(true)}
                    className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(79,70,229,0.3)] transition"
                 >
-                   ANALYZE SYMBOLOGY
-                </button>
+                   {t('auto.auto_analyze_symbology_1058')}
+                                          </button>
             </div>
          </div>
 
@@ -50,27 +52,27 @@ export default function DreamJournal() {
                <div className="absolute -top-4 -left-4 bg-purple-500 text-white font-bold p-3 rounded-2xl shadow-lg">
                   <ArrowUpRight className="w-6 h-6" />
                </div>
-               <h3 className="text-xl font-bold mb-6 text-white border-b border-purple-500/30 pb-4">Synthesis Analysis</h3>
+               <h3 className="text-xl font-bold mb-6 text-white border-b border-purple-500/30 pb-4">{t('auto.auto_synthesis_analysis_1057')}</h3>
                
                <div className="space-y-6 font-serif">
                   <div>
-                    <span className="font-bold text-purple-400 block mb-1">THE GLASS BAMBOO</span>
+                    <span className="font-bold text-purple-400 block mb-1">{t('auto.auto_the_glass_bamboo_1056')}</span>
                     <p className="text-indigo-200 text-sm leading-relaxed">
-                      Glass represents both clarity and fragility. Your visit to the Arashiyama grove today was crowded and rushed (noted in your itinerary). You may be desiring a "clearer", solitary experience that feels easily shattered by others.
-                    </p>
+                      {t('auto.auto_glass_represents_bot_1055')}
+                                                      </p>
                   </div>
                   <div>
-                    <span className="font-bold text-emerald-400 block mb-1">THE COLD</span>
+                    <span className="font-bold text-emerald-400 block mb-1">{t('auto.auto_the_cold_1054')}</span>
                     <p className="text-indigo-200 text-sm leading-relaxed">
-                      Freezing temperatures in dreams often symbolize feeling emotionally detached or culturally isolated, common in the first 3 days of heavy international travel.
-                    </p>
+                      {t('auto.auto_freezing_temperature_1053')}
+                                                      </p>
                   </div>
                </div>
             </motion.div>
          ) : (
             <div className="h-full flex flex-col justify-center items-center opacity-30">
                <Moon className="w-24 h-24 text-indigo-500 mb-4" />
-               <p className="font-mono text-xs tracking-widest uppercase">Waiting for input...</p>
+               <p className="font-mono text-xs tracking-widest uppercase">{t('auto.auto_waiting_for_input____1052')}</p>
             </div>
          )}
          

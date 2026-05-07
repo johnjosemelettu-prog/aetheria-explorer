@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Infinity as InfinityIcon } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function VRMeditation() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="VR"
-      title="Sanctuary Mode" 
-      description="Disconnect and find peace. Meditate in ultra-realistic, impossible locations generated just for you."
+      title={t('auto.auto_sanctuary_mode_2973')} 
+      description={t('auto.auto_disconnect_and_find__2972')}
       overlayIcon={<InfinityIcon className="w-8 h-8 text-purple-400" />}
     >
       <div className="absolute inset-0 bg-black overflow-hidden perspective-[1000px] pointer-events-none">
@@ -43,8 +45,8 @@ export default function VRMeditation() {
                 animate={{ opacity: [1, 1, 0, 0, 1] }}
                 transition={{ duration: 16, repeat: Infinity, times: [0, 0.25, 0.5, 0.75, 1] }}
               >
-                BREATHE IN
-              </motion.span>
+                {t('auto.auto_breathe_in_2971')}
+                                        </motion.span>
             </div>
         </div>
 
@@ -52,8 +54,8 @@ export default function VRMeditation() {
 
       <div className="absolute bottom-24 right-8 pointer-events-auto">
          <div className="bg-black/40 backdrop-blur-xl border border-purple-500/20 p-4 rounded-xl">
-           <h4 className="text-purple-300 font-bold mb-2">Location: Crystal Caves, Kepler-452b</h4>
-           <p className="text-purple-200/50 text-xs">Audio: Alpha Frequencies (10Hz)</p>
+           <h4 className="text-purple-300 font-bold mb-2">{t('auto.auto_location__crystal_ca_2970')}</h4>
+           <p className="text-purple-200/50 text-xs">{t('auto.auto_audio__alpha_frequen_2969')}</p>
          </div>
       </div>
     </XRLayout>

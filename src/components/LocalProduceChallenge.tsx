@@ -40,7 +40,7 @@ const LocalProduceChallenge = () => {
                 <div className="text-center mb-8">
                     <Leaf size={64} className="mx-auto text-green-500"/>
                     <h2 className="text-2xl font-bold mt-4">{challenge.title}</h2>
-                    <p className="text-lg text-gray-600">Status: <span className={`font-bold ${challenge.isActive ? 'text-green-600' : 'text-gray-500'}`}>{challenge.isActive ? t('localProduceChallenge.active') : t('localProduceChallenge.inactive')}</span></p>
+                    <p className="text-lg text-gray-600">{t('auto.auto_status__1780')} <span className={`font-bold ${challenge.isActive ? 'text-green-600' : 'text-gray-500'}`}>{challenge.isActive ? t('localProduceChallenge.active') : t('localProduceChallenge.inactive')}</span></p>
                 </div>
 
                 <div className="mb-8 text-center">

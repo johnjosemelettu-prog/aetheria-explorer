@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Info, CheckCircle, AlertTriangle, XCircle } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 // This interface will be shared with the context
 export interface NotificationType {
@@ -37,6 +38,7 @@ interface NotificationProps {
 }
 
 const Notification: React.FC<NotificationProps> = ({ notification, onDismiss }) => {
+    const { t } = useTranslation();
   const { id, type, title, message } = notification;
 
   return (
@@ -57,7 +59,7 @@ const Notification: React.FC<NotificationProps> = ({ notification, onDismiss }) 
             onClick={() => onDismiss(id)} 
             className="inline-flex rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 focus:ring-offset-gray-900"
         >
-            <span className="sr-only">Close</span>
+            <span className="sr-only">{t('auto.auto_close_1939')}</span>
             <X className="h-5 w-5" />
           </button>
         </div>

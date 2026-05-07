@@ -5,8 +5,10 @@ import * as AI from '../services/gemini';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useTranslation } from "react-i18next";
 
 const RentalSynthesizer = () => {
+    const { t } = useTranslation();
   const [city, setCity] = useState("Kyoto");
   const [item, setItem] = useState("electric bike");
   const [rentals, setRentals] = useState<any[]>([]);
@@ -29,16 +31,16 @@ const RentalSynthesizer = () => {
 
   return (
     <div className="p-8 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary">Rental Synthesizer</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center text-primary">{t('auto.auto_rental_synthesizer_2245')}</h1>
       <div className="max-w-4xl mx-auto">
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8 flex items-end gap-4">
           <div className="flex-grow">
-            <label className="block text-sm font-medium mb-2">Location</label>
-            <Input value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter a city" />
+            <label className="block text-sm font-medium mb-2">{t('auto.auto_location_2244')}</label>
+            <Input value={city} onChange={(e) => setCity(e.target.value)} placeholder={t('auto.auto_enter_a_city_2243')} />
           </div>
           <div className="flex-grow">
-            <label className="block text-sm font-medium mb-2">What to rent?</label>
-            <Input value={item} onChange={(e) => setItem(e.target.value)} placeholder="e.g., scooter, camera" />
+            <label className="block text-sm font-medium mb-2">{t('auto.auto_what_to_rent__2242')}</label>
+            <Input value={item} onChange={(e) => setItem(e.target.value)} placeholder={t('auto.auto_e_g___scooter__camer_2241')} />
           </div>
           <Button onClick={findRentals} disabled={loading}>
             {loading ? 'Searching...' : 'Find Rentals'}
@@ -58,7 +60,7 @@ const RentalSynthesizer = () => {
             >
               <h2 className="text-xl font-bold text-primary">{rental.provider}</h2>
               <p className="text-lg font-semibold">{rental.price}</p>
-              <p className="text-gray-400">Rating: {rental.rating} / 5</p>
+              <p className="text-gray-400">{t('auto.auto_rating__2240')} {rental.rating} / 5</p>
               <ul className="text-sm mt-2 list-disc list-inside">
                 {rental.features.map((feature: string, i: number) => <li key={i}>{feature}</li>)}
               </ul>

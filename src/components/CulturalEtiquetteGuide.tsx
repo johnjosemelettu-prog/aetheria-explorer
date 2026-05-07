@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, CheckCircle2, XCircle, ArrowRight } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const RULES = [
   { id: 1, type: 'dont', text: "Don't leave a tip. It can be considered insulting in Japan. Exceptional service is expected.", icon: XCircle, color: 'text-red-500' },
@@ -9,6 +10,7 @@ const RULES = [
 ];
 
 export default function CulturalEtiquetteGuide() {
+    const { t } = useTranslation();
   const [index, setIndex] = useState(0);
 
   const nextRule = () => {
@@ -20,8 +22,8 @@ export default function CulturalEtiquetteGuide() {
     <div className="max-w-4xl mx-auto px-4 py-24 min-h-screen flex flex-col items-center justify-center">
       <div className="text-center mb-12">
         <BookOpen className="w-16 h-16 text-blue-400 mx-auto mb-6" />
-        <h1 className="text-4xl font-display font-bold mb-4">Cultural Etiquette</h1>
-        <p className="text-foreground/60 text-lg">Essential Do's and Don'ts for your current location.</p>
+        <h1 className="text-4xl font-display font-bold mb-4">{t('auto.auto_cultural_etiquette_895')}</h1>
+        <p className="text-foreground/60 text-lg">{t('auto.auto_essential_do_s_and_d_894')}</p>
       </div>
 
       <div className="w-full max-w-md relative h-80 perspective-[1000px]">

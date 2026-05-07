@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { PieChart, DollarSign, Loader2, Sparkles } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function BudgetSynthesis() {
+    const { t } = useTranslation();
   const [budget, setBudget] = useState('');
   const [duration, setDuration] = useState('');
   const [destination, setDestination] = useState('');
@@ -34,8 +36,8 @@ export default function BudgetSynthesis() {
             <PieChart className="text-primary w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-4xl font-display font-bold">Budget Synthesis</h1>
-            <p className="text-foreground/50">AI-powered financial planning for your journey.</p>
+            <h1 className="text-4xl font-display font-bold">{t('auto.auto_budget_synthesis_645')}</h1>
+            <p className="text-foreground/50">{t('auto.auto_ai_powered_financial_644')}</p>
           </div>
         </div>
 
@@ -43,35 +45,35 @@ export default function BudgetSynthesis() {
           <div className="glass p-8 rounded-3xl">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-bold text-foreground/70 mb-2">Total Budget ($)</label>
+                <label className="block text-sm font-bold text-foreground/70 mb-2">{t('auto.auto_total_budget_____643')}</label>
                 <div className="relative">
                   <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/30" />
                   <input 
                     type="number" 
                     value={budget}
                     onChange={(e) => setBudget(e.target.value)}
-                    placeholder="Enter amount..."
+                    placeholder={t('auto.auto_enter_amount____642')}
                     className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4 focus:outline-none focus:border-primary/50 transition-colors"
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-bold text-foreground/70 mb-2">Destination</label>
+                <label className="block text-sm font-bold text-foreground/70 mb-2">{t('auto.auto_destination_641')}</label>
                 <input 
                   type="text" 
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
-                  placeholder="e.g., Tokyo, Japan"
+                  placeholder={t('auto.auto_e_g___tokyo__japan_640')}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 px-4 focus:outline-none focus:border-primary/50 transition-colors"
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-foreground/70 mb-2">Duration (Days)</label>
+                <label className="block text-sm font-bold text-foreground/70 mb-2">{t('auto.auto_duration__days__639')}</label>
                 <input 
                   type="number" 
                   value={duration}
                   onChange={(e) => setDuration(e.target.value)}
-                  placeholder="e.g., 7"
+                  placeholder={t('auto.auto_e_g___7_638')}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 px-4 focus:outline-none focus:border-primary/50 transition-colors"
                 />
               </div>
@@ -81,8 +83,8 @@ export default function BudgetSynthesis() {
                 className="w-full py-4 bg-primary text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 mt-4"
               >
                 {isSynthesizing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
-                Synthesize Budget
-              </button>
+                {t('auto.auto_synthesize_budget_637')}
+                                            </button>
             </div>
           </div>
 
@@ -92,7 +94,7 @@ export default function BudgetSynthesis() {
               animate={{ opacity: 1, x: 0 }}
               className="glass p-8 rounded-3xl"
             >
-              <h2 className="text-2xl font-bold mb-6">Suggested Allocation</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('auto.auto_suggested_allocation_636')}</h2>
               <div className="space-y-4">
                 {[
                   { label: 'Accommodation', amount: result.accommodation, color: 'bg-primary' },

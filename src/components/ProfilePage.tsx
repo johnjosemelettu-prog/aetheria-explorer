@@ -128,7 +128,7 @@ export default function ProfilePage() {
             <div className="relative w-32 h-32 mx-auto mb-6 group">
               <img
                 src={auth.currentUser?.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${auth.currentUser?.uid}`}
-                alt="Profile"
+                alt={t('auto.auto_profile_2203')}
                 className="w-full h-full rounded-full border-4 border-white/10"
                 referrerPolicy="no-referrer"
               />
@@ -198,11 +198,11 @@ export default function ProfilePage() {
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 focus:outline-none focus:border-primary/50 transition-colors"
                 >
                   <option value="" disabled>{t('profile.selectVibe')}</option>
-                  <option value="Cyberpunk">Cyberpunk</option>
-                  <option value="Minimalist">Minimalist</option>
-                  <option value="Adventurous">Adventurous</option>
-                  <option value="Sophisticated">Sophisticated</option>
-                  <option value="Wanderlust">Wanderlust</option>
+                  <option value="Cyberpunk">{t('auto.auto_cyberpunk_2202')}</option>
+                  <option value="Minimalist">{t('auto.auto_minimalist_2201')}</option>
+                  <option value="Adventurous">{t('auto.auto_adventurous_2200')}</option>
+                  <option value="Sophisticated">{t('auto.auto_sophisticated_2199')}</option>
+                  <option value="Wanderlust">{t('auto.auto_wanderlust_2198')}</option>
                 </select>
               </div>
 
@@ -288,10 +288,10 @@ export default function ProfilePage() {
                     onChange={(e) => setPreferences({...preferences, currency: e.target.value})}
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary/50"
                   >
-                    <option value="USD">USD ($)</option>
-                    <option value="EUR">EUR (€)</option>
-                    <option value="GBP">GBP (£)</option>
-                    <option value="JPY">JPY (¥)</option>
+                    <option value="USD">{t('auto.auto_usd_____2197')}</option>
+                    <option value="EUR">{t('auto.auto_eur_____2196')}</option>
+                    <option value="GBP">{t('auto.auto_gbp_____2195')}</option>
+                    <option value="JPY">{t('auto.auto_jpy_____2194')}</option>
                   </select>
                 ) : (
                   <p className="text-sm font-bold">{preferences.currency}</p>
@@ -306,17 +306,17 @@ export default function ProfilePage() {
                     onChange={(e) => setPreferences({...preferences, language: e.target.value})}
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary/50"
                   >
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="fr">Français</option>
-                    <option value="ja">日本語 (Japanese)</option>
-                    <option value="de">German</option>
-                    <option value="ml">Malayalam</option>
-                    <option value="ar">Arabic</option>
-                    <option value="ta">Tamil</option>
-                    <option value="hi">Hindi</option>
-                    <option value="ms">Malay</option>
-                    <option value="tl">Tagalog</option>
+                    <option value="en">{t('auto.auto_english_2193')}</option>
+                    <option value="es">{t('auto.auto_espa_ol_2192')}</option>
+                    <option value="fr">{t('auto.auto_fran_ais_2191')}</option>
+                    <option value="ja">{t('auto.auto______japanese__2190')}</option>
+                    <option value="de">{t('auto.auto_german_2189')}</option>
+                    <option value="ml">{t('auto.auto_malayalam_2188')}</option>
+                    <option value="ar">{t('auto.auto_arabic_2187')}</option>
+                    <option value="ta">{t('auto.auto_tamil_2186')}</option>
+                    <option value="hi">{t('auto.auto_hindi_2185')}</option>
+                    <option value="ms">{t('auto.auto_malay_2184')}</option>
+                    <option value="tl">{t('auto.auto_tagalog_2183')}</option>
                   </select>
                 ) : (
                   <p className="text-sm font-bold">{
@@ -344,10 +344,10 @@ export default function ProfilePage() {
                     onChange={(e) => setPreferences({...preferences, timezone: e.target.value})}
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary/50"
                   >
-                    <option value="UTC">UTC</option>
-                    <option value="EST">EST (UTC-5)</option>
-                    <option value="PST">PST (UTC-8)</option>
-                    <option value="JST">JST (UTC+9)</option>
+                    <option value="UTC">{t('auto.auto_utc_2182')}</option>
+                    <option value="EST">{t('auto.auto_est__utc_5__2181')}</option>
+                    <option value="PST">{t('auto.auto_pst__utc_8__2180')}</option>
+                    <option value="JST">{t('auto.auto_jst__utc_9__2179')}</option>
                   </select>
                 ) : (
                   <p className="text-sm font-bold">{preferences.timezone}</p>
@@ -362,8 +362,8 @@ export default function ProfilePage() {
                     onChange={(e) => setPreferences({...preferences, units: e.target.value as 'metric' | 'imperial'})}
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary/50"
                   >
-                    <option value="metric">Metric (km, kg)</option>
-                    <option value="imperial">Imperial (mi, lbs)</option>
+                    <option value="metric">{t('auto.auto_metric__km__kg__2178')}</option>
+                    <option value="imperial">{t('auto.auto_imperial__mi__lbs__2177')}</option>
                   </select>
                 ) : (
                   <p className="text-sm font-bold capitalize">{preferences.units}</p>

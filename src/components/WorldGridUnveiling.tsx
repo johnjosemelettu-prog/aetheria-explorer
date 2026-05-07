@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe, Shield, MapPin } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function WorldGridUnveiling() {
+    const { t } = useTranslation();
   // Generate a fake grid of tiles
   const gridSize = 64; // 8x8 grid
   const tiles = Array.from({ length: gridSize }).map((_, i) => ({
@@ -17,21 +19,21 @@ export default function WorldGridUnveiling() {
         <div>
           <h1 className="text-5xl font-display font-bold mb-4 flex items-center gap-4">
             <Globe className="w-10 h-10 text-blue-400" />
-            World Unveiling
-          </h1>
+            {t('auto.auto_world_unveiling_3048')}
+                                </h1>
           <p className="text-foreground/60 text-lg max-w-xl">
-            The map is shrouded in the fog of war. Travel physically to clear the grid and claim your territory.
-          </p>
+            {t('auto.auto_the_map_is_shrouded__3047')}
+                                </p>
         </div>
         <div className="glass px-6 py-4 rounded-2xl flex gap-8 text-center">
            <div>
              <div className="text-3xl font-bold text-blue-400">12%</div>
-             <div className="text-xs font-bold text-foreground/50 uppercase tracking-wider">World Seen</div>
+             <div className="text-xs font-bold text-foreground/50 uppercase tracking-wider">{t('auto.auto_world_seen_3046')}</div>
            </div>
            <div className="w-px bg-white/10" />
            <div>
              <div className="text-3xl font-bold text-emerald-400">142</div>
-             <div className="text-xs font-bold text-foreground/50 uppercase tracking-wider">Sectors Cleared</div>
+             <div className="text-xs font-bold text-foreground/50 uppercase tracking-wider">{t('auto.auto_sectors_cleared_3045')}</div>
            </div>
         </div>
       </div>
@@ -65,8 +67,8 @@ export default function WorldGridUnveiling() {
 
           {/* Overlay UI */}
           <div className="absolute bottom-6 left-6 glass p-4 rounded-xl border border-white/10 max-w-xs">
-             <h3 className="font-bold flex items-center gap-2 mb-2"><Shield className="w-4 h-4 text-blue-400"/> Current Sector</h3>
-             <p className="text-sm text-foreground/60">Sector 7G is fully unveiled. You have earned 500 XP for this regional discovery.</p>
+             <h3 className="font-bold flex items-center gap-2 mb-2"><Shield className="w-4 h-4 text-blue-400"/> {t('auto.auto_current_sector_3044')}</h3>
+             <p className="text-sm text-foreground/60">{t('auto.auto_sector_7g_is_fully_u_3043')}</p>
           </div>
         </div>
       </div>

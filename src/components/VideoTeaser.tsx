@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Film, Sparkles, Loader2 } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function VideoTeaser() {
+    const { t } = useTranslation();
   const [prompt, setPrompt] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
@@ -28,8 +30,8 @@ export default function VideoTeaser() {
             <Film className="text-primary w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-4xl font-display font-bold">Video Teaser</h1>
-            <p className="text-foreground/50">Create cinematic teasers of your trips with AI.</p>
+            <h1 className="text-4xl font-display font-bold">{t('auto.auto_video_teaser_2920')}</h1>
+            <p className="text-foreground/50">{t('auto.auto_create_cinematic_tea_2919')}</p>
           </div>
         </div>
 
@@ -37,7 +39,7 @@ export default function VideoTeaser() {
           <textarea
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            placeholder="Describe your trip highlights... (e.g., 'A week in Bali: surfing in Uluwatu, sunrise at Mount Batur, and exploring Ubud's rice terraces')"
+            placeholder={t('auto.auto_describe_your_trip_h_2918')}
             className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-sm min-h-[100px] focus:outline-none focus:border-primary/50 transition-colors resize-none"
           />
           <button
@@ -46,8 +48,8 @@ export default function VideoTeaser() {
             className="w-full py-4 bg-primary text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
           >
             {isGenerating ? <Loader2 className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
-            Generate Teaser
-          </button>
+            {t('auto.auto_generate_teaser_2917')}
+                                </button>
         </div>
 
         {videoUrl && (

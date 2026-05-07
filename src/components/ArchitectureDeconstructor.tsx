@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Building, Layers } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ArchitectureDeconstructor() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Architecture X-Ray" 
-      description="Analyzing structural integrity, piping, wiring, and architectural secrets hidden behind the walls."
+      title={t('auto.auto_architecture_x_ray_421')} 
+      description={t('auto.auto_analyzing_structural_420')}
       overlayIcon={<Building className="w-8 h-8 text-blue-400" />}
     >
       <div className="absolute inset-0 bg-[#001122]/80 mix-blend-multiply pointer-events-none" />
@@ -37,22 +39,22 @@ export default function ArchitectureDeconstructor() {
           </svg>
           
           {/* Labels */}
-          <div className="absolute left-[35%] top-[60%] bg-black/60 p-1 border border-blue-500/50 text-[8px] text-blue-300 font-mono">HVAC DUCTING</div>
-          <div className="absolute left-[75%] top-[45%] bg-black/60 p-1 border border-blue-500/50 text-[8px] text-blue-300 font-mono">ELECTRICAL MAIN</div>
-          <div className="absolute left-[20%] top-[25%] bg-black/60 p-1 border border-blue-500/50 text-[8px] text-blue-300 font-mono">STEEL REINFORCEMENT</div>
+          <div className="absolute left-[35%] top-[60%] bg-black/60 p-1 border border-blue-500/50 text-[8px] text-blue-300 font-mono">{t('auto.auto_hvac_ducting_419')}</div>
+          <div className="absolute left-[75%] top-[45%] bg-black/60 p-1 border border-blue-500/50 text-[8px] text-blue-300 font-mono">{t('auto.auto_electrical_main_418')}</div>
+          <div className="absolute left-[20%] top-[25%] bg-black/60 p-1 border border-blue-500/50 text-[8px] text-blue-300 font-mono">{t('auto.auto_steel_reinforcement_417')}</div>
         </motion.div>
       </div>
 
       <div className="absolute top-24 left-8 pointer-events-auto flex flex-col gap-2">
         <button className="flex items-center gap-2 bg-blue-900/40 border border-blue-500/50 text-blue-300 px-4 py-2 rounded-lg font-mono text-xs hover:bg-blue-800/60 transition">
-          <Layers className="w-4 h-4" /> TOGGLE WIRING
-        </button>
+          <Layers className="w-4 h-4" /> {t('auto.auto_toggle_wiring_416')}
+                          </button>
         <button className="flex items-center gap-2 bg-blue-900/40 border border-blue-500/50 text-blue-300 px-4 py-2 rounded-lg font-mono text-xs hover:bg-blue-800/60 transition">
-          <Layers className="w-4 h-4" /> TOGGLE PLUMBING
-        </button>
+          <Layers className="w-4 h-4" /> {t('auto.auto_toggle_plumbing_415')}
+                          </button>
         <button className="flex items-center gap-2 bg-blue-900/80 border border-blue-400 text-white px-4 py-2 rounded-lg font-mono text-xs hover:bg-blue-800 transition">
-          <Layers className="w-4 h-4" /> SHOW ALL STRUCTURAL
-        </button>
+          <Layers className="w-4 h-4" /> {t('auto.auto_show_all_structural_414')}
+                          </button>
       </div>
     </XRLayout>
   );

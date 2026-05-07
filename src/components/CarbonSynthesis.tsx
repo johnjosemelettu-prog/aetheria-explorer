@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Leaf, TrendingDown, Globe, Wind, X, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { useTranslation } from "react-i18next";
 
 export default function CarbonSynthesis({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+    const { t } = useTranslation();
   const [isOffsetting, setIsOffsetting] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
 
@@ -41,8 +43,8 @@ export default function CarbonSynthesis({ isOpen, onClose }: { isOpen: boolean; 
                 <Leaf className="text-green-400 w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-3xl font-display font-bold tracking-tighter">Carbon Synthesis</h2>
-                <p className="text-sm text-foreground/50">Real-time footprint calculation & neutralization.</p>
+                <h2 className="text-3xl font-display font-bold tracking-tighter">{t('auto.auto_carbon_synthesis_673')}</h2>
+                <p className="text-sm text-foreground/50">{t('auto.auto_real_time_footprint__672')}</p>
               </div>
             </div>
             <button onClick={onClose} className="p-3 glass glass-hover rounded-2xl">
@@ -54,16 +56,16 @@ export default function CarbonSynthesis({ isOpen, onClose }: { isOpen: boolean; 
             <div className="space-y-8">
               <div className="grid grid-cols-2 gap-6">
                 <div className="glass p-6 rounded-3xl border-green-500/10">
-                  <span className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2 block">Total Footprint</span>
+                  <span className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2 block">{t('auto.auto_total_footprint_671')}</span>
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl font-display font-bold text-green-400">1,240</span>
-                    <span className="text-sm font-bold text-foreground/30 uppercase">kg CO2</span>
+                    <span className="text-sm font-bold text-foreground/30 uppercase">{t('auto.auto_kg_co2_670')}</span>
                   </div>
                 </div>
                 <div className="glass p-6 rounded-3xl border-primary/10">
-                  <span className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2 block">Global Rank</span>
+                  <span className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2 block">{t('auto.auto_global_rank_669')}</span>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-display font-bold text-primary">Top 5%</span>
+                    <span className="text-4xl font-display font-bold text-primary">{t('auto.auto_top_5__668')}</span>
                   </div>
                 </div>
               </div>
@@ -71,8 +73,8 @@ export default function CarbonSynthesis({ isOpen, onClose }: { isOpen: boolean; 
               <div className="p-6 rounded-3xl bg-white/5 border border-white/5">
                 <h3 className="text-sm font-bold mb-4 flex items-center gap-2">
                   <TrendingDown className="w-4 h-4 text-green-400" />
-                  Synthesis Recommendations
-                </h3>
+                  {t('auto.auto_synthesis_recommenda_667')}
+                                                  </h3>
                 <div className="space-y-3">
                   {[
                     "Switch to SAF (Sustainable Aviation Fuel) for your Tokyo flight.",
@@ -95,13 +97,13 @@ export default function CarbonSynthesis({ isOpen, onClose }: { isOpen: boolean; 
                 {isOffsetting ? (
                   <>
                     <Wind className="w-6 h-6 animate-spin" />
-                    Synthesizing Offset...
-                  </>
+                    {t('auto.auto_synthesizing_offset__666')}
+                                                        </>
                 ) : (
                   <>
                     <Globe className="w-6 h-6" />
-                    Neutralize Footprint
-                    <ArrowRight className="w-5 h-5" />
+                    {t('auto.auto_neutralize_footprint_665')}
+                                                              <ArrowRight className="w-5 h-5" />
                   </>
                 )}
               </button>
@@ -115,17 +117,16 @@ export default function CarbonSynthesis({ isOpen, onClose }: { isOpen: boolean; 
               <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle2 className="w-10 h-10 text-green-400" />
               </div>
-              <h3 className="text-3xl font-display font-bold mb-4">Synthesis Complete</h3>
+              <h3 className="text-3xl font-display font-bold mb-4">{t('auto.auto_synthesis_complete_664')}</h3>
               <p className="text-foreground/60 max-w-md mx-auto mb-10 leading-relaxed">
-                Your travel footprint has been successfully neutralized. 
-                Aetheria has allocated your synthesis to the **Global Reforestation Protocol**.
-              </p>
+                {t('auto.auto_your_travel_footprin_663')}
+                                                </p>
               <button
                 onClick={onClose}
                 className="px-10 py-4 glass glass-hover rounded-2xl font-bold"
               >
-                Return to Dashboard
-              </button>
+                {t('auto.auto_return_to_dashboard_662')}
+                                                </button>
             </motion.div>
           )}
         </div>

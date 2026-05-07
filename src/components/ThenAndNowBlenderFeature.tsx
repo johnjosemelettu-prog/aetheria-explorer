@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from "react-i18next";
 
 export default function ThenAndNowBlenderFeature() {
+    const { t } = useTranslation();
   const items = [1, 2, 3, 4, 5, 6];
   const urlList = [
     "https://images.unsplash.com/photo-1501785888052-0869aa37c5cb?auto=format&fit=crop&w=600&q=80",
@@ -19,11 +21,11 @@ export default function ThenAndNowBlenderFeature() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-16"
         >
-          <h1 className="text-5xl md:text-7xl font-display font-medium tracking-tight mb-6">Then and Now photo blender</h1>
+          <h1 className="text-5xl md:text-7xl font-display font-medium tracking-tight mb-6">{t('auto.auto_then_and_now_photo_b_2616')}</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mb-8" />
           <p className="text-xl text-stone-400 max-w-2xl leading-relaxed">
-            Connect with the soul of the destination. Uncover authentic experiences shared by those who know it best.
-          </p>
+            {t('auto.auto_connect_with_the_sou_2615')}
+                                </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -37,14 +39,14 @@ export default function ThenAndNowBlenderFeature() {
             >
               <img 
                 src={urlList[idx % urlList.length]}
-                alt="Feature Item"
+                alt={t('auto.auto_feature_item_2614')}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 p-8">
-                <p className="text-amber-400 font-mono text-xs tracking-widest uppercase mb-2">Local Event</p>
-                <h3 className="text-2xl font-bold text-white mb-2">Encounter #{i}</h3>
-                <p className="text-stone-300 text-sm line-clamp-2">Immersive cultural exchange waiting to be unlocked by you.</p>
+                <p className="text-amber-400 font-mono text-xs tracking-widest uppercase mb-2">{t('auto.auto_local_event_2613')}</p>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('auto.auto_encounter___2612')}{i}</h3>
+                <p className="text-stone-300 text-sm line-clamp-2">{t('auto.auto_immersive_cultural_e_2611')}</p>
               </div>
             </motion.div>
           ))}

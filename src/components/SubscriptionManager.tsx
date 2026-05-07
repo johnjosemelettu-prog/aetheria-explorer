@@ -12,8 +12,8 @@ export default function SubscriptionManager() {
   return (
     <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 flex flex-col items-center text-center">
       <Crown className="w-8 h-8 text-primary mb-2" />
-      <h3 className="font-bold text-primary mb-1">Upgrade to Premium</h3>
-      <p className="text-xs text-foreground/60 mb-3">Unlock all AI synthesis engines and premium features.</p>
+      <h3 className="font-bold text-primary mb-1">{t('auto.auto_upgrade_to_premium_2498')}</h3>
+      <p className="text-xs text-foreground/60 mb-3">{t('auto.auto_unlock_all_ai_synthe_2497')}</p>
       <button 
         onClick={() => {
           window.history.pushState({}, '', '/premium');
@@ -21,8 +21,8 @@ export default function SubscriptionManager() {
         }}
         className="w-full py-2 bg-primary text-white rounded-xl text-xs font-bold hover:bg-primary/90 transition-colors"
       >
-        View Plans
-      </button>
+        {t('auto.auto_view_plans_2496')}
+                    </button>
     </div>
   );
 }

@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Crown, CheckCircle } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function LocalKnowledgeLeaderboard() {
+    const { t } = useTranslation();
   const leaders = [
     { rank: 1, handle: "@KyotoNative", score: 15420, verified: true },
     { rank: 2, handle: "@MatchaMaster", score: 14200, verified: true },
@@ -16,16 +18,16 @@ export default function LocalKnowledgeLeaderboard() {
       <div className="max-w-3xl mx-auto">
         <header className="mb-12 text-center">
           <Crown className="w-16 h-16 text-amber-500 mx-auto mb-4" />
-          <h1 className="text-5xl font-display font-black tracking-tighter uppercase text-slate-800">Local Knowledge</h1>
+          <h1 className="text-5xl font-display font-black tracking-tighter uppercase text-slate-800">{t('auto.auto_local_knowledge_1753')}</h1>
           <p className="text-slate-500 mt-2 font-mono text-sm max-w-lg mx-auto">
-            Ranked by helpful edits, successful trivia answers, and verified local recommendations in Kyoto.
-          </p>
+            {t('auto.auto_ranked_by_helpful_ed_1752')}
+                                </p>
         </header>
 
         <div className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-200 overflow-hidden">
            <div className="bg-slate-100 px-8 py-4 font-bold text-xs uppercase tracking-widest text-slate-500 flex justify-between">
-              <span>Explorer</span>
-              <span>Local Score</span>
+              <span>{t('auto.auto_explorer_1751')}</span>
+              <span>{t('auto.auto_local_score_1750')}</span>
            </div>
            <div className="p-4">
              {leaders.map((leader, i) => (
@@ -53,8 +55,8 @@ export default function LocalKnowledgeLeaderboard() {
 
         <div className="mt-8 text-center">
            <button className="bg-amber-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-amber-400 transition">
-             Contribute Knowledge
-           </button>
+             {t('auto.auto_contribute_knowledge_1749')}
+                                 </button>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const SOSPanicHub = () => {
+    const { t } = useTranslation();
   const [isPressed, setIsPressed] = useState(false);
 
   const handleMouseDown = () => {
@@ -22,7 +24,7 @@ const SOSPanicHub = () => {
         className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-200 ${isPressed ? 'bg-red-700' : 'bg-red-500'}`}
         aria-label="SOS Panic Button"
       >
-        <span className="text-xl font-bold text-white">SOS</span>
+        <span className="text-xl font-bold text-white">{t('auto.auto_sos_2409')}</span>
       </button>
     </div>
   );

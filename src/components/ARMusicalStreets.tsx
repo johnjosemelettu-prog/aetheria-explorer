@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Music, Radio } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARMusicalStreets() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Symphonic Streets" 
-      description="Visualize the soundtrack of the city. Identify buskers, historical music venues, and local trending tracks floating as AR notes."
+      title={t('auto.auto_symphonic_streets_513')} 
+      description={t('auto.auto_visualize_the_soundt_512')}
       overlayIcon={<Music className="w-8 h-8 text-pink-400" />}
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center">
@@ -48,9 +50,9 @@ export default function ARMusicalStreets() {
       </div>
 
       <div className="absolute bottom-32 left-8 bg-black/80 border-l-4 border-pink-500 p-4 rounded-r-xl pointer-events-auto backdrop-blur">
-         <div className="text-pink-400 text-xs font-bold tracking-widest mb-1">LOCAL TRENDING NOW</div>
-         <h3 className="text-white font-display text-xl">La Vie en Rose (Remix)</h3>
-         <p className="text-gray-400 text-sm">Playing near Le Marais • 500m away</p>
+         <div className="text-pink-400 text-xs font-bold tracking-widest mb-1">{t('auto.auto_local_trending_now_511')}</div>
+         <h3 className="text-white font-display text-xl">{t('auto.auto_la_vie_en_rose__remi_510')}</h3>
+         <p className="text-gray-400 text-sm">{t('auto.auto_playing_near_le_mara_509')}</p>
       </div>
     </XRLayout>
   );

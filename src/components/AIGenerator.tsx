@@ -32,7 +32,7 @@ export const AIGenerator = () => {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Tell Aetheria what you want to do..."
+            placeholder={t('os.tellAetheria')}
             className="flex-1 bg-transparent text-lg md:text-xl font-medium focus:outline-none placeholder:text-foreground/30 h-14"
             onKeyDown={(e) => e.key === 'Enter' && handleSynthesize()}
           />
@@ -44,12 +44,12 @@ export const AIGenerator = () => {
              {isSynthesizing ? (
                 <>
                   <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                  <span className="hidden sm:inline">Synthesizing...</span>
+                  <span className="hidden sm:inline">{t('auto.auto_synthesizing____197')}</span>
                 </>
              ) : (
                 <>
                   <Wand2 className="w-5 h-5" />
-                  <span className="hidden sm:inline">Synthesize</span>
+                  <span className="hidden sm:inline">{t('os.synthesize')}</span>
                 </>
              )}
           </button>
@@ -58,8 +58,8 @@ export const AIGenerator = () => {
       
       {/* Suggestions */}
       <div className="flex flex-wrap gap-2 mt-4 justify-center">
-         <span className="text-xs font-bold text-foreground/40 uppercase tracking-widest px-2 py-1.5">Try asking:</span>
-         {["Plan a 3-day trip to Kyoto", "Find vintage stores in Berlin", "Generate a cyberpunk avatar"].map((suggestion) => (
+         <span className="text-xs font-bold text-foreground/40 uppercase tracking-widest px-2 py-1.5">{t('os.tryAsking')}</span>
+         {[t('os.tryAsk1'), t('os.tryAsk2'), t('os.tryAsk3')].map((suggestion) => (
             <button 
               key={suggestion} 
               onClick={() => setQuery(suggestion)}

@@ -2,8 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function SkyGazerAR() {
+    const { t } = useTranslation();
   const stars = Array.from({ length: 40 }).map((_, i) => ({
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -14,8 +16,8 @@ export default function SkyGazerAR() {
   return (
     <XRLayout 
       mode="AR"
-      title="Interactive Star Gazing" 
-      description="Point your device at the night sky. Discover constellations, planets, and deep-space poetry mapping."
+      title={t('auto.auto_interactive_star_gaz_2380')} 
+      description={t('auto.auto_point_your_device_at_2379')}
       overlayIcon={<Sparkles className="w-8 h-8 text-indigo-400" />}
     >
       <div className="absolute inset-0 bg-[#000510]/80 mix-blend-multiply pointer-events-none" />
@@ -47,7 +49,7 @@ export default function SkyGazerAR() {
             stroke="rgba(129, 140, 248, 0.8)" 
             strokeWidth="0.2" 
           />
-          <text x="45" y="45" fill="rgba(129,140,248,0.8)" fontSize="2" fontFamily="monospace">ORION</text>
+          <text x="45" y="45" fill="rgba(129,140,248,0.8)" fontSize="2" fontFamily="monospace">{t('auto.auto_orion_2378')}</text>
           
           <motion.path 
             initial={{ pathLength: 0 }}
@@ -58,13 +60,13 @@ export default function SkyGazerAR() {
             stroke="rgba(129, 140, 248, 0.8)" 
             strokeWidth="0.2" 
           />
-          <text x="82" y="53" fill="rgba(129,140,248,0.8)" fontSize="2" fontFamily="monospace">CANIS MAJOR</text>
+          <text x="82" y="53" fill="rgba(129,140,248,0.8)" fontSize="2" fontFamily="monospace">{t('auto.auto_canis_major_2377')}</text>
         </svg>
       </div>
 
       <div className="absolute top-32 left-1/2 -translate-x-1/2 bg-indigo-950/80 border border-indigo-400 p-2 rounded-lg text-indigo-200 text-xs font-mono backdrop-blur-md">
-        RA: 05h 55m | Dec: +07° 24′
-      </div>
+        {t('auto.auto_ra__05h_55m___dec____2376')}
+                    </div>
     </XRLayout>
   );
 }

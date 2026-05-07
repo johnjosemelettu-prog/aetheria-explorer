@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Droplets, MapPin, Navigation, Leaf } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function WaterRefillStationFinder() {
+    const { t } = useTranslation();
   return (
     <div className="relative min-h-screen bg-blue-950 text-blue-50 overflow-hidden flex flex-col">
       {/* Map Background */}
@@ -13,14 +15,14 @@ export default function WaterRefillStationFinder() {
       <div className="relative z-10 p-6 flex justify-between items-center bg-blue-950/80 backdrop-blur-md border-b border-blue-400/20">
         <div>
           <h1 className="text-2xl font-bold flex items-center gap-2 text-white">
-            <Droplets className="w-6 h-6 text-blue-400" /> Oasis Map
-          </h1>
-          <p className="text-xs text-blue-300">Public Water Refill Stations</p>
+            <Droplets className="w-6 h-6 text-blue-400" /> {t('auto.auto_oasis_map_3006')}
+                                </h1>
+          <p className="text-xs text-blue-300">{t('auto.auto_public_water_refill__3005')}</p>
         </div>
         <div className="glass px-4 py-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 flex items-center gap-2">
           <Leaf className="w-4 h-4 text-emerald-400" />
           <div>
-            <div className="text-xs text-emerald-300">Bottles Saved</div>
+            <div className="text-xs text-emerald-300">{t('auto.auto_bottles_saved_3004')}</div>
             <div className="font-bold text-emerald-400 leading-none">14</div>
           </div>
         </div>
@@ -50,22 +52,22 @@ export default function WaterRefillStationFinder() {
         <div className="glass p-6 rounded-3xl border border-blue-400/20 bg-blue-900/80 backdrop-blur-xl max-w-md mx-auto">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <h3 className="font-bold text-xl text-white">Central Park Fountain</h3>
-              <p className="text-sm text-blue-300 flex items-center gap-1"><MapPin className="w-3 h-3"/> 250m away</p>
+              <h3 className="font-bold text-xl text-white">{t('auto.auto_central_park_fountai_3003')}</h3>
+              <p className="text-sm text-blue-300 flex items-center gap-1"><MapPin className="w-3 h-3"/> {t('auto.auto_250m_away_3002')}</p>
             </div>
             <div className="px-2 py-1 bg-emerald-500/20 border border-emerald-500/50 rounded text-xs text-emerald-300 font-bold">
-              Filtered
-            </div>
+              {t('auto.auto_filtered_3001')}
+                                      </div>
           </div>
           
           <div className="w-full bg-blue-950 rounded-lg p-3 mb-6 border border-blue-800 flex justify-between items-center text-sm">
-            <span className="text-blue-300">Status</span>
-            <span className="text-emerald-400 flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-emerald-400"/> Operational</span>
+            <span className="text-blue-300">{t('auto.auto_status_3000')}</span>
+            <span className="text-emerald-400 flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-emerald-400"/> {t('auto.auto_operational_2999')}</span>
           </div>
 
           <button className="w-full py-4 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors shadow-lg shadow-blue-500/20">
-            <Navigation className="w-5 h-5" /> Navigate to Station
-          </button>
+            <Navigation className="w-5 h-5" /> {t('auto.auto_navigate_to_station_2998')}
+                                </button>
         </div>
       </div>
     </div>

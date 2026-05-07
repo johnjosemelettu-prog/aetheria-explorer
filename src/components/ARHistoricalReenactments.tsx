@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, Users } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARHistoricalReenactments() {
+    const { t } = useTranslation();
   const [year, setYear] = useState(1889);
 
   return (
     <XRLayout 
       mode="AR"
-      title="Historical Reenactments" 
-      description="Witness the past unfold right before your eyes. Adjust the timeline to see localized events from different eras."
+      title={t('auto.auto_historical_reenactme_475')} 
+      description={t('auto.auto_witness_the_past_unf_474')}
       overlayIcon={<Clock className="w-8 h-8" />}
     >
       <div className="absolute inset-x-0 top-1/3 flex items-center justify-center pointer-events-none">
@@ -37,10 +39,10 @@ export default function ARHistoricalReenactments() {
 
       <div className="absolute bottom-40 inset-x-8 flex flex-col items-center pointer-events-auto">
         <div className="flex justify-between w-full max-w-xl text-primary/70 font-mono text-xs mb-2">
-          <span>50 BC</span>
+          <span>{t('auto.auto_50_bc_473')}</span>
           <span>1789</span>
           <span>1889</span>
-          <span>PRESENT</span>
+          <span>{t('auto.auto_present_472')}</span>
         </div>
         <input 
           type="range" 

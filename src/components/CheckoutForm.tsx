@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { StripeCardElementOptions, StripeCardElement } from '@stripe/stripe-js';
+import { useTranslation } from "react-i18next";
 
 const CARD_ELEMENT_OPTIONS: StripeCardElementOptions = {
   style: {
@@ -27,6 +28,7 @@ interface CheckoutFormProps {
 }
 
 const CheckoutForm: React.FC<CheckoutFormProps> = ({ amount, onSuccessfulCheckout }) => {
+    const { t } = useTranslation();
   const [error, setError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
@@ -90,7 +92,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ amount, onSuccessfulCheckou
         </span>
       </button>
       {error && <div className="card-error" role="alert">{error}</div>}
-      {succeeded && <p className="result-message">Payment succeeded!</p>}
+      {succeeded && <p className="result-message">{t('auto.auto_payment_succeeded__685')}</p>}
     </form>
   );
 };

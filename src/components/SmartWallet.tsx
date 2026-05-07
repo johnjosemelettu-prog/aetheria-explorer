@@ -102,7 +102,7 @@ export default function SmartWallet() {
               <span className="text-4xl font-display font-bold tracking-tighter">
                 ${balance.toLocaleString(undefined, { minimumFractionDigits: 2 })}
               </span>
-              <span className="text-sm font-bold text-foreground/30 uppercase">USD</span>
+              <span className="text-sm font-bold text-foreground/30 uppercase">{t('auto.auto_usd_2386')}</span>
             </div>
           </div>
 
@@ -180,7 +180,7 @@ export default function SmartWallet() {
 
               <div className="space-y-6">
                 <div>
-                  <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">{t('wallet.amount')} (USD)</label>
+                  <label className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-2 block">{t('wallet.amount')} {t('auto.auto__usd__2385')}</label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl font-bold text-foreground/30">$</span>
                     <input

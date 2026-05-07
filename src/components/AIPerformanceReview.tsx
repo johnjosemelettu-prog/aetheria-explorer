@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrainCircuit, ChevronsUpDown } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const usageData = {
   'November 2023': [
@@ -23,6 +24,7 @@ const usageData = {
 type MonthKey = keyof typeof usageData;
 
 const AIPerformanceReview: React.FC = () => {
+    const { t } = useTranslation();
   const [selectedMonth, setSelectedMonth] = useState<MonthKey>('November 2023');
 
   const currentData = usageData[selectedMonth];
@@ -31,15 +33,15 @@ const AIPerformanceReview: React.FC = () => {
   return (
     <div className="space-y-6">
       <div className="bg-gray-800 p-6 rounded-lg">
-        <h2 className="text-2xl font-bold mb-4 text-primary">AI Performance Review</h2>
-        <p className="text-gray-400">This section will allow admins to review and flag AI-generated content. (Coming Soon)</p>
+        <h2 className="text-2xl font-bold mb-4 text-primary">{t('auto.auto_ai_performance_revie_239')}</h2>
+        <p className="text-gray-400">{t('auto.auto_this_section_will_al_238')}</p>
       </div>
       
       <div className="bg-gray-800 p-6 rounded-lg border border-white/10">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
           <div className="flex items-center gap-3">
             <BrainCircuit className="w-6 h-6 text-primary" />
-            <h2 className="text-xl font-bold text-white">AI & API Credit Usage</h2>
+            <h2 className="text-xl font-bold text-white">{t('auto.auto_ai___api_credit_usag_237')}</h2>
           </div>
           <div className="relative mt-4 sm:mt-0">
             <select 
@@ -59,11 +61,11 @@ const AIPerformanceReview: React.FC = () => {
           <table className="w-full text-sm text-left text-gray-300">
             <thead className="text-xs text-gray-400 uppercase bg-gray-700/50">
               <tr>
-                <th scope="col" className="px-6 py-3 rounded-l-lg">Service</th>
-                <th scope="col" className="px-6 py-3">Use Case</th>
-                <th scope="col" className="px-6 py-3 text-right">API Calls</th>
-                <th scope="col" className="px-6 py-3 text-right">Credits/Call (Avg)</th>
-                <th scope="col" className="px-6 py-3 rounded-r-lg text-right">Est. Cost</th>
+                <th scope="col" className="px-6 py-3 rounded-l-lg">{t('auto.auto_service_236')}</th>
+                <th scope="col" className="px-6 py-3">{t('auto.auto_use_case_235')}</th>
+                <th scope="col" className="px-6 py-3 text-right">{t('auto.auto_api_calls_234')}</th>
+                <th scope="col" className="px-6 py-3 text-right">{t('auto.auto_credits_call__avg__233')}</th>
+                <th scope="col" className="px-6 py-3 rounded-r-lg text-right">{t('auto.auto_est__cost_232')}</th>
               </tr>
             </thead>
             <tbody>
@@ -79,7 +81,7 @@ const AIPerformanceReview: React.FC = () => {
             </tbody>
             <tfoot>
                 <tr className="font-semibold text-white">
-                    <td colSpan={4} className="px-6 py-4 text-right text-base">Total Estimated Monthly Cost</td>
+                    <td colSpan={4} className="px-6 py-4 text-right text-base">{t('auto.auto_total_estimated_mont_231')}</td>
                     <td className="px-6 py-4 text-right text-base text-primary">${totalCost.toFixed(2)}</td>
                 </tr>
             </tfoot>

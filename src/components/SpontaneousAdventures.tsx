@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Users, Navigation, Sparkles, Clock } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function SpontaneousAdventures() {
+    const { t } = useTranslation();
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
@@ -11,11 +13,11 @@ export default function SpontaneousAdventures() {
           <Sparkles className="w-16 h-16 text-primary relative z-10" />
         </div>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-primary">
-          Serendipitous Squads
-        </h1>
+          {t('auto.auto_serendipitous_squads_2460')}
+                          </h1>
         <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-          Drop into verified, safe, and spontaneous group adventures happening around you right now. 
-        </p>
+          {t('auto.auto_drop_into_verified___2459')} 
+                          </p>
       </motion.div>
 
       {/* The Radar */}
@@ -40,33 +42,33 @@ export default function SpontaneousAdventures() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="bg-white/5 p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 backdrop-blur-xl transition group">
             <div className="flex justify-between items-start mb-6">
-               <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">Midnight Ramen Run</h3>
+               <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{t('auto.auto_midnight_ramen_run_2458')}</h3>
                <span className="bg-emerald-500 text-background text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
-                 <Clock className="w-3 h-3" /> STARTING SOON
-               </span>
+                 <Clock className="w-3 h-3" /> {t('auto.auto_starting_soon_2457')}
+                                         </span>
             </div>
-            <p className="text-foreground/70 text-lg mb-8">Local guide leading a small group to a hidden 24/7 yatai (food cart) in Dotonbori.</p>
+            <p className="text-foreground/70 text-lg mb-8">{t('auto.auto_local_guide_leading__2456')}</p>
             <div className="flex justify-between items-center bg-black/30 p-4 rounded-2xl border border-white/5">
                <div className="flex items-center gap-2 font-medium text-emerald-400">
-                  <Users className="w-5 h-5" /> 4/6 Joined
-               </div>
-               <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2.5 px-8 rounded-xl transition-all shadow-lg shadow-primary/20">JOIN SQUAD</button>
+                  <Users className="w-5 h-5" /> {t('auto.auto_4_6_joined_2455')}
+                                         </div>
+               <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2.5 px-8 rounded-xl transition-all shadow-lg shadow-primary/20">{t('auto.auto_join_squad_2454')}</button>
             </div>
          </motion.div>
 
          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-white/5 p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 backdrop-blur-xl transition group">
             <div className="flex justify-between items-start mb-6">
-               <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">Abandoned Temple Hike</h3>
+               <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{t('auto.auto_abandoned_temple_hik_2453')}</h3>
                <span className="bg-purple-500/20 text-purple-400 border border-purple-500/30 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
-                 <Clock className="w-3 h-3" /> IN 2 HOURS
-               </span>
+                 <Clock className="w-3 h-3" /> {t('auto.auto_in_2_hours_2452')}
+                                         </span>
             </div>
-            <p className="text-foreground/70 text-lg mb-8">Group of 3 heading to the outskirts of Kyoto to hike an unmapped mountain temple.</p>
+            <p className="text-foreground/70 text-lg mb-8">{t('auto.auto_group_of_3_heading_t_2451')}</p>
             <div className="flex justify-between items-center bg-black/30 p-4 rounded-2xl border border-white/5">
                <div className="flex items-center gap-2 font-medium text-primary">
-                  <Users className="w-5 h-5" /> 3/4 Joined
-               </div>
-               <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2.5 px-8 rounded-xl transition-all shadow-lg shadow-primary/20">JOIN SQUAD</button>
+                  <Users className="w-5 h-5" /> {t('auto.auto_3_4_joined_2450')}
+                                         </div>
+               <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2.5 px-8 rounded-xl transition-all shadow-lg shadow-primary/20">{t('auto.auto_join_squad_2449')}</button>
             </div>
          </motion.div>
       </div>

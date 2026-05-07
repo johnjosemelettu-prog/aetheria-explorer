@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Headset, Eye } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function VRPreTrip() {
+    const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
 
   return (
     <XRLayout 
       mode="VR"
-      title="Pre-Trip Experience" 
-      description="Walk through your hotel lobby, explore the neighborhood, and visit attractions from your living room before you even book."
+      title={t('auto.auto_pre_trip_experience_2978')} 
+      description={t('auto.auto_walk_through_your_ho_2977')}
       overlayIcon={<Headset className="w-8 h-8 text-teal-400" />}
     >
       <div className="absolute inset-0 overflow-hidden bg-black pointer-events-none perspective-[1200px]">
@@ -41,11 +43,11 @@ export default function VRPreTrip() {
         >
           <div className="bg-black/50 backdrop-blur-xl border border-teal-500/50 rounded-2xl p-6 w-96 transform transition hover:scale-105 cursor-pointer pointer-events-auto">
              <Eye className="w-8 h-8 text-teal-400 mx-auto mb-2" />
-             <h3 className="text-xl font-bold text-white mb-1">Le Marais, Paris</h3>
-             <p className="text-teal-200/70 text-sm mb-4">Look around to explore the district. Stare at hotspots to teleport.</p>
+             <h3 className="text-xl font-bold text-white mb-1">{t('auto.auto_le_marais__paris_2976')}</h3>
+             <p className="text-teal-200/70 text-sm mb-4">{t('auto.auto_look_around_to_explo_2975')}</p>
              <button className="bg-teal-600 hover:bg-teal-500 text-white px-6 py-2 rounded-full font-bold w-full transition">
-               BOOK THIS LOCATION
-             </button>
+               {t('auto.auto_book_this_location_2974')}
+                                       </button>
           </div>
         </motion.div>
       </div>

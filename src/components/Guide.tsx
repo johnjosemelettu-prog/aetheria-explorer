@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Star, Map, MessageCircle, Calendar } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function Guide() {
+    const { t } = useTranslation();
   const GUIDES = [
     { id: 1, name: 'Hiroshi T.', type: 'History Buff', rating: 4.9, reviews: 128, img: 'https://i.pravatar.cc/150?u=hiroshi' },
     { id: 2, name: 'Yumi K.', type: 'Nightlife Expert', rating: 5.0, reviews: 342, img: 'https://i.pravatar.cc/150?u=yumi' },
@@ -15,16 +17,16 @@ export default function Guide() {
         <div>
           <h1 className="text-5xl font-display font-bold mb-4 flex items-center gap-4">
             <ShieldCheck className="w-10 h-10 text-emerald-400" />
-            Trusted Guides
-          </h1>
+            {t('auto.auto_trusted_guides_1458')}
+                                </h1>
           <p className="text-foreground/60 text-lg max-w-xl">
-            Connect with verified local experts who can unlock experiences AI simply cannot replicate.
-          </p>
+            {t('auto.auto_connect_with_verifie_1457')}
+                                </p>
         </div>
         <div className="relative">
            <input 
              type="text" 
-             placeholder="Search specialties (e.g. History)"
+             placeholder={t('auto.auto_search_specialties___1456')}
              className="bg-white/5 border border-white/10 py-3 px-6 rounded-full w-64 focus:outline-none focus:border-emerald-500/50"
            />
         </div>
@@ -52,21 +54,21 @@ export default function Guide() {
                 <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" /> {guide.rating} ({guide.reviews})
               </div>
               <div className="bg-black/40 px-3 py-1.5 rounded-lg flex items-center gap-1 text-foreground/60">
-                <Map className="w-4 h-4" /> Local
-              </div>
+                <Map className="w-4 h-4" /> {t('auto.auto_local_1455')}
+                                      </div>
             </div>
 
             <p className="text-foreground/70 text-sm mb-8 line-clamp-3">
-              "I specialize in showing you the hidden alleyways and secret stories that don't exist on standard maps. Let's explore the real city together."
-            </p>
+              {t('auto.auto__i_specialize_in_sho_1454')}
+                                </p>
 
             <div className="grid grid-cols-2 gap-3">
               <button className="py-3 bg-white/5 hover:bg-white/10 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors">
-                <MessageCircle className="w-4 h-4" /> Chat
-              </button>
+                <MessageCircle className="w-4 h-4" /> {t('auto.auto_chat_1453')}
+                                      </button>
               <button className="py-3 bg-emerald-500 hover:bg-emerald-600 text-black rounded-xl font-bold flex items-center justify-center gap-2 transition-colors">
-                <Calendar className="w-4 h-4" /> Book
-              </button>
+                <Calendar className="w-4 h-4" /> {t('auto.auto_book_1452')}
+                                      </button>
             </div>
           </motion.div>
         ))}

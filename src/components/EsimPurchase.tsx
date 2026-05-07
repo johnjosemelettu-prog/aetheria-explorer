@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import EsimPaymentModal from './EsimPaymentModal';
 import { db, auth } from '../lib/firebase';
 import { collection, addDoc, serverTimestamp, doc, getDoc, updateDoc, runTransaction } from 'firebase/firestore';
+import { useTranslation } from "react-i18next";
 
 const EsimPurchase: React.FC = () => {
+    const { t } = useTranslation();
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState({ name: 'Global Roaming', price: 45, dataLimit: 20 });
   const [isProcessing, setIsProcessing] = useState(false);
@@ -78,8 +80,8 @@ const EsimPurchase: React.FC = () => {
   return (
     <div>
       <button onClick={handlePurchase} className="px-6 py-3 bg-primary text-white rounded-xl font-bold hover:scale-105 transition-transform">
-        Purchase eSIM
-      </button>
+        {t('auto.auto_purchase_esim_1199')}
+                    </button>
       
       {showPaymentModal && (
         <EsimPaymentModal

@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingBag, Box } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARSouvenirTryOn() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Souvenir Hologram" 
-      description="Place souvenirs in your own physical space to see how they look before you purchase and ship them home."
+      title={t('auto.auto_souvenir_hologram_546')} 
+      description={t('auto.auto_place_souvenirs_in_y_545')}
       overlayIcon={<ShoppingBag className="w-8 h-8 text-fuchsia-500" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -25,9 +27,9 @@ export default function ARSouvenirTryOn() {
         >
           <Box className="w-24 h-24 text-fuchsia-300 animate-pulse" strokeWidth={1} />
           <div className="absolute -right-16 top-1/4 bg-black/80 border border-fuchsia-500 p-2 text-fuchsia-300 text-xs font-mono rounded">
-            Actual Size: 24cm
-            <br/>Hand-painted Ceramic
-          </div>
+            {t('auto.auto_actual_size__24cm_544')}
+                                  <br/>{t('auto.auto_hand_painted_ceramic_543')}
+                                </div>
         </motion.div>
 
       </div>
@@ -35,21 +37,21 @@ export default function ARSouvenirTryOn() {
       {/* Item Carousel */}
       <div className="absolute bottom-8 left-0 right-0 overflow-x-auto p-4 flex gap-4 pointer-events-auto snap-x">
         <div className="snap-center min-w-[120px] h-24 bg-fuchsia-950 border border-fuchsia-500 rounded-xl flex items-center justify-center cursor-pointer shadow-[0_0_15px_rgba(217,70,239,0.4)]">
-           <span className="text-white text-xs font-bold font-mono">Venetian Mask</span>
+           <span className="text-white text-xs font-bold font-mono">{t('auto.auto_venetian_mask_542')}</span>
         </div>
         <div className="snap-center min-w-[120px] h-24 bg-black/60 border border-white/20 rounded-xl flex items-center justify-center cursor-pointer hover:border-fuchsia-400 transition text-white/50 hover:text-white">
-           <span className="text-xs font-bold font-mono">Murano Glass</span>
+           <span className="text-xs font-bold font-mono">{t('auto.auto_murano_glass_541')}</span>
         </div>
         <div className="snap-center min-w-[120px] h-24 bg-black/60 border border-white/20 rounded-xl flex items-center justify-center cursor-pointer hover:border-fuchsia-400 transition text-white/50 hover:text-white">
-           <span className="text-xs font-bold font-mono">Leather Bag</span>
+           <span className="text-xs font-bold font-mono">{t('auto.auto_leather_bag_540')}</span>
         </div>
       </div>
       
       <div className="absolute top-28 right-8 pointer-events-auto">
         <button className="bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-bold py-3 px-6 rounded-full shadow-[0_0_20px_rgba(217,70,239,0.5)] transition flex items-center gap-2">
           <ShoppingBag className="w-5 h-5" />
-          BUY & SHIP HOME
-        </button>
+          {t('auto.auto_buy___ship_home_539')}
+                          </button>
       </div>
     </XRLayout>
   );

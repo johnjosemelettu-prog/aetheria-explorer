@@ -28,6 +28,7 @@ interface NavbarProps {
 }
 
 const CollapsibleSection = ({ title, items, navigate, isExpanded, initiallyOpen = false }: any) => {
+    const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(initiallyOpen);
 
   return (
@@ -435,7 +436,7 @@ export default function Navbar({ user }: NavbarProps) {
             className="overflow-hidden"
           >
             <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center text-sm font-semibold p-2">
-              <p>Premium user!</p>
+              <p>{t('auto.auto_premium_user__1932')}</p>
             </div>
           </motion.div>
         )}
@@ -456,7 +457,7 @@ export default function Navbar({ user }: NavbarProps) {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => navigate('/')}
           >
-            <img src="/logo.png" alt="Aetheria Logo" className="w-8 h-8 shrink-0" />
+            <img src="/logo.png" alt={t('auto.auto_aetheria_logo_1931')} className="w-8 h-8 shrink-0" />
             <AnimatePresence>
               {isSidebarExpanded && (
                 <motion.span 
@@ -466,8 +467,8 @@ export default function Navbar({ user }: NavbarProps) {
                   transition={{ duration: 0.2 }}
                   className="text-xl font-display font-bold tracking-tighter whitespace-nowrap"
                 >
-                  AETHERIA
-                </motion.span>
+                  {t('auto.auto_aetheria_1930')}
+                                                  </motion.span>
               )}
             </AnimatePresence>
           </div>
@@ -506,15 +507,15 @@ export default function Navbar({ user }: NavbarProps) {
             className="w-full flex items-center gap-3 px-4 py-3 rounded-xl glass-hover text-accent font-bold text-sm transition-colors hover:bg-accent/10 mb-2"
           >
             <LogOut className="w-4 h-4" />
-            Sign Out
-          </button>
+            {t('auto.auto_sign_out_1929')}
+                                    </button>
         )}
         <button 
           onClick={() => setIsSidebarExpanded(!isSidebarExpanded)}
           className="w-full flex items-center gap-3 px-4 py-3 rounded-xl glass-hover text-foreground/70 font-bold text-sm transition-colors hover:bg-white/5"
         >
           {isSidebarExpanded ? <ChevronsLeft className="w-4 h-4" /> : <ChevronsRight className="w-4 h-4" />}
-          {isSidebarExpanded && <span>Collapse Menu</span>}
+          {isSidebarExpanded && <span>{t('auto.auto_collapse_menu_1928')}</span>}
         </button>
       </div>
     </aside>
@@ -528,7 +529,7 @@ export default function Navbar({ user }: NavbarProps) {
         >
           <Menu className="w-6 h-6" />
         </button>
-        <img src="/logo.png" alt="Aetheria Logo" className="w-8 h-8" />
+        <img src="/logo.png" alt={t('auto.auto_aetheria_logo_1927')} className="w-8 h-8" />
       </div>
     </nav>
 

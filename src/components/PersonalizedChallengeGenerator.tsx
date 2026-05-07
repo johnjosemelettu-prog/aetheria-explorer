@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Dice5, Target, Camera, MapPin, FastForward } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function PersonalizedChallengeGenerator() {
+    const { t } = useTranslation();
   const [spinning, setSpinning] = useState(false);
   const [challenge, setChallenge] = useState<null | { title: string, desc: string, icon: any, points: number }>(null);
 
@@ -24,10 +26,10 @@ export default function PersonalizedChallengeGenerator() {
     <div className="max-w-4xl mx-auto px-4 py-24 min-h-screen flex flex-col items-center justify-center">
       <div className="text-center mb-12">
         <Dice5 className="w-16 h-16 text-fuchsia-400 mx-auto mb-6" />
-        <h1 className="text-5xl font-display font-bold mb-4">Roll for Adventure</h1>
+        <h1 className="text-5xl font-display font-bold mb-4">{t('auto.auto_roll_for_adventure_2013')}</h1>
         <p className="text-foreground/60 text-lg max-w-lg mx-auto">
-          Bored of the standard itinerary? Let AI generate a micro-challenge tailored to your creative persona.
-        </p>
+          {t('auto.auto_bored_of_the_standar_2012')}
+                          </p>
       </div>
 
       <div className="glass w-full max-w-md p-8 rounded-[40px] border border-white/10 text-center relative overflow-hidden min-h-[400px] flex flex-col items-center justify-center">
@@ -37,13 +39,13 @@ export default function PersonalizedChallengeGenerator() {
         {!spinning && !challenge && (
            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
              <Target className="w-20 h-20 text-white/20 mx-auto mb-6" />
-             <h3 className="text-2xl font-bold mb-8">Ready to roll?</h3>
+             <h3 className="text-2xl font-bold mb-8">{t('auto.auto_ready_to_roll__2011')}</h3>
              <button 
                onClick={generate}
                className="px-8 py-4 bg-fuchsia-500 text-white font-bold rounded-2xl shadow-[0_0_30px_rgba(217,70,239,0.4)] hover:scale-105 transition-transform uppercase tracking-widest"
              >
-               Generate Challenge
-             </button>
+               {t('auto.auto_generate_challenge_2010')}
+                                       </button>
            </motion.div>
         )}
 
@@ -55,15 +57,15 @@ export default function PersonalizedChallengeGenerator() {
                  transition={{ repeat: Infinity, duration: 0.5, ease: "linear" }}
                  className="absolute inset-x-0 text-center text-2xl font-black uppercase text-fuchsia-400 space-y-4 pt-4"
                >
-                 <div>Find the Red Door</div>
-                 <div>Eat Something Spicy</div>
-                 <div>Talk to a Stranger</div>
-                 <div>Climb the Highest Hill</div>
-                 <div>Find a Puddle</div>
-                 <div>Find the Red Door</div>
+                 <div>{t('auto.auto_find_the_red_door_2009')}</div>
+                 <div>{t('auto.auto_eat_something_spicy_2008')}</div>
+                 <div>{t('auto.auto_talk_to_a_stranger_2007')}</div>
+                 <div>{t('auto.auto_climb_the_highest_hi_2006')}</div>
+                 <div>{t('auto.auto_find_a_puddle_2005')}</div>
+                 <div>{t('auto.auto_find_the_red_door_2004')}</div>
                </motion.div>
             </div>
-            <p className="text-xs text-foreground/50 uppercase tracking-widest animate-pulse">Calculating via Travel DNA...</p>
+            <p className="text-xs text-foreground/50 uppercase tracking-widest animate-pulse">{t('auto.auto_calculating_via_trav_2003')}</p>
           </div>
         )}
 
@@ -73,18 +75,18 @@ export default function PersonalizedChallengeGenerator() {
                <challenge.icon className="w-10 h-10 text-fuchsia-400" />
              </div>
              <div className="inline-block px-3 py-1 bg-white/10 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-               +{challenge.points} XP
-             </div>
+               +{challenge.points} {t('auto.auto_xp_2002')}
+                                       </div>
              <h2 className="text-3xl font-black mb-4 uppercase">{challenge.title}</h2>
              <p className="text-foreground/70 mb-8">{challenge.desc}</p>
              
              <div className="flex gap-4">
                <button className="flex-1 py-3 bg-white/10 hover:bg-white/20 rounded-xl font-bold transition-colors text-sm">
-                 <FastForward className="w-4 h-4 inline mr-1" /> Re-roll
-               </button>
+                 <FastForward className="w-4 h-4 inline mr-1" /> {t('auto.auto_re_roll_2001')}
+                                             </button>
                <button className="flex-1 py-3 bg-fuchsia-500 hover:bg-fuchsia-600 text-white rounded-xl font-bold transition-colors text-sm shadow-[0_0_20px_rgba(217,70,239,0.4)]">
-                 <MapPin className="w-4 h-4 inline mr-1" /> Start
-               </button>
+                 <MapPin className="w-4 h-4 inline mr-1" /> {t('auto.auto_start_2000')}
+                                             </button>
              </div>
           </motion.div>
         )}

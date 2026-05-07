@@ -15,6 +15,7 @@ import {
 import { db, auth } from '../lib/firebase';
 import { collection, query, where, onSnapshot, orderBy, limit } from 'firebase/firestore';
 import { cn } from '../lib/utils';
+import { useTranslation } from "react-i18next";
 
 interface SynthesisLog {
   id: string;
@@ -26,6 +27,7 @@ interface SynthesisLog {
 }
 
 export default function SynthesisStatus() {
+    const { t } = useTranslation();
   const [logs, setLogs] = useState<SynthesisLog[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -105,7 +107,7 @@ export default function SynthesisStatus() {
               className="p-6 pt-0"
             >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest opacity-50">Synthesis Status</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest opacity-50">{t('auto.auto_synthesis_status_2539')}</h3>
                 <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
               </div>
 
@@ -122,8 +124,8 @@ export default function SynthesisStatus() {
                         <div>
                           <p className="text-xs font-bold">{log.description}</p>
                           <p className="text-[10px] text-foreground/30 uppercase tracking-tighter">
-                            {log.type} synthesis
-                          </p>
+                            {log.type} {t('auto.auto_synthesis_2538')}
+                                                                </p>
                         </div>
                       </div>
                       <StatusIcon className={cn("w-4 h-4", getStatusColor(log.status))} />
@@ -134,8 +136,8 @@ export default function SynthesisStatus() {
 
               <div className="mt-6 pt-6 border-t border-white/5">
                 <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest opacity-30">
-                  <span>Orchestration Active</span>
-                  <span>v2.5.0</span>
+                  <span>{t('auto.auto_orchestration_active_2537')}</span>
+                  <span>{t('auto.auto_v2_5_0_2536')}</span>
                 </div>
               </div>
             </motion.div>

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as AI from '../services/gemini';
 import { Dna, Fingerprint, Map, History, ShieldCheck, ChevronRight } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const AncestryTrail = () => {
+    const { t } = useTranslation();
   const [ancestryData, setAncestryData] = useState<any | null>(null);
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
@@ -37,11 +39,11 @@ const AncestryTrail = () => {
             <Dna className="w-16 h-16" />
           </div>
           <h1 className="text-5xl md:text-7xl font-display font-black mb-6 uppercase tracking-tighter">
-            Ancestry Trail
-          </h1>
+            {t('auto.auto_ancestry_trail_369')}
+                                </h1>
           <p className="text-xl text-purple-200/60 max-w-2xl mx-auto font-mono text-sm leading-relaxed">
-            Link your chromosomal profile via secure Zero-Knowledge Proofs. Discover hidden historical landmarks tied directly to your unique bloodline.
-          </p>
+            {t('auto.auto_link_your_chromosoma_368')}
+                                </p>
         </motion.div>
 
         <AnimatePresence mode="wait">
@@ -55,8 +57,8 @@ const AncestryTrail = () => {
               >
                   <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-500" />
                   <Fingerprint className="w-20 h-20 text-white/20 mb-8" />
-                  <h2 className="text-3xl font-bold text-white mb-4">Biometric Link</h2>
-                  <p className="text-white/50 mb-10 text-sm">Aetheria requires cryptographic proof of genetic heritage to synthesize your historical routing. Data never leaves your device.</p>
+                  <h2 className="text-3xl font-bold text-white mb-4">{t('auto.auto_biometric_link_367')}</h2>
+                  <p className="text-white/50 mb-10 text-sm">{t('auto.auto_aetheria_requires_cr_366')}</p>
                   
                   <button 
                     onClick={handleConnect} 
@@ -64,9 +66,9 @@ const AncestryTrail = () => {
                     className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 py-4 rounded-2xl font-bold uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
                   >
                       {loading ? (
-                        <>UPLOADING HASH...</>
+                        <>{t('auto.auto_uploading_hash____365')}</>
                       ) : (
-                        <><ShieldCheck className="w-5 h-5" /> AUTHORIZE LINK</>
+                        <><ShieldCheck className="w-5 h-5" /> {t('auto.auto_authorize_link_364')}</>
                       )}
                   </button>
               </motion.div>
@@ -80,7 +82,7 @@ const AncestryTrail = () => {
             >
               <div className="bg-white/5 backdrop-blur-md rounded-[40px] border border-white/10 p-10 flex flex-col md:flex-row items-center justify-between gap-8">
                   <div>
-                    <span className="text-purple-400 font-mono text-xs uppercase tracking-widest mb-2 block">Synthesis Complete</span>
+                    <span className="text-purple-400 font-mono text-xs uppercase tracking-widest mb-2 block">{t('auto.auto_synthesis_complete_363')}</span>
                     <h2 className="text-4xl font-bold text-white mb-2">{ancestryData.title}</h2>
                     <p className="text-white/60 max-w-xl">{ancestryData.summary}</p>
                   </div>
@@ -88,7 +90,7 @@ const AncestryTrail = () => {
                     <p className="font-mono text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
                       {ancestryData.regions.length}
                     </p>
-                    <p className="uppercase tracking-widest text-white/40 text-[10px]">Ancestral Biomes</p>
+                    <p className="uppercase tracking-widest text-white/40 text-[10px]">{t('auto.auto_ancestral_biomes_362')}</p>
                   </div>
               </div>
 
@@ -108,13 +110,13 @@ const AncestryTrail = () => {
                           </div>
                           <div className="shrink-0 bg-purple-900/40 border border-purple-500/30 px-6 py-4 rounded-3xl text-center">
                             <span className="block text-3xl font-black text-purple-300">{region.percentage}%</span>
-                            <span className="text-[10px] font-mono text-purple-400 tracking-widest uppercase">Match</span>
+                            <span className="text-[10px] font-mono text-purple-400 tracking-widest uppercase">{t('auto.auto_match_361')}</span>
                           </div>
                       </div>
                     
                       <h4 className="font-mono text-xs text-white/40 uppercase tracking-widest mb-6 flex items-center gap-2">
-                        <Map className="w-4 h-4" /> Significant Waypoints Discovered
-                      </h4>
+                        <Map className="w-4 h-4" /> {t('auto.auto_significant_waypoint_360')}
+                                                  </h4>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           {region.pointsOfInterest.map((poi:any) => (
@@ -127,7 +129,7 @@ const AncestryTrail = () => {
                                   <div className="p-6">
                                       <p className="text-sm text-white/60 leading-relaxed mb-4">{poi.description}</p>
                                       <button className="text-purple-400 text-xs font-bold uppercase tracking-widest flex items-center gap-1 group-hover:text-purple-300 transition-colors">
-                                        Plot Route <ChevronRight className="w-4 h-4" />
+                                        {t('auto.auto_plot_route_359')} <ChevronRight className="w-4 h-4" />
                                       </button>
                                   </div>
                               </div>

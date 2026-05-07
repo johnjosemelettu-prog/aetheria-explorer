@@ -2,8 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { motion } from 'motion/react';
 import { Box, Maximize2, X } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function VRViewer({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+    const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -96,8 +98,8 @@ export default function VRViewer({ isOpen, onClose }: { isOpen: boolean; onClose
       >
         <div className="absolute top-0 left-0 right-0 p-8 flex justify-between items-center z-10">
           <div>
-            <h2 className="text-3xl font-display font-bold tracking-tighter">VR Synthesis</h2>
-            <p className="text-sm text-foreground/50">Immersive destination preview engine.</p>
+            <h2 className="text-3xl font-display font-bold tracking-tighter">{t('auto.auto_vr_synthesis_2981')}</h2>
+            <p className="text-sm text-foreground/50">{t('auto.auto_immersive_destinatio_2980')}</p>
           </div>
           <button 
             onClick={onClose}
@@ -112,7 +114,7 @@ export default function VRViewer({ isOpen, onClose }: { isOpen: boolean; onClose
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4 z-10">
           <div className="px-6 py-3 glass rounded-2xl flex items-center gap-3">
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-widest">Live Rendering</span>
+            <span className="text-xs font-bold uppercase tracking-widest">{t('auto.auto_live_rendering_2979')}</span>
           </div>
         </div>
       </motion.div>

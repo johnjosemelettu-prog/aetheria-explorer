@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Handshake, AlertCircle } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function VRCulturalEtiquette() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="VR"
-      title="Etiquette Simulation" 
-      description="Practice dining, greeting, and negotiating in culturally accurate VR simulations to avoid awkward real-world faux pas."
+      title={t('auto.auto_etiquette_simulation_2955')} 
+      description={t('auto.auto_practice_dining__gre_2954')}
       overlayIcon={<Handshake className="w-8 h-8 text-indigo-400" />}
     >
       <div className="absolute inset-0 bg-black overflow-hidden perspective-[1000px] pointer-events-none">
@@ -26,7 +28,7 @@ export default function VRCulturalEtiquette() {
           transition={{ duration: 1 }}
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-96 bg-gradient-to-t from-indigo-900 to-transparent border-t border-indigo-400 rounded-t-full shadow-[0_-20px_50px_rgba(99,102,241,0.3)] flex justify-center pt-20"
         >
-          <div className="text-white/30 text-center font-mono">AVATAR INSTRUCTING...</div>
+          <div className="text-white/30 text-center font-mono">{t('auto.auto_avatar_instructing___2953')}</div>
         </motion.div>
       </div>
 
@@ -34,14 +36,14 @@ export default function VRCulturalEtiquette() {
          <div className="bg-black/80 backdrop-blur-xl border border-indigo-500 rounded-2xl p-6 shadow-2xl max-w-md cursor-pointer hover:scale-105 transition">
              <div className="flex items-center gap-3 mb-4">
                  <AlertCircle className="text-indigo-400 w-8 h-8" />
-                 <h2 className="text-xl font-bold text-white">Scenario: Tea Ceremony</h2>
+                 <h2 className="text-xl font-bold text-white">{t('auto.auto_scenario__tea_ceremo_2952')}</h2>
              </div>
              <p className="text-indigo-200 text-sm mb-6">
-                Your host has just offered you a cup of tea. Accept it with both hands to show respect. Do not drink immediately.
-             </p>
+                {t('auto.auto_your_host_has_just_o_2951')}
+                                   </p>
              <div className="flex justify-between gap-4">
-                <button className="flex-1 bg-red-500/20 text-red-400 py-2 border border-red-500/50 rounded-lg hover:bg-red-500/40">Refuse politely</button>
-                <button className="flex-1 bg-indigo-600 text-white py-2 rounded-lg font-bold hover:bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.5)]">Accept (Both Hands)</button>
+                <button className="flex-1 bg-red-500/20 text-red-400 py-2 border border-red-500/50 rounded-lg hover:bg-red-500/40">{t('auto.auto_refuse_politely_2950')}</button>
+                <button className="flex-1 bg-indigo-600 text-white py-2 rounded-lg font-bold hover:bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.5)]">{t('auto.auto_accept__both_hands__2949')}</button>
              </div>
          </div>
       </div>

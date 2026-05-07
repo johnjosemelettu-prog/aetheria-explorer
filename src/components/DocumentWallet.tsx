@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 const DocumentWallet = () => {
+    const { t } = useTranslation();
   // Mock data for documents
   const documents = [
     { id: 1, type: 'Passport', name: 'John Doe', expiry: '2030-01-01', status: 'Valid' },
@@ -10,8 +12,8 @@ const DocumentWallet = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Document Wallet</h1>
-      <p className="mb-4 text-gray-600">A secure digital vault for your passports, visas, and tickets.</p>
+      <h1 className="text-2xl font-bold mb-4">{t('auto.auto_document_wallet_1045')}</h1>
+      <p className="mb-4 text-gray-600">{t('auto.auto_a_secure_digital_vau_1044')}</p>
       <div className="space-y-4">
         {documents.map(doc => (
           <div key={doc.id} className="bg-white p-4 rounded-lg shadow">
@@ -30,14 +32,14 @@ const DocumentWallet = () => {
                 </span>
               </div>
             </div>
-            {doc.expiry && <p className="mt-2 text-sm text-gray-600">Expires: {doc.expiry}</p>}
+            {doc.expiry && <p className="mt-2 text-sm text-gray-600">{t('auto.auto_expires__1043')} {doc.expiry}</p>}
           </div>
         ))}
       </div>
       <div className="mt-6 text-center">
         <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700">
-          + Add Document
-        </button>
+          {t('auto.auto___add_document_1042')}
+                          </button>
       </div>
     </div>
   );

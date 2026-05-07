@@ -23,11 +23,11 @@ export default function TravelGuilds() {
           </div>
         </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400">
-          Travel Guilds
-        </h1>
+          {t('auto.auto_travel_guilds_2756')}
+                          </h1>
         <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-          Connect with vetted global communities. Join secure, moderated guilds tailored to your unique Travel DNA.
-        </p>
+          {t('auto.auto_connect_with_vetted__2755')}
+                          </p>
       </motion.div>
 
       <div className="flex justify-center mb-10">
@@ -35,7 +35,7 @@ export default function TravelGuilds() {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
           <input 
             type="text" 
-            placeholder="Search guilds by name or interest..." 
+            placeholder={t('auto.auto_search_guilds_by_nam_2754')} 
             className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4 backdrop-blur-xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -64,13 +64,13 @@ export default function TravelGuilds() {
             
             <div className="flex justify-between items-center text-sm text-foreground/60 mb-6">
               <span className="flex items-center gap-1"><Users className="w-4 h-4" /> {guild.memberCount.toLocaleString()} {t('members')}</span>
-              <span className="flex items-center gap-1 text-emerald-400/80"><Shield className="w-4 h-4" /> Vetted</span>
+              <span className="flex items-center gap-1 text-emerald-400/80"><Shield className="w-4 h-4" /> {t('auto.auto_vetted_2753')}</span>
             </div>
 
             <div className="flex gap-3">
               <button className="flex-1 bg-primary/20 hover:bg-primary/30 text-primary py-2 rounded-xl transition-colors font-medium text-sm">
-                Join Guild
-              </button>
+                {t('auto.auto_join_guild_2752')}
+                                      </button>
               <button className="p-2 border border-white/10 rounded-xl hover:bg-white/10 transition-colors">
                 <ChevronRight className="w-5 h-5 text-foreground/60" />
               </button>
@@ -86,11 +86,10 @@ export default function TravelGuilds() {
         className="mt-16 p-8 rounded-3xl bg-gradient-to-br from-background/80 to-background border border-white/10 backdrop-blur-xl text-center"
       >
         <MessageSquare className="w-8 h-8 mx-auto text-foreground/40 mb-4" />
-        <h3 className="text-xl font-bold mb-2">Guild Channels Beta</h3>
+        <h3 className="text-xl font-bold mb-2">{t('auto.auto_guild_channels_beta_2751')}</h3>
         <p className="text-sm text-foreground/60 max-w-xl mx-auto mb-6">
-          Real-time, end-to-end encrypted messaging for your guilds is rolling out. 
-          Stay tuned for voice chat, media sharing, and structured itinerary planning directly in your guild channels.
-        </p>
+          {t('auto.auto_real_time__end_to_en_2750')}
+                          </p>
       </motion.div>
     </div>
   );

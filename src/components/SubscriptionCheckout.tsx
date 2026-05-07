@@ -69,16 +69,16 @@ export default function SubscriptionCheckout() {
           transition={{ delay: 0.1 }}
           className="text-5xl md:text-7xl font-display font-black mb-6"
         >
-          Unlock the World.
-        </motion.h1>
+          {t('auto.auto_unlock_the_world__2495')}
+                          </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="text-xl text-foreground/60 max-w-2xl mx-auto"
         >
-          Aetheria Prime gives you the ultimate tools to synthesize, book, and experience the globe without limits. Note: A subscription is required for unlimited bookings.
-        </motion.p>
+          {t('auto.auto_aetheria_prime_gives_2494')}
+                          </motion.p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto w-full">
@@ -171,13 +171,13 @@ export default function SubscriptionCheckout() {
           ) : (
             <>
               <CreditCard className="w-6 h-6" />
-              Subscribe to {selectedPlan === 'annual' ? 'Annual' : 'Monthly'}
+              {t('auto.auto_subscribe_to_2493')} {selectedPlan === 'annual' ? 'Annual' : 'Monthly'}
             </>
           )}
         </button>
         <p className="text-center text-xs text-foreground/40 mt-4 flex items-center justify-center gap-2">
-          <Shield className="w-3 h-3" /> Secure payment processing via Stripe. Cancel anytime.
-        </p>
+          <Shield className="w-3 h-3" /> {t('auto.auto_secure_payment_proce_2492')}
+                          </p>
       </motion.div>
     </div>
   );

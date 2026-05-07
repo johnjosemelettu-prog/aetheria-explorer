@@ -5,8 +5,10 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Footprints, Train, ArrowRight, Compass, Sparkles, Loader2, GitMerge } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const MultiverseRouter = () => {
+    const { t } = useTranslation();
   const [location, setLocation] = useState("Shibuya Crossing, Tokyo");
   const [routes, setRoutes] = useState<any>(null);
   const [loading, setLoading] = useState(false);
@@ -34,20 +36,20 @@ const MultiverseRouter = () => {
             <GitMerge className="w-8 h-8" />
           </motion.div>
           <h1 className="text-4xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
-            "Sliding Doors" Multiverse Router
-          </h1>
+            {t('auto.auto__sliding_doors__mult_1893')}
+                                </h1>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Don't just see the fastest route—see the butterfly effect of your choices. Choose your adventure based on downstream vibes, weather, and serendipity.
-          </p>
+            {t('auto.auto_don_t_just_see_the_f_1892')}
+                                </p>
         </div>
 
         <div className="bg-gray-800/50 backdrop-blur-md p-6 rounded-2xl border border-gray-700 shadow-2xl mb-12 flex flex-col md:flex-row items-end gap-4">
           <div className="flex-grow w-full">
-            <label className="block text-sm font-medium mb-2 text-indigo-300">Your Current Crossroad</label>
+            <label className="block text-sm font-medium mb-2 text-indigo-300">{t('auto.auto_your_current_crossro_1891')}</label>
             <Input 
               value={location} 
               onChange={(e) => setLocation(e.target.value)} 
-              placeholder="e.g. Times Square, Shinjuku Station..." 
+              placeholder={t('auto.auto_e_g__times_square__s_1890')} 
               className="bg-gray-900/50 border-gray-600 text-white py-6 text-lg"
             />
           </div>
@@ -56,7 +58,7 @@ const MultiverseRouter = () => {
             disabled={loading}
             className="w-full md:w-auto py-6 px-8 bg-indigo-600 hover:bg-indigo-700 text-white text-lg rounded-xl shadow-lg shadow-indigo-900/20"
           >
-            {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Sparkles className="w-5 h-5 mr-2" /> Peek into Multiverse</>}
+            {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Sparkles className="w-5 h-5 mr-2" /> {t('auto.auto_peek_into_multiverse_1889')}</>}
           </Button>
         </div>
 
@@ -70,7 +72,7 @@ const MultiverseRouter = () => {
             >
               <div className="flex items-center gap-4 mb-8">
                 <Compass className="w-6 h-6 text-indigo-400" />
-                <h2 className="text-2xl font-bold">Parallel Timelines for: <span className="text-indigo-400">{routes.crossroad}</span></h2>
+                <h2 className="text-2xl font-bold">{t('auto.auto_parallel_timelines_f_1888')} <span className="text-indigo-400">{routes.crossroad}</span></h2>
               </div>
               
               <div className="grid md:grid-cols-2 gap-8">
@@ -94,7 +96,7 @@ const MultiverseRouter = () => {
                       )}
                       <CardHeader className="pb-4">
                         <div className="flex justify-between items-start mb-2">
-                          <span className="text-xs font-bold uppercase tracking-wider text-gray-400">Branch {branch.id}</span>
+                          <span className="text-xs font-bold uppercase tracking-wider text-gray-400">{t('auto.auto_branch_1887')} {branch.id}</span>
                           <span className="px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full text-xs font-medium border border-indigo-500/20">
                             {branch.vibe}
                           </span>
@@ -106,7 +108,7 @@ const MultiverseRouter = () => {
                       </CardHeader>
                       <CardContent className="space-y-6">
                         <div>
-                          <p className="text-sm text-gray-400 uppercase tracking-wider mb-1 font-semibold">Immediate Outcome</p>
+                          <p className="text-sm text-gray-400 uppercase tracking-wider mb-1 font-semibold">{t('auto.auto_immediate_outcome_1886')}</p>
                           <p className="text-gray-200">{branch.immediateOutcome}</p>
                         </div>
                         
@@ -114,15 +116,15 @@ const MultiverseRouter = () => {
                           <div className="absolute -left-2 top-1/2 -translate-y-1/2 text-gray-500">
                             <ArrowRight className="w-4 h-4" />
                           </div>
-                          <p className="text-sm text-gray-400 uppercase tracking-wider mb-1 font-semibold">Downstream Butterfly Effect</p>
+                          <p className="text-sm text-gray-400 uppercase tracking-wider mb-1 font-semibold">{t('auto.auto_downstream_butterfly_1885')}</p>
                           <p className="text-indigo-200">{branch.downstreamEffects}</p>
                         </div>
 
                         {selectedBranch === branch.id && (
                           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="pt-4 border-t border-gray-700">
                             <Button className="w-full bg-white text-gray-900 hover:bg-gray-200">
-                              Lock In This Timeline
-                            </Button>
+                              {t('auto.auto_lock_in_this_timelin_1884')}
+                                                                        </Button>
                           </motion.div>
                         )}
                       </CardContent>

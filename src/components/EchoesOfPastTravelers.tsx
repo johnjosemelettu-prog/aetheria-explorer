@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Radio, Users, Activity, Eye, EyeOff } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function EchoesOfPastTravelers() {
+    const { t } = useTranslation();
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden flex flex-col">
       {/* Dark Map / Heatmap Background */}
@@ -26,8 +28,8 @@ export default function EchoesOfPastTravelers() {
         <div className="glass p-4 rounded-2xl flex items-center gap-3 backdrop-blur-xl">
           <Radio className="w-6 h-6 text-indigo-400" />
           <div>
-            <h1 className="font-bold text-lg">Echoes Tracker</h1>
-            <p className="text-xs text-foreground/50 uppercase tracking-widest">Heatmap Active</p>
+            <h1 className="font-bold text-lg">{t('auto.auto_echoes_tracker_1124')}</h1>
+            <p className="text-xs text-foreground/50 uppercase tracking-widest">{t('auto.auto_heatmap_active_1123')}</p>
           </div>
         </div>
         <div className="glass p-2 rounded-xl pointer-events-auto flex gap-2">
@@ -43,8 +45,8 @@ export default function EchoesOfPastTravelers() {
             className="glass p-6 rounded-3xl border border-white/10 backdrop-blur-xl pointer-events-auto relative overflow-hidden"
           >
             <div className="absolute right-0 top-0 w-32 h-32 bg-red-500/10 blur-3xl" />
-            <h3 className="font-bold mb-1 flex items-center gap-2"><Users className="w-4 h-4 text-red-400" /> Main Street Area</h3>
-            <p className="text-sm text-foreground/60 mb-4">Highly saturated. Expected heavy foot traffic.</p>
+            <h3 className="font-bold mb-1 flex items-center gap-2"><Users className="w-4 h-4 text-red-400" /> {t('auto.auto_main_street_area_1122')}</h3>
+            <p className="text-sm text-foreground/60 mb-4">{t('auto.auto_highly_saturated__ex_1121')}</p>
             <div className="flex items-center gap-4">
               <div className="text-3xl font-bold text-red-400">92%</div>
               <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
@@ -58,8 +60,8 @@ export default function EchoesOfPastTravelers() {
             className="glass p-6 rounded-3xl border border-white/10 backdrop-blur-xl pointer-events-auto relative overflow-hidden"
           >
             <div className="absolute right-0 top-0 w-32 h-32 bg-cyan-500/10 blur-3xl" />
-            <h3 className="font-bold mb-1 flex items-center gap-2"><Activity className="w-4 h-4 text-cyan-400" /> Northern District</h3>
-            <p className="text-sm text-foreground/60 mb-4">Uncharted territory. Rarely visited by other app users.</p>
+            <h3 className="font-bold mb-1 flex items-center gap-2"><Activity className="w-4 h-4 text-cyan-400" /> {t('auto.auto_northern_district_1120')}</h3>
+            <p className="text-sm text-foreground/60 mb-4">{t('auto.auto_uncharted_territory__1119')}</p>
             <div className="flex items-center gap-4">
               <div className="text-3xl font-bold text-cyan-400">14%</div>
               <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">

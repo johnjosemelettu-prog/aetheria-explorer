@@ -5,8 +5,10 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tornado, Loader2, ShieldAlert, Sparkles, MapPin } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const ChaosDial = () => {
+    const { t } = useTranslation();
   const [chaosLevel, setChaosLevel] = useState(50);
   const [budget, setBudget] = useState(500);
   const [chaosResult, setChaosResult] = useState<any>(null);
@@ -45,17 +47,17 @@ const ChaosDial = () => {
           <div className="inline-block p-4 bg-stone-900 border border-stone-800 rounded-full mb-6">
             <Tornado className={`w-10 h-10 ${getChaosColor()} animate-pulse`} />
           </div>
-          <h1 className="text-5xl font-black mb-4">The Chaos Dial</h1>
+          <h1 className="text-5xl font-black mb-4">{t('auto.auto_the_chaos_dial_684')}</h1>
           <p className="text-stone-400 text-lg max-w-xl mx-auto">
-            Give the AI permission to book highly-discounted, anomalous travel events using your budget. At maximum chaos, you won't know where you're going until you reach the airport.
-          </p>
+            {t('auto.auto_give_the_ai_permissi_683')}
+                                </p>
         </div>
 
         <Card className="bg-stone-900/80 border-stone-800 backdrop-blur-xl mb-12 py-8 px-6">
           <div className="space-y-10">
             <div>
               <div className="flex justify-between items-end mb-4">
-                <label className="text-sm font-bold uppercase tracking-widest text-stone-400">Chaos Intensity</label>
+                <label className="text-sm font-bold uppercase tracking-widest text-stone-400">{t('auto.auto_chaos_intensity_682')}</label>
                 <span className={`text-4xl font-black ${getChaosColor()}`}>{chaosLevel}%</span>
               </div>
               <input
@@ -67,13 +69,13 @@ const ChaosDial = () => {
                 className="w-full h-3 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-stone-300"
               />
               <div className="flex justify-between text-xs text-stone-500 mt-2 font-bold uppercase">
-                <span>Mild Serendipity</span>
-                <span>Absolute Anomaly</span>
+                <span>{t('auto.auto_mild_serendipity_681')}</span>
+                <span>{t('auto.auto_absolute_anomaly_680')}</span>
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-bold uppercase tracking-widest text-stone-400 mb-4">Max Budget Authorization (USD)</label>
+              <label className="block text-sm font-bold uppercase tracking-widest text-stone-400 mb-4">{t('auto.auto_max_budget_authoriza_679')}</label>
               <div className="relative">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-500 font-bold">$</span>
                 <Input 
@@ -112,16 +114,16 @@ const ChaosDial = () => {
                 <div className={`p-4 text-center font-bold uppercase tracking-[0.3em] text-xs ${
                   chaosLevel > 89 ? 'bg-red-900/50 text-red-200' : 'bg-stone-800 text-stone-300'
                 }`}>
-                  Action Executed Successfully
-                </div>
+                  {t('auto.auto_action_executed_succ_678')}
+                                                  </div>
                 <CardContent className="p-8 space-y-8">
                   <div className="flex justify-between items-start">
                     <div>
-                      <p className="text-sm text-stone-500 font-bold uppercase mb-1">Status Code</p>
+                      <p className="text-sm text-stone-500 font-bold uppercase mb-1">{t('auto.auto_status_code_677')}</p>
                       <h3 className={`text-2xl font-black ${getChaosColor()}`}>{chaosResult.status}</h3>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm text-stone-500 font-bold uppercase mb-1">Funds Used</p>
+                      <p className="text-sm text-stone-500 font-bold uppercase mb-1">{t('auto.auto_funds_used_676')}</p>
                       <p className="text-2xl font-mono text-white">{chaosResult.cost}</p>
                     </div>
                   </div>
@@ -137,14 +139,14 @@ const ChaosDial = () => {
                     <div className="p-4 rounded-xl bg-stone-950/50 border border-stone-800">
                       <div className="flex items-center gap-2 mb-2 text-stone-400">
                         <MapPin className="w-4 h-4" />
-                        <span className="text-xs font-bold uppercase">Destination</span>
+                        <span className="text-xs font-bold uppercase">{t('auto.auto_destination_675')}</span>
                       </div>
                       <p className="font-bold text-white tracking-wide">{chaosResult.destination}</p>
                     </div>
                     <div className="p-4 rounded-xl bg-stone-950/50 border border-stone-800">
                       <div className="flex items-center gap-2 mb-2 text-stone-400">
                         <ShieldAlert className="w-4 h-4" />
-                        <span className="text-xs font-bold uppercase">Instructions</span>
+                        <span className="text-xs font-bold uppercase">{t('auto.auto_instructions_674')}</span>
                       </div>
                       <p className="font-bold text-white tracking-wide">{chaosResult.instructions}</p>
                     </div>

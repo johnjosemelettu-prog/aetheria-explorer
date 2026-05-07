@@ -17,10 +17,12 @@ import {
 import { cn } from '@/lib/utils';
 import PremiumGate from '@/components/PremiumGate';
 import { usePremiumStatus } from '@/hooks/usePremiumStatus';
+import { useTranslation } from "react-i18next";
 
 interface Itinerary { [key: string]: any; }
 
 export default function AIItinerary() {
+    const { t } = useTranslation();
   const [destination, setDestination] = useState('Kyoto');
   const [duration, setDuration] = useState(3);
   const [mood, setMood] = useState('Mystical');
@@ -126,7 +128,7 @@ export default function AIItinerary() {
       <div className="space-y-3 mt-2">
         {Object.entries(obj).map(([key, val]) => {
           if (typeof val === 'string' && (val.startsWith('http') || val.startsWith('/'))) {
-             return <a key={key} href={val} target="_blank" rel="noopener noreferrer" className="text-accent font-bold hover:underline inline-block items-center">{key} &rarr;</a>;
+             return <a key={key} href={val} target="_blank" rel="noopener noreferrer" className="text-accent font-bold hover:underline inline-block items-center">{key} {t('auto.auto__rarr__211')}</a>;
           }
           return (
             <div key={key} className="bg-white/5 p-3 rounded-xl border border-white/10">
@@ -147,12 +149,12 @@ export default function AIItinerary() {
         return (
             <div className="flex items-center gap-2 mt-2">
                 <Bot className="w-4 h-4 animate-spin text-primary" />
-                <p className="text-xs text-foreground/50">Synthesizing...</p>
+                <p className="text-xs text-foreground/50">{t('auto.auto_synthesizing____210')}</p>
             </div>
         );
     }
     if (!data) {
-        return <p className="text-xs text-foreground/50 mt-2">Click to learn more.</p>;
+        return <p className="text-xs text-foreground/50 mt-2">{t('auto.auto_click_to_learn_more__209')}</p>;
     }
 
     if (data.needsPremium) {
@@ -281,15 +283,15 @@ export default function AIItinerary() {
         <div className="w-full lg:w-1/3 space-y-6">
           <div className="glass p-6 rounded-2xl space-y-4">
              <div className='space-y-2'>
-                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40">Aetheria Explorer</label>
-                <div className="relative"><input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2" placeholder="Destination"/></div>
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/40">{t('auto.auto_aetheria_explorer_208')}</label>
+                <div className="relative"><input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2" placeholder={t('auto.auto_destination_207')}/></div>
                 <div className="grid grid-cols-2 gap-2">
-                    <input type="number" value={duration} onChange={(e) => setDuration(parseInt(e.target.value))} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs" placeholder="Days"/>
-                    <input type="text" value={mood} onChange={(e) => setMood(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs" placeholder="Mood"/>
+                    <input type="number" value={duration} onChange={(e) => setDuration(parseInt(e.target.value))} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs" placeholder={t('auto.auto_days_206')}/>
+                    <input type="text" value={mood} onChange={(e) => setMood(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs" placeholder={t('auto.auto_mood_205')}/>
                 </div>
             </div>
             <button onClick={handleGenerate} disabled={loading} className="w-full py-3 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-50">
-              {loading ? <Bot className="w-5 h-5 animate-spin" /> : <><Sparkles className="w-5 h-5" />Synthesize Itinerary</>}
+              {loading ? <Bot className="w-5 h-5 animate-spin" /> : <><Sparkles className="w-5 h-5" />{t('auto.auto_synthesize_itinerary_204')}</>}
             </button>
           </div>
         </div>
@@ -318,16 +320,16 @@ export default function AIItinerary() {
                           <div className="space-y-8">
                               {itinerary.itinerary.map((day: any, index: number) => (
                                 <div key={index}>
-                                  <h3 className="text-2xl font-bold font-display mb-4">Day {index + 1}: {day.theme}</h3>
+                                  <h3 className="text-2xl font-bold font-display mb-4">{t('auto.auto_day_203')} {index + 1}: {day.theme}</h3>
                                   <div className="space-y-4">
                                     {day.activities.map((activity: any, actIndex: number) => (
                                       <div key={actIndex} className="glass-light p-4 rounded-xl border border-white/10">
                                         <h4 className="text-md font-bold">{activity.title}</h4>
                                         <p className="text-sm text-foreground/60 leading-relaxed mt-1">{activity.description}</p>
                                         <div className="flex items-center gap-4 mt-3 text-xs text-foreground/50">
-                                          <span><strong>Time:</strong> {activity.time}</span>
-                                          <span><strong>Cost:</strong> ${activity.estimated_cost}</span>
-                                          <span><strong>Type:</strong> {activity.type}</span>
+                                          <span><strong>{t('auto.auto_time__202')}</strong> {activity.time}</span>
+                                          <span><strong>{t('auto.auto_cost__201')}</strong> ${activity.estimated_cost}</span>
+                                          <span><strong>{t('auto.auto_type__200')}</strong> {activity.type}</span>
                                         </div>
                                       </div>
                                     ))}
@@ -355,8 +357,8 @@ export default function AIItinerary() {
               </motion.div>
             ) : (
               <motion.div key="placeholder" className="h-full flex flex-col items-center justify-center text-center p-12 border-2 border-dashed border-white/5 rounded-2xl">
-                <h3 className="text-xl font-bold mb-1">Aetheria Explorer</h3>
-                <p className="text-foreground/50 max-w-xs text-sm">Enter a destination and preferences to synthesize your journey.</p>
+                <h3 className="text-xl font-bold mb-1">{t('auto.auto_aetheria_explorer_199')}</h3>
+                <p className="text-foreground/50 max-w-xs text-sm">{t('auto.auto_enter_a_destination__198')}</p>
               </motion.div>
             )}
           </AnimatePresence>

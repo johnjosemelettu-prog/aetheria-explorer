@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { BatteryWarning, Loader2, BedDouble, ShieldCheck, Music, Utensils, MapPin } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const LowBatteryProtocol = () => {
+    const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [protocol, setProtocol] = useState<any>(null);
 
@@ -37,10 +39,10 @@ const LowBatteryProtocol = () => {
           <div className="inline-flex justify-center items-center p-4 bg-slate-900 border border-slate-700 rounded-full mb-6">
             <BatteryWarning className="w-10 h-10 text-red-500" />
           </div>
-          <h1 className="text-4xl font-extrabold mb-4 text-white hover:text-red-400 transition-colors">"Rotting in Bed" Override</h1>
+          <h1 className="text-4xl font-extrabold mb-4 text-white hover:text-red-400 transition-colors">{t('auto.auto__rotting_in_bed__ove_1825')}</h1>
           <p className="text-slate-500 text-lg">
-            Burnout detected. Force-canceling all high-energy itineraries. Activating Low-Battery Protocol for maximum recovery and zero guilt.
-          </p>
+            {t('auto.auto_burnout_detected__fo_1824')}
+                                </p>
         </div>
 
         {!protocol ? (
@@ -59,7 +61,7 @@ const LowBatteryProtocol = () => {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="space-y-8">
               
               <div className="bg-slate-900 border border-red-900/50 p-6 rounded-2xl">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-red-500 mb-4 border-b border-red-900/30 pb-2">Actions Automatically Taken</h3>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-red-500 mb-4 border-b border-red-900/30 pb-2">{t('auto.auto_actions_automaticall_1823')}</h3>
                 <ul className="space-y-3">
                   {protocol.actionsTaken.map((action: string, i: number) => (
                     <li key={i} className="flex items-center text-slate-400 font-mono text-sm before:content-['✓'] before:mr-3 before:text-emerald-500">
@@ -70,7 +72,7 @@ const LowBatteryProtocol = () => {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 pl-2">Zero-Effort Recovery Suggestions</h3>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 pl-2">{t('auto.auto_zero_effort_recovery_1822')}</h3>
                 
                 <div className="grid gap-4">
                   {protocol.lowEffortSuggestions.map((sug: any, i: number) => (

@@ -46,7 +46,7 @@ const WildlifeSightingEthos = () => {
             <label htmlFor="wildlife-photo" className="cursor-pointer">
               <div className="w-full h-64 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center">
                 {image ? (
-                  <img src={image} alt="Wildlife Sighting" className="max-h-full rounded-lg" />
+                  <img src={image} alt={t('auto.auto_wildlife_sighting_3037')} className="max-h-full rounded-lg" />
                 ) : (
                   <div className="text-gray-400">
                     <Camera size={48} className="mx-auto"/>

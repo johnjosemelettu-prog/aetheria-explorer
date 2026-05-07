@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Radio, MapPin, Archive, EyeOff } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function OdysseyRelay() {
+    const { t } = useTranslation();
   const [scanning, setScanning] = useState(false);
   const [found, setFound] = useState(false);
 
@@ -17,10 +19,10 @@ export default function OdysseyRelay() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 min-h-screen">
       <div className="text-center mb-16">
-        <h1 className="text-5xl font-display font-bold mb-4">Odyssey Relay</h1>
+        <h1 className="text-5xl font-display font-bold mb-4">{t('auto.auto_odyssey_relay_1951')}</h1>
         <p className="text-foreground/60 text-lg max-w-2xl mx-auto">
-          Leave hidden digital messages (dead drops) for future travelers, or scan the area to discover secrets left by those who came before.
-        </p>
+          {t('auto.auto_leave_hidden_digital_1950')}
+                          </p>
       </div>
 
       <div className="max-w-2xl mx-auto">
@@ -30,14 +32,14 @@ export default function OdysseyRelay() {
             {!scanning && !found && (
               <motion.div key="idle" exit={{ opacity: 0, scale: 0.9 }} className="text-center z-10">
                 <Radio className="w-20 h-20 text-primary mx-auto mb-6 opacity-50" />
-                <h3 className="text-2xl font-bold mb-8">Area is quiet.</h3>
+                <h3 className="text-2xl font-bold mb-8">{t('auto.auto_area_is_quiet__1949')}</h3>
                 <div className="flex gap-4">
                   <button onClick={handleScan} className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-2xl flex items-center gap-2 hover:scale-105 transition-transform">
-                    <Radio className="w-5 h-5" /> Scan for Drops
-                  </button>
+                    <Radio className="w-5 h-5" /> {t('auto.auto_scan_for_drops_1948')}
+                                                        </button>
                   <button className="px-8 py-4 bg-white/5 border border-white/10 font-bold rounded-2xl flex items-center gap-2 hover:bg-white/10 transition-colors">
-                    <Archive className="w-5 h-5" /> Leave Drop
-                  </button>
+                    <Archive className="w-5 h-5" /> {t('auto.auto_leave_drop_1947')}
+                                                        </button>
                 </div>
               </motion.div>
             )}
@@ -55,7 +57,7 @@ export default function OdysseyRelay() {
                 ))}
                 <div className="z-10 text-center">
                   <Radio className="w-12 h-12 text-primary mx-auto animate-pulse mb-4" />
-                  <p className="font-mono text-primary font-bold tracking-widest uppercase">Triangulating Signals...</p>
+                  <p className="font-mono text-primary font-bold tracking-widest uppercase">{t('auto.auto_triangulating_signal_1946')}</p>
                 </div>
               </motion.div>
             )}
@@ -65,20 +67,20 @@ export default function OdysseyRelay() {
                 <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-emerald-500/50">
                   <MapPin className="w-10 h-10 text-emerald-400" />
                 </div>
-                <h3 className="text-3xl font-display font-bold mb-2">1 Dead Drop Found</h3>
-                <p className="text-foreground/50 mb-8">Hidden 24 days ago by <span className="text-emerald-400">@CyberNomad</span></p>
+                <h3 className="text-3xl font-display font-bold mb-2">{t('auto.auto_1_dead_drop_found_1945')}</h3>
+                <p className="text-foreground/50 mb-8">{t('auto.auto_hidden_24_days_ago_b_1944')} <span className="text-emerald-400">{t('auto.auto__cybernomad_1943')}</span></p>
 
                 <div className="bg-black/40 p-6 rounded-2xl border border-white/5 mb-8 max-w-sm mx-auto text-left relative overflow-hidden">
                   <div className="absolute top-3 right-3 text-white/20"><EyeOff className="w-5 h-5"/></div>
-                  <p className="font-mono text-emerald-300 text-sm mb-2">Encrypted Message:</p>
+                  <p className="font-mono text-emerald-300 text-sm mb-2">{t('auto.auto_encrypted_message__1942')}</p>
                   <p className="italic text-foreground/80">
-                    "If you're reading this, don't buy the matcha from the main street. Walk two blocks down the alley behind the shrine. Ask for the 'Hidden Leaf' special."
-                  </p>
+                    {t('auto.auto__if_you_re_reading_t_1941')}
+                                                        </p>
                 </div>
 
                 <button onClick={() => setFound(false)} className="px-8 py-3 glass glass-hover rounded-xl font-bold">
-                  Resume Scanning
-                </button>
+                  {t('auto.auto_resume_scanning_1940')}
+                                                  </button>
               </motion.div>
             )}
           </AnimatePresence>

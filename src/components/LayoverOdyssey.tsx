@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Zap, Clock, MapPin, Sparkles, Loader2, X, ArrowRight, Compass } from 'lucide-react';
 import { generateLayoverOdyssey } from '../services/gemini';
 import { cn } from '../lib/utils';
+import { useTranslation } from "react-i18next";
 
 export default function LayoverOdyssey({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+    const { t } = useTranslation();
   const [city, setCity] = useState('');
   const [duration, setDuration] = useState('6');
   const [isSynthesizing, setIsSynthesizing] = useState(false);
@@ -49,8 +51,8 @@ export default function LayoverOdyssey({ isOpen, onClose }: { isOpen: boolean; o
                 <Zap className="text-secondary w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-3xl font-display font-bold tracking-tighter">Layover Odyssey</h2>
-                <p className="text-sm text-foreground/50">Turn long layovers into mini-adventures.</p>
+                <h2 className="text-3xl font-display font-bold tracking-tighter">{t('auto.auto_layover_odyssey_1627')}</h2>
+                <p className="text-sm text-foreground/50">{t('auto.auto_turn_long_layovers_i_1626')}</p>
               </div>
             </div>
             <button onClick={onClose} className="p-3 glass glass-hover rounded-2xl">
@@ -62,20 +64,20 @@ export default function LayoverOdyssey({ isOpen, onClose }: { isOpen: boolean; o
             <div className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2 block">Layover City</label>
+                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2 block">{t('auto.auto_layover_city_1625')}</label>
                   <div className="relative">
                     <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/30" />
                     <input
                       type="text"
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      placeholder="e.g. Singapore"
+                      placeholder={t('auto.auto_e_g__singapore_1624')}
                       className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-lg focus:outline-none focus:border-secondary/50 transition-colors"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2 block">Duration (Hours)</label>
+                  <label className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest mb-2 block">{t('auto.auto_duration__hours__1623')}</label>
                   <div className="relative">
                     <Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/30" />
                     <select
@@ -83,10 +85,10 @@ export default function LayoverOdyssey({ isOpen, onClose }: { isOpen: boolean; o
                       onChange={(e) => setDuration(e.target.value)}
                       className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-lg focus:outline-none focus:border-secondary/50 transition-colors appearance-none"
                     >
-                      <option value="4" className="bg-background">4 Hours</option>
-                      <option value="6" className="bg-background">6 Hours</option>
-                      <option value="8" className="bg-background">8 Hours</option>
-                      <option value="12" className="bg-background">12 Hours</option>
+                      <option value="4" className="bg-background">{t('auto.auto_4_hours_1622')}</option>
+                      <option value="6" className="bg-background">{t('auto.auto_6_hours_1621')}</option>
+                      <option value="8" className="bg-background">{t('auto.auto_8_hours_1620')}</option>
+                      <option value="12" className="bg-background">{t('auto.auto_12_hours_1619')}</option>
                     </select>
                   </div>
                 </div>
@@ -100,13 +102,13 @@ export default function LayoverOdyssey({ isOpen, onClose }: { isOpen: boolean; o
                 {isSynthesizing ? (
                   <>
                     <Loader2 className="w-6 h-6 animate-spin" />
-                    Synthesizing Odyssey...
-                  </>
+                    {t('auto.auto_synthesizing_odyssey_1618')}
+                                                        </>
                 ) : (
                   <>
                     <Sparkles className="w-6 h-6" />
-                    Synthesize Odyssey
-                    <ArrowRight className="w-5 h-5" />
+                    {t('auto.auto_synthesize_odyssey_1617')}
+                                                              <ArrowRight className="w-5 h-5" />
                   </>
                 )}
               </button>
@@ -133,8 +135,8 @@ export default function LayoverOdyssey({ isOpen, onClose }: { isOpen: boolean; o
                 onClick={() => setResult(null)}
                 className="w-full py-4 glass glass-hover rounded-2xl font-bold text-sm"
               >
-                Synthesize Another
-              </button>
+                {t('auto.auto_synthesize_another_1616')}
+                                                </button>
             </div>
           )}
         </div>

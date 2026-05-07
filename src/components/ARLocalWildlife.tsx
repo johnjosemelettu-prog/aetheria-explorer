@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Leaf, ScanFace } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARLocalWildlife() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Wildlife Scanner" 
-      description="Instantly identify local flora and fauna. Learn their role in the ecosystem without disturbing them."
+      title={t('auto.auto_wildlife_scanner_500')} 
+      description={t('auto.auto_instantly_identify_l_499')}
       overlayIcon={<Leaf className="w-8 h-8 text-emerald-500" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -40,15 +42,15 @@ export default function ARLocalWildlife() {
             className="absolute top-1/2 left-[calc(100%+2rem)] -translate-y-1/2 w-64 bg-emerald-900/80 border border-emerald-400 p-4 rounded-xl backdrop-blur-md shadow-2xl"
           >
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-emerald-100 font-bold text-lg">Monarch Butterfly</h3>
-              <span className="text-[10px] bg-emerald-500 text-black px-1.5 py-0.5 rounded font-mono font-bold">99% MATCH</span>
+              <h3 className="text-emerald-100 font-bold text-lg">{t('auto.auto_monarch_butterfly_498')}</h3>
+              <span className="text-[10px] bg-emerald-500 text-black px-1.5 py-0.5 rounded font-mono font-bold">{t('auto.auto_99__match_497')}</span>
             </div>
-            <p className="text-emerald-200/70 text-xs italic mb-2">Danaus plexippus</p>
-            <p className="text-white text-xs mb-3">Known for its incredible multi-generational migration.</p>
+            <p className="text-emerald-200/70 text-xs italic mb-2">{t('auto.auto_danaus_plexippus_496')}</p>
+            <p className="text-white text-xs mb-3">{t('auto.auto_known_for_its_incred_495')}</p>
             <div className="w-full bg-emerald-950 rounded-full h-1.5 mb-1">
               <div className="bg-orange-500 h-1.5 rounded-full" style={{ width: '40%' }}></div>
             </div>
-            <span className="text-[10px] text-emerald-400 font-mono">CONSERVATION: VULNERABLE</span>
+            <span className="text-[10px] text-emerald-400 font-mono">{t('auto.auto_conservation__vulner_494')}</span>
           </motion.div>
         </motion.div>
       </div>

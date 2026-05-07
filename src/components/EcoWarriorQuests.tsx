@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import * as AI from '../services/gemini';
 import { CheckSquare, Square, Wind, Droplets, Trash2 } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const EcoWarriorQuests = () => {
+    const { t } = useTranslation();
   const [quests, setQuests] = useState<any[]>([]);
   const [completedQuests, setCompletedQuests] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -43,14 +45,14 @@ const EcoWarriorQuests = () => {
   }
 
   if (loading) {
-    return <div className="flex justify-center items-center min-h-screen bg-gray-900"><p className="text-white">Loading Quests...</p></div>;
+    return <div className="flex justify-center items-center min-h-screen bg-gray-900"><p className="text-white">{t('auto.auto_loading_quests____1138')}</p></div>;
   }
 
   return (
     <div className="p-8 bg-gray-900 min-h-screen text-white">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold mb-3 text-center text-green-300">Eco-Warrior Quests</h1>
-            <p className="text-center text-gray-400 mb-10">Engage in positive environmental actions and make a real difference during your travels.</p>
+            <h1 className="text-4xl font-bold mb-3 text-center text-green-300">{t('auto.auto_eco_warrior_quests_1137')}</h1>
+            <p className="text-center text-gray-400 mb-10">{t('auto.auto_engage_in_positive_e_1136')}</p>
 
             <div className="space-y-6">
                 {quests.map((quest, index) => (
@@ -69,7 +71,7 @@ const EcoWarriorQuests = () => {
                                 <h3 className={`text-xl font-bold ${completedQuests.includes(quest.id) ? 'line-through text-gray-500' : 'text-white'}`}>{quest.title}</h3>
                                 <p className="text-gray-400 mt-1">{quest.description}</p>
                                 <div className="flex items-center gap-4 mt-3 text-sm">
-                                    <span className="text-yellow-400 font-semibold">+{quest.reward_points} points</span>
+                                    <span className="text-yellow-400 font-semibold">+{quest.reward_points} {t('auto.auto_points_1135')}</span>
                                     <span className="text-blue-400">{quest.location}</span>
                                 </div>
                             </div>

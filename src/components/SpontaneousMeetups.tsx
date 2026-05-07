@@ -21,11 +21,11 @@ export default function SpontaneousMeetups() {
           <Users className="w-16 h-16 text-primary relative z-10" />
         </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-400">
-          Spontaneous Meetups
-        </h1>
+          {t('auto.auto_spontaneous_meetups_2467')}
+                          </h1>
         <p className="text-lg text-foreground/70 max-w-2xl mx-auto flex items-center justify-center gap-2">
-          Syncing with compatible Aetheria explorers nearby... 
-        </p>
+          {t('auto.auto_syncing_with_compati_2466')} 
+                          </p>
       </motion.div>
 
       <div className="flex flex-col lg:flex-row gap-8">
@@ -44,7 +44,7 @@ export default function SpontaneousMeetups() {
             ></motion.div>
           )}
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_var(--primary)] text-xs flex justify-center items-center text-background font-bold Z">You</div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_var(--primary)] text-xs flex justify-center items-center text-background font-bold Z">{t('auto.auto_you_2465')}</div>
           
           <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1 }} className="absolute top-[30%] left-[60%] w-3 h-3 bg-emerald-400 rounded-full shadow-[0_0_15px_rgba(52,211,153,0.8)]"></motion.div>
           <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.5 }} className="absolute top-[70%] left-[40%] w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_15px_rgba(96,165,250,0.8)]"></motion.div>
@@ -53,18 +53,18 @@ export default function SpontaneousMeetups() {
             <div className={`w-3 h-3 rounded-full ${radarActive ? 'bg-emerald-400 animate-pulse' : 'bg-red-400'}`}></div>
             <span className="font-medium text-sm">{radarActive ? 'Radar Active' : 'Radar Paused'}</span>
             <button onClick={() => setRadarActive(!radarActive)} className="ml-4 text-xs font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors">
-              Toggle
-            </button>
+              {t('auto.auto_toggle_2464')}
+                                      </button>
           </div>
         </div>
 
         {/* Meetup List */}
         <div className="lg:w-[400px] flex flex-col gap-4">
           <div className="flex justify-between items-center px-2 mb-2">
-            <h3 className="font-bold text-xl">Nearby Beacons</h3>
+            <h3 className="font-bold text-xl">{t('auto.auto_nearby_beacons_2463')}</h3>
             <span className="text-sm bg-primary/20 text-primary px-3 py-1 rounded-full font-medium flex items-center gap-1">
-              <Sparkles className="w-3 h-3" /> {meetups.length} Found
-            </span>
+              <Sparkles className="w-3 h-3" /> {meetups.length} {t('auto.auto_found_2462')}
+                                      </span>
           </div>
 
           {meetups.map((meetup, idx) => (
@@ -95,8 +95,8 @@ export default function SpontaneousMeetups() {
               </div>
 
               <button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-2.5 rounded-xl font-medium transition-colors shadow-lg shadow-primary/20 text-sm">
-                Request to Join
-              </button>
+                {t('auto.auto_request_to_join_2461')}
+                                    </button>
             </motion.div>
           ))}
         </div>

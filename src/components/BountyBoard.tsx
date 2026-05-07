@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, MapPin, Zap, Lock, Code, Sparkles, Navigation } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function BountyBoard() {
+    const { t } = useTranslation();
   const bounties = [
     {
       id: "BNT-4401",
@@ -54,11 +56,11 @@ export default function BountyBoard() {
             <Target className="w-12 h-12" />
           </div>
           <h1 className="text-5xl md:text-7xl font-display font-black mb-6 tracking-tighter uppercase">
-            The Bounty Board
-          </h1>
+            {t('auto.auto_the_bounty_board_629')}
+                                </h1>
           <p className="text-xl text-white/50 max-w-2xl mx-auto font-mono text-sm leading-relaxed">
-            Contribute to the Aetheria collective spatial memory. Complete physical-world challenges, map undocumented areas, and earn crypto-rewards.
-          </p>
+            {t('auto.auto_contribute_to_the_ae_628')}
+                                </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -87,11 +89,11 @@ export default function BountyBoard() {
 
                <div className="space-y-3 mb-8">
                  <div className="flex items-center justify-between text-xs font-mono bg-white/5 p-2 rounded-xl">
-                   <span className="text-white/40 flex items-center gap-1"><MapPin className="w-3 h-3"/> Location</span>
+                   <span className="text-white/40 flex items-center gap-1"><MapPin className="w-3 h-3"/> {t('auto.auto_location_627')}</span>
                    <span className="font-bold text-white tracking-widest">{bounty.location}</span>
                  </div>
                  <div className="flex items-center justify-between text-xs font-mono bg-white/5 p-2 rounded-xl">
-                   <span className="text-white/40 flex items-center gap-1"><Zap className="w-3 h-3"/> Difficulty</span>
+                   <span className="text-white/40 flex items-center gap-1"><Zap className="w-3 h-3"/> {t('auto.auto_difficulty_626')}</span>
                    <span className={`font-bold tracking-widest ${bounty.difficulty === 'Legendary' ? 'text-orange-400' : bounty.difficulty === 'Hard' ? 'text-red-400' : 'text-yellow-400'}`}>
                      {bounty.difficulty}
                    </span>
@@ -100,12 +102,12 @@ export default function BountyBoard() {
 
                <div className="flex justify-between items-center pt-6 border-t border-white/10">
                  <div>
-                   <p className="text-[10px] text-white/40 uppercase tracking-widest font-mono mb-1">Bounty Reward</p>
+                   <p className="text-[10px] text-white/40 uppercase tracking-widest font-mono mb-1">{t('auto.auto_bounty_reward_625')}</p>
                    <p className="font-black text-xl text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">{bounty.reward}</p>
                  </div>
                  <button className="bg-white text-black font-bold py-3 px-6 rounded-xl text-sm hover:scale-105 transition-transform uppercase tracking-widest">
-                   Accept
-                 </button>
+                   {t('auto.auto_accept_624')}
+                                           </button>
                </div>
             </motion.div>
           ))}
@@ -115,10 +117,10 @@ export default function BountyBoard() {
         <div className="max-w-3xl mx-auto bg-blue-900/10 border border-blue-500/20 rounded-2xl p-6 flex gap-4 items-start">
            <Lock className="w-6 h-6 text-blue-400 shrink-0 mt-1" />
            <div>
-             <h4 className="font-bold text-blue-300 uppercase tracking-widest text-sm mb-2">Zero-Knowledge Spatial Privacy</h4>
+             <h4 className="font-bold text-blue-300 uppercase tracking-widest text-sm mb-2">{t('auto.auto_zero_knowledge_spati_623')}</h4>
              <p className="text-blue-200/60 text-sm leading-relaxed">
-               All bounty submissions employ end-to-end encryption. Your exact geospatial location during submission is anonymized via ZK-Rollups before verification on the Aetheria network. We never track you.
-             </p>
+               {t('auto.auto_all_bounty_submissio_622')}
+                                       </p>
            </div>
         </div>
       </div>

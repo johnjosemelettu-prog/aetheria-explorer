@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CreditCard, Zap, X, Loader2 } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 interface EsimPaymentModalProps {
   onClose: () => void;
@@ -17,6 +18,7 @@ const EsimPaymentModal: React.FC<EsimPaymentModalProps> = ({
   country,
   isProcessing,
 }) => {
+    const { t } = useTranslation();
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
       <motion.div
@@ -37,7 +39,7 @@ const EsimPaymentModal: React.FC<EsimPaymentModalProps> = ({
                 <div className="w-12 h-12 bg-secondary/20 rounded-2xl flex items-center justify-center">
                 <Zap className="text-secondary w-6 h-6" />
                 </div>
-                <h2 className="text-3xl font-display font-bold tracking-tighter">Confirm Purchase</h2>
+                <h2 className="text-3xl font-display font-bold tracking-tighter">{t('auto.auto_confirm_purchase_1193')}</h2>
             </div>
             <button onClick={onClose} className="p-3 glass-hover rounded-2xl">
                 <X className="w-6 h-6 text-foreground/50" />
@@ -45,10 +47,10 @@ const EsimPaymentModal: React.FC<EsimPaymentModalProps> = ({
         </div>
 
         <div className="space-y-8">
-            <p className="text-center text-foreground/70">You are purchasing an eSIM for <strong>{country}</strong>.</p>
+            <p className="text-center text-foreground/70">{t('auto.auto_you_are_purchasing_a_1192')} <strong>{country}</strong>.</p>
             <div className="p-6 rounded-3xl bg-secondary/10 border border-secondary/20">
                 <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold">Price</span>
+                    <span className="text-sm font-bold">{t('auto.auto_price_1191')}</span>
                     <span className="text-2xl font-display font-bold text-secondary">${price}</span>
                 </div>
             </div>

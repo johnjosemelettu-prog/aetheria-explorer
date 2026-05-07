@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import * as AI from '@/services/gemini';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from "react-i18next";
 
 const UniversalTicketAggregator = () => {
+    const { t } = useTranslation();
   const [tickets, setTickets] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -30,8 +32,8 @@ const UniversalTicketAggregator = () => {
 
   return (
     <div className="p-8 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-4xl font-bold mb-4 text-center text-primary">Universal Ticket Aggregator</h1>
-      <p className="text-center text-gray-400 mb-8">All your travel tickets, automatically organized.</p>
+      <h1 className="text-4xl font-bold mb-4 text-center text-primary">{t('auto.auto_universal_ticket_agg_2876')}</h1>
+      <p className="text-center text-gray-400 mb-8">{t('auto.auto_all_your_travel_tick_2875')}</p>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-6">
             <Button onClick={fetchTickets} disabled={loading}>
@@ -55,9 +57,9 @@ const UniversalTicketAggregator = () => {
                   <span className="text-2xl font-bold">{new Date(ticket.date).getDate()}</span>
               </div>
               <div>
-                <h2 className="text-xl font-bold">{ticket.type}: {ticket.details.from} to {ticket.details.to}</h2>
+                <h2 className="text-xl font-bold">{ticket.type}: {ticket.details.from} {t('auto.auto_to_2874')} {ticket.details.to}</h2>
                 <p className="text-gray-400">{ticket.details.confirmation_number}</p>
-                <p className="text-sm text-gray-500">Provider: {ticket.provider}</p>
+                <p className="text-sm text-gray-500">{t('auto.auto_provider__2873')} {ticket.provider}</p>
               </div>
             </motion.div>
           ))}

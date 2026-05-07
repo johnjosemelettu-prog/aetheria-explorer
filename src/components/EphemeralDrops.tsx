@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { RadioReceiver, AlertTriangle, Clock, MapPin, Ticket, ShieldAlert } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const EphemeralDrops = () => {
+    const { t } = useTranslation();
   const [listening, setListening] = useState(true);
   const [dropData, setDropData] = useState<any>(null);
   const [timeLeft, setTimeLeft] = useState<number>(0);
@@ -58,16 +60,16 @@ const EphemeralDrops = () => {
             <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity }} className="mx-auto w-24 h-24 border-2 border-dashed border-rose-500/50 rounded-full flex items-center justify-center">
               <RadioReceiver className="w-8 h-8 text-rose-500" />
             </motion.div>
-            <h1 className="text-3xl font-mono uppercase tracking-[0.2em] text-rose-500 ml-4">Listening to Anomalies...</h1>
-            <p className="text-rose-200/50 font-mono text-sm">Keep app open. Drop could happen at any second.</p>
+            <h1 className="text-3xl font-mono uppercase tracking-[0.2em] text-rose-500 ml-4">{t('auto.auto_listening_to_anomali_1175')}</h1>
+            <p className="text-rose-200/50 font-mono text-sm">{t('auto.auto_keep_app_open__drop__1174')}</p>
           </motion.div>
         ) : (
           <AnimatePresence>
             {timeLeft > 0 ? (
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}>
                 <div className="bg-rose-600 text-black px-6 py-2 rounded-full font-black uppercase text-xl inline-flex items-center mb-10 shadow-[0_0_50px_rgba(225,29,72,0.8)] animate-pulse">
-                  <AlertTriangle className="w-6 h-6 mr-3" /> Anomalous Drop Detected
-                </div>
+                  <AlertTriangle className="w-6 h-6 mr-3" /> {t('auto.auto_anomalous_drop_detec_1173')}
+                                                      </div>
                 
                 <div className="bg-zinc-900 border border-rose-600 rounded-3xl p-8 relative overflow-hidden text-left shadow-2xl">
                   {/* Warning Striping */}
@@ -79,7 +81,7 @@ const EphemeralDrops = () => {
                       <h2 className="text-3xl font-black text-white">{dropData.title}</h2>
                     </div>
                     <div className="bg-black border border-rose-500/50 px-4 py-2 rounded-xl text-center">
-                      <p className="text-[10px] uppercase font-bold text-rose-500 mb-1">Evaporates In</p>
+                      <p className="text-[10px] uppercase font-bold text-rose-500 mb-1">{t('auto.auto_evaporates_in_1172')}</p>
                       <p className={`text-3xl font-mono font-bold ${timeLeft < 30 ? 'text-red-500 animate-bounce' : 'text-rose-100'}`}>
                         {formatTime(timeLeft)}
                       </p>
@@ -102,18 +104,18 @@ const EphemeralDrops = () => {
                   </div>
 
                   <Button onClick={handleClaim} className="w-full py-8 text-2xl font-black uppercase tracking-widest bg-rose-600 hover:bg-rose-500 text-white rounded-xl shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]">
-                    Claim & Sprint
-                  </Button>
+                    {t('auto.auto_claim___sprint_1171')}
+                                                            </Button>
                 </div>
               </motion.div>
             ) : (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-20">
                 <ShieldAlert className="w-20 h-20 text-zinc-600 mx-auto mb-6" />
-                <h2 className="text-4xl font-black text-zinc-500 uppercase tracking-widest mb-4">Signal Lost</h2>
-                <p className="text-zinc-400 mb-8">The anomaly has evaporated. You were too slow.</p>
+                <h2 className="text-4xl font-black text-zinc-500 uppercase tracking-widest mb-4">{t('auto.auto_signal_lost_1170')}</h2>
+                <p className="text-zinc-400 mb-8">{t('auto.auto_the_anomaly_has_evap_1169')}</p>
                 <Button onClick={() => { setDropData(null); setListening(true); }} variant="outline" className="border-rose-500 text-rose-500 hover:bg-rose-950">
-                  Resync Frequencies
-                </Button>
+                  {t('auto.auto_resync_frequencies_1168')}
+                                                          </Button>
               </motion.div>
             )}
           </AnimatePresence>

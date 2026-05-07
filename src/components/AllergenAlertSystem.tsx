@@ -5,6 +5,7 @@ import * as AI from '@/services/gemini';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Input } from './ui/input';
+import { useTranslation } from "react-i18next";
 
 const ALLERGENS = [
   'Celery',
@@ -24,6 +25,7 @@ const ALLERGENS = [
 ];
 
 const AllergenAlertSystem = () => {
+    const { t } = useTranslation();
   const [allergens, setAllergens] = useState(['Peanuts', 'Gluten']);
   const [newAllergen, setNewAllergen] = useState('');
   const [scanResult, setScanResult] = useState<any>(null);
@@ -56,11 +58,11 @@ const AllergenAlertSystem = () => {
 
   return (
     <div className="p-8 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-4xl font-bold mb-4 text-center text-primary">Allergen Alert System</h1>
-      <p className="text-center text-gray-400 mb-8">Scan food labels or menus for potential allergens.</p>
+      <h1 className="text-4xl font-bold mb-4 text-center text-primary">{t('auto.auto_allergen_alert_syste_328')}</h1>
+      <p className="text-center text-gray-400 mb-8">{t('auto.auto_scan_food_labels_or__327')}</p>
       <div className="max-w-xl mx-auto">
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
-          <h2 className="text-2xl font-semibold mb-4">My Allergies</h2>
+          <h2 className="text-2xl font-semibold mb-4">{t('auto.auto_my_allergies_326')}</h2>
           <div className="flex flex-wrap gap-2">
             {allergens.map(a => <Badge key={a}>{a}</Badge>)}
           </div>
@@ -69,13 +71,13 @@ const AllergenAlertSystem = () => {
               type="text"
               value={newAllergen}
               onChange={(e) => setNewAllergen(e.target.value)}
-              placeholder="Add an allergen"
+              placeholder={t('auto.auto_add_an_allergen_325')}
               list="allergen-suggestions"
             />
             <datalist id="allergen-suggestions">
               {ALLERGENS.map(a => <option key={a} value={a} />)}
             </datalist>
-            <Button onClick={handleAddAllergen}>Add</Button>
+            <Button onClick={handleAddAllergen}>{t('auto.auto_add_324')}</Button>
           </div>
         </div>
 
@@ -96,7 +98,7 @@ const AllergenAlertSystem = () => {
             </h2>
             {scanResult.contains_allergens && (
               <div className="mt-4">
-                <p className="font-semibold">Potential allergens found:</p>
+                <p className="font-semibold">{t('auto.auto_potential_allergens__323')}</p>
                 <ul className="list-disc list-inside mt-2">
                   {scanResult.found_allergens.map((allergen: string) => <li key={allergen}>{allergen}</li>)}
                 </ul>

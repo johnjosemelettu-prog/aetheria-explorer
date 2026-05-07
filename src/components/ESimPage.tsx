@@ -166,11 +166,11 @@ export default function ESimPage() {
                           <div className="flex justify-between text-[10px] text-foreground/40 uppercase tracking-widest font-bold">
                             <span className="flex items-center gap-1">
                               <Activity className="w-3 h-3" />
-                              {esim.dataUsed.toFixed(1)} GB {t('esim.used')}
+                              {esim.dataUsed.toFixed(1)} {t('auto.auto_gb_1190')} {t('esim.used')}
                             </span>
                             <span className="flex items-center gap-1">
                               <BarChart3 className="w-3 h-3" />
-                              {esim.dataLimit} GB {t('esim.total')}
+                              {esim.dataLimit} {t('auto.auto_gb_1189')} {t('esim.total')}
                             </span>
                           </div>
                         </div>

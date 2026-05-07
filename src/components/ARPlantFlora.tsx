@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sprout, TestTube } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARPlantFlora() {
+    const { t } = useTranslation();
   const [analyzed, setAnalyzed] = useState(false);
 
   return (
     <XRLayout 
       mode="AR"
-      title="Flora ID & Botanist Mode" 
-      description="Scan exotic plants. View watering habits, historical uses, and microscopic cellular analysis overlays."
+      title={t('auto.auto_flora_id___botanist__528')} 
+      description={t('auto.auto_scan_exotic_plants___527')}
       overlayIcon={<Sprout className="w-8 h-8 text-green-400" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -31,12 +33,12 @@ export default function ARPlantFlora() {
                className="absolute -right-32 -top-10 bg-black/80 backdrop-blur-md p-3 border border-green-500 w-48 rounded rotate-[-45deg]"
              >
                 <div className="flex justify-between items-start mb-1 text-green-400">
-                  <h4 className="font-bold font-display text-sm">Monstera Deliciosa</h4>
+                  <h4 className="font-bold font-display text-sm">{t('auto.auto_monstera_deliciosa_526')}</h4>
                   <Sprout className="w-4 h-4" />
                 </div>
-                <p className="text-xs font-mono text-green-200/70 mb-2">Native to southern Mexico.</p>
+                <p className="text-xs font-mono text-green-200/70 mb-2">{t('auto.auto_native_to_southern_m_525')}</p>
                 <div className="w-full bg-green-900/50 h-1 mb-1"><div className="w-[80%] bg-green-400 h-full" /></div>
-                <span className="text-[8px] text-green-400 font-mono">TOXICITY LEVEL: MILD</span>
+                <span className="text-[8px] text-green-400 font-mono">{t('auto.auto_toxicity_level__mild_524')}</span>
              </motion.div>
            )}
         </motion.div>

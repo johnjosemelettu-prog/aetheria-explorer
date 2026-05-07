@@ -1,15 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { RadioTower, Play, FastForward, SkipBack } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function TravelersRadio() {
+    const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-cyan-950 text-cyan-50 p-8 flex items-center justify-center">
       <div className="w-full max-w-sm">
          <div className="text-center mb-8">
             <RadioTower className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-            <h1 className="text-2xl font-display font-bold uppercase tracking-widest text-white">Transmissions</h1>
-            <p className="text-cyan-600 font-mono text-xs mt-1">THE GLOBAL TRAVELER COMM FREQUENCY</p>
+            <h1 className="text-2xl font-display font-bold uppercase tracking-widest text-white">{t('auto.auto_transmissions_2734')}</h1>
+            <p className="text-cyan-600 font-mono text-xs mt-1">{t('auto.auto_the_global_traveler__2733')}</p>
          </div>
 
          <div className="bg-[#0b1b24] p-8 rounded-[40px] border border-cyan-900 shadow-2xl relative overflow-hidden">
@@ -27,11 +29,11 @@ export default function TravelersRadio() {
 
             <div className="relative z-10 text-center">
                <div className="bg-cyan-950 inline-block px-3 py-1 rounded-full text-[10px] font-mono text-cyan-400 border border-cyan-800 mb-8 uppercase tracking-widest">
-                  Live: Kyoto Local Highlights
-               </div>
+                  {t('auto.auto_live__kyoto_local_hi_2732')}
+                                         </div>
                
-               <h2 className="text-3xl font-bold font-serif italic text-white mb-2 leading-tight">Quiet Mornings by the Kamo River</h2>
-               <p className="text-cyan-500 font-mono text-xs mb-8">Podcast • Ep. 42 by @NomadDiary</p>
+               <h2 className="text-3xl font-bold font-serif italic text-white mb-2 leading-tight">{t('auto.auto_quiet_mornings_by_th_2731')}</h2>
+               <p className="text-cyan-500 font-mono text-xs mb-8">{t('auto.auto_podcast___ep__42_by__2730')}</p>
 
                {/* Waveform Mock */}
                <div className="w-full h-8 bg-cyan-900/50 rounded-full mb-8 relative overflow-hidden">

@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Palette, Droplet } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function TripColorPalette() {
+    const { t } = useTranslation();
   const colors = [
     { rgb: "bg-[#E63946]", label: "Tori Gate Red", pct: 30 },
     { rgb: "bg-[#457B9D]", label: "Kamo River Blue", pct: 25 },
@@ -16,10 +18,10 @@ export default function TripColorPalette() {
       <div className="max-w-4xl w-full">
          <header className="mb-12 text-center">
             <Palette className="w-12 h-12 text-stone-400 mx-auto mb-4" />
-            <h1 className="text-4xl font-serif font-black italic text-stone-800 mb-2">The Palette of Your Trip</h1>
+            <h1 className="text-4xl font-serif font-black italic text-stone-800 mb-2">{t('auto.auto_the_palette_of_your__2837')}</h1>
             <p className="text-stone-500 font-mono text-xs max-w-sm mx-auto">
-               Aetheria's AI analyzed 240 photos from your Kyoto trip to extract the dominant color narrative.
-            </p>
+               {t('auto.auto_aetheria_s_ai_analyz_2836')}
+                                  </p>
          </header>
 
          <div className="bg-white p-8 rounded-[2rem] shadow-2xl border border-stone-100 flex flex-col md:flex-row shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
@@ -47,8 +49,8 @@ export default function TripColorPalette() {
             {/* Labels */}
             <div className="md:w-64 pt-8 md:pt-0 md:pl-10 flex flex-col justify-center gap-6">
                <h3 className="font-bold text-stone-400 uppercase tracking-widest text-xs flex items-center gap-2">
-                 <Droplet className="w-4 h-4" /> EXTRACTED HUES
-               </h3>
+                 <Droplet className="w-4 h-4" /> {t('auto.auto_extracted_hues_2835')}
+                                         </h3>
                {colors.map((color, i) => (
                  <div key={i} className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -60,8 +62,8 @@ export default function TripColorPalette() {
                ))}
                
                <button className="mt-8 bg-stone-900 text-white py-3 rounded-full font-bold shadow-lg hover:bg-stone-800 transition text-sm">
-                 ORDER PALETTE POSTER
-               </button>
+                 {t('auto.auto_order_palette_poster_2834')}
+                                         </button>
             </div>
 
          </div>

@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Map, Navigation, Crosshair } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function FindLocalBand() {
+    const { t } = useTranslation();
   return (
     <div className="h-screen w-full relative bg-slate-900 overflow-hidden flex flex-col">
       <div className="absolute inset-0 opacity-40">
@@ -13,9 +15,9 @@ export default function FindLocalBand() {
       <div className="relative z-10 p-6 flex justify-between items-start pointer-events-none">
         <div className="bg-black/50 backdrop-blur-md border border-white/10 p-4 rounded-2xl pointer-events-auto">
           <h1 className="text-white font-bold text-xl flex items-center gap-2">
-            <Map className="w-5 h-5 text-indigo-400" /> Find a Local Band
-          </h1>
-          <p className="text-slate-400 text-xs mt-1 font-mono uppercase tracking-wider">Sub-surface Mapping</p>
+            <Map className="w-5 h-5 text-indigo-400" /> {t('auto.auto_find_a_local_band_1262')}
+                                </h1>
+          <p className="text-slate-400 text-xs mt-1 font-mono uppercase tracking-wider">{t('auto.auto_sub_surface_mapping_1261')}</p>
         </div>
         
         <div className="flex flex-col gap-2 pointer-events-auto">
@@ -35,8 +37,8 @@ export default function FindLocalBand() {
           className="w-4 h-4 bg-indigo-500 rounded-full shadow-[0_0_30px_rgba(79,70,229,1)] mx-auto mb-4"
         />
         <p className="text-indigo-400 font-mono text-sm uppercase tracking-[0.2em] bg-black/40 backdrop-blur-sm px-4 py-1 rounded-full border border-indigo-500/30">
-          Uncovering Secrets
-        </p>
+          {t('auto.auto_uncovering_secrets_1260')}
+                          </p>
       </div>
     </div>
   );

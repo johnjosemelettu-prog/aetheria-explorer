@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from "react-i18next";
 
 export default function DigitalNomadHealthInc() {
+    const { t } = useTranslation();
   const items = [1, 2, 3, 4, 5, 6];
   const urlList = [
     "https://images.unsplash.com/photo-1501785888052-0869aa37c5cb?auto=format&fit=crop&w=600&q=80",
@@ -19,11 +21,11 @@ export default function DigitalNomadHealthInc() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-16"
         >
-          <h1 className="text-5xl md:text-7xl font-display font-medium tracking-tight mb-6">Digital Nomad health insurance guide</h1>
+          <h1 className="text-5xl md:text-7xl font-display font-medium tracking-tight mb-6">{t('auto.auto_digital_nomad_health_975')}</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-rose-500 mb-8" />
           <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
-            Explore our curated catalog of essential travel utilities and lifestyle enhancements.
-          </p>
+            {t('auto.auto_explore_our_curated__974')}
+                                </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -37,14 +39,14 @@ export default function DigitalNomadHealthInc() {
             >
               <img 
                 src={urlList[(index + i) % urlList.length]}
-                alt="Feature Item"
+                alt={t('auto.auto_feature_item_973')}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 p-8">
-                <p className="text-pink-400 font-mono text-xs tracking-widest uppercase mb-2">Utility Item</p>
-                <h3 className="text-2xl font-bold text-white mb-2">Enhancement #{i}</h3>
-                <p className="text-zinc-300 text-sm line-clamp-2">A specialized solution structured to enrich this segment of your trip.</p>
+                <p className="text-pink-400 font-mono text-xs tracking-widest uppercase mb-2">{t('auto.auto_utility_item_972')}</p>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('auto.auto_enhancement___971')}{i}</h3>
+                <p className="text-zinc-300 text-sm line-clamp-2">{t('auto.auto_a_specialized_soluti_970')}</p>
               </div>
             </motion.div>
           ))}

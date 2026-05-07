@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Ghost, Radical } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARGhostTours() {
+    const { t } = useTranslation();
   const [anomaly, setAnomaly] = useState(false);
 
   useEffect(() => {
@@ -16,8 +18,8 @@ export default function ARGhostTours() {
   return (
     <XRLayout 
       mode="AR"
-      title="Ectoplasmic Spectrum" 
-      description="Scanning area for paranormal anomalies and lingering spiritual energy from local legends."
+      title={t('auto.auto_ectoplasmic_spectrum_466')} 
+      description={t('auto.auto_scanning_area_for_pa_465')}
       overlayIcon={<Ghost className="w-8 h-8 text-green-500" />}
     >
       <div className="absolute inset-0 max-h-[100%] pointer-events-none mix-blend-color-burn bg-gradient-to-tr from-green-900/30 to-black/80" />
@@ -36,20 +38,20 @@ export default function ARGhostTours() {
             className="absolute z-10 border border-green-500/50 bg-black/60 p-4 rounded-xl flex flex-col items-center"
           >
             <Radical className="text-green-500 w-12 h-12 mb-2 animate-pulse" />
-            <h4 className="text-green-500 font-mono text-xl">CLASS IV APPARITION</h4>
-            <p className="text-green-400/60 font-mono text-xs mt-1">Phantom of the Opera House expected...</p>
+            <h4 className="text-green-500 font-mono text-xl">{t('auto.auto_class_iv_apparition_464')}</h4>
+            <p className="text-green-400/60 font-mono text-xs mt-1">{t('auto.auto_phantom_of_the_opera_463')}</p>
           </motion.div>
         )}
       </div>
 
       <div className="absolute top-24 right-8 w-48 border border-green-500/30 bg-black/50 p-4 font-mono text-[10px] text-green-500/80 rounded-lg shadow-[0_0_10px_rgba(0,255,0,0.1)]">
-        <div className="flex justify-between mb-1"><span>EMF LEVEL</span><span>{anomaly ? '8.4' : '2.1'} mG</span></div>
+        <div className="flex justify-between mb-1"><span>{t('auto.auto_emf_level_462')}</span><span>{anomaly ? '8.4' : '2.1'} {t('auto.auto_mg_461')}</span></div>
         <div className="w-full h-1 bg-green-900/50 mb-4"><motion.div animate={{ width: anomaly ? '80%' : '20%' }} className="h-full bg-green-500" /></div>
         
-        <div className="flex justify-between mb-1"><span>THERMAL</span><span>{anomaly ? '-5.2' : '18.4'}°C</span></div>
+        <div className="flex justify-between mb-1"><span>{t('auto.auto_thermal_460')}</span><span>{anomaly ? '-5.2' : '18.4'}{t('auto.auto__c_459')}</span></div>
         <div className="w-full h-1 bg-green-900/50 mb-4"><motion.div animate={{ width: anomaly ? '10%' : '60%' }} className="h-full bg-blue-500" /></div>
         
-        <div className="flex justify-between mb-1"><span>EVP CHANNELS</span><span>{anomaly ? 'LOCKED' : 'SCANNING'}</span></div>
+        <div className="flex justify-between mb-1"><span>{t('auto.auto_evp_channels_458')}</span><span>{anomaly ? 'LOCKED' : 'SCANNING'}</span></div>
       </div>
     </XRLayout>
   );

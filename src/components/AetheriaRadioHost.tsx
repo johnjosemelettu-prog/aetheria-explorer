@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { useRead } from '../hooks/useRead';
 import { useWrite } from '../hooks/useWrite';
+import { useTranslation } from "react-i18next";
 
 interface RadioData {
     id?: string;
@@ -15,6 +16,7 @@ interface RadioData {
 }
 
 const AetheriaRadioHost: React.FC = () => {
+    const { t } = useTranslation();
     const [stationName, setStationName] = useState('');
     const [djName, setDjName] = useState('');
     const [currentTrack, setCurrentTrack] = useState('');
@@ -56,36 +58,36 @@ const AetheriaRadioHost: React.FC = () => {
     };
     
     if (radioLoading) {
-        return <div>Loading...</div>;
+        return <div>{t('auto.auto_loading____178')}</div>;
     }
 
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Aetheria Radio Host</CardTitle>
+                <CardTitle>{t('auto.auto_aetheria_radio_host_177')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
                 <div className="flex items-center space-x-2">
-                    <Input value={stationName} onChange={(e) => setStationName(e.target.value)} placeholder="Station Name" />
-                    <Input value={djName} onChange={(e) => setDjName(e.target.value)} placeholder="DJ Name" />
-                    <Button onClick={handleUpdate}>Update</Button>
+                    <Input value={stationName} onChange={(e) => setStationName(e.target.value)} placeholder={t('auto.auto_station_name_176')} />
+                    <Input value={djName} onChange={(e) => setDjName(e.target.value)} placeholder={t('auto.auto_dj_name_175')} />
+                    <Button onClick={handleUpdate}>{t('auto.auto_update_174')}</Button>
                 </div>
 
                 <div>
-                    <p>Current Track: {currentTrack}</p>
+                    <p>{t('auto.auto_current_track__173')} {currentTrack}</p>
                 </div>
                 
                 <div>
-                    <Button onClick={handlePlayNext} disabled={playlist.length === 0}>Play Next</Button>
+                    <Button onClick={handlePlayNext} disabled={playlist.length === 0}>{t('auto.auto_play_next_172')}</Button>
                 </div>
 
                 <div className="flex items-center space-x-2">
-                    <Input value={newTrack} onChange={(e) => setNewTrack(e.target.value)} placeholder="New Track URL" />
-                    <Button onClick={handleAddTrack}>Add Track</Button>
+                    <Input value={newTrack} onChange={(e) => setNewTrack(e.target.value)} placeholder={t('auto.auto_new_track_url_171')} />
+                    <Button onClick={handleAddTrack}>{t('auto.auto_add_track_170')}</Button>
                 </div>
 
                 <div>
-                    <h3 className="font-bold">Playlist</h3>
+                    <h3 className="font-bold">{t('auto.auto_playlist_169')}</h3>
                     <ul>
                         {playlist.map((track, index) => (
                             <li key={index}>{track}</li>

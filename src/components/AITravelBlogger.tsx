@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { PenTool, Sparkles, Send, Image as ImageIcon } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function AITravelBlogger() {
+    const { t } = useTranslation();
   const [generating, setGenerating] = useState(false);
   const [content, setContent] = useState('');
 
@@ -27,17 +29,17 @@ export default function AITravelBlogger() {
       <div className="flex items-center justify-between mb-12">
         <div>
           <h1 className="text-4xl font-display font-bold flex items-center gap-3">
-            <PenTool className="text-purple-400" /> AI Travel Blogger
-          </h1>
-          <p className="text-foreground/60 mt-2">Drafting your memories into a captivating narrative.</p>
+            <PenTool className="text-purple-400" /> {t('auto.auto_ai_travel_blogger_297')}
+                                </h1>
+          <p className="text-foreground/60 mt-2">{t('auto.auto_drafting_your_memori_296')}</p>
         </div>
         <button 
           onClick={handleGenerate}
           disabled={generating}
           className="px-6 py-3 bg-purple-500 text-white font-bold rounded-xl flex items-center gap-2 hover:bg-purple-600 disabled:opacity-50"
         >
-          <Sparkles className="w-5 h-5" /> Auto-Draft Post
-        </button>
+          <Sparkles className="w-5 h-5" /> {t('auto.auto_auto_draft_post_295')}
+                          </button>
       </div>
 
       <div className="grid md:grid-cols-3 gap-8">
@@ -49,7 +51,7 @@ export default function AITravelBlogger() {
           </div>
           <div className="p-8 flex-grow prose prose-invert max-w-none">
             {!content && !generating ? (
-              <p className="text-foreground/30 text-center mt-20 italic">Click 'Auto-Draft Post' to let the AI weave your recent timeline, photos, and check-ins into a story.</p>
+              <p className="text-foreground/30 text-center mt-20 italic">{t('auto.auto_click__auto_draft_po_294')}</p>
             ) : (
               <p className="text-lg leading-relaxed whitespace-pre-wrap">{content}<span className="animate-pulse">|</span></p>
             )}
@@ -57,7 +59,7 @@ export default function AITravelBlogger() {
           {content && !generating && (
              <div className="p-4 bg-white/5 border-t border-white/10 flex justify-end">
                <button className="px-6 py-2 bg-primary text-primary-foreground font-bold rounded-lg flex items-center gap-2">
-                 Publish to Journal <Send className="w-4 h-4" />
+                 {t('auto.auto_publish_to_journal_293')} <Send className="w-4 h-4" />
                </button>
              </div>
           )}
@@ -65,20 +67,20 @@ export default function AITravelBlogger() {
 
         <div className="space-y-6">
           <div className="glass p-6 rounded-3xl border border-white/10">
-            <h3 className="font-bold mb-4 uppercase tracking-widest text-xs text-foreground/50">Sourced Materials</h3>
+            <h3 className="font-bold mb-4 uppercase tracking-widest text-xs text-foreground/50">{t('auto.auto_sourced_materials_292')}</h3>
             <div className="grid grid-cols-2 gap-2 mb-4">
               <div className="aspect-square bg-white/10 rounded-xl flex items-center justify-center"><ImageIcon className="w-6 h-6 text-white/30" /></div>
               <div className="aspect-square bg-white/10 rounded-xl flex items-center justify-center"><ImageIcon className="w-6 h-6 text-white/30" /></div>
             </div>
-            <p className="text-xs text-foreground/60">3 Check-ins, 2 Photos, 1 Audio Note processed.</p>
+            <p className="text-xs text-foreground/60">{t('auto.auto_3_check_ins__2_photo_291')}</p>
           </div>
           
           <div className="glass p-6 rounded-3xl border border-white/10">
-            <h3 className="font-bold mb-4 uppercase tracking-widest text-xs text-foreground/50">Tone Settings</h3>
+            <h3 className="font-bold mb-4 uppercase tracking-widest text-xs text-foreground/50">{t('auto.auto_tone_settings_290')}</h3>
             <div className="flex flex-col gap-2">
-              <button className="py-2 bg-purple-500/20 border border-purple-500 text-purple-400 rounded-lg text-sm font-bold">Poetic & Reflective</button>
-              <button className="py-2 bg-white/5 border border-white/10 rounded-lg text-sm">Action & Adventure</button>
-              <button className="py-2 bg-white/5 border border-white/10 rounded-lg text-sm">Food Critic</button>
+              <button className="py-2 bg-purple-500/20 border border-purple-500 text-purple-400 rounded-lg text-sm font-bold">{t('auto.auto_poetic___reflective_289')}</button>
+              <button className="py-2 bg-white/5 border border-white/10 rounded-lg text-sm">{t('auto.auto_action___adventure_288')}</button>
+              <button className="py-2 bg-white/5 border border-white/10 rounded-lg text-sm">{t('auto.auto_food_critic_287')}</button>
             </div>
           </div>
         </div>

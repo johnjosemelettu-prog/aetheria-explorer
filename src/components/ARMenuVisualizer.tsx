@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Utensils, CheckCircle, AlertTriangle, Info, ChefHat } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARMenuVisualizer() {
+    const { t } = useTranslation();
   const [selectedDish, setSelectedDish] = useState(0);
 
   const dishes = [
@@ -32,8 +34,8 @@ export default function ARMenuVisualizer() {
   return (
     <XRLayout 
       mode="AR"
-      title="Menu Visualizer" 
-      description="Point your camera at a menu to project 1:1 scale photorealistic 3D models of the food onto your table."
+      title={t('auto.auto_menu_visualizer_508')} 
+      description={t('auto.auto_point_your_camera_at_507')}
       overlayIcon={<Utensils className="w-8 h-8 text-orange-400" />}
     >
       {/* Blurred background simulate table texture */}
@@ -55,7 +57,7 @@ export default function ARMenuVisualizer() {
           <div className="w-64 h-64 border-4 border-orange-500/40 rounded-full shadow-[0_0_50px_rgba(249,115,22,0.3)] bg-black/40 backdrop-blur flex items-center justify-center relative overflow-hidden">
              <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent" />
              <ChefHat className="text-orange-400 w-20 h-20 drop-shadow-[0_0_15px_rgba(249,115,22,0.8)] opacity-50" />
-             <span className="absolute bottom-6 font-mono text-orange-300/80 text-xs tracking-widest uppercase">3D Render Active</span>
+             <span className="absolute bottom-6 font-mono text-orange-300/80 text-xs tracking-widest uppercase">{t('auto.auto_3d_render_active_506')}</span>
           </div>
 
           {/* Floating AR Info Tags */}
@@ -68,7 +70,7 @@ export default function ARMenuVisualizer() {
             <h4 className="text-white font-bold text-sm mb-1 line-clamp-1">{dish.name}</h4>
             <p className="text-orange-400 font-mono text-[10px] mb-2">{dish.localName}</p>
             <div className="flex gap-2 text-[10px]">
-              <span className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded">{dish.calories} kcal</span>
+              <span className="bg-orange-500/20 text-orange-300 px-2 py-1 rounded">{dish.calories} {t('auto.auto_kcal_505')}</span>
               <span className="bg-white/10 text-white px-2 py-1 rounded">{dish.price}</span>
             </div>
           </motion.div>
@@ -83,16 +85,16 @@ export default function ARMenuVisualizer() {
             {dish.safe ? (
               <div className="bg-green-900/60 backdrop-blur-md border border-green-500/30 flex items-center gap-2 p-2 rounded-lg">
                 <CheckCircle className="w-4 h-4 text-green-400" />
-                <span className="text-[10px] text-green-200 uppercase font-bold tracking-wider">Aetheria Safe</span>
+                <span className="text-[10px] text-green-200 uppercase font-bold tracking-wider">{t('auto.auto_aetheria_safe_504')}</span>
               </div>
             ) : (
               <div className="bg-red-900/60 backdrop-blur-md border border-red-500/30 flex items-center gap-2 p-2 rounded-lg group relative cursor-help">
                 <AlertTriangle className="w-4 h-4 text-red-400 animate-pulse" />
-                <span className="text-[10px] text-red-200 uppercase font-bold tracking-wider">Allergen Alert</span>
+                <span className="text-[10px] text-red-200 uppercase font-bold tracking-wider">{t('auto.auto_allergen_alert_503')}</span>
                 
                 {/* Tooltip on hover */}
                 <div className="absolute top-full left-0 mt-2 w-32 bg-red-950 border border-red-500/50 rounded p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <p className="text-[9px] text-red-200">Contains: {dish.allergens.join(', ')}</p>
+                  <p className="text-[9px] text-red-200">{t('auto.auto_contains__502')} {dish.allergens.join(', ')}</p>
                 </div>
               </div>
             )}

@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Map, Zap, AlertTriangle, ShieldAlert } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function EscapeTheCity() {
+    const { t } = useTranslation();
   return (
     <div className="relative min-h-screen bg-neutral-950 text-white overflow-hidden flex flex-col font-mono">
       {/* Dark Map Background */}
@@ -24,7 +26,7 @@ export default function EscapeTheCity() {
             <div className="w-6 h-6 border-2 border-emerald-400 rounded-full animate-spin flex items-center justify-center">
               <div className="w-1 h-1 bg-emerald-400 rounded-full" />
             </div>
-            <span className="text-emerald-400 text-xs mt-2 uppercase">Safe Zone</span>
+            <span className="text-emerald-400 text-xs mt-2 uppercase">{t('auto.auto_safe_zone_1184')}</span>
           </div>
         </div>
       </div>
@@ -34,37 +36,37 @@ export default function EscapeTheCity() {
         <div className="bg-red-500/20 border border-red-500/50 p-4 rounded-xl backdrop-blur-md flex items-center gap-3">
           <ShieldAlert className="w-6 h-6 text-red-400 animate-pulse" />
           <div>
-            <h1 className="font-bold text-red-400 uppercase tracking-widest text-sm">Threat Level: High</h1>
-            <p className="text-xs text-red-300">Tourist Trap Density: 98%</p>
+            <h1 className="font-bold text-red-400 uppercase tracking-widest text-sm">{t('auto.auto_threat_level__high_1183')}</h1>
+            <p className="text-xs text-red-300">{t('auto.auto_tourist_trap_density_1182')}</p>
           </div>
         </div>
         <div className="text-right glass p-4 rounded-xl pointer-events-auto">
-          <p className="text-xs text-white/50 uppercase mb-1">Time Remaining</p>
+          <p className="text-xs text-white/50 uppercase mb-1">{t('auto.auto_time_remaining_1181')}</p>
           <p className="text-3xl font-bold text-emerald-400">14:59</p>
         </div>
       </div>
 
       <div className="relative z-10 mt-auto p-6 pointer-events-none">
         <div className="glass p-6 rounded-2xl border border-white/10 max-w-md pointer-events-auto backdrop-blur-xl">
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2"><Zap className="text-yellow-400" /> Objective: Escape</h2>
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2"><Zap className="text-yellow-400" /> {t('auto.auto_objective__escape_1180')}</h2>
           <p className="text-sm text-foreground/70 mb-6 leading-relaxed">
-            You are surrounded by overpriced souvenirs and generic chain restaurants. Follow the encrypted AR clues to reach the authentic local district (Safe Zone).
-          </p>
+            {t('auto.auto_you_are_surrounded_b_1179')}
+                                </p>
           
           <div className="space-y-3 mb-6">
             <div className="p-3 bg-black/50 border border-white/5 rounded-lg flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span className="text-sm">Find the alley with the blue neon cat.</span>
+              <span className="text-sm">{t('auto.auto_find_the_alley_with__1178')}</span>
             </div>
             <div className="p-3 bg-black/50 border border-white/5 rounded-lg flex items-center gap-3 opacity-50">
               <div className="w-2 h-2 rounded-full bg-white/20" />
-              <span className="text-sm line-through">Evade the tour bus drop-off.</span>
+              <span className="text-sm line-through">{t('auto.auto_evade_the_tour_bus_d_1177')}</span>
             </div>
           </div>
 
           <button className="w-full py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl uppercase tracking-widest transition-colors shadow-[0_0_20px_rgba(220,38,38,0.4)]">
-            Scan for Next Clue
-          </button>
+            {t('auto.auto_scan_for_next_clue_1176')}
+                                </button>
         </div>
       </div>
     </div>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Languages, HelpCircle, CheckCircle2, XCircle } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function LostInTranslationGame() {
+    const { t } = useTranslation();
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
 
@@ -23,16 +25,16 @@ export default function LostInTranslationGame() {
     <div className="max-w-4xl mx-auto px-4 py-24 min-h-screen">
       <div className="text-center mb-16">
         <Languages className="w-16 h-16 text-indigo-400 mx-auto mb-6" />
-        <h1 className="text-4xl font-display font-bold mb-4">Lost in Translation</h1>
-        <p className="text-foreground/60 text-lg">Can you decipher the true meaning of local idioms?</p>
+        <h1 className="text-4xl font-display font-bold mb-4">{t('auto.auto_lost_in_translation_1817')}</h1>
+        <p className="text-foreground/60 text-lg">{t('auto.auto_can_you_decipher_the_1816')}</p>
       </div>
 
       <div className="glass p-8 md:p-12 rounded-[40px] border border-white/10 text-center max-w-2xl mx-auto">
-        <h2 className="text-sm font-bold text-indigo-400 tracking-widest uppercase mb-4">Japanese Idiom</h2>
+        <h2 className="text-sm font-bold text-indigo-400 tracking-widest uppercase mb-4">{t('auto.auto_japanese_idiom_1815')}</h2>
         <div className="text-6xl font-black mb-2 tracking-widest text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
           食い倒れ
         </div>
-        <div className="text-xl text-foreground/50 italic mb-12">"Kuidaore"</div>
+        <div className="text-xl text-foreground/50 italic mb-12">{t('auto.auto__kuidaore__1814')}</div>
 
         <div className="space-y-4 text-left">
           {OPTIONS.map((opt) => {
@@ -75,11 +77,11 @@ export default function LostInTranslationGame() {
               initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }}
               className="mt-8 pt-8 border-t border-white/10"
             >
-               <h3 className="font-bold text-emerald-400 mb-2">Osaka's Motto!</h3>
-               <p className="text-foreground/70 text-sm">Kuidaore literally means "to eat oneself to ruin." It's famously associated with Osaka's food culture, specifically the Dotonbori district, where food is so good you'll spend all your money on it!</p>
+               <h3 className="font-bold text-emerald-400 mb-2">{t('auto.auto_osaka_s_motto__1813')}</h3>
+               <p className="text-foreground/70 text-sm">{t('auto.auto_kuidaore_literally_m_1812')}</p>
                <button onClick={() => { setRevealed(false); setSelected(null); }} className="mt-6 px-8 py-3 bg-indigo-500 text-white font-bold rounded-xl hover:bg-indigo-600 transition-colors">
-                 Next Word
-               </button>
+                 {t('auto.auto_next_word_1811')}
+                                             </button>
             </motion.div>
           )}
         </AnimatePresence>

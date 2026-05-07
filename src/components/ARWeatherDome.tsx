@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CloudRain, Sun } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARWeatherDome() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Hyper-Local Weather" 
-      description="Summon an AR weather dome to see rain, snow, or sunshine predicted on the exact street you're walking down over the next hour."
+      title={t('auto.auto_hyper_local_weather_559')} 
+      description={t('auto.auto_summon_an_ar_weather_558')}
       overlayIcon={<CloudRain className="w-8 h-8 text-blue-400" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden perspective-[1000px]">
@@ -43,15 +45,15 @@ export default function ARWeatherDome() {
 
       <div className="absolute bottom-16 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-md p-4 rounded-full border border-blue-500/30 flex gap-6 px-8 pointer-events-auto">
          <div className="flex flex-col items-center">
-            <span className="text-white font-mono text-xs mb-1">Now</span>
+            <span className="text-white font-mono text-xs mb-1">{t('auto.auto_now_557')}</span>
             <CloudRain className="w-6 h-6 text-blue-400" />
          </div>
          <div className="flex flex-col items-center border-l border-blue-500/30 pl-6">
-            <span className="text-white/50 font-mono text-xs mb-1">+30m</span>
+            <span className="text-white/50 font-mono text-xs mb-1">{t('auto.auto__30m_556')}</span>
             <CloudRain className="w-6 h-6 text-blue-400/50" />
          </div>
          <div className="flex flex-col items-center border-l border-blue-500/30 pl-6">
-            <span className="text-white/50 font-mono text-xs mb-1">+1h</span>
+            <span className="text-white/50 font-mono text-xs mb-1">{t('auto.auto__1h_555')}</span>
             <Sun className="w-6 h-6 text-yellow-500" />
          </div>
       </div>

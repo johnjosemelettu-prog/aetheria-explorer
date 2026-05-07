@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Pickaxe, Combine } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function ARAncientRuins() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="AR"
-      title="Ruins Reconstruction" 
-      description="Using spatial computing to rebuild crumbled stones into their former glorious architecture."
+      title={t('auto.auto_ruins_reconstruction_408')} 
+      description={t('auto.auto_using_spatial_comput_407')}
       overlayIcon={<Pickaxe className="w-8 h-8 text-amber-500" />}
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -32,15 +34,15 @@ export default function ARAncientRuins() {
             transition={{ duration: 2, delay: 3 }}
             className="absolute top-1/4 inset-x-12 h-16 bg-amber-500/20 border-y border-amber-500 flex items-center justify-center font-display text-amber-200 tracking-[0.5em] text-2xl shadow-[0_0_30px_rgba(245,158,11,0.3)]"
           >
-            TEMPLE OF JUPITER
-          </motion.div>
+            {t('auto.auto_temple_of_jupiter_406')}
+                                </motion.div>
         </div>
       </div>
       
       <div className="absolute top-24 left-1/2 -translate-x-1/2 bg-black/60 border border-amber-500/40 rounded-full px-6 py-2 flex items-center gap-4 text-amber-500 text-sm font-bold tracking-widest font-mono">
         <Combine className="w-5 h-5 animate-spin" style={{ animationDuration: '3s' }} />
-        RECONSTRUCTING MATTER... 87%
-      </div>
+        {t('auto.auto_reconstructing_matte_405')}
+                    </div>
     </XRLayout>
   );
 }

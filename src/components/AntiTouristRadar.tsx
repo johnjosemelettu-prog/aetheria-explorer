@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Radar, Loader2, ShieldX, MapPinOff, Ghost, Fingerprint } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const AntiTouristRadar = () => {
+    const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<any>(null);
   const [radarActive, setRadarActive] = useState(false);
@@ -33,10 +35,10 @@ const AntiTouristRadar = () => {
           >
             <Radar className={`w-10 h-10 ${radarActive ? 'text-lime-400' : 'text-neutral-500'}`} />
           </motion.div>
-          <h1 className="text-4xl font-extrabold mb-4 text-white uppercase tracking-wider">No-Traps Vibe Checker</h1>
+          <h1 className="text-4xl font-extrabold mb-4 text-white uppercase tracking-wider">{t('auto.auto_no_traps_vibe_checke_404')}</h1>
           <p className="text-neutral-500 text-lg max-w-2xl mx-auto">
-            Scrub the map of everything deemed "basic." Zero Instagram footprint. Zero TripAdvisor reviews. Only raw, underground, and local spots survive the filter.
-          </p>
+            {t('auto.auto_scrub_the_map_of_eve_403')}
+                                </p>
         </div>
 
         {!data ? (
@@ -56,25 +58,25 @@ const AntiTouristRadar = () => {
               
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-neutral-900 border border-neutral-800 p-4 text-center">
-                  <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Traps Avoided</p>
+                  <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">{t('auto.auto_traps_avoided_402')}</p>
                   <p className="text-3xl font-mono text-white">{data.metrics.trapsAvoided}</p>
                 </div>
                 <div className="bg-neutral-900 border border-neutral-800 p-4 text-center">
-                  <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Digital Scrub</p>
+                  <p className="text-xs uppercase tracking-widest text-neutral-500 mb-1">{t('auto.auto_digital_scrub_401')}</p>
                   <p className="text-3xl font-mono text-lime-400">{data.metrics.socialMediaFootprintScrubbed}</p>
                 </div>
                 <div className="bg-lime-900/20 border border-lime-500/30 p-4 text-center flex flex-col justify-center items-center">
                   <p className="text-xs uppercase tracking-widest text-lime-500 font-bold mb-1 flex items-center">
-                    <ShieldX className="w-4 h-4 mr-1" /> Status
-                  </p>
+                    <ShieldX className="w-4 h-4 mr-1" /> {t('auto.auto_status_400')}
+                                                            </p>
                   <p className="text-sm font-bold text-lime-300 uppercase">{data.metrics.basicVibeDetected}</p>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <h3 className="text-sm font-bold uppercase tracking-widest text-neutral-500 border-b border-neutral-800 pb-2 flex items-center">
-                  <MapPinOff className="w-4 h-4 mr-2" /> Verified Safe Zones
-                </h3>
+                  <MapPinOff className="w-4 h-4 mr-2" /> {t('auto.auto_verified_safe_zones_399')}
+                                                      </h3>
                 
                 {data.safeZones.map((zone: any, idx: number) => (
                   <motion.div key={zone.id} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.1 }}>
@@ -87,14 +89,14 @@ const AntiTouristRadar = () => {
                           <div className="flex justify-between items-start mb-2">
                             <h4 className="text-xl font-bold text-white uppercase tracking-wide">{zone.name}</h4>
                             <span className="flex items-center text-xs font-mono text-lime-500 bg-lime-500/10 px-2 py-1 border border-lime-500/20">
-                              <Fingerprint className="w-3 h-3 mr-1" /> Footprint: {zone.digitalFootprint}
+                              <Fingerprint className="w-3 h-3 mr-1" /> {t('auto.auto_footprint__398')} {zone.digitalFootprint}
                             </span>
                           </div>
                           <p className="text-neutral-400 leading-relaxed font-mono text-sm mb-4">
                             {zone.description}
                           </p>
                           <div className="bg-neutral-900 px-3 py-2 text-xs font-mono text-neutral-500 border border-neutral-800 inline-block">
-                            COORD // {zone.coordinates}
+                            {t('auto.auto_coord____397')} {zone.coordinates}
                           </div>
                         </div>
                       </CardContent>

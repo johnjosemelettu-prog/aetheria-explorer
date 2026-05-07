@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as AI from '../services/gemini';
 import { ShieldAlert, MapPin, Radio, AlertTriangle, CheckCircle } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const ScamAlertRadar = () => {
+    const { t } = useTranslation();
   const [alerts, setAlerts] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -42,23 +44,23 @@ const ScamAlertRadar = () => {
             <Radio className="w-12 h-12" />
           </div>
           <h1 className="text-5xl md:text-6xl font-display font-black mb-6 uppercase tracking-tighter">
-            Scam Alert Radar
-          </h1>
+            {t('auto.auto_scam_alert_radar_2279')}
+                                </h1>
           <p className="text-xl text-white/60 max-w-2xl mx-auto font-mono text-sm">
-            Live geographic scanning for reported scams, pickpockets, and tourist traps in your immediate vicinity.
-          </p>
+            {t('auto.auto_live_geographic_scan_2278')}
+                                </p>
         </motion.div>
 
         <div className="bg-black/60 backdrop-blur-xl border border-red-500/20 rounded-[40px] p-8 md:p-12 relative overflow-hidden">
           <div className="flex items-center justify-between border-b border-red-500/20 pb-6 mb-8">
             <div className="flex items-center gap-3">
               <MapPin className="w-5 h-5 text-red-400" />
-              <span className="font-mono text-sm tracking-widest text-red-200">SCANNING: ROME, IT</span>
+              <span className="font-mono text-sm tracking-widest text-red-200">{t('auto.auto_scanning__rome__it_2277')}</span>
             </div>
             {loading ? (
-              <span className="font-mono text-xs text-red-400 animate-pulse">SWEEPING AREA...</span>
+              <span className="font-mono text-xs text-red-400 animate-pulse">{t('auto.auto_sweeping_area____2276')}</span>
             ) : (
-              <span className="font-mono text-xs text-red-500">LIVE FEED</span>
+              <span className="font-mono text-xs text-red-500">{t('auto.auto_live_feed_2275')}</span>
             )}
           </div>
 
@@ -81,11 +83,11 @@ const ScamAlertRadar = () => {
                                 <p className="text-white/60 text-sm leading-relaxed mb-4">{alert.advice || alert.description}</p>
                                 <div className="flex flex-wrap gap-2 text-[10px] font-mono tracking-widest uppercase">
                                   <span className="bg-black/40 px-2 py-1 rounded text-white/50 border border-white/5">
-                                    Reported: {alert.time_reported || 'Just now'}
+                                    {t('auto.auto_reported__2274')} {alert.time_reported || 'Just now'}
                                   </span>
                                   {alert.distance && (
                                     <span className="bg-black/40 px-2 py-1 rounded text-white/50 border border-white/5">
-                                      Dist: {alert.distance}
+                                      {t('auto.auto_dist__2273')} {alert.distance}
                                     </span>
                                   )}
                                 </div>
@@ -102,8 +104,8 @@ const ScamAlertRadar = () => {
                   <div className="w-16 h-16 rounded-full bg-green-500/10 text-green-400 flex items-center justify-center mb-4 border border-green-500/20 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
                     <CheckCircle className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Area Secure</h3>
-                  <p className="text-green-500 font-mono text-sm max-w-sm">No active threats or scams reported in your immediate vicinity. Continue safe exploration.</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">{t('auto.auto_area_secure_2272')}</h3>
+                  <p className="text-green-500 font-mono text-sm max-w-sm">{t('auto.auto_no_active_threats_or_2271')}</p>
                 </motion.div>
             )}
           </AnimatePresence>

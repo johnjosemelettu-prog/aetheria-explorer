@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wand2, Image as ImageIcon, Sparkles, Download, CheckCircle2, CloudFog, Sun, Moon } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function AIPhotoEditor() {
+    const { t } = useTranslation();
   const [activeTool, setActiveTool] = useState('magic');
   const [processing, setProcessing] = useState(false);
 
@@ -18,21 +20,21 @@ export default function AIPhotoEditor() {
         <div>
           <h1 className="text-5xl font-display font-bold mb-4 flex items-center gap-4">
             <Sparkles className="w-10 h-10 text-violet-400" />
-            AI Editor
-          </h1>
+            {t('auto.auto_ai_editor_263')}
+                                </h1>
           <p className="text-foreground/60 text-lg max-w-xl">
-            Clean up distractions, change the time of day, and perfect your travel photos instantly.
-          </p>
+            {t('auto.auto_clean_up_distraction_262')}
+                                </p>
         </div>
         <button className="px-6 py-3 bg-violet-500 text-white font-bold rounded-xl flex items-center gap-2 hover:bg-violet-600 transition-colors shadow-[0_0_20px_rgba(139,92,246,0.3)]">
-          <Download className="w-5 h-5" /> Export Hi-Res
-        </button>
+          <Download className="w-5 h-5" /> {t('auto.auto_export_hi_res_261')}
+                          </button>
       </div>
 
       <div className="grid lg:grid-cols-4 gap-8 h-[600px]">
         {/* Toolbar */}
         <div className="lg:col-span-1 glass rounded-3xl border border-white/10 p-6 flex flex-col gap-4">
-          <h3 className="font-bold text-sm uppercase tracking-widest text-foreground/50 mb-2">Tools</h3>
+          <h3 className="font-bold text-sm uppercase tracking-widest text-foreground/50 mb-2">{t('auto.auto_tools_260')}</h3>
           {tools.map(tool => (
             <button
               key={tool.id}
@@ -56,8 +58,8 @@ export default function AIPhotoEditor() {
               onClick={() => { setProcessing(true); setTimeout(() => setProcessing(false), 2000); }}
               className="w-full py-4 bg-white text-black rounded-xl font-bold hover:bg-gray-200 transition-colors"
             >
-              Apply Changes
-            </button>
+              {t('auto.auto_apply_changes_259')}
+                                      </button>
           </div>
         </div>
 
@@ -66,7 +68,7 @@ export default function AIPhotoEditor() {
            
            <img 
              src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" 
-             alt="Editor Canvas" 
+             alt={t('auto.auto_editor_canvas_258')} 
              className={`w-full h-full object-cover transition-all duration-1000 ${processing ? 'blur-sm scale-105' : 'blur-0 scale-100'}`}
            />
 
@@ -74,14 +76,14 @@ export default function AIPhotoEditor() {
              <div className="absolute inset-0 flex items-center justify-center bg-black/40">
                <div className="text-center">
                  <Wand2 className="w-12 h-12 text-violet-400 animate-spin mx-auto mb-4" />
-                 <p className="font-bold text-violet-300">Processing Pixels...</p>
+                 <p className="font-bold text-violet-300">{t('auto.auto_processing_pixels____257')}</p>
                </div>
              </div>
            )}
 
            {!processing && <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2 text-xs font-bold text-foreground/50">
-             Original
-           </div>}
+             {t('auto.auto_original_256')}
+                                 </div>}
         </div>
       </div>
     </div>

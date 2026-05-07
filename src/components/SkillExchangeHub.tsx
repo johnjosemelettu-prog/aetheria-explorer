@@ -21,11 +21,11 @@ export default function SkillExchangeHub() {
           <Handshake className="w-16 h-16 text-primary" />
         </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-primary to-purple-400">
-          Skill Exchange Hub
-        </h1>
+          {t('auto.auto_skill_exchange_hub_2375')}
+                          </h1>
         <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-          Trade your talents for local experiences. Teach a language, offer a photoshoot, or share a skill in exchange for a local tour or a home-cooked meal.
-        </p>
+          {t('auto.auto_trade_your_talents_f_2374')}
+                          </p>
       </motion.div>
 
       <div className="flex justify-center gap-4 mb-12">
@@ -33,14 +33,14 @@ export default function SkillExchangeHub() {
           onClick={() => setActiveTab('offer')}
           className={`px-8 py-3 rounded-xl font-bold transition-all ${activeTab === 'offer' ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-white/5 border border-white/10 text-white/50 hover:bg-white/10 hover:text-white'}`}
         >
-          People Offering Skills
-        </button>
+          {t('auto.auto_people_offering_skil_2373')}
+                          </button>
         <button 
           onClick={() => setActiveTab('request')}
           className={`px-8 py-3 rounded-xl font-bold transition-all ${activeTab === 'request' ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-white/5 border border-white/10 text-white/50 hover:bg-white/10 hover:text-white'}`}
         >
-          Requests (Bounty Board)
-        </button>
+          {t('auto.auto_requests__bounty_boa_2372')}
+                          </button>
       </div>
 
       <div className="flex justify-between items-center mb-8 bg-black/20 p-4 rounded-2xl border border-white/5 backdrop-blur-md">
@@ -48,13 +48,13 @@ export default function SkillExchangeHub() {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
           <input 
             type="text" 
-            placeholder="Search for skills (e.g., Photography, Spanish)..." 
+            placeholder={t('auto.auto_search_for_skills__e_2371')} 
             className="w-full bg-transparent border-none py-2 pl-12 pr-4 focus:outline-none focus:ring-0 text-foreground"
           />
         </div>
         <button className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
-          <Filter className="w-4 h-4" /> Filters
-        </button>
+          <Filter className="w-4 h-4" /> {t('auto.auto_filters_2370')}
+                          </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -74,16 +74,16 @@ export default function SkillExchangeHub() {
             </div>
 
             <h3 className="font-bold text-xl mb-1">{skill.skill}</h3>
-            <p className="text-foreground/50 text-sm mb-6 flex-grow">Offered by <span className="text-primary font-medium">@{skill.user}</span></p>
+            <p className="text-foreground/50 text-sm mb-6 flex-grow">{t('auto.auto_offered_by_2369')} <span className="text-primary font-medium">@{skill.user}</span></p>
 
             <div className="p-4 bg-black/40 rounded-2xl border border-white/5 mb-6">
-              <span className="text-xs text-foreground/50 uppercase font-bold tracking-wider mb-1 block">In Exchange For</span>
+              <span className="text-xs text-foreground/50 uppercase font-bold tracking-wider mb-1 block">{t('auto.auto_in_exchange_for_2368')}</span>
               <p className="font-medium text-emerald-400">{skill.wants}</p>
             </div>
 
             <button className="w-full py-3 bg-white/10 hover:bg-primary hover:text-primary-foreground text-center rounded-xl font-bold transition-colors">
-              Propose Exchange
-            </button>
+              {t('auto.auto_propose_exchange_2367')}
+                                </button>
           </motion.div>
         ))}
       </div>

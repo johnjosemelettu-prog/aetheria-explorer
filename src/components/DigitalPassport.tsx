@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Stamp, Globe2 } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function DigitalPassport() {
+    const { t } = useTranslation();
   const stamps = [
     { city: "TOKYO", date: "24.10.26", color: "text-red-500", border: "border-red-500", rotate: "-rotate-12" },
     { city: "KYOTO", date: "28.10.26", color: "text-indigo-500", border: "border-indigo-500", rotate: "rotate-6" },
@@ -17,10 +19,10 @@ export default function DigitalPassport() {
       <div className="max-w-4xl w-full">
          <header className="mb-12 text-center">
            <Globe2 className="w-12 h-12 text-blue-900 mx-auto mb-4 opacity-50" />
-           <h1 className="text-4xl font-display font-black tracking-[0.3em] uppercase text-blue-950">Aetheria Passport</h1>
+           <h1 className="text-4xl font-display font-black tracking-[0.3em] uppercase text-blue-950">{t('auto.auto_aetheria_passport_985')}</h1>
            <p className="text-gray-500 mt-2 font-mono text-sm max-w-lg mx-auto">
-             Cryptographically verified digital stamps marking your global footprint.
-           </p>
+             {t('auto.auto_cryptographically_ve_984')}
+                                 </p>
          </header>
 
          {/* The Passport Book */}
@@ -31,7 +33,7 @@ export default function DigitalPassport() {
             {/* Left Page */}
             <div className="flex-1 p-8 border-r border-[#dcd6c8] bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]">
                <div className="border border-blue-900/20 h-full p-4 rounded bg-white/40">
-                 <h2 className="text-center font-display font-bold text-blue-900/50 uppercase tracking-widest text-xs mb-8">VISAS & ENTRY</h2>
+                 <h2 className="text-center font-display font-bold text-blue-900/50 uppercase tracking-widest text-xs mb-8">{t('auto.auto_visas___entry_983')}</h2>
                  <div className="grid grid-cols-2 gap-4">
                     {stamps.slice(0,4).map((stamp, i) => (
                       <motion.div 
@@ -51,7 +53,7 @@ export default function DigitalPassport() {
             {/* Right Page */}
             <div className="flex-1 p-8 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]">
                <div className="border border-blue-900/20 h-full p-4 rounded bg-white/40">
-                 <h2 className="text-center font-display font-bold text-blue-900/50 uppercase tracking-widest text-xs mb-8">VISAS & ENTRY</h2>
+                 <h2 className="text-center font-display font-bold text-blue-900/50 uppercase tracking-widest text-xs mb-8">{t('auto.auto_visas___entry_982')}</h2>
                  <div className="grid grid-cols-2 gap-4">
                     {stamps.slice(4,8).map((stamp, i) => (
                       <div key={i} className={`aspect-square flex flex-col justify-center items-center rounded-full border-[3px] ${stamp.border} ${stamp.color} border-dashed`}>
@@ -64,7 +66,7 @@ export default function DigitalPassport() {
          
          <div className="mt-8 text-center">
            <button className="bg-blue-950 text-white font-bold py-3 px-8 rounded flex items-center gap-2 mx-auto hover:bg-blue-900 transition">
-             CONNECT WALLET TO MINT <span className="opacity-50">#04</span>
+             {t('auto.auto_connect_wallet_to_mi_981')} <span className="opacity-50">#04</span>
            </button>
          </div>
       </div>

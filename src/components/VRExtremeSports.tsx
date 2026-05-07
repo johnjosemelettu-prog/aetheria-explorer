@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Wind, Mountain } from 'lucide-react';
 import XRLayout from './XRLayout';
+import { useTranslation } from "react-i18next";
 
 export default function VRExtremeSports() {
+    const { t } = useTranslation();
   return (
     <XRLayout 
       mode="VR"
-      title="Adrenaline Simulation" 
-      description="Experience the thrill of BASE jumping in Norway or mountain biking in Moab from the safety of your room."
+      title={t('auto.auto_adrenaline_simulatio_2962')} 
+      description={t('auto.auto_experience_the_thril_2961')}
       overlayIcon={<Wind className="w-8 h-8 text-sky-400" />}
     >
       <div className="absolute inset-0 bg-black overflow-hidden perspective-[1000px] pointer-events-none">
@@ -44,28 +46,28 @@ export default function VRExtremeSports() {
 
       <div className="absolute bottom-24 right-12 flex flex-col gap-4 pointer-events-auto">
          <div className="bg-black/60 backdrop-blur-xl border-l-[4px] border-sky-400 p-4 rounded-xl flex items-center justify-between w-64 shadow-xl">
-             <div className="text-white/60 text-xs font-mono">ALTITUDE</div>
+             <div className="text-white/60 text-xs font-mono">{t('auto.auto_altitude_2960')}</div>
              <div className="text-sky-400 font-display font-black text-2xl tracking-widest">
                 <motion.span 
                   animate={{ opacity: [1, 0.5, 1] }} 
                   transition={{ duration: 1, repeat: Infinity }}
                 >
                   2,104
-                </motion.span> ft
-             </div>
+                </motion.span> {t('auto.auto_ft_2959')}
+                                   </div>
          </div>
          <div className="bg-black/60 backdrop-blur-xl border-l-[4px] border-red-500 p-4 rounded-xl flex items-center justify-between w-64 shadow-xl">
-             <div className="text-white/60 text-xs font-mono">SPEED</div>
+             <div className="text-white/60 text-xs font-mono">{t('auto.auto_speed_2958')}</div>
              <div className="text-red-500 font-display font-black text-2xl tracking-widest">
-                120 mph
-             </div>
+                {t('auto.auto_120_mph_2957')}
+                                   </div>
          </div>
       </div>
       
       <div className="absolute top-32 left-1/2 -translate-x-1/2 pointer-events-auto">
         <div className="bg-red-500/20 text-red-500 font-mono tracking-widest text-xs px-4 py-1 rounded-full border border-red-500 animate-pulse">
-           PULL PARACHUTE NOW
-        </div>
+           {t('auto.auto_pull_parachute_now_2956')}
+                          </div>
       </div>
     </XRLayout>
   );

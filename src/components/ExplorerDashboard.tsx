@@ -73,8 +73,8 @@ export default function ExplorerDashboard() {
   const quickActions = [
     { label: t('actions.aiItinerary'), icon: Zap, color: 'from-pink-500 to-rose-500', path: '/ai-itinerary' },
     { label: t('actions.vibeMarket'), icon: Heart, color: 'from-purple-500 to-indigo-500', path: '/vibe-market' },
-    { label: 'Capture', icon: Camera, color: 'from-amber-400 to-orange-500', path: '/landmark-lens' },
-    { label: 'Wallet', icon: CreditCard, color: 'from-emerald-400 to-teal-500', path: '/wallet' },
+    { label: t('os.capture'), icon: Camera, color: 'from-amber-400 to-orange-500', path: '/landmark-lens' },
+    { label: t('os.wallet'), icon: CreditCard, color: 'from-emerald-400 to-teal-500', path: '/wallet' },
   ];
 
   const walletBalance = transactions.reduce((acc, tx) => tx.type === 'credit' ? acc + tx.amount : acc - tx.amount, 0);
@@ -88,12 +88,12 @@ export default function ExplorerDashboard() {
           animate={{ opacity: 1, x: 0 }}
         >
           <div className="inline-block px-3 py-1 mb-4 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-widest border border-primary/30">
-            Aetheria OS v2.0
+            {t('os.version')}
           </div>
           <h1 className="text-5xl font-display font-black tracking-tighter leading-none mb-2">
-            Ready to <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">vibe check</span> the world?
+            {t('os.readyTo')} <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">{t('os.vibeCheck')}</span>
           </h1>
-          <p className="text-foreground/50 text-lg">Your AI co-pilot is standing by.</p>
+          <p className="text-foreground/50 text-lg">{t('os.copilotStandby')}</p>
         </motion.div>
         
         <motion.button 
@@ -103,7 +103,7 @@ export default function ExplorerDashboard() {
           className="flex items-center justify-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:scale-105 transition-all"
         >
           <Zap className="w-5 h-5 fill-current" />
-          Drop a pin
+          {t('os.dropPin')}
         </motion.button>
       </div>
 
@@ -147,7 +147,7 @@ export default function ExplorerDashboard() {
                <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 blur-[100px] rounded-full mix-blend-screen" />
                <div className="relative z-10">
                   <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-2xl font-display font-black">AI Synthesis Engine</h2>
+                    <h2 className="text-2xl font-display font-black">{t('os.aiSynthesisEngine')}</h2>
                     <Zap className="w-6 h-6 text-primary animate-pulse" />
                   </div>
                   <AIGenerator />
@@ -163,8 +163,8 @@ export default function ExplorerDashboard() {
             className="glass p-8 rounded-[40px]"
           >
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold">Upcoming Drops</h2>
-              <button className="text-xs font-bold uppercase tracking-widest text-primary hover:text-white transition-colors" onClick={() => navigate('/itineraries')}>View All</button>
+              <h2 className="text-xl font-bold">{t('os.upcomingDrops')}</h2>
+              <button className="text-xs font-bold uppercase tracking-widest text-primary hover:text-white transition-colors" onClick={() => navigate('/itineraries')}>{t('os.viewAll')}</button>
             </div>
             <div className="space-y-3">
               {itineraries.slice(0, 3).map((itinerary) => (
@@ -184,7 +184,7 @@ export default function ExplorerDashboard() {
               {itineraries.length === 0 && (
                 <div className="text-center py-8 opacity-50">
                   <Map className="w-8 h-8 mx-auto mb-2 opacity-50" />
-                  <p className="text-sm">No trips planned yet.</p>
+                  <p className="text-sm">{t('os.noTripsPlanned')}</p>
                 </div>
               )}
             </div>
@@ -207,13 +207,13 @@ export default function ExplorerDashboard() {
             <div className="relative z-10">
                <div className="flex items-center gap-2 mb-6">
                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                 <span className="text-xs font-bold uppercase tracking-widest">System Status</span>
+                 <span className="text-xs font-bold uppercase tracking-widest">{t('os.systemStatus')}</span>
                </div>
                
                <div className="space-y-4">
                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
                     <div>
-                      <p className="text-[10px] text-foreground/50 uppercase font-bold tracking-widest mb-1">Aetheria Card</p>
+                      <p className="text-[10px] text-foreground/50 uppercase font-bold tracking-widest mb-1">{t('os.aetheriaCard')}</p>
                       <p className="font-display font-bold text-xl">${walletBalance.toFixed(2)}</p>
                     </div>
                     <button onClick={() => navigate('/wallet')} className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
@@ -225,9 +225,9 @@ export default function ExplorerDashboard() {
                    <div className="p-4 rounded-2xl bg-gradient-to-r from-yellow-500/20 to-amber-500/20 border border-yellow-500/30">
                       <div className="flex items-center gap-2 mb-1">
                         <Crown className="w-4 h-4 text-yellow-400" />
-                        <span className="font-bold text-yellow-400 text-sm">Premium Active</span>
+                        <span className="font-bold text-yellow-400 text-sm">{t('auto.auto_premium_active_1213')}</span>
                       </div>
-                      <p className="text-xs text-yellow-400/70">All synthesis engines unlocked.</p>
+                      <p className="text-xs text-yellow-400/70">{t('auto.auto_all_synthesis_engine_1212')}</p>
                    </div>
                  ) : (
                     <SubscriptionManager />
@@ -246,8 +246,8 @@ export default function ExplorerDashboard() {
           >
             <div className="flex items-center justify-between">
                <div>
-                  <h3 className="font-bold text-lg mb-1">Booking Hub</h3>
-                  <p className="text-xs text-foreground/50">Flights, Hotels, & More</p>
+                  <h3 className="font-bold text-lg mb-1">{t('os.bookingHub')}</h3>
+                  <p className="text-xs text-foreground/50">{t('os.flightsHotelsMore')}</p>
                </div>
                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                  <ChevronRight className="w-5 h-5 text-primary" />
@@ -265,11 +265,11 @@ export default function ExplorerDashboard() {
             <div className="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center mb-4">
               <Play className="w-5 h-5 text-white fill-white ml-1" />
             </div>
-            <h3 className="font-bold text-xl mb-2">Create a Teaser</h3>
-            <p className="text-sm text-foreground/60 mb-6">AI-generate a cinematic trailer for your next trip to share on socials.</p>
+            <h3 className="font-bold text-xl mb-2">{t('os.createTeaser')}</h3>
+            <p className="text-sm text-foreground/60 mb-6">{t('os.generateTeaserDesc')}</p>
             <button onClick={() => navigate('/video-teaser')} className="w-full py-3 bg-white/10 hover:bg-white/20 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2">
               <Share2 className="w-4 h-4" />
-              Generate Video
+              {t('os.generateVideo')}
             </button>
           </motion.div>
 
@@ -282,8 +282,8 @@ export default function ExplorerDashboard() {
             onClick={() => navigate('/journal')}
           >
             <BookOpen className="w-8 h-8 text-foreground/30 mb-3" />
-            <p className="font-bold text-sm">Spill the tea.</p>
-            <p className="text-xs text-foreground/50">Log a new journal entry.</p>
+            <p className="font-bold text-sm">{t('os.spillTheTea')}</p>
+            <p className="text-xs text-foreground/50">{t('os.logJournalEntry')}</p>
           </motion.div>
 
         </div>

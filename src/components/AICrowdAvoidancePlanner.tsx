@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const AICrowdAvoidancePlanner = () => {
+    const { t } = useTranslation();
   const [destination, setDestination] = useState('');
   const [avoidancePlan, setAvoidancePlan] = useState(null);
 
@@ -16,25 +18,25 @@ const AICrowdAvoidancePlanner = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">AI-Based "Crowd Avoidance" Planner</h1>
+      <h1 className="text-2xl font-bold mb-4">{t('auto.auto_ai_based__crowd_avoi_187')}</h1>
       <div className="flex mb-4">
         <input
           type="text"
           value={destination}
           onChange={(e) => setDestination(e.target.value)}
-          placeholder="Enter a destination"
+          placeholder={t('auto.auto_enter_a_destination_186')}
           className="border rounded-l-lg p-2 w-full"
         />
         <button onClick={handleGeneratePlan} className="bg-blue-500 text-white p-2 rounded-r-lg">
-          Generate Plan
-        </button>
+          {t('auto.auto_generate_plan_185')}
+                          </button>
       </div>
       {avoidancePlan && (
         <div>
-          <h2 className="text-lg font-semibold">Crowd Avoidance Plan for {avoidancePlan.destination}</h2>
-          <p className="font-semibold mt-2">Best Times to Visit:</p>
+          <h2 className="text-lg font-semibold">{t('auto.auto_crowd_avoidance_plan_184')} {avoidancePlan.destination}</h2>
+          <p className="font-semibold mt-2">{t('auto.auto_best_times_to_visit__183')}</p>
           <p>{avoidancePlan.bestTimes}</p>
-          <p className="font-semibold mt-2">Alternative Attractions:</p>
+          <p className="font-semibold mt-2">{t('auto.auto_alternative_attracti_182')}</p>
           <ul className="list-disc list-inside">
             {avoidancePlan.alternativeAttractions.map((attraction, index) => (
               <li key={index}>{attraction}</li>

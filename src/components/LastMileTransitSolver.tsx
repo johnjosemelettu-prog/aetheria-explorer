@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Navigation, PersonStanding, Bike, Car, BatteryCharging } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 const OPTIONS = [
   { id: 'walk', name: 'Walk', icon: PersonStanding, time: '12 mins', cost: 'Free', eco: true, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/30' },
@@ -9,14 +10,15 @@ const OPTIONS = [
 ];
 
 export default function LastMileTransitSolver() {
+    const { t } = useTranslation();
   const [selected, setSelected] = useState('scooter');
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-24 min-h-screen">
       <div className="text-center mb-12">
         <Navigation className="w-16 h-16 text-indigo-400 mx-auto mb-6" />
-        <h1 className="text-5xl font-display font-bold mb-4">Last-Mile Solver</h1>
-        <p className="text-foreground/60 text-lg">You've arrived at the station. How do you want to cover the final 800 meters to your destination?</p>
+        <h1 className="text-5xl font-display font-bold mb-4">{t('auto.auto_last_mile_solver_1609')}</h1>
+        <p className="text-foreground/60 text-lg">{t('auto.auto_you_ve_arrived_at_th_1608')}</p>
       </div>
 
       <div className="glass p-8 rounded-[40px] border border-white/10 relative overflow-hidden">
@@ -31,8 +33,8 @@ export default function LastMileTransitSolver() {
             <path d="M 200,50 L 300,50 L 300,150 L 500,150" fill="transparent" stroke="rgba(255,255,255,0.2)" strokeWidth="4" strokeDasharray="5 5" />
           </svg>
           <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold border border-white/10 flex items-center gap-2">
-            <MapPin className="w-3 h-3 text-rose-400" /> Destination: The Hidden Shrine
-          </div>
+            <MapPin className="w-3 h-3 text-rose-400" /> {t('auto.auto_destination__the_hid_1607')}
+                                </div>
         </div>
 
         <div className="space-y-4">
@@ -49,7 +51,7 @@ export default function LastMileTransitSolver() {
                 <div>
                   <h4 className="font-bold">{opt.name}</h4>
                   <div className="flex items-center gap-2 text-xs text-foreground/50">
-                    <span className="flex items-center gap-1">{opt.eco && <span className="text-emerald-400">Eco-friendly</span>}</span>
+                    <span className="flex items-center gap-1">{opt.eco && <span className="text-emerald-400">{t('auto.auto_eco_friendly_1606')}</span>}</span>
                     {opt.battery && <span className="flex items-center gap-1"><BatteryCharging className="w-3 h-3"/> {opt.battery}</span>}
                   </div>
                 </div>
@@ -63,8 +65,8 @@ export default function LastMileTransitSolver() {
         </div>
 
         <button className="w-full py-4 bg-indigo-500 text-white font-bold rounded-2xl mt-8 hover:bg-indigo-600 transition-colors">
-          Confirm {OPTIONS.find(o => o.id === selected)?.name} Route
-        </button>
+          {t('auto.auto_confirm_1605')} {OPTIONS.find(o => o.id === selected)?.name} {t('auto.auto_route_1604')}
+                          </button>
       </div>
     </div>
   );

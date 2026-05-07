@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Video, Sparkles, Play, Loader2, X, Film, Wand2 } from 'lucide-react';
 import { generateVideo } from '../services/gemini';
 import { cn } from '../lib/utils';
+import { useTranslation } from "react-i18next";
 
 export default function CinematicPreview() {
+    const { t } = useTranslation();
   const [prompt, setPrompt] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
@@ -57,8 +59,8 @@ export default function CinematicPreview() {
             <Video className="text-secondary w-6 h-6" />
           </div>
           <div>
-            <h2 className="text-2xl font-display font-bold">Cinematic Preview</h2>
-            <p className="text-sm text-foreground/50">Synthesize 720p travel previews with Veo 3.1.</p>
+            <h2 className="text-2xl font-display font-bold">{t('auto.auto_cinematic_preview_722')}</h2>
+            <p className="text-sm text-foreground/50">{t('auto.auto_synthesize_720p_trav_721')}</p>
           </div>
         </div>
 
@@ -67,7 +69,7 @@ export default function CinematicPreview() {
             <textarea
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Describe a cinematic scene... (e.g., 'A drone shot of a futuristic city in the clouds at sunset')"
+              placeholder={t('auto.auto_describe_a_cinematic_720')}
               className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-sm min-h-[100px] focus:outline-none focus:border-secondary/50 transition-colors resize-none"
             />
             <button

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Hammer, Sparkles, Box, Cuboid } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function DigitalSouvenirForging() {
+    const { t } = useTranslation();
   const [forging, setForging] = useState(false);
   const [complete, setComplete] = useState(false);
 
@@ -24,10 +26,10 @@ export default function DigitalSouvenirForging() {
     <div className="max-w-5xl mx-auto px-4 py-24 min-h-screen">
       <div className="text-center mb-16">
         <Hammer className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
-        <h1 className="text-5xl font-display font-bold mb-4">Souvenir Forge</h1>
+        <h1 className="text-5xl font-display font-bold mb-4">{t('auto.auto_souvenir_forge_991')}</h1>
         <p className="text-foreground/60 text-lg max-w-2xl mx-auto">
-          Combine digital fragments collected during your travels to forge a unique 3D artifact for your virtual trophy case.
-        </p>
+          {t('auto.auto_combine_digital_frag_990')}
+                          </p>
       </div>
 
       <AnimatePresence mode="wait">
@@ -35,7 +37,7 @@ export default function DigitalSouvenirForging() {
           <motion.div key="forge" exit={{ opacity: 0, scale: 0.9 }} className="max-w-3xl mx-auto">
             <div className="glass p-8 md:p-12 rounded-[40px] border border-white/10 text-center relative overflow-hidden">
               
-              <h3 className="font-bold text-xl mb-8 uppercase tracking-widest text-foreground/50">Crucible Contents</h3>
+              <h3 className="font-bold text-xl mb-8 uppercase tracking-widest text-foreground/50">{t('auto.auto_crucible_contents_989')}</h3>
               
               <div className="flex justify-center gap-4 md:gap-8 mb-12 relative z-10">
                 {ITEMS.map((item, i) => (
@@ -77,11 +79,11 @@ export default function DigitalSouvenirForging() {
                  <Cuboid className="w-full h-full text-white/50 p-8" />
                </motion.div>
             </div>
-            <h2 className="text-4xl font-display font-bold text-cyan-400 mb-2">The Neon Tea Bell</h2>
-            <p className="text-foreground/60 mb-8">A mythic tier 3D souvenir successfully forged.</p>
+            <h2 className="text-4xl font-display font-bold text-cyan-400 mb-2">{t('auto.auto_the_neon_tea_bell_988')}</h2>
+            <p className="text-foreground/60 mb-8">{t('auto.auto_a_mythic_tier_3d_sou_987')}</p>
             <button className="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-xl font-bold transition-colors">
-              Add to Collection
-            </button>
+              {t('auto.auto_add_to_collection_986')}
+                                          </button>
           </motion.div>
         )}
       </AnimatePresence>

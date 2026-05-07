@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Scan, Sparkles, MapPin, Search, ArrowRight, X } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 export default function QuantumSouvenirFeature() {
+    const { t } = useTranslation();
   const [isScanning, setIsScanning] = useState(false);
   const [souvenirStory, setSouvenirStory] = useState<any>(null);
 
@@ -34,12 +36,12 @@ export default function QuantumSouvenirFeature() {
         
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-yellow-500/10 text-yellow-500 px-4 py-2 rounded-full border border-yellow-500/30 mb-6 font-mono text-xs tracking-widest uppercase">
-            <Scan className="w-4 h-4" /> Vision Hub Decoder
-          </div>
-          <h1 className="text-5xl md:text-7xl font-display font-black tracking-tighter mb-4">Souvenir Story</h1>
+            <Scan className="w-4 h-4" /> {t('auto.auto_vision_hub_decoder_2219')}
+                                </div>
+          <h1 className="text-5xl md:text-7xl font-display font-black tracking-tighter mb-4">{t('auto.auto_souvenir_story_2218')}</h1>
           <p className="text-stone-400 max-w-lg mx-auto font-mono text-sm leading-relaxed">
-            Point your camera at a souvenir or artifact. Our Vision AI cross-references topological and artisan signatures to decode its true origin, lineage, and authenticity.
-          </p>
+            {t('auto.auto_point_your_camera_at_2217')}
+                                </p>
         </motion.div>
 
         {/* Decoder Viewport */}
@@ -92,27 +94,27 @@ export default function QuantumSouvenirFeature() {
                          </div>
                        </div>
                        <div className="text-right">
-                         <p className="text-[10px] text-stone-500 font-mono tracking-widest uppercase mb-1">Authenticity Hash</p>
+                         <p className="text-[10px] text-stone-500 font-mono tracking-widest uppercase mb-1">{t('auto.auto_authenticity_hash_2216')}</p>
                          <p className="font-mono text-xs text-stone-400 bg-stone-900 px-3 py-1 rounded-lg border border-stone-800">{souvenirStory.authenticationHash}</p>
                        </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="bg-stone-900 border border-stone-800 p-4 rounded-2xl">
-                        <p className="text-[10px] text-stone-500 font-mono tracking-widest uppercase mb-1">Artisan</p>
+                        <p className="text-[10px] text-stone-500 font-mono tracking-widest uppercase mb-1">{t('auto.auto_artisan_2215')}</p>
                         <p className="font-bold text-sm text-stone-200">{souvenirStory.artisan}</p>
                       </div>
                       <div className="bg-stone-900 border border-stone-800 p-4 rounded-2xl">
-                        <p className="text-[10px] text-stone-500 font-mono tracking-widest uppercase mb-1">Environment</p>
+                        <p className="text-[10px] text-stone-500 font-mono tracking-widest uppercase mb-1">{t('auto.auto_environment_2214')}</p>
                         <p className="font-bold text-sm text-green-400">{souvenirStory.environmentalImpact}</p>
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <h4 className="font-mono text-xs text-yellow-500 uppercase tracking-widest border-b border-stone-800 pb-2">Lineage & Story</h4>
+                      <h4 className="font-mono text-xs text-yellow-500 uppercase tracking-widest border-b border-stone-800 pb-2">{t('auto.auto_lineage___story_2213')}</h4>
                       <p className="text-sm text-stone-300 leading-relaxed">{souvenirStory.lineage}</p>
                       <button className="w-full bg-stone-100 hover:bg-white text-stone-900 py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-colors">
-                        Add to Digital Collection <ArrowRight className="w-4 h-4" />
+                        {t('auto.auto_add_to_digital_colle_2212')} <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
                  </div>

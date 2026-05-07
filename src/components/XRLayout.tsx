@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, Scan, Power, Info, Settings, Battery, Wifi, Cpu, ChevronLeft } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 interface XRLayoutProps {
   children: React.ReactNode;
@@ -11,6 +12,7 @@ interface XRLayoutProps {
 }
 
 export default function XRLayout({ children, mode = 'AR', title, description, overlayIcon }: XRLayoutProps) {
+    const { t } = useTranslation();
   const [active, setActive] = useState(false);
   const [batteryLevel, setBatteryLevel] = useState(87);
   const [time, setTime] = useState("");
@@ -59,13 +61,13 @@ export default function XRLayout({ children, mode = 'AR', title, description, ov
             <div className="absolute top-0 inset-x-0 h-12 flex justify-between items-center px-8 bg-gradient-to-b from-black/80 to-transparent">
               <div className="flex flex-col text-primary/80">
                 <span className="font-bold tracking-widest">{title.toUpperCase()}</span>
-                <span className="text-[10px] opacity-70">LAT 48.8584 N / LNG 2.2945 E</span>
+                <span className="text-[10px] opacity-70">{t('auto.auto_lat_48_8584_n___lng__3050')}</span>
               </div>
               
               <div className="flex gap-4 items-center text-primary/80">
                 <span className="bg-primary/20 px-2 py-0.5 rounded text-[10px] font-bold border border-primary/40 animate-pulse">
-                  {mode} ACTIVE
-                </span>
+                  {mode} {t('auto.auto_active_3049')}
+                                                  </span>
                 <Wifi className="w-4 h-4" />
                 <div className="flex items-center gap-1">
                   {batteryLevel}% <Battery className="w-4 h-4" />

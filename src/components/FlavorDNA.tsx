@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Flame, Droplets, Leaf, Coffee, Beaker, Fingerprint } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export default function FlavorDNA() {
+    const { t } = useTranslation();
   const FLAVORS = [
     { name: 'Umami', value: 92, icon: Beaker, color: 'text-purple-400', bg: 'bg-purple-400' },
     { name: 'Spicy', value: 78, icon: Flame, color: 'text-red-500', bg: 'bg-red-500' },
@@ -15,10 +17,10 @@ export default function FlavorDNA() {
     <div className="max-w-5xl mx-auto px-4 py-24 min-h-screen">
       <div className="text-center mb-16">
         <Fingerprint className="w-16 h-16 text-rose-500 mx-auto mb-6" />
-        <h1 className="text-5xl font-display font-bold mb-4">Flavor DNA</h1>
+        <h1 className="text-5xl font-display font-bold mb-4">{t('auto.auto_flavor_dna_1287')}</h1>
         <p className="text-foreground/60 text-lg max-w-2xl mx-auto">
-          Your unique taste profile mapped across 5 dimensions, continuously adapting based on your ratings and reviews.
-        </p>
+          {t('auto.auto_your_unique_taste_pr_1286')}
+                          </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -42,16 +44,16 @@ export default function FlavorDNA() {
              </svg>
 
              {/* Labels */}
-             <div className="absolute -top-8 text-sm font-bold text-purple-400">Umami</div>
-             <div className="absolute -right-12 top-1/3 text-sm font-bold text-red-500">Spicy</div>
-             <div className="absolute -bottom-8 right-8 text-sm font-bold text-pink-400">Sweet</div>
-             <div className="absolute -bottom-8 left-8 text-sm font-bold text-lime-400">Sour</div>
-             <div className="absolute -left-12 top-1/3 text-sm font-bold text-amber-600">Bitter</div>
+             <div className="absolute -top-8 text-sm font-bold text-purple-400">{t('auto.auto_umami_1285')}</div>
+             <div className="absolute -right-12 top-1/3 text-sm font-bold text-red-500">{t('auto.auto_spicy_1284')}</div>
+             <div className="absolute -bottom-8 right-8 text-sm font-bold text-pink-400">{t('auto.auto_sweet_1283')}</div>
+             <div className="absolute -bottom-8 left-8 text-sm font-bold text-lime-400">{t('auto.auto_sour_1282')}</div>
+             <div className="absolute -left-12 top-1/3 text-sm font-bold text-amber-600">{t('auto.auto_bitter_1281')}</div>
            </div>
         </div>
 
         <div className="space-y-6">
-          <h3 className="text-2xl font-bold mb-6">Profile Breakdown</h3>
+          <h3 className="text-2xl font-bold mb-6">{t('auto.auto_profile_breakdown_1280')}</h3>
           
           {FLAVORS.map((flavor, i) => (
             <motion.div 
@@ -75,8 +77,8 @@ export default function FlavorDNA() {
           ))}
 
           <div className="mt-8 p-6 bg-rose-500/10 border border-rose-500/30 rounded-2xl">
-            <h4 className="font-bold text-rose-400 mb-2">Insight</h4>
-            <p className="text-sm text-foreground/70">Your high Umami and Spicy tolerance means you should prioritize underground ramen shops and local Izakayas over sweet cafes.</p>
+            <h4 className="font-bold text-rose-400 mb-2">{t('auto.auto_insight_1279')}</h4>
+            <p className="text-sm text-foreground/70">{t('auto.auto_your_high_umami_and__1278')}</p>
           </div>
         </div>
       </div>

@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Users, Loader2, Sparkles, Coffee, Navigation } from 'lucide-react';
 import * as AI from '../services/gemini';
+import { useTranslation } from "react-i18next";
 
 const SideQuests = () => {
+    const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [questData, setQuestData] = useState<any>(null);
 
@@ -30,10 +32,10 @@ const SideQuests = () => {
             <Users className="w-10 h-10 text-violet-300 relative z-10" />
             <motion.div animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }} transition={{ duration: 2, repeat: Infinity }} className="absolute inset-0 bg-violet-500 rounded-full" />
           </div>
-          <h1 className="text-4xl font-black mb-4 text-white uppercase tracking-tighter">IRL Co-Op Lobbies</h1>
+          <h1 className="text-4xl font-black mb-4 text-white uppercase tracking-tighter">{t('auto.auto_irl_co_op_lobbies_2350')}</h1>
           <p className="text-violet-300 text-lg max-w-2xl mx-auto">
-            Broadcast a hyper-local side quest. Match with nearby explorers, party up for 30 minutes, complete the objective, and disappear into the night. No strings attached.
-          </p>
+            {t('auto.auto_broadcast_a_hyper_lo_2349')}
+                                </p>
         </div>
 
         {!questData ? (
@@ -42,8 +44,8 @@ const SideQuests = () => {
               <CardContent className="p-6 flex items-center gap-4">
                 <Coffee className="w-8 h-8 text-violet-400" />
                 <div>
-                  <h3 className="font-bold text-white text-lg">Midnight Boba Run</h3>
-                  <p className="text-sm text-violet-300">Harajuku District • 2-4 Players</p>
+                  <h3 className="font-bold text-white text-lg">{t('auto.auto_midnight_boba_run_2348')}</h3>
+                  <p className="text-sm text-violet-300">{t('auto.auto_harajuku_district____2347')}</p>
                 </div>
               </CardContent>
             </Card>
@@ -52,14 +54,14 @@ const SideQuests = () => {
               <CardContent className="p-6 flex items-center gap-4">
                 <Sparkles className="w-8 h-8 text-violet-400" />
                 <div>
-                  <h3 className="font-bold text-white text-lg">Underground Street Art Hunt</h3>
-                  <p className="text-sm text-violet-300">Shibuya • 3-5 Players</p>
+                  <h3 className="font-bold text-white text-lg">{t('auto.auto_underground_street_a_2346')}</h3>
+                  <p className="text-sm text-violet-300">{t('auto.auto_shibuya___3_5_player_2345')}</p>
                 </div>
               </CardContent>
             </Card>
 
             <div className="text-center pt-8">
-              {loading && <p className="text-violet-400 animate-pulse font-mono tracking-widest uppercase">Broadcasting to local grid...</p>}
+              {loading && <p className="text-violet-400 animate-pulse font-mono tracking-widest uppercase">{t('auto.auto_broadcasting_to_loca_2344')}</p>}
             </div>
           </div>
         ) : (
@@ -71,14 +73,14 @@ const SideQuests = () => {
                 </div>
                 <h2 className="text-4xl font-black text-white mb-8">{questData.type}</h2>
                 
-                <h3 className="text-sm font-bold uppercase tracking-widest text-violet-400 mb-4 border-b border-violet-700/50 pb-2">Party Members</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-violet-400 mb-4 border-b border-violet-700/50 pb-2">{t('auto.auto_party_members_2343')}</h3>
                 <div className="flex justify-center gap-4 mb-8">
                   {/* You */}
                   <div className="flex flex-col items-center">
                     <div className="w-16 h-16 rounded-full bg-violet-600 flex items-center justify-center text-2xl border-2 border-white shadow-lg z-10 relative">
                       👑
                     </div>
-                    <p className="text-xs font-bold mt-2 text-white">You</p>
+                    <p className="text-xs font-bold mt-2 text-white">{t('auto.auto_you_2342')}</p>
                   </div>
                   
                   {questData.partyMembers.map((member: any, i: number) => (
@@ -95,13 +97,13 @@ const SideQuests = () => {
                 </div>
 
                 <div className="bg-black/40 p-6 rounded-2xl text-left border border-white/5">
-                  <p className="text-xs font-bold uppercase text-violet-500 mb-2">Objective</p>
+                  <p className="text-xs font-bold uppercase text-violet-500 mb-2">{t('auto.auto_objective_2341')}</p>
                   <p className="text-violet-100 leading-relaxed font-medium">{questData.objective}</p>
                 </div>
 
                 <Button className="w-full mt-8 py-8 text-xl font-bold uppercase tracking-widest bg-violet-600 hover:bg-violet-500 text-white rounded-2xl">
-                  <Navigation className="w-6 h-6 mr-3" /> Initiate Rendezvous
-                </Button>
+                  <Navigation className="w-6 h-6 mr-3" /> {t('auto.auto_initiate_rendezvous_2340')}
+                                                      </Button>
               </div>
             </motion.div>
           </AnimatePresence>

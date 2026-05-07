@@ -33,6 +33,7 @@ import { collection, query, where, onSnapshot, addDoc, serverTimestamp, updateDo
 import { Itinerary, BodyMeasurements, FashionRental, UserProfile } from '../types';
 import { cn } from '../lib/utils';
 import DigitalTailorPaymentModal from './DigitalTailorPaymentModal';
+import { useTranslation } from "react-i18next";
 
 export interface FashionItem {
   category: string;
@@ -64,6 +65,7 @@ interface HeritageResult {
 }
 
 export default function DigitalTailor() {
+    const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'tailor' | 'heritage'>('tailor');
   const [step, setStep] = useState<'destination' | 'body' | 'results' | 'rentals'>('destination');
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
@@ -279,8 +281,8 @@ export default function DigitalTailor() {
         )}
       >
         <Scissors className="w-4 h-4" />
-        Digital Tailor
-      </button>
+        {t('auto.auto_digital_tailor_1032')}
+                    </button>
       <button
         onClick={() => setActiveTab('heritage')}
         className={cn(
@@ -289,8 +291,8 @@ export default function DigitalTailor() {
         )}
       >
         <Library className="w-4 h-4" />
-        Heritage Mirror
-      </button>
+        {t('auto.auto_heritage_mirror_1031')}
+                    </button>
     </div>
   )
 
@@ -336,7 +338,7 @@ export default function DigitalTailor() {
                     {step === 'destination' && (
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
                         <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Select Booking</label>
+                        <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('auto.auto_select_booking_1030')}</label>
                         <div className="space-y-2">
                             {itineraries.map(it => (
                             <button
@@ -364,7 +366,7 @@ export default function DigitalTailor() {
                                 !selectedItinerary ? "bg-primary/10 border-primary/50" : "bg-white/5 border-white/5 hover:bg-white/10"
                             )}
                             >
-                            <p className="text-sm font-bold">Manual Entry</p>
+                            <p className="text-sm font-bold">{t('auto.auto_manual_entry_1029')}</p>
                             </button>
                         </div>
                         </div>
@@ -372,20 +374,20 @@ export default function DigitalTailor() {
                         {!selectedItinerary && (
                         <div className="space-y-4">
                             <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Destination</label>
+                            <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('auto.auto_destination_1028')}</label>
                             <div className="relative">
                                 <input
                                 type="text"
                                 value={destination}
                                 onChange={(e) => setDestination(e.target.value)}
                                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 pl-11 focus:outline-none focus:border-primary/50 transition-colors"
-                                placeholder="Where to?"
+                                placeholder={t('auto.auto_where_to__1027')}
                                 />
                                 <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/20" />
                             </div>
                             </div>
                             <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Duration (Days)</label>
+                            <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('auto.auto_duration__days__1026')}</label>
                             <input
                                 type="number"
                                 value={duration}
@@ -397,7 +399,7 @@ export default function DigitalTailor() {
                         )}
 
                         <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Vibe</label>
+                        <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('auto.auto_vibe_1025')}</label>
                         <div className="grid grid-cols-2 gap-2">
                             {vibes.map(v => (
                             <button
@@ -420,8 +422,8 @@ export default function DigitalTailor() {
                         disabled={!destination}
                         className="w-full py-4 bg-primary text-white rounded-2xl font-bold hover:scale-[1.02] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                         >
-                        Next: Body Scan
-                        <ChevronRight className="w-4 h-4" />
+                        {t('auto.auto_next__body_scan_1024')}
+                                                                  <ChevronRight className="w-4 h-4" />
                         </button>
                     </motion.div>
                     )}
@@ -434,20 +436,20 @@ export default function DigitalTailor() {
                             <video ref={videoRef} autoPlay playsInline className="w-full h-full object-cover opacity-50" />
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
                                 <div className="w-full h-1 bg-primary/50 absolute top-0 animate-scan shadow-[0_0_20px_rgba(var(--primary),0.5)]" />
-                                <div className="text-primary font-mono text-[10px] animate-pulse">ANALYZING BIOMETRICS...</div>
+                                <div className="text-primary font-mono text-[10px] animate-pulse">{t('auto.auto_analyzing_biometrics_1023')}</div>
                             </div>
                             </>
                         ) : (
                             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
                             <Camera className="w-12 h-12 text-foreground/10 mb-4" />
-                            <p className="text-sm text-foreground/40">Position yourself in front of the camera for a precise 3D body synthesis.</p>
+                            <p className="text-sm text-foreground/40">{t('auto.auto_position_yourself_in_1022')}</p>
                             </div>
                         )}
                         </div>
 
                         <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1">
-                            <label className="text-[10px] font-bold uppercase text-foreground/30">Height (cm)</label>
+                            <label className="text-[10px] font-bold uppercase text-foreground/30">{t('auto.auto_height__cm__1021')}</label>
                             <input 
                             type="number" 
                             value={measurements.height} 
@@ -456,7 +458,7 @@ export default function DigitalTailor() {
                             />
                         </div>
                         <div className="space-y-1">
-                            <label className="text-[10px] font-bold uppercase text-foreground/30">Weight (kg)</label>
+                            <label className="text-[10px] font-bold uppercase text-foreground/30">{t('auto.auto_weight__kg__1020')}</label>
                             <input 
                             type="number" 
                             value={measurements.weight} 
@@ -473,18 +475,18 @@ export default function DigitalTailor() {
                             className="flex-1 py-3 glass rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
                         >
                             <Camera className="w-4 h-4" />
-                            Start Scan
-                        </button>
+                            {t('auto.auto_start_scan_1019')}
+                                                                      </button>
                         <button
                             onClick={handleGenerate}
                             disabled={loading}
                             className="flex-1 py-3 bg-primary text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:scale-[1.02] transition-all"
                         >
                             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-                            Synthesize Fashion
-                        </button>
+                            {t('auto.auto_synthesize_fashion_1018')}
+                                                                      </button>
                         </div>
-                        <button onClick={() => setStep('destination')} className="w-full text-xs text-foreground/30 hover:text-foreground transition-colors">Back to Destination</button>
+                        <button onClick={() => setStep('destination')} className="w-full text-xs text-foreground/30 hover:text-foreground transition-colors">{t('auto.auto_back_to_destination_1017')}</button>
                     </motion.div>
                     )}
 
@@ -494,39 +496,39 @@ export default function DigitalTailor() {
                         className="w-full py-3 glass rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
                     >
                         <RotateCcw className="w-4 h-4" />
-                        Start New Synthesis
-                    </button>
+                        {t('auto.auto_start_new_synthesis_1016')}
+                                                          </button>
                     )}
                 </AnimatePresence>
             )}
             {activeTab === 'heritage' && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
                     <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Destination</label>
+                        <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('auto.auto_destination_1015')}</label>
                         <div className="relative">
                             <input
                             type="text"
                             value={destination}
                             onChange={(e) => setDestination(e.target.value)}
                             className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 pl-11 focus:outline-none focus:border-primary/50 transition-colors"
-                            placeholder="e.g. Kyoto, Japan"
+                            placeholder={t('auto.auto_e_g__kyoto__japan_1014')}
                             />
                             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/20" />
                         </div>
                     </div>
                     <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">Your Image</label>
+                        <label className="text-xs font-bold uppercase tracking-wider text-foreground/40 ml-1">{t('auto.auto_your_image_1013')}</label>
                         <div 
                             className="relative aspect-square bg-black rounded-3xl overflow-hidden border-2 border-dashed border-white/10 flex items-center justify-center text-center cursor-pointer"
                             onClick={() => fileInputRef.current?.click()}
                         >
                             {userImageForHeritage ? (
-                                <img src={userImageForHeritage} alt="User preview" className="w-full h-full object-cover" />
+                                <img src={userImageForHeritage} alt={t('auto.auto_user_preview_1012')} className="w-full h-full object-cover" />
                             ) : (
                                 <div className="flex flex-col items-center">
                                     <Upload className="w-10 h-10 text-foreground/20 mb-2"/>
-                                    <p className="text-sm text-foreground/50">Click to upload a photo</p>
-                                    <p className="text-xs text-foreground/30">For best results, use a clear, front-facing photo.</p>
+                                    <p className="text-sm text-foreground/50">{t('auto.auto_click_to_upload_a_ph_1011')}</p>
+                                    <p className="text-xs text-foreground/30">{t('auto.auto_for_best_results__us_1010')}</p>
                                 </div>
                             )}
                         </div>
@@ -544,8 +546,8 @@ export default function DigitalTailor() {
                         className="w-full py-4 bg-primary text-white rounded-2xl font-bold hover:scale-[1.02] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                     >
                         {isGeneratingHeritage ? <Loader2 className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
-                        Generate Heritage Image
-                    </button>
+                        {t('auto.auto_generate_heritage_im_1009')}
+                                                      </button>
                 </motion.div>
             )}
 
@@ -572,21 +574,21 @@ export default function DigitalTailor() {
                             <div className="flex flex-wrap gap-4">
                                 <span className="flex items-center gap-1.5 text-sm text-foreground/60">
                                 <Thermometer className="w-4 h-4 text-orange-400" />
-                                {weatherData?.avgTemp}°C Avg
-                                </span>
+                                {weatherData?.avgTemp}{t('auto.auto__c_avg_1008')}
+                                                                                          </span>
                                 <span className="flex items-center gap-1.5 text-sm text-foreground/60">
                                 <Cloud className="w-4 h-4 text-blue-400" />
                                 {weatherData?.conditions}
                                 </span>
                                 <span className="flex items-center gap-1.5 text-sm text-foreground/60">
                                 <Droplets className="w-4 h-4 text-secondary" />
-                                {weatherData?.humidity}% Humidity
-                                </span>
+                                {weatherData?.humidity}{t('auto.auto___humidity_1007')}
+                                                                                          </span>
                             </div>
                             </div>
                             <div className="px-4 py-2 glass rounded-2xl text-xs font-bold text-primary uppercase tracking-widest">
-                            {fashionResult.vibe} Vibe
-                            </div>
+                            {fashionResult.vibe} {t('auto.auto_vibe_1006')}
+                                                                              </div>
                         </div>
                         <p className="text-foreground/60 leading-relaxed italic border-l-2 border-primary/30 pl-4">
                             "{weatherData?.summary}"
@@ -620,15 +622,15 @@ export default function DigitalTailor() {
                                     onClick={() => handleAction(item, 'buy')}
                                     className="flex-1 py-3 bg-white/5 hover:bg-primary text-foreground hover:text-white rounded-xl text-xs font-bold transition-all"
                                 >
-                                    Buy Now
-                                </button>
+                                    {t('auto.auto_buy_now_1005')}
+                                                                            </button>
                                 )}
                                 {item.availability.includes('rent') && (
                                 <button 
                                     onClick={() => handleAction(item, 'rent')}
                                     className="flex-1 py-3 glass-hover border border-white/5 hover:border-secondary/50 text-xs font-bold rounded-xl transition-all"
                                 >
-                                    Rent ($ {(item.price * 0.2).toFixed(0)})
+                                    {t('auto.auto_rent____1004')} {(item.price * 0.2).toFixed(0)})
                                 </button>
                                 )}
                             </div>
@@ -645,10 +647,10 @@ export default function DigitalTailor() {
                         className="space-y-8"
                     >
                         <div className="flex items-center justify-between">
-                        <h2 className="text-3xl font-display font-bold">My Wardrobe</h2>
+                        <h2 className="text-3xl font-display font-bold">{t('auto.auto_my_wardrobe_1003')}</h2>
                         <div className="flex gap-4">
                             <div className="glass px-4 py-2 rounded-2xl text-xs font-bold">
-                            <span className="text-foreground/40 mr-2">Active Rentals:</span>
+                            <span className="text-foreground/40 mr-2">{t('auto.auto_active_rentals__1002')}</span>
                             <span className="text-primary">{rentals.filter(r => r.status === 'active').length}</span>
                             </div>
                         </div>
@@ -676,11 +678,11 @@ export default function DigitalTailor() {
                                     </span>
                                     </div>
                                     <p className="text-xs text-foreground/40">
-                                    {rental.type === 'buy' ? 'Purchased' : 'Rented'} for {rental.destination} • ${rental.price.toFixed(2)}
+                                    {rental.type === 'buy' ? 'Purchased' : 'Rented'} {t('auto.auto_for_1001')} {rental.destination} • ${rental.price.toFixed(2)}
                                     </p>
                                     {rental.rentalEndDate && rental.status === 'active' && (
                                     <p className="text-[10px] text-accent font-bold mt-1 uppercase tracking-widest">
-                                        Due: {new Date(rental.rentalEndDate).toLocaleDateString()}
+                                        {t('auto.auto_due__1000')} {new Date(rental.rentalEndDate).toLocaleDateString()}
                                     </p>
                                     )}
                                 </div>
@@ -692,15 +694,15 @@ export default function DigitalTailor() {
                                     className="px-6 py-3 glass-hover rounded-xl text-xs font-bold flex items-center gap-2 transition-all"
                                 >
                                     <RotateCcw className="w-4 h-4" />
-                                    Return Item
-                                </button>
+                                    {t('auto.auto_return_item_999')}
+                                                                            </button>
                                 )}
                             </div>
                             ))
                         ) : (
                             <div className="h-64 flex flex-col items-center justify-center text-center glass rounded-[40px] border-dashed border-2 border-white/5">
                             <Shirt className="w-12 h-12 text-foreground/10 mb-4" />
-                            <p className="text-foreground/40">Your wardrobe is empty. Synthesize some fashion!</p>
+                            <p className="text-foreground/40">{t('auto.auto_your_wardrobe_is_emp_998')}</p>
                             </div>
                         )}
                         </div>
@@ -715,10 +717,10 @@ export default function DigitalTailor() {
                         <div className="w-20 h-20 bg-primary/5 rounded-full flex items-center justify-center mb-6">
                         <Scissors className="w-10 h-10 text-primary/20" />
                         </div>
-                        <h3 className="text-xl font-bold mb-2">Ready to Synthesize?</h3>
+                        <h3 className="text-xl font-bold mb-2">{t('auto.auto_ready_to_synthesize__997')}</h3>
                         <p className="text-foreground/40 max-w-xs">
-                        Select a booking or enter a destination to start your personalized fashion synthesis.
-                        </p>
+                        {t('auto.auto_select_a_booking_or__996')}
+                                                                          </p>
                     </motion.div>
                     )}
                 </>
@@ -733,10 +735,10 @@ export default function DigitalTailor() {
                             className="h-full flex flex-col items-center justify-center text-center p-12 border-2 border-dashed border-white/5 rounded-[40px]"
                         >
                             <Loader2 className="w-12 h-12 text-primary/50 animate-spin mb-6" />
-                            <h3 className="text-xl font-bold mb-2">Generating Your Heritage Portrait...</h3>
+                            <h3 className="text-xl font-bold mb-2">{t('auto.auto_generating_your_heri_995')}</h3>
                             <p className="text-foreground/40 max-w-xs">
-                                Please wait while Ruth AI works its magic. This may take a moment.
-                            </p>
+                                {t('auto.auto_please_wait_while_ru_994')}
+                                                                      </p>
                         </motion.div>
                     ) : heritageResult ? (
                         <motion.div
@@ -765,10 +767,10 @@ export default function DigitalTailor() {
                             <div className="w-20 h-20 bg-primary/5 rounded-full flex items-center justify-center mb-6">
                                 <Library className="w-10 h-10 text-primary/20" />
                             </div>
-                            <h3 className="text-xl font-bold mb-2">Discover Your Heritage</h3>
+                            <h3 className="text-xl font-bold mb-2">{t('auto.auto_discover_your_herita_993')}</h3>
                             <p className="text-foreground/40 max-w-xs">
-                                Upload your photo and select a destination to see yourself in traditional attire.
-                            </p>
+                                {t('auto.auto_upload_your_photo_an_992')}
+                                                                              </p>
                         </motion.div>
                     )}
                 </AnimatePresence>
