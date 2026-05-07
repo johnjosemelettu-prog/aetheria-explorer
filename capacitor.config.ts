@@ -1,4 +1,5 @@
 import type { CapacitorConfig } from '@capacitor/cli';
+import { KeyboardStyle } from '@capacitor/keyboard';
 
 const config: CapacitorConfig = {
   appId: 'com.aetheria.explorer',
@@ -12,6 +13,11 @@ const config: CapacitorConfig = {
   },
   */
   plugins: {
+    GoogleAuth: {
+      scopes: ['profile', 'email'],
+      serverClientId: '',
+      forceCodeForRefreshToken: true,
+    },
     SplashScreen: {
       launchShowDuration: 3000,
       launchAutoHide: true,
@@ -26,8 +32,8 @@ const config: CapacitorConfig = {
       splashImmersive: true,
     },
     Keyboard: {
-      resize: "body",
-      style: "dark",
+      resize: "body" as any,
+      style: KeyboardStyle.Dark,
       resizeOnFullScreen: true,
     },
   },

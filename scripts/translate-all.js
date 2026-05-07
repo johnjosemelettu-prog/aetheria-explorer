@@ -1,94 +1,101 @@
 
-import { translateText } from '../src/services/gemini.js';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const fs = require('fs');
+const path = require('path');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-const LOCALES_DIR = path.join(__dirname, '..', 'src', 'locales');
-const EN_JSON_PATH = path.join(LOCALES_DIR, 'en.json');
+const localesDir = path.resolve(__dirname, '../src/locales');
+const enFilePath = path.join(localesDir, 'en.json');
+const enJson = JSON.parse(fs.readFileSync(enFilePath, 'utf8'));
 
-async function translate(text, targetLang) {
-  // Guard against non-string or empty inputs to the translation API
-  if (typeof text !== 'string' || text.trim() === '') {
-    return text;
-  }
-  const translation = await translateText(text, targetLang);
-  return translation.translatedText;
-}
+const langToName = {
+    'ar': 'Arabic',
+    'de': 'German',
+    'es': 'Spanish',
+    'fr': 'French',
+    'hi': 'Hindi',
+    'id': 'Indonesian',
+    'it': 'Italian',
+    'ja': 'Japanese',
+    'kn': 'Kannada',
+    'ml': 'Malayalam',
+    'ms': 'Malay',
+    'nl': 'Dutch',
+    'pcm': 'Nigerian Pidgin',
+    'pl': 'Polish',
+    'pt': 'Portuguese',
+    'ru': 'Russian',
+    'ta': 'Tamil',
+    'te': 'Telugu',
+    'tl': 'Tagalog',
+    'tr': 'Turkish',
+    'ur': 'Urdu',
+    'zh': 'Chinese',
+};
 
-// Recursive function to traverse and translate a JSON object
-async function translateNode(enNode, langNode, lang) {
-  let updated = false;
-  const newLangNode = { ...(typeof langNode === 'object' && langNode !== null && !Array.isArray(langNode) ? langNode : {}) };
+const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-  for (const key in enNode) {
-    if (!Object.prototype.hasOwnProperty.call(enNode, key)) continue;
-
-    const enValue = enNode[key];
-    const langValue = newLangNode[key];
-
-    if (typeof enValue === 'string') {
-      // If the key doesn't exist in the target language, or the value is a placeholder, translate it.
-      if (!langValue || (typeof langValue === 'string' && langValue.startsWith(`[${lang}]`))) {
-        newLangNode[key] = await translate(enValue, lang);
-        updated = true;
-      }
-    } else if (typeof enValue === 'object' && enValue !== null && !Array.isArray(enValue)) {
-      // If it's a nested object, recurse.
-      const result = await translateNode(enValue, langValue, lang);
-      if (result.updated) {
-        newLangNode[key] = result.node;
-        updated = true;
-      }
-    } else {
-      // For arrays and other types, copy if they don't exist in the target.
-      if (langValue === undefined) {
-          newLangNode[key] = enValue;
-      }
-    }
-  }
-  return { node: newLangNode, updated };
-}
-
-async function translateAll() {
-  const enJsonContent = fs.readFileSync(EN_JSON_PATH, 'utf8');
-  const enJson = JSON.parse(enJsonContent);
-
-  const languages = fs.readdirSync(LOCALES_DIR)
-    .filter(file => file.endsWith('.json') && file !== 'en.json')
-    .map(file => file.replace('.json', ''));
-
-  for (const lang of languages) {
-    const langJsonPath = path.join(LOCALES_DIR, `${lang}.json`);
-    let langJson = {};
-    if (fs.existsSync(langJsonPath)) {
-      const langJsonContent = fs.readFileSync(langJsonPath, 'utf8');
-      try {
-        langJson = JSON.parse(langJsonContent);
-      } catch (e) {
-        console.error(`Error parsing ${lang}.json:`, e);
-        langJson = {}; // Start with an empty object if the file is corrupt
-      }
+async function translateFile(langCode) {
+    const langName = langToName[langCode];
+    if (!langName) {
+        console.warn(`No language name found for code ${langCode}, skipping.`);
+        return;
     }
 
-    const result = await translateNode(enJson, langJson, lang);
-
-    if (result.updated) {
-      fs.writeFileSync(langJsonPath, JSON.stringify(result.node, null, 2));
-      console.log(`Updated ${lang}.json with new translations.`);
-    } else {
-      console.log(`${lang}.json is already up to date.`);
+    const outputFilePath = path.join(localesDir, `${langCode}.json`);
+    let existingTranslations = {};
+    if (fs.existsSync(outputFilePath)) {
+        existingTranslations = JSON.parse(fs.readFileSync(outputFilePath, 'utf8'));
     }
-  }
+
+    const keysToTranslate = Object.keys(enJson).filter(key => {
+        return !existingTranslations[key] || existingTranslations[key].startsWith(`[${langCode}]`);
+    });
+
+    if (keysToTranslate.length === 0) {
+        console.log(`All keys in ${langCode}.json are already translated.`);
+        return;
+    }
+
+    const batchSize = 100;
+    for (let i = 0; i < keysToTranslate.length; i += batchSize) {
+        const batchKeys = keysToTranslate.slice(i, i + batchSize);
+        const sourceObject = batchKeys.reduce((obj, key) => {
+            obj[key] = enJson[key];
+            return obj;
+        }, {});
+
+        const prompt = `Translate the following JSON object from English to ${langName}. Do not translate the keys, only the values. Preserve the JSON structure. Output only the translated JSON object, without any extra text or explanations. For example, if the input is {"hello": "Hello"}, the output should be {"hello": "Hola"} for Spanish. The input is: ${JSON.stringify(sourceObject)}`;
+
+        try {
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            const text = await response.text();
+            
+            // Clean the response to get only the JSON object
+            const jsonMatch = text.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                const translatedObject = JSON.parse(jsonMatch[0]);
+                Object.assign(existingTranslations, translatedObject);
+            } else {
+                console.error(`Could not find a JSON object in the response for ${langCode} batch ${i / batchSize + 1}.`);
+            }
+
+        } catch (error) {
+            console.error(`Error translating batch for ${langCode}:`, error);
+        }
+    }
+
+    fs.writeFileSync(outputFilePath, JSON.stringify(existingTranslations, null, 2));
+    console.log(`Finished translating to ${langName}`);
 }
 
 async function main() {
-  console.log('Starting translation process with inclusions...');
-  await translateAll();
-  console.log('Translation process finished.');
+    const languages = Object.keys(langToName);
+    for (const lang of languages) {
+        await translateFile(lang);
+    }
 }
 
 main();
