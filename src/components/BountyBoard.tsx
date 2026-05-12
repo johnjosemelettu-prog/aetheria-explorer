@@ -1,129 +1,85 @@
+
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Target, MapPin, Zap, Lock, Code, Sparkles, Navigation } from 'lucide-react';
-import { useTranslation } from "react-i18next";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
+import { Button } from './ui/button';
+import { Badge } from './ui/badge';
 
-export default function BountyBoard() {
-    const { t } = useTranslation();
-  const bounties = [
-    {
-      id: "BNT-4401",
-      title: "Map the Under-City Market",
-      location: "Seoul, South Korea",
-      reward: "500 AETH",
-      difficulty: "Hard",
-      description: "A new night market has emerged near Dongdaemun. We need high-res AR scans of the food stalls to update the Aetheria spatial grid.",
-      type: "Spatial Mapping",
-      icon: <Navigation className="w-5 h-5" />,
-      color: "from-blue-500 to-indigo-600"
-    },
-    {
-      id: "BNT-8922",
-      title: "Verify the Whispering Bamboo",
-      location: "Kyoto, Japan",
-      reward: "250 AETH",
-      difficulty: "Medium",
-      description: "Users report a localized acoustic anomaly deep in Arashiyama. Geolocate the origin point and record a 3-minute sensory log.",
-      type: "Sensory Logging",
-      icon: <Sparkles className="w-5 h-5" />,
-      color: "from-emerald-500 to-teal-600"
-    },
-    {
-      id: "BNT-1109",
-      title: "Translate Ancient Stele",
-      location: "Athens, Greece",
-      reward: "800 AETH",
-      difficulty: "Legendary",
-      description: "A recently unearthed path near the Acropolis contains an untranslated stele. Use the AR Translation Matrix to decrypt the first 5 stanzas.",
-      type: "Cipher Decrypt",
-      icon: <Code className="w-5 h-5" />,
-      color: "from-orange-500 to-red-600"
-    }
-  ];
+interface Bounty {
+  id: string;
+  title: string;
+  location: string;
+  description: string;
+  reward: string;
+  status: 'New' | 'In Progress' | 'Completed';
+}
 
+const mockBounties: Bounty[] = [
+  {
+    id: 'b-001',
+    title: 'Sunrise at the Eiffel Tower',
+    location: 'Paris, France',
+    description: 'Capture a stunning photo of the sunrise over the Eiffel Tower. The photo must be taken from the Trocadéro Gardens.',
+    reward: '150 XP & Parisian Photographer Badge',
+    status: 'New',
+  },
+  {
+    id: 'b-002',
+    title: 'Tokyo Street Food Challenge',
+    location: 'Tokyo, Japan',
+    description: 'Try and document three different kinds of street food from the outer market of Tsukiji. Must include Takoyaki!',
+    reward: '200 XP & Tokyo Foodie Badge',
+    status: 'In Progress',
+  },
+  {
+    id: 'b-003',
+    title: 'Find the Hidden Waterfall',
+    location: 'Bali, Indonesia',
+    description: 'Journey to the Sekumpul Waterfall and take a picture from the base. It is a challenging hike, so be prepared.',
+    reward: '300 XP & Jungle Explorer Badge',
+    status: 'New',
+  },
+  {
+    id: 'b-004',
+    title: 'Roman Holiday',
+    location: 'Rome, Italy',
+    description: 'Recreate the famous scooter scene from the movie Roman Holiday near the Colosseum.',
+    reward: '100 XP & Classic Film Badge',
+    status: 'Completed',
+  },
+];
+
+const BountyBoard: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#050505] text-white pt-32 pb-24 relative overflow-hidden">
-      {/* Background Cyber-Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:40px_40px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           animate={{ opacity: 1, y: 0 }}
-           className="text-center mb-20"
-        >
-          <div className="inline-flex items-center justify-center p-4 rounded-full bg-red-500/10 text-red-500 mb-6 border border-red-500/20 shadow-[0_0_40px_rgba(239,68,68,0.2)]">
-            <Target className="w-12 h-12" />
-          </div>
-          <h1 className="text-5xl md:text-7xl font-display font-black mb-6 tracking-tighter uppercase">
-            {t('auto.auto_the_bounty_board_629')}
-                                </h1>
-          <p className="text-xl text-white/50 max-w-2xl mx-auto font-mono text-sm leading-relaxed">
-            {t('auto.auto_contribute_to_the_ae_628')}
-                                </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {bounties.map((bounty, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-black/60 backdrop-blur-xl p-8 rounded-3xl border border-white/10 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300"
-            >
-               {/* Hover Gradient Base */}
-               <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${bounty.color} opacity-10 rounded-full blur-[40px] group-hover:opacity-30 transition-opacity duration-500`} />
-               
-               <div className="flex justify-between items-start mb-6">
-                 <div className="bg-white/5 p-3 rounded-2xl border border-white/10 text-white">
-                   {bounty.icon}
-                 </div>
-                 <span className="font-mono text-xs font-bold px-3 py-1 bg-white/10 rounded-full text-white/70">
-                   {bounty.id}
-                 </span>
-               </div>
-
-               <h3 className="text-2xl font-bold mb-2 leading-tight">{bounty.title}</h3>
-               <p className="text-white/50 text-sm mb-6 line-clamp-3">{bounty.description}</p>
-
-               <div className="space-y-3 mb-8">
-                 <div className="flex items-center justify-between text-xs font-mono bg-white/5 p-2 rounded-xl">
-                   <span className="text-white/40 flex items-center gap-1"><MapPin className="w-3 h-3"/> {t('auto.auto_location_627')}</span>
-                   <span className="font-bold text-white tracking-widest">{bounty.location}</span>
-                 </div>
-                 <div className="flex items-center justify-between text-xs font-mono bg-white/5 p-2 rounded-xl">
-                   <span className="text-white/40 flex items-center gap-1"><Zap className="w-3 h-3"/> {t('auto.auto_difficulty_626')}</span>
-                   <span className={`font-bold tracking-widest ${bounty.difficulty === 'Legendary' ? 'text-orange-400' : bounty.difficulty === 'Hard' ? 'text-red-400' : 'text-yellow-400'}`}>
-                     {bounty.difficulty}
-                   </span>
-                 </div>
-               </div>
-
-               <div className="flex justify-between items-center pt-6 border-t border-white/10">
-                 <div>
-                   <p className="text-[10px] text-white/40 uppercase tracking-widest font-mono mb-1">{t('auto.auto_bounty_reward_625')}</p>
-                   <p className="font-black text-xl text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">{bounty.reward}</p>
-                 </div>
-                 <button className="bg-white text-black font-bold py-3 px-6 rounded-xl text-sm hover:scale-105 transition-transform uppercase tracking-widest">
-                   {t('auto.auto_accept_624')}
-                                           </button>
-               </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Privacy Note */}
-        <div className="max-w-3xl mx-auto bg-blue-900/10 border border-blue-500/20 rounded-2xl p-6 flex gap-4 items-start">
-           <Lock className="w-6 h-6 text-blue-400 shrink-0 mt-1" />
-           <div>
-             <h4 className="font-bold text-blue-300 uppercase tracking-widest text-sm mb-2">{t('auto.auto_zero_knowledge_spati_623')}</h4>
-             <p className="text-blue-200/60 text-sm leading-relaxed">
-               {t('auto.auto_all_bounty_submissio_622')}
-                                       </p>
-           </div>
-        </div>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-2 text-center">The Bounty Board</h1>
+      <p className="text-center text-gray-500 mb-6">Complete challenges to earn XP and unique rewards.</p>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {mockBounties.map((bounty) => (
+          <Card key={bounty.id} className="flex flex-col">
+            <CardHeader>
+              <div className="flex justify-between items-start">
+                <CardTitle>{bounty.title}</CardTitle>
+                <Badge variant={bounty.status === 'New' ? 'default' : bounty.status === 'In Progress' ? 'secondary' : 'outline'}>{bounty.status}</Badge>
+              </div>
+              <p className="text-sm text-gray-500">{bounty.location}</p>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <p className="text-sm mb-4">{bounty.description}</p>
+              <div>
+                <p className="text-sm font-semibold">Reward:</p>
+                <p className="text-sm text-green-600">{bounty.reward}</p>
+              </div>
+            </CardContent>
+            <CardFooter>
+                {bounty.status === 'New' && <Button className="w-full">Accept Bounty</Button>}
+                {bounty.status === 'In Progress' && <Button className="w-full" variant="secondary">Submit Proof</Button>}
+                {bounty.status === 'Completed' && <Button className="w-full" disabled>Completed</Button>}
+            </CardFooter>
+          </Card>
+        ))}
       </div>
     </div>
   );
-}
+};
+
+export default BountyBoard;

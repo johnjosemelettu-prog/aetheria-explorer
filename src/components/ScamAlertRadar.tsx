@@ -1,116 +1,81 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import * as AI from '../services/gemini';
-import { ShieldAlert, MapPin, Radio, AlertTriangle, CheckCircle } from 'lucide-react';
-import { useTranslation } from "react-i18next";
 
-const ScamAlertRadar = () => {
-    const { t } = useTranslation();
-  const [alerts, setAlerts] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
+import React from 'react';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
+import { Button } from './ui/button';
+import { Badge } from './ui/badge';
 
-  const fetchAlerts = async () => {
-    setLoading(true);
-    try {
-      const currentPos = { lat: 41.8902, lng: 12.4922 }; // Near Colosseum
-      const results = await AI.getScamAlerts(currentPos);
-      setAlerts(results.alerts || [results]); 
-    } catch (err) {
-      console.error(err);
-    }
-    setLoading(false);
-  };
+interface ScamAlert {
+  id: string;
+  type: string;
+  location: string;
+  description: string;
+  howToAvoid: string;
+  reportedBy: 'Admin' | 'Community';
+  timestamp: string;
+}
 
-  useEffect(() => {
-      fetchAlerts();
-      const interval = setInterval(fetchAlerts, 30000); 
-      return () => clearInterval(interval);
-  }, []);
+const mockAlerts: ScamAlert[] = [
+  {
+    id: 'sa-001',
+    type: 'Broken Taxi Meter',
+    location: 'Bangkok, Thailand',
+    description: 'The driver claims the meter is broken and will try to charge a very high flat rate at the end of the trip.',
+    howToAvoid: 'Always insist on using the meter before you get in. If the driver refuses, find another taxi. Use ride-sharing apps as an alternative.',
+    reportedBy: 'Admin',
+    timestamp: '2023-11-28',
+  },
+  {
+    id: 'sa-002',
+    type: 'Friendship Bracelet',
+    location: 'Paris, France (Montmartre area)',
+    description: 'Someone approaches you and ties a bracelet on your wrist, then aggressively demands payment.',
+    howToAvoid: 'Do not allow anyone to put anything on your wrist. Keep your hands in your pockets and walk away confidently.',
+    reportedBy: 'Community',
+    timestamp: '2023-12-01',
+  },
+  {
+    id: 'sa-003',
+    type: 'Spilled Drink / Stain',
+    location: 'Barcelona, Spain (Las Ramblas)',
+    description: 'Someone will spill something on you (ketchup, bird poop, etc.) and then try to help you clean up while an accomplice pickpockets you.',
+    howToAvoid: 'Be wary of overly helpful strangers in crowded areas. Refuse help and check your valuables immediately.',
+    reportedBy: 'Admin',
+    timestamp: '2023-11-25',
+  },
+];
 
+const ScamAlertRadar: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#0a0505] text-white pt-32 pb-24 relative overflow-hidden">
-      {/* Background Cyber-Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(239,68,68,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(239,68,68,0.03)_1px,transparent_1px)] bg-[length:40px_40px] pointer-events-none" />
-      <div className="absolute top-[20%] left-[50%] -translate-x-1/2 w-[800px] h-[800px] bg-red-900/10 rounded-full blur-[150px] pointer-events-none" />
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-2 text-center">Scam Alert Radar</h1>
+      <p className="text-center text-gray-500 mb-6">Real-time alerts for your current location: <span className="font-semibold text-blue-600">Barcelona</span></p>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           animate={{ opacity: 1, y: 0 }}
-           className="text-center mb-16"
-        >
-          <div className="inline-flex items-center justify-center p-4 rounded-full bg-red-500/10 text-red-500 mb-6 border border-red-500/30 relative">
-            <div className="absolute inset-0 border border-red-500/50 rounded-full animate-ping" />
-            <Radio className="w-12 h-12" />
-          </div>
-          <h1 className="text-5xl md:text-6xl font-display font-black mb-6 uppercase tracking-tighter">
-            {t('auto.auto_scam_alert_radar_2279')}
-                                </h1>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto font-mono text-sm">
-            {t('auto.auto_live_geographic_scan_2278')}
-                                </p>
-        </motion.div>
-
-        <div className="bg-black/60 backdrop-blur-xl border border-red-500/20 rounded-[40px] p-8 md:p-12 relative overflow-hidden">
-          <div className="flex items-center justify-between border-b border-red-500/20 pb-6 mb-8">
-            <div className="flex items-center gap-3">
-              <MapPin className="w-5 h-5 text-red-400" />
-              <span className="font-mono text-sm tracking-widest text-red-200">{t('auto.auto_scanning__rome__it_2277')}</span>
-            </div>
-            {loading ? (
-              <span className="font-mono text-xs text-red-400 animate-pulse">{t('auto.auto_sweeping_area____2276')}</span>
-            ) : (
-              <span className="font-mono text-xs text-red-500">{t('auto.auto_live_feed_2275')}</span>
-            )}
-          </div>
-
-          <AnimatePresence mode="popLayout">
-            {alerts.length > 0 ? (
-                <div className="space-y-6">
-                    {alerts.map((alert, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.95, x: -20 }}
-                            animate={{ opacity: 1, scale: 1, x: 0 }}
-                            className={`p-6 rounded-2xl shadow-lg border-l-4 relative overflow-hidden group ${alert.severity === 'High' ? 'border-red-500 bg-red-950/40' : 'border-orange-500 bg-orange-950/40'}`}
-                        >
-                            <div className={`absolute top-0 right-0 w-32 h-32 opacity-10 rounded-full blur-[40px] transition group-hover:opacity-20 ${alert.severity === 'High' ? 'bg-red-500' : 'bg-orange-500'}`} />
-                            
-                            <div className="flex items-start gap-4 relative z-10">
-                              <ShieldAlert className={`w-8 h-8 shrink-0 ${alert.severity === 'High' ? 'text-red-500' : 'text-orange-500'}`} />
-                              <div className="flex-1">
-                                <h2 className="text-2xl font-bold mb-2 text-white">{alert.title || alert.scam_type}</h2>
-                                <p className="text-white/60 text-sm leading-relaxed mb-4">{alert.advice || alert.description}</p>
-                                <div className="flex flex-wrap gap-2 text-[10px] font-mono tracking-widest uppercase">
-                                  <span className="bg-black/40 px-2 py-1 rounded text-white/50 border border-white/5">
-                                    {t('auto.auto_reported__2274')} {alert.time_reported || 'Just now'}
-                                  </span>
-                                  {alert.distance && (
-                                    <span className="bg-black/40 px-2 py-1 rounded text-white/50 border border-white/5">
-                                      {t('auto.auto_dist__2273')} {alert.distance}
-                                    </span>
-                                  )}
-                                </div>
-                              </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            ) : !loading && (
-                <motion.div 
-                  initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                  className="flex flex-col items-center justify-center py-12 text-center"
-                >
-                  <div className="w-16 h-16 rounded-full bg-green-500/10 text-green-400 flex items-center justify-center mb-4 border border-green-500/20 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
-                    <CheckCircle className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{t('auto.auto_area_secure_2272')}</h3>
-                  <p className="text-green-500 font-mono text-sm max-w-sm">{t('auto.auto_no_active_threats_or_2271')}</p>
-                </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+      <div className="grid gap-6">
+        {mockAlerts.map((alert) => (
+          <Card key={alert.id} className="border-red-500 border-2">
+            <CardHeader>
+              <div className="flex justify-between items-start">
+                <CardTitle className="text-red-600">{alert.type}</CardTitle>
+                <Badge variant={alert.reportedBy === 'Admin' ? 'default' : 'secondary'}>Reported by {alert.reportedBy}</Badge>
+              </div>
+              <p className="text-sm text-gray-500">Location: {alert.location}</p>
+            </CardHeader>
+            <CardContent>
+                <h4 className="font-bold">Description:</h4>
+                <p className="mb-4">{alert.description}</p>
+                <h4 className="font-bold">How to Avoid:</h4>
+                <p>{alert.howToAvoid}</p>
+            </CardContent>
+            <CardFooter className="flex justify-between items-center">
+                <p className="text-xs text-gray-500">Last reported: {alert.timestamp}</p>
+                <Button variant="destructive">I've Seen This</Button>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
+       <div className="text-center mt-8">
+            <Button size="lg">Report a New Scam</Button>
+        </div>
     </div>
   );
 };

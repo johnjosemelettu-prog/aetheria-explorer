@@ -1,136 +1,84 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { UserPlus, Star, MapPin, Award, MessageCircle, Navigation } from 'lucide-react';
-import { useTranslation } from "react-i18next";
 
-export default function LocalHeroConnect() {
-    const { t } = useTranslation();
-  const [activeHero, setActiveHero] = useState<number>(0);
+import React from 'react';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
+import { Button } from './ui/button';
+import { Badge } from './ui/badge';
 
-  const heroes = [
-    {
-      name: "Akiko Tanaka",
-      title: "Kyoto Heritage Guardian",
-      rating: 4.9,
-      reviews: 142,
-      location: "Gion District, Kyoto",
-      specialty: "Hidden Tea Houses & Maiko History",
-      image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&w=400&q=80",
-      bio: "Born and raised in Kyoto, Akiko offers an insider's look into the exclusive tea houses of Gion that are typically closed to tourists."
-    },
-    {
-      name: "Kenji Sato",
-      title: "Underground Food Alchemist",
-      rating: 4.8,
-      reviews: 89,
-      location: "Shibuya, Tokyo",
-      specialty: "Secret Yokocho Bars & Street Food",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80",
-      bio: "A former chef who maps Tokyo's ever-changing secret alleys. Discover hidden yakitori stalls that aren't on any map."
-    }
-  ];
+interface LocalHero {
+  id: string;
+  name: string;
+  location: string;
+  expertise: string[];
+  bio: string;
+  trustScore: number;
+}
 
+const mockHeroes: LocalHero[] = [
+  {
+    id: 'lh-001',
+    name: 'Elena',
+    location: 'Rome, Italy',
+    expertise: ['Art History', 'Hidden Trattorias', 'Roman Mythology'],
+    bio: 'A history professor who moonlights as a foodie. Let me show you where the locals eat after a morning stroll through the Forum.',
+    trustScore: 95,
+  },
+  {
+    id: 'lh-002',
+    name: 'Kenji',
+    location: 'Kyoto, Japan',
+    expertise: ['Zen Gardens', 'Tea Ceremonies', 'Vintage Kimonos'],
+    bio: 'I have been a monk for 15 years and now share the quiet beauty of Kyoto with travelers seeking peace and authenticity.',
+    trustScore: 98,
+  },
+  {
+    id: 'lh-003',
+    name: 'Aisha',
+    location: 'Marrakech, Morocco',
+    expertise: ['Souk Navigation', 'Spice Markets', 'Berber Crafts'],
+    bio: 'The Medina is my home. I can help you find the best argon oil, haggle for a beautiful carpet, and avoid the tourist traps.',
+    trustScore: 92,
+  },
+  {
+    id: 'lh-004',
+    name: 'Carlos',
+    location: 'Medellín, Colombia',
+    expertise: ['Salsa Dancing', 'Specialty Coffee', 'Comuna 13 History'],
+    bio: 'Once a city of chaos, Medellín is now a hub of innovation and culture. I can show you its heart, from the best coffee farms to the liveliest salsa clubs.',
+    trustScore: 96,
+  },
+];
+
+const LocalHeroConnect: React.FC = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground pt-32 pb-24 relative overflow-hidden">
-      <div className="absolute top-[10%] right-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
-      <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           animate={{ opacity: 1, y: 0 }}
-           className="text-center mb-16"
-        >
-          <div className="inline-flex items-center justify-center p-4 rounded-full bg-primary/20 text-primary mb-6 border border-primary/30">
-            <UserPlus className="w-12 h-12" />
-          </div>
-          <h1 className="text-5xl md:text-6xl font-display font-black mb-6">{t('auto.auto_local_hero_connect_1739')}</h1>
-          <p className="text-xl text-foreground/60 max-w-2xl mx-auto font-light">
-            {t('auto.auto_skip_the_tourist_tra_1738')}
-                                </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Hero List Navigation */}
-          <div className="lg:col-span-5 space-y-4">
-             <h3 className="text-lg font-bold uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
-               <MapPin className="w-5 h-5"/> {t('auto.auto_live_nearby_1737')}
-                                       </h3>
-             {heroes.map((hero, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveHero(idx)}
-                  className={`w-full text-left p-4 rounded-2xl transition-all duration-300 flex items-center gap-4 ${
-                    activeHero === idx 
-                      ? 'bg-primary/20 border border-primary/50 shadow-[0_0_30px_rgba(var(--primary),0.2)]' 
-                      : 'bg-white/5 border border-white/10 hover:bg-white/10'
-                  }`}
-                >
-                  <img src={hero.image} alt={hero.name} className="w-16 h-16 rounded-full object-cover border-2 border-primary/50" />
-                  <div>
-                    <h4 className="font-bold text-white text-lg">{hero.name}</h4>
-                    <p className="text-sm text-foreground/60">{hero.title}</p>
-                    <div className="flex items-center gap-1 mt-1 text-yellow-400 text-xs">
-                      <Star className="w-3 h-3 fill-current" />
-                      <span>{hero.rating} ({hero.reviews})</span>
-                    </div>
-                  </div>
-                </button>
-             ))}
-          </div>
-
-          {/* Hero Profile View */}
-          <div className="lg:col-span-7">
-             <motion.div
-                key={activeHero}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-                className="glass p-8 rounded-[40px] relative overflow-hidden"
-             >
-                <div className="absolute top-0 right-0 w-full h-48 bg-gradient-to-b from-primary/20 to-transparent" />
-                
-                <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start mb-8">
-                  <div className="w-32 h-32 shrink-0 rounded-full overflow-hidden border-4 border-primary shadow-[0_0_30px_rgba(var(--primary),0.4)]">
-                    <img src={heroes[activeHero].image} alt={heroes[activeHero].name} className="w-full h-full object-cover" />
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-display font-bold text-white mb-2">{heroes[activeHero].name}</h2>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1">
-                        <Award className="w-3 h-3" /> {heroes[activeHero].title}
-                      </span>
-                      <span className="bg-white/10 text-white/80 border border-white/10 px-3 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-1">
-                        <MapPin className="w-3 h-3" /> {heroes[activeHero].location}
-                      </span>
-                    </div>
-                    <p className="text-foreground/80 leading-relaxed">{heroes[activeHero].bio}</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="bg-black/40 p-4 rounded-2xl border border-white/5">
-                    <p className="text-xs text-foreground/50 uppercase tracking-widest font-mono mb-1">{t('auto.auto_specialty_1736')}</p>
-                    <p className="font-bold text-sm text-primary">{heroes[activeHero].specialty}</p>
-                  </div>
-                  <div className="bg-black/40 p-4 rounded-2xl border border-white/5">
-                    <p className="text-xs text-foreground/50 uppercase tracking-widest font-mono mb-1">{t('auto.auto_verification_1735')}</p>
-                    <p className="font-bold text-sm text-green-400 flex items-center gap-1"><Award className="w-4 h-4"/> {t('auto.auto_certified_1734')}</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <button className="flex-1 bg-primary text-white py-4 rounded-xl font-bold flex justify-center items-center gap-2 hover:bg-primary/80 transition-colors shadow-[0_0_20px_rgba(var(--primary),0.3)]">
-                    <MessageCircle className="w-5 h-5" /> {t('auto.auto_request_intro_1733')}
-                                                    </button>
-                  <button className="flex-1 bg-white/10 text-white py-4 rounded-xl font-bold flex justify-center items-center gap-2 hover:bg-white/20 transition-colors border border-white/10">
-                    <Navigation className="w-5 h-5" /> {t('auto.auto_view_past_itinerarie_1732')}
-                                                    </button>
-                </div>
-             </motion.div>
-          </div>
-        </div>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-2 text-center">Local Heroes</h1>
+      <p className="text-center text-gray-500 mb-6">Connect with verified locals for authentic experiences.</p>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {mockHeroes.map((hero) => (
+          <Card key={hero.id} className="flex flex-col">
+            <CardHeader>
+              <div className="flex justify-between items-start">
+                <CardTitle>{hero.name}</CardTitle>
+                <Badge variant="secondary">Trust Score: {hero.trustScore}%</Badge>
+              </div>
+              <p className="text-sm text-gray-500">{hero.location}</p>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <p className="text-sm mb-4">{hero.bio}</p>
+              <div className="flex flex-wrap gap-2">
+                {hero.expertise.map((skill, index) => (
+                  <Badge key={index} variant="outline">{skill}</Badge>
+                ))}
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full">Ask for Introduction</Button>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
     </div>
   );
-}
+};
+
+export default LocalHeroConnect;
