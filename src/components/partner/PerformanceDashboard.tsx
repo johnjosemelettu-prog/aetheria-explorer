@@ -10,7 +10,7 @@ const bookingData = [
 
 const PerformanceDashboard: React.FC = () => (
   <div className="space-y-6">
-    <h2 className="text-xl font-bold">""Performance Dashboard""</h2>
+    <h2 className="text-xl font-bold">{t('auto.auto___performance_dashbo_548')}</h2>
     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
       {[
         { icon: Star, label: 'Avg Rating', value: '4.8', color: 'text-yellow-400' },
@@ -26,7 +26,7 @@ const PerformanceDashboard: React.FC = () => (
       ))}
     </div>
     <div className="glass rounded-2xl p-6">
-      <h3 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-4">""Weekly Bookings""</h3>
+      <h3 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-4">{t('auto.auto___weekly_bookings___547')}</h3>
       <div className="h-[200px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={bookingData} barSize={20}>
@@ -40,7 +40,7 @@ const PerformanceDashboard: React.FC = () => (
       </div>
     </div>
     <div className="glass rounded-2xl p-6">
-      <h3 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">""Top Services""</h3>
+      <h3 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">{t('auto.auto___top_services___546')}</h3>
       {[
         { name:'AR Ghost Tour', pct:68 },
         { name:'Culinary Time Machine', pct:51 },

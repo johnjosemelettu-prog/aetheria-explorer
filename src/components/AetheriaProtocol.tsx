@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 // Placeholder for a document type
 interface TravelDocument {
@@ -26,6 +27,7 @@ interface ConflictAlert {
 }
 
 const AetheriaProtocol: React.FC = () => {
+    const { t } = useTranslation();
   // Mock data to illustrate the concept
   const documents: TravelDocument[] = [
     { id: '1', type: 'visa', country: 'USA', expiryDate: '2025-12-31', status: 'valid' },
@@ -47,37 +49,37 @@ const AetheriaProtocol: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Aetheria Protocol: Unified Documentation Vault</h2>
+      <h2 className="text-2xl font-bold mb-4">{t('auto.auto_aetheria_protocol__u_69')}</h2>
       
       <div className="mb-8">
-        <h3 className="text-xl font-semibold mb-2">My Documents</h3>
+        <h3 className="text-xl font-semibold mb-2">{t('auto.auto_my_documents_68')}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {documents.map(doc => (
             <div key={doc.id} className="border p-4 rounded-lg">
               <p><strong>{doc.type.toUpperCase()}</strong> - {doc.country}</p>
-              <p>Expires: {doc.expiryDate}</p>
-              <p>Status: <span className={doc.status === 'expiring_soon' ? 'text-yellow-500' : doc.status === 'expired' ? 'text-red-500' : 'text-green-500'}>{doc.status}</span></p>
+              <p>{t('auto.auto_expires__67')} {doc.expiryDate}</p>
+              <p>{t('auto.auto_status__66')} <span className={doc.status === 'expiring_soon' ? 'text-yellow-500' : doc.status === 'expired' ? 'text-red-500' : 'text-green-500'}>{doc.status}</span></p>
             </div>
           ))}
         </div>
-        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">Add New Document</button>
+        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">{t('auto.auto_add_new_document_65')}</button>
       </div>
 
       <div>
-        <h3 className="text-xl font-semibold mb-2">Conflict Alerts</h3>
+        <h3 className="text-xl font-semibold mb-2">{t('auto.auto_conflict_alerts_64')}</h3>
         {alerts.length > 0 ? (
           <div className="space-y-4">
             {alerts.map(alert => (
               <div key={alert.id} className="border border-red-500 bg-red-100 p-4 rounded-lg">
-                <p className="font-bold">Alert:</p>
+                <p className="font-bold">{t('auto.auto_alert__63')}</p>
                 <p>{alert.message}</p>
-                <p><small>Affected Document: {alert.document.type} for {alert.document.country}</small></p>
-                <p><small>Affected Booking: Trip to {alert.booking.destination}</small></p>
+                <p><small>{t('auto.auto_affected_document__62')} {alert.document.type} {t('auto.auto_for_61')} {alert.document.country}</small></p>
+                <p><small>{t('auto.auto_affected_booking__tr_60')} {alert.booking.destination}</small></p>
               </div>
             ))}
           </div>
         ) : (
-          <p>No conflicts detected with your upcoming travel plans.</p>
+          <p>{t('auto.auto_no_conflicts_detecte_59')}</p>
         )}
       </div>
     </div>

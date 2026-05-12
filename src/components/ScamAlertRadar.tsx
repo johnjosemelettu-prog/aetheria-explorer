@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
+import { useTranslation } from "react-i18next";
 
 interface ScamAlert {
   id: string;
@@ -45,10 +46,11 @@ const mockAlerts: ScamAlert[] = [
 ];
 
 const ScamAlertRadar: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">Scam Alert Radar</h1>
-      <p className="text-center text-gray-500 mb-6">Real-time alerts for your current location: <span className="font-semibold text-blue-600">Barcelona</span></p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_scam_alert_radar_483')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_real_time_alerts_for_482')} <span className="font-semibold text-blue-600">{t('auto.auto_barcelona_481')}</span></p>
 
       <div className="grid gap-6">
         {mockAlerts.map((alert) => (
@@ -56,25 +58,25 @@ const ScamAlertRadar: React.FC = () => {
             <CardHeader>
               <div className="flex justify-between items-start">
                 <CardTitle className="text-red-600">{alert.type}</CardTitle>
-                <Badge variant={alert.reportedBy === 'Admin' ? 'default' : 'secondary'}>Reported by {alert.reportedBy}</Badge>
+                <Badge variant={alert.reportedBy === 'Admin' ? 'default' : 'secondary'}>{t('auto.auto_reported_by_480')} {alert.reportedBy}</Badge>
               </div>
-              <p className="text-sm text-gray-500">Location: {alert.location}</p>
+              <p className="text-sm text-gray-500">{t('auto.auto_location__479')} {alert.location}</p>
             </CardHeader>
             <CardContent>
-                <h4 className="font-bold">Description:</h4>
+                <h4 className="font-bold">{t('auto.auto_description__478')}</h4>
                 <p className="mb-4">{alert.description}</p>
-                <h4 className="font-bold">How to Avoid:</h4>
+                <h4 className="font-bold">{t('auto.auto_how_to_avoid__477')}</h4>
                 <p>{alert.howToAvoid}</p>
             </CardContent>
             <CardFooter className="flex justify-between items-center">
-                <p className="text-xs text-gray-500">Last reported: {alert.timestamp}</p>
-                <Button variant="destructive">I've Seen This</Button>
+                <p className="text-xs text-gray-500">{t('auto.auto_last_reported__476')} {alert.timestamp}</p>
+                <Button variant="destructive">{t('auto.auto_i_ve_seen_this_475')}</Button>
             </CardFooter>
           </Card>
         ))}
       </div>
        <div className="text-center mt-8">
-            <Button size="lg">Report a New Scam</Button>
+            <Button size="lg">{t('auto.auto_report_a_new_scam_474')}</Button>
         </div>
     </div>
   );

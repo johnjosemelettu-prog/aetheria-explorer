@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card'
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
+import { useTranslation } from "react-i18next";
 
 interface Ambassador {
   id: string;
@@ -46,10 +47,11 @@ const mockAmbassadors: Ambassador[] = [
 ];
 
 const AetheriaAmbassadorProgram: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">Aetheria Ambassadors</h1>
-      <p className="text-center text-gray-500 mb-6">Your regional guides, curated by the community.</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_aetheria_ambassadors_44')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_your_regional_guides_43')}</p>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {mockAmbassadors.map((ambassador) => (
           <Card key={ambassador.id} className="flex flex-col">
@@ -70,8 +72,8 @@ const AetheriaAmbassadorProgram: React.FC = () => {
                 </div>
             </CardContent>
             <CardFooter className="flex-col">
-                <p className="text-xs text-gray-500 mb-2">Hosting Credits: {ambassador.hostingCredits}</p>
-              <Button className="w-full">View Monthly Picks</Button>
+                <p className="text-xs text-gray-500 mb-2">{t('auto.auto_hosting_credits__42')} {ambassador.hostingCredits}</p>
+              <Button className="w-full">{t('auto.auto_view_monthly_picks_41')}</Button>
             </CardFooter>
           </Card>
         ))}

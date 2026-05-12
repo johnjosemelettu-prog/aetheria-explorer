@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
+import { useTranslation } from "react-i18next";
 
 interface Guild {
   id: string;
@@ -49,16 +50,17 @@ const mockGuilds: Guild[] = [
 ];
 
 const TravelerGuilds: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">Traveler's Guilds</h1>
-      <p className="text-center text-gray-500 mb-6">Join groups of like-minded explorers.</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_traveler_s_guilds_537')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_join_groups_of_like__536')}</p>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {mockGuilds.map((guild) => (
           <Card key={guild.id} className="flex flex-col">
             <CardHeader>
               <CardTitle>{guild.name}</CardTitle>
-              <p className="text-sm text-gray-500">{guild.memberCount.toLocaleString()} Members</p>
+              <p className="text-sm text-gray-500">{guild.memberCount.toLocaleString()} {t('auto.auto_members_535')}</p>
             </CardHeader>
             <CardContent className="flex-grow">
               <p className="text-sm mb-4">{guild.description}</p>
@@ -67,10 +69,10 @@ const TravelerGuilds: React.FC = () => {
                   <Badge key={index} variant="secondary">{tag}</Badge>
                 ))}
               </div>
-              <p className="text-xs text-gray-400 italic">Latest Activity: {guild.recentActivity}</p>
+              <p className="text-xs text-gray-400 italic">{t('auto.auto_latest_activity__534')} {guild.recentActivity}</p>
             </CardContent>
             <CardFooter>
-              <Button className="w-full">Join Guild</Button>
+              <Button className="w-full">{t('auto.auto_join_guild_533')}</Button>
             </CardFooter>
           </Card>
         ))}

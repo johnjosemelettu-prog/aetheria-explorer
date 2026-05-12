@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 // Placeholder for a transit option
 interface TransitOption {
@@ -11,6 +12,7 @@ interface TransitOption {
 }
 
 const HyperLocalLogistics: React.FC = () => {
+    const { t } = useTranslation();
   // Mock data for a specific region (e.g., a coastal town)
   const transitOptions: TransitOption[] = [
     {
@@ -45,8 +47,8 @@ const HyperLocalLogistics: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Hyper-Local Logistics</h2>
-      <p className="mb-6 text-gray-600">Your guide to last-mile transit, ignored by global platforms.</p>
+      <h2 className="text-2xl font-bold mb-4">{t('auto.auto_hyper_local_logistic_248')}</h2>
+      <p className="mb-6 text-gray-600">{t('auto.auto_your_guide_to_last_m_247')}</p>
 
       <div className="space-y-4">
         {transitOptions.map(option => (
@@ -57,10 +59,10 @@ const HyperLocalLogistics: React.FC = () => {
             </div>
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-sm">To: <strong>{option.destination}</strong></p>
+                <p className="text-sm">{t('auto.auto_to__246')} <strong>{option.destination}</strong></p>
               </div>
               <div className="text-right">
-                <p className="text-sm">Next Arrival:</p>
+                <p className="text-sm">{t('auto.auto_next_arrival__245')}</p>
                 <p className="font-bold text-green-600 text-lg">{option.nextArrival}</p>
               </div>
             </div>

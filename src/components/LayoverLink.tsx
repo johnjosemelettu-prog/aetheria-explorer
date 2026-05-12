@@ -5,6 +5,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import { Badge } from './ui/badge';
+import { useTranslation } from "react-i18next";
 
 interface Post {
   id: string;
@@ -43,6 +44,7 @@ const mockPosts: Post[] = [
 ];
 
 const LayoverLink: React.FC = () => {
+    const { t } = useTranslation();
   const [posts, setPosts] = useState(mockPosts);
   const [newPost, setNewPost] = useState('');
 
@@ -63,12 +65,12 @@ const LayoverLink: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">Layover Link</h1>
-      <p className="text-center text-gray-500 mb-6">Connect with fellow travelers during your layover at JFK.</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_layover_link_286')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_connect_with_fellow__285')}</p>
       
       <Card className="max-w-2xl mx-auto">
         <CardHeader>
-          <CardTitle>JFK - Terminal 4 Community Board</CardTitle>
+          <CardTitle>{t('auto.auto_jfk___terminal_4_com_284')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -83,7 +85,7 @@ const LayoverLink: React.FC = () => {
                     <p className="font-bold">{post.userName}</p>
                     <p className="text-xs text-gray-500">{post.timestamp}</p>
                   </div>
-                  <p className="text-sm">To: <Badge variant="outline">{post.destination}</Badge></p>
+                  <p className="text-sm">{t('auto.auto_to__283')} <Badge variant="outline">{post.destination}</Badge></p>
                   <p className="mt-2">{post.message}</p>
                 </div>
               </div>
@@ -94,9 +96,9 @@ const LayoverLink: React.FC = () => {
             <Input 
                 value={newPost}
                 onChange={(e) => setNewPost(e.target.value)}
-                placeholder="Share your status or ask a question..."
+                placeholder={t('auto.auto_share_your_status_or_282')}
             />
-          <Button onClick={handlePost}>Post</Button>
+          <Button onClick={handlePost}>{t('auto.auto_post_281')}</Button>
         </CardFooter>
       </Card>
     </div>

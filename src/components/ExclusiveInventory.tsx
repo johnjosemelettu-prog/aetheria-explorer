@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
+import { useTranslation } from "react-i18next";
 
 interface ExclusiveDeal {
   id: string;
@@ -36,15 +37,16 @@ const mockDeals: ExclusiveDeal[] = [
     type: 'Off-Menu',
     title: 'After-Hours Louvre Tour',
     location: 'Paris, France',
-    description: 'Join a private, 2-hour guided tour of the Louvre's main exhibits after it has closed to the public. Limited to 10 members.',
+    description: "Join a private, 2-hour guided tour of the Louvre's main exhibits after it has closed to the public. Limited to 10 members.",
   },
 ];
 
 const ExclusiveInventory: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">The Black Market</h1>
-      <p className="text-center text-gray-500 mb-6">Immerse yourself completely in the locale. We unlock authentic paths that remain invisible to ordinary tourists.</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_the_black_market_207')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_immerse_yourself_com_206')}</p>
       <div className="grid gap-6 md:grid-cols-2">
         {mockDeals.map((deal) => (
           <Card key={deal.id} className="flex flex-col">
@@ -61,9 +63,9 @@ const ExclusiveInventory: React.FC = () => {
             <CardFooter className="flex justify-between items-center">
               <div>
                 {deal.price && <p className="font-bold text-green-600">{deal.price}</p>}
-                {deal.expires && <p className="text-xs text-red-500">Expires: {deal.expires}</p>}
+                {deal.expires && <p className="text-xs text-red-500">{t('auto.auto_expires__205')} {deal.expires}</p>}
               </div>
-              <Button>Claim Offer</Button>
+              <Button>{t('auto.auto_claim_offer_204')}</Button>
             </CardFooter>
           </Card>
         ))}

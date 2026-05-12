@@ -185,6 +185,19 @@ export default function Navbar({ user }: NavbarProps) {
       ]
     },
     {
+      title: 'Loyalty & Sovereign Clubs',
+      initiallyOpen: true,
+      items: [
+        { name: 'Centralized Global Club', icon: Award, path: '/global-club' },
+        { name: 'Regional Hubs Strategy', icon: Users, path: '/regional-hubs' },
+        { name: 'Event Foundry', icon: Hammer, path: '/event-foundry' },
+        { name: 'Advanced Ticketing', icon: Ticket, path: '/advanced-ticketing' },
+        { name: 'Hyper-Region Sub-Clubs', icon: MapIcon, path: '/hyper-region-sub-clubs' },
+        { name: 'Lighthouse Beacon', icon: Radio, path: '/lighthouse-beacon' },
+        { name: 'Gamified Event Tiers', icon: Star, path: '/gamified-event-tiers' },
+      ]
+    },
+    {
       title: t('menu.sections.AI & Planning'),
       items: [
         { name: t('menu.items.Scenario Planner'), icon: Brain, path: '/scenario-planner' },

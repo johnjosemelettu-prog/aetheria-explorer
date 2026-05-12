@@ -5,6 +5,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 import { Badge } from './ui/badge';
+import { useTranslation } from "react-i18next";
 
 interface Post {
   id: string;
@@ -43,6 +44,7 @@ const mockPosts: Post[] = [
 ];
 
 const LayoverLoungeLedger: React.FC = () => {
+    const { t } = useTranslation();
   const [posts, setPosts] = useState(mockPosts);
   const [newMessage, setNewMessage] = useState('');
 
@@ -63,12 +65,12 @@ const LayoverLoungeLedger: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">Layover Lounge Ledger</h1>
-      <p className="text-center text-gray-500 mb-6">You are at Amsterdam Schiphol (AMS). Connect with club members here.</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_layover_lounge_ledge_292')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_you_are_at_amsterdam_291')}</p>
 
       <Card className="max-w-3xl mx-auto">
         <CardHeader>
-          <CardTitle>AMS Community Board</CardTitle>
+          <CardTitle>{t('auto.auto_ams_community_board_290')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           {posts.map(post => (
@@ -82,7 +84,7 @@ const LayoverLoungeLedger: React.FC = () => {
                   <p className="font-semibold">{post.userName}</p>
                   <p className="text-xs text-gray-400">{post.timestamp}</p>
                 </div>
-                <p className="text-sm">Flight to: <Badge variant="outline">{post.flightTo}</Badge></p>
+                <p className="text-sm">{t('auto.auto_flight_to__289')} <Badge variant="outline">{post.flightTo}</Badge></p>
                 <p className="mt-2 text-gray-700">{post.message}</p>
               </div>
             </div>
@@ -92,9 +94,9 @@ const LayoverLoungeLedger: React.FC = () => {
           <Input
             value={newMessage}
             onChange={e => setNewMessage(e.target.value)}
-            placeholder="Share an update or ask a question..."
+            placeholder={t('auto.auto_share_an_update_or_a_288')}
           />
-          <Button onClick={handlePost}>Post</Button>
+          <Button onClick={handlePost}>{t('auto.auto_post_287')}</Button>
         </CardFooter>
       </Card>
     </div>

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 // Placeholder for a currency balance
 interface CurrencyBalance {
@@ -16,6 +17,7 @@ interface Transaction {
 }
 
 const CurrencyNeutrality: React.FC = () => {
+    const { t } = useTranslation();
   // Mock data
   const balances: CurrencyBalance[] = [
     { currency: 'USD', amount: 1250.75 },
@@ -31,11 +33,11 @@ const CurrencyNeutrality: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Currency Neutrality Wallet</h2>
+      <h2 className="text-2xl font-bold mb-4">{t('auto.auto_currency_neutrality__166')}</h2>
       
       {/* Balances Section */}
       <div className="mb-8">
-        <h3 className="text-xl font-semibold mb-2">My Balances</h3>
+        <h3 className="text-xl font-semibold mb-2">{t('auto.auto_my_balances_165')}</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {balances.map(balance => (
             <div key={balance.currency} className="border p-4 rounded-lg bg-gray-50">
@@ -45,14 +47,14 @@ const CurrencyNeutrality: React.FC = () => {
           ))}
         </div>
         <div className="mt-4 flex space-x-2">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md">Add Funds</button>
-          <button className="bg-gray-200 px-4 py-2 rounded-md">Convert</button>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-md">{t('auto.auto_add_funds_164')}</button>
+          <button className="bg-gray-200 px-4 py-2 rounded-md">{t('auto.auto_convert_163')}</button>
         </div>
       </div>
 
       {/* Transactions Section */}
       <div>
-        <h3 className="text-xl font-semibold mb-2">Recent Transactions</h3>
+        <h3 className="text-xl font-semibold mb-2">{t('auto.auto_recent_transactions_162')}</h3>
         <div className="space-y-2">
           {transactions.map(tx => (
             <div key={tx.id} className="border p-3 rounded-lg flex justify-between items-center">
@@ -68,7 +70,7 @@ const CurrencyNeutrality: React.FC = () => {
 
       {/* Wise Integration Note */}
       <div className="mt-8 text-center text-sm text-gray-500">
-        <p>Powered by Wise. The app automatically selects the most favorable currency for your transactions.</p>
+        <p>{t('auto.auto_powered_by_wise__the_161')}</p>
       </div>
     </div>
   );

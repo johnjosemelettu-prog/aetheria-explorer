@@ -16,8 +16,8 @@ const recentTransactions = [
 const PartnerFinancialsDashboard: React.FC = () => (
   <div className="glass rounded-2xl p-6 space-y-6">
     <div>
-      <h2 className="text-lg font-bold">""Financials""</h2>
-      <p className="text-sm text-foreground/50">""Your earnings & performance.""</p>
+      <h2 className="text-lg font-bold">{t('auto.auto___financials___545')}</h2>
+      <p className="text-sm text-foreground/50">{t('auto.auto___your_earnings___pe_544')}</p>
     </div>
     <div className="grid grid-cols-3 gap-3 text-center">
       {[
@@ -42,7 +42,7 @@ const PartnerFinancialsDashboard: React.FC = () => (
       </ResponsiveContainer>
     </div>
     <div>
-      <h4 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">""Recent Transactions""</h4>
+      <h4 className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-3">{t('auto.auto___recent_transaction_543')}</h4>
       <div className="space-y-2">
         {recentTransactions.map(t => (
           <div key={t.id} className="flex items-center justify-between text-sm bg-white/[0.03] rounded-lg px-3 py-2">

@@ -5,7 +5,7 @@ export interface UserProfile {
   photoURL?: string;
   bio?: string;
   location?: string;
-  role: 'explorer' | 'admin' | 'partner';
+  role: 'explorer' | 'admin' | 'partner' | 'support';
   vibe?: string;
   bodyMeasurements?: BodyMeasurements;
   preferences?: TravelPreferences;

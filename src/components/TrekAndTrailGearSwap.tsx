@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
+import { useTranslation } from "react-i18next";
 
 interface GearItem {
   id: string;
@@ -54,10 +55,11 @@ const mockGear: GearItem[] = [
 ];
 
 const TrekAndTrailGearSwap: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">Trek & Trail Gear Swap</h1>
-      <p className="text-center text-gray-500 mb-6">Rent specialized gear from fellow members or local shops.</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_trek___trail_gear_sw_542')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_rent_specialized_gea_541')}</p>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {mockGear.map((item) => (
           <Card key={item.id} className="flex flex-col">
@@ -72,11 +74,11 @@ const TrekAndTrailGearSwap: React.FC = () => {
               <p className="text-sm">{item.description}</p>
             </CardContent>
             <CardFooter className="flex-col items-start">
-                 <p className="text-xs text-gray-500 mb-2">Listed by: {item.listedBy}</p>
+                 <p className="text-xs text-gray-500 mb-2">{t('auto.auto_listed_by__540')} {item.listedBy}</p>
                  <p className="text-lg font-bold mb-4">{item.rentalPrice}</p>
                 <div className="w-full flex gap-2">
-                    <Button className="flex-grow">Rent Now</Button>
-                    <Button variant="outline" className="flex-grow">Propose Swap</Button>
+                    <Button className="flex-grow">{t('auto.auto_rent_now_539')}</Button>
+                    <Button variant="outline" className="flex-grow">{t('auto.auto_propose_swap_538')}</Button>
                 </div>
             </CardFooter>
           </Card>

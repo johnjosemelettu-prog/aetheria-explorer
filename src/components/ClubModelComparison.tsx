@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from './ui/card';
+import { useTranslation } from "react-i18next";
 
 const comparisonData = [
   {
@@ -26,21 +27,22 @@ const comparisonData = [
 ];
 
 const ClubModelComparison: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
         <Card className="w-full max-w-4xl mx-auto">
             <CardHeader className="text-center">
-                <CardTitle>Our Club Philosophy</CardTitle>
-                <CardDescription>We focus on depth over breadth, championing a region-wise approach to travel that unlocks authentic, high-intensity local experiences.</CardDescription>
+                <CardTitle>{t('auto.auto_our_club_philosophy_154')}</CardTitle>
+                <CardDescription>{t('auto.auto_we_focus_on_depth_ov_153')}</CardDescription>
             </CardHeader>
             <CardContent>
                 <div className="overflow-x-auto">
                     <table className="w-full text-sm text-left">
                         <thead className="bg-gray-100 dark:bg-gray-800">
                             <tr>
-                                <th className="p-4">Feature</th>
-                                <th className="p-4">Country-Wise Focus</th>
-                                <th className="p-4 font-bold text-blue-600">Region-Wise Focus (Our Way)</th>
+                                <th className="p-4">{t('auto.auto_feature_152')}</th>
+                                <th className="p-4">{t('auto.auto_country_wise_focus_151')}</th>
+                                <th className="p-4 font-bold text-blue-600">{t('auto.auto_region_wise_focus__o_150')}</th>
                             </tr>
                         </thead>
                         <tbody>

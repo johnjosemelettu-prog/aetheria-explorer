@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card'
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Progress } from './ui/progress';
+import { useTranslation } from "react-i18next";
 
 interface Proposal {
   id: string;
@@ -44,31 +45,32 @@ const mockProposals: Proposal[] = [
 ];
 
 const AetheriaDAO: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
-       <h1 className="text-3xl font-bold mb-2 text-center">Aetheria DAO</h1>
-       <p className="text-center text-gray-500 mb-6">Governing the future of travel, together.</p>
+       <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_aetheria_dao_58')}</h1>
+       <p className="text-center text-gray-500 mb-6">{t('auto.auto_governing_the_future_57')}</p>
       <Card className="mb-6">
         <CardHeader>
-            <CardTitle>DAO Treasury & Stats</CardTitle>
+            <CardTitle>{t('auto.auto_dao_treasury___stats_56')}</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4 md:grid-cols-3">
             <div className="flex flex-col items-center p-4 bg-gray-100 rounded-lg">
-                <h3 className="text-sm font-medium text-gray-500">Treasury Value</h3>
+                <h3 className="text-sm font-medium text-gray-500">{t('auto.auto_treasury_value_55')}</h3>
                 <p className="text-2xl font-bold">${mockDaoStatus.treasury.toLocaleString()}</p>
             </div>
             <div className="flex flex-col items-center p-4 bg-gray-100 rounded-lg">
-                <h3 className="text-sm font-medium text-gray-500">Members</h3>
+                <h3 className="text-sm font-medium text-gray-500">{t('auto.auto_members_54')}</h3>
                 <p className="text-2xl font-bold">{mockDaoStatus.members.toLocaleString()}</p>
             </div>
              <div className="flex flex-col items-center p-4 bg-gray-100 rounded-lg">
-                <h3 className="text-sm font-medium text-gray-500">Active Proposals</h3>
+                <h3 className="text-sm font-medium text-gray-500">{t('auto.auto_active_proposals_53')}</h3>
                 <p className="text-2xl font-bold">{mockDaoStatus.activeProposalsCount}</p>
             </div>
         </CardContent>
       </Card>
 
-      <h2 className="text-2xl font-bold mb-4 text-center">Community Proposals</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">{t('auto.auto_community_proposals_52')}</h2>
       <div className="grid gap-6">
         {mockProposals.map((proposal) => {
           const totalVotes = proposal.votesFor + proposal.votesAgainst;
@@ -86,19 +88,19 @@ const AetheriaDAO: React.FC = () => {
                 {proposal.status === 'Active' && (
                     <div>
                         <div className="flex justify-between text-sm mb-1">
-                            <span>For: {proposal.votesFor.toLocaleString()}</span>
-                            <span>Against: {proposal.votesAgainst.toLocaleString()}</span>
+                            <span>{t('auto.auto_for__51')} {proposal.votesFor.toLocaleString()}</span>
+                            <span>{t('auto.auto_against__50')} {proposal.votesAgainst.toLocaleString()}</span>
                         </div>
                         <Progress value={forPercentage} />
                     </div>
                 )}
                 {proposal.status !== 'Active' && (
-                    <p className="text-sm text-gray-500">Voting has ended. Final tally: {proposal.votesFor.toLocaleString()} For, {proposal.votesAgainst.toLocaleString()} Against.</p>
+                    <p className="text-sm text-gray-500">{t('auto.auto_voting_has_ended__fi_49')} {proposal.votesFor.toLocaleString()} {t('auto.auto_for__48')} {proposal.votesAgainst.toLocaleString()} {t('auto.auto_against__47')}</p>
                 )}
               </CardContent>
               <CardFooter className="flex justify-end gap-2">
-                <Button variant="outline">Read Discussion</Button>
-                {proposal.status === 'Active' && <Button>Cast Vote</Button>}
+                <Button variant="outline">{t('auto.auto_read_discussion_46')}</Button>
+                {proposal.status === 'Active' && <Button>{t('auto.auto_cast_vote_45')}</Button>}
               </CardFooter>
             </Card>
           );

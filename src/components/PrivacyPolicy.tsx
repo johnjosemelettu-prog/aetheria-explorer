@@ -22,89 +22,89 @@ const sections = [
 const content: Record<string, React.ReactNode> = {
   collection: (
     <div className="space-y-4">
-      <p>""To provide and improve Aetheria Explorer, we collect information you provide directly, information from your use of our services, and information from third-party sources.""</p>
+      <p>{t('auto.auto___to_provide_and_imp_409')}</p>
       <ul className="space-y-2 pl-4 border-l-2 border-primary/30">
-        <li><strong className="text-white">""Account Information:""</strong> ""Name, email address, password, and optional profile details when you create an account.""</li>
-        <li><strong className="text-white">""Travel Plans & Itineraries:""</strong> ""Destinations, preferences, bookings, and activities you plan or complete within the app.""</li>
-        <li><strong className="text-white">""User-Generated Content:""</strong> ""Reviews, photos, journal entries, and community posts you create.""</li>
-        <li><strong className="text-white">""Location Data:""</strong> ""With your explicit consent, real-time and historical location data to power AR Wayfinding, local recommendations, and safety features.""</li>
-        <li><strong className="text-white">""Usage Information:""</strong> ""App interactions, features used, session duration, crash reports, and device identifiers.""</li>
-        <li><strong className="text-white">""Payment Information:""</strong> ""Processed securely via our payment providers; we do not store full card numbers.""</li>
-        <li><strong className="text-white">""AI Interaction Data:""</strong> ""Prompts, preferences, and feedback used to improve AI-generated itineraries and recommendations.""</li>
+        <li><strong className="text-white">{t('auto.auto___account_informatio_408')}</strong> {t('auto.auto___name__email_addres_407')}</li>
+        <li><strong className="text-white">{t('auto.auto___travel_plans___iti_406')}</strong> {t('auto.auto___destinations__pref_405')}</li>
+        <li><strong className="text-white">{t('auto.auto___user_generated_con_404')}</strong> {t('auto.auto___reviews__photos__j_403')}</li>
+        <li><strong className="text-white">{t('auto.auto___location_data____402')}</strong> {t('auto.auto___with_your_explicit_401')}</li>
+        <li><strong className="text-white">{t('auto.auto___usage_information__400')}</strong> {t('auto.auto___app_interactions___399')}</li>
+        <li><strong className="text-white">{t('auto.auto___payment_informatio_398')}</strong> {t('auto.auto___processed_securely_397')}</li>
+        <li><strong className="text-white">{t('auto.auto___ai_interaction_dat_396')}</strong> {t('auto.auto___prompts__preferenc_395')}</li>
       </ul>
     </div>
   ),
   use: (
     <div className="space-y-4">
-      <p>""We use your information for the following purposes:""</p>
+      <p>{t('auto.auto___we_use_your_inform_394')}</p>
       <ul className="space-y-2 pl-4 border-l-2 border-primary/30">
-        <li>""To provide, maintain, and improve our platform and AI services.""</li>
-        <li>""To personalise your travel experience with tailored recommendations and itineraries.""</li>
-        <li>""To process transactions and send confirmations, invoices, and receipts.""</li>
-        <li>""To communicate updates, promotions, safety alerts, and product news.""</li>
-        <li>""To power safety and emergency features including the Safety Radar and Emergency Contact Access.""</li>
-        <li>""To detect, prevent, and investigate fraud, abuse, and security incidents.""</li>
-        <li>""To train and improve our AI models (always with appropriate anonymisation).""</li>
-        <li>""To comply with applicable legal obligations.""</li>
+        <li>{t('auto.auto___to_provide__mainta_393')}</li>
+        <li>{t('auto.auto___to_personalise_you_392')}</li>
+        <li>{t('auto.auto___to_process_transac_391')}</li>
+        <li>{t('auto.auto___to_communicate_upd_390')}</li>
+        <li>{t('auto.auto___to_power_safety_an_389')}</li>
+        <li>{t('auto.auto___to_detect__prevent_388')}</li>
+        <li>{t('auto.auto___to_train_and_impro_387')}</li>
+        <li>{t('auto.auto___to_comply_with_app_386')}</li>
       </ul>
     </div>
   ),
   sharing: (
     <div className="space-y-4">
-      <p>""We"" <strong className="text-white">""do not sell your personal data""</strong>"". We may share your information in the following limited circumstances:""</p>
+      <p>{t('auto.auto___we___385')} <strong className="text-white">{t('auto.auto___do_not_sell_your_p_384')}</strong>{t('auto.auto_____we_may_share_you_383')}</p>
       <ul className="space-y-2 pl-4 border-l-2 border-primary/30">
-        <li><strong className="text-white">""Service Providers:""</strong> ""Trusted vendors that process data on our behalf (payment processors, cloud infrastructure, analytics, email delivery).""</li>
-        <li><strong className="text-white">""Partners:""</strong> ""When you book a service through a verified Aetheria partner, necessary booking details are shared with that partner to fulfil your reservation.""</li>
-        <li><strong className="text-white">""Legal Requirements:""</strong> ""When required by law, court order, or governmental authority.""</li>
-        <li><strong className="text-white">""Safety:""</strong> ""To protect the rights, property, or safety of Aetheria, our users, or the public.""</li>
-        <li><strong className="text-white">""Business Transfers:""</strong> ""In connection with a merger, acquisition, or sale of assets (you will be notified in advance).""</li>
+        <li><strong className="text-white">{t('auto.auto___service_providers__382')}</strong> {t('auto.auto___trusted_vendors_th_381')}</li>
+        <li><strong className="text-white">{t('auto.auto___partners____380')}</strong> {t('auto.auto___when_you_book_a_se_379')}</li>
+        <li><strong className="text-white">{t('auto.auto___legal_requirements_378')}</strong> {t('auto.auto___when_required_by_l_377')}</li>
+        <li><strong className="text-white">{t('auto.auto___safety____376')}</strong> {t('auto.auto___to_protect_the_rig_375')}</li>
+        <li><strong className="text-white">{t('auto.auto___business_transfers_374')}</strong> {t('auto.auto___in_connection_with_373')}</li>
       </ul>
     </div>
   ),
   transfers: (
-    <p>""Aetheria Explorer operates globally. Your information may be stored and processed in countries outside your own, including Australia, the United States, Japan, and the European Union. We implement appropriate safeguards — including Standard Contractual Clauses and data processing agreements — to ensure your data is protected regardless of where it is processed, in accordance with applicable data protection laws including the GDPR and Australian Privacy Act.""</p>
+    <p>{t('auto.auto___aetheria_explorer__372')}</p>
   ),
   rights: (
     <div className="space-y-4">
-      <p>""Depending on your jurisdiction, you may have the following rights regarding your personal data:""</p>
+      <p>{t('auto.auto___depending_on_your__371')}</p>
       <ul className="space-y-2 pl-4 border-l-2 border-primary/30">
-        <li><strong className="text-white">""Access:""</strong> ""Request a copy of the personal data we hold about you.""</li>
-        <li><strong className="text-white">""Correction:""</strong> ""Request that inaccurate or incomplete data be corrected.""</li>
-        <li><strong className="text-white">""Deletion:""</strong> ""Request erasure of your data ("right to be forgotten"), subject to legal retention obligations.""</li>
-        <li><strong className="text-white">""Portability:""</strong> ""Receive your data in a structured, machine-readable format.""</li>
-        <li><strong className="text-white">""Objection / Restriction:""</strong> ""Object to or restrict certain processing activities.""</li>
-        <li><strong className="text-white">""Withdraw Consent:""</strong> ""Withdraw consent at any time where processing is based on consent.""</li>
+        <li><strong className="text-white">{t('auto.auto___access____370')}</strong> {t('auto.auto___request_a_copy_of__369')}</li>
+        <li><strong className="text-white">{t('auto.auto___correction____368')}</strong> {t('auto.auto___request_that_inacc_367')}</li>
+        <li><strong className="text-white">{t('auto.auto___deletion____366')}</strong> {t('auto.auto___request_erasure_of_365')}</li>
+        <li><strong className="text-white">{t('auto.auto___portability____364')}</strong> {t('auto.auto___receive_your_data__363')}</li>
+        <li><strong className="text-white">{t('auto.auto___objection___restri_362')}</strong> {t('auto.auto___object_to_or_restr_361')}</li>
+        <li><strong className="text-white">{t('auto.auto___withdraw_consent___360')}</strong> {t('auto.auto___withdraw_consent_a_359')}</li>
       </ul>
-      <p>""To exercise any of these rights, contact us at"" <a href="mailto:privacy@aetheria-explorer.com" className="text-primary hover:underline">""privacy@aetheria-explorer.com""</a>"". We will respond within 30 days.""</p>
+      <p>{t('auto.auto___to_exercise_any_of_358')} <a href="mailto:privacy@aetheria-explorer.com" className="text-primary hover:underline">{t('auto.auto___privacy_aetheria_e_357')}</a>{t('auto.auto_____we_will_respond__356')}</p>
     </div>
   ),
   security: (
-    <p>""We implement industry-standard security measures including AES-256 encryption at rest, TLS 1.3 in transit, multi-factor authentication, regular penetration testing, and access controls. Firebase Authentication and Firestore Security Rules enforce least-privilege access. However, no system is completely secure, and we encourage you to use a strong, unique password and enable two-factor authentication on your account.""</p>
+    <p>{t('auto.auto___we_implement_indus_355')}</p>
   ),
   cookies: (
     <div className="space-y-4">
-      <p>""We use cookies and similar tracking technologies to operate our services, remember your preferences, and understand usage patterns. You may control cookie preferences through your browser settings. Disabling certain cookies may affect functionality.""</p>
+      <p>{t('auto.auto___we_use_cookies_and_354')}</p>
       <ul className="space-y-2 pl-4 border-l-2 border-primary/30">
-        <li><strong className="text-white">""Essential Cookies:""</strong> ""Required for core functionality (authentication, security).""</li>
-        <li><strong className="text-white">""Analytics Cookies:""</strong> ""Help us understand how users interact with the app (Google Analytics / Firebase Analytics).""</li>
-        <li><strong className="text-white">""Preference Cookies:""</strong> ""Remember your language, theme, and other settings.""</li>
+        <li><strong className="text-white">{t('auto.auto___essential_cookies__353')}</strong> {t('auto.auto___required_for_core__352')}</li>
+        <li><strong className="text-white">{t('auto.auto___analytics_cookies__351')}</strong> {t('auto.auto___help_us_understand_350')}</li>
+        <li><strong className="text-white">{t('auto.auto___preference_cookies_349')}</strong> {t('auto.auto___remember_your_lang_348')}</li>
       </ul>
     </div>
   ),
   children: (
-    <p>""Aetheria Explorer is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us immediately at"" <a href="mailto:privacy@aetheria-explorer.com" className="text-primary hover:underline">""privacy@aetheria-explorer.com""</a> ""and we will delete such information promptly.""</p>
+    <p>{t('auto.auto___aetheria_explorer__347')} <a href="mailto:privacy@aetheria-explorer.com" className="text-primary hover:underline">{t('auto.auto___privacy_aetheria_e_346')}</a> {t('auto.auto___and_we_will_delete_345')}</p>
   ),
   changes: (
-    <p>""We may update this Privacy Policy from time to time. When we make material changes, we will notify you through the app and/or by email at least 14 days before the changes take effect. Continued use of the service after the effective date constitutes acceptance of the revised policy. We encourage you to review this page periodically.""</p>
+    <p>{t('auto.auto___we_may_update_this_344')}</p>
   ),
   contact: (
     <div className="space-y-3">
-      <p>""If you have questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact our Privacy Team:""</p>
+      <p>{t('auto.auto___if_you_have_questi_343')}</p>
       <div className="glass rounded-xl p-4 space-y-2 border border-white/10">
-        <p><strong className="text-white">""Email:""</strong> <a href="mailto:privacy@aetheria-explorer.com" className="text-primary hover:underline">""privacy@aetheria-explorer.com""</a></p>
-        <p><strong className="text-white">""Data Controller:""</strong> ""Aetheria Explorer Pty Ltd""</p>
-        <p><strong className="text-white">""Address:""</strong> ""100 Synthesis Way, Neo-Tokyo, Japan 150-0001""</p>
-        <p><strong className="text-white">""Response Time:""</strong> ""Within 30 days""</p>
+        <p><strong className="text-white">{t('auto.auto___email____342')}</strong> <a href="mailto:privacy@aetheria-explorer.com" className="text-primary hover:underline">{t('auto.auto___privacy_aetheria_e_341')}</a></p>
+        <p><strong className="text-white">{t('auto.auto___data_controller____340')}</strong> {t('auto.auto___aetheria_explorer__339')}</p>
+        <p><strong className="text-white">{t('auto.auto___address____338')}</strong> {t('auto.auto___100_synthesis_way__337')}</p>
+        <p><strong className="text-white">{t('auto.auto___response_time____336')}</strong> {t('auto.auto___within_30_days___335')}</p>
       </div>
     </div>
   ),

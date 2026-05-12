@@ -17,8 +17,8 @@ const Icon = ({ type }: { type: string }) => {
 
 const VibeFeed: React.FC = () => (
   <div className="glass rounded-2xl p-6">
-    <h2 className="text-lg font-bold mb-1">""Vibe Feed""</h2>
-    <p className="text-sm text-foreground/50 mb-4">""Latest user sentiment & feedback.""</p>
+    <h2 className="text-lg font-bold mb-1">{t('auto.auto___vibe_feed___550')}</h2>
+    <p className="text-sm text-foreground/50 mb-4">{t('auto.auto___latest_user_sentim_549')}</p>
     <div className="space-y-3">
       {mockVibes.map(v => (
         <div key={v.id} className="flex items-start gap-3 bg-white/[0.03] rounded-xl p-3">

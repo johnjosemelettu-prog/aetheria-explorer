@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
+import { useTranslation } from "react-i18next";
 
 interface Bounty {
   id: string;
@@ -49,10 +50,11 @@ const mockBounties: Bounty[] = [
 ];
 
 const BountyBoard: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">The Bounty Board</h1>
-      <p className="text-center text-gray-500 mb-6">Complete challenges to earn XP and unique rewards.</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_the_bounty_board_85')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_complete_challenges__84')}</p>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {mockBounties.map((bounty) => (
           <Card key={bounty.id} className="flex flex-col">
@@ -66,14 +68,14 @@ const BountyBoard: React.FC = () => {
             <CardContent className="flex-grow">
               <p className="text-sm mb-4">{bounty.description}</p>
               <div>
-                <p className="text-sm font-semibold">Reward:</p>
+                <p className="text-sm font-semibold">{t('auto.auto_reward__83')}</p>
                 <p className="text-sm text-green-600">{bounty.reward}</p>
               </div>
             </CardContent>
             <CardFooter>
-                {bounty.status === 'New' && <Button className="w-full">Accept Bounty</Button>}
-                {bounty.status === 'In Progress' && <Button className="w-full" variant="secondary">Submit Proof</Button>}
-                {bounty.status === 'Completed' && <Button className="w-full" disabled>Completed</Button>}
+                {bounty.status === 'New' && <Button className="w-full">{t('auto.auto_accept_bounty_82')}</Button>}
+                {bounty.status === 'In Progress' && <Button className="w-full" variant="secondary">{t('auto.auto_submit_proof_81')}</Button>}
+                {bounty.status === 'Completed' && <Button className="w-full" disabled>{t('auto.auto_completed_80')}</Button>}
             </CardFooter>
           </Card>
         ))}

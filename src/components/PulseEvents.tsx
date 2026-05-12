@@ -2,35 +2,37 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 import { Button } from './ui/button';
+import { useTranslation } from "react-i18next";
 
 const PulseEvents: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">IRL Co-Op Lobbies</h1>
-      <p className="text-center text-gray-500 mb-6">Broadcast a hyper-local side quest. Match with nearby explorers, party up for 30 minutes, complete the objective, and disappear into the night. No strings attached.</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_irl_co_op_lobbies_419')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_broadcast_a_hyper_lo_418')}</p>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Underground Street Art Hunt</CardTitle>
-            <p className="text-sm text-gray-500">Shibuya • 3-5 Players</p>
+            <CardTitle>{t('auto.auto_underground_street_a_417')}</CardTitle>
+            <p className="text-sm text-gray-500">{t('auto.auto_shibuya___3_5_player_416')}</p>
           </CardHeader>
           <CardContent>
-            <p>Broadcasting to local grid...</p>
+            <p>{t('auto.auto_broadcasting_to_loca_415')}</p>
           </CardContent>
           <CardFooter>
-            <Button>Force Reconnect</Button>
+            <Button>{t('auto.auto_force_reconnect_414')}</Button>
           </CardFooter>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Midnight Boba Run</CardTitle>
-            <p className="text-sm text-gray-500">Harajuku District • 2-4 Players</p>
+            <CardTitle>{t('auto.auto_midnight_boba_run_413')}</CardTitle>
+            <p className="text-sm text-gray-500">{t('auto.auto_harajuku_district____412')}</p>
           </CardHeader>
           <CardContent>
-            <p>Broadcasting to local grid...</p>
+            <p>{t('auto.auto_broadcasting_to_loca_411')}</p>
           </CardContent>
           <CardFooter>
-            <Button>Force Reconnect</Button>
+            <Button>{t('auto.auto_force_reconnect_410')}</Button>
           </CardFooter>
         </Card>
       </div>

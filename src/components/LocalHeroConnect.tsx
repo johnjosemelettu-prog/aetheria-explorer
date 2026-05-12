@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
+import { useTranslation } from "react-i18next";
 
 interface LocalHero {
   id: string;
@@ -49,17 +50,18 @@ const mockHeroes: LocalHero[] = [
 ];
 
 const LocalHeroConnect: React.FC = () => {
+    const { t } = useTranslation();
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-2 text-center">Local Heroes</h1>
-      <p className="text-center text-gray-500 mb-6">Connect with verified locals for authentic experiences.</p>
+      <h1 className="text-3xl font-bold mb-2 text-center">{t('auto.auto_local_heroes_334')}</h1>
+      <p className="text-center text-gray-500 mb-6">{t('auto.auto_connect_with_verifie_333')}</p>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {mockHeroes.map((hero) => (
           <Card key={hero.id} className="flex flex-col">
             <CardHeader>
               <div className="flex justify-between items-start">
                 <CardTitle>{hero.name}</CardTitle>
-                <Badge variant="secondary">Trust Score: {hero.trustScore}%</Badge>
+                <Badge variant="secondary">{t('auto.auto_trust_score__332')} {hero.trustScore}%</Badge>
               </div>
               <p className="text-sm text-gray-500">{hero.location}</p>
             </CardHeader>
@@ -72,7 +74,7 @@ const LocalHeroConnect: React.FC = () => {
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full">Ask for Introduction</Button>
+              <Button className="w-full">{t('auto.auto_ask_for_introduction_331')}</Button>
             </CardFooter>
           </Card>
         ))}

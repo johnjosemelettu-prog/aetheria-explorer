@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 import { PremiumGate } from './PremiumGate';
+import { useTranslation } from "react-i18next";
 
 // Placeholder for a bounty
 interface Bounty {
@@ -27,6 +28,7 @@ interface ChatMessage {
 const usePremiumStatus = () => ({ isPremium: true, isLoading: false });
 
 const LiveConcierge: React.FC = () => {
+    const { t } = useTranslation();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const { isPremium, isLoading } = usePremiumStatus();
@@ -93,14 +95,14 @@ const LiveConcierge: React.FC = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>{t('auto.auto_loading____330')}</div>;
   }
 
   return (
     <PremiumGate isPremium={isPremium} featureName="Live Concierge">
       <Card className="w-full max-w-2xl mx-auto">
         <CardHeader>
-          <CardTitle>Live Concierge</CardTitle>
+          <CardTitle>{t('auto.auto_live_concierge_329')}</CardTitle>
         </CardHeader>
         <CardContent style={{ height: '400px', overflowY: 'auto' }}>
           <div className="space-y-4">
@@ -112,13 +114,13 @@ const LiveConcierge: React.FC = () => {
                     <div className="mt-2 p-2 bg-gray-100 rounded">
                       <h4 className="font-bold">{msg.bounty.title}</h4>
                       <p>{msg.bounty.description}</p>
-                      <p className="italic">Reward: {msg.bounty.reward}</p>
+                      <p className="italic">{t('auto.auto_reward__328')} {msg.bounty.reward}</p>
                       {!msg.bountyAccepted && (
-                        <Button className="mt-2" onClick={() => handleAcceptBounty(msg.bounty!.id)}>Accept Bounty</Button>
+                        <Button className="mt-2" onClick={() => handleAcceptBounty(msg.bounty!.id)}>{t('auto.auto_accept_bounty_327')}</Button>
                       )}
                     </div>
                   )}
-                  {msg.bountyAccepted && <p className="text-xs text-green-500 mt-1">Bounty Accepted!</p>}
+                  {msg.bountyAccepted && <p className="text-xs text-green-500 mt-1">{t('auto.auto_bounty_accepted__326')}</p>}
                   <p className="text-xs text-right mt-1 opacity-50">{msg.timestamp}</p>
                 </div>
               </div>
@@ -132,10 +134,10 @@ const LiveConcierge: React.FC = () => {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Chat with your concierge..."
+              placeholder={t('auto.auto_chat_with_your_conci_325')}
               className="flex-grow"
             />
-            <Button type="submit" className="ml-2">Send</Button>
+            <Button type="submit" className="ml-2">{t('auto.auto_send_324')}</Button>
           </form>
         </CardFooter>
       </Card>
