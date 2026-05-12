@@ -1098,7 +1098,7 @@ export const analyzeCulinaryHistory = async (imageUrl: string): Promise<any> => 
             { name: "Spices (Cinnamon, Anise, Cloves)", origin: "Eurasia", historicalUsage: "Brought via the Manila Galleons trade route connecting Asia, Mexico, and Spain." }
         ],
         hiddenVendor: {
-            name: "Doña Elena's Unmapped Cocina",
+            name: "Doña Elena\'s Unmapped Cocina",
             distance: "1.2 km",
             technique: "Still grinds cacao manually on a volcanic stone metate.",
             vibe: "Secret courtyard, no menu."
@@ -1184,7 +1184,7 @@ export const fetchAntiTouristLocations = async (location: string): Promise<any> 
             },
             {
                 id: "zn-2",
-                name: "Grandma's Unlicensed Tamale Stand",
+                name: "Grandma\'s Unlicensed Tamale Stand",
                 description: "No Instagram. No Yelp. Just a lady with a cooler under a bridge. Best food in the city.",
                 digitalFootprint: "0%",
                 coordinates: "Under the I-95 Overpass"
@@ -1243,7 +1243,7 @@ export const broadcastSideQuest = async (questType: string): Promise<any> => {
 };
 
 export const triggerLowBatteryProtocol = async (): Promise<any> => {
-    console.log(`User hasn't moved. Initiating Low-Battery Protocol...`);
+    console.log(`User hasn\'t moved. Initiating Low-Battery Protocol...`);
     await new Promise(resolve => setTimeout(resolve, 1500));
     return {
         status: "Active",
@@ -1254,7 +1254,7 @@ export const triggerLowBatteryProtocol = async (): Promise<any> => {
         ],
         lowEffortSuggestions: [
             { type: "Delivery", title: "Max Comfort Noodles", detail: "Highest rated ramen 10 mins away. Unlocking seamless order." },
-            { type: "Audio", title: "Rain & Lo-Fi Playlist", detail: "Acoustic generation matching your room's acoustics." },
+            { type: "Audio", title: "Rain & Lo-Fi Playlist", detail: "Acoustic generation matching your room\'s acoustics." },
             { type: "Location", title: "The Quiet Hill", detail: "A sloped grass patch exactly 3 minutes walk away. 15% sunlight, zero crowds." }
         ]
     };
@@ -1331,3 +1331,79 @@ export const getConservationCirclePosts = async (...args: any[]): Promise<any> =
 export const identifyWildlife = async (...args: any[]): Promise<any> => { return {}; };
 export const findStreetArtSaga = async (...args: any[]): Promise<any> => { return {}; };
 export const getSilentObserverMeditation = async (...args: any[]): Promise<any> => { return {}; };
+export const generateSocialMediaContent = async (itinerary: any): Promise<any> => {
+    console.log(`Generating social media content for itinerary...`);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    return {
+        tiktok: {
+            videoUrl: '/placeholder-tiktok.mp4',
+            caption: 'Living my best life in ' + itinerary.destination,
+            hashtags: ['#travel', '#genz', '#adventure']
+        },
+        instagram: {
+            imageUrl: '/placeholder-instagram.webp',
+            caption: 'Just another day in paradise. ✨',
+            hashtags: ['#wanderlust', '#travelgram', '#vacation']
+        }
+    };
+};
+export const gamifyExploration = async (destination: string): Promise<any> => {
+    console.log(`Gamifying exploration for ${destination}...`);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return {
+        title: `Quest for ${destination}`,
+        quests: [
+            { id: 'q1', title: 'Photo Scavenger Hunt', description: 'Take a photo of a red door, a street cat, and a local landmark.', reward: '100 XP' },
+            { id: 'q2', title: 'Local Food Challenge', description: 'Try a dish you have never heard of.', reward: '150 XP' }
+        ],
+        leaderboard: [
+            { user: 'Digital_Nomad', score: 250 },
+            { user: 'Wanderlust_Pro', score: 100 }
+        ]
+    };
+};
+export const createARFilters = async (destination: string): Promise<any> => {
+    console.log(`Creating AR filters for ${destination}...`);
+    await new Promise(resolve => setTimeout(resolve, 1800));
+    return {
+        filters: [
+            { name: 'City Sparkle', filterUrl: '/ar/city-sparkle.ar' },
+            { name: 'Landmark Glow', filterUrl: '/ar/landmark-glow.ar' }
+        ]
+    };
+};
+export const suggestEcoFriendlyOptions = async (itinerary: any): Promise<any> => {
+    console.log(`Suggesting eco-friendly options for itinerary...`);
+    await new Promise(resolve => setTimeout(resolve, 1600));
+    return {
+        carbonFootprint: {
+            total: '1.2 tons CO2',
+            breakdown: {
+                flights: '0.8 tons',
+                accommodation: '0.2 tons',
+                activities: '0.2 tons'
+            }
+        },
+        recommendations: [
+            { title: 'Use Public Transport', description: 'Reduce your carbon footprint by using the local metro system.'},
+            { title: 'Support Local', description: 'Shop at local markets and eat at family-owned restaurants.' }
+        ]
+    };
+};
+export const planSpontaneousTrip = async (userProfile: any): Promise<any> => {
+    console.log(`Planning spontaneous trip for user...`);
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    return {
+        destination: 'Lisbon, Portugal',
+        flight: {
+            airline: 'TAP Air Portugal',
+            flightNumber: 'TP123',
+            departure: 'Tomorrow 8:00 AM'
+        },
+        accommodation: {
+            name: 'The Adventurous Hostel',
+            type: 'Hostel',
+            bookingUrl: 'https://example.com/booking'
+        }
+    };
+};
