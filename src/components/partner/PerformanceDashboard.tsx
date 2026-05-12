@@ -8,7 +8,9 @@ const bookingData = [
   {day:'Fri',bookings:22},{day:'Sat',bookings:30},{day:'Sun',bookings:25},
 ];
 
-const PerformanceDashboard: React.FC = () => (
+const PerformanceDashboard: React.FC = () => {
+  const { t } = useTranslation();
+  return (
   <div className="space-y-6">
     <h2 className="text-xl font-bold">{t('auto.auto___performance_dashbo_548')}</h2>
     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -53,5 +55,5 @@ const PerformanceDashboard: React.FC = () => (
       ))}
     </div>
   </div>
-);
+)};
 export default PerformanceDashboard;

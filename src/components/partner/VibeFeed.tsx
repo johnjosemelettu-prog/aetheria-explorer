@@ -9,13 +9,14 @@ const mockVibes = [
   { id:'v4', user:'NomadDiana', text:'Heritage Mirror blew my mind. Loved the animation.', ts:'2 days ago', type:'comment' },
 ];
 const Icon = ({ type }: { type: string }) => {
-    const { t } = useTranslation();
   if (type === 'heart') return <Heart className="w-4 h-4 text-red-400 shrink-0"/>;
   if (type === 'comment') return <MessageSquare className="w-4 h-4 text-blue-400 shrink-0"/>;
   return <ThumbsUp className="w-4 h-4 text-green-400 shrink-0"/>;
 };
 
-const VibeFeed: React.FC = () => (
+const VibeFeed: React.FC = () => {
+  const { t } = useTranslation();
+  return (
   <div className="glass rounded-2xl p-6">
     <h2 className="text-lg font-bold mb-1">{t('auto.auto___vibe_feed___550')}</h2>
     <p className="text-sm text-foreground/50 mb-4">{t('auto.auto___latest_user_sentim_549')}</p>
@@ -32,5 +33,5 @@ const VibeFeed: React.FC = () => (
       ))}
     </div>
   </div>
-);
+)};
 export default VibeFeed;

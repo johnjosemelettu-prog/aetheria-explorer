@@ -6,17 +6,21 @@ import {
 } from 'lucide-react';
 import { useTranslation } from "react-i18next";
 
+const PrivacyPolicy: React.FC = () => {
+  const { t } = useTranslation();
+  const [active, setActive] = useState('collection');
+
 const sections = [
-  { id: 'collection', icon: Database, title: '1. Information We Collect' },
-  { id: 'use', icon: Server, title: '2. How We Use Your Information' },
-  { id: 'sharing', icon: Globe, title: '3. Data Sharing & Disclosure' },
-  { id: 'transfers', icon: RefreshCw, title: '4. International Data Transfers' },
-  { id: 'rights', icon: Fingerprint, title: '5. Your Rights & Choices' },
-  { id: 'security', icon: Lock, title: '6. Data Security' },
-  { id: 'cookies', icon: Eye, title: '7. Cookies & Tracking' },
-  { id: 'children', icon: Shield, title: '8. Children\'s Privacy' },
-  { id: 'changes', icon: FileText, title: '9. Changes to This Policy' },
-  { id: 'contact', icon: Mail, title: '10. Contact Us' },
+  { id: 'collection', icon: Database, title: t('auto.auto_information_we_col_2137') },
+  { id: 'use', icon: Server, title: t('auto.auto_how_we_use_your_in_2136') },
+  { id: 'sharing', icon: Globe, title: t('auto.auto_data_sharing___disc_2135') },
+  { id: 'transfers', icon: RefreshCw, title: t('auto.auto_international_data_2134') },
+  { id: 'rights', icon: Fingerprint, title: t('auto.auto_your_rights___choic_2133') },
+  { id: 'security', icon: Lock, title: t('auto.auto_data_security_2132') },
+  { id: 'cookies', icon: Eye, title: t('auto.auto_cookies___tracking_2131') },
+  { id: 'children', icon: Shield, title: t('auto.auto_children_s_privacy_2130') },
+  { id: 'changes', icon: FileText, title: t('auto.auto_changes_to_this_pol_2129') },
+  { id: 'contact', icon: Mail, title: t('auto.auto_contact_us_2128') },
 ];
 
 const content: Record<string, React.ReactNode> = {
@@ -109,11 +113,6 @@ const content: Record<string, React.ReactNode> = {
     </div>
   ),
 };
-
-export default function PrivacyPolicy() {
-    const { t } = useTranslation();
-  const [active, setActive] = useState('collection');
-
   return (
     <div className="min-h-screen bg-background text-foreground pt-24 pb-24 relative overflow-hidden">
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
@@ -182,3 +181,4 @@ export default function PrivacyPolicy() {
     </div>
   );
 }
+export default PrivacyPolicy;

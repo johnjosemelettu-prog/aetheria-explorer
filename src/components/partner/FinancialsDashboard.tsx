@@ -13,7 +13,9 @@ const recentTransactions = [
   { id: 'txn_3', user: 'WandererCharlie', amount: 199.99, service: 'AI Dream Trip' },
 ];
 
-const PartnerFinancialsDashboard: React.FC = () => (
+const PartnerFinancialsDashboard: React.FC = () => {
+  const { t } = useTranslation();
+  return (
   <div className="glass rounded-2xl p-6 space-y-6">
     <div>
       <h2 className="text-lg font-bold">{t('auto.auto___financials___545')}</h2>
@@ -56,5 +58,5 @@ const PartnerFinancialsDashboard: React.FC = () => (
       </div>
     </div>
   </div>
-);
+)};
 export default PartnerFinancialsDashboard;

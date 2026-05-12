@@ -6,18 +6,22 @@ import {
 } from 'lucide-react';
 import { useTranslation } from "react-i18next";
 
+const TermsOfService: React.FC = () => {
+  const { t } = useTranslation();
+  const [active, setActive] = useState('acceptance');
+
 const sections = [
-  { id: 'acceptance', icon: FileText, title: '1. Acceptance of Terms' },
-  { id: 'accounts', icon: User, title: '2. User Accounts' },
-  { id: 'content', icon: BookOpen, title: '3. Content & Conduct' },
-  { id: 'ip', icon: Shield, title: '4. Intellectual Property' },
-  { id: 'payments', icon: CreditCard, title: '5. Payments & Subscriptions' },
-  { id: 'aifeatures', icon: Zap, title: '6. AI Features & Disclaimer' },
-  { id: 'liability', icon: XCircle, title: '7. Limitation of Liability' },
-  { id: 'termination', icon: AlertTriangle, title: '8. Termination' },
-  { id: 'disputes', icon: Gavel, title: '9. Dispute Resolution' },
-  { id: 'governing', icon: Globe, title: '10. Governing Law' },
-  { id: 'changes', icon: Scale, title: '11. Changes to Terms' },
+  { id: 'acceptance', icon: FileText, title: t('auto.auto_acceptance_of_ter_2595') },
+  { id: 'accounts', icon: User, title: t('auto.auto_user_accounts_2594') },
+  { id: 'content', icon: BookOpen, title: t('auto.auto_content___conduct_2593') },
+  { id: 'ip', icon: Shield, title: t('auto.auto_intellectual_proper_2592') },
+  { id: 'payments', icon: CreditCard, title: t('auto.auto_payments___subscrip_2591') },
+  { id: 'aifeatures', icon: Zap, title: t('auto.auto_ai_features___discla_2590') },
+  { id: 'liability', icon: XCircle, title: t('auto.auto_limitation_of_liabi_2589') },
+  { id: 'termination', icon: AlertTriangle, title: t('auto.auto_termination_2588') },
+  { id: 'disputes', icon: Gavel, title: t('auto.auto_dispute_resolution_2587') },
+  { id: 'governing', icon: Globe, title: t('auto.auto_governing_law_2586') },
+  { id: 'changes', icon: Scale, title: t('auto.auto_changes_to_terms_2585') },
 ];
 
 const content: Record<string, React.ReactNode> = {
@@ -104,11 +108,6 @@ const content: Record<string, React.ReactNode> = {
     <p>{t('auto.auto___we_reserve_the_rig_484')}</p>
   ),
 };
-
-export default function TermsOfService() {
-    const { t } = useTranslation();
-  const [active, setActive] = useState('acceptance');
-
   return (
     <div className="min-h-screen bg-background text-foreground pt-24 pb-24 relative overflow-hidden">
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full pointer-events-none" />
@@ -177,3 +176,4 @@ export default function TermsOfService() {
     </div>
   );
 }
+export default TermsOfService;
