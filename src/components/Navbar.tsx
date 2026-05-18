@@ -185,16 +185,16 @@ export default function Navbar({ user }: NavbarProps) {
       ]
     },
     {
-      title: 'Loyalty & Sovereign Clubs',
+      title: t('menu.sections.Loyalty & Sovereign Clubs'),
       initiallyOpen: true,
       items: [
-        { name: 'Centralized Global Club', icon: Award, path: '/global-club' },
-        { name: 'Regional Hubs Strategy', icon: Users, path: '/regional-hubs' },
-        { name: 'Event Foundry', icon: Hammer, path: '/event-foundry' },
-        { name: 'Advanced Ticketing', icon: Ticket, path: '/advanced-ticketing' },
-        { name: 'Hyper-Region Sub-Clubs', icon: MapIcon, path: '/hyper-region-sub-clubs' },
-        { name: 'Lighthouse Beacon', icon: Radio, path: '/lighthouse-beacon' },
-        { name: 'Gamified Event Tiers', icon: Star, path: '/gamified-event-tiers' },
+        { name: t('menu.items.Centralized Global Club'), icon: Award, path: '/global-club' },
+        { name: t('menu.items.Regional Hubs Strategy'), icon: Users, path: '/regional-hubs' },
+        { name: t('menu.items.Event Foundry'), icon: Hammer, path: '/event-foundry' },
+        { name: t('menu.items.Advanced Ticketing'), icon: Ticket, path: '/advanced-ticketing' },
+        { name: t('menu.items.Hyper-Region Sub-Clubs'), icon: MapIcon, path: '/hyper-region-sub-clubs' },
+        { name: t('menu.items.Lighthouse Beacon'), icon: Radio, path: '/lighthouse-beacon' },
+        { name: t('menu.items.Gamified Event Tiers'), icon: Star, path: '/gamified-event-tiers' },
       ]
     },
     {

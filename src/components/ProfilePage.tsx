@@ -136,9 +136,9 @@ export default function ProfilePage() {
                 <Camera className="w-4 h-4" />
               </button>
             </div>
-            <h2 className="text-xl font-bold mb-1">{displayName || 'Explorer'}</h2>
+            <h2 className="text-xl font-bold mb-1">{displayName || t('wallet.explorer')}</h2>
             <p className="text-sm text-foreground/40 mb-6 uppercase tracking-widest font-bold">
-              {profile?.role || 'Explorer'}
+              {profile?.role || t('wallet.explorer')}
             </p>
             
             <div className="space-y-4 text-left">

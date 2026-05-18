@@ -313,10 +313,10 @@ export default function DigitalTailor() {
         <div className="flex items-center justify-between">
             <div>
               <h1 className="text-4xl font-display font-bold mb-2">
-                {activeTab === 'tailor' ? 'Digital Tailor' : 'Heritage Mirror'}
+                {activeTab === 'tailor' ? t('auto.digitalTailorTitle') : t('auto.heritageMirrorTitle')}
               </h1>
               <p className="text-foreground/50">
-                {activeTab === 'tailor' ? 'Synthesize your travel style with Ruth AI.' : 'See yourself in traditional attire.'}
+                {activeTab === 'tailor' ? t('auto.digitalTailorDesc') : t('auto.heritageMirrorDesc')}
                 </p>
             </div>
             <button 

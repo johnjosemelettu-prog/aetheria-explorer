@@ -6,11 +6,11 @@ import { useTranslation } from "react-i18next";
 export default function FlavorDNA() {
     const { t } = useTranslation();
   const FLAVORS = [
-    { name: 'Umami', value: 92, icon: Beaker, color: 'text-purple-400', bg: 'bg-purple-400' },
-    { name: 'Spicy', value: 78, icon: Flame, color: 'text-red-500', bg: 'bg-red-500' },
-    { name: 'Sweet', value: 45, icon: Droplets, color: 'text-pink-400', bg: 'bg-pink-400' },
-    { name: 'Bitter', value: 65, icon: Coffee, color: 'text-amber-700', bg: 'bg-amber-700' },
-    { name: 'Sour', value: 30, icon: Leaf, color: 'text-lime-400', bg: 'bg-lime-400' }
+    { name: t('auto.auto_umami_1285'), value: 92, icon: Beaker, color: 'text-purple-400', bg: 'bg-purple-400' },
+    { name: t('auto.auto_spicy_1284'), value: 78, icon: Flame, color: 'text-red-500', bg: 'bg-red-500' },
+    { name: t('auto.auto_sweet_1283'), value: 45, icon: Droplets, color: 'text-pink-400', bg: 'bg-pink-400' },
+    { name: t('auto.auto_bitter_1281'), value: 65, icon: Coffee, color: 'text-amber-700', bg: 'bg-amber-700' },
+    { name: t('auto.auto_sour_1282'), value: 30, icon: Leaf, color: 'text-lime-400', bg: 'bg-lime-400' }
   ];
 
   return (

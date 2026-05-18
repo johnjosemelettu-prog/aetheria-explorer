@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plane, Hotel, Ship, Search, MapPin, Calendar, Bus, Car, Utensils, Star, Loader2, ArrowRight, Bike } from 'lucide-react';
+import { Plane, Hotel, Ship, Search, MapPin, Calendar, Bus, Car, Utensils, Star, Loader2, ArrowRight, Bike, Clock } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { usePremiumStatus } from '../hooks/usePremiumStatus';
 import SubscriptionManager from './SubscriptionManager';
@@ -11,6 +11,10 @@ type BookingType = 'flight' | 'hotel' | 'cruise' | 'bus' | 'cab' | 'dining' | 'e
 export default function BookingHub() {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<BookingType>('flight');
+  const [tripType, setTripType] = useState<'oneway' | 'return'>('return');
+  const [fromLocation, setFromLocation] = useState('');
+  const [toLocation, setToLocation] = useState('');
+  const [bookingTime, setBookingTime] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [results, setResults] = useState<any[] | null>(null);
   const { isPremium } = usePremiumStatus();
@@ -97,32 +101,101 @@ export default function BookingHub() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <div className="relative">
-          <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
-          <input 
-            type="text" 
-            placeholder={t('booking.placeholderDestination') as string}
-            className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
-          />
+      {activeTab === 'flight' || activeTab === 'bus' ? (
+        <div className="space-y-4 mb-8">
+          <div className="flex gap-4">
+            <button
+              onClick={() => setTripType('oneway')}
+              className={cn("px-4 py-2 rounded-xl text-sm font-bold transition-all", tripType === 'oneway' ? "bg-primary text-white" : "glass text-foreground/50 hover:text-foreground")}
+            >
+              {t('booking.oneWay', 'One Way')}
+            </button>
+            <button
+              onClick={() => setTripType('return')}
+              className={cn("px-4 py-2 rounded-xl text-sm font-bold transition-all", tripType === 'return' ? "bg-primary text-white" : "glass text-foreground/50 hover:text-foreground")}
+            >
+              {t('booking.return', 'Return')}
+            </button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="relative">
+              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
+              <input 
+                type="text" 
+                value={fromLocation}
+                onChange={(e) => setFromLocation(e.target.value)}
+                placeholder={t('booking.from', 'From') as string}
+                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+              />
+            </div>
+            <div className="relative">
+              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
+              <input 
+                type="text" 
+                value={toLocation}
+                onChange={(e) => setToLocation(e.target.value)}
+                placeholder={t('booking.to', 'To') as string}
+                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+              />
+            </div>
+            <div className="relative">
+              <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
+              <input 
+                type="text" 
+                placeholder={tripType === 'return' ? (t('booking.placeholderDatesReturn', 'Depart - Return') as string) : (t('booking.placeholderDateOneWay', 'Depart Date') as string)}
+                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+              />
+            </div>
+            <button 
+              onClick={handleSearch}
+              disabled={isSearching}
+              className="bg-primary text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
+            >
+              {isSearching ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
+              {t('booking.search')}
+            </button>
+          </div>
         </div>
-        <div className="relative">
-          <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
-          <input 
-            type="text" 
-            placeholder={t('booking.placeholderDates') as string}
-            className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
-          />
+      ) : (
+        <div className={cn("grid gap-4 mb-8", activeTab === 'dining' ? "grid-cols-1 md:grid-cols-4" : "grid-cols-1 md:grid-cols-3")}>
+          <div className="relative">
+            <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
+            <input 
+              type="text" 
+              placeholder={t('booking.placeholderDestination') as string}
+              className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+            />
+          </div>
+          <div className="relative">
+            <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
+            <input 
+              type="text" 
+              placeholder={t('booking.placeholderDates') as string}
+              className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+            />
+          </div>
+          {activeTab === 'dining' && (
+            <div className="relative">
+              <Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/30" />
+              <input 
+                type="text" 
+                value={bookingTime}
+                onChange={(e) => setBookingTime(e.target.value)}
+                placeholder={t('booking.time', 'Time (e.g. 19:00)') as string}
+                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-11 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+              />
+            </div>
+          )}
+          <button 
+            onClick={handleSearch}
+            disabled={isSearching}
+            className="bg-primary text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
+          >
+            {isSearching ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
+            {t('booking.search')}
+          </button>
         </div>
-        <button 
-          onClick={handleSearch}
-          disabled={isSearching}
-          className="bg-primary text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
-        >
-          {isSearching ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
-          {t('booking.search')}
-        </button>
-      </div>
+      )}
 
       <AnimatePresence mode="wait">
         {results ? (
